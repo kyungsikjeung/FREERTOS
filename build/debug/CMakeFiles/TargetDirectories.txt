@@ -1,0 +1,5 @@
+C:/Users/TOVIS/test/TestRtos/build/debug/CMakeFiles/TestRtos.dir
+C:/Users/TOVIS/test/TestRtos/build/debug/CMakeFiles/edit_cache.dir
+C:/Users/TOVIS/test/TestRtos/build/debug/CMakeFiles/rebuild_cache.dir
+C:/Users/TOVIS/test/TestRtos/build/debug/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
+C:/Users/TOVIS/test/TestRtos/build/debug/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir

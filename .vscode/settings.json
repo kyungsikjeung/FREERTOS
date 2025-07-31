@@ -1,0 +1,22 @@
+{
+    "editor.fontLigatures": true,
+    "cmake.configurePreset": "debug",
+    "cmake.buildPreset": "debug",
+    "cmake.defaultVariants": {
+        "buildType": {
+            "default": "debug",
+            "description": "The build type"
+        }
+    },
+    "cmake.configureOnOpen": true,
+    "cmake.configureOnEdit": false,
+    "cmake.useCMakePresets": "always",
+    "files.associations": {
+        "string.h": "c",
+        "main.h": "c",
+        "event_groups.h": "c",
+        "timers.h": "c",
+        "stm32f4xx_hal_uart.h": "c",
+        "driver_init.h": "c"
+    }
+}
