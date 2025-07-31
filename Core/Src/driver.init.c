@@ -34,8 +34,8 @@ void Driver_Init(void)
   GPIO_Init();
   USART3_UART_Init();
   USB_OTG_FS_PCD_Init();
-  HAL_UART_Transmit(&huart3, (uint8_t *)"Hello from FreeRTOS!\r\n", 22, HAL_MAX_DELAY);
-  
+  HAL_UART_Transmit(&huart3, (uint8_t *)"123\r\n", 5, HAL_MAX_DELAY);
+  for(int i=0; i<300000; i++); // 간단한 딜레이
 }
 
 /**

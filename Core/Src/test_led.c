@@ -98,7 +98,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   // ! Task Create
-  HAL_UART_Transmit(&huart3, (uint8_t *)"Hello from FreeRTOS!\r\n", 22, HAL_MAX_DELAY);
+  HAL_UART_Transmit(&huart3, (uint8_t *)"s\r\n", 3, HAL_MAX_DELAY);
   // HIGHLIGHT: range 102-105
   xTaskCreate(Task1, "Task1", 128, NULL, 1, NULL); 
   xTaskCreate(Task2, "Task2", 128, NULL, 2, NULL);
