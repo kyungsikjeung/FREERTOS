@@ -78,11 +78,11 @@ C:/Users/TOVIS/test/TestRtos/
 ├── Core/
 │   ├── Inc/
 │   └── Src/
-│       ├── main.c
-│       ├── roundrobin.c
-│       ├── preemption.c
-│       ├── changepriority.c
-│       └── receivingdata_multiplesource.c
+│       └── MainProgram
+│           ├── roundrobin.c
+│           ├── preemption.c
+│           ├── changepriority.c
+│           └── receivingdata_multiplesource.c
 ├── Doc/
 │   ├── ROUNDROBIN.MD
 │   ├── PREEMPTION.MD
