@@ -62,7 +62,16 @@ C:/Users/TOVIS/test/TestRtos/
 ├── Core/
 │   ├── Inc/
 │   └── Src/
+│       ├── main.c
+│       ├── roundrobin.c
+│       ├── preemption.c
+│       ├── changepriority.c
+│       └── receivingdata_multiplesource.c
 ├── Doc/
+│   ├── ROUNDROBIN.MD
+│   ├── PREEMPTION.MD
+│   ├── CHANGEPRIORITY.MD
+│   └── RECEIVINGDATA_MULTIPLESOURCE.MD
 ├── Drivers/
 │   ├── CMSIS/
 │   └── STM32F4xx_HAL_Driver/
@@ -77,6 +86,11 @@ C:/Users/TOVIS/test/TestRtos/
 
 ### 5.2. 예제 코드 설명
 
-`Core/Src` 디렉토리에는 다양한 FreeRTOS 기능 테스트를 위한 예제 소스 코드들이 포함되어 있습니다. 예를 들어, `roundrobin.c` 파일은 라운드 로빈 스케줄링 알고리즘을 구현한 예제입니다.
+`Core/Src` 디렉토리에는 다양한 FreeRTOS 기능 테스트를 위한 예제 소스 코드들이 포함되어 있습니다.
 
-각 예제 코드에 대한 자세한 설명은 `Doc` 폴더에 있는 해당 마크다운(.MD) 파일을 참고해 주세요. 예를 들어, `roundrobin.c`에 대한 설명은 `Doc/ROUNDROBIN.MD` 파일에 기술되어 있습니다.
+- **`roundrobin.c`**: 동일 우선순위 태스크들의 라운드 로빈 스케줄링 예제
+- **`preemption.c`**: 우선순위가 다른 태스크들의 선점형 스케줄링 예제
+- **`changepriority.c`**: 태스크가 동적으로 우선순위를 변경하는 예제
+- **`receivingdata_multiplesource.c`**: 여러 소스에서 데이터를 받아 처리하는 예제
+
+각 예제 코드에 대한 자세한 설명은 `Doc` 폴더에 있는 해당 마크다운(.MD) 파일을 참고해 주세요.

@@ -25,7 +25,7 @@ target_include_directories(stm32cubemx INTERFACE
 
 target_sources(stm32cubemx INTERFACE
     # ../../Core/Src/main.c 기존 main.c 파일 이였으나 가변
-    ../../Core/Src/${MAIN_FILE}.c # camkeList 
+    ../../Core/Src/MainProgram/${MAIN_FILE}.c # camkeList 
     ../../Core/Src/driver.init.c  # 추가된 driver 파일
     ../../Core/Src/freertos.c
     ../../Core/Src/stm32f4xx_it.c
