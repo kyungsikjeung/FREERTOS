@@ -2,6 +2,24 @@
 
 이 프로젝트는 Nucleo-F429ZI 보드에서 FreeRTOS를 사용하여 다양한 기능을 테스트하기 위한 예제입니다. VSCode와 CMake를 사용하여 개발 환경을 구축하고, `terminal.ps1` 스크립트를 통해 시리얼 로그를 확인할 수 있습니다.
 
+## ✨ 프로젝트 목표
+
+이 예제들을 통해 다음과 같은 FreeRTOS의 핵심 개념을 학습하고 실제 하드웨어에서 동작하는 코드를 경험할 수 있습니다.
+
+- **RTOS 기본 개념**: 태스크 생성, 스케줄러 동작 원리 이해
+- **태스크 스케줄링**: 라운드 로빈 및 선점형 스케줄링 방식 학습
+- **태스크 관리**: 태스크의 우선순위를 동적으로 변경하고 제어하는 방법
+- **태스크 통신**: 큐(Queue)를 사용한 안전한 데이터 교환 방법
+- **실무 적용**: 여러 소스에서 들어오는 데이터를 효율적으로 관리하는 기법
+
+## 🛠️ 기술 스택
+
+![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white)
+![FreeRTOS](https://img.shields.io/badge/FreeRTOS-10.4.6-blue?style=for-the-badge&logo=freertos&logoColor=white)
+![CMake](https://img.shields.io/badge/CMake-3.28-064F8C?style=for-the-badge&logo=cmake&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
+
 ## 1. MCU 정보
 *   **보드:** Nucleo-F429ZI
 *   **MCU:** STM32F429ZIT6
@@ -10,8 +28,6 @@
 ### 2.1. 필수 설치 프로그램
 프로젝트를 빌드하고 디버깅하기 위해 다음 프로그램들을 설치해야 합니다.
 참조링크: https://youtu.be/aLD9zggmop4?si=lFmVP9OnK20WT8dq
-
-
 
 ## 3. 빌드 및 실행
 ### 3.1. 빌드할 소스 파일 변경
