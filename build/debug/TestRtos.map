@@ -43,13 +43,13 @@ C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.
 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_dvmd_tls.o)
                               C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o) (__aeabi_ldiv0)
 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
-                              CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj (snprintf)
+                              CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj (snprintf)
 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
                               CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj (__errno)
 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
                               CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj (memcpy)
 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
-                              CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj (strlen)
+                              CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj (strlen)
 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
                               C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o) (_svfprintf_r)
 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
@@ -234,78 +234,83 @@ Discarded input sections
  .text          0x00000000        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
  .data          0x00000000        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
  .bss           0x00000000        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .text          0x00000000        0x0 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .data          0x00000000        0x0 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .bss           0x00000000        0x0 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .text          0x00000000        0x0 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .data          0x00000000        0x0 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
  .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
  .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
  .group         0x00000000        0xc CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
@@ -4099,8 +4104,6 @@ Discarded input sections
                 0x00000000      0x104 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .text.xQueuePeekFromISR
                 0x00000000       0xd8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .text.uxQueueMessagesWaiting
-                0x00000000       0x3e CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .text.uxQueueSpacesAvailable
                 0x00000000       0x48 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .text.uxQueueMessagesWaitingFromISR
@@ -4314,8 +4317,6 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .data          0x00000000        0x0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss           0x00000000        0x0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .text.vTaskDelete
-                0x00000000      0x120 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.vTaskDelayUntil
                 0x00000000      0x100 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.uxTaskPriorityGet
@@ -5051,7 +5052,7 @@ START GROUP
 LOAD C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a
 LOAD C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 END GROUP
-LOAD CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
+LOAD CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
 LOAD CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
 LOAD CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
 LOAD CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
@@ -5113,7 +5114,7 @@ LOAD C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
                 0x08000000                g_pfnVectors
                 0x080001ac                        . = ALIGN (0x4)
 
-.text           0x080001b0     0x59ec
+.text           0x080001b0     0x5fcc
                 0x080001b0                        . = ALIGN (0x4)
  *(.text)
  .text          0x080001b0       0x40 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
@@ -5156,568 +5157,582 @@ LOAD C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
                 0x08000810                __malloc_unlock
  .text._sbrk_r  0x0800081c       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
                 0x0800081c                _sbrk_r
- .text.SenderTask
-                0x0800083c       0x6c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
-                0x0800083c                SenderTask
- .text.ReceiverTask
-                0x080008a8       0x6c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
-                0x080008a8                ReceiverTask
- .text.main     0x08000914       0x64 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
-                0x08000914                main
+ .text.vSendRxDataToTheTCPTask
+                0x0800083c       0x98 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+                0x0800083c                vSendRxDataToTheTCPTask
+ .text.vSendAcceptRequestToTheTCPTask
+                0x080008d4       0x9c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+                0x080008d4                vSendAcceptRequestToTheTCPTask
+ .text.vSendNetworkDownEventToTheTCPTask
+                0x08000970       0x8c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+                0x08000970                vSendNetworkDownEventToTheTCPTask
+ .text.vTCPTask
+                0x080009fc      0x1cc CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+                0x080009fc                vTCPTask
+ .text.vEventSimulatorTask
+                0x08000bc8       0xd0 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+                0x08000bc8                vEventSimulatorTask
+ .text.main     0x08000c98      0x15c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+                0x08000c98                main
  .text.Driver_Init
-                0x08000978       0x54 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
-                0x08000978                Driver_Init
+                0x08000df4       0x5c CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+                0x08000df4                Driver_Init
  .text.SystemClock_Config
-                0x080009cc       0xd4 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
-                0x080009cc                SystemClock_Config
+                0x08000e50       0xd4 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+                0x08000e50                SystemClock_Config
  .text.USART3_UART_Init
-                0x08000aa0       0x54 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+                0x08000f24       0x54 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
  .text.GPIO_Init
-                0x08000af4      0x15c CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+                0x08000f78      0x15c CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
  .text.USB_OTG_FS_PCD_Init
-                0x08000c50       0x5c CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+                0x080010d4       0x5c CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
  .text.HAL_TIM_PeriodElapsedCallback
-                0x08000cac       0x24 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
-                0x08000cac                HAL_TIM_PeriodElapsedCallback
+                0x08001130       0x24 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+                0x08001130                HAL_TIM_PeriodElapsedCallback
  .text.Error_Handler
-                0x08000cd0        0xc CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
-                0x08000cd0                Error_Handler
+                0x08001154        0xc CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+                0x08001154                Error_Handler
  .text.vApplicationGetIdleTaskMemory
-                0x08000cdc       0x34 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
-                0x08000cdc                vApplicationGetIdleTaskMemory
+                0x08001160       0x34 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
+                0x08001160                vApplicationGetIdleTaskMemory
  .text.NMI_Handler
-                0x08000d10        0x8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08000d10                NMI_Handler
+                0x08001194        0x8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08001194                NMI_Handler
  .text.HardFault_Handler
-                0x08000d18        0x8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08000d18                HardFault_Handler
+                0x0800119c        0x8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+                0x0800119c                HardFault_Handler
  .text.MemManage_Handler
-                0x08000d20        0x8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08000d20                MemManage_Handler
+                0x080011a4        0x8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+                0x080011a4                MemManage_Handler
  .text.BusFault_Handler
-                0x08000d28        0x8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08000d28                BusFault_Handler
+                0x080011ac        0x8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+                0x080011ac                BusFault_Handler
  .text.UsageFault_Handler
-                0x08000d30        0x8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08000d30                UsageFault_Handler
+                0x080011b4        0x8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+                0x080011b4                UsageFault_Handler
  .text.DebugMon_Handler
-                0x08000d38        0xe CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08000d38                DebugMon_Handler
- *fill*         0x08000d46        0x2 
+                0x080011bc        0xe CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+                0x080011bc                DebugMon_Handler
+ *fill*         0x080011ca        0x2 
  .text.TIM1_UP_TIM10_IRQHandler
-                0x08000d48       0x14 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08000d48                TIM1_UP_TIM10_IRQHandler
+                0x080011cc       0x14 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+                0x080011cc                TIM1_UP_TIM10_IRQHandler
  .text.HAL_MspInit
-                0x08000d5c       0x58 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
-                0x08000d5c                HAL_MspInit
+                0x080011e0       0x58 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x080011e0                HAL_MspInit
  .text.HAL_UART_MspInit
-                0x08000db4       0x90 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
-                0x08000db4                HAL_UART_MspInit
+                0x08001238       0x90 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x08001238                HAL_UART_MspInit
  .text.HAL_PCD_MspInit
-                0x08000e44       0xb4 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
-                0x08000e44                HAL_PCD_MspInit
+                0x080012c8       0xb4 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x080012c8                HAL_PCD_MspInit
  .text.HAL_InitTick
-                0x08000ef8       0xe8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
-                0x08000ef8                HAL_InitTick
+                0x0800137c       0xe8 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+                0x0800137c                HAL_InitTick
  .text.HAL_TIM_Base_Init
-                0x08000fe0       0x9e CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x08000fe0                HAL_TIM_Base_Init
+                0x08001464       0x9e CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001464                HAL_TIM_Base_Init
  .text.HAL_TIM_Base_MspInit
-                0x0800107e       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x0800107e                HAL_TIM_Base_MspInit
- *fill*         0x08001092        0x2 
+                0x08001502       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001502                HAL_TIM_Base_MspInit
+ *fill*         0x08001516        0x2 
  .text.HAL_TIM_Base_Start_IT
-                0x08001094       0xe0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x08001094                HAL_TIM_Base_Start_IT
+                0x08001518       0xe0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001518                HAL_TIM_Base_Start_IT
  .text.HAL_TIM_IRQHandler
-                0x08001174      0x1e0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x08001174                HAL_TIM_IRQHandler
+                0x080015f8      0x1e0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x080015f8                HAL_TIM_IRQHandler
  .text.HAL_TIM_OC_DelayElapsedCallback
-                0x08001354       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x08001354                HAL_TIM_OC_DelayElapsedCallback
+                0x080017d8       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x080017d8                HAL_TIM_OC_DelayElapsedCallback
  .text.HAL_TIM_IC_CaptureCallback
-                0x08001368       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x08001368                HAL_TIM_IC_CaptureCallback
+                0x080017ec       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x080017ec                HAL_TIM_IC_CaptureCallback
  .text.HAL_TIM_PWM_PulseFinishedCallback
-                0x0800137c       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x0800137c                HAL_TIM_PWM_PulseFinishedCallback
+                0x08001800       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001800                HAL_TIM_PWM_PulseFinishedCallback
  .text.HAL_TIM_TriggerCallback
-                0x08001390       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x08001390                HAL_TIM_TriggerCallback
+                0x08001814       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001814                HAL_TIM_TriggerCallback
  .text.TIM_Base_SetConfig
-                0x080013a4      0x14c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x080013a4                TIM_Base_SetConfig
+                0x08001828      0x14c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001828                TIM_Base_SetConfig
  .text.HAL_TIMEx_CommutCallback
-                0x080014f0       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
-                0x080014f0                HAL_TIMEx_CommutCallback
+                0x08001974       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+                0x08001974                HAL_TIMEx_CommutCallback
  .text.HAL_TIMEx_BreakCallback
-                0x08001504       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
-                0x08001504                HAL_TIMEx_BreakCallback
+                0x08001988       0x14 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+                0x08001988                HAL_TIMEx_BreakCallback
  .text.HAL_RCC_OscConfig
-                0x08001518      0x4f0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
-                0x08001518                HAL_RCC_OscConfig
+                0x0800199c      0x4f0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x0800199c                HAL_RCC_OscConfig
  .text.HAL_RCC_ClockConfig
-                0x08001a08      0x1cc CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
-                0x08001a08                HAL_RCC_ClockConfig
+                0x08001e8c      0x1cc CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x08001e8c                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x08001bd4      0x20c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
-                0x08001bd4                HAL_RCC_GetSysClockFreq
+                0x08002058      0x20c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x08002058                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_GetHCLKFreq
-                0x08001de0       0x18 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
-                0x08001de0                HAL_RCC_GetHCLKFreq
+                0x08002264       0x18 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x08002264                HAL_RCC_GetHCLKFreq
  .text.HAL_RCC_GetPCLK1Freq
-                0x08001df8       0x28 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
-                0x08001df8                HAL_RCC_GetPCLK1Freq
+                0x0800227c       0x28 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x0800227c                HAL_RCC_GetPCLK1Freq
  .text.HAL_RCC_GetPCLK2Freq
-                0x08001e20       0x28 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
-                0x08001e20                HAL_RCC_GetPCLK2Freq
+                0x080022a4       0x28 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x080022a4                HAL_RCC_GetPCLK2Freq
  .text.HAL_RCC_GetClockConfig
-                0x08001e48       0x64 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
-                0x08001e48                HAL_RCC_GetClockConfig
+                0x080022cc       0x64 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x080022cc                HAL_RCC_GetClockConfig
  .text.HAL_GPIO_Init
-                0x08001eac      0x358 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
-                0x08001eac                HAL_GPIO_Init
+                0x08002330      0x358 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+                0x08002330                HAL_GPIO_Init
  .text.HAL_GPIO_WritePin
-                0x08002204       0x32 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
-                0x08002204                HAL_GPIO_WritePin
- *fill*         0x08002236        0x2 
+                0x08002688       0x32 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+                0x08002688                HAL_GPIO_WritePin
+ *fill*         0x080026ba        0x2 
  .text.__NVIC_SetPriorityGrouping
-                0x08002238       0x48 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x080026bc       0x48 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .text.__NVIC_GetPriorityGrouping
-                0x08002280       0x1c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x08002704       0x1c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .text.__NVIC_EnableIRQ
-                0x0800229c       0x3c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x08002720       0x3c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .text.__NVIC_SetPriority
-                0x080022d8       0x54 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x0800275c       0x54 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .text.NVIC_EncodePriority
-                0x0800232c       0x66 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x080027b0       0x66 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .text.HAL_NVIC_SetPriorityGrouping
-                0x08002392       0x16 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
-                0x08002392                HAL_NVIC_SetPriorityGrouping
+                0x08002816       0x16 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x08002816                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x080023a8       0x38 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
-                0x080023a8                HAL_NVIC_SetPriority
+                0x0800282c       0x38 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x0800282c                HAL_NVIC_SetPriority
  .text.HAL_NVIC_EnableIRQ
-                0x080023e0       0x1c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
-                0x080023e0                HAL_NVIC_EnableIRQ
+                0x08002864       0x1c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x08002864                HAL_NVIC_EnableIRQ
  .text.HAL_Init
-                0x080023fc       0x44 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
-                0x080023fc                HAL_Init
+                0x08002880       0x44 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x08002880                HAL_Init
  .text.HAL_IncTick
-                0x08002440       0x28 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
-                0x08002440                HAL_IncTick
+                0x080028c4       0x28 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x080028c4                HAL_IncTick
  .text.HAL_GetTick
-                0x08002468       0x18 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
-                0x08002468                HAL_GetTick
+                0x080028ec       0x18 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x080028ec                HAL_GetTick
  .text.HAL_Delay
-                0x08002480       0x48 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
-                0x08002480                HAL_Delay
+                0x08002904       0x48 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x08002904                HAL_Delay
  .text.HAL_UART_Init
-                0x080024c8       0xa0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
-                0x080024c8                HAL_UART_Init
+                0x0800294c       0xa0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+                0x0800294c                HAL_UART_Init
  .text.HAL_UART_Transmit
-                0x08002568      0x116 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
-                0x08002568                HAL_UART_Transmit
+                0x080029ec      0x116 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+                0x080029ec                HAL_UART_Transmit
  .text.UART_WaitOnFlagUntilTimeout
-                0x0800267e       0xb2 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+                0x08002b02       0xb2 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
  .text.UART_EndRxTransfer
-                0x08002730       0xc6 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- *fill*         0x080027f6        0x2 
+                0x08002bb4       0xc6 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ *fill*         0x08002c7a        0x2 
  .text.UART_SetConfig
-                0x080027f8      0x4e8 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+                0x08002c7c      0x4e8 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
  .text.HAL_PCD_Init
-                0x08002ce0      0x21e CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
-                0x08002ce0                HAL_PCD_Init
+                0x08003164      0x21e CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+                0x08003164                HAL_PCD_Init
  .text.USB_CoreInit
-                0x08002efe       0xc8 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
-                0x08002efe                USB_CoreInit
+                0x08003382       0xc8 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x08003382                USB_CoreInit
  .text.USB_DisableGlobalInt
-                0x08002fc6       0x22 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
-                0x08002fc6                USB_DisableGlobalInt
+                0x0800344a       0x22 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x0800344a                USB_DisableGlobalInt
  .text.USB_SetCurrentMode
-                0x08002fe8       0x98 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
-                0x08002fe8                USB_SetCurrentMode
+                0x0800346c       0x98 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x0800346c                USB_SetCurrentMode
  .text.USB_DevInit
-                0x08003080      0x2c8 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
-                0x08003080                USB_DevInit
+                0x08003504      0x2c8 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x08003504                USB_DevInit
  .text.USB_FlushTxFifo
-                0x08003348       0x64 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
-                0x08003348                USB_FlushTxFifo
+                0x080037cc       0x64 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x080037cc                USB_FlushTxFifo
  .text.USB_FlushRxFifo
-                0x080033ac       0x5c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
-                0x080033ac                USB_FlushRxFifo
+                0x08003830       0x5c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x08003830                USB_FlushRxFifo
  .text.USB_SetDevSpeed
-                0x08003408       0x32 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
-                0x08003408                USB_SetDevSpeed
+                0x0800388c       0x32 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x0800388c                USB_SetDevSpeed
  .text.USB_DevDisconnect
-                0x0800343a       0x42 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
-                0x0800343a                USB_DevDisconnect
+                0x080038be       0x42 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x080038be                USB_DevDisconnect
  .text.USB_GetMode
-                0x0800347c       0x1c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
-                0x0800347c                USB_GetMode
+                0x08003900       0x1c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x08003900                USB_GetMode
  .text.USB_CoreReset
-                0x08003498       0x70 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x0800391c       0x70 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
  .text.SystemInit
-                0x08003508       0x24 CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
-                0x08003508                SystemInit
+                0x0800398c       0x24 CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+                0x0800398c                SystemInit
  .text.vListInitialise
-                0x0800352c       0x40 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
-                0x0800352c                vListInitialise
+                0x080039b0       0x40 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x080039b0                vListInitialise
  .text.vListInitialiseItem
-                0x0800356c       0x1a CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
-                0x0800356c                vListInitialiseItem
+                0x080039f0       0x1a CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x080039f0                vListInitialiseItem
  .text.vListInsertEnd
-                0x08003586       0x48 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
-                0x08003586                vListInsertEnd
+                0x08003a0a       0x48 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x08003a0a                vListInsertEnd
  .text.vListInsert
-                0x080035ce       0x72 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
-                0x080035ce                vListInsert
+                0x08003a52       0x72 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x08003a52                vListInsert
  .text.uxListRemove
-                0x08003640       0x54 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
-                0x08003640                uxListRemove
+                0x08003ac4       0x54 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x08003ac4                uxListRemove
  .text.xQueueGenericReset
-                0x08003694       0xd4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
-                0x08003694                xQueueGenericReset
+                0x08003b18       0xd4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x08003b18                xQueueGenericReset
  .text.xQueueGenericCreate
-                0x08003768       0x76 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
-                0x08003768                xQueueGenericCreate
+                0x08003bec       0x76 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x08003bec                xQueueGenericCreate
  .text.prvInitialiseNewQueue
-                0x080037de       0x3e CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x08003c62       0x3e CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .text.xQueueGenericSend
-                0x0800381c      0x204 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
-                0x0800381c                xQueueGenericSend
+                0x08003ca0      0x204 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x08003ca0                xQueueGenericSend
  .text.xQueueReceive
-                0x08003a20      0x1c4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
-                0x08003a20                xQueueReceive
+                0x08003ea4      0x1c4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x08003ea4                xQueueReceive
+ .text.uxQueueMessagesWaiting
+                0x08004068       0x3e CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x08004068                uxQueueMessagesWaiting
  .text.prvCopyDataToQueue
-                0x08003be4       0xd4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x080040a6       0xd4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .text.prvCopyDataFromQueue
-                0x08003cb8       0x4c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x0800417a       0x4c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .text.prvUnlockQueue
-                0x08003d04       0xa4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x080041c6       0xa4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .text.prvIsQueueEmpty
-                0x08003da8       0x2c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x0800426a       0x2c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .text.prvIsQueueFull
-                0x08003dd4       0x30 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x08004296       0x30 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .text.xTaskCreateStatic
-                0x08003e04       0xc0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08003e04                xTaskCreateStatic
+                0x080042c6       0xc0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x080042c6                xTaskCreateStatic
  .text.xTaskCreate
-                0x08003ec4       0x8a CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08003ec4                xTaskCreate
+                0x08004386       0x8a CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004386                xTaskCreate
  .text.prvInitialiseNewTask
-                0x08003f4e      0x110 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- *fill*         0x0800405e        0x2 
+                0x08004410      0x110 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvAddNewTaskToReadyList
-                0x08004060       0xd4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004520       0xd4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .text.vTaskDelete
+                0x080045f4      0x120 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x080045f4                vTaskDelete
  .text.vTaskDelay
-                0x08004134       0x6c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08004134                vTaskDelay
+                0x08004714       0x6c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004714                vTaskDelay
  .text.vTaskStartScheduler
-                0x080041a0       0xc4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x080041a0                vTaskStartScheduler
+                0x08004780       0xc4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004780                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x08004264       0x1c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08004264                vTaskSuspendAll
+                0x08004844       0x1c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004844                vTaskSuspendAll
  .text.xTaskResumeAll
-                0x08004280      0x13c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08004280                xTaskResumeAll
+                0x08004860      0x13c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004860                xTaskResumeAll
  .text.xTaskIncrementTick
-                0x080043bc      0x174 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x080043bc                xTaskIncrementTick
+                0x0800499c      0x174 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x0800499c                xTaskIncrementTick
  .text.vTaskSwitchContext
-                0x08004530       0xb8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08004530                vTaskSwitchContext
+                0x08004b10       0xb8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004b10                vTaskSwitchContext
  .text.vTaskPlaceOnEventList
-                0x080045e8       0x4c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x080045e8                vTaskPlaceOnEventList
+                0x08004bc8       0x4c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004bc8                vTaskPlaceOnEventList
  .text.xTaskRemoveFromEventList
-                0x08004634       0xc8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08004634                xTaskRemoveFromEventList
+                0x08004c14       0xc8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004c14                xTaskRemoveFromEventList
  .text.vTaskInternalSetTimeOutState
-                0x080046fc       0x2c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x080046fc                vTaskInternalSetTimeOutState
+                0x08004cdc       0x2c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004cdc                vTaskInternalSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x08004728       0xc8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08004728                xTaskCheckForTimeOut
+                0x08004d08       0xc8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004d08                xTaskCheckForTimeOut
  .text.vTaskMissedYield
-                0x080047f0       0x18 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x080047f0                vTaskMissedYield
+                0x08004dd0       0x18 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004dd0                vTaskMissedYield
  .text.prvIdleTask
-                0x08004808       0x30 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004de8       0x30 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvInitialiseTaskLists
-                0x08004838       0x80 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004e18       0x80 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvCheckTasksWaitingTermination
-                0x080048b8       0x5c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004e98       0x5c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvDeleteTCB
-                0x08004914       0x60 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004ef4       0x60 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvResetNextTaskUnblockTime
-                0x08004974       0x40 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004f54       0x40 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.xTaskGetSchedulerState
-                0x080049b4       0x3c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x080049b4                xTaskGetSchedulerState
+                0x08004f94       0x3c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004f94                xTaskGetSchedulerState
  .text.xTaskPriorityDisinherit
-                0x080049f0      0x110 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x080049f0                xTaskPriorityDisinherit
+                0x08004fd0      0x110 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004fd0                xTaskPriorityDisinherit
  .text.prvAddCurrentTaskToDelayedList
-                0x08004b00       0xcc CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x080050e0       0xcc CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.pvPortMalloc
-                0x08004bcc      0x19c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
-                0x08004bcc                pvPortMalloc
+                0x080051ac      0x19c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x080051ac                pvPortMalloc
  .text.vPortFree
-                0x08004d68       0xc8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
-                0x08004d68                vPortFree
+                0x08005348       0xc8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x08005348                vPortFree
  .text.prvHeapInit
-                0x08004e30       0xc4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x08005410       0xc4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .text.prvInsertBlockIntoFreeList
-                0x08004ef4       0xb4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x080054d4       0xb4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .text.pxPortInitialiseStack
-                0x08004fa8       0x68 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
-                0x08004fa8                pxPortInitialiseStack
+                0x08005588       0x68 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x08005588                pxPortInitialiseStack
  .text.prvTaskExitError
-                0x08005010       0x5c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- *fill*         0x0800506c        0x4 
+                0x080055f0       0x5c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ *fill*         0x0800564c        0x4 
  .text.SVC_Handler
-                0x08005070       0x28 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
-                0x08005070                SVC_Handler
+                0x08005650       0x28 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x08005650                SVC_Handler
  .text.prvPortStartFirstTask
-                0x08005098       0x28 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x08005678       0x28 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
  .text.xPortStartScheduler
-                0x080050c0      0x148 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
-                0x080050c0                xPortStartScheduler
+                0x080056a0      0x148 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x080056a0                xPortStartScheduler
  .text.vPortEnterCritical
-                0x08005208       0x64 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
-                0x08005208                vPortEnterCritical
+                0x080057e8       0x64 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x080057e8                vPortEnterCritical
  .text.vPortExitCritical
-                0x0800526c       0x54 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
-                0x0800526c                vPortExitCritical
+                0x0800584c       0x54 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x0800584c                vPortExitCritical
  .text.PendSV_Handler
-                0x080052c0       0x68 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
-                0x080052c0                PendSV_Handler
+                0x080058a0       0x68 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x080058a0                PendSV_Handler
  .text.SysTick_Handler
-                0x08005328       0x44 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
-                0x08005328                SysTick_Handler
+                0x08005908       0x44 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x08005908                SysTick_Handler
  .text.vPortSetupTimerInterrupt
-                0x0800536c       0x48 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
-                0x0800536c                vPortSetupTimerInterrupt
+                0x0800594c       0x48 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x0800594c                vPortSetupTimerInterrupt
  .text.vPortEnableVFP
-                0x080053b4       0x14 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .text._sbrk    0x080053c8       0x6c CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
-                0x080053c8                _sbrk
+                0x08005994       0x14 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .text._sbrk    0x080059a8       0x6c CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+                0x080059a8                _sbrk
  .text.Reset_Handler
-                0x08005434       0x50 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
-                0x08005434                Reset_Handler
+                0x08005a14       0x50 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
+                0x08005a14                Reset_Handler
  .text.Default_Handler
-                0x08005484        0x2 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
-                0x08005484                RTC_Alarm_IRQHandler
-                0x08005484                HASH_RNG_IRQHandler
-                0x08005484                EXTI2_IRQHandler
-                0x08005484                TIM8_CC_IRQHandler
-                0x08005484                UART8_IRQHandler
-                0x08005484                SPI4_IRQHandler
-                0x08005484                TIM1_CC_IRQHandler
-                0x08005484                DMA2_Stream5_IRQHandler
-                0x08005484                DMA1_Stream5_IRQHandler
-                0x08005484                PVD_IRQHandler
-                0x08005484                SDIO_IRQHandler
-                0x08005484                TAMP_STAMP_IRQHandler
-                0x08005484                CAN2_RX1_IRQHandler
-                0x08005484                EXTI3_IRQHandler
-                0x08005484                TIM8_TRG_COM_TIM14_IRQHandler
-                0x08005484                TIM8_UP_TIM13_IRQHandler
-                0x08005484                I2C3_ER_IRQHandler
-                0x08005484                EXTI0_IRQHandler
-                0x08005484                I2C2_EV_IRQHandler
-                0x08005484                DMA1_Stream2_IRQHandler
-                0x08005484                CAN1_RX0_IRQHandler
-                0x08005484                FPU_IRQHandler
-                0x08005484                OTG_HS_WKUP_IRQHandler
-                0x08005484                LTDC_ER_IRQHandler
-                0x08005484                CAN2_SCE_IRQHandler
-                0x08005484                DMA2_Stream2_IRQHandler
-                0x08005484                SPI1_IRQHandler
-                0x08005484                TIM6_DAC_IRQHandler
-                0x08005484                TIM1_BRK_TIM9_IRQHandler
-                0x08005484                DCMI_IRQHandler
-                0x08005484                CAN2_RX0_IRQHandler
-                0x08005484                DMA2_Stream3_IRQHandler
-                0x08005484                USART6_IRQHandler
-                0x08005484                USART3_IRQHandler
-                0x08005484                CAN1_RX1_IRQHandler
-                0x08005484                UART5_IRQHandler
-                0x08005484                DMA2_Stream0_IRQHandler
-                0x08005484                TIM4_IRQHandler
-                0x08005484                I2C1_EV_IRQHandler
-                0x08005484                DMA1_Stream6_IRQHandler
-                0x08005484                DMA1_Stream1_IRQHandler
-                0x08005484                UART4_IRQHandler
-                0x08005484                TIM3_IRQHandler
-                0x08005484                RCC_IRQHandler
-                0x08005484                TIM8_BRK_TIM12_IRQHandler
-                0x08005484                Default_Handler
-                0x08005484                EXTI15_10_IRQHandler
-                0x08005484                ADC_IRQHandler
-                0x08005484                DMA1_Stream7_IRQHandler
-                0x08005484                SPI5_IRQHandler
-                0x08005484                TIM7_IRQHandler
-                0x08005484                CAN2_TX_IRQHandler
-                0x08005484                TIM5_IRQHandler
-                0x08005484                DMA2_Stream7_IRQHandler
-                0x08005484                I2C3_EV_IRQHandler
-                0x08005484                EXTI9_5_IRQHandler
-                0x08005484                RTC_WKUP_IRQHandler
-                0x08005484                LTDC_IRQHandler
-                0x08005484                ETH_WKUP_IRQHandler
-                0x08005484                SPI2_IRQHandler
-                0x08005484                OTG_HS_EP1_IN_IRQHandler
-                0x08005484                DMA1_Stream0_IRQHandler
-                0x08005484                CAN1_TX_IRQHandler
-                0x08005484                EXTI4_IRQHandler
-                0x08005484                ETH_IRQHandler
-                0x08005484                OTG_HS_EP1_OUT_IRQHandler
-                0x08005484                WWDG_IRQHandler
-                0x08005484                SPI6_IRQHandler
-                0x08005484                TIM2_IRQHandler
-                0x08005484                OTG_FS_WKUP_IRQHandler
-                0x08005484                TIM1_TRG_COM_TIM11_IRQHandler
-                0x08005484                OTG_HS_IRQHandler
-                0x08005484                DMA2D_IRQHandler
-                0x08005484                EXTI1_IRQHandler
-                0x08005484                UART7_IRQHandler
-                0x08005484                USART2_IRQHandler
-                0x08005484                I2C2_ER_IRQHandler
-                0x08005484                DMA2_Stream1_IRQHandler
-                0x08005484                CAN1_SCE_IRQHandler
-                0x08005484                FLASH_IRQHandler
-                0x08005484                DMA2_Stream4_IRQHandler
-                0x08005484                USART1_IRQHandler
-                0x08005484                OTG_FS_IRQHandler
-                0x08005484                SPI3_IRQHandler
-                0x08005484                DMA1_Stream4_IRQHandler
-                0x08005484                I2C1_ER_IRQHandler
-                0x08005484                FMC_IRQHandler
-                0x08005484                DMA2_Stream6_IRQHandler
-                0x08005484                SAI1_IRQHandler
-                0x08005484                DMA1_Stream3_IRQHandler
- *fill*         0x08005486        0x2 
+                0x08005a64        0x2 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
+                0x08005a64                RTC_Alarm_IRQHandler
+                0x08005a64                HASH_RNG_IRQHandler
+                0x08005a64                EXTI2_IRQHandler
+                0x08005a64                TIM8_CC_IRQHandler
+                0x08005a64                UART8_IRQHandler
+                0x08005a64                SPI4_IRQHandler
+                0x08005a64                TIM1_CC_IRQHandler
+                0x08005a64                DMA2_Stream5_IRQHandler
+                0x08005a64                DMA1_Stream5_IRQHandler
+                0x08005a64                PVD_IRQHandler
+                0x08005a64                SDIO_IRQHandler
+                0x08005a64                TAMP_STAMP_IRQHandler
+                0x08005a64                CAN2_RX1_IRQHandler
+                0x08005a64                EXTI3_IRQHandler
+                0x08005a64                TIM8_TRG_COM_TIM14_IRQHandler
+                0x08005a64                TIM8_UP_TIM13_IRQHandler
+                0x08005a64                I2C3_ER_IRQHandler
+                0x08005a64                EXTI0_IRQHandler
+                0x08005a64                I2C2_EV_IRQHandler
+                0x08005a64                DMA1_Stream2_IRQHandler
+                0x08005a64                CAN1_RX0_IRQHandler
+                0x08005a64                FPU_IRQHandler
+                0x08005a64                OTG_HS_WKUP_IRQHandler
+                0x08005a64                LTDC_ER_IRQHandler
+                0x08005a64                CAN2_SCE_IRQHandler
+                0x08005a64                DMA2_Stream2_IRQHandler
+                0x08005a64                SPI1_IRQHandler
+                0x08005a64                TIM6_DAC_IRQHandler
+                0x08005a64                TIM1_BRK_TIM9_IRQHandler
+                0x08005a64                DCMI_IRQHandler
+                0x08005a64                CAN2_RX0_IRQHandler
+                0x08005a64                DMA2_Stream3_IRQHandler
+                0x08005a64                USART6_IRQHandler
+                0x08005a64                USART3_IRQHandler
+                0x08005a64                CAN1_RX1_IRQHandler
+                0x08005a64                UART5_IRQHandler
+                0x08005a64                DMA2_Stream0_IRQHandler
+                0x08005a64                TIM4_IRQHandler
+                0x08005a64                I2C1_EV_IRQHandler
+                0x08005a64                DMA1_Stream6_IRQHandler
+                0x08005a64                DMA1_Stream1_IRQHandler
+                0x08005a64                UART4_IRQHandler
+                0x08005a64                TIM3_IRQHandler
+                0x08005a64                RCC_IRQHandler
+                0x08005a64                TIM8_BRK_TIM12_IRQHandler
+                0x08005a64                Default_Handler
+                0x08005a64                EXTI15_10_IRQHandler
+                0x08005a64                ADC_IRQHandler
+                0x08005a64                DMA1_Stream7_IRQHandler
+                0x08005a64                SPI5_IRQHandler
+                0x08005a64                TIM7_IRQHandler
+                0x08005a64                CAN2_TX_IRQHandler
+                0x08005a64                TIM5_IRQHandler
+                0x08005a64                DMA2_Stream7_IRQHandler
+                0x08005a64                I2C3_EV_IRQHandler
+                0x08005a64                EXTI9_5_IRQHandler
+                0x08005a64                RTC_WKUP_IRQHandler
+                0x08005a64                LTDC_IRQHandler
+                0x08005a64                ETH_WKUP_IRQHandler
+                0x08005a64                SPI2_IRQHandler
+                0x08005a64                OTG_HS_EP1_IN_IRQHandler
+                0x08005a64                DMA1_Stream0_IRQHandler
+                0x08005a64                CAN1_TX_IRQHandler
+                0x08005a64                EXTI4_IRQHandler
+                0x08005a64                ETH_IRQHandler
+                0x08005a64                OTG_HS_EP1_OUT_IRQHandler
+                0x08005a64                WWDG_IRQHandler
+                0x08005a64                SPI6_IRQHandler
+                0x08005a64                TIM2_IRQHandler
+                0x08005a64                OTG_FS_WKUP_IRQHandler
+                0x08005a64                TIM1_TRG_COM_TIM11_IRQHandler
+                0x08005a64                OTG_HS_IRQHandler
+                0x08005a64                DMA2D_IRQHandler
+                0x08005a64                EXTI1_IRQHandler
+                0x08005a64                UART7_IRQHandler
+                0x08005a64                USART2_IRQHandler
+                0x08005a64                I2C2_ER_IRQHandler
+                0x08005a64                DMA2_Stream1_IRQHandler
+                0x08005a64                CAN1_SCE_IRQHandler
+                0x08005a64                FLASH_IRQHandler
+                0x08005a64                DMA2_Stream4_IRQHandler
+                0x08005a64                USART1_IRQHandler
+                0x08005a64                OTG_FS_IRQHandler
+                0x08005a64                SPI3_IRQHandler
+                0x08005a64                DMA1_Stream4_IRQHandler
+                0x08005a64                I2C1_ER_IRQHandler
+                0x08005a64                FMC_IRQHandler
+                0x08005a64                DMA2_Stream6_IRQHandler
+                0x08005a64                SAI1_IRQHandler
+                0x08005a64                DMA1_Stream3_IRQHandler
+ *fill*         0x08005a66        0x2 
  .text.snprintf
-                0x08005488       0x6c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
-                0x08005488                sniprintf
-                0x08005488                snprintf
- .text.__errno  0x080054f4        0xc C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
-                0x080054f4                __errno
- .text.memcpy   0x08005500       0x1c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
-                0x08005500                memcpy
+                0x08005a68       0x6c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
+                0x08005a68                sniprintf
+                0x08005a68                snprintf
+ .text.__errno  0x08005ad4        0xc C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+                0x08005ad4                __errno
+ .text.memcpy   0x08005ae0       0x1c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
+                0x08005ae0                memcpy
  .text.__ssputs_r
-                0x0800551c       0xb6 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
-                0x0800551c                __ssputs_r
- *fill*         0x080055d2        0x2 
+                0x08005afc       0xb6 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
+                0x08005afc                __ssputs_r
+ *fill*         0x08005bb2        0x2 
  .text._svfprintf_r
-                0x080055d4      0x1f8 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
-                0x080055d4                _svfiprintf_r
-                0x080055d4                _svfprintf_r
+                0x08005bb4      0x1f8 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
+                0x08005bb4                _svfiprintf_r
+                0x08005bb4                _svfprintf_r
  .text._printf_common
-                0x080057cc       0xda C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
-                0x080057cc                _printf_common
- *fill*         0x080058a6        0x2 
+                0x08005dac       0xda C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08005dac                _printf_common
+ *fill*         0x08005e86        0x2 
  .text._printf_i
-                0x080058a8      0x23c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
-                0x080058a8                _printf_i
- .text.memmove  0x08005ae4       0x34 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
-                0x08005ae4                memmove
+                0x08005e88      0x23c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08005e88                _printf_i
+ .text.memmove  0x080060c4       0x34 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
+                0x080060c4                memmove
  .text._realloc_r
-                0x08005b18       0x5c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
-                0x08005b18                _realloc_r
+                0x080060f8       0x5c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
+                0x080060f8                _realloc_r
  .text._malloc_usable_size_r
-                0x08005b74       0x10 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
-                0x08005b74                _malloc_usable_size_r
+                0x08006154       0x10 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
+                0x08006154                _malloc_usable_size_r
  *(.glue_7)
- .glue_7        0x08005b84        0x0 linker stubs
+ .glue_7        0x08006164        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08005b84        0x0 linker stubs
+ .glue_7t       0x08006164        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08005b84        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x08006164        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x08005b84        0x4 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x08005b84                _init
- .init          0x08005b88        0x8 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x08006164        0x4 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x08006164                _init
+ .init          0x08006168        0x8 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x08005b90        0x4 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crti.o
-                0x08005b90                _fini
- .fini          0x08005b94        0x8 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtn.o
-                0x08005b9c                        . = ALIGN (0x4)
-                0x08005b9c                        _etext = .
+ .fini          0x08006170        0x4 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crti.o
+                0x08006170                _fini
+ .fini          0x08006174        0x8 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0800617c                        . = ALIGN (0x4)
+                0x0800617c                        _etext = .
 
-.vfp11_veneer   0x08005b9c        0x0
- .vfp11_veneer  0x08005b9c        0x0 linker stubs
+.vfp11_veneer   0x0800617c        0x0
+ .vfp11_veneer  0x0800617c        0x0 linker stubs
 
-.v4_bx          0x08005b9c        0x0
- .v4_bx         0x08005b9c        0x0 linker stubs
+.v4_bx          0x0800617c        0x0
+ .v4_bx         0x0800617c        0x0 linker stubs
 
-.iplt           0x08005b9c        0x0
- .iplt          0x08005b9c        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x0800617c        0x0
+ .iplt          0x0800617c        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x08005b9c       0xac
-                0x08005b9c                        . = ALIGN (0x4)
+.rodata         0x0800617c      0x2e0
+                0x0800617c                        . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x08005b9c       0x4d CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- *fill*         0x08005be9        0x3 
- .rodata        0x08005bec        0x6 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
- *fill*         0x08005bf2        0x2 
- .rodata        0x08005bf4        0x5 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .rodata        0x0800617c      0x281 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ *fill*         0x080063fd        0x3 
+ .rodata        0x08006400        0x6 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+ *fill*         0x08006406        0x2 
+ .rodata        0x08006408        0x5 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  *(.rodata*)
- *fill*         0x08005bf9        0x3 
+ *fill*         0x0800640d        0x3 
  .rodata.AHBPrescTable
-                0x08005bfc       0x10 CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
-                0x08005bfc                AHBPrescTable
+                0x08006410       0x10 CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+                0x08006410                AHBPrescTable
  .rodata.APBPrescTable
-                0x08005c0c        0x8 CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
-                0x08005c0c                APBPrescTable
+                0x08006420        0x8 CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+                0x08006420                APBPrescTable
  .rodata._svfprintf_r.str1.1
-                0x08005c14       0x33 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
+                0x08006428       0x33 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
                                  0x11 (size before relaxing)
  .rodata._printf_i.str1.1
-                0x08005c47       0x22 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
-                0x08005c6c                        . = ALIGN (0x4)
- *fill*         0x08005c47        0x1 
+                0x0800645b       0x22 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x08006480                        . = ALIGN (0x4)
+ *fill*         0x0800645b        0x1 
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x08005c48        0x8
-                0x08005c48                        __exidx_start = .
+.ARM            0x0800645c        0x8
+                0x0800645c                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x08005c48        0x8 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
- .ARM.exidx     0x08005c50        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
+ .ARM.exidx     0x0800645c        0x8 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x08006464        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
                                   0x8 (size before relaxing)
- .ARM.exidx     0x08005c50        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
+ .ARM.exidx     0x08006464        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
                                   0x8 (size before relaxing)
-                0x08005c50                        __exidx_end = .
+                0x08006464                        __exidx_end = .
 
-.rel.dyn        0x08005c50        0x0
- .rel.iplt      0x08005c50        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x08006464        0x0
+ .rel.iplt      0x08006464        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.preinit_array  0x08005c50        0x0
-                0x08005c50                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08006464        0x0
+                0x08006464                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08005c50                        PROVIDE (__preinit_array_end = .)
+                0x08006464                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x08005c50        0x4
-                0x08005c50                        PROVIDE (__init_array_start = .)
+.init_array     0x08006464        0x4
+                0x08006464                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x08005c50        0x4 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x08005c54                        PROVIDE (__init_array_end = .)
+ .init_array    0x08006464        0x4 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x08006468                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x08005c54        0x4
+.fini_array     0x08006468        0x4
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08005c54        0x4 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x08006468        0x4 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x08005c58                        _sidata = LOADADDR (.data)
+                0x0800646c                        _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x60 load address 0x08005c58
+.data           0x20000000       0x60 load address 0x0800646c
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -5742,12 +5757,12 @@ LOAD C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
                 0x2000005c        0x4 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
                 0x20000060                        . = ALIGN (0x4)
                 0x20000060                        _edata = .
-                0x08005cb8                        _siccmram = LOADADDR (.ccmram)
+                0x080064cc                        _siccmram = LOADADDR (.ccmram)
 
-.igot.plt       0x20000060        0x0 load address 0x08005cb8
+.igot.plt       0x20000060        0x0 load address 0x080064cc
  .igot.plt      0x20000060        0x0 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.ccmram         0x10000000        0x0 load address 0x08005cb8
+.ccmram         0x10000000        0x0 load address 0x080064cc
                 0x10000000                        . = ALIGN (0x4)
                 0x10000000                        _sccmram = .
  *(.ccmram)
@@ -5776,8 +5791,9 @@ LOAD C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
  .bss.__malloc_free_list
                 0x200001c0        0x4 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
                 0x200001c0                __malloc_free_list
- .bss.xQueue    0x200001c4        0x4 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
-                0x200001c4                xQueue
+ .bss.xNetworkEventQueue
+                0x200001c4        0x4 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+                0x200001c4                xNetworkEventQueue
  .bss.huart3    0x200001c8       0x48 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
                 0x200001c8                huart3
  .bss.hpcd_USB_OTG_FS
@@ -5908,7 +5924,7 @@ LOAD C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
  .ARM.attributes
                 0x0000022a       0x34 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
  .ARM.attributes
-                0x0000025e       0x34 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
+                0x0000025e       0x34 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
  .ARM.attributes
                 0x00000292       0x34 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
  .ARM.attributes
@@ -5983,7 +5999,7 @@ LOAD C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
                 0x00000942       0x22 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtn.o
 
 .comment        0x00000000       0x43
- .comment       0x00000000       0x43 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
+ .comment       0x00000000       0x43 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
                                  0x44 (size before relaxing)
  .comment       0x00000043       0x44 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
  .comment       0x00000043       0x44 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
@@ -6015,7 +6031,7 @@ LOAD C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
  .comment       0x00000043       0x44 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
  .comment       0x00000043       0x44 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
 
-.debug_frame    0x00000000     0x54d4
+.debug_frame    0x00000000     0x555c
  .debug_frame   0x00000000      0x144 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-findfp.o)
  .debug_frame   0x00000144       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memset.o)
  .debug_frame   0x00000164       0x38 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-reent.o)
@@ -6025,411 +6041,416 @@ LOAD C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
  .debug_frame   0x000002b0       0x50 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mallocr.o)
  .debug_frame   0x00000300       0x30 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mlock.o)
  .debug_frame   0x00000330       0x2c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-sbrkr.o)
- .debug_frame   0x0000035c       0x70 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_frame   0x000003cc       0xf0 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
- .debug_frame   0x000004bc       0x38 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
- .debug_frame   0x000004f4       0xc4 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_frame   0x000005b8      0x10c CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_frame   0x000006c4       0x74 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_frame   0x00000738     0x11c0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_frame   0x000018f8      0x638 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_frame   0x00001f30      0x1f4 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_frame   0x00002124      0x14c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_frame   0x00002270      0x508 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_frame   0x00002778      0x3b4 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_frame   0x00002b2c      0x954 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_frame   0x00003480      0x5b8 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_frame   0x00003a38      0x7c0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_frame   0x000041f8       0x58 CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_frame   0x00004250       0xd8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_frame   0x00004328      0x46c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_frame   0x00004794      0x7a0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_frame   0x00004f34      0x12c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_frame   0x00005060      0x1a8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_frame   0x00005208       0x34 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
- .debug_frame   0x0000523c       0x2c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00005268       0x34 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x0000529c       0x7c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
- .debug_frame   0x00005318       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
- .debug_frame   0x00005338       0x28 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
- .debug_frame   0x00005360       0x90 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
- .debug_frame   0x000053f0       0x60 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
- .debug_frame   0x00005450       0x28 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
- .debug_frame   0x00005478       0x3c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
- .debug_frame   0x000054b4       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
+ .debug_frame   0x0000035c       0xf8 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_frame   0x00000454       0xf0 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+ .debug_frame   0x00000544       0x38 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
+ .debug_frame   0x0000057c       0xc4 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_frame   0x00000640      0x10c CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_frame   0x0000074c       0x74 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_frame   0x000007c0     0x11c0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_frame   0x00001980      0x638 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_frame   0x00001fb8      0x1f4 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_frame   0x000021ac      0x14c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_frame   0x000022f8      0x508 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_frame   0x00002800      0x3b4 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_frame   0x00002bb4      0x954 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_frame   0x00003508      0x5b8 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_frame   0x00003ac0      0x7c0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_frame   0x00004280       0x58 CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_frame   0x000042d8       0xd8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_frame   0x000043b0      0x46c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_frame   0x0000481c      0x7a0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_frame   0x00004fbc      0x12c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_frame   0x000050e8      0x1a8 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_frame   0x00005290       0x34 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+ .debug_frame   0x000052c4       0x2c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x000052f0       0x34 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00005324       0x7c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
+ .debug_frame   0x000053a0       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+ .debug_frame   0x000053c0       0x28 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_frame   0x000053e8       0x90 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
+ .debug_frame   0x00005478       0x60 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_frame   0x000054d8       0x28 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
+ .debug_frame   0x00005500       0x3c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
+ .debug_frame   0x0000553c       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
 
-.debug_info     0x00000000    0x19a41
- .debug_info    0x00000000      0x899 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_info    0x00000899     0x148f CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
- .debug_info    0x00001d28      0x279 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
- .debug_info    0x00001fa1      0x6ab CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_info    0x0000264c     0x1a16 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_info    0x00004062      0xc32 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_info    0x00004c94     0x299d CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_info    0x00007631     0x14db CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_info    0x00008b0c      0x8db CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_info    0x000093e7      0x6db CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_info    0x00009ac2      0xdc2 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_info    0x0000a884      0x9ba CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_info    0x0000b23e     0x2f4f CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_info    0x0000e18d     0x156f CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_info    0x0000f6fc     0x1993 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_info    0x0001108f      0x52e CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_info    0x000115bd      0x2af CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_info    0x0001186c     0x17cd CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_info    0x00013039     0x1d79 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_info    0x00014db2      0x4d5 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_info    0x00015287      0x4de CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_info    0x00015765      0x168 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
- .debug_info    0x000158cd       0x30 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
- .debug_info    0x000158fd      0x8b9 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
- .debug_info    0x000161b6      0x6fb C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
- .debug_info    0x000168b1      0x121 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
- .debug_info    0x000169d2       0x31 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
- .debug_info    0x00016a03     0x10c7 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
- .debug_info    0x00017aca      0xde2 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
- .debug_info    0x000188ac      0x10f C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
- .debug_info    0x000189bb       0x25 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
- .debug_info    0x000189e0      0x8cd C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
- .debug_info    0x000192ad      0x794 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
+.debug_info     0x00000000    0x19e59
+ .debug_info    0x00000000      0xc9d CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_info    0x00000c9d     0x14a3 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+ .debug_info    0x00002140      0x279 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
+ .debug_info    0x000023b9      0x6ab CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_info    0x00002a64     0x1a16 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_info    0x0000447a      0xc32 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_info    0x000050ac     0x299d CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_info    0x00007a49     0x14db CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_info    0x00008f24      0x8db CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_info    0x000097ff      0x6db CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_info    0x00009eda      0xdc2 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_info    0x0000ac9c      0x9ba CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_info    0x0000b656     0x2f4f CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_info    0x0000e5a5     0x156f CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_info    0x0000fb14     0x1993 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_info    0x000114a7      0x52e CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_info    0x000119d5      0x2af CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_info    0x00011c84     0x17cd CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_info    0x00013451     0x1d79 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_info    0x000151ca      0x4d5 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_info    0x0001569f      0x4de CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_info    0x00015b7d      0x168 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+ .debug_info    0x00015ce5       0x30 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
+ .debug_info    0x00015d15      0x8b9 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
+ .debug_info    0x000165ce      0x6fb C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+ .debug_info    0x00016cc9      0x121 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_info    0x00016dea       0x31 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
+ .debug_info    0x00016e1b     0x10c7 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
+ .debug_info    0x00017ee2      0xde2 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_info    0x00018cc4      0x10f C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
+ .debug_info    0x00018dd3       0x25 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
+ .debug_info    0x00018df8      0x8cd C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
+ .debug_info    0x000196c5      0x794 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
 
-.debug_abbrev   0x00000000     0x4019
- .debug_abbrev  0x00000000      0x24c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_abbrev  0x0000024c      0x2e2 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
- .debug_abbrev  0x0000052e       0xd2 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
- .debug_abbrev  0x00000600      0x17d CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_abbrev  0x0000077d      0x270 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_abbrev  0x000009ed      0x1f4 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_abbrev  0x00000be1      0x278 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_abbrev  0x00000e59      0x283 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_abbrev  0x000010dc      0x2b7 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_abbrev  0x00001393      0x1d4 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_abbrev  0x00001567      0x31d CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_abbrev  0x00001884      0x214 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_abbrev  0x00001a98      0x30e CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_abbrev  0x00001da6      0x2b9 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_abbrev  0x0000205f      0x2b3 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_abbrev  0x00002312      0x11a CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_abbrev  0x0000242c       0xf5 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_abbrev  0x00002521      0x3b5 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_abbrev  0x000028d6      0x359 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_abbrev  0x00002c2f      0x21d CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_abbrev  0x00002e4c      0x25c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_abbrev  0x000030a8       0xbc CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
- .debug_abbrev  0x00003164       0x24 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
- .debug_abbrev  0x00003188      0x231 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
- .debug_abbrev  0x000033b9      0x15e C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
- .debug_abbrev  0x00003517       0xc1 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
- .debug_abbrev  0x000035d8       0x28 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
- .debug_abbrev  0x00003600      0x31e C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
- .debug_abbrev  0x0000391e      0x28e C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
- .debug_abbrev  0x00003bac       0xac C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
- .debug_abbrev  0x00003c58       0x14 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
- .debug_abbrev  0x00003c6c      0x217 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
- .debug_abbrev  0x00003e83      0x196 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
+.debug_abbrev   0x00000000     0x408f
+ .debug_abbrev  0x00000000      0x2c3 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_abbrev  0x000002c3      0x2e1 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+ .debug_abbrev  0x000005a4       0xd2 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
+ .debug_abbrev  0x00000676      0x17d CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_abbrev  0x000007f3      0x270 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_abbrev  0x00000a63      0x1f4 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_abbrev  0x00000c57      0x278 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_abbrev  0x00000ecf      0x283 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_abbrev  0x00001152      0x2b7 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_abbrev  0x00001409      0x1d4 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_abbrev  0x000015dd      0x31d CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_abbrev  0x000018fa      0x214 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_abbrev  0x00001b0e      0x30e CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_abbrev  0x00001e1c      0x2b9 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_abbrev  0x000020d5      0x2b3 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_abbrev  0x00002388      0x11a CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_abbrev  0x000024a2       0xf5 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_abbrev  0x00002597      0x3b5 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_abbrev  0x0000294c      0x359 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_abbrev  0x00002ca5      0x21d CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_abbrev  0x00002ec2      0x25c CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_abbrev  0x0000311e       0xbc CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+ .debug_abbrev  0x000031da       0x24 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
+ .debug_abbrev  0x000031fe      0x231 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
+ .debug_abbrev  0x0000342f      0x15e C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+ .debug_abbrev  0x0000358d       0xc1 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_abbrev  0x0000364e       0x28 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
+ .debug_abbrev  0x00003676      0x31e C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
+ .debug_abbrev  0x00003994      0x28e C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_abbrev  0x00003c22       0xac C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
+ .debug_abbrev  0x00003cce       0x14 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
+ .debug_abbrev  0x00003ce2      0x217 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
+ .debug_abbrev  0x00003ef9      0x196 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
 
-.debug_aranges  0x00000000     0x1458
+.debug_aranges  0x00000000     0x1470
  .debug_aranges
-                0x00000000       0x30 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
+                0x00000000       0x48 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
  .debug_aranges
-                0x00000030       0x50 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+                0x00000048       0x50 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
  .debug_aranges
-                0x00000080       0x20 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
+                0x00000098       0x20 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
  .debug_aranges
-                0x000000a0       0x50 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+                0x000000b8       0x50 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
  .debug_aranges
-                0x000000f0       0x50 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x00000108       0x50 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
  .debug_aranges
-                0x00000140       0x30 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+                0x00000158       0x30 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
  .debug_aranges
-                0x00000170      0x3d0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x00000188      0x3d0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
  .debug_aranges
-                0x00000540      0x168 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+                0x00000558      0x168 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
  .debug_aranges
-                0x000006a8       0x88 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x000006c0       0x88 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
  .debug_aranges
-                0x00000730       0x58 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+                0x00000748       0x58 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .debug_aranges
-                0x00000788      0x130 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x000007a0      0x130 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .debug_aranges
-                0x000008b8      0x100 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x000008d0      0x100 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
  .debug_aranges
-                0x000009b8      0x208 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+                0x000009d0      0x208 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
  .debug_aranges
-                0x00000bc0      0x148 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+                0x00000bd8      0x148 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
  .debug_aranges
-                0x00000d08      0x1a0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x00000d20      0x1a0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
  .debug_aranges
-                0x00000ea8       0x28 CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+                0x00000ec0       0x28 CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
  .debug_aranges
-                0x00000ed0       0x40 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x00000ee8       0x40 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
  .debug_aranges
-                0x00000f10      0x108 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x00000f28      0x108 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .debug_aranges
-                0x00001018      0x1c0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x00001030      0x1c0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .debug_aranges
-                0x000011d8       0x58 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x000011f0       0x58 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .debug_aranges
-                0x00001230       0x80 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x00001248       0x80 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
  .debug_aranges
-                0x000012b0       0x20 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+                0x000012c8       0x20 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
  .debug_aranges
-                0x000012d0       0x28 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
+                0x000012e8       0x28 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
  .debug_aranges
-                0x000012f8       0x28 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
+                0x00001310       0x28 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
  .debug_aranges
-                0x00001320       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+                0x00001338       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
  .debug_aranges
-                0x00001340       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
+                0x00001358       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
  .debug_aranges
-                0x00001360       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
+                0x00001378       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
  .debug_aranges
-                0x00001380       0x30 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
+                0x00001398       0x30 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
  .debug_aranges
-                0x000013b0       0x28 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x000013c8       0x28 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
  .debug_aranges
-                0x000013d8       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
+                0x000013f0       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
  .debug_aranges
-                0x000013f8       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
+                0x00001410       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
  .debug_aranges
-                0x00001418       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
+                0x00001430       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
  .debug_aranges
-                0x00001438       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
+                0x00001450       0x20 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
 
 .debug_rnglists
-                0x00000000      0xfdd
+                0x00000000     0x100f
  .debug_rnglists
-                0x00000000       0x1f CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
+                0x00000000       0x51 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
  .debug_rnglists
-                0x0000001f       0x39 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+                0x00000051       0x39 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
  .debug_rnglists
-                0x00000058       0x13 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
+                0x0000008a       0x13 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
  .debug_rnglists
-                0x0000006b       0x37 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+                0x0000009d       0x37 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
  .debug_rnglists
-                0x000000a2       0x3a CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x000000d4       0x3a CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
  .debug_rnglists
-                0x000000dc       0x20 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+                0x0000010e       0x20 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
  .debug_rnglists
-                0x000000fc      0x31a CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x0000012e      0x31a CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
  .debug_rnglists
-                0x00000416      0x125 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+                0x00000448      0x125 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
  .debug_rnglists
-                0x0000053b       0x66 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x0000056d       0x66 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
  .debug_rnglists
-                0x000005a1       0x3f CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+                0x000005d3       0x3f CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .debug_rnglists
-                0x000005e0       0xe0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x00000612       0xe0 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .debug_rnglists
-                0x000006c0       0xbb CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x000006f2       0xbb CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
  .debug_rnglists
-                0x0000077b      0x1bc CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+                0x000007ad      0x1bc CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
  .debug_rnglists
-                0x00000937       0xfa CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+                0x00000969       0xfa CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
  .debug_rnglists
-                0x00000a31      0x147 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+                0x00000a63      0x147 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
  .debug_rnglists
-                0x00000b78       0x1a CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+                0x00000baa       0x1a CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
  .debug_rnglists
-                0x00000b92       0x2b CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x00000bc4       0x2b CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
  .debug_rnglists
-                0x00000bbd       0xcd CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+                0x00000bef       0xcd CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
  .debug_rnglists
-                0x00000c8a      0x166 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x00000cbc      0x166 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .debug_rnglists
-                0x00000df0       0x42 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x00000e22       0x42 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .debug_rnglists
-                0x00000e32       0x5d CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+                0x00000e64       0x5d CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
  .debug_rnglists
-                0x00000e8f       0x13 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+                0x00000ec1       0x13 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
  .debug_rnglists
-                0x00000ea2       0x19 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
+                0x00000ed4       0x19 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
  .debug_rnglists
-                0x00000ebb       0x19 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
+                0x00000eed       0x19 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
  .debug_rnglists
-                0x00000ed4       0x13 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+                0x00000f06       0x13 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
  .debug_rnglists
-                0x00000ee7       0x13 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
+                0x00000f19       0x13 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
  .debug_rnglists
-                0x00000efa       0x44 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
+                0x00000f2c       0x44 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
  .debug_rnglists
-                0x00000f3e       0x66 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+                0x00000f70       0x66 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
  .debug_rnglists
-                0x00000fa4       0x13 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
+                0x00000fd6       0x13 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
  .debug_rnglists
-                0x00000fb7       0x13 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
+                0x00000fe9       0x13 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
  .debug_rnglists
-                0x00000fca       0x13 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
+                0x00000ffc       0x13 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
 
-.debug_macro    0x00000000    0x26958
- .debug_macro   0x00000000      0x37e CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0000037e      0xad8 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00000e56      0x2a7 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000010fd       0x2e CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0000112b       0x28 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00001153       0x22 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00001175       0x8e CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00001203       0x51 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00001254      0x103 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00001357       0x6a CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000013c1      0x1df CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000015a0       0x1c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000015bc       0x22 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000015de       0xfb CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000016d9     0x1011 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000026ea      0x11f CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00002809    0x17ff1 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001a7fa       0x6d CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001a867     0x370a CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001df71      0x190 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001e101       0x5c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001e15d      0xcba CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001ee17      0x9e9 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001f800      0x115 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001f915      0x156 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001fa6b       0xa5 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001fb10      0x182 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001fc92      0x287 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001ff19       0x5f CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0001ff78      0x236 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000201ae      0xb99 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00020d47      0x132 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00020e79      0x41d CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00021296       0x2e CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000212c4      0x127 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000213eb       0xe2 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000214cd       0x89 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00021556      0x8ed CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00021e43       0x4d CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00021e90      0x2aa CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0002213a      0x293 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000223cd       0xba CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022487      0x134 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000225bb      0x130 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000226eb       0x74 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0002275f       0x2a CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022789       0x3c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000227c5       0x34 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000227f9      0x370 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022b69       0x16 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022b7f       0x4a CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022bc9       0x34 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022bfd       0x10 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022c0d       0x58 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022c65      0x1e5 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022e4a       0x10 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022e5a       0x3c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022e96       0x20 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022eb6       0xea CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00022fa0      0x15a CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000230fa       0xde CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000231d8       0x1c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000231f4       0x26 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0002321a      0x504 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0002371e       0xb5 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x000237d3       0xaa CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x0002387d       0x87 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00023904       0x7e CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00023982       0x97 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00023a19       0x19 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_macro   0x00023a32      0x378 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
- .debug_macro   0x00023daa      0x136 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
- .debug_macro   0x00023ee0      0x273 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
- .debug_macro   0x00024153       0xea CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
- .debug_macro   0x0002423d      0x215 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_macro   0x00024452      0x20b CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_macro   0x0002465d      0x1fc CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_macro   0x00024859      0x1fd CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_macro   0x00024a56      0x1fc CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_macro   0x00024c52      0x220 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_macro   0x00024e72      0x202 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_macro   0x00025074      0x1fc CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_macro   0x00025270      0x25c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_macro   0x000254cc      0x1fd CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_macro   0x000256c9      0x208 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_macro   0x000258d1      0x1fc CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_macro   0x00025acd      0x1fc CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_macro   0x00025cc9      0x178 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_macro   0x00025e41      0x207 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_macro   0x00026048       0x16 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_macro   0x0002605e      0x26a CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_macro   0x000262c8       0x10 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_macro   0x000262d8      0x19f CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_macro   0x00026477      0x196 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_macro   0x0002660d       0xff CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x0002670c       0x10 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
- .debug_macro   0x0002671c      0x23c CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+.debug_macro    0x00000000    0x26b5a
+ .debug_macro   0x00000000      0x3b2 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000003b2      0xad8 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00000e8a      0x2a7 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00001131       0x2e CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0000115f       0x28 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00001187       0x22 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000011a9       0x8e CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00001237       0x51 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00001288      0x103 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0000138b       0x6a CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000013f5      0x1df CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000015d4       0x1c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000015f0       0x22 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00001612       0xfb CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0000170d     0x1011 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0000271e      0x11f CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0000283d    0x17ff1 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001a82e       0x6d CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001a89b     0x370a CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001dfa5      0x190 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001e135       0x5c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001e191      0xcba CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001ee4b      0x9e9 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001f834      0x115 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001f949      0x156 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001fa9f       0xa5 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001fb44      0x182 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001fcc6      0x287 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001ff4d       0x5f CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0001ffac      0x236 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000201e2      0xb99 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00020d7b      0x132 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00020ead      0x41d CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000212ca       0x2e CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000212f8      0x127 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0002141f       0xe2 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00021501       0x89 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0002158a      0x8ed CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00021e77       0x4d CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00021ec4      0x2aa CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0002216e      0x293 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022401       0xba CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000224bb      0x134 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000225ef      0x130 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0002271f       0x74 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022793       0x2a CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000227bd       0x3c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000227f9       0x34 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0002282d      0x370 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022b9d       0x16 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022bb3       0x4a CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022bfd       0x34 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022c31       0x10 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022c41       0x58 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022c99      0x1e5 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022e7e       0x10 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022e8e       0x3c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022eca       0x20 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022eea       0xea CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00022fd4      0x15a CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0002312e       0xde CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0002320c       0x1c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023228       0x26 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x0002324e      0x504 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023752       0xb5 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023807       0xaa CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000238b1       0x87 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023938       0x7e CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x000239b6       0x97 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023a4d       0x19 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023a66       0x1c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023a82       0x10 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023a92       0x1c CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023aae       0x16 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023ac4      0x170 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_macro   0x00023c34      0x378 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+ .debug_macro   0x00023fac      0x136 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+ .debug_macro   0x000240e2      0x273 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
+ .debug_macro   0x00024355       0xea CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
+ .debug_macro   0x0002443f      0x215 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_macro   0x00024654      0x20b CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_macro   0x0002485f      0x1fc CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_macro   0x00024a5b      0x1fd CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_macro   0x00024c58      0x1fc CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_macro   0x00024e54      0x220 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_macro   0x00025074      0x202 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_macro   0x00025276      0x1fc CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_macro   0x00025472      0x25c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_macro   0x000256ce      0x1fd CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_macro   0x000258cb      0x208 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_macro   0x00025ad3      0x1fc CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_macro   0x00025ccf      0x1fc CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_macro   0x00025ecb      0x178 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_macro   0x00026043      0x207 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_macro   0x0002624a       0x16 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_macro   0x00026260      0x26a CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_macro   0x000264ca       0x10 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_macro   0x000264da      0x19f CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_macro   0x00026679      0x196 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_macro   0x0002680f       0xff CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x0002690e       0x10 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+ .debug_macro   0x0002691e      0x23c CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
 
-.debug_line     0x00000000    0x176e0
- .debug_line    0x00000000      0x9ff CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
- .debug_line    0x000009ff      0xade CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
- .debug_line    0x000014dd      0x887 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
- .debug_line    0x00001d64      0x7ad CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_line    0x00002511      0x855 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_line    0x00002d66      0x799 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_line    0x000034ff     0x378b CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_line    0x00006c8a     0x1976 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_line    0x00008600      0xe25 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_line    0x00009425      0xb96 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_line    0x00009fbb      0xce6 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_line    0x0000aca1      0xa4c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_line    0x0000b6ed     0x255e CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_line    0x0000dc4b     0x1461 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_line    0x0000f0ac     0x1d4a CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_line    0x00010df6      0x79a CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_line    0x00011590      0x5e0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_line    0x00011b70     0x1324 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_line    0x00012e94     0x17b7 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_line    0x0001464b      0x7f7 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_line    0x00014e42      0x76e CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_line    0x000155b0      0x346 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
- .debug_line    0x000158f6       0x7a CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
- .debug_line    0x00015970      0x365 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
- .debug_line    0x00015cd5      0x185 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
- .debug_line    0x00015e5a      0x202 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
- .debug_line    0x0001605c       0x4f C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
- .debug_line    0x000160ab      0x871 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
- .debug_line    0x0001691c      0x70d C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
- .debug_line    0x00017029      0x1bc C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
- .debug_line    0x000171e5       0x84 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
- .debug_line    0x00017269      0x272 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
- .debug_line    0x000174db      0x205 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
+.debug_line     0x00000000    0x17844
+ .debug_line    0x00000000      0xb62 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+ .debug_line    0x00000b62      0xadf CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+ .debug_line    0x00001641      0x887 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
+ .debug_line    0x00001ec8      0x7ad CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_line    0x00002675      0x855 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_line    0x00002eca      0x799 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_line    0x00003663     0x378b CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_line    0x00006dee     0x1976 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_line    0x00008764      0xe25 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_line    0x00009589      0xb96 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_line    0x0000a11f      0xce6 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_line    0x0000ae05      0xa4c CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_line    0x0000b851     0x255e CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_line    0x0000ddaf     0x1461 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_line    0x0000f210     0x1d4a CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_line    0x00010f5a      0x79a CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_line    0x000116f4      0x5e0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_line    0x00011cd4     0x1324 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_line    0x00012ff8     0x17b7 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_line    0x000147af      0x7f7 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_line    0x00014fa6      0x76e CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_line    0x00015714      0x346 CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+ .debug_line    0x00015a5a       0x7a CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
+ .debug_line    0x00015ad4      0x365 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
+ .debug_line    0x00015e39      0x185 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+ .debug_line    0x00015fbe      0x202 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_line    0x000161c0       0x4f C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
+ .debug_line    0x0001620f      0x871 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
+ .debug_line    0x00016a80      0x70d C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_line    0x0001718d      0x1bc C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
+ .debug_line    0x00017349       0x84 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
+ .debug_line    0x000173cd      0x272 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
+ .debug_line    0x0001763f      0x205 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
 
-.debug_str      0x00000000    0xe9434
- .debug_str     0x00000000    0xe9434 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/queuingpointers.c.obj
-                              0xe138e (size before relaxing)
- .debug_str     0x000e9434    0xe1c2c CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
- .debug_str     0x000e9434    0xdc953 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
- .debug_str     0x000e9434    0xd8ff3 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_str     0x000e9434    0xd9ec7 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_str     0x000e9434    0xd928a CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_str     0x000e9434    0xd9ab6 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_str     0x000e9434    0xd92c2 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_str     0x000e9434    0xd8b73 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_str     0x000e9434    0xd88ba CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_str     0x000e9434    0xd9090 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_str     0x000e9434    0xd9362 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_str     0x000e9434    0xd9141 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_str     0x000e9434    0xd920a CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
- .debug_str     0x000e9434    0xd90e5 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
- .debug_str     0x000e9434    0xd873f CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_str     0x000e9434     0xa606 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_str     0x000e9434     0xbf99 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_str     0x000e9434     0xc9b0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_str     0x000e9434     0xaf48 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_str     0x000e9434     0x87db CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_str     0x000e9434     0x715a CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
- .debug_str     0x000e9434       0x78 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
- .debug_str     0x000e9434      0x57f C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
- .debug_str     0x000e9434      0x52b C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
- .debug_str     0x000e9434      0x22f C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
- .debug_str     0x000e9434       0xf3 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
- .debug_str     0x000e9434      0x87a C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
- .debug_str     0x000e9434      0x810 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
- .debug_str     0x000e9434      0x22c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
- .debug_str     0x000e9434       0xe2 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
- .debug_str     0x000e9434      0x5a7 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
- .debug_str     0x000e9434      0x57a C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
+.debug_str      0x00000000    0xe9c38
+ .debug_str     0x00000000    0xe9c38 CMakeFiles/TestRtos.dir/Core/Src/MainProgram/eventhandlingqueue.c.obj
+                              0xe1bf3 (size before relaxing)
+ .debug_str     0x000e9c38    0xe1c36 CMakeFiles/TestRtos.dir/Core/Src/driver.init.c.obj
+ .debug_str     0x000e9c38    0xdc953 CMakeFiles/TestRtos.dir/Core/Src/freertos.c.obj
+ .debug_str     0x000e9c38    0xd8ff3 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_str     0x000e9c38    0xd9ec7 CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_str     0x000e9c38    0xd928a CMakeFiles/TestRtos.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_str     0x000e9c38    0xd9ab6 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_str     0x000e9c38    0xd92c2 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_str     0x000e9c38    0xd8b73 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_str     0x000e9c38    0xd88ba CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_str     0x000e9c38    0xd9090 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_str     0x000e9c38    0xd9362 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_str     0x000e9c38    0xd9141 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_str     0x000e9c38    0xd920a CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c.obj
+ .debug_str     0x000e9c38    0xd90e5 CMakeFiles/TestRtos.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c.obj
+ .debug_str     0x000e9c38    0xd873f CMakeFiles/TestRtos.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_str     0x000e9c38     0xa606 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_str     0x000e9c38     0xbf99 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_str     0x000e9c38     0xc9b0 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_str     0x000e9c38     0xaf48 CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_str     0x000e9c38     0x87db CMakeFiles/TestRtos.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_str     0x000e9c38     0x715a CMakeFiles/TestRtos.dir/Core/Src/sysmem.c.obj
+ .debug_str     0x000e9c38       0x78 CMakeFiles/TestRtos.dir/startup_stm32f429xx.s.obj
+ .debug_str     0x000e9c38      0x57f C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-snprintf.o)
+ .debug_str     0x000e9c38      0x52b C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-errno.o)
+ .debug_str     0x000e9c38      0x22f C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memcpy-stub.o)
+ .debug_str     0x000e9c38       0xf3 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-strlen.o)
+ .debug_str     0x000e9c38      0x87a C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-svfprintf.o)
+ .debug_str     0x000e9c38      0x810 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_str     0x000e9c38      0x22c C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memmove.o)
+ .debug_str     0x000e9c38       0xe2 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-memchr.o)
+ .debug_str     0x000e9c38      0x5a7 C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-reallocr.o)
+ .debug_str     0x000e9c38      0x57a C:/ST/STM32CubeCLT_1.18.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libg_nano.a(libc_a-msizer.o)
 
 .debug_line_str
                 0x00000000      0x143

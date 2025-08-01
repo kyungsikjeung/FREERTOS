@@ -19,7 +19,7 @@
         "stm32f4xx_hal_uart.h": "c",
         "driver_init.h": "c"
     },
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "fira-code-material-minimal",
     "editor.fontFamily": "fira-code-nerd, FiraCode Nerd Font, Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true
 }

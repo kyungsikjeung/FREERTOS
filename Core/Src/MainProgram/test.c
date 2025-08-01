@@ -1,56 +1,102 @@
-QueueHandle_t xQueue = xQueueCreate(10, sizeof(int));
-int valueToSend = 123;
-xQueueSend(xQueue, &valueToSend, portMAX_DELAY);
+// FreeRTOS TCP/IP Event Handling Example - Full Code
 
-int receivedValue;
-if (xQueueReceive(xQueue, &receivedValue, portMAX_DELAY)) {
-    // Received from queue
+#include "main.h"
+#include "driver_init.h"
+/* === Event Types === */
+typedef enum {
+    eNetworkDownEvent = 0,
+    eNetworkRxEvent,
+    eTCPAcceptEvent,
+    eNoEvent
+} eIPEvent_t;
+
+/* === Event Structure === */
+typedef struct {
+    eIPEvent_t eEventType;
+    void *pvData;
+} IPStackEvent_t;
+
+/* === Queue Handle === */
+QueueHandle_t xNetworkEventQueue;
+
+/* === Dummy Structs for Event Data === */
+typedef struct {
+    char data[100];
+} NetworkBufferDescriptor_t;
+
+typedef struct {
+    int socket_id;
+} FreeRTOS_Socket_t;
+
+/* === Event Sender Functions === */
+void vSendRxDataToTheTCPTask(NetworkBufferDescriptor_t *pxRxedData) {
+    IPStackEvent_t xEventStruct;
+    xEventStruct.eEventType = eNetworkRxEvent;
+    xEventStruct.pvData = (void *)pxRxedData;
+    xQueueSendToBack(xNetworkEventQueue, &xEventStruct, portMAX_DELAY);
 }
 
-
-void Task1(void *pvParameters) {
-    while (1) {
-        // Do something
-        vTaskDelay(pdMS_TO_TICKS(1000));
-    }
+void vSendAcceptRequestToTheTCPTask(FreeRTOS_Socket_t *xSocket) {
+    IPStackEvent_t xEventStruct;
+    xEventStruct.eEventType = eTCPAcceptEvent;
+    xEventStruct.pvData = (void *)xSocket;
+    xQueueSendToBack(xNetworkEventQueue, &xEventStruct, portMAX_DELAY);
 }
 
-xTaskCreate(Task1, "Task1", 128, NULL, 1, NULL);
-
-QueueHandle_t xQueue;
-
-static void SenderTask(void *pvParameters) {
-    int valueToSend = 123;
-    while (1) {
-        xQueueSendToBack(xQueue, &valueToSend, portMAX_DELAY);
-        vTaskDelay(pdMS_TO_TICKS(500));
-    }
+void vSendNetworkDownEventToTheTCPTask() {
+    IPStackEvent_t xEventStruct;
+    xEventStruct.eEventType = eNetworkDownEvent;
+    xEventStruct.pvData = NULL;
+    xQueueSendToBack(xNetworkEventQueue, &xEventStruct, portMAX_DELAY);
 }
 
-static void ReceiverTask(void *pvParameters) {
-    int receivedValue;
-    while (1) {
-        if (xQueueReceive(xQueue, &receivedValue, portMAX_DELAY) == pdPASS) {
-            // Handle received data
+/* === TCP/IP Task === */
+void vTCPTask(void *pvParameters) {
+    IPStackEvent_t xReceivedEvent;
+    for (;;) {
+        xReceivedEvent.eEventType = eNoEvent;
+        if (xQueueReceive(xNetworkEventQueue, &xReceivedEvent, portMAX_DELAY) == pdPASS) {
+            switch (xReceivedEvent.eEventType) {
+                case eNetworkDownEvent:
+                    char *msg = "Network down event received.\r\n";
+                    HAL_UART_Transmit(&huart3, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+                    
+                    break;
+                case eNetworkRxEvent:
+                 char *msg;
+                  snprintf(msg, sizeof(msg), "Received data: %s\r\n",
+                           ((NetworkBufferDescriptor_t *)xReceivedEvent.pvData)->data);
+                  HAL_UART_Transmit(&huart3, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+                    break;
+                case eTCPAcceptEvent:
+                    printf("[TCP Task] Accepted socket id: %d\n",
+                           ((FreeRTOS_Socket_t *)xReceivedEvent.pvData)->socket_id);
+                    break;
+                default:
+                    printf("[TCP Task] Unknown event\n");
+                    break;
+            }
         }
     }
 }
 
-void InitQueueAndTasks(void) {
-    xQueue = xQueueCreate(10, sizeof(int));
-    if (xQueue != NULL) {
-        xTaskCreate(SenderTask, "Sender", 128, NULL, 1, NULL);
-        xTaskCreate(ReceiverTask, "Receiver", 128, NULL, 1, NULL);
-    }
+/* === Main === */
+int main(void) {
+    xNetworkEventQueue = xQueueCreate(10, sizeof(IPStackEvent_t));
+
+    xTaskCreate(vTCPTask, "TCPTask", 512, NULL, 1, NULL);
+
+    // Simulate events
+    NetworkBufferDescriptor_t *rxBuffer = pvPortMalloc(sizeof(NetworkBufferDescriptor_t));
+    strcpy(rxBuffer->data, "Hello from network!");
+    vSendRxDataToTheTCPTask(rxBuffer);
+
+    FreeRTOS_Socket_t *socket = pvPortMalloc(sizeof(FreeRTOS_Socket_t));
+    socket->socket_id = 42;
+    vSendAcceptRequestToTheTCPTask(socket);
+
+    vSendNetworkDownEventToTheTCPTask();
+    vTaskStartScheduler();
+
+    while (1);
 }
-
-
-xTaskCreate(Task2, "Task2", 128, NULL, 1, NULL);
-
-
-
-void *pvPortMalloc( size_t xWantedSize )
-
-
-
-void vPortFree( void *pv )

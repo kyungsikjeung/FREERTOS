@@ -294,7 +294,7 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "Core/Src/MainProgram/queuingpointers.c",
+			"path" : "Core/Src/MainProgram/eventhandlingqueue.c",
 			"sourceGroupIndex" : 0
 		},
 		{
