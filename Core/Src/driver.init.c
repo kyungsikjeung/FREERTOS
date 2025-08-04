@@ -10,10 +10,27 @@
 /* Includes ------------------------------------------------------------------*/
 #include "driver_init.h"
 #include "main.h"
+#include <stdio.h>
+#include <sys/stat.h>
 
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
+
+
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
+
+PUTCHAR_PROTOTYPE
+{
+  HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  return ch;
+}
+
+
 
 static void GPIO_Init(void);
 static void USART3_UART_Init(void);
@@ -34,9 +51,12 @@ void Driver_Init(void)
   GPIO_Init();
   USART3_UART_Init();
   USB_OTG_FS_PCD_Init();
-  HAL_UART_Transmit(&huart3, (uint8_t *)"123\r\n", 5, HAL_MAX_DELAY);
+  
+  // Test original HAL_UART_Transmit
+  printf("\e[1;1H\e[2J");
+  printf("----------MCU Driver Init----------\r\n");
+  HAL_Delay(100);
   HAL_Delay(2000);
-
   for(int i=0; i<300000; i++); // 간단한 딜레이
 }
 
@@ -93,14 +113,6 @@ void SystemClock_Config(void)
   */
 static void USART3_UART_Init(void)
 {
-
-  /* USER CODE BEGIN USART3_Init 0 */
-
-  /* USER CODE END USART3_Init 0 */
-
-  /* USER CODE BEGIN USART3_Init 1 */
-
-  /* USER CODE END USART3_Init 1 */
   huart3.Instance = USART3;
   huart3.Init.BaudRate = 115200;
   huart3.Init.WordLength = UART_WORDLENGTH_8B;
@@ -113,10 +125,6 @@ static void USART3_UART_Init(void)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN USART3_Init 2 */
-
-  /* USER CODE END USART3_Init 2 */
-
 }
 
 /**
@@ -127,10 +135,6 @@ static void USART3_UART_Init(void)
 static void GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-/* USER CODE BEGIN MX_GPIO_Init_1 */
-/* USER CODE END MX_GPIO_Init_1 */
-
-  /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -181,14 +185,6 @@ static void GPIO_Init(void)
   */
 static void USB_OTG_FS_PCD_Init(void)
 {
-
-  /* USER CODE BEGIN USB_OTG_FS_Init 0 */
-
-  /* USER CODE END USB_OTG_FS_Init 0 */
-
-  /* USER CODE BEGIN USB_OTG_FS_Init 1 */
-
-  /* USER CODE END USB_OTG_FS_Init 1 */
   hpcd_USB_OTG_FS.Instance = USB_OTG_FS;
   hpcd_USB_OTG_FS.Init.dev_endpoints = 4;
   hpcd_USB_OTG_FS.Init.speed = PCD_SPEED_FULL;

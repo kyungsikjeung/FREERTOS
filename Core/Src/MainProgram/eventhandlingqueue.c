@@ -3,6 +3,9 @@
 #include <string.h>
 #include <stdio.h>
 
+
+
+
 /* === Event Types === */
 typedef enum {
     eNetworkDownEvent = 0,
@@ -37,8 +40,9 @@ void vSendRxDataToTheTCPTask(NetworkBufferDescriptor_t *pxRxedData) {
     
     // 큐가 가득 찰 경우를 대비해 타임아웃 설정
     if (xQueueSendToBack(xNetworkEventQueue, &xEventStruct, pdMS_TO_TICKS(100)) == pdPASS) {
-        const char msg[] = "[SEND] Rx Event Sent\r\n";
-        HAL_UART_Transmit(&huart3, (uint8_t *)msg, strlen(msg), 1000);
+        // const char msg[] = "[SEND] Rx Event Sent\r\n";
+        // HAL_UART_Transmit(&huart3, (uint8_t *)msg, strlen(msg), 1000);
+       
     } else {
         const char errorMsg[] = "[ERROR] Failed to send Rx Event\r\n";
         HAL_UART_Transmit(&huart3, (uint8_t *)errorMsg, strlen(errorMsg), 1000);
@@ -137,7 +141,6 @@ void vTCPTask(void *pvParameters) {
 void vEventSimulatorTask(void *pvParameters) {
     // 충분한 초기화 시간 대기
     vTaskDelay(pdMS_TO_TICKS(2000));
-
     const char msg[] = "[SIM] Sending simulated events...\r\n";
     HAL_UART_Transmit(&huart3, (uint8_t *)msg, strlen(msg), 1000);
 
@@ -173,35 +176,23 @@ void vEventSimulatorTask(void *pvParameters) {
 }
 
 int main(void) {
-    // 1단계: 기본 하드웨어 초기화
+    // 기본 하드웨어 초기화
     Driver_Init();
 
-    // 2단계: 시작 메시지
-    const char startMsg[] = "[INFO] Event Handling Queue Demo Started\r\n";
-    HAL_UART_Transmit(&huart3, (uint8_t *)startMsg, strlen(startMsg), 1000);
-
-    // 3단계: 메시지 전송할 큐 생성
+    // 큐 생성
     xNetworkEventQueue = xQueueCreate(10, sizeof(IPStackEvent_t));
     configASSERT(xNetworkEventQueue != NULL);
 
-    // 4단계: 태스크 생성
-    // ⭐️ TCP Task를 더 높은 우선순위로 설정하여 이벤트 처리 우선
-    BaseType_t result1 = xTaskCreate(vTCPTask, "TCPTask", 1024, NULL, 4, NULL);  // 우선순위 4
-    BaseType_t result2 = xTaskCreate(vEventSimulatorTask, "SimTask", 1024, NULL, 2, NULL);  // 우선순위 2
+    // 태스크 생성
+    BaseType_t result1 = xTaskCreate(vTCPTask, "TCPTask", 1024, NULL, 4, NULL);  // 우선순위 4, 큐 리드
+    BaseType_t result2 = xTaskCreate(vEventSimulatorTask, "SimTask", 1024, NULL, 2, NULL);  // 우선순위 2, 큐 데이터 전송
 
     configASSERT(result1 == pdPASS);
     configASSERT(result2 == pdPASS);
 
-    // 5단계: 스케줄러 시작 알림
-    const char schedMsg[] = "[INFO] Starting FreeRTOS Scheduler...\r\n";
-    HAL_UART_Transmit(&huart3, (uint8_t *)schedMsg, strlen(schedMsg), 1000);
-
-    // 6단계: 스케줄러 시작
+    // 스케줄러 시작
     vTaskStartScheduler();
 
-    // 여기까지 도달하면 안됨 (스케줄러 시작 실패)
-    const char errorMsg[] = "[ERROR] Scheduler failed to start!\r\n";
-    HAL_UART_Transmit(&huart3, (uint8_t *)errorMsg, strlen(errorMsg), 1000);
     
     while(1) {
         // 무한 루프 (에러 상태)
