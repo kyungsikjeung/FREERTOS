@@ -2,7 +2,11 @@
 /**
   ******************************************************************************
   * @file           : blockingqueue.c
-  * @brief          : 두개의 Task에서 각각 100과 200을 전송, 수신 테스크에서 큐로 데이터 처리 
+  * @brief          : 두 개의 송신 Task가 각각 100과 200을 주기적으로 큐에 전송하고, 
+  *                   수신 Task가 해당 큐로부터 데이터를 수신하여 UART로 출력하는 예제.
+  *                   수신 Task는 가장 높은 우선순위를 가지며, 큐에 데이터가 존재하는지
+  *                   상태를 확인한 후 데이터를 즉시 처리함.
+  * @details         :수신자가 모든 데이터를 순차적으로 수신하고, 큐가 가득 차면 송신자는 대기하거나 실패
   ******************************************************************************
   */
 /* USER CODE END Header */
@@ -44,8 +48,7 @@ static void sendData(void *pvParams)
         xQueueStatus = xQueueSendToBack(xQueue, &valueToSend, 0 );
         if (xQueueStatus != pdPASS)
         {
-            const char *errMsg = "Fail Send\r\n";
-            HAL_UART_Transmit(&huart3, (uint8_t *)errMsg, strlen(errMsg), HAL_MAX_DELAY);
+            printf("Fail to send %ld to queue\r\n", (long)valueToSend);
         }
         vTaskDelay(pdMS_TO_TICKS(200)); // 200ms 대기
     }
@@ -67,9 +70,7 @@ static void receiveData( void *pvParameters )
         immediately remove any data that is written to the queue. */ 
         if( uxQueueMessagesWaiting( xQueue ) != 0 ) 
         { 
-           // const char *msg = "Queue should have been empty!\r\n";
-           // HAL_UART_Transmit( &huart3, ( uint8_t * ) msg, strlen( msg ), HAL_MAX_DELAY );
-            
+            printf("Queue should have been empty!\r\n");
         } 
  
         
@@ -77,16 +78,11 @@ static void receiveData( void *pvParameters )
  
         if( xStatus == pdPASS ) 
         { 
-          
-            char msg[64];
-            sprintf( msg, "Receive d = %ld\r\n", ( long ) lReceivedValue );
-            HAL_UART_Transmit( &huart3, ( uint8_t * ) msg, strlen( msg ), HAL_MAX_DELAY );
+            printf("Received value: %ld\r\n", (long)lReceivedValue);
         } 
         else 
         { 
-          
-            const char* failMsg = "Failed to receive from queue\r\n";
-            HAL_UART_Transmit( &huart3, ( uint8_t * ) failMsg, strlen( failMsg ), HAL_MAX_DELAY );
+            printf("Failed to receive from queue\r\n");
         } 
     } 
 } 
