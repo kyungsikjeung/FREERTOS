@@ -9,6 +9,8 @@
 #include "semphr.h"
 #include "timers.h"
 #include "event_groups.h"
+#include <string.h>
+#include <stdio.h>
 
 
 

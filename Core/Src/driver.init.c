@@ -11,7 +11,6 @@
 #include "driver_init.h"
 #include "main.h"
 #include <stdio.h>
-#include <sys/stat.h>
 
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart3;
@@ -52,16 +51,17 @@ void Driver_Init(void)
   USART3_UART_Init();
   USB_OTG_FS_PCD_Init();
   
-  // Test original HAL_UART_Transmit
-  printf("\e[1;1H\e[2J");
+  // Clear screen and print initialization message
+  printf("\x1B[1;1H\x1B[2J");  // Clear screen using standard escape sequence
   printf("----------MCU Driver Init----------\r\n");
   HAL_Delay(100);
   HAL_Delay(2000);
-  for(int i=0; i<300000; i++); // 간단한 딜레이
+  for(int i = 0; i < 300000; i++); // Simple delay loop
 }
 
 /**
-  * @brief System Clock Configuration
+  * @brief  시스템 클럭 설정
+  * @note   HSE 바이패스 모드, PLL 사용하여 168MHz 설정
   * @retval None
   */
 void SystemClock_Config(void)
@@ -69,14 +69,12 @@ void SystemClock_Config(void)
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /** Configure the main internal regulator output voltage
-  */
+  // Configure the main internal regulator output voltage
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
+  // Initializes the RCC Oscillators according to the specified parameters
+  // in the RCC_OscInitTypeDef structure.
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -90,8 +88,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 
-  /** Initializes the CPU, AHB and APB buses clocks
-  */
+  // Initializes the CPU, AHB and APB buses clocks
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
@@ -107,8 +104,8 @@ void SystemClock_Config(void)
 
 
 /**
-  * @brief USART3 Initialization Function
-  * @param None
+  * @brief  시리얼 통신을 위한 UART3 초기화
+  * @note   115200 baud, 8N1 설정
   * @retval None
   */
 static void USART3_UART_Init(void)
@@ -229,3 +226,4 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
+

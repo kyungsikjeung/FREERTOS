@@ -23,7 +23,7 @@ set(CMAKE_PROJECT_NAME TestRtos)
 
 # Set the main file to use (default: main)
 if(NOT DEFINED MAIN_FILE)
-    set(MAIN_FILE "eventhandlingqueue")
+    set(MAIN_FILE "autoreloadtimer")
 endif()
 message("Using main file: ${MAIN_FILE}.c")
 

@@ -1,233 +1,26 @@
-10:38:17.305 [TCP Task] Queue waiting: 0
-10:38:17.312 [TCP Task] Queue waiting: 0
-10:38:17.317 [TCP Task] Queue waiting: 0
-10:38:17.325 [TCP Task] Queue waiting: 0
-10:38:17.334 [TCP Task] Queue waiting: 0
-10:38:17.349 [TCP Task] Event received: 2
-10:38:17.357 Accepted socket id: 42
-10:38:17.368 [TCP Task] Queue waiting: 0
-10:38:17.376 [SEND] Accept Event Sent
-10:38:17.458 [TCP Task] Event received: 0
-10:38:17.461 Network down event received.
-10:38:17.464 [TCP Task] Queue waiting: 0
-10:38:17.474 [SEND] NetworkDown Event Sent
-10:38:17.482 [SIM] All events sent, task terminating
-10:38:18.465 [TCP Task] Queue waiting: 0
-10:38:19.467 [TCP Task] Queue waiting: 0
-10:38:20.469 [TCP Task] Queue waiting: 0
-10:38:20.845 [1;1H[2J----------MCU Driver Init----------
-10:38:22.972 [TCP Task] Task started
-10:38:22.976 [TCP Task] Queue waiting: 0
-10:38:23.978 [TCP Task] Queue waiting: 0
-10:38:24.976 test
-10:38:24.981 test
-10:38:24.986 test
-10:38:24.993 [SIM] Sending simulated events...
-10:38:24.998 [TCP Task] Event received: 1
-10:38:25.005 Received data: Hello from network!
-10:38:25.011 [TCP Task] Queue waiting: 0
-10:38:25.090 [TCP Task] Event received: 2
-10:38:25.093 Accepted socket id: 42
-10:38:25.096 [TCP Task] Queue waiting: 0
-10:38:25.101 [SEND] Accept Event Sent
-10:38:25.199 [TCP Task] Event received: 0
-10:38:25.201 Network down event received.
-10:38:25.205 [TCP Task] Queue waiting: 0
-10:38:25.213 [SEND] NetworkDown Event Sent
-10:38:25.220 [SIM] All events sent, task terminating
-10:38:26.206 [TCP Task] Queue waiting: 0
-10:38:27.208 [TCP Task] Queue waiting: 0
-10:38:28.210 [TCP Task] Queue waiting: 0
-10:38:29.212 [TCP Task] Queue waiting: 0
-10:38:30.214 [TCP Task] Queue waiting: 0
-10:38:31.215 [TCP Task] Queue waiting: 0
-10:38:32.218 [TCP Task] Queue waiting: 0
-10:38:33.219 [TCP Task] Queue waiting: 0
-10:38:34.222 [TCP Task] Queue waiting: 0
-10:38:35.224 [TCP Task] Queue waiting: 0
-10:38:36.225 [TCP Task] Queue waiting: 0
-10:38:37.228 [TCP Task] Queue waiting: 0
-10:38:38.229 [TCP Task] Queue waiting: 0
-10:38:39.232 [TCP Task] Queue waiting: 0
-10:38:40.234 [TCP Task] Queue waiting: 0
-10:38:41.235 [TCP Task] Queue waiting: 0
-10:38:42.237 [TCP Task] Queue waiting: 0
-10:38:43.240 [TCP Task] Queue waiting: 0
-10:38:44.242 [TCP Task] Queue waiting: 0
-10:38:45.244 [TCP Task] Queue waiting: 0
-10:38:46.246 [TCP Task] Queue waiting: 0
-10:38:47.248 [TCP Task] Queue waiting: 0
-10:38:48.249 [TCP Task] Queue waiting: 0
-10:38:49.252 [TCP Task] Queue waiting: 0
-10:38:50.254 [TCP Task] Queue waiting: 0
-10:38:51.256 [TCP Task] Queue waiting: 0
-10:38:52.258 [TCP Task] Queue waiting: 0
-10:38:53.260 [TCP Task] Queue waiting: 0
-10:38:54.262 [TCP Task] Queue waiting: 0
-10:38:55.264 [TCP Task] Queue waiting: 0
-10:38:56.266 [TCP Task] Queue waiting: 0
-10:38:57.268 [TCP Task] Queue waiting: 0
-10:38:58.270 [TCP Task] Queue waiting: 0
-10:38:59.272 [TCP Task] Queue waiting: 0
-10:39:00.274 [TCP Task] Queue waiting: 0
-10:39:01.276 [TCP Task] Queue waiting: 0
-10:39:02.278 [TCP Task] Queue waiting: 0
-10:39:03.280 [TCP Task] Queue waiting: 0
-10:39:04.282 [TCP Task] Queue waiting: 0
-10:39:05.284 [TCP Task] Queue waiting: 0
-10:39:06.286 [TCP Task] Queue waiting: 0
-10:39:07.289 [TCP Task] Queue waiting: 0
-10:39:08.290 [TCP Task] Queue waiting: 0
-10:39:09.291 [TCP Task] Queue waiting: 0
-10:39:10.294 [TCP Task] Queue waiting: 0
-10:39:11.296 [TCP Task] Queue waiting: 0
-10:39:12.297 [TCP Task] Queue waiting: 0
-10:39:13.300 [TCP Task] Queue waiting: 0
-10:39:14.302 [TCP Task] Queue waiting: 0
-10:39:15.304 [TCP Task] Queue waiting: 0
-10:39:16.306 [TCP Task] Queue waiting: 0
-10:39:17.308 [TCP Task] Queue waiting: 0
-10:39:18.310 [TCP Task] Queue waiting: 0
-10:39:19.312 [TCP Task] Queue waiting: 0
-10:39:20.314 [TCP Task] Queue waiting: 0
-10:39:21.315 [TCP Task] Queue waiting: 0
-10:39:22.318 [TCP Task] Queue waiting: 0
-10:39:23.320 [TCP Task] Queue waiting: 0
-10:39:24.322 [TCP Task] Queue waiting: 0
-10:39:25.325 [TCP Task] Queue waiting: 0
-10:39:26.326 [TCP Task] Queue waiting: 0
-10:39:27.328 [TCP Task] Queue waiting: 0
-10:39:28.330 [TCP Task] Queue waiting: 0
-10:39:29.332 [TCP Task] Queue waiting: 0
-10:39:30.334 [TCP Task] Queue waiting: 0
-10:39:31.336 [TCP Task] Queue waiting: 0
-10:39:32.338 [TCP Task] Queue waiting: 0
-10:39:33.340 [TCP Task] Queue waiting: 0
-10:39:34.342 [TCP Task] Queue waiting: 0
-10:39:35.344 [TCP Task] Queue waiting: 0
-10:39:36.346 [TCP Task] Queue waiting: 0
-10:39:37.348 [TCP Task] Queue waiting: 0
-10:39:38.350 [TCP Task] Queue waiting: 0
-10:39:39.352 [TCP Task] Queue waiting: 0
-10:39:40.354 [TCP Task] Queue waiting: 0
-10:39:41.356 [TCP Task] Queue waiting: 0
-10:39:42.358 [TCP Task] Queue waiting: 0
-10:39:43.359 [TCP Task] Queue waiting: 0
-10:39:44.362 [TCP Task] Queue waiting: 0
-10:39:45.364 [TCP Task] Queue waiting: 0
-10:39:46.366 [TCP Task] Queue waiting: 0
-10:39:47.368 [TCP Task] Queue waiting: 0
-10:39:48.370 [TCP Task] Queue waiting: 0
-10:39:49.372 [TCP Task] Queue waiting: 0
-10:39:50.374 [TCP Task] Queue waiting: 0
-10:39:51.376 [TCP Task] Queue waiting: 0
-10:39:52.378 [TCP Task] Queue waiting: 0
-10:39:53.380 [TCP Task] Queue waiting: 0
-10:39:54.382 [TCP Task] Queue waiting: 0
-10:39:55.384 [TCP Task] Queue waiting: 0
-10:39:56.386 [TCP Task] Queue waiting: 0
-10:39:57.388 [TCP Task] Queue waiting: 0
-10:39:58.391 [TCP Task] Queue waiting: 0
-10:39:59.392 [TCP Task] Queue waiting: 0
-10:40:00.394 [TCP Task] Queue waiting: 0
-10:40:01.396 [TCP Task] Queue waiting: 0
-10:40:02.398 [TCP Task] Queue waiting: 0
-10:40:03.400 [TCP Task] Queue waiting: 0
-10:40:04.402 [TCP Task] Queue waiting: 0
-10:40:05.405 [TCP Task] Queue waiting: 0
-10:40:06.406 [TCP Task] Queue waiting: 0
-10:40:07.408 [TCP Task] Queue waiting: 0
-10:40:08.410 [TCP Task] Queue waiting: 0
-10:40:09.412 [TCP Task] Queue waiting: 0
-10:40:10.414 [TCP Task] Queue waiting: 0
-10:40:11.416 [TCP Task] Queue waiting: 0
-10:40:12.417 [TCP Task] Queue waiting: 0
-10:40:13.420 [TCP Task] Queue waiting: 0
-10:40:14.422 [TCP Task] Queue waiting: 0
-10:40:15.424 [TCP Task] Queue waiting: 0
-10:40:16.426 [TCP Task] Queue waiting: 0
-10:40:17.428 [TCP Task] Queue waiting: 0
-10:40:18.430 [TCP Task] Queue waiting: 0
-10:40:19.432 [TCP Task] Queue waiting: 0
-10:40:20.434 [TCP Task] Queue waiting: 0
-10:40:21.436 [TCP Task] Queue waiting: 0
-10:40:22.438 [TCP Task] Queue waiting: 0
-10:40:23.440 [TCP Task] Queue waiting: 0
-10:40:24.442 [TCP Task] Queue waiting: 0
-10:40:25.444 [TCP Task] Queue waiting: 0
-10:40:26.446 [TCP Task] Queue waiting: 0
-10:40:27.448 [TCP Task] Queue waiting: 0
-10:40:28.450 [TCP Task] Queue waiting: 0
-10:40:29.452 [TCP Task] Queue waiting: 0
-10:40:30.454 [TCP Task] Queue waiting: 0
-10:40:31.456 [TCP Task] Queue waiting: 0
-10:40:32.458 [TCP Task] Queue waiting: 0
-10:40:33.460 [TCP Task] Queue waiting: 0
-10:40:34.462 [TCP Task] Queue waiting: 0
-10:40:35.464 [TCP Task] Queue waiting: 0
-10:40:36.466 [TCP Task] Queue waiting: 0
-10:40:37.468 [TCP Task] Queue waiting: 0
-10:40:38.470 [TCP Task] Queue waiting: 0
-10:40:39.471 [TCP Task] Queue waiting: 0
-10:40:40.474 [TCP Task] Queue waiting: 0
-10:40:41.476 [TCP Task] Queue waiting: 0
-10:40:42.478 [TCP Task] Queue waiting: 0
-10:40:43.480 [TCP Task] Queue waiting: 0
-10:40:44.482 [TCP Task] Queue waiting: 0
-10:40:45.484 [TCP Task] Queue waiting: 0
-10:40:46.486 [TCP Task] Queue waiting: 0
-10:40:47.488 [TCP Task] Queue waiting: 0
-10:40:48.490 [TCP Task] Queue waiting: 0
-10:40:49.492 [TCP Task] Queue waiting: 0
-10:40:50.494 [TCP Task] Queue waiting: 0
-10:40:51.496 [TCP Task] Queue waiting: 0
-10:40:52.498 [TCP Task] Queue waiting: 0
-10:40:53.500 [TCP Task] Queue waiting: 0
-10:40:54.502 [TCP Task] Queue waiting: 0
-10:40:55.504 [TCP Task] Queue waiting: 0
-10:40:56.506 [TCP Task] Queue waiting: 0
-10:40:57.507 [TCP Task] Queue waiting: 0
-10:40:58.510 [TCP Task] Queue waiting: 0
-10:40:59.512 [TCP Task] Queue waiting: 0
-10:41:00.514 [TCP Task] Queue waiting: 0
-10:41:01.516 [TCP Task] Queue waiting: 0
-10:41:02.517 [TCP Task] Queue waiting: 0
-10:41:03.520 [TCP Task] Queue waiting: 0
-10:41:04.522 [TCP Task] Queue waiting: 0
-10:41:05.524 [TCP Task] Queue waiting: 0
-10:41:06.526 [TCP Task] Queue waiting: 0
-10:41:07.528 [TCP Task] Queue waiting: 0
-10:41:08.530 [TCP Task] Queue waiting: 0
-10:41:09.532 [TCP Task] Queue waiting: 0
-10:41:10.534 [TCP Task] Queue waiting: 0
-10:41:11.536 [TCP Task] Queue waiting: 0
-10:41:12.538 [TCP Task] Queue waiting: 0
-10:41:13.541 [TCP Task] Queue waiting: 0
-10:41:14.541 [TCP Task] Queue waiting: 0
-10:41:15.544 [TCP Task] Queue waiting: 0
-10:41:16.546 [TCP Task] Queue waiting: 0
-10:41:17.548 [TCP Task] Queue waiting: 0
-10:41:18.550 [TCP Task] Queue waiting: 0
-10:41:19.552 [TCP Task] Queue waiting: 0
-10:41:20.554 [TCP Task] Queue waiting: 0
-10:41:21.556 [TCP Task] Queue waiting: 0
-10:41:22.558 [TCP Task] Queue waiting: 0
-10:41:23.560 [TCP Task] Queue waiting: 0
-10:41:24.562 [TCP Task] Queue waiting: 0
-10:41:25.564 [TCP Task] Queue waiting: 0
-10:41:26.568 [TCP Task] Queue waiting: 0
-10:41:27.570 [TCP Task] Queue waiting: 0
-10:41:28.571 [TCP Task] Queue waiting: 0
-10:41:29.573 [TCP Task] Queue waiting: 0
-10:41:30.575 [TCP Task] Queue waiting: 0
-10:41:31.577 [TCP Task] Queue waiting: 0
-10:41:32.579 [TCP Task] Queue waiting: 0
-10:41:33.581 [TCP Task] Queue waiting: 0
-10:41:34.582 [TCP Task] Queue waiting: 0
-10:41:35.585 [TCP Task] Queue waiting: 0
-10:41:36.587 [TCP Task] Queue waiting: 0
-10:41:37.589 [TCP Task] Queue waiting: 0
-10:41:38.591 [TCP Task] Queue waiting: 0
-10:41:39.593 [TCP Task] Queue waiting: 0
-10:41:40.595 [TCP Task] Queue waiting: 0
-10:41:41.597 [TCP Task] Queue waiting: 0
+14:38:58.011 Received value: 35 (TickAuto-reload timer callback executed at tick: 5000
+14:39:00.611 One-shot timer callback executed at tick: 7600
+14:39:03.012 Auto-reload timer callback executed at tick: 10000
+14:39:08.012 Auto-reload timer callback executed at tick: 15000
+14:39:13.012 Auto-reload timer callback executed at tick: 20000
+14:39:18.012 Auto-reload timer callback executed at tick: 25000
+14:39:23.012 Auto-reload timer callback executed at tick: 30000
+14:39:28.011 Auto-reload timer callback executed at tick: 35000
+14:39:33.012 Auto-reload timer callback executed at tick: 40000
+14:39:38.013 Auto-reload timer callback executed at tick: 45000
+14:39:43.011 Auto-reload timer callback executed at tick: 50000
+14:39:48.012 Auto-reload timer callback executed at tick: 55000
+14:39:53.013 Auto-reload timer callback executed at tick: 60000
+14:39:58.012 Auto-reload timer callback executed at tick: 65000
+14:40:03.012 Auto-reload timer callback executed at tick: 70000
+14:40:08.012 Auto-reload timer callback executed at tick: 75000
+14:40:13.013 Auto-reload timer callback executed at tick: 80000
+14:40:18.011 Auto-reload timer callback executed at tick: 85000
+14:40:23.011 Auto-reload timer callback executed at tick: 90000
+14:40:28.011 Auto-reload timer callback executed at tick: 95000
+14:40:33.012 Auto-reload timer callback executed at tick: 100000
+14:40:38.013 Auto-reload timer callback executed at tick: 105000
+14:40:43.013 Auto-reload timer callback executed at tick: 110000
+14:40:48.012 Auto-reload timer callback executed at tick: 115000
+14:40:53.012 Auto-reload timer callback executed at tick: 120000
+14:40:58.013 Auto-reload timer callback executed at tick: 125000

@@ -1,4 +1,4 @@
-/* USER CODE BEGIN Header */
+
 /**
   ******************************************************************************
   * @file           : blockingqueue.c
@@ -9,10 +9,9 @@
   * @details         :수신자가 모든 데이터를 순차적으로 수신하고, 큐가 가득 차면 송신자는 대기하거나 실패
   ******************************************************************************
   */
-/* USER CODE END Header */
-
 #include "main.h"
 #include "driver_init.h"
+
 QueueHandle_t xQueue;
 
 static void sendData(void *pvParameters);
