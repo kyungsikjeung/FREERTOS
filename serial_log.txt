@@ -1,26 +1,65 @@
-14:38:58.011 Received value: 35 (TickAuto-reload timer callback executed at tick: 5000
-14:39:00.611 One-shot timer callback executed at tick: 7600
-14:39:03.012 Auto-reload timer callback executed at tick: 10000
-14:39:08.012 Auto-reload timer callback executed at tick: 15000
-14:39:13.012 Auto-reload timer callback executed at tick: 20000
-14:39:18.012 Auto-reload timer callback executed at tick: 25000
-14:39:23.012 Auto-reload timer callback executed at tick: 30000
-14:39:28.011 Auto-reload timer callback executed at tick: 35000
-14:39:33.012 Auto-reload timer callback executed at tick: 40000
-14:39:38.013 Auto-reload timer callback executed at tick: 45000
-14:39:43.011 Auto-reload timer callback executed at tick: 50000
-14:39:48.012 Auto-reload timer callback executed at tick: 55000
-14:39:53.013 Auto-reload timer callback executed at tick: 60000
-14:39:58.012 Auto-reload timer callback executed at tick: 65000
-14:40:03.012 Auto-reload timer callback executed at tick: 70000
-14:40:08.012 Auto-reload timer callback executed at tick: 75000
-14:40:13.013 Auto-reload timer callback executed at tick: 80000
-14:40:18.011 Auto-reload timer callback executed at tick: 85000
-14:40:23.011 Auto-reload timer callback executed at tick: 90000
-14:40:28.011 Auto-reload timer callback executed at tick: 95000
-14:40:33.012 Auto-reload timer callback executed at tick: 100000
-14:40:38.013 Auto-reload timer callback executed at tick: 105000
-14:40:43.013 Auto-reload timer callback executed at tick: 110000
-14:40:48.012 Auto-reload timer callback executed at tick: 115000
-14:40:53.012 Auto-reload timer callback executed at tick: 120000
-14:40:58.013 Auto-reload timer callback executed at tick: 125000
+16:04:52.701 [1;1H[2J----------MCU Driver Init----------
+16:04:52.708 hello world
+16:04:52.711 hello world
+16:04:53.623 hello world
+16:04:54.623 hello world
+16:04:55.623 hello world
+16:04:56.623 hello world
+16:04:58.624 hello world
+16:05:00.625 hello world
+16:05:02.625 hello world
+16:05:04.624 hello world
+16:05:06.625 hello world
+16:05:08.625 hello world
+16:05:10.624 hello world
+16:05:12.624 hello world
+16:05:14.624 hello world
+16:05:16.624 hello world
+16:05:18.624 hello world
+16:05:20.624 hello world
+16:05:22.624 hello world
+16:05:24.624 hello world
+16:05:26.624 hello world
+16:05:28.625 hello world
+16:05:30.625 hello world
+16:05:32.625 hello world
+16:05:32.929 [1;1H[2J----------MCU Driver Init----------
+16:05:36.057 hello world
+16:05:37.057 hello world
+16:05:38.057 hello world
+16:05:39.057 hello world
+16:05:40.057 hello world
+16:05:41.057 hello world
+16:05:43.058 hello world
+16:05:45.058 hello world
+16:05:47.058 hello world
+16:05:49.058 hello world
+16:05:51.059 hello world
+16:05:53.058 hello world
+16:05:55.059 hello world
+16:05:57.058 hello world
+16:05:59.058 hello world
+16:06:01.058 hello world
+16:06:03.059 hello world
+16:06:05.058 hello world
+16:06:07.058 hello world
+16:06:09.058 hello world
+16:06:11.058 hello world
+16:06:13.059 hello world
+16:06:15.058 hello world
+16:06:17.058 hello world
+16:06:19.058 hello world
+16:06:21.059 hello world
+16:06:23.058 hello world
+16:06:25.059 hello world
+16:06:27.058 hello world
+16:06:29.058 hello world
+16:06:31.058 hello world
+16:06:33.058 hello world
+16:06:35.058 hello world
+16:06:37.059 hello world
+16:06:39.059 hello world
+16:06:41.058 hello world
+16:06:43.059 hello world
+16:06:45.059 hello world
+16:06:47.058 hello world
