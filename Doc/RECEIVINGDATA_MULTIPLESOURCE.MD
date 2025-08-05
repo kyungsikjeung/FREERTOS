@@ -8,11 +8,117 @@
 
 이 예제에서는 세 개의 송신 태스크가 각각 다른 소스로부터의 데이터를 큐에 보내고, 하나의 수신 태스크가 이 값들을 받아서 소스에 따라 구분하여 처리하는 과정을 보여줍니다.
 
+
+
 ## 2. Code Description (코드 설명)
 
 ![FreeRTOS Queue Multiple Sources Diagram](./images/multiplesource.png)
 
 *Figure 1: FreeRTOS Queue를 사용한 다중 소스 데이터 수신 구조도*
+
+
+## 3. 다이어그램
+
+```plantuml
+@startuml
+title [multiple source] FreeRTOS Queue 
+
+|main()|
+start
+:Driver_Init();
+:create xQueue (size 4);
+:create sendTask1 (&dataToSend[0]);
+:create sendTask2 (&dataToSend[1]);
+:create sendTask3 (&dataToSend[2]);
+:create receiveTask();
+:vTaskStartScheduler();
+stop
+
+|sendTask1()|
+start
+:Copy &dataToSend[0] to local sendDataPointer;
+:sendDataPointer.uxValue = 111;
+repeat
+  :xQueueSendToBack(xQueue, &sendDataPointer);
+  :vTaskDelay(200ms);
+repeat while (true)
+stop
+
+|sendTask2()|
+start
+:Copy &dataToSend[1] to local sendDataPointer;
+:sendDataPointer.uxValue = 222;
+repeat
+  :xQueueSendToBack(xQueue, &sendDataPointer);
+  :vTaskDelay(200ms);
+repeat while (true)
+stop
+
+|sendTask3()|
+start
+:Copy &dataToSend[2] to local sendDataPointer;
+:sendDataPointer.uxValue = 333;
+repeat
+  :xQueueSendToBack(xQueue, &sendDataPointer);
+  :vTaskDelay(200ms);
+repeat while (true)
+stop
+
+|receiveTask()|
+start
+repeat
+  if (uxQueueMessagesWaiting(xQueue) != 3) then (true)
+    :UART: "Queue should have been empty!";
+  endif
+  if (xQueueReceive(xQueue, &receivedData)) then (success)
+    :sprintf(msg, receivedData info);
+    :UART: print received msg;
+  else
+    :UART: "Failed to receive data";
+  endif
+repeat while (true)
+stop
+
+@enduml
+```
+
+## class Diagram
+```plantuml
+@startuml
+title FreeRTOS Task Function 구조 (send/receive 기반)
+
+class "sendData_t" {
+  + DataSource_t source
+  + uint32_t uxValue
+}
+
+enum DataSource_t {
+  SOURCE_HMI
+  SOURCE_CAN
+  SOURCE_ANOTHER
+}
+
+class TaskFunctions {
+  + void sendTask1(void*)
+  + void sendTask2(void*)
+  + void sendTask3(void*)
+  + void receiveTask(void*)
+}
+
+class Queue {
+  + xQueueCreate()
+  + xQueueSendToBack()
+  + xQueueReceive()
+}
+
+' 관계 설정
+TaskFunctions --> Queue : uses Queue API
+TaskFunctions --> sendData_t : sends and receives data
+sendData_t --> DataSource_t : has source field
+
+@enduml
+```
+
 
 
 - **`DataSource_t` (데이터 소스 열거형)**

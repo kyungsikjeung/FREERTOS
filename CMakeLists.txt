@@ -23,7 +23,7 @@ set(CMAKE_PROJECT_NAME TestRtos)
 
 # Set the main file to use (default: main)
 if(NOT DEFINED MAIN_FILE)
-    set(MAIN_FILE "timerperiodchange")
+    set(MAIN_FILE "test")
 endif()
 message("Using main file: ${MAIN_FILE}.c")
 
@@ -59,6 +59,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
+    Core/Inc 
 )
 
 # Add project symbols (macros)

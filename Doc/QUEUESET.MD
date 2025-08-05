@@ -8,6 +8,53 @@
 
 이 예제에서는 두 개의 송신 태스크가 각각 다른 큐에 메시지를 보내고, 하나의 수신 태스크가 큐 세트를 통해 두 큐 중 어느 곳에서든 데이터가 오기를 기다렸다가 처리하는 과정을 보여줍니다.
 
+
+```plantuml
+
+@startuml
+|main()|
+start
+:Driver_Init();
+:create xQueue1;
+:create xQueue2;
+:create xQueueSet;
+:add xQueue1 to xQueueSet;
+:add xQueue2 to xQueueSet;
+:create vSenderTask1;
+:create vSenderTask2;
+:create vReceiverTask;
+:vTaskStartScheduler();
+stop
+
+|vSenderTask1()|
+start
+repeat
+  :delay(100ms);
+  :Send "Message from vSenderTask1"\nto xQueue1;
+repeat while (true)
+stop
+
+|vSenderTask2()|
+start
+repeat
+  :delay(100ms);
+  :Send "test hello world"\nto xQueue2;
+repeat while (true)
+stop
+
+|vReceiverTask()|
+start
+repeat
+  :xQueueSelectFromSet(xQueueSet);
+  :xQueueReceive(from selected queue);
+  :printf(received message);
+repeat while (true)
+stop
+@enduml
+
+
+```
+
 ## 2. Code Description (코드 설명)
 
 - **`vSenderTask1(void *pvParameters)`**

@@ -21,7 +21,8 @@
         "stat.h": "c",
         "stm32f4xx_hal.h": "c",
         "queue.h": "c",
-        "freertos.h": "c"
+        "freertos.h": "c",
+        "semphr.h": "c"
     },
     "workbench.iconTheme": "fira-code-material-minimal",
     "editor.fontFamily": "fira-code-nerd, FiraCode Nerd Font, Consolas, 'Courier New', monospace",

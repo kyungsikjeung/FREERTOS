@@ -21,6 +21,7 @@ if (-not $appendLog -and (Test-Path $logFile)) {
 
 # 시리얼 포트 열기
 $port = New-Object System.IO.Ports.SerialPort $portName, $baudRate, "None", 8, "One"
+$port.Encoding = [System.Text.Encoding]::UTF8
 $port.Open()
 
 Write-Host "`n[INFO] Listening on $portName at $baudRate baud..." -ForegroundColor Green
