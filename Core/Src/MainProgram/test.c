@@ -1,52 +1,62 @@
 #include "main.h"
 #include "driver_init.h"
+#include "string.h"     // for memcpy, memcmp
 
-void vPeriodicTask(void *pvParameters);
-static void vDeferredHandlingFunction(void *pvParam1, uint32_t ulParam2);
-static uint32_t ulParamCounter = 0;
+/* 공유 배열 (Race Condition 실험 대상) */
+volatile uint8_t shared[4] = {0};
 
-void EXTI15_10_IRQHandler(void)
+/* 기준값 */
+const uint8_t expected1[4] = {0xAA, 0xAA, 0xAA, 0xAA};
+const uint8_t expected2[4] = {0x55, 0x55, 0x55, 0x55};
+
+/* Writer Task (의도적 커럽션 유도) */
+void vTask1(void *pvParameters)
 {
-    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-
-    xTimerPendFunctionCallFromISR(
-        vDeferredHandlingFunction, // 실행할 함수
-        NULL,                      // 파라미터 1 (사용 안 함)
-        ulParamCounter++,          // 파라미터 2 (카운터 증가)
-        &xHigherPriorityTaskWoken  // 우선순위 전환 요청
-    );
-
-    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-    __HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_13); // 예: 버튼 인터럽트 클리어
-}
-
-static void vDeferredHandlingFunction(void *pvParam1, uint32_t ulParam2)
-{
-    printf("🟢 인터럽트 처리 위임됨: Param = %lu\r\n", ulParam2);
-}
-
-void vPeriodicTask(void *pvParameters)
-{
-    
     while (1)
     {
-        printf("🔁 Periodic Task 실행 중...\r\n");
-        HAL_NVIC_SetPendingIRQ(EXTI15_10_IRQn); // 인터럽트 발생
-        vTaskDelay(pdMS_TO_TICKS(500)); // 500ms 대기
+
+        
+        memcpy((void *)shared, expected1, 4);  // 비원자적 복사
+        taskYIELD(); 
+        
+        // 빠른 루프로 충돌 가능성 증가
+    }
+}
+
+/* Reader Task (중간 상태까지 포함해서 감지) */
+void vTask2(void *pvParameters)
+{
+    uint8_t temp[4];  // 로컬 복사 버퍼
+
+    while (1)
+    {
+        memcpy(temp, (const void *)shared, 4);  // 일관성 있는 순간 값 확보
+        // 만약 복사된 temp값이 {0x11, 0x22, 0x33, 0x44} 혹은 {0x44, 0x33, 0x22, 0x11}; 둘중 하나가 아니라면
+
+        if (memcmp(temp, expected1, 4) != 0 && memcmp(temp, expected2, 4) != 0){
+            printf("❌ FAULT DETECTED: shared = {%02X %02X %02X %02X}\n",
+                   temp[0], temp[1], temp[2], temp[3]);
+        }
+        else
+        {
+            printf("🟢 shared OK: {%02X %02X %02X %02X}\n",
+                   temp[0], temp[1], temp[2], temp[3]);
+        }
+        taskYIELD(); 
     }
 }
 
 int main(void)
 {
-    Driver_Init();
-    HAL_NVIC_SetPriority(EXTI15_10_IRQn, 5, 0);
-    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);  // 💡 반드시 있어야 함!    
+    Driver_Init();  // UART 등 주변 장치 초기화
 
-    const UBaseType_t ulPeriodicTaskPriority = configTIMER_TASK_PRIORITY - 1;
+    // Task 생성
+    xTaskCreate(vTask1, "Writer", 256, NULL, 1, NULL);
+    xTaskCreate(vTask2, "Reader", 256, NULL, 1, NULL);
 
-    xTaskCreate(vPeriodicTask, "Periodic", 512, NULL, ulPeriodicTaskPriority, NULL);
-
+    // FreeRTOS 스케줄러 시작
     vTaskStartScheduler();
 
+    // 도달하지 않음
     while (1);
 }
