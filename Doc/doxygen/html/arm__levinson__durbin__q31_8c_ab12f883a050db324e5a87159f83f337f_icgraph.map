@@ -1,8 +1,0 @@
-<map id="mul32x32" name="mul32x32">
-<area shape="rect" id="Node000001" title=" " alt="" coords="325,5,402,32"/>
-<area shape="rect" id="Node000002" href="$group___l_d.html#ga62b3cbd165b27673f5c17a6e72697e76" title="Levinson Durbin." alt="" coords="5,5,174,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="310,21,174,21,174,16,310,16"/>
-<area shape="rect" id="Node000003" href="$arm__levinson__durbin__q31_8c.html#a23311be79a9c610acae9e3fae494bda1" title=" " alt="" coords="222,31,277,57"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="310,33,278,41,277,35,309,28"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="206,40,174,35,175,29,207,35"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="arm_nn_requantize" name="arm_nn_requantize">
-<area shape="rect" id="Node000001" title="Requantize a given value." alt="" coords="5,47,137,73"/>
-<area shape="rect" id="Node000002" href="$arm__nnsupportfunctions_8h.html#ab6dbc2fd53fae3ccdd1d0d70c8d3b491" title="Rounding divide by power of two." alt="" coords="185,5,353,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,46,168,41,169,46,138,52"/>
-<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#a4e5183e2400227aafc91fb796fe99a6d" title="Doubling high multiply without saturation. This is intended for requantization where the scale is a p..." alt="" coords="194,72,344,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,68,179,75,178,81,137,74"/>
-</map>

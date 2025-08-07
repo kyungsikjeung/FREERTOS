@@ -1,5 +1,0 @@
-<map id="arm_nn_vec_mat_mult_t_svdf_s8" name="arm_nn_vec_mat_mult_t_svdf_s8">
-<area shape="rect" id="Node000001" title="s8 Vector by Matrix (transposed) multiplication with s16 output" alt="" coords="214,5,367,48"/>
-<area shape="rect" id="Node000002" href="$group___s_v_d_f.html#ga3dc1b94f56e80e5b80b353ce8d9650b3" title="s8 SVDF function with 16 bit state tensor and 16 bit time weights" alt="" coords="5,13,166,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,29,166,29,166,24,198,24"/>
-</map>

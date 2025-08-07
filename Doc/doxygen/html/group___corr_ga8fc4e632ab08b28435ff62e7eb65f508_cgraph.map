@@ -1,9 +1,0 @@
-<map id="arm_correlate_q15" name="arm_correlate_q15">
-<area shape="rect" id="Node000001" title="Correlation of Q15 sequences." alt="" coords="5,56,134,83"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#af106137a5a4291961cda38d4dde8b99e" title=" " alt="" coords="186,5,274,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,53,170,35,172,40,115,58"/>
-<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#a57ee26084e2ed2c0f79586365cd7162e" title=" " alt="" coords="182,56,279,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,67,166,67,166,72,134,72"/>
-<area shape="rect" id="Node000004" href="$arm__math__memory_8h.html#ae084f8384b189a05eca804768a5f6bc0" title="Read 2 Q15 from Q15 pointer." alt="" coords="186,107,274,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="115,81,172,99,170,104,114,86"/>
-</map>

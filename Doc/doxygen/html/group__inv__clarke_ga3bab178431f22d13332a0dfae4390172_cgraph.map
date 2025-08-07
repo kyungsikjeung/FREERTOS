@@ -1,5 +1,0 @@
-<map id="arm_inv_clarke_q31" name="arm_inv_clarke_q31">
-<area shape="rect" id="Node000001" title="Inverse Clarke transform for Q31 version." alt="" coords="5,5,143,32"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a11e5ff95c57c57fe6ec151d7efc42a28" title=" " alt="" coords="191,5,264,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,16,175,16,175,21,143,21"/>
-</map>

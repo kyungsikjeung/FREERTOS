@@ -1,5 +1,0 @@
-<map id="arm_rfft_instance_q15" name="arm_rfft_instance_q15">
-<area shape="rect" id="Node000001" title="Instance structure for the Q15 RFFT/RIFFT function." alt="" coords="7,211,146,387"/>
-<area shape="rect" id="Node000002" href="$structarm__cfft__instance__q15.html" title="Instance structure for the fixed&#45;point CFFT/CIFFT function." alt="" coords="5,5,147,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,138,79,194,74,194,74,138"/>
-</map>

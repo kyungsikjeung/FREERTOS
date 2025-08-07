@@ -1,5 +1,0 @@
-<map id="arm_convolve_1_x_n_s8" name="arm_convolve_1_x_n_s8">
-<area shape="rect" id="Node000001" title="1xn convolution" alt="" coords="230,5,395,32"/>
-<area shape="rect" id="Node000002" href="$group___n_n_conv.html#ga5ac772a94937e1efdab145a2ab4c0927" title="s8 convolution layer wrapper function with the main purpose to call the optimal kernel available in c..." alt="" coords="5,5,182,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,21,182,21,182,16,214,16"/>
-</map>

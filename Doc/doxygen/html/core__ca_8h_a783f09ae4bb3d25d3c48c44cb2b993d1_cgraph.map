@@ -1,7 +1,0 @@
-<map id="L1C_DisableCaches" name="L1C_DisableCaches">
-<area shape="rect" id="Node000001" title="Disable Caches by clearing I and C bits in SCTLR register." alt="" coords="5,31,147,57"/>
-<area shape="rect" id="Node000002" href="$cmsis__cp15_8h.html#aac39aa8fb2af1b18e51b391e87f30f30" title="Get SCTLR." alt="" coords="195,5,299,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,31,179,26,179,31,148,36"/>
-<area shape="rect" id="Node000003" href="$cmsis__cp15_8h.html#a0db9cfa3b54a4d28d3d3a4e6cfd564c9" title="Set SCTLR." alt="" coords="195,56,299,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,52,179,57,179,62,147,57"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="arm_copy_q7" name="arm_copy_q7">
-<area shape="rect" id="Node000001" title="Copies the elements of a Q7 vector." alt="" coords="5,5,105,32"/>
-<area shape="rect" id="Node000002" href="$arm__math__memory_8h.html#a05bde59a4c7dd866d0a2e3e6fcac17bd" title="Write 4 Q7 to Q7 pointer and increment pointer afterwards." alt="" coords="153,5,254,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,16,137,16,137,21,105,21"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="arm_exponent_f32" name="arm_exponent_f32">
-<area shape="rect" id="Node000001" title="Integer exponentiation." alt="" coords="295,13,423,40"/>
-<area shape="rect" id="Node000002" href="$group__polysvm.html#ga5719f32544ecc1b568aaba7f5d237df8" title="SVM polynomial prediction." alt="" coords="103,5,247,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="280,29,247,29,247,24,280,24"/>
-<area shape="rect" id="Node000003" href="$arm__svm__example__f32_8c.html#a52d2cba30e6946c95578be946ac12a65" title=" " alt="" coords="5,13,55,40"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
-</map>

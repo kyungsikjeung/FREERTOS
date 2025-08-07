@@ -1,5 +1,0 @@
-<map id="arm_fill_q15" name="arm_fill_q15">
-<area shape="rect" id="Node000001" title="Fills a constant value into a Q15 vector." alt="" coords="5,5,97,32"/>
-<area shape="rect" id="Node000002" href="$arm__math__memory_8h.html#a576a0e2a4667277b42c478dfda753dc6" title="Write 2 Q15 to Q15 pointer and increment pointer afterwards." alt="" coords="145,5,253,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,16,129,16,129,21,97,21"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="arm_mat_trans_q15" name="arm_mat_trans_q15">
-<area shape="rect" id="Node000001" title="Q15 matrix transpose." alt="" coords="186,5,322,32"/>
-<area shape="rect" id="Node000002" href="$group___matrix_mult.html#ga7521d59196189bb6dde26e8cdfb66e21" title="Q15 matrix multiplication." alt="" coords="5,5,138,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,21,138,21,138,16,170,16"/>
-</map>

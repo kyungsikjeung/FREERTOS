@@ -1,5 +1,0 @@
-<map id="arm_power_q15" name="arm_power_q15">
-<area shape="rect" id="Node000001" title="Sum of the squares of the elements of a Q15 vector." alt="" coords="5,5,119,32"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#af106137a5a4291961cda38d4dde8b99e" title=" " alt="" coords="167,5,255,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,16,151,16,151,21,119,21"/>
-</map>

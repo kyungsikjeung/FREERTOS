@@ -1,7 +1,0 @@
-<map id="arm_q7_to_q15_with_offset" name="arm_q7_to_q15_with_offset">
-<area shape="rect" id="Node000001" title="Converts the elements from a q7 vector to a q15 vector with an added offset." alt="" coords="5,23,147,65"/>
-<area shape="rect" id="Node000002" href="$arm__nnsupportfunctions_8h.html#ac9f7be20432a6926ac07c1f44b1b02fe" title="Read 4 q7 from q7 pointer and post increment pointer." alt="" coords="200,5,348,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,32,184,27,185,33,148,38"/>
-<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#a9477fb2f82284ac4fe20b2efb721f5f5" title="Write 2 q15 elements and post increment pointer." alt="" coords="195,56,353,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,50,179,55,179,60,147,56"/>
-</map>

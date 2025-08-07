@@ -1,5 +1,0 @@
-<map id="arm_clarke_q31" name="arm_clarke_q31">
-<area shape="rect" id="Node000001" title="Clarke transform for Q31 version." alt="" coords="5,5,119,32"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#ad92ce801e7aab7ef1bd2698cb523c1de" title=" " alt="" coords="167,5,241,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,16,151,16,151,21,119,21"/>
-</map>

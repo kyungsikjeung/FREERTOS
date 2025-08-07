@@ -1,7 +1,0 @@
-<map id="RTC_HandleTypeDef" name="RTC_HandleTypeDef">
-<area shape="rect" id="Node000001" title="RTC Handle Structure definition." alt="" coords="59,360,193,451"/>
-<area shape="rect" id="Node000002" href="$struct_r_t_c___type_def.html" title="Real&#45;Time Clock." alt="" coords="5,5,113,288"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,287,100,335,102,343,97,345,95,337,82,289"/>
-<area shape="rect" id="Node000003" href="$struct_r_t_c___init_type_def.html" title="RTC Configuration Structure definition." alt="" coords="137,59,248,235"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,235,180,286,166,337,163,345,158,343,161,335,174,285,183,234"/>
-</map>

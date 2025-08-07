@@ -1,5 +1,0 @@
-<map id="arm_avgpool_s8_get_buffer_size" name="arm_avgpool_s8_get_buffer_size">
-<area shape="rect" id="Node000001" title="Get the required buffer size for S8 average pooling function." alt="" coords="170,5,311,48"/>
-<area shape="rect" id="Node000002" href="$group___pooling.html#gafa69cdb8a711ddef477d330204fa412c" title="s8 average pooling function." alt="" coords="5,13,122,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,29,122,29,122,24,154,24"/>
-</map>

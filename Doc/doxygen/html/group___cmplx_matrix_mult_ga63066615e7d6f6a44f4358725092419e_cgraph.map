@@ -1,9 +1,0 @@
-<map id="arm_mat_cmplx_mult_q15" name="arm_mat_cmplx_mult_q15">
-<area shape="rect" id="Node000001" title="Q15 Complex matrix multiplication." alt="" coords="5,56,180,83"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a9215b4f225a84b9ac6b2929e27e90841" title=" " alt="" coords="228,5,321,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,53,212,33,214,38,144,58"/>
-<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#aa1329f9b751075ccb5a0753f3659739e" title=" " alt="" coords="232,56,316,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,67,216,67,216,72,180,72"/>
-<area shape="rect" id="Node000004" href="$arm__math__memory_8h.html#a1c6d46f43d41c6ca1b7d6a0d8ed95036" title="Write 2 Q15 to Q15 pointer." alt="" coords="229,107,320,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="144,81,214,101,213,106,143,86"/>
-</map>

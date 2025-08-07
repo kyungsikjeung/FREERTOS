@@ -1,9 +1,0 @@
-<map id="C:/Users/TOVIS/test/TestRtos/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h" name="C:/Users/TOVIS/test/TestRtos/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,175,80"/>
-<area shape="rect" id="Node000002" href="$queue_8h.html" title=" " alt="" coords="56,128,124,155"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,80,93,112,87,112,87,80"/>
-<area shape="rect" id="Node000003" href="$task_8h.html" title=" " alt="" coords="61,203,119,229"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="93,155,93,187,87,187,87,155"/>
-<area shape="rect" id="Node000004" href="$list_8h.html" title=" " alt="" coords="65,277,115,304"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="93,230,93,262,87,262,87,230"/>
-</map>

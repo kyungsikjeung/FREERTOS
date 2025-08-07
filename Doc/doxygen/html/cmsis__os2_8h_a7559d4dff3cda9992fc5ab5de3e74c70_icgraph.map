@@ -1,5 +1,0 @@
-<map id="osSemaphoreGetCount" name="osSemaphoreGetCount">
-<area shape="rect" id="Node000001" title=" " alt="" coords="181,5,338,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#acc15b0fc8ce1167fe43da33042e62098" title="Wait until a Semaphore token becomes available." alt="" coords="5,5,133,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,21,133,21,133,16,165,16"/>
-</map>

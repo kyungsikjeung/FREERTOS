@@ -1,9 +1,0 @@
-<map id="osSignalSet" name="osSignalSet">
-<area shape="rect" id="Node000001" title="Set the specified Signal Flags of an active thread." alt="" coords="5,56,97,83"/>
-<area shape="rect" id="Node000002" href="$cmsis__os2_8h.html#a6f89ef9caded1d9963c7b12b0f6412c9" title=" " alt="" coords="176,5,303,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,54,144,41,172,34,173,39,145,47,98,60"/>
-<area shape="rect" id="Node000003" href="$task_8h.html#aa7bd3a4f3847b83900fd6a9f1bacfe9e" title=" " alt="" coords="171,56,308,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="97,67,156,67,156,72,97,72"/>
-<area shape="rect" id="Node000004" href="$task_8h.html#a959c55f7950abffbc4107ce61ca52e97" title=" " alt="" coords="145,107,334,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="98,79,145,92,173,100,172,105,144,97,96,84"/>
-</map>

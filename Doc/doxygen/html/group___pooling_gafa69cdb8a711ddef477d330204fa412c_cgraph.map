@@ -1,7 +1,0 @@
-<map id="arm_avgpool_s8" name="arm_avgpool_s8">
-<area shape="rect" id="Node000001" title="s8 average pooling function." alt="" coords="5,35,122,61"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#ad92ce801e7aab7ef1bd2698cb523c1de" title=" " alt="" coords="203,5,278,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,36,187,25,188,30,122,41"/>
-<area shape="rect" id="Node000003" href="$group___pooling.html#ga08263590a94c39b4c1c199501ca166e4" title="Get the required buffer size for S8 average pooling function." alt="" coords="170,56,311,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,55,155,60,154,66,121,60"/>
-</map>

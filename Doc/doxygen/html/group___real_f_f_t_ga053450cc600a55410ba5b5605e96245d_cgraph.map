@@ -1,5 +1,0 @@
-<map id="arm_rfft_init_q15" name="arm_rfft_init_q15">
-<area shape="rect" id="Node000001" title="Initialization function for the Q15 RFFT/RIFFT." alt="" coords="5,5,123,32"/>
-<area shape="rect" id="Node000002" href="$group___complex_f_f_t.html#ga0b394cad029d226d10fdef55629679af" title="Initialization function for the cfft q15 function." alt="" coords="171,5,291,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,16,155,16,155,21,123,21"/>
-</map>

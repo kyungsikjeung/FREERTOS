@@ -1,7 +1,0 @@
-<map id="arm_bitreversal_f32" name="arm_bitreversal_f32">
-<area shape="rect" id="Node000001" title="In&#45;place floating&#45;point bit reversal function." alt="" coords="292,5,427,32"/>
-<area shape="rect" id="Node000002" href="$group___real_f_f_t.html#ga3df1766d230532bc068fc4ed69d0fcdc" title="Processing function for the floating&#45;point RFFT/RIFFT. Source buffer is modified by this function." alt="" coords="154,5,244,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="277,21,244,21,244,16,277,16"/>
-<area shape="rect" id="Node000003" href="$group___d_c_t4___i_d_c_t4.html#gafd538d68886848bc090ec2b0d364cc81" title="Processing function for the floating&#45;point DCT4/IDCT4." alt="" coords="5,5,106,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="138,21,106,21,106,16,138,16"/>
-</map>

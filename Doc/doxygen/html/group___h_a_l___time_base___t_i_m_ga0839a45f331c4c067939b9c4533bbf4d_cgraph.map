@@ -1,5 +1,0 @@
-<map id="TIM6_DAC_IRQHandler" name="TIM6_DAC_IRQHandler">
-<area shape="rect" id="Node000001" title="This function handles TIM interrupt request." alt="" coords="5,5,169,32"/>
-<area shape="rect" id="Node000002" href="$group___t_i_m___exported___functions___group7.html#ga2dc3ef34340412aa8a01d734d2ff8f88" title=" " alt="" coords="217,5,370,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,16,201,16,201,21,169,21"/>
-</map>

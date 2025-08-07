@@ -1,5 +1,0 @@
-<map id="xTaskGetTickCountFromISR" name="xTaskGetTickCountFromISR">
-<area shape="rect" id="Node000001" title=" " alt="" coords="174,5,364,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#ad0262e4688e95d1e9038afd9bcc16001" title="Get the value of the Kernel SysTick timer." alt="" coords="5,5,126,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,21,126,21,126,16,158,16"/>
-</map>

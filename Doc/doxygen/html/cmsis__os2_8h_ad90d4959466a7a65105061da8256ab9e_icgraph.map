@@ -1,7 +1,0 @@
-<map id="osMessageQueueGet" name="osMessageQueueGet">
-<area shape="rect" id="Node000001" title=" " alt="" coords="163,31,310,57"/>
-<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#ac6ad7e6e7d6c4a80e60da22c57a42ccd" title="Get a mail from a queue." alt="" coords="20,5,100,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,34,100,27,101,22,148,29"/>
-<area shape="rect" id="Node000003" href="$cmsis__os_8c.html#a6c6892b8f2296cca6becd57ca2d7e1ae" title="Get a Message or Wait for a Message from a Queue." alt="" coords="5,56,115,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,59,116,64,115,59,147,54"/>
-</map>

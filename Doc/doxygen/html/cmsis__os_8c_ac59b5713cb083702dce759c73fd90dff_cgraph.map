@@ -1,5 +1,0 @@
-<map id="osThreadCreate" name="osThreadCreate">
-<area shape="rect" id="Node000001" title="Create a thread and add it to Active Threads and set it to state READY." alt="" coords="5,5,120,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os2_8h.html#a48d68b8666d99d28fa646ee1d2182b8f" title=" " alt="" coords="168,5,270,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,16,152,16,152,21,120,21"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="arm_iir_lattice_q15" name="arm_iir_lattice_q15">
-<area shape="rect" id="Node000001" title="Processing function for the Q15 IIR lattice filter." alt="" coords="5,31,136,57"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#af106137a5a4291961cda38d4dde8b99e" title=" " alt="" coords="194,5,282,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,31,178,25,179,30,136,37"/>
-<area shape="rect" id="Node000003" href="$arm__math__memory_8h.html#a576a0e2a4667277b42c478dfda753dc6" title="Write 2 Q15 to Q15 pointer and increment pointer afterwards." alt="" coords="184,56,292,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,51,169,56,168,62,136,57"/>
-</map>

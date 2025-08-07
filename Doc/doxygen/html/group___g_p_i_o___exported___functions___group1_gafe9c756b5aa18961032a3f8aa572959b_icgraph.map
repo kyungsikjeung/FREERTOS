@@ -1,9 +1,0 @@
-<map id="HAL_GPIO_DeInit" name="HAL_GPIO_DeInit">
-<area shape="rect" id="Node000001" title=" " alt="" coords="211,56,340,83"/>
-<area shape="rect" id="Node000002" href="$stm32f4xx__hal__msp_8c.html#adb9c31d86584307ca7791f3c3fbe58d9" title="ETH MSP De&#45;Initialization This function freeze the hardware resources used in this example." alt="" coords="10,5,158,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,54,137,35,138,30,208,49"/>
-<area shape="rect" id="Node000003" href="$stm32f4xx__hal__msp_8c.html#a8194c593b1db635b225c4b6294f31e47" title="PCD MSP De&#45;Initialization This function freeze the hardware resources used in this example." alt="" coords="9,56,159,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,72,160,72,160,67,195,67"/>
-<area shape="rect" id="Node000004" href="$group___u_a_r_t___exported___functions___group1.html#ga718f39804e3b910d738a0e1e46151188" title="UART MSP De&#45;Initialization This function freeze the hardware resources used in this example." alt="" coords="5,107,163,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,90,138,109,137,103,207,85"/>
-</map>

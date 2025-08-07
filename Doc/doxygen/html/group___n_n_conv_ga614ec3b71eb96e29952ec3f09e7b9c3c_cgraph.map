@@ -1,7 +1,0 @@
-<map id="arm_convolve_HWC_q15_fast_nonsquare" name="arm_convolve_HWC_q15_fast_nonsquare">
-<area shape="rect" id="Node000001" title="Fast Q15 convolution function (non&#45;sqaure shape)" alt="" coords="5,23,176,65"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a61b23642ffa771bbe7da998f98e3f75e" title=" " alt="" coords="261,5,342,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,31,245,23,246,28,176,36"/>
-<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#afdda94a339b76615d3161e9fc63f4d21" title="Read 2 q15 elements and post increment pointer." alt="" coords="224,56,379,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,52,208,55,208,61,176,57"/>
-</map>

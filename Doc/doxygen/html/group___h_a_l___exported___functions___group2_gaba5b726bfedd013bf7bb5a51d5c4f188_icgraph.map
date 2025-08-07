@@ -1,9 +1,0 @@
-<map id="HAL_IncTick" name="HAL_IncTick">
-<area shape="rect" id="Node000001" title="This function is called to increment a global variable &quot;uwTick&quot; used as application time base." alt="" coords="275,64,372,91"/>
-<area shape="rect" id="Node000002" href="$group___h_a_l___time_base___r_t_c___alarm___template.html#ga11aeff83fd498cddbed3bcddcf017e0a" title="ALARM A Event Callback in non blocking mode." alt="" coords="8,5,224,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,61,226,47,182,35,184,30,227,41,272,56"/>
-<area shape="rect" id="Node000003" href="$group___h_a_l___time_base___r_t_c___wake_up___template.html#gac9ed5d6224b5c86f2845a9c1af7d94de" title="Wake Up Timer Event Callback in non blocking mode." alt="" coords="5,56,227,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,80,227,80,227,75,259,75"/>
-<area shape="rect" id="Node000004" href="$group___t_i_m___exported___functions___group9.html#ga8a3b0ad512a6e6c6157440b68d395eac" title=" " alt="" coords="6,123,226,149"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="272,99,227,113,184,125,182,119,226,108,270,94"/>
-</map>

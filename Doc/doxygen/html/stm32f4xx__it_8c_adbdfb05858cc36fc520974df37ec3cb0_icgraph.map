@@ -1,5 +1,0 @@
-<map id="DebugMon_Handler" name="DebugMon_Handler">
-<area shape="rect" id="Node000001" title="This function handles Debug monitor." alt="" coords="152,5,288,32"/>
-<area shape="rect" id="Node000002" href="$arm__bayes__example_2_r_t_e_2_device_2_a_r_m_c_m3_2startup___a_r_m_c_m3_8c.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc" title="This function handles Non maskable interrupt." alt="" coords="5,5,104,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,21,104,21,104,16,136,16"/>
-</map>

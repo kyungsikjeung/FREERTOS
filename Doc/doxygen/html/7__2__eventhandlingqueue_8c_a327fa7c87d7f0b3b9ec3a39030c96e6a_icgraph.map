@@ -1,7 +1,0 @@
-<map id="vSendRxDataToTheTCPTask" name="vSendRxDataToTheTCPTask">
-<area shape="rect" id="Node000001" title=" " alt="" coords="296,5,490,32"/>
-<area shape="rect" id="Node000002" href="$7__2__eventhandlingqueue_8c.html#a40c54f3024de03e9f57811f6e90566fc" title=" " alt="" coords="103,5,248,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="280,21,248,21,248,16,280,16"/>
-<area shape="rect" id="Node000003" href="$7__2__eventhandlingqueue_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
-</map>

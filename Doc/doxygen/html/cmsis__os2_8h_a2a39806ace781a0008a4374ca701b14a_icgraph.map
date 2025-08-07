@@ -1,5 +1,0 @@
-<map id="osSemaphoreNew" name="osSemaphoreNew">
-<area shape="rect" id="Node000001" title=" " alt="" coords="194,5,322,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#a97381e8e55cd47cec390bf57c96d6edb" title="Create and Initialize a Semaphore object used for managing resources." alt="" coords="5,5,146,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,21,146,21,146,16,178,16"/>
-</map>

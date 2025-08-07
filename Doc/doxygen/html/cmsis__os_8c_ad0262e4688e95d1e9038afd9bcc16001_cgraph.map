@@ -1,7 +1,0 @@
-<map id="osKernelSysTick" name="osKernelSysTick">
-<area shape="rect" id="Node000001" title="Get the value of the Kernel SysTick timer." alt="" coords="5,31,126,57"/>
-<area shape="rect" id="Node000002" href="$tasks_8c.html#a5fa24e36d5e1eeb57f5b73b72ea048e7" title=" " alt="" coords="200,5,338,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,34,184,26,185,32,126,39"/>
-<area shape="rect" id="Node000003" href="$tasks_8c.html#ad58fd766b8f438b5703276f585738762" title=" " alt="" coords="174,56,364,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,49,158,53,158,58,126,54"/>
-</map>

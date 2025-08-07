@@ -1,7 +1,0 @@
-<map id="arm_add_q7" name="arm_add_q7">
-<area shape="rect" id="Node000001" title="Q7 vector addition." alt="" coords="5,31,98,57"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a41a3a818b0550cbf3fbe68e184197570" title=" " alt="" coords="156,5,237,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,33,140,26,141,31,99,39"/>
-<area shape="rect" id="Node000003" href="$arm__math__memory_8h.html#a05bde59a4c7dd866d0a2e3e6fcac17bd" title="Write 4 Q7 to Q7 pointer and increment pointer afterwards." alt="" coords="146,56,247,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="99,49,131,55,130,60,98,55"/>
-</map>

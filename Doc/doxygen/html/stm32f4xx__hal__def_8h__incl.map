@@ -1,9 +1,0 @@
-<map id="C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h" name="C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h">
-<area shape="rect" id="Node000001" title="This file contains HAL common defines, enumeration, macros and structures definitions." alt="" coords="114,5,313,80"/>
-<area shape="rect" id="Node000002" href="$stm32f4xx_8h.html" title="CMSIS STM32F4xx Device Peripheral Access Layer Header File." alt="" coords="5,128,99,155"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,83,87,122,85,117,151,78"/>
-<area shape="rect" id="Node000003" href="$stm32__hal__legacy_8h.html" title="This file contains aliases definition for the STM32Cube HAL constants macros and functions maintained..." alt="" coords="122,128,304,155"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,80,216,112,211,112,211,80"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="328,128,397,155"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="272,78,332,117,329,122,269,83"/>
-</map>

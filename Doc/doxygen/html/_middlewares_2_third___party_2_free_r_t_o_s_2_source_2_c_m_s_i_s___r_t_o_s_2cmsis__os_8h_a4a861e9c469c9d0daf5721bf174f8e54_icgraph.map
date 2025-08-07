@@ -1,5 +1,0 @@
-<map id="osPoolFree" name="osPoolFree">
-<area shape="rect" id="Node000001" title="Return an allocated memory block back to a specific memory pool." alt="" coords="139,5,226,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#a27c1060cf21393f96b4fd1ed1c0167cc" title="Free a memory block from a mail." alt="" coords="5,5,91,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,21,91,21,91,16,123,16"/>
-</map>

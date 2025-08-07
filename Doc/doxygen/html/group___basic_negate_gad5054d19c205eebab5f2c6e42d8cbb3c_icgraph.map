@@ -1,7 +1,0 @@
-<map id="arm_negate_q31" name="arm_negate_q31">
-<area shape="rect" id="Node000001" title="Negates the elements of a Q31 vector." alt="" coords="315,5,432,32"/>
-<area shape="rect" id="Node000002" href="$arm__atan2__q31_8c.html#a50b4cb6a5223af5aa106b8d71395181b" title=" " alt="" coords="164,5,267,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,21,268,21,268,16,299,16"/>
-<area shape="rect" id="Node000003" href="$group__atan2.html#ga14e753643307e373abffa6d14ae7a3f3" title="Arc tangent in radian of y/x using sign of x and y to determine right quadrant." alt="" coords="5,5,116,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="148,21,116,21,116,16,148,16"/>
-</map>

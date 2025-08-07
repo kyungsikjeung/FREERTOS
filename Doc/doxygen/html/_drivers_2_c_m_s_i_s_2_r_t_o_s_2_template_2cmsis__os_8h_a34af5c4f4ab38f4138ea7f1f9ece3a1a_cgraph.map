@@ -1,5 +1,0 @@
-<map id="osPoolCreate" name="osPoolCreate">
-<area shape="rect" id="Node000001" title="Create and Initialize a memory pool." alt="" coords="5,5,106,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os2_8h.html#a497ced5d72dc5cd405c4c418516220dc" title=" " alt="" coords="154,5,289,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,16,138,16,138,21,106,21"/>
-</map>

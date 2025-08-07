@@ -1,5 +1,0 @@
-<map id="arm_negate_q31" name="arm_negate_q31">
-<area shape="rect" id="Node000001" title="Negates the elements of a Q31 vector." alt="" coords="5,5,123,32"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a11e5ff95c57c57fe6ec151d7efc42a28" title=" " alt="" coords="171,5,244,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,16,155,16,155,21,123,21"/>
-</map>

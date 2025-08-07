@@ -1,5 +1,0 @@
-<map id="OS_Tick_Enable" name="OS_Tick_Enable">
-<area shape="rect" id="Node000001" title="Enable OS Tick timer interrupt." alt="" coords="5,5,125,32"/>
-<area shape="rect" id="Node000002" href="$irq__ctrl_8h.html#a88aedf1dee1061783e6c05c535e7b6c4" title=" " alt="" coords="173,5,292,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,16,157,16,157,21,125,21"/>
-</map>

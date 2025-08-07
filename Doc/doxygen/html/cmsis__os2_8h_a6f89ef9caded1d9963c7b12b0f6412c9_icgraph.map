@@ -1,5 +1,0 @@
-<map id="osThreadFlagsSet" name="osThreadFlagsSet">
-<area shape="rect" id="Node000001" title=" " alt="" coords="145,5,272,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#a029340f7007656c06fdb8eeeae7b056e" title="Set the specified Signal Flags of an active thread." alt="" coords="5,5,97,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,21,97,21,97,16,129,16"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="arm_cfft_radix4by2_q31" name="arm_cfft_radix4by2_q31">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,165,32"/>
-<area shape="rect" id="Node000002" href="$arm__cfft__radix4__q31_8c.html#af4d3481332146c3c703bf494baf23c45" title="Core function for the Q31 CFFT butterfly process." alt="" coords="213,5,380,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,16,197,16,197,21,165,21"/>
-</map>

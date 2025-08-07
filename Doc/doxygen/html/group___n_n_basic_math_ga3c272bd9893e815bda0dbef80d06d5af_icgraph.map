@@ -1,7 +1,0 @@
-<map id="arm_nn_depthwise_conv_nt_t_s8" name="arm_nn_depthwise_conv_nt_t_s8">
-<area shape="rect" id="Node000001" title="Depthwise convolution of transposed rhs matrix with 4 lhs matrices. To be used in non&#45;padded cases...." alt="" coords="390,5,555,48"/>
-<area shape="rect" id="Node000002" href="$group___n_n_conv.html#gab9dc832c407c0fe0f4d6fbb063e85e97" title="Optimized s8 depthwise convolution function with constraint that in_channel equals out_channel...." alt="" coords="198,5,342,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,29,342,29,342,24,374,24"/>
-<area shape="rect" id="Node000003" href="$group___n_n_conv.html#gabca128df92f9486ebdac7eee3178c0fd" title="Wrapper function to pick the right optimized s8 depthwise convolution function." alt="" coords="5,5,150,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,29,150,29,150,24,182,24"/>
-</map>

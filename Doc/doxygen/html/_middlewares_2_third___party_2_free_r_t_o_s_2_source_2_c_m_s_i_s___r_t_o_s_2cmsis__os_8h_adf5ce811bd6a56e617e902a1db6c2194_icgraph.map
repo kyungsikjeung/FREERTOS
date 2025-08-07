@@ -1,5 +1,0 @@
-<map id="osMailAlloc" name="osMailAlloc">
-<area shape="rect" id="Node000001" title="Allocate a memory block from a mail." alt="" coords="152,5,240,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#a8fde74f6fe5b9e88f75cc5eb8f2124fd" title="Allocate a memory block from a mail and set memory block to zero." alt="" coords="5,5,104,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,21,104,21,104,16,136,16"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="MMU_MemoryPage" name="MMU_MemoryPage">
-<area shape="rect" id="Node000001" title="Set 4k/64k page memory attributes." alt="" coords="5,5,143,32"/>
-<area shape="rect" id="Node000002" href="$core__ca_8h.html#a353d3d794bcd1b35b3b5aeb73d6feb08" title="Set Section memory attributes." alt="" coords="191,5,342,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,16,175,16,175,21,143,21"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="arm_nn_add_q7" name="arm_nn_add_q7">
-<area shape="rect" id="Node000001" title="Non&#45;saturating addition of elements of a q7 vector." alt="" coords="5,56,119,83"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a61b23642ffa771bbe7da998f98e3f75e" title=" " alt="" coords="200,5,282,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,53,184,32,186,37,113,58"/>
-<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#a0eeab076e5b40fce9536bdc30e85864f" title=" " alt="" coords="199,56,283,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,67,183,67,183,72,119,72"/>
-<area shape="rect" id="Node000004" href="$arm__nnsupportfunctions_8h.html#ac9f7be20432a6926ac07c1f44b1b02fe" title="Read 4 q7 from q7 pointer and post increment pointer." alt="" coords="167,107,315,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="113,81,177,99,176,105,111,86"/>
-</map>

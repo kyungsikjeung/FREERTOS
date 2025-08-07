@@ -1,7 +1,0 @@
-<map id="arm_rms_q15" name="arm_rms_q15">
-<area shape="rect" id="Node000001" title="Root Mean Square of the elements of a Q15 vector." alt="" coords="5,31,106,57"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#af106137a5a4291961cda38d4dde8b99e" title=" " alt="" coords="160,5,248,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,33,144,26,145,31,107,38"/>
-<area shape="rect" id="Node000003" href="$group___s_q_r_t.html#ga5abe5ca724f3e15849662b03752c1238" title="Q15 square root function." alt="" coords="154,56,254,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,50,139,56,138,61,106,55"/>
-</map>

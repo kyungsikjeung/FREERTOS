@@ -1,7 +1,0 @@
-<map id="osMessageWaiting" name="osMessageWaiting">
-<area shape="rect" id="Node000001" title="Get the number of messaged stored in a queue." alt="" coords="5,31,137,57"/>
-<area shape="rect" id="Node000002" href="$queue_8c.html#a4158a6134c9d1c60ffdb18d279d475b1" title=" " alt="" coords="211,5,388,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,34,195,28,196,33,137,39"/>
-<area shape="rect" id="Node000003" href="$queue_8c.html#ad5d110bc27c691ff8da238e0116bf92a" title=" " alt="" coords="185,56,414,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,49,169,52,169,58,137,54"/>
-</map>

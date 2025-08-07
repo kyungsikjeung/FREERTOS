@@ -1,5 +1,0 @@
-<map id="L1C_CleanDCacheMVA" name="L1C_CleanDCacheMVA">
-<area shape="rect" id="Node000001" title="Clean data cache line by address." alt="" coords="5,5,168,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__cp15_8h.html#a8af51fc46f56615eea10107ae2009543" title="Set DCCMVAC." alt="" coords="216,5,344,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,16,200,16,200,21,168,21"/>
-</map>

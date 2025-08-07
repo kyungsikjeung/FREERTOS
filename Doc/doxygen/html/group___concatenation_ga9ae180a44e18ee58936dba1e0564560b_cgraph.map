@@ -1,5 +1,0 @@
-<map id="arm_concatenation_s8_z" name="arm_concatenation_s8_z">
-<area shape="rect" id="Node000001" title="int8/uint8 concatenation function to be used for concatenating N&#45;tensors along the Z axis This functi..." alt="" coords="5,5,172,32"/>
-<area shape="rect" id="Node000002" href="$arm__nnsupportfunctions_8h.html#a085459f6280c8f586ddd64998dece532" title="memcpy optimized for MVE" alt="" coords="220,5,341,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,16,204,16,204,21,172,21"/>
-</map>

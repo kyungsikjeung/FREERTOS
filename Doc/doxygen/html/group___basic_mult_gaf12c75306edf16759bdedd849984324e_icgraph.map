@@ -1,7 +1,0 @@
-<map id="arm_mult_q31" name="arm_mult_q31">
-<area shape="rect" id="Node000001" title="Q31 vector multiplication." alt="" coords="161,31,264,57"/>
-<area shape="rect" id="Node000002" href="$group___d_c_t4___i_d_c_t4.html#gad04d0baab6ed081d8e8afe02538eb80b" title="Processing function for the Q31 DCT4/IDCT4." alt="" coords="7,5,111,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,36,111,30,111,25,146,30"/>
-<area shape="rect" id="Node000003" href="$group___m_f_c_c.html#ga7ab98731e9e4a7705be0b3ca0c5bd94c" title="MFCC Q31." alt="" coords="5,56,113,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="146,58,114,63,113,58,145,52"/>
-</map>

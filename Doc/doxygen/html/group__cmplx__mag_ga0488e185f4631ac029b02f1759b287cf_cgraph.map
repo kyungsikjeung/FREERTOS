@@ -1,7 +1,0 @@
-<map id="arm_cmplx_mag_q15" name="arm_cmplx_mag_q15">
-<area shape="rect" id="Node000001" title="Q15 complex magnitude." alt="" coords="5,31,151,57"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a34006e1bab27a1c800b06adce25b6699" title=" " alt="" coords="207,5,291,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,31,191,25,191,30,152,36"/>
-<area shape="rect" id="Node000003" href="$group___s_q_r_t.html#ga119e25831e141d734d7ef10636670058" title="Q31 square root function." alt="" coords="199,56,299,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,52,184,57,183,62,151,57"/>
-</map>

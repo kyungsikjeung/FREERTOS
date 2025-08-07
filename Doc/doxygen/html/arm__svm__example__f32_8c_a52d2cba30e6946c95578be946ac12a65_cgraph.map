@@ -1,9 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,55,73"/>
-<area shape="rect" id="Node000002" href="$group__polysvm.html#gad004464aae8fdecfc985a02a0de6b0af" title="SVM polynomial instance init function." alt="" coords="103,5,247,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,52,87,44,88,49,55,57"/>
-<area shape="rect" id="Node000003" href="$group__polysvm.html#ga5719f32544ecc1b568aaba7f5d237df8" title="SVM polynomial prediction." alt="" coords="103,72,247,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="55,63,88,71,87,76,54,68"/>
-<area shape="rect" id="Node000004" href="$svm__functions_8h.html#a653ddea4ad545ab8c755c3649078ad59" title="Integer exponentiation." alt="" coords="295,80,423,107"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="247,91,279,91,279,96,247,96"/>
-</map>

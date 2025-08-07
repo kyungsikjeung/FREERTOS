@@ -1,7 +1,0 @@
-<map id="Reset_Handler" name="Reset_Handler">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,114,57"/>
-<area shape="rect" id="Node000002" href="$arm__bayes__example_2_r_t_e_2_device_2_a_r_m_c_m4___f_p_2startup___a_r_m_c_m4_8c.html#ad32b7cbb7b6f034631e1d8c0d560b3c5" title=" " alt="" coords="162,5,315,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,34,146,29,147,34,115,39"/>
-<area shape="rect" id="Node000003" href="$group___s_t_m32_f4xx___system___private___functions.html#ga93f514700ccf00d08dbdcff7f1224eb2" title="Setup the microcontroller system Initialize the FPU setting, vector table location and External memor..." alt="" coords="196,56,280,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="115,49,181,59,180,64,114,54"/>
-</map>

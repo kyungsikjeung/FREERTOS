@@ -1,7 +1,0 @@
-<map id="IWDG_HandleTypeDef" name="IWDG_HandleTypeDef">
-<area shape="rect" id="Node000001" title="IWDG Handle Structure definition." alt="" coords="53,211,198,280"/>
-<area shape="rect" id="Node000002" href="$struct_i_w_d_g___type_def.html" title="Independent WATCHDOG." alt="" coords="5,5,109,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,137,102,186,105,194,100,196,97,188,78,139"/>
-<area shape="rect" id="Node000003" href="$struct_i_w_d_g___init_type_def.html" title="IWDG Init structure definition." alt="" coords="134,27,255,117"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,118,181,153,168,188,163,198,158,195,163,186,176,151,184,116"/>
-</map>

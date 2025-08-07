@@ -1,9 +1,0 @@
-<map id="arm_q7_to_q15_no_shift" name="arm_q7_to_q15_no_shift">
-<area shape="rect" id="Node000001" title="Converts the elements of the Q7 vector to Q15 vector without left&#45;shift." alt="" coords="5,56,169,83"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a0eeab076e5b40fce9536bdc30e85864f" title=" " alt="" coords="254,5,338,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,53,238,30,240,35,146,58"/>
-<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#ac9f7be20432a6926ac07c1f44b1b02fe" title="Read 4 q7 from q7 pointer and post increment pointer." alt="" coords="222,56,370,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,67,206,67,206,72,169,72"/>
-<area shape="rect" id="Node000004" href="$arm__nnsupportfunctions_8h.html#a9477fb2f82284ac4fe20b2efb721f5f5" title="Write 2 q15 elements and post increment pointer." alt="" coords="217,107,375,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="146,81,224,100,223,105,145,86"/>
-</map>

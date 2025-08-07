@@ -1,9 +1,0 @@
-<map id="osPoolAlloc" name="osPoolAlloc">
-<area shape="rect" id="Node000001" title="Allocate a memory block from a memory pool." alt="" coords="5,56,96,83"/>
-<area shape="rect" id="Node000002" href="$cmsis__os2_8h.html#a8ead54e99ccb8f112356c88f99d38fbe" title=" " alt="" coords="144,5,281,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,53,152,35,153,40,97,58"/>
-<area shape="rect" id="Node000003" href="$port_8c.html#a2ed3554a3de09a3bd09d396ee081ab69" title=" " alt="" coords="150,56,274,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="96,67,134,67,134,72,96,72"/>
-<area shape="rect" id="Node000004" href="$port_8c.html#aed20ada05b957181a0de042802a82a5b" title=" " alt="" coords="154,107,270,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="97,81,153,99,152,104,95,86"/>
-</map>

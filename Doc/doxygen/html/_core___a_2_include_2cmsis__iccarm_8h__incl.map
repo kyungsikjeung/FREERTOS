@@ -1,7 +1,0 @@
-<map id="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/Core_A/Include/cmsis_iccarm.h" name="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/Core_A/Include/cmsis_iccarm.h">
-<area shape="rect" id="Node000001" title="CMSIS compiler ICCARM (IAR Compiler for Arm) header file." alt="" coords="5,5,217,64"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="10,112,94,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,66,71,100,67,98,90,63"/>
-<area shape="rect" id="Node000003" href="$cmsis__cp15_8h.html" title="CMSIS compiler specific macros, functions, instructions." alt="" coords="118,112,221,139"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,63,155,98,151,100,128,66"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="xTaskAbortDelay" name="xTaskAbortDelay">
-<area shape="rect" id="Node000001" title=" " alt="" coords="154,5,275,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#a0c9e0cca7aca466bb8887fb56e4b4cc8" title="Abort the delay for a specific thread." alt="" coords="5,5,106,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,21,106,21,106,16,138,16"/>
-</map>

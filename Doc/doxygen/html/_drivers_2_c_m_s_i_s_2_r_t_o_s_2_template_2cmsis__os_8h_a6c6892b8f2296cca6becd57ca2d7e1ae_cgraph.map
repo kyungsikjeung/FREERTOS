@@ -1,5 +1,0 @@
-<map id="osMessageGet" name="osMessageGet">
-<area shape="rect" id="Node000001" title="Get a Message or Wait for a Message from a Queue." alt="" coords="5,5,115,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os2_8h.html#ad90d4959466a7a65105061da8256ab9e" title=" " alt="" coords="163,5,310,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,16,147,16,147,21,115,21"/>
-</map>

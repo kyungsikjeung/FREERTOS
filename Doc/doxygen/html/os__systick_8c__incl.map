@@ -1,9 +1,0 @@
-<map id="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Source/os_systick.c" name="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Source/os_systick.c">
-<area shape="rect" id="Node000001" title="CMSIS OS Tick SysTick implementation." alt="" coords="12,5,204,64"/>
-<area shape="rect" id="Node000002" href="$os__tick_8h.html" title="CMSIS OS Tick header file." alt="" coords="5,112,80,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,66,63,101,59,98,85,63"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="104,112,243,139"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="131,63,157,98,153,101,127,66"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="10,187,75,213"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="45,139,45,171,40,171,40,139"/>
-</map>

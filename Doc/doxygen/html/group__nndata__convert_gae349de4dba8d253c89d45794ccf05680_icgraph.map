@@ -1,9 +1,0 @@
-<map id="arm_q7_to_q15_no_shift" name="arm_q7_to_q15_no_shift">
-<area shape="rect" id="Node000001" title="Converts the elements of the Q7 vector to Q15 vector without left&#45;shift." alt="" coords="217,64,380,91"/>
-<area shape="rect" id="Node000002" href="$group___pooling.html#gae4a7b07f97ec4313524c9fb9fbcb1f6a" title="Q7 average pooling function." alt="" coords="9,5,165,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,62,137,35,139,30,234,57"/>
-<area shape="rect" id="Node000003" href="$group___n_n_conv.html#ga210ae8d8fc1d12ee15b41f1fa6947681" title="Basic Q7 convolution function." alt="" coords="5,56,169,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,80,169,80,169,75,201,75"/>
-<area shape="rect" id="Node000004" href="$group___n_n_conv.html#ga4501fa22c0836002aa47ccc313dce252" title="Basic Q7 convolution function (non&#45;square shape)" alt="" coords="5,123,169,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="240,98,158,125,156,119,238,93"/>
-</map>

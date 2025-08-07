@@ -1,5 +1,0 @@
-<map id="arm_cmplx_mult_real_q15" name="arm_cmplx_mult_real_q15">
-<area shape="rect" id="Node000001" title="Q15 complex&#45;by&#45;real multiplication." alt="" coords="5,5,179,32"/>
-<area shape="rect" id="Node000002" href="$arm__math__memory_8h.html#a576a0e2a4667277b42c478dfda753dc6" title="Write 2 Q15 to Q15 pointer and increment pointer afterwards." alt="" coords="227,5,335,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,16,211,16,211,21,179,21"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="arm_softmax_q7" name="arm_softmax_q7">
-<area shape="rect" id="Node000001" title="Q7 softmax function." alt="" coords="242,5,360,32"/>
-<area shape="rect" id="Node000002" href="$group___softmax.html#ga894cfd80c260b946702755b5754e520f" title="Q7 softmax function with batch parameter." alt="" coords="5,5,194,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,21,194,21,194,16,226,16"/>
-</map>

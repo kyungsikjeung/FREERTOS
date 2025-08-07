@@ -1,7 +1,0 @@
-<map id="arm_fully_connected_q15" name="arm_fully_connected_q15">
-<area shape="rect" id="Node000001" title="Q15 opt fully&#45;connected layer function." alt="" coords="5,31,175,57"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a61b23642ffa771bbe7da998f98e3f75e" title=" " alt="" coords="260,5,341,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,31,244,23,245,28,176,36"/>
-<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#afdda94a339b76615d3161e9fc63f4d21" title="Read 2 q15 elements and post increment pointer." alt="" coords="223,56,378,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="176,52,208,55,207,61,175,57"/>
-</map>

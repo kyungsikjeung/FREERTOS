@@ -1,5 +1,0 @@
-<map id="arm_q31_to_float" name="arm_q31_to_float">
-<area shape="rect" id="Node000001" title="Converts the elements of the Q31 vector to floating&#45;point vector." alt="" coords="103,5,224,32"/>
-<area shape="rect" id="Node000002" href="$arm__graphic__equalizer__example__q31_8c.html#a52d2cba30e6946c95578be946ac12a65" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
-</map>

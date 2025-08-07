@@ -1,5 +1,0 @@
-<map id="HAL_RTC_Init" name="HAL_RTC_Init">
-<area shape="rect" id="Node000001" title=" " alt="" coords="151,5,257,32"/>
-<area shape="rect" id="Node000002" href="$group___h_a_l___time_base___r_t_c___alarm___template.html#ga879cdb21ef051eb81ec51c18147397d5" title="This function configures the RTC_ALARMA as a time base source. The time source is configured to have ..." alt="" coords="5,5,103,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,21,103,21,103,16,135,16"/>
-</map>

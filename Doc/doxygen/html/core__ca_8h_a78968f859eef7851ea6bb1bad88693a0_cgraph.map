@@ -1,5 +1,0 @@
-<map id="L1C_InvalidateBTAC" name="L1C_InvalidateBTAC">
-<area shape="rect" id="Node000001" title="Invalidate entire branch predictor array." alt="" coords="5,5,149,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__cp15_8h.html#a3f1edf97a57b29a7aaad177c02bab5aa" title="Set BPIALL." alt="" coords="197,5,302,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,16,181,16,181,21,149,21"/>
-</map>

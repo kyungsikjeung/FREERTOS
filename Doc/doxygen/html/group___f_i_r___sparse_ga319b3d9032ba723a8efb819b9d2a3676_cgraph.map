@@ -1,9 +1,0 @@
-<map id="arm_fir_sparse_q7" name="arm_fir_sparse_q7">
-<area shape="rect" id="Node000001" title="Processing function for the Q7 sparse FIR filter." alt="" coords="5,56,134,83"/>
-<area shape="rect" id="Node000002" href="$filtering__functions_8h.html#a734e6ec2b2d568236816464967326748" title="Q7 Circular Read function." alt="" coords="182,5,326,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,53,187,34,188,39,122,58"/>
-<area shape="rect" id="Node000003" href="$filtering__functions_8h.html#a28179a962e4bb51c73c195dcb2f969aa" title="Q7 Circular write function." alt="" coords="182,56,326,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,67,167,67,167,72,134,72"/>
-<area shape="rect" id="Node000004" href="$arm__math__memory_8h.html#a05bde59a4c7dd866d0a2e3e6fcac17bd" title="Write 4 Q7 to Q7 pointer and increment pointer afterwards." alt="" coords="203,107,304,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="122,81,188,99,187,105,120,86"/>
-</map>

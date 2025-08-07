@@ -1,7 +1,0 @@
-<map id="arm_mean_f32" name="arm_mean_f32">
-<area shape="rect" id="Node000001" title="Mean value of a floating&#45;point vector." alt="" coords="245,31,352,57"/>
-<area shape="rect" id="Node000002" href="$group___correlation.html#gaf51cef11ade667912bb004cb24dc4e39" title="Correlation distance between two vectors." alt="" coords="5,5,197,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,38,197,34,197,28,230,33"/>
-<area shape="rect" id="Node000003" href="$arm__class__marks__example__f32_8c.html#a196718f834091385d38586a0ce4009dc" title=" " alt="" coords="76,56,126,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,55,127,69,126,64,229,50"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="arm_quaternion_product_single_f32" name="arm_quaternion_product_single_f32">
-<area shape="rect" id="Node000001" title="Floating&#45;point product of two quaternions." alt="" coords="239,5,399,48"/>
-<area shape="rect" id="Node000002" href="$group___quat_prod_vect.html#ga8d25a6adf6d3fb12a6311b1ddfc2c8c1" title="Floating&#45;point elementwise product two quaternions." alt="" coords="5,13,191,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,29,191,29,191,24,223,24"/>
-</map>

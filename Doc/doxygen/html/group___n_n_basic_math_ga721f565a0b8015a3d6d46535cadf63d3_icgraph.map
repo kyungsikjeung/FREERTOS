@@ -1,5 +1,0 @@
-<map id="arm_nn_vec_mat_mult_t_s16" name="arm_nn_vec_mat_mult_t_s16">
-<area shape="rect" id="Node000001" title="s16 Vector by Matrix (transposed) multiplication" alt="" coords="223,5,376,48"/>
-<area shape="rect" id="Node000002" href="$group___f_c.html#ga22aa22fe80e323429e8ac6aaeef878e8" title="Basic s16 Fully Connected function." alt="" coords="5,13,175,40"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,29,175,29,175,24,207,24"/>
-</map>

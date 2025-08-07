@@ -1,7 +1,0 @@
-<map id="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/Core_A/Include/core_ca.h" name="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/Core_A/Include/core_ca.h">
-<area shape="rect" id="Node000001" title="CMSIS Cortex&#45;A Core Peripheral Access Layer Header File." alt="" coords="5,5,182,64"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__compiler_8h.html" title="CMSIS compiler specific macros, functions, instructions." alt="" coords="32,112,155,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,64,96,96,91,96,91,64"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="61,187,126,213"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="96,139,96,171,91,171,91,139"/>
-</map>

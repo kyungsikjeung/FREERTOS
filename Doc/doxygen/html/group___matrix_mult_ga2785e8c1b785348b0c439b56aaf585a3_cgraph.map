@@ -1,5 +1,0 @@
-<map id="arm_mat_mult_fast_q31" name="arm_mat_mult_fast_q31">
-<area shape="rect" id="Node000001" title="Q31 matrix multiplication (fast variant)." alt="" coords="5,5,167,32"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a29879995b9307d256f76c317826bbdbd" title=" " alt="" coords="215,5,297,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,16,199,16,199,21,167,21"/>
-</map>

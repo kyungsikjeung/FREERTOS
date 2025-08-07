@@ -1,9 +1,0 @@
-<map id="arm_cfft_radix2_f32" name="arm_cfft_radix2_f32">
-<area shape="rect" id="Node000001" title="Radix&#45;2 CFFT/CIFFT." alt="" coords="5,56,141,83"/>
-<area shape="rect" id="Node000002" href="$arm__bitreversal_8c.html#a81008b023cbc9d37b3ff849877d1eb52" title="In&#45;place floating&#45;point bit reversal function." alt="" coords="203,5,338,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,53,201,34,202,39,129,58"/>
-<area shape="rect" id="Node000003" href="$arm__cfft__radix2__f32_8c.html#aa0577fd1717a219c08235967d877731d" title=" " alt="" coords="189,56,353,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,67,173,67,173,72,141,72"/>
-<area shape="rect" id="Node000004" href="$arm__cfft__radix2__f32_8c.html#abab72ded0de6645d6977cdb0e61b3a3b" title=" " alt="" coords="201,107,340,149"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="121,81,187,100,185,105,120,86"/>
-</map>

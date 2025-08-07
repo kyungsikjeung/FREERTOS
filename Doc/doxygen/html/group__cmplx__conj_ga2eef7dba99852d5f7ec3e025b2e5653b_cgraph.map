@@ -1,9 +1,0 @@
-<map id="arm_cmplx_conj_q15" name="arm_cmplx_conj_q15">
-<area shape="rect" id="Node000001" title="Q15 complex conjugate." alt="" coords="5,56,150,83"/>
-<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a5a49acb3560a599e656350b88f8a132b" title=" " alt="" coords="216,5,288,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,53,200,31,201,36,127,58"/>
-<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#ae6035ea5dde709a518dfa694c19956f9" title=" " alt="" coords="216,56,288,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,67,200,67,200,72,150,72"/>
-<area shape="rect" id="Node000004" href="$arm__math__memory_8h.html#a576a0e2a4667277b42c478dfda753dc6" title="Write 2 Q15 to Q15 pointer and increment pointer afterwards." alt="" coords="198,107,306,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="127,81,189,99,188,104,125,86"/>
-</map>

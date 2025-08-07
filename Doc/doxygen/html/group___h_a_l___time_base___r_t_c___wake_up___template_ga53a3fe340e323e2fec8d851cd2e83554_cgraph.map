@@ -1,5 +1,0 @@
-<map id="RTC_WKUP_IRQHandler" name="RTC_WKUP_IRQHandler">
-<area shape="rect" id="Node000001" title="This function handles WAKE UP TIMER interrupt request." alt="" coords="5,5,178,32"/>
-<area shape="rect" id="Node000002" href="$group___r_t_c_ex___exported___functions___group2.html#ga5e391424483012fe09827739dc53885f" title=" " alt="" coords="226,5,482,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,16,210,16,210,21,178,21"/>
-</map>

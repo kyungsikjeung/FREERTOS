@@ -1,5 +1,0 @@
-<map id="ADC_Driver_GetQueueCount" name="ADC_Driver_GetQueueCount">
-<area shape="rect" id="Node000001" title="ADC 큐에 쌓인 데이터 개수 반환" alt="" coords="5,5,199,32"/>
-<area shape="rect" id="Node000002" href="$queue_8c.html#a4158a6134c9d1c60ffdb18d279d475b1" title=" " alt="" coords="247,5,423,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,16,231,16,231,21,199,21"/>
-</map>

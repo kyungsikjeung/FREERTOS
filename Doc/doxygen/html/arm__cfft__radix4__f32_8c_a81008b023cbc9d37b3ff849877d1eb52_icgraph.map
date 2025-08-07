@@ -1,7 +1,0 @@
-<map id="arm_bitreversal_f32" name="arm_bitreversal_f32">
-<area shape="rect" id="Node000001" title="In&#45;place floating&#45;point bit reversal function." alt="" coords="286,5,421,32"/>
-<area shape="rect" id="Node000002" href="$group___complex_f_f_t.html#ga521f670cd9c571bc61aff9bec89f4c26" title="Processing function for the floating&#45;point Radix&#45;4 CFFT/CIFFT." alt="" coords="103,5,238,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,21,238,21,238,16,270,16"/>
-<area shape="rect" id="Node000003" href="$arm__convolution__example__f32_8c.html#a52d2cba30e6946c95578be946ac12a65" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
-</map>

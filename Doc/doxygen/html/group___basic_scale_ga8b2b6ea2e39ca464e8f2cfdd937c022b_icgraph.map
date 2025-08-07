@@ -1,7 +1,0 @@
-<map id="arm_scale_q31" name="arm_scale_q31">
-<area shape="rect" id="Node000001" title="Multiplies a Q31 vector by a scalar." alt="" coords="161,31,270,57"/>
-<area shape="rect" id="Node000002" href="$group___m_f_c_c.html#ga7ab98731e9e4a7705be0b3ca0c5bd94c" title="MFCC Q31." alt="" coords="5,5,113,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,35,113,30,114,25,146,30"/>
-<area shape="rect" id="Node000003" href="$arm__graphic__equalizer__example__q31_8c.html#a52d2cba30e6946c95578be946ac12a65" title=" " alt="" coords="34,56,84,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="146,58,85,68,84,63,145,53"/>
-</map>

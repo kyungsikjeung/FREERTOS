@@ -1,5 +1,0 @@
-<map id="arm_rfft_instance_f32" name="arm_rfft_instance_f32">
-<area shape="rect" id="Node000001" title="Instance structure for the floating&#45;point RFFT/RIFFT function." alt="" coords="28,296,164,493"/>
-<area shape="rect" id="Node000002" href="$structarm__cfft__radix4__instance__f32.html" title="Instance structure for the floating&#45;point CFFT/CIFFT function." alt="" coords="5,5,186,224"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,224,98,279,93,279,93,224"/>
-</map>

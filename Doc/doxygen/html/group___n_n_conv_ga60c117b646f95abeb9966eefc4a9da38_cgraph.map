@@ -1,9 +1,0 @@
-<map id="arm_convolve_wrapper_s8_get_buffer_size" name="arm_convolve_wrapper_s8_get_buffer_size">
-<area shape="rect" id="Node000001" title="Get the required buffer size for arm_convolve_wrapper_s8." alt="" coords="5,72,161,115"/>
-<area shape="rect" id="Node000002" href="$group___n_n_conv.html#gaf87f133e81ee6c1fbde89fe44c35352e" title="Get the required additional buffer size for 1xn convolution." alt="" coords="212,5,356,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,69,202,51,204,56,150,74"/>
-<area shape="rect" id="Node000003" href="$group___n_n_conv.html#gaf8bf3e2c2f8b4f2a0cbfb8a797a8b5a8" title="Get the required buffer size for arm_convolve_1x1_s8_fast." alt="" coords="209,72,360,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,91,193,91,193,96,161,96"/>
-<area shape="rect" id="Node000004" href="$group___n_n_conv.html#gac057b0749e2a6828ae21f762f3fa0c85" title="Get the required buffer size for s8 convolution function." alt="" coords="210,139,358,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="150,113,204,131,202,136,149,118"/>
-</map>

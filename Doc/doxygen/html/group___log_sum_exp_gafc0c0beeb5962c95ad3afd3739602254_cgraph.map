@@ -1,7 +1,0 @@
-<map id="arm_logsumexp_dot_prod_f32" name="arm_logsumexp_dot_prod_f32">
-<area shape="rect" id="Node000001" title="Dot product with log arithmetic." alt="" coords="5,31,201,57"/>
-<area shape="rect" id="Node000002" href="$group___basic_add.html#gabfef1e86e458314a61f4baa441d9765e" title="Floating&#45;point vector addition." alt="" coords="270,5,366,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,30,254,23,255,29,201,35"/>
-<area shape="rect" id="Node000003" href="$group___log_sum_exp.html#gaa66d25e7fc685c86e400567b4585857e" title="Computation of the LogSumExp." alt="" coords="249,56,387,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,53,234,57,233,62,201,58"/>
-</map>

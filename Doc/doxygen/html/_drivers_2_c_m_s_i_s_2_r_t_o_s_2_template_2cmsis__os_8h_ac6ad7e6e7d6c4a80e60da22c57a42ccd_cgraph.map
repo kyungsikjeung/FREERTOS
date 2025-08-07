@@ -1,5 +1,0 @@
-<map id="osMailGet" name="osMailGet">
-<area shape="rect" id="Node000001" title="Get a mail from a queue." alt="" coords="5,5,86,32"/>
-<area shape="rect" id="Node000002" href="$cmsis__os2_8h.html#ad90d4959466a7a65105061da8256ab9e" title=" " alt="" coords="134,5,281,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,16,118,16,118,21,86,21"/>
-</map>

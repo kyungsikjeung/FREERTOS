@@ -1,7 +1,0 @@
-<map id="__PROGRAM_START" name="__PROGRAM_START">
-<area shape="rect" id="Node000001" title=" " alt="" coords="308,5,461,32"/>
-<area shape="rect" id="Node000002" href="$arm__bayes__example_2_r_t_e_2_device_2_a_r_m_c_m0_2startup___a_r_m_c_m0_8c.html#ae7ee340978f5c25f52f0cad1457c6616" title=" " alt="" coords="152,5,260,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="292,21,261,21,261,16,292,16"/>
-<area shape="rect" id="Node000003" href="$arm__bayes__example_2_r_t_e_2_device_2_a_r_m_c_m0_2startup___a_r_m_c_m0_8c.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc" title="This function handles Non maskable interrupt." alt="" coords="5,5,104,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="136,21,104,21,104,16,136,16"/>
-</map>
