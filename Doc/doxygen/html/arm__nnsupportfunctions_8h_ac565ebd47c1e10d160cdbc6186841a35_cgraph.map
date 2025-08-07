@@ -1,0 +1,9 @@
+<map id="arm_nn_mat_mult_s8" name="arm_nn_mat_mult_s8">
+<area shape="rect" id="Node000001" title="General Matrix&#45;multiplication function with per&#45;channel requantization." alt="" coords="5,47,152,73"/>
+<area shape="rect" id="Node000002" href="$arm__nnsupportfunctions_8h.html#a6a13b7a567485da5fc7f0d311318886d" title="Requantize a given value." alt="" coords="200,47,331,73"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,57,184,57,184,63,152,63"/>
+<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#ab6dbc2fd53fae3ccdd1d0d70c8d3b491" title="Rounding divide by power of two." alt="" coords="379,5,547,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="331,46,363,41,364,46,332,52"/>
+<area shape="rect" id="Node000004" href="$arm__nnsupportfunctions_8h.html#a4e5183e2400227aafc91fb796fe99a6d" title="Doubling high multiply without saturation. This is intended for requantization where the scale is a p..." alt="" coords="388,72,538,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="332,68,373,75,372,81,331,74"/>
+</map>

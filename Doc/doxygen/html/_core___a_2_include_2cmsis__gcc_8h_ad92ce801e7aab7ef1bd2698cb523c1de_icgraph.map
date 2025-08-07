@@ -1,0 +1,29 @@
+<map id="__QADD" name="__QADD">
+<area shape="rect" id="Node000001" title=" " alt="" coords="415,233,489,260"/>
+<area shape="rect" id="Node000002" href="$group___basic_add.html#ga63e5862d90971bff4181b22bfa6ac753" title="Q31 vector addition." alt="" coords="241,5,340,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="444,219,435,180,420,133,398,87,365,46,339,31,342,26,369,42,402,84,425,131,441,178,449,217"/>
+<area shape="rect" id="Node000003" href="$group___pooling.html#gafa69cdb8a711ddef477d330204fa412c" title="s8 average pooling function." alt="" coords="232,56,348,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="440,219,413,157,392,125,365,97,347,85,350,81,369,93,396,121,417,155,445,217"/>
+<area shape="rect" id="Node000004" href="$group__clarke.html#ga8d68db2a6e26e1caab677f5ab293c068" title="Clarke transform for Q31 version." alt="" coords="234,107,347,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="433,222,404,183,365,148,344,136,347,132,369,143,408,180,437,218"/>
+<area shape="rect" id="Node000005" href="$group___i_i_r___lattice.html#ga87d7df8f8787402d4331de156a82687f" title="Processing function for the Q31 IIR lattice filter." alt="" coords="225,157,356,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="417,227,366,198,338,187,339,182,368,194,419,222"/>
+<area shape="rect" id="Node000006" href="$group__inv__park.html#gae7165779ef72e1f797d0c601d6d619b2" title="Inverse Park transform for Q31 version." alt="" coords="227,208,354,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="399,241,354,234,355,229,400,236"/>
+<area shape="rect" id="Node000007" href="$group___matrix_add.html#ga7d9d7d81a0832a17b831aad1e4a5dc16" title="Q31 matrix addition." alt="" coords="226,259,354,285"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="400,257,356,265,355,259,400,252"/>
+<area shape="rect" id="Node000008" href="$group___n_n_basic_math.html#gac0675e8069a303ce2e8f8ed2a9320859" title="s8 Vector by Matrix (transposed) multiplication with s16 output" alt="" coords="214,309,367,352"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="418,271,368,300,345,311,342,306,366,295,415,266"/>
+<area shape="rect" id="Node000010" href="$group___basic_offset.html#ga55604198ef59f391a96ec95c188fca85" title="Adds a constant offset to a Q31 vector." alt="" coords="235,376,346,403"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="440,275,411,322,392,345,369,366,347,378,345,373,365,362,388,342,407,318,436,273"/>
+<area shape="rect" id="Node000013" href="$group__park.html#ga69be76685149b18f345f705aa8efaad0" title="Park transform for Q31 version." alt="" coords="239,427,342,453"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="446,276,436,308,420,346,398,384,369,417,344,431,341,427,365,413,394,381,415,344,431,306,441,274"/>
+<area shape="rect" id="Node000014" href="$group___p_i_d.html#gad9d88485234fa9460b1ce9e64989ac86" title="Initialization function for the Q31 PID Control." alt="" coords="231,477,350,504"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="450,275,443,317,428,369,404,421,388,446,369,467,352,479,349,475,365,463,384,442,399,419,423,367,437,316,445,274"/>
+<area shape="rect" id="Node000009" href="$group___s_v_d_f.html#ga3dc1b94f56e80e5b80b353ce8d9650b3" title="s8 SVDF function with 16 bit state tensor and 16 bit time weights" alt="" coords="5,317,166,344"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="198,333,166,333,166,328,198,328"/>
+<area shape="rect" id="Node000011" href="$group___m_f_c_c.html#ga1ec288fa9eb7e85c8196c32dfe8f3f9b" title="MFCC Q15." alt="" coords="32,372,139,399"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="220,391,140,389,140,384,220,385"/>
+<area shape="rect" id="Node000012" href="$group___m_f_c_c.html#ga7ab98731e9e4a7705be0b3ca0c5bd94c" title="MFCC Q31." alt="" coords="32,423,139,449"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="221,408,140,426,139,421,220,403"/>
+</map>

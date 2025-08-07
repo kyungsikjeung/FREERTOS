@@ -1,0 +1,52 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+NN/\+Source/\+Convolution\+Functions/arm\+\_\+convolve\+\_\+1x1\+\_\+s8\+\_\+fast.c File Reference}
+\hypertarget{arm__convolve__1x1__s8__fast_8c}{}\label{arm__convolve__1x1__s8__fast_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ConvolutionFunctions/arm\_convolve\_1x1\_s8\_fast.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ConvolutionFunctions/arm\_convolve\_1x1\_s8\_fast.c}}
+{\ttfamily \#include "{}arm\+\_\+nnfunctions.\+h"{}}\newline
+{\ttfamily \#include "{}arm\+\_\+nnsupportfunctions.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for arm\+\_\+convolve\+\_\+1x1\+\_\+s8\+\_\+fast.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__convolve__1x1__s8__fast_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arm__convolve__1x1__s8__fast_8c_a95303901d70372a3e87f1026fa582e29}{DIM\+\_\+\+KER\+\_\+X}}~(1U)
+\item 
+\#define \mbox{\hyperlink{arm__convolve__1x1__s8__fast_8c_aae182cde1be3fd4968de32d8a274c488}{DIM\+\_\+\+KER\+\_\+Y}}~(1U)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___n_n_conv_ga53608c814d9b8a458f4d87f8f40051b7}{arm\+\_\+convolve\+\_\+1x1\+\_\+s8\+\_\+fast}} (const \mbox{\hyperlink{structcmsis__nn__context}{cmsis\+\_\+nn\+\_\+context}} \texorpdfstring{$\ast$}{*}ctx, const \mbox{\hyperlink{structcmsis__nn__conv__params}{cmsis\+\_\+nn\+\_\+conv\+\_\+params}} \texorpdfstring{$\ast$}{*}conv\+\_\+params, const \mbox{\hyperlink{structcmsis__nn__per__channel__quant__params}{cmsis\+\_\+nn\+\_\+per\+\_\+channel\+\_\+quant\+\_\+params}} \texorpdfstring{$\ast$}{*}quant\+\_\+params, const \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\+\_\+nn\+\_\+dims}} \texorpdfstring{$\ast$}{*}input\+\_\+dims, const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}input\+\_\+data, const \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\+\_\+nn\+\_\+dims}} \texorpdfstring{$\ast$}{*}filter\+\_\+dims, const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}filter\+\_\+data, const \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\+\_\+nn\+\_\+dims}} \texorpdfstring{$\ast$}{*}bias\+\_\+dims, const int32\+\_\+t \texorpdfstring{$\ast$}{*}bias\+\_\+data, const \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\+\_\+nn\+\_\+dims}} \texorpdfstring{$\ast$}{*}output\+\_\+dims, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}output\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Fast s8 version for 1x1 convolution (non-\/square shape) \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___n_n_conv_gaf8bf3e2c2f8b4f2a0cbfb8a797a8b5a8}{arm\+\_\+convolve\+\_\+1x1\+\_\+s8\+\_\+fast\+\_\+get\+\_\+buffer\+\_\+size}} (const \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\+\_\+nn\+\_\+dims}} \texorpdfstring{$\ast$}{*}input\+\_\+dims)
+\begin{DoxyCompactList}\small\item\em Get the required buffer size for arm\+\_\+convolve\+\_\+1x1\+\_\+s8\+\_\+fast. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{arm__convolve__1x1__s8__fast_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm__convolve__1x1__s8__fast_8c_a95303901d70372a3e87f1026fa582e29}\index{arm\_convolve\_1x1\_s8\_fast.c@{arm\_convolve\_1x1\_s8\_fast.c}!DIM\_KER\_X@{DIM\_KER\_X}}
+\index{DIM\_KER\_X@{DIM\_KER\_X}!arm\_convolve\_1x1\_s8\_fast.c@{arm\_convolve\_1x1\_s8\_fast.c}}
+\doxysubsubsection{\texorpdfstring{DIM\_KER\_X}{DIM\_KER\_X}}
+{\footnotesize\ttfamily \label{arm__convolve__1x1__s8__fast_8c_a95303901d70372a3e87f1026fa582e29} 
+\#define DIM\+\_\+\+KER\+\_\+X~(1U)}
+
+
+
+Definition at line \mbox{\hyperlink{arm__convolve__1x1__s8__fast_8c_source_l00035}{35}} of file \mbox{\hyperlink{arm__convolve__1x1__s8__fast_8c_source}{arm\+\_\+convolve\+\_\+1x1\+\_\+s8\+\_\+fast.\+c}}.
+
+\Hypertarget{arm__convolve__1x1__s8__fast_8c_aae182cde1be3fd4968de32d8a274c488}\index{arm\_convolve\_1x1\_s8\_fast.c@{arm\_convolve\_1x1\_s8\_fast.c}!DIM\_KER\_Y@{DIM\_KER\_Y}}
+\index{DIM\_KER\_Y@{DIM\_KER\_Y}!arm\_convolve\_1x1\_s8\_fast.c@{arm\_convolve\_1x1\_s8\_fast.c}}
+\doxysubsubsection{\texorpdfstring{DIM\_KER\_Y}{DIM\_KER\_Y}}
+{\footnotesize\ttfamily \label{arm__convolve__1x1__s8__fast_8c_aae182cde1be3fd4968de32d8a274c488} 
+\#define DIM\+\_\+\+KER\+\_\+Y~(1U)}
+
+
+
+Definition at line \mbox{\hyperlink{arm__convolve__1x1__s8__fast_8c_source_l00036}{36}} of file \mbox{\hyperlink{arm__convolve__1x1__s8__fast_8c_source}{arm\+\_\+convolve\+\_\+1x1\+\_\+s8\+\_\+fast.\+c}}.
+

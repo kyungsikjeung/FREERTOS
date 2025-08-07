@@ -1,0 +1,9 @@
+<map id="uxTaskPriorityGet" name="uxTaskPriorityGet">
+<area shape="rect" id="Node000001" title=" " alt="" coords="191,56,316,83"/>
+<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#a4299d838978bc2aae5e4350754e6a4e9" title="Get current priority of an active thread." alt="" coords="5,5,143,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,54,123,35,125,30,190,49"/>
+<area shape="rect" id="Node000003" href="$1__3__task__changepriority_8c.html#a902a64ca782182bd7360b69639f74063" title=" " alt="" coords="46,56,102,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,72,103,72,103,67,175,67"/>
+<area shape="rect" id="Node000004" href="$1__3__task__changepriority_8c.html#af01c7f41ef35453d7c0e896db918be88" title=" " alt="" coords="46,107,102,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="189,90,103,115,102,110,188,85"/>
+</map>

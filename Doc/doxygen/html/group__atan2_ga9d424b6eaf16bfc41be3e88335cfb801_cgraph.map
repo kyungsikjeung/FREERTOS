@@ -1,0 +1,21 @@
+<map id="arm_atan2_q15" name="arm_atan2_q15">
+<area shape="rect" id="Node000001" title="Arc Tangent of y/x using sign of y and x to get right quadrant." alt="" coords="5,81,116,108"/>
+<area shape="rect" id="Node000002" href="$arm__atan2__q15_8c.html#a10801ffb94cd8481398f5d9826ad5e86" title=" " alt="" coords="164,81,267,108"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,92,148,92,148,97,116,97"/>
+<area shape="rect" id="Node000003" href="$arm__atan2__q15_8c.html#ae4b833d575f943fd4e827066b049f84f" title=" " alt="" coords="315,5,463,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="240,78,314,42,330,35,332,40,316,46,242,83"/>
+<area shape="rect" id="Node000004" href="$group__divide.html#ga3d5bc8179cdfb12288d58d99d635e4cb" title="Fixed point division." alt="" coords="333,56,445,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="267,84,317,77,318,82,268,90"/>
+<area shape="rect" id="Node000007" href="$group___basic_negate.html#ga55b8bbbcd318d5142925bc221db30186" title="Negates the elements of a Q15 vector." alt="" coords="330,107,448,133"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="268,100,316,107,315,112,267,105"/>
+<area shape="rect" id="Node000009" href="$group___basic_shift.html#gab7a2f614c2fcee25cb8bae4c2a6bc3ab" title="Shifts the elements of a Q15 vector a specified number of bits." alt="" coords="338,157,441,184"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="242,106,316,143,332,149,330,154,314,148,240,111"/>
+<area shape="rect" id="Node000005" href="$group___basic_abs.html#ga5cd90f9490ba8711c86e6f4bd7154359" title="Q15 vector absolute value." alt="" coords="516,56,615,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="446,67,500,67,500,72,446,72"/>
+<area shape="rect" id="Node000006" href="$_core___a_2_include_2cmsis__gcc_8h.html#a0f31a63b10db31a9d5a9f768a3c8f386" title=" " alt="" coords="668,81,755,108"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="616,75,653,82,652,87,615,81"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="448,113,652,97,653,102,449,118"/>
+<area shape="rect" id="Node000008" href="$arm__math__memory_8h.html#a576a0e2a4667277b42c478dfda753dc6" title="Write 2 Q15 to Q15 pointer and increment pointer afterwards." alt="" coords="511,157,620,184"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="439,131,502,150,501,155,438,137"/>
+<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="441,168,496,168,496,173,441,173"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="osMailCAlloc" name="osMailCAlloc">
+<area shape="rect" id="Node000001" title="Allocate a memory block from a mail and set memory block to zero." alt="" coords="5,157,104,184"/>
+<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#adf5ce811bd6a56e617e902a1db6c2194" title="Allocate a memory block from a mail." alt="" coords="202,107,290,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,155,186,133,187,138,105,160"/>
+<area shape="rect" id="Node000003" href="$cmsis__os2_8h.html#a8ead54e99ccb8f112356c88f99d38fbe" title=" " alt="" coords="526,107,664,133"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="104,164,340,143,511,126,511,131,340,148,104,169"/>
+<area shape="rect" id="Node000007" href="$cmsis__os2_8h.html#ab2bf059b7fa7679c3cccdaeec60b6c0e" title=" " alt="" coords="152,208,340,235"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="105,181,178,201,177,206,103,186"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="290,117,511,117,511,123,290,123"/>
+<area shape="rect" id="Node000004" href="$cmsis__os_8c.html#aa0b2994f1a866c19e0d11e6e0d44f543" title="Allocate a memory block from a memory pool." alt="" coords="388,56,478,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="290,106,372,83,373,88,291,111"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="479,81,536,99,534,104,478,86"/>
+<area shape="rect" id="Node000005" href="$port_8c.html#a2ed3554a3de09a3bd09d396ee081ab69" title=" " alt="" coords="533,56,657,83"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="479,67,517,67,517,72,479,72"/>
+<area shape="rect" id="Node000006" href="$port_8c.html#aed20ada05b957181a0de042802a82a5b" title=" " alt="" coords="537,5,653,32"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="478,53,534,35,536,40,479,58"/>
+</map>

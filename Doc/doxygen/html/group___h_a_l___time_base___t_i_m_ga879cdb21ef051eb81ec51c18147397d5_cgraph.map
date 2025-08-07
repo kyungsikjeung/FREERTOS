@@ -1,0 +1,15 @@
+<map id="HAL_InitTick" name="HAL_InitTick">
+<area shape="rect" id="Node000001" title="This function configures the TIM6 as a time base source. The time source is configured to have 1ms ti..." alt="" coords="5,132,103,159"/>
+<area shape="rect" id="Node000002" href="$group___c_o_r_t_e_x___exported___functions___group1.html#gaaad4492c1b25e006d69948a15790352a" title=" " alt="" coords="164,5,322,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="62,130,97,86,121,62,149,42,160,36,163,41,152,46,125,66,101,90,67,133"/>
+<area shape="rect" id="Node000003" href="$group___c_o_r_t_e_x___exported___functions___group1.html#ga8581a82025a4780efd00876a66e3e91b" title=" " alt="" coords="165,56,320,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="77,129,150,92,169,85,171,90,152,97,79,134"/>
+<area shape="rect" id="Node000004" href="$group___r_c_c___exported___functions___group2.html#gabc95375dfca279d88b9ded9d063d2323" title=" " alt="" coords="151,107,335,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="103,136,135,132,136,137,104,141"/>
+<area shape="rect" id="Node000005" href="$group___r_c_c___exported___functions___group2.html#gab3042d8ac5703ac696cabf0ee461c599" title=" " alt="" coords="153,157,333,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="104,149,138,154,137,159,103,154"/>
+<area shape="rect" id="Node000006" href="$group___t_i_m___exported___functions___group1.html#ga1b288eb68eb52c97b8d187cdd6e9088f" title=" " alt="" coords="173,208,312,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="79,157,152,194,171,200,169,205,150,198,77,162"/>
+<area shape="rect" id="Node000007" href="$group___t_i_m___exported___functions___group1.html#gae517d80e2ac713069767df8e8915971e" title=" " alt="" coords="159,259,327,285"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="67,157,101,201,125,224,152,244,163,250,160,255,149,249,121,228,97,204,62,161"/>
+</map>

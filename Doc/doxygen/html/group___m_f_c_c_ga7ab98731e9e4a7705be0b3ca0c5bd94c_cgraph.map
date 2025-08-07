@@ -1,0 +1,56 @@
+<map id="arm_mfcc_q31" name="arm_mfcc_q31">
+<area shape="rect" id="Node000001" title="MFCC Q31." alt="" coords="5,284,113,311"/>
+<area shape="rect" id="Node000002" href="$group___abs_max.html#gac503f9ecc16c6690621a15be22c0fe46" title="Maximum value of absolute values of a Q31 vector." alt="" coords="179,5,303,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,283,66,237,83,173,113,103,133,71,159,42,164,38,167,42,163,46,138,74,117,106,88,174,72,238,64,284"/>
+<area shape="rect" id="Node000003" href="$group___complex_f_f_t.html#ga5a0008bd997ab6e2e299ef2fb272fb4b" title="Processing function for the Q31 complex FFT." alt="" coords="384,157,481,184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="67,282,103,237,129,213,160,194,212,175,268,165,322,161,369,162,369,167,322,167,269,170,214,180,162,198,133,217,107,240,71,285"/>
+<area shape="rect" id="Node000009" href="$group__cmplx__mag.html#gab69ad9237469565958cce6b4555bbb6e" title="Q31 complex magnitude." alt="" coords="168,259,314,285"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="113,287,152,282,153,287,113,293"/>
+<area shape="rect" id="Node000011" href="$group__divide.html#ga250c0a49bd2e42282f3296d51138a5cb" title="Fixed point division." alt="" coords="185,309,297,336"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="113,302,170,310,169,315,113,307"/>
+<area shape="rect" id="Node000014" href="$group___basic_dot_prod.html#gafe3f9ace6c4576847eabf44ed7ca7b96" title="Dot product of Q31 vectors." alt="" coords="177,360,305,387"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="86,309,162,346,179,352,177,357,160,350,84,314"/>
+<area shape="rect" id="Node000015" href="$group___matrix_vect_mult.html#gac2d83078f35c9d0b42226404de20b137" title="Q31 matrix and vector multiplication." alt="" coords="161,411,321,437"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="72,309,109,352,134,376,162,396,172,402,169,407,159,401,131,380,105,356,68,313"/>
+<area shape="rect" id="Node000016" href="$group___basic_mult.html#gaf12c75306edf16759bdedd849984324e" title="Q31 vector multiplication." alt="" coords="189,461,292,488"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="68,310,101,376,128,414,162,447,176,456,174,460,159,451,124,418,97,378,63,312"/>
+<area shape="rect" id="Node000017" href="$group___basic_offset.html#ga55604198ef59f391a96ec95c188fca85" title="Adds a constant offset to a Q31 vector." alt="" coords="186,56,296,83"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="61,283,72,247,92,198,120,146,159,99,175,88,178,92,162,103,125,149,97,200,77,248,66,284"/>
+<area shape="rect" id="Node000020" href="$group___real_f_f_t.html#gabaeab5646aeea9844e6d42ca8c73fe3a" title="Processing function for the Q31 RFFT/RIFFT." alt="" coords="194,208,288,235"/>
+<area shape="poly" id="edge21_Node000001_Node000020" title=" " alt="" coords="84,281,160,244,179,237,181,242,162,249,86,286"/>
+<area shape="rect" id="Node000021" href="$group___basic_shift.html#gabc69335d1cf2eba1c469c8c8291f3589" title="Shifts the elements of a Q31 vector a specified number of bits." alt="" coords="381,107,484,133"/>
+<area shape="poly" id="edge28_Node000001_Node000021" title=" " alt="" coords="64,282,97,222,125,187,159,159,210,136,264,122,317,115,365,114,365,119,318,121,265,127,212,141,162,164,129,191,102,225,68,285"/>
+<area shape="rect" id="Node000024" href="$group___basic_scale.html#ga8b2b6ea2e39ca464e8f2cfdd937c022b" title="Multiplies a Q31 vector by a scalar." alt="" coords="186,512,296,539"/>
+<area shape="poly" id="edge27_Node000001_Node000024" title=" " alt="" coords="66,310,76,348,94,398,123,452,141,476,162,498,174,506,171,510,159,502,137,480,118,455,90,400,71,349,61,312"/>
+<area shape="rect" id="Node000025" href="$group__vlog.html#ga35aac80d9cfc0b7b08382da2117772d1" title="q31 vector of log values." alt="" coords="190,563,292,589"/>
+<area shape="poly" id="edge29_Node000001_Node000025" title=" " alt="" coords="64,311,72,356,88,420,117,489,138,521,162,549,177,559,174,563,159,553,133,524,113,492,83,422,66,357,59,312"/>
+<area shape="rect" id="Node000004" href="$arm__bitreversal2_8c.html#aa7638dc36fa3e1674d794918a53ceb8a" title="In&#45;place 32 bit reversal function." alt="" coords="558,56,690,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="474,154,495,143,509,131,518,118,527,105,543,92,552,87,555,92,546,97,531,109,522,121,513,134,498,148,477,159"/>
+<area shape="rect" id="Node000005" href="$arm__cfft__q31_8c.html#a3f3ae10bc2057cc1360abfa25f224c8c" title=" " alt="" coords="558,107,690,149"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="481,157,543,143,544,148,482,163"/>
+<area shape="rect" id="Node000006" href="$arm__cfft__radix4__q31_8c.html#a053363aef7c6b41a61af7730c638c79b" title="Core function for the Q31 CIFFT butterfly process." alt="" coords="766,151,905,193"/>
+<area shape="poly" id="edge8_Node000003_Node000006" title=" " alt="" coords="481,168,750,169,750,174,481,173"/>
+<area shape="rect" id="Node000007" href="$arm__cfft__q31_8c.html#af6df8bf714c30d44e6b871ea87d22b30" title=" " alt="" coords="544,224,704,251"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="474,182,570,216,568,221,473,187"/>
+<area shape="rect" id="Node000008" href="$arm__cfft__radix4__q31_8c.html#af4d3481332146c3c703bf494baf23c45" title="Core function for the Q31 CFFT butterfly process." alt="" coords="752,239,919,265"/>
+<area shape="poly" id="edge9_Node000003_Node000008" title=" " alt="" coords="479,182,498,194,514,212,521,230,529,247,546,260,574,272,603,279,665,283,725,278,776,267,777,272,725,283,665,289,603,284,572,277,543,265,525,250,516,233,509,215,495,198,476,187"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="691,139,751,152,750,157,690,144"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="704,240,736,242,736,248,704,246"/>
+<area shape="rect" id="Node000010" href="$group___s_q_r_t.html#ga119e25831e141d734d7ef10636670058" title="Q31 square root function." alt="" coords="382,309,483,336"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="295,283,368,303,367,308,294,289"/>
+<area shape="rect" id="Node000012" href="$group___basic_abs.html#ga494bd5db5e2686d96f5548e80ba8ca89" title="Q31 vector absolute value." alt="" coords="383,360,482,387"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="295,334,368,354,367,359,294,339"/>
+<area shape="rect" id="Node000013" href="$_core___a_2_include_2cmsis__gcc_8h.html#a11e5ff95c57c57fe6ec151d7efc42a28" title=" " alt="" coords="587,360,661,387"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="483,371,572,371,572,376,483,376"/>
+<area shape="rect" id="Node000018" href="$_core___a_2_include_2cmsis__gcc_8h.html#ad92ce801e7aab7ef1bd2698cb523c1de" title=" " alt="" coords="396,56,470,83"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="296,67,380,67,380,72,296,72"/>
+<area shape="rect" id="Node000019" href="$none_8h.html#ad3a8d07983196592f6edca8f84aec7c7" title="Clips Q63 to Q31 values." alt="" coords="566,5,682,32"/>
+<area shape="poly" id="edge20_Node000017_Node000019" title=" " alt="" coords="296,55,369,41,551,21,551,27,369,47,297,60"/>
+<area shape="poly" id="edge22_Node000020_Node000003" title=" " alt="" coords="287,206,369,185,370,190,289,212"/>
+<area shape="poly" id="edge23_Node000020_Node000021" title=" " alt="" coords="262,205,310,175,368,143,380,137,382,142,370,148,312,180,265,210"/>
+<area shape="rect" id="Node000022" href="$arm__rfft__q31_8c.html#a5a842f3fd929c352132b521cadcb5d22" title="Core Real FFT process." alt="" coords="370,208,495,235"/>
+<area shape="poly" id="edge25_Node000020_Node000022" title=" " alt="" coords="288,219,355,219,355,224,288,224"/>
+<area shape="rect" id="Node000023" href="$arm__rfft__q31_8c.html#ac8c8d151a7f08f1c6f1c0554f1bb51da" title="Core Real IFFT process." alt="" coords="369,259,496,285"/>
+<area shape="poly" id="edge26_Node000020_Node000023" title=" " alt="" coords="289,231,365,252,364,257,287,236"/>
+<area shape="poly" id="edge24_Node000021_Node000019" title=" " alt="" coords="474,104,495,92,509,80,518,67,527,55,543,42,552,36,555,41,546,46,531,58,522,71,513,83,498,97,477,108"/>
+</map>

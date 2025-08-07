@@ -1,0 +1,2434 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+RTOS2/\+Include/cmsis\+\_\+os2.h File Reference}
+\hypertarget{cmsis__os2_8h}{}\label{cmsis__os2_8h}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Include/cmsis\_os2.h@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Include/cmsis\_os2.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for cmsis\+\_\+os2.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{cmsis__os2_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{cmsis__os2_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structos_version__t}{os\+Version\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Version information. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Attributes structure for thread. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos_timer_attr__t}{os\+Timer\+Attr\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Attributes structure for timer. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos_event_flags_attr__t}{os\+Event\+Flags\+Attr\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Attributes structure for event flags. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos_mutex_attr__t}{os\+Mutex\+Attr\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Attributes structure for mutex. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos_semaphore_attr__t}{os\+Semaphore\+Attr\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Attributes structure for semaphore. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos_memory_pool_attr__t}{os\+Memory\+Pool\+Attr\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Attributes structure for memory pool. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos_message_queue_attr__t}{os\+Message\+Queue\+Attr\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Attributes structure for message queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a153a4a31b276a9758959580538720a51}{\+\_\+\+\_\+\+NO\+\_\+\+RETURN}}
+\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a9eb9a7a797a42e4b55eb171ecc609ddb}{os\+Wait\+Forever}}~0x\+FFFFFFFFU
+\begin{DoxyCompactList}\small\item\em Wait forever timeout value. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a18e63587b8450d5b8798b6f6ec04e012}{os\+Flags\+Wait\+Any}}~0x00000000U
+\begin{DoxyCompactList}\small\item\em Wait for any flag (default). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a8b6f562736fbfb5428940e0c017dec24}{os\+Flags\+Wait\+All}}~0x00000001U
+\begin{DoxyCompactList}\small\item\em Wait for all flags. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_aade844a42237d8c37569d4d9b16b9f1c}{os\+Flags\+No\+Clear}}~0x00000002U
+\begin{DoxyCompactList}\small\item\em Do not clear flags which have been specified to wait for. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a01c1359c3a5640bff6e08f09bf94ce3a}{os\+Flags\+Error}}~0x80000000U
+\begin{DoxyCompactList}\small\item\em Error indicator. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a3b1d9fbb83d64eedb62f831c9be647c3}{os\+Flags\+Error\+Unknown}}~0x\+FFFFFFFFU
+\begin{DoxyCompactList}\small\item\em os\+Error (-\/1). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a2e951c3f1c3b7bff4eca3d7836cd19ca}{os\+Flags\+Error\+Timeout}}~0x\+FFFFFFFEU
+\begin{DoxyCompactList}\small\item\em os\+Error\+Timeout (-\/2). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a4db38b50da1889bcaaa7f747e844f904}{os\+Flags\+Error\+Resource}}~0x\+FFFFFFFDU
+\begin{DoxyCompactList}\small\item\em os\+Error\+Resource (-\/3). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_aa8a95ef938f8f5a9fcb815ec53184f77}{os\+Flags\+Error\+Parameter}}~0x\+FFFFFFFCU
+\begin{DoxyCompactList}\small\item\em os\+Error\+Parameter (-\/4). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_aea3abd186643f539877e894b62b63448}{os\+Flags\+Error\+ISR}}~0x\+FFFFFFFAU
+\begin{DoxyCompactList}\small\item\em os\+Error\+ISR (-\/6). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_aa9336c1073858d6b118e2e011636246f}{os\+Thread\+Detached}}~0x00000000U
+\begin{DoxyCompactList}\small\item\em Thread created in detached mode (default) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a249499c519f3f8eef5673009ab6cfcbe}{os\+Thread\+Joinable}}~0x00000001U
+\begin{DoxyCompactList}\small\item\em Thread created in joinable mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a65c2482cc64a35d03871f3180f305926}{os\+Mutex\+Recursive}}~0x00000001U
+\begin{DoxyCompactList}\small\item\em Recursive mutex. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a40fba270cb31a977b3bd551d41eb9599}{os\+Mutex\+Prio\+Inherit}}~0x00000002U
+\begin{DoxyCompactList}\small\item\em Priority inherit protocol. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_af0e1dee376798b4d516d164981526780}{os\+Mutex\+Robust}}~0x00000008U
+\begin{DoxyCompactList}\small\item\em Robust mutex. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{cmsis__os2_8h_a78775dae56f0c9698cdab6e1ca74503f}{TZ\+\_\+\+MODULEID\+\_\+T}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a8ef2773ed8ef63ab8727e0d06ebec4d2}{os\+Thread\+Func\+\_\+t}}) (void \texorpdfstring{$\ast$}{*}argument)
+\begin{DoxyCompactList}\small\item\em Entry point of a thread. \end{DoxyCompactList}\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a77a298218f3c8382b39a09a6d134d040}{os\+Timer\+Func\+\_\+t}}) (void \texorpdfstring{$\ast$}{*}argument)
+\begin{DoxyCompactList}\small\item\em Timer callback function. \end{DoxyCompactList}\item 
+typedef void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}
+\item 
+typedef void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}}
+\item 
+typedef void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}
+\item 
+typedef void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}}
+\item 
+typedef void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}
+\item 
+typedef void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}}
+\item 
+typedef void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4}{os\+Kernel\+State\+\_\+t}} \{ \newline
+\mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4ae9a7d578873c28590009479283922db9}{os\+Kernel\+Inactive}} = 0
+, \mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a87ef9718301b92bfa9c97d61d660a8aa}{os\+Kernel\+Ready}} = 1
+, \mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a98d8ad539d2cc6c3dbb7138356049db2}{os\+Kernel\+Running}} = 2
+, \mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a033026d41a9309bd9551df1ae8153553}{os\+Kernel\+Locked}} = 3
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a3240807627595e80f59a46434639b765}{os\+Kernel\+Suspended}} = 4
+, \mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a1b942a8c76daeba2925a763d4d7567a2}{os\+Kernel\+Error}} = -\/1
+, \mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a9cc4cc562a20a28c0f6f4b878ecf2df5}{os\+Kernel\+Reserved}} = 0x7\+FFFFFFF
+ \}
+\begin{DoxyCompactList}\small\item\em Kernel state. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820d}{os\+Thread\+State\+\_\+t}} \{ \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da7d7d4f719a1be6daa63a251563585fdd}{os\+Thread\+Inactive}} = 0
+, \mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820dad9a040e03d7e7943c0217a3359fc1e8b}{os\+Thread\+Ready}} = 1
+, \mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da71dae1f35a4b4d9d2ab24e186461a17f}{os\+Thread\+Running}} = 2
+, \mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da476cd2370e6938974fb2a79811408819}{os\+Thread\+Blocked}} = 3
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820dac2a35280d5475f56352c539c9c9b42f9}{os\+Thread\+Terminated}} = 4
+, \mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820dac841e73a7198a42364c9450f1f54a0ef}{os\+Thread\+Error}} = -\/1
+, \mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da8872f7e352370eb11ee772c7dcca6e6c}{os\+Thread\+Reserved}} = 0x7\+FFFFFFF
+ \}
+\begin{DoxyCompactList}\small\item\em Thread state. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}} \{ \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca6c437c7185161a3bd1e7e4669dfa17a3}{os\+Priority\+None}} = 0
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca549e79a43ff4f8b2b31afb613f5caa81}{os\+Priority\+Idle}} = 1
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca61cb822239ac8f66dfbdc7291598a3d4}{os\+Priority\+Low}} = 8
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaba2b6919f0b630c8c1b2c940e3bfadbe}{os\+Priority\+Low1}} = 8+1
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca78ad5d00aa07a2b4bf30a639544f5507}{os\+Priority\+Low2}} = 8+2
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca28ccb07942c16f5f5efefb6cf68a7f50}{os\+Priority\+Low3}} = 8+3
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5a4a4f26d5b220a968e221e854f69a81}{os\+Priority\+Low4}} = 8+4
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecad69b8c14809bc5bdce4887f5a57d9353}{os\+Priority\+Low5}} = 8+5
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecac0f188468664d06d4cd9e6e1ed351393}{os\+Priority\+Low6}} = 8+6
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5b151ebba7fdeb1baaa9b7b420890b7a}{os\+Priority\+Low7}} = 8+7
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca193b650117c209b4a203954542bcc3e6}{os\+Priority\+Below\+Normal}} = 16
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca9138da7187690b15f52d8e5729c18da5}{os\+Priority\+Below\+Normal1}} = 16+1
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca4f081d6735bf2f513338b07eddf13ae3}{os\+Priority\+Below\+Normal2}} = 16+2
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca19c013690d0d6bf3ac90707942be3fdf}{os\+Priority\+Below\+Normal3}} = 16+3
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca36931ad6cee5e4700e2c8622bdd2cd24}{os\+Priority\+Below\+Normal4}} = 16+4
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca0bcd9ad1e7a02e3bf03be7dcc8ece38e}{os\+Priority\+Below\+Normal5}} = 16+5
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecabd3cc7df5b92b752ddf1e7843a786c05}{os\+Priority\+Below\+Normal6}} = 16+6
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecab18e3bda7b5e418e309a62d6267ea14b}{os\+Priority\+Below\+Normal7}} = 16+7
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca45a2895ad30c79fb97de18cac7cc19f1}{os\+Priority\+Normal}} = 24
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca3e70c19e03d5a54e66bd071f0776782c}{os\+Priority\+Normal1}} = 24+1
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca19e96f2b025b6462a43b1965043c8205}{os\+Priority\+Normal2}} = 24+2
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca402bd7ab26fb57c8cee8cf94168f4c91}{os\+Priority\+Normal3}} = 24+3
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca93ef07d3a107aeee6508bfd29ba3485d}{os\+Priority\+Normal4}} = 24+4
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca68f3f6fdaa639de300277802aa13a0ab}{os\+Priority\+Normal5}} = 24+5
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca8221eb0d059726a6309f1f2d0cdb6204}{os\+Priority\+Normal6}} = 24+6
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca049abd04f8951415407ec9d92bd9b80b}{os\+Priority\+Normal7}} = 24+7
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca17b36cd9cd38652c2bc6d4803990674b}{os\+Priority\+Above\+Normal}} = 32
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecabfeafc713edfc7b9130aa5c762d68998}{os\+Priority\+Above\+Normal1}} = 32+1
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca901acf86070e06f5990b611734ee2562}{os\+Priority\+Above\+Normal2}} = 32+2
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecad566b876b64e6efdc3eba0fc04e54013}{os\+Priority\+Above\+Normal3}} = 32+3
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca6ccac37d7dae4586a2031966d36a63ec}{os\+Priority\+Above\+Normal4}} = 32+4
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecae36e8b38ee046a3104bcccabb10cf78c}{os\+Priority\+Above\+Normal5}} = 32+5
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca61e6ce27e1e0f34f2540b413b8a8b207}{os\+Priority\+Above\+Normal6}} = 32+6
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecadbbb0fed3ada6b9b50d4a628abc2a67d}{os\+Priority\+Above\+Normal7}} = 32+7
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca914433934143a9ba767e59577c56e6c2}{os\+Priority\+High}} = 40
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca17b7a7e6febf12444a84e90edfce36cb}{os\+Priority\+High1}} = 40+1
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca40a120cf8bbc42e575455c027f3d9b03}{os\+Priority\+High2}} = 40+2
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca0b15518b0b5321a29efa0b42b2f8c759}{os\+Priority\+High3}} = 40+3
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecafe5a4f393fab04551ac7d93e80cdf0fb}{os\+Priority\+High4}} = 40+4
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5960841bfbdd959b163429e8502ea4e9}{os\+Priority\+High5}} = 40+5
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5714dda6effc1a3f8ec155d97e3e69bc}{os\+Priority\+High6}} = 40+6
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca63ad0cc52a701ef3d9df52b59b995652}{os\+Priority\+High7}} = 40+7
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca1485dec3702434a1ec3cb74c7a17a4af}{os\+Priority\+Realtime}} = 48
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaf685a06b30f0635476e21347a986305b}{os\+Priority\+Realtime1}} = 48+1
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecab832bd9de84e5eec2ecad69d085dadff}{os\+Priority\+Realtime2}} = 48+2
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca3f2261e5e733e92844ae8c630f2f9eaa}{os\+Priority\+Realtime3}} = 48+3
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaf614e3dc966d559cd9d9d2a0f78ebe70}{os\+Priority\+Realtime4}} = 48+4
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaff84f31ceff203c711fb9476443507df}{os\+Priority\+Realtime5}} = 48+5
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca80ae9d0dd256312c0c8f44af48316194}{os\+Priority\+Realtime6}} = 48+6
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaa76da6825c4bd31c4958200bc289103b}{os\+Priority\+Realtime7}} = 48+7
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca3943224956e1ea667c6a931c74137b79}{os\+Priority\+ISR}} = 56
+, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecae35f5e2f9c64ad346822521b643bdea4}{os\+Priority\+Error}} = -\/1
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecac86c171f8d466cced0cb1b03bb03343b}{os\+Priority\+Reserved}} = 0x7\+FFFFFFF
+ \}
+\begin{DoxyCompactList}\small\item\em Priority values. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915}{os\+Timer\+Type\+\_\+t}} \{ \mbox{\hyperlink{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915ad21712f8df5f97069c82dc9eec37b951}{os\+Timer\+Once}} = 0
+, \mbox{\hyperlink{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915ab9c91f9699162edb09bb7c90c11c8788}{os\+Timer\+Periodic}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Timer type. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \{ \newline
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea9e1c9e2550bb4de8969a935acffc968f}{os\+OK}} = 0
+, \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813eabb7b2d2c4efa66df42f1c10635467b09}{os\+Error}} = -\/1
+, \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea913eb5df15ad85f8557eb3a456b56879}{os\+Error\+Timeout}} = -\/2
+, \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea8fc5801e8b0482bdf22ad63a77f0155d}{os\+Error\+Resource}} = -\/3
+, \newline
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813eac24adca6a5d072c9f01c32178ba0d109}{os\+Error\+Parameter}} = -\/4
+, \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813eaf1fac0240218e51eb30a13da2f8aae81}{os\+Error\+No\+Memory}} = -\/5
+, \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea21635bdc492d3094fe83027fa4a30e2f}{os\+Error\+ISR}} = -\/6
+, \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea66cc9ce9106b508df0e4a733a55a439d}{os\+Status\+Reserved}} = 0x7\+FFFFFFF
+ \}
+\begin{DoxyCompactList}\small\item\em Status code values returned by CMSIS-\/\+RTOS functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_ae818f6611d25ba3140bede410a52d659}{os\+Kernel\+Initialize}} (void)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a6f7764e7250c5c5364c00c45a5d1d199}{os\+Kernel\+Get\+Info}} (\mbox{\hyperlink{structos_version__t}{os\+Version\+\_\+t}} \texorpdfstring{$\ast$}{*}version, char \texorpdfstring{$\ast$}{*}id\+\_\+buf, uint32\+\_\+t id\+\_\+size)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4}{os\+Kernel\+State\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a48b69b81012fce051f639be288b243ba}{os\+Kernel\+Get\+State}} (void)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a9ae2cc00f0d89d7b6a307bba942b5221}{os\+Kernel\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Start the RTOS Kernel with executing the specified thread. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a948609ee930d9b38336b9e1c2a4dfe12}{os\+Kernel\+Lock}} (void)
+\item 
+int32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_af401728b4657456198c33fe75f8d6720}{os\+Kernel\+Unlock}} (void)
+\item 
+int32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_ae7d0a71b9586cbbb49fcbdf6a04f0289}{os\+Kernel\+Restore\+Lock}} (int32\+\_\+t lock)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_ae26683e1606ec633354a2876c68f0c1f}{os\+Kernel\+Suspend}} (void)
+\item 
+void \mbox{\hyperlink{cmsis__os2_8h_a8c4b4d7ed34cab73c001665d9176aced}{os\+Kernel\+Resume}} (uint32\+\_\+t sleep\+\_\+ticks)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a84bcdbf2fb76b10c8df4e439f0c7e11b}{os\+Kernel\+Get\+Tick\+Count}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a7a8d7bd927eaaa58999f91d7d6310cee}{os\+Kernel\+Get\+Tick\+Freq}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_ae0fcaff6cecfb4013bb556c87afcd7d2}{os\+Kernel\+Get\+Sys\+Timer\+Count}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a4d69215a93220f72be3684cad582f16a}{os\+Kernel\+Get\+Sys\+Timer\+Freq}} (void)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New}} (\mbox{\hyperlink{cmsis__os2_8h_a8ef2773ed8ef63ab8727e0d06ebec4d2}{os\+Thread\+Func\+\_\+t}} func, void \texorpdfstring{$\ast$}{*}argument, const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}attr)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_ac3230f3a55a297514b013ebf38f27e0a}{os\+Thread\+Get\+Name}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a8df03548e89fbc56402a5cd584a505da}{os\+Thread\+Get\+Id}} (void)
+\begin{DoxyCompactList}\small\item\em Return the thread ID of the current running thread. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820d}{os\+Thread\+State\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_acc0a98b42f0a5928e12dc91dc76866b9}{os\+Thread\+Get\+State}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_ab9f8bd715d671c6ee27644867bc1bf65}{os\+Thread\+Get\+Stack\+Size}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a9c83bd5dd8de329701775d6ef7012720}{os\+Thread\+Get\+Stack\+Space}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a861a420fb2d643115b06622903fb3bfb}{os\+Thread\+Set\+Priority}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id, \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}} priority)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a0aeaf349604f456e68e78f9d3b42e44b}{os\+Thread\+Get\+Priority}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_ad01c7ec26535b1de6b018bb9466720e2}{os\+Thread\+Yield}} (void)
+\begin{DoxyCompactList}\small\item\em Pass control to next thread that is in state {\bfseries{READY}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_aa9de419d0152bf77e9bbcd1f369fb990}{os\+Thread\+Suspend}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a3dbad90eff394b02de76a452c84c5d80}{os\+Thread\+Resume}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_aaad14cd9547341ea8109dc4e8540f1dc}{os\+Thread\+Detach}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a3fca90fb0679afeb968aa8c3d5874487}{os\+Thread\+Join}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_a153a4a31b276a9758959580538720a51}{\+\_\+\+\_\+\+NO\+\_\+\+RETURN}} void \mbox{\hyperlink{cmsis__os2_8h_addaa452dd7610e4096647a566d3556fc}{os\+Thread\+Exit}} (void)
+\begin{DoxyCompactList}\small\item\em Terminate execution of current running thread. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a2f8ba6dba6e9c065a6e236ffd410d74a}{os\+Thread\+Terminate}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a495b3f812224e7301f23a691793765db}{os\+Thread\+Get\+Count}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a5606604d56e21ece1a654664be877439}{os\+Thread\+Enumerate}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \texorpdfstring{$\ast$}{*}thread\+\_\+array, uint32\+\_\+t array\+\_\+items)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a6f89ef9caded1d9963c7b12b0f6412c9}{os\+Thread\+Flags\+Set}} (\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} thread\+\_\+id, uint32\+\_\+t flags)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a656abc1c862c5b9a2b13584c42cc0bfa}{os\+Thread\+Flags\+Clear}} (uint32\+\_\+t flags)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a85c8d2c89466e25abbcb545d9ddd71ba}{os\+Thread\+Flags\+Get}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_ac11542ad6300b600f872fc96e340ec2b}{os\+Thread\+Flags\+Wait}} (uint32\+\_\+t flags, uint32\+\_\+t options, uint32\+\_\+t timeout)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_af6055a51390ef65b6b6edc28bf47322e}{os\+Delay}} (uint32\+\_\+t ticks)
+\begin{DoxyCompactList}\small\item\em Wait for Timeout (Time Delay) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a3c807924c2d6d43bc2ffb49da3f7f3a1}{os\+Delay\+Until}} (uint32\+\_\+t ticks)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_ad4e7f785c5f700a509f55a3bf6a62bec}{os\+Timer\+New}} (\mbox{\hyperlink{cmsis__os2_8h_a77a298218f3c8382b39a09a6d134d040}{os\+Timer\+Func\+\_\+t}} func, \mbox{\hyperlink{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915}{os\+Timer\+Type\+\_\+t}} type, void \texorpdfstring{$\ast$}{*}argument, const \mbox{\hyperlink{structos_timer_attr__t}{os\+Timer\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}attr)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a7938dde88ada1a01b60f41cf120069c0}{os\+Timer\+Get\+Name}} (\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}} timer\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_ab6ee2859ea657641b7adfac599b8121d}{os\+Timer\+Start}} (\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}} timer\+\_\+id, uint32\+\_\+t ticks)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_abd7a89356da7717293eb0bc5d87b8ac9}{os\+Timer\+Stop}} (\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}} timer\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a69d3589f54194022c30dd01e45ec6741}{os\+Timer\+Is\+Running}} (\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}} timer\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_ad0001dd74721ab461789324806db2453}{os\+Timer\+Delete}} (\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}} timer\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}} (const \mbox{\hyperlink{structos_event_flags_attr__t}{os\+Event\+Flags\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}attr)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a59f4ddf0ee8c395b1672bb978d1cfc88}{os\+Event\+Flags\+Get\+Name}} (\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a33b71d14cecf90b4e72639dd19f23a5e}{os\+Event\+Flags\+Set}} (\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id, uint32\+\_\+t flags)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a93bf258ca0007c6641fbe8e4f2b8a1e5}{os\+Event\+Flags\+Clear}} (\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id, uint32\+\_\+t flags)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a8bda3185f46bfd278cea8a6cf357677d}{os\+Event\+Flags\+Get}} (\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a52acb34a8322e58020227344fe662b4e}{os\+Event\+Flags\+Wait}} (\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id, uint32\+\_\+t flags, uint32\+\_\+t options, uint32\+\_\+t timeout)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a7c4acf2fb0d506ec82905dee53fb5435}{os\+Event\+Flags\+Delete}} (\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} ef\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_ab90920022ab944296821368ef6bb52f8}{os\+Mutex\+New}} (const \mbox{\hyperlink{structos_mutex_attr__t}{os\+Mutex\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}attr)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a180839843a2eac396fb5afe165f28005}{os\+Mutex\+Get\+Name}} (\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}} mutex\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_abc54686ea0fc281823b1763422d2a924}{os\+Mutex\+Acquire}} (\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}} mutex\+\_\+id, uint32\+\_\+t timeout)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_aea629705703580ff58776bf73c8db915}{os\+Mutex\+Release}} (\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}} mutex\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a7f9a7666df0978738cd570cb700b83fb}{os\+Mutex\+Get\+Owner}} (\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}} mutex\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_abee73ad227ba4587d3db12ef9bd582bc}{os\+Mutex\+Delete}} (\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}} mutex\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}} (uint32\+\_\+t max\+\_\+count, uint32\+\_\+t initial\+\_\+count, const \mbox{\hyperlink{structos_semaphore_attr__t}{os\+Semaphore\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}attr)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a9586952051f00285f1482dbe6695bbc4}{os\+Semaphore\+Get\+Name}} (\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} semaphore\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a7e94c8b242a0c81f2cc79ec22895c87b}{os\+Semaphore\+Acquire}} (\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} semaphore\+\_\+id, uint32\+\_\+t timeout)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a0abcee1b5449d7a6928fb9248c690bb6}{os\+Semaphore\+Release}} (\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} semaphore\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a7559d4dff3cda9992fc5ab5de3e74c70}{os\+Semaphore\+Get\+Count}} (\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} semaphore\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a81258ce9c67fa89f07cc49d2e136cd88}{os\+Semaphore\+Delete}} (\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} semaphore\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{os\+Memory\+Pool\+New}} (uint32\+\_\+t block\+\_\+count, uint32\+\_\+t block\+\_\+size, const \mbox{\hyperlink{structos_memory_pool_attr__t}{os\+Memory\+Pool\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}attr)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_ab414a1e138205a55820acfa277c8f386}{os\+Memory\+Pool\+Get\+Name}} (\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}} mp\+\_\+id)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a8ead54e99ccb8f112356c88f99d38fbe}{os\+Memory\+Pool\+Alloc}} (\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}} mp\+\_\+id, uint32\+\_\+t timeout)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_abb4f4560daa6d1f8c8789082ee186d16}{os\+Memory\+Pool\+Free}} (\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}} mp\+\_\+id, void \texorpdfstring{$\ast$}{*}block)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_ad696e94bfbe28f0b6613f9303fdf6a37}{os\+Memory\+Pool\+Get\+Capacity}} (\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}} mp\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_ab2bf059b7fa7679c3cccdaeec60b6c0e}{os\+Memory\+Pool\+Get\+Block\+Size}} (\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}} mp\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a958a9449bff8c95ce213de98eef5739d}{os\+Memory\+Pool\+Get\+Count}} (\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}} mp\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a0394cffa9479a7994e3b03c79c1cb909}{os\+Memory\+Pool\+Get\+Space}} (\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}} mp\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a8c39e7e5cd2b9eda907466808e59d62e}{os\+Memory\+Pool\+Delete}} (\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}} mp\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}} (uint32\+\_\+t msg\+\_\+count, uint32\+\_\+t msg\+\_\+size, const \mbox{\hyperlink{structos_message_queue_attr__t}{os\+Message\+Queue\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}attr)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_ae7cf7bf2b97a5ae481fb60fcce99247a}{os\+Message\+Queue\+Get\+Name}} (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_aa515fc8b956f721a8f72b2c505813bfc}{os\+Message\+Queue\+Put}} (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id, const void \texorpdfstring{$\ast$}{*}msg\+\_\+ptr, uint8\+\_\+t msg\+\_\+prio, uint32\+\_\+t timeout)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_ad90d4959466a7a65105061da8256ab9e}{os\+Message\+Queue\+Get}} (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id, void \texorpdfstring{$\ast$}{*}msg\+\_\+ptr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}msg\+\_\+prio, uint32\+\_\+t timeout)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_ac24f87d4f395e9e9c900c320e45ade8a}{os\+Message\+Queue\+Get\+Capacity}} (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a96d3d84069b20359de48109e28a1a89e}{os\+Message\+Queue\+Get\+Msg\+Size}} (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_a6a32ac394fcff568b251c160cc3014b2}{os\+Message\+Queue\+Get\+Count}} (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{cmsis__os2_8h_addf0904427436dd3880d46263c2dc9fa}{os\+Message\+Queue\+Get\+Space}} (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_ac6dce7f9ad132d266292c2e979d861b4}{os\+Message\+Queue\+Reset}} (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\item 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} \mbox{\hyperlink{cmsis__os2_8h_aba987f665444e0d83fa6a3a68bc72abe}{os\+Message\+Queue\+Delete}} (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} mq\+\_\+id)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{cmsis__os2_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{cmsis__os2_8h_a153a4a31b276a9758959580538720a51}\index{cmsis\_os2.h@{cmsis\_os2.h}!\_\_NO\_RETURN@{\_\_NO\_RETURN}}
+\index{\_\_NO\_RETURN@{\_\_NO\_RETURN}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{\_\_NO\_RETURN}{\_\_NO\_RETURN}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a153a4a31b276a9758959580538720a51} 
+\#define \+\_\+\+\_\+\+NO\+\_\+\+RETURN}
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00060}{60}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a01c1359c3a5640bff6e08f09bf94ce3a}\index{cmsis\_os2.h@{cmsis\_os2.h}!osFlagsError@{osFlagsError}}
+\index{osFlagsError@{osFlagsError}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osFlagsError}{osFlagsError}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a01c1359c3a5640bff6e08f09bf94ce3a} 
+\#define os\+Flags\+Error~0x80000000U}
+
+
+
+Error indicator. 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00181}{181}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_aea3abd186643f539877e894b62b63448}\index{cmsis\_os2.h@{cmsis\_os2.h}!osFlagsErrorISR@{osFlagsErrorISR}}
+\index{osFlagsErrorISR@{osFlagsErrorISR}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osFlagsErrorISR}{osFlagsErrorISR}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_aea3abd186643f539877e894b62b63448} 
+\#define os\+Flags\+Error\+ISR~0x\+FFFFFFFAU}
+
+
+
+os\+Error\+ISR (-\/6). 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00186}{186}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_aa8a95ef938f8f5a9fcb815ec53184f77}\index{cmsis\_os2.h@{cmsis\_os2.h}!osFlagsErrorParameter@{osFlagsErrorParameter}}
+\index{osFlagsErrorParameter@{osFlagsErrorParameter}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osFlagsErrorParameter}{osFlagsErrorParameter}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_aa8a95ef938f8f5a9fcb815ec53184f77} 
+\#define os\+Flags\+Error\+Parameter~0x\+FFFFFFFCU}
+
+
+
+os\+Error\+Parameter (-\/4). 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00185}{185}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a4db38b50da1889bcaaa7f747e844f904}\index{cmsis\_os2.h@{cmsis\_os2.h}!osFlagsErrorResource@{osFlagsErrorResource}}
+\index{osFlagsErrorResource@{osFlagsErrorResource}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osFlagsErrorResource}{osFlagsErrorResource}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a4db38b50da1889bcaaa7f747e844f904} 
+\#define os\+Flags\+Error\+Resource~0x\+FFFFFFFDU}
+
+
+
+os\+Error\+Resource (-\/3). 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00184}{184}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a2e951c3f1c3b7bff4eca3d7836cd19ca}\index{cmsis\_os2.h@{cmsis\_os2.h}!osFlagsErrorTimeout@{osFlagsErrorTimeout}}
+\index{osFlagsErrorTimeout@{osFlagsErrorTimeout}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osFlagsErrorTimeout}{osFlagsErrorTimeout}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a2e951c3f1c3b7bff4eca3d7836cd19ca} 
+\#define os\+Flags\+Error\+Timeout~0x\+FFFFFFFEU}
+
+
+
+os\+Error\+Timeout (-\/2). 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00183}{183}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a3b1d9fbb83d64eedb62f831c9be647c3}\index{cmsis\_os2.h@{cmsis\_os2.h}!osFlagsErrorUnknown@{osFlagsErrorUnknown}}
+\index{osFlagsErrorUnknown@{osFlagsErrorUnknown}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osFlagsErrorUnknown}{osFlagsErrorUnknown}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a3b1d9fbb83d64eedb62f831c9be647c3} 
+\#define os\+Flags\+Error\+Unknown~0x\+FFFFFFFFU}
+
+
+
+os\+Error (-\/1). 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00182}{182}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_aade844a42237d8c37569d4d9b16b9f1c}\index{cmsis\_os2.h@{cmsis\_os2.h}!osFlagsNoClear@{osFlagsNoClear}}
+\index{osFlagsNoClear@{osFlagsNoClear}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osFlagsNoClear}{osFlagsNoClear}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_aade844a42237d8c37569d4d9b16b9f1c} 
+\#define os\+Flags\+No\+Clear~0x00000002U}
+
+
+
+Do not clear flags which have been specified to wait for. 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00178}{178}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a8b6f562736fbfb5428940e0c017dec24}\index{cmsis\_os2.h@{cmsis\_os2.h}!osFlagsWaitAll@{osFlagsWaitAll}}
+\index{osFlagsWaitAll@{osFlagsWaitAll}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osFlagsWaitAll}{osFlagsWaitAll}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a8b6f562736fbfb5428940e0c017dec24} 
+\#define os\+Flags\+Wait\+All~0x00000001U}
+
+
+
+Wait for all flags. 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00177}{177}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a18e63587b8450d5b8798b6f6ec04e012}\index{cmsis\_os2.h@{cmsis\_os2.h}!osFlagsWaitAny@{osFlagsWaitAny}}
+\index{osFlagsWaitAny@{osFlagsWaitAny}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osFlagsWaitAny}{osFlagsWaitAny}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a18e63587b8450d5b8798b6f6ec04e012} 
+\#define os\+Flags\+Wait\+Any~0x00000000U}
+
+
+
+Wait for any flag (default). 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00176}{176}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a40fba270cb31a977b3bd551d41eb9599}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMutexPrioInherit@{osMutexPrioInherit}}
+\index{osMutexPrioInherit@{osMutexPrioInherit}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMutexPrioInherit}{osMutexPrioInherit}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a40fba270cb31a977b3bd551d41eb9599} 
+\#define os\+Mutex\+Prio\+Inherit~0x00000002U}
+
+
+
+Priority inherit protocol. 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00194}{194}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a65c2482cc64a35d03871f3180f305926}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMutexRecursive@{osMutexRecursive}}
+\index{osMutexRecursive@{osMutexRecursive}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMutexRecursive}{osMutexRecursive}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a65c2482cc64a35d03871f3180f305926} 
+\#define os\+Mutex\+Recursive~0x00000001U}
+
+
+
+Recursive mutex. 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00193}{193}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_af0e1dee376798b4d516d164981526780}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMutexRobust@{osMutexRobust}}
+\index{osMutexRobust@{osMutexRobust}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMutexRobust}{osMutexRobust}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_af0e1dee376798b4d516d164981526780} 
+\#define os\+Mutex\+Robust~0x00000008U}
+
+
+
+Robust mutex. 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00195}{195}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_aa9336c1073858d6b118e2e011636246f}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadDetached@{osThreadDetached}}
+\index{osThreadDetached@{osThreadDetached}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadDetached}{osThreadDetached}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_aa9336c1073858d6b118e2e011636246f} 
+\#define os\+Thread\+Detached~0x00000000U}
+
+
+
+Thread created in detached mode (default) 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00189}{189}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a249499c519f3f8eef5673009ab6cfcbe}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadJoinable@{osThreadJoinable}}
+\index{osThreadJoinable@{osThreadJoinable}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadJoinable}{osThreadJoinable}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a249499c519f3f8eef5673009ab6cfcbe} 
+\#define os\+Thread\+Joinable~0x00000001U}
+
+
+
+Thread created in joinable mode. 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00190}{190}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a9eb9a7a797a42e4b55eb171ecc609ddb}\index{cmsis\_os2.h@{cmsis\_os2.h}!osWaitForever@{osWaitForever}}
+\index{osWaitForever@{osWaitForever}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osWaitForever}{osWaitForever}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a9eb9a7a797a42e4b55eb171ecc609ddb} 
+\#define os\+Wait\+Forever~0x\+FFFFFFFFU}
+
+
+
+Wait forever timeout value. 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00173}{173}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a78775dae56f0c9698cdab6e1ca74503f}\index{cmsis\_os2.h@{cmsis\_os2.h}!TZ\_MODULEID\_T@{TZ\_MODULEID\_T}}
+\index{TZ\_MODULEID\_T@{TZ\_MODULEID\_T}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{TZ\_MODULEID\_T}{TZ\_MODULEID\_T}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a78775dae56f0c9698cdab6e1ca74503f} 
+\#define TZ\+\_\+\+MODULEID\+\_\+T}
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00233}{233}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{cmsis__os2_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}\index{cmsis\_os2.h@{cmsis\_os2.h}!osEventFlagsId\_t@{osEventFlagsId\_t}}
+\index{osEventFlagsId\_t@{osEventFlagsId\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsId\_t}{osEventFlagsId\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd} 
+typedef void\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}
+
+Event Flags ID identifies the event flags. 
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00217}{217}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMemoryPoolId\_t@{osMemoryPoolId\_t}}
+\index{osMemoryPoolId\_t@{osMemoryPoolId\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMemoryPoolId\_t}{osMemoryPoolId\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c} 
+typedef void\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}}}
+
+Memory Pool ID identifies the memory pool. 
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00226}{226}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueueId\_t@{osMessageQueueId\_t}}
+\index{osMessageQueueId\_t@{osMessageQueueId\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueId\_t}{osMessageQueueId\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317} 
+typedef void\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}
+
+Message Queue ID identifies the message queue. 
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00229}{229}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMutexId\_t@{osMutexId\_t}}
+\index{osMutexId\_t@{osMutexId\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMutexId\_t}{osMutexId\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7} 
+typedef void\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}}}
+
+Mutex ID identifies the mutex. 
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00220}{220}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}\index{cmsis\_os2.h@{cmsis\_os2.h}!osSemaphoreId\_t@{osSemaphoreId\_t}}
+\index{osSemaphoreId\_t@{osSemaphoreId\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreId\_t}{osSemaphoreId\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1} 
+typedef void\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}
+
+Semaphore ID identifies the semaphore. 
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00223}{223}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a8ef2773ed8ef63ab8727e0d06ebec4d2}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadFunc\_t@{osThreadFunc\_t}}
+\index{osThreadFunc\_t@{osThreadFunc\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadFunc\_t}{osThreadFunc\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a8ef2773ed8ef63ab8727e0d06ebec4d2} 
+typedef void(\texorpdfstring{$\ast$}{*} os\+Thread\+Func\+\_\+t) (void \texorpdfstring{$\ast$}{*}argument)}
+
+
+
+Entry point of a thread. 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00161}{161}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadId\_t@{osThreadId\_t}}
+\index{osThreadId\_t@{osThreadId\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadId\_t}{osThreadId\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217} 
+typedef void\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}
+
+Thread ID identifies the thread. 
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00211}{211}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a77a298218f3c8382b39a09a6d134d040}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerFunc\_t@{osTimerFunc\_t}}
+\index{osTimerFunc\_t@{osTimerFunc\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osTimerFunc\_t}{osTimerFunc\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a77a298218f3c8382b39a09a6d134d040} 
+typedef void(\texorpdfstring{$\ast$}{*} os\+Timer\+Func\+\_\+t) (void \texorpdfstring{$\ast$}{*}argument)}
+
+
+
+Timer callback function. 
+
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00164}{164}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerId\_t@{osTimerId\_t}}
+\index{osTimerId\_t@{osTimerId\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osTimerId\_t}{osTimerId\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44} 
+typedef void\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}}}
+
+Timer ID identifies the timer. 
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00214}{214}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{cmsis__os2_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelState\_t@{osKernelState\_t}}
+\index{osKernelState\_t@{osKernelState\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelState\_t}{osKernelState\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4} 
+enum \mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4}{os\+Kernel\+State\+\_\+t}}}
+
+
+
+Kernel state. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osKernelInactive@{osKernelInactive}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelInactive@{osKernelInactive}}}\Hypertarget{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4ae9a7d578873c28590009479283922db9}\label{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4ae9a7d578873c28590009479283922db9} 
+os\+Kernel\+Inactive&Inactive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osKernelReady@{osKernelReady}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelReady@{osKernelReady}}}\Hypertarget{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a87ef9718301b92bfa9c97d61d660a8aa}\label{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a87ef9718301b92bfa9c97d61d660a8aa} 
+os\+Kernel\+Ready&Ready. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osKernelRunning@{osKernelRunning}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelRunning@{osKernelRunning}}}\Hypertarget{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a98d8ad539d2cc6c3dbb7138356049db2}\label{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a98d8ad539d2cc6c3dbb7138356049db2} 
+os\+Kernel\+Running&Running. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osKernelLocked@{osKernelLocked}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelLocked@{osKernelLocked}}}\Hypertarget{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a033026d41a9309bd9551df1ae8153553}\label{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a033026d41a9309bd9551df1ae8153553} 
+os\+Kernel\+Locked&Locked. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osKernelSuspended@{osKernelSuspended}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelSuspended@{osKernelSuspended}}}\Hypertarget{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a3240807627595e80f59a46434639b765}\label{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a3240807627595e80f59a46434639b765} 
+os\+Kernel\+Suspended&Suspended. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osKernelError@{osKernelError}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelError@{osKernelError}}}\Hypertarget{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a1b942a8c76daeba2925a763d4d7567a2}\label{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a1b942a8c76daeba2925a763d4d7567a2} 
+os\+Kernel\+Error&Error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osKernelReserved@{osKernelReserved}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelReserved@{osKernelReserved}}}\Hypertarget{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a9cc4cc562a20a28c0f6f4b878ecf2df5}\label{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4a9cc4cc562a20a28c0f6f4b878ecf2df5} 
+os\+Kernel\+Reserved&Prevents enum down-\/size compiler optimization. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00082}{82}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ec}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriority\_t@{osPriority\_t}}
+\index{osPriority\_t@{osPriority\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osPriority\_t}{osPriority\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ec} 
+enum \mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}}}
+
+
+
+Priority values. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityNone@{osPriorityNone}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityNone@{osPriorityNone}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca6c437c7185161a3bd1e7e4669dfa17a3}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca6c437c7185161a3bd1e7e4669dfa17a3} 
+os\+Priority\+None&No priority (not initialized). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityIdle@{osPriorityIdle}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityIdle@{osPriorityIdle}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca549e79a43ff4f8b2b31afb613f5caa81}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca549e79a43ff4f8b2b31afb613f5caa81} 
+os\+Priority\+Idle&Reserved for Idle thread. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityLow@{osPriorityLow}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityLow@{osPriorityLow}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca61cb822239ac8f66dfbdc7291598a3d4}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca61cb822239ac8f66dfbdc7291598a3d4} 
+os\+Priority\+Low&Priority\+: low. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityLow1@{osPriorityLow1}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityLow1@{osPriorityLow1}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaba2b6919f0b630c8c1b2c940e3bfadbe}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaba2b6919f0b630c8c1b2c940e3bfadbe} 
+os\+Priority\+Low1&Priority\+: low + 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityLow2@{osPriorityLow2}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityLow2@{osPriorityLow2}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca78ad5d00aa07a2b4bf30a639544f5507}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca78ad5d00aa07a2b4bf30a639544f5507} 
+os\+Priority\+Low2&Priority\+: low + 2. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityLow3@{osPriorityLow3}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityLow3@{osPriorityLow3}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca28ccb07942c16f5f5efefb6cf68a7f50}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca28ccb07942c16f5f5efefb6cf68a7f50} 
+os\+Priority\+Low3&Priority\+: low + 3. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityLow4@{osPriorityLow4}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityLow4@{osPriorityLow4}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5a4a4f26d5b220a968e221e854f69a81}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5a4a4f26d5b220a968e221e854f69a81} 
+os\+Priority\+Low4&Priority\+: low + 4. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityLow5@{osPriorityLow5}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityLow5@{osPriorityLow5}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecad69b8c14809bc5bdce4887f5a57d9353}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecad69b8c14809bc5bdce4887f5a57d9353} 
+os\+Priority\+Low5&Priority\+: low + 5. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityLow6@{osPriorityLow6}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityLow6@{osPriorityLow6}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecac0f188468664d06d4cd9e6e1ed351393}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecac0f188468664d06d4cd9e6e1ed351393} 
+os\+Priority\+Low6&Priority\+: low + 6. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityLow7@{osPriorityLow7}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityLow7@{osPriorityLow7}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5b151ebba7fdeb1baaa9b7b420890b7a}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5b151ebba7fdeb1baaa9b7b420890b7a} 
+os\+Priority\+Low7&Priority\+: low + 7. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityBelowNormal@{osPriorityBelowNormal}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityBelowNormal@{osPriorityBelowNormal}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca193b650117c209b4a203954542bcc3e6}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca193b650117c209b4a203954542bcc3e6} 
+os\+Priority\+Below\+Normal&Priority\+: below normal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityBelowNormal1@{osPriorityBelowNormal1}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityBelowNormal1@{osPriorityBelowNormal1}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca9138da7187690b15f52d8e5729c18da5}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca9138da7187690b15f52d8e5729c18da5} 
+os\+Priority\+Below\+Normal1&Priority\+: below normal + 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityBelowNormal2@{osPriorityBelowNormal2}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityBelowNormal2@{osPriorityBelowNormal2}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca4f081d6735bf2f513338b07eddf13ae3}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca4f081d6735bf2f513338b07eddf13ae3} 
+os\+Priority\+Below\+Normal2&Priority\+: below normal + 2. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityBelowNormal3@{osPriorityBelowNormal3}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityBelowNormal3@{osPriorityBelowNormal3}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca19c013690d0d6bf3ac90707942be3fdf}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca19c013690d0d6bf3ac90707942be3fdf} 
+os\+Priority\+Below\+Normal3&Priority\+: below normal + 3. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityBelowNormal4@{osPriorityBelowNormal4}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityBelowNormal4@{osPriorityBelowNormal4}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca36931ad6cee5e4700e2c8622bdd2cd24}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca36931ad6cee5e4700e2c8622bdd2cd24} 
+os\+Priority\+Below\+Normal4&Priority\+: below normal + 4. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityBelowNormal5@{osPriorityBelowNormal5}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityBelowNormal5@{osPriorityBelowNormal5}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca0bcd9ad1e7a02e3bf03be7dcc8ece38e}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca0bcd9ad1e7a02e3bf03be7dcc8ece38e} 
+os\+Priority\+Below\+Normal5&Priority\+: below normal + 5. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityBelowNormal6@{osPriorityBelowNormal6}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityBelowNormal6@{osPriorityBelowNormal6}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecabd3cc7df5b92b752ddf1e7843a786c05}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecabd3cc7df5b92b752ddf1e7843a786c05} 
+os\+Priority\+Below\+Normal6&Priority\+: below normal + 6. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityBelowNormal7@{osPriorityBelowNormal7}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityBelowNormal7@{osPriorityBelowNormal7}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecab18e3bda7b5e418e309a62d6267ea14b}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecab18e3bda7b5e418e309a62d6267ea14b} 
+os\+Priority\+Below\+Normal7&Priority\+: below normal + 7. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityNormal@{osPriorityNormal}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityNormal@{osPriorityNormal}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca45a2895ad30c79fb97de18cac7cc19f1}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca45a2895ad30c79fb97de18cac7cc19f1} 
+os\+Priority\+Normal&Priority\+: normal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityNormal1@{osPriorityNormal1}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityNormal1@{osPriorityNormal1}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca3e70c19e03d5a54e66bd071f0776782c}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca3e70c19e03d5a54e66bd071f0776782c} 
+os\+Priority\+Normal1&Priority\+: normal + 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityNormal2@{osPriorityNormal2}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityNormal2@{osPriorityNormal2}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca19e96f2b025b6462a43b1965043c8205}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca19e96f2b025b6462a43b1965043c8205} 
+os\+Priority\+Normal2&Priority\+: normal + 2. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityNormal3@{osPriorityNormal3}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityNormal3@{osPriorityNormal3}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca402bd7ab26fb57c8cee8cf94168f4c91}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca402bd7ab26fb57c8cee8cf94168f4c91} 
+os\+Priority\+Normal3&Priority\+: normal + 3. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityNormal4@{osPriorityNormal4}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityNormal4@{osPriorityNormal4}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca93ef07d3a107aeee6508bfd29ba3485d}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca93ef07d3a107aeee6508bfd29ba3485d} 
+os\+Priority\+Normal4&Priority\+: normal + 4. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityNormal5@{osPriorityNormal5}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityNormal5@{osPriorityNormal5}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca68f3f6fdaa639de300277802aa13a0ab}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca68f3f6fdaa639de300277802aa13a0ab} 
+os\+Priority\+Normal5&Priority\+: normal + 5. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityNormal6@{osPriorityNormal6}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityNormal6@{osPriorityNormal6}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca8221eb0d059726a6309f1f2d0cdb6204}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca8221eb0d059726a6309f1f2d0cdb6204} 
+os\+Priority\+Normal6&Priority\+: normal + 6. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityNormal7@{osPriorityNormal7}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityNormal7@{osPriorityNormal7}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca049abd04f8951415407ec9d92bd9b80b}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca049abd04f8951415407ec9d92bd9b80b} 
+os\+Priority\+Normal7&Priority\+: normal + 7. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityAboveNormal@{osPriorityAboveNormal}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityAboveNormal@{osPriorityAboveNormal}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca17b36cd9cd38652c2bc6d4803990674b}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca17b36cd9cd38652c2bc6d4803990674b} 
+os\+Priority\+Above\+Normal&Priority\+: above normal. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityAboveNormal1@{osPriorityAboveNormal1}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityAboveNormal1@{osPriorityAboveNormal1}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecabfeafc713edfc7b9130aa5c762d68998}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecabfeafc713edfc7b9130aa5c762d68998} 
+os\+Priority\+Above\+Normal1&Priority\+: above normal + 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityAboveNormal2@{osPriorityAboveNormal2}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityAboveNormal2@{osPriorityAboveNormal2}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca901acf86070e06f5990b611734ee2562}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca901acf86070e06f5990b611734ee2562} 
+os\+Priority\+Above\+Normal2&Priority\+: above normal + 2. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityAboveNormal3@{osPriorityAboveNormal3}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityAboveNormal3@{osPriorityAboveNormal3}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecad566b876b64e6efdc3eba0fc04e54013}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecad566b876b64e6efdc3eba0fc04e54013} 
+os\+Priority\+Above\+Normal3&Priority\+: above normal + 3. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityAboveNormal4@{osPriorityAboveNormal4}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityAboveNormal4@{osPriorityAboveNormal4}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca6ccac37d7dae4586a2031966d36a63ec}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca6ccac37d7dae4586a2031966d36a63ec} 
+os\+Priority\+Above\+Normal4&Priority\+: above normal + 4. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityAboveNormal5@{osPriorityAboveNormal5}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityAboveNormal5@{osPriorityAboveNormal5}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecae36e8b38ee046a3104bcccabb10cf78c}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecae36e8b38ee046a3104bcccabb10cf78c} 
+os\+Priority\+Above\+Normal5&Priority\+: above normal + 5. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityAboveNormal6@{osPriorityAboveNormal6}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityAboveNormal6@{osPriorityAboveNormal6}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca61e6ce27e1e0f34f2540b413b8a8b207}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca61e6ce27e1e0f34f2540b413b8a8b207} 
+os\+Priority\+Above\+Normal6&Priority\+: above normal + 6. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityAboveNormal7@{osPriorityAboveNormal7}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityAboveNormal7@{osPriorityAboveNormal7}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecadbbb0fed3ada6b9b50d4a628abc2a67d}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecadbbb0fed3ada6b9b50d4a628abc2a67d} 
+os\+Priority\+Above\+Normal7&Priority\+: above normal + 7. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityHigh@{osPriorityHigh}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityHigh@{osPriorityHigh}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca914433934143a9ba767e59577c56e6c2}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca914433934143a9ba767e59577c56e6c2} 
+os\+Priority\+High&Priority\+: high. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityHigh1@{osPriorityHigh1}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityHigh1@{osPriorityHigh1}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca17b7a7e6febf12444a84e90edfce36cb}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca17b7a7e6febf12444a84e90edfce36cb} 
+os\+Priority\+High1&Priority\+: high + 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityHigh2@{osPriorityHigh2}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityHigh2@{osPriorityHigh2}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca40a120cf8bbc42e575455c027f3d9b03}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca40a120cf8bbc42e575455c027f3d9b03} 
+os\+Priority\+High2&Priority\+: high + 2. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityHigh3@{osPriorityHigh3}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityHigh3@{osPriorityHigh3}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca0b15518b0b5321a29efa0b42b2f8c759}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca0b15518b0b5321a29efa0b42b2f8c759} 
+os\+Priority\+High3&Priority\+: high + 3. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityHigh4@{osPriorityHigh4}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityHigh4@{osPriorityHigh4}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecafe5a4f393fab04551ac7d93e80cdf0fb}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecafe5a4f393fab04551ac7d93e80cdf0fb} 
+os\+Priority\+High4&Priority\+: high + 4. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityHigh5@{osPriorityHigh5}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityHigh5@{osPriorityHigh5}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5960841bfbdd959b163429e8502ea4e9}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5960841bfbdd959b163429e8502ea4e9} 
+os\+Priority\+High5&Priority\+: high + 5. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityHigh6@{osPriorityHigh6}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityHigh6@{osPriorityHigh6}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5714dda6effc1a3f8ec155d97e3e69bc}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca5714dda6effc1a3f8ec155d97e3e69bc} 
+os\+Priority\+High6&Priority\+: high + 6. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityHigh7@{osPriorityHigh7}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityHigh7@{osPriorityHigh7}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca63ad0cc52a701ef3d9df52b59b995652}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca63ad0cc52a701ef3d9df52b59b995652} 
+os\+Priority\+High7&Priority\+: high + 7. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityRealtime@{osPriorityRealtime}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityRealtime@{osPriorityRealtime}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca1485dec3702434a1ec3cb74c7a17a4af}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca1485dec3702434a1ec3cb74c7a17a4af} 
+os\+Priority\+Realtime&Priority\+: realtime. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityRealtime1@{osPriorityRealtime1}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityRealtime1@{osPriorityRealtime1}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaf685a06b30f0635476e21347a986305b}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaf685a06b30f0635476e21347a986305b} 
+os\+Priority\+Realtime1&Priority\+: realtime + 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityRealtime2@{osPriorityRealtime2}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityRealtime2@{osPriorityRealtime2}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecab832bd9de84e5eec2ecad69d085dadff}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecab832bd9de84e5eec2ecad69d085dadff} 
+os\+Priority\+Realtime2&Priority\+: realtime + 2. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityRealtime3@{osPriorityRealtime3}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityRealtime3@{osPriorityRealtime3}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca3f2261e5e733e92844ae8c630f2f9eaa}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca3f2261e5e733e92844ae8c630f2f9eaa} 
+os\+Priority\+Realtime3&Priority\+: realtime + 3. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityRealtime4@{osPriorityRealtime4}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityRealtime4@{osPriorityRealtime4}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaf614e3dc966d559cd9d9d2a0f78ebe70}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaf614e3dc966d559cd9d9d2a0f78ebe70} 
+os\+Priority\+Realtime4&Priority\+: realtime + 4. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityRealtime5@{osPriorityRealtime5}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityRealtime5@{osPriorityRealtime5}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaff84f31ceff203c711fb9476443507df}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaff84f31ceff203c711fb9476443507df} 
+os\+Priority\+Realtime5&Priority\+: realtime + 5. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityRealtime6@{osPriorityRealtime6}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityRealtime6@{osPriorityRealtime6}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca80ae9d0dd256312c0c8f44af48316194}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca80ae9d0dd256312c0c8f44af48316194} 
+os\+Priority\+Realtime6&Priority\+: realtime + 6. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityRealtime7@{osPriorityRealtime7}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityRealtime7@{osPriorityRealtime7}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaa76da6825c4bd31c4958200bc289103b}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecaa76da6825c4bd31c4958200bc289103b} 
+os\+Priority\+Realtime7&Priority\+: realtime + 7. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityISR@{osPriorityISR}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityISR@{osPriorityISR}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca3943224956e1ea667c6a931c74137b79}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342eca3943224956e1ea667c6a931c74137b79} 
+os\+Priority\+ISR&Reserved for ISR deferred thread. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityError@{osPriorityError}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityError@{osPriorityError}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecae35f5e2f9c64ad346822521b643bdea4}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecae35f5e2f9c64ad346822521b643bdea4} 
+os\+Priority\+Error&System cannot determine priority or illegal priority. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osPriorityReserved@{osPriorityReserved}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osPriorityReserved@{osPriorityReserved}}}\Hypertarget{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecac86c171f8d466cced0cb1b03bb03343b}\label{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ecac86c171f8d466cced0cb1b03bb03343b} 
+os\+Priority\+Reserved&Prevents enum down-\/size compiler optimization. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00104}{104}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}\index{cmsis\_os2.h@{cmsis\_os2.h}!osStatus\_t@{osStatus\_t}}
+\index{osStatus\_t@{osStatus\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osStatus\_t}{osStatus\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e} 
+enum \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}}}
+
+
+
+Status code values returned by CMSIS-\/\+RTOS functions. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osOK@{osOK}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osOK@{osOK}}}\Hypertarget{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea9e1c9e2550bb4de8969a935acffc968f}\label{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea9e1c9e2550bb4de8969a935acffc968f} 
+os\+OK&Operation completed successfully. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osError@{osError}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osError@{osError}}}\Hypertarget{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813eabb7b2d2c4efa66df42f1c10635467b09}\label{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813eabb7b2d2c4efa66df42f1c10635467b09} 
+os\+Error&Unspecified RTOS error\+: run-\/time error but no other error message fits. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osErrorTimeout@{osErrorTimeout}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osErrorTimeout@{osErrorTimeout}}}\Hypertarget{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea913eb5df15ad85f8557eb3a456b56879}\label{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea913eb5df15ad85f8557eb3a456b56879} 
+os\+Error\+Timeout&Operation not completed within the timeout period. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osErrorResource@{osErrorResource}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osErrorResource@{osErrorResource}}}\Hypertarget{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea8fc5801e8b0482bdf22ad63a77f0155d}\label{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea8fc5801e8b0482bdf22ad63a77f0155d} 
+os\+Error\+Resource&Resource not available. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osErrorParameter@{osErrorParameter}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osErrorParameter@{osErrorParameter}}}\Hypertarget{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813eac24adca6a5d072c9f01c32178ba0d109}\label{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813eac24adca6a5d072c9f01c32178ba0d109} 
+os\+Error\+Parameter&Parameter error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osErrorNoMemory@{osErrorNoMemory}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osErrorNoMemory@{osErrorNoMemory}}}\Hypertarget{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813eaf1fac0240218e51eb30a13da2f8aae81}\label{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813eaf1fac0240218e51eb30a13da2f8aae81} 
+os\+Error\+No\+Memory&System is out of memory\+: it was impossible to allocate or reserve memory for the operation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osErrorISR@{osErrorISR}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osErrorISR@{osErrorISR}}}\Hypertarget{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea21635bdc492d3094fe83027fa4a30e2f}\label{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea21635bdc492d3094fe83027fa4a30e2f} 
+os\+Error\+ISR&Not allowed in ISR context\+: the function cannot be called from interrupt service routines. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osStatusReserved@{osStatusReserved}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osStatusReserved@{osStatusReserved}}}\Hypertarget{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea66cc9ce9106b508df0e4a733a55a439d}\label{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea66cc9ce9106b508df0e4a733a55a439d} 
+os\+Status\+Reserved&Prevents enum down-\/size compiler optimization. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00198}{198}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820d}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadState\_t@{osThreadState\_t}}
+\index{osThreadState\_t@{osThreadState\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadState\_t}{osThreadState\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820d} 
+enum \mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820d}{os\+Thread\+State\+\_\+t}}}
+
+
+
+Thread state. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osThreadInactive@{osThreadInactive}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadInactive@{osThreadInactive}}}\Hypertarget{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da7d7d4f719a1be6daa63a251563585fdd}\label{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da7d7d4f719a1be6daa63a251563585fdd} 
+os\+Thread\+Inactive&Inactive. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osThreadReady@{osThreadReady}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadReady@{osThreadReady}}}\Hypertarget{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820dad9a040e03d7e7943c0217a3359fc1e8b}\label{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820dad9a040e03d7e7943c0217a3359fc1e8b} 
+os\+Thread\+Ready&Ready. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osThreadRunning@{osThreadRunning}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadRunning@{osThreadRunning}}}\Hypertarget{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da71dae1f35a4b4d9d2ab24e186461a17f}\label{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da71dae1f35a4b4d9d2ab24e186461a17f} 
+os\+Thread\+Running&Running. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osThreadBlocked@{osThreadBlocked}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadBlocked@{osThreadBlocked}}}\Hypertarget{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da476cd2370e6938974fb2a79811408819}\label{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da476cd2370e6938974fb2a79811408819} 
+os\+Thread\+Blocked&Blocked. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osThreadTerminated@{osThreadTerminated}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadTerminated@{osThreadTerminated}}}\Hypertarget{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820dac2a35280d5475f56352c539c9c9b42f9}\label{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820dac2a35280d5475f56352c539c9c9b42f9} 
+os\+Thread\+Terminated&Terminated. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osThreadError@{osThreadError}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadError@{osThreadError}}}\Hypertarget{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820dac841e73a7198a42364c9450f1f54a0ef}\label{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820dac841e73a7198a42364c9450f1f54a0ef} 
+os\+Thread\+Error&Error. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osThreadReserved@{osThreadReserved}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadReserved@{osThreadReserved}}}\Hypertarget{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da8872f7e352370eb11ee772c7dcca6e6c}\label{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820da8872f7e352370eb11ee772c7dcca6e6c} 
+os\+Thread\+Reserved&Prevents enum down-\/size compiler optimization. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00093}{93}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+\Hypertarget{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerType\_t@{osTimerType\_t}}
+\index{osTimerType\_t@{osTimerType\_t}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osTimerType\_t}{osTimerType\_t}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915} 
+enum \mbox{\hyperlink{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915}{os\+Timer\+Type\+\_\+t}}}
+
+
+
+Timer type. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osTimerOnce@{osTimerOnce}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerOnce@{osTimerOnce}}}\Hypertarget{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915ad21712f8df5f97069c82dc9eec37b951}\label{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915ad21712f8df5f97069c82dc9eec37b951} 
+os\+Timer\+Once&One-\/shot timer. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{osTimerPeriodic@{osTimerPeriodic}!cmsis\_os2.h@{cmsis\_os2.h}}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerPeriodic@{osTimerPeriodic}}}\Hypertarget{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915ab9c91f9699162edb09bb7c90c11c8788}\label{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915ab9c91f9699162edb09bb7c90c11c8788} 
+os\+Timer\+Periodic&Repeating timer. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{cmsis__os2_8h_source_l00167}{167}} of file \mbox{\hyperlink{cmsis__os2_8h_source}{cmsis\+\_\+os2.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{cmsis__os2_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{cmsis__os2_8h_af6055a51390ef65b6b6edc28bf47322e}\index{cmsis\_os2.h@{cmsis\_os2.h}!osDelay@{osDelay}}
+\index{osDelay@{osDelay}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osDelay()}{osDelay()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_af6055a51390ef65b6b6edc28bf47322e} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{millisec}{}\end{DoxyParamCaption})}
+
+
+
+Wait for Timeout (Time Delay) 
+
+Wait for Timeout (Time Delay). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em ticks} & time ticks value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em millisec} & time delay value \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em status} & code that indicates the execution status of the function. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{cmsis__os_8c_source_l00322}{322}} of file \mbox{\hyperlink{cmsis__os_8c_source}{cmsis\+\_\+os.\+c}}.
+
+\Hypertarget{cmsis__os2_8h_a3c807924c2d6d43bc2ffb49da3f7f3a1}\index{cmsis\_os2.h@{cmsis\_os2.h}!osDelayUntil@{osDelayUntil}}
+\index{osDelayUntil@{osDelayUntil}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osDelayUntil()}{osDelayUntil()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a3c807924c2d6d43bc2ffb49da3f7f3a1} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Delay\+Until (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ticks}{}\end{DoxyParamCaption})}
+
+Wait until specified time. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em ticks} & absolute time in ticks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a93bf258ca0007c6641fbe8e4f2b8a1e5}\index{cmsis\_os2.h@{cmsis\_os2.h}!osEventFlagsClear@{osEventFlagsClear}}
+\index{osEventFlagsClear@{osEventFlagsClear}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsClear()}{osEventFlagsClear()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a93bf258ca0007c6641fbe8e4f2b8a1e5} 
+uint32\+\_\+t os\+Event\+Flags\+Clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id}{, }\item[{uint32\+\_\+t}]{flags}{}\end{DoxyParamCaption})}
+
+Clear the specified Event Flags. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em ef\+\_\+id} & event flags ID obtained by \doxylink{cmsis__os2_8h_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}. \\
+\hline
+\mbox{\texttt{in}}  & {\em flags} & specifies the flags that shall be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+event flags before clearing or error code if highest bit set. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a7c4acf2fb0d506ec82905dee53fb5435}\index{cmsis\_os2.h@{cmsis\_os2.h}!osEventFlagsDelete@{osEventFlagsDelete}}
+\index{osEventFlagsDelete@{osEventFlagsDelete}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsDelete()}{osEventFlagsDelete()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a7c4acf2fb0d506ec82905dee53fb5435} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Event\+Flags\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id}{}\end{DoxyParamCaption})}
+
+Delete an Event Flags object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em ef\+\_\+id} & event flags ID obtained by \doxylink{cmsis__os2_8h_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a8bda3185f46bfd278cea8a6cf357677d}\index{cmsis\_os2.h@{cmsis\_os2.h}!osEventFlagsGet@{osEventFlagsGet}}
+\index{osEventFlagsGet@{osEventFlagsGet}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsGet()}{osEventFlagsGet()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a8bda3185f46bfd278cea8a6cf357677d} 
+uint32\+\_\+t os\+Event\+Flags\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get the current Event Flags. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em ef\+\_\+id} & event flags ID obtained by \doxylink{cmsis__os2_8h_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current event flags. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a59f4ddf0ee8c395b1672bb978d1cfc88}\index{cmsis\_os2.h@{cmsis\_os2.h}!osEventFlagsGetName@{osEventFlagsGetName}}
+\index{osEventFlagsGetName@{osEventFlagsGetName}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsGetName()}{osEventFlagsGetName()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a59f4ddf0ee8c395b1672bb978d1cfc88} 
+const char \texorpdfstring{$\ast$}{*} os\+Event\+Flags\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get name of an Event Flags object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em ef\+\_\+id} & event flags ID obtained by \doxylink{cmsis__os2_8h_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+name as null-\/terminated string. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_ab14b1caeb12ffa42cce1bfe889cd07df}\index{cmsis\_os2.h@{cmsis\_os2.h}!osEventFlagsNew@{osEventFlagsNew}}
+\index{osEventFlagsNew@{osEventFlagsNew}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsNew()}{osEventFlagsNew()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ab14b1caeb12ffa42cce1bfe889cd07df} 
+\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}} os\+Event\+Flags\+New (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structos_event_flags_attr__t}{os\+Event\+Flags\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attr}{}\end{DoxyParamCaption})}
+
+Create and Initialize an Event Flags object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em attr} & event flags attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+event flags ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a33b71d14cecf90b4e72639dd19f23a5e}\index{cmsis\_os2.h@{cmsis\_os2.h}!osEventFlagsSet@{osEventFlagsSet}}
+\index{osEventFlagsSet@{osEventFlagsSet}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsSet()}{osEventFlagsSet()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a33b71d14cecf90b4e72639dd19f23a5e} 
+uint32\+\_\+t os\+Event\+Flags\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id}{, }\item[{uint32\+\_\+t}]{flags}{}\end{DoxyParamCaption})}
+
+Set the specified Event Flags. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em ef\+\_\+id} & event flags ID obtained by \doxylink{cmsis__os2_8h_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}. \\
+\hline
+\mbox{\texttt{in}}  & {\em flags} & specifies the flags that shall be set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+event flags after setting or error code if highest bit set. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a52acb34a8322e58020227344fe662b4e}\index{cmsis\_os2.h@{cmsis\_os2.h}!osEventFlagsWait@{osEventFlagsWait}}
+\index{osEventFlagsWait@{osEventFlagsWait}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osEventFlagsWait()}{osEventFlagsWait()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a52acb34a8322e58020227344fe662b4e} 
+uint32\+\_\+t os\+Event\+Flags\+Wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_af0a3ba8f502ca6581ed1009005c0dadd}{os\+Event\+Flags\+Id\+\_\+t}}}]{ef\+\_\+id}{, }\item[{uint32\+\_\+t}]{flags}{, }\item[{uint32\+\_\+t}]{options}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Wait for one or more Event Flags to become signaled. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em ef\+\_\+id} & event flags ID obtained by \doxylink{cmsis__os2_8h_ab14b1caeb12ffa42cce1bfe889cd07df}{os\+Event\+Flags\+New}. \\
+\hline
+\mbox{\texttt{in}}  & {\em flags} & specifies the flags to wait for. \\
+\hline
+\mbox{\texttt{in}}  & {\em options} & specifies flags options (os\+Flags\+Xxxx). \\
+\hline
+\mbox{\texttt{in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+event flags before clearing or error code if highest bit set. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a6f7764e7250c5c5364c00c45a5d1d199}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelGetInfo@{osKernelGetInfo}}
+\index{osKernelGetInfo@{osKernelGetInfo}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelGetInfo()}{osKernelGetInfo()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a6f7764e7250c5c5364c00c45a5d1d199} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Kernel\+Get\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_version__t}{os\+Version\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{version}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{id\+\_\+buf}{, }\item[{uint32\+\_\+t}]{id\+\_\+size}{}\end{DoxyParamCaption})}
+
+Get RTOS Kernel Information. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{out}}  & {\em version} & pointer to buffer for retrieving version information. \\
+\hline
+\mbox{\texttt{out}}  & {\em id\+\_\+buf} & pointer to buffer for retrieving kernel identification string. \\
+\hline
+\mbox{\texttt{in}}  & {\em id\+\_\+size} & size of buffer for kernel identification string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a48b69b81012fce051f639be288b243ba}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelGetState@{osKernelGetState}}
+\index{osKernelGetState@{osKernelGetState}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelGetState()}{osKernelGetState()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a48b69b81012fce051f639be288b243ba} 
+\mbox{\hyperlink{cmsis__os2_8h_a08326469274b668140ca934b168a5ad4}{os\+Kernel\+State\+\_\+t}} os\+Kernel\+Get\+State (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get the current RTOS Kernel state. \begin{DoxyReturn}{Returns}
+current RTOS Kernel state. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_ae0fcaff6cecfb4013bb556c87afcd7d2}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelGetSysTimerCount@{osKernelGetSysTimerCount}}
+\index{osKernelGetSysTimerCount@{osKernelGetSysTimerCount}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelGetSysTimerCount()}{osKernelGetSysTimerCount()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ae0fcaff6cecfb4013bb556c87afcd7d2} 
+uint32\+\_\+t os\+Kernel\+Get\+Sys\+Timer\+Count (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get the RTOS kernel system timer count. \begin{DoxyReturn}{Returns}
+RTOS kernel current system timer count as 32-\/bit value. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a4d69215a93220f72be3684cad582f16a}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelGetSysTimerFreq@{osKernelGetSysTimerFreq}}
+\index{osKernelGetSysTimerFreq@{osKernelGetSysTimerFreq}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelGetSysTimerFreq()}{osKernelGetSysTimerFreq()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a4d69215a93220f72be3684cad582f16a} 
+uint32\+\_\+t os\+Kernel\+Get\+Sys\+Timer\+Freq (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get the RTOS kernel system timer frequency. \begin{DoxyReturn}{Returns}
+frequency of the system timer in hertz, i.\+e. timer ticks per second. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a84bcdbf2fb76b10c8df4e439f0c7e11b}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelGetTickCount@{osKernelGetTickCount}}
+\index{osKernelGetTickCount@{osKernelGetTickCount}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelGetTickCount()}{osKernelGetTickCount()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a84bcdbf2fb76b10c8df4e439f0c7e11b} 
+uint32\+\_\+t os\+Kernel\+Get\+Tick\+Count (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get the RTOS kernel tick count. \begin{DoxyReturn}{Returns}
+RTOS kernel current tick count. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a7a8d7bd927eaaa58999f91d7d6310cee}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelGetTickFreq@{osKernelGetTickFreq}}
+\index{osKernelGetTickFreq@{osKernelGetTickFreq}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelGetTickFreq()}{osKernelGetTickFreq()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a7a8d7bd927eaaa58999f91d7d6310cee} 
+uint32\+\_\+t os\+Kernel\+Get\+Tick\+Freq (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get the RTOS kernel tick frequency. \begin{DoxyReturn}{Returns}
+frequency of the kernel tick in hertz, i.\+e. kernel ticks per second. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_ae818f6611d25ba3140bede410a52d659}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelInitialize@{osKernelInitialize}}
+\index{osKernelInitialize@{osKernelInitialize}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelInitialize()}{osKernelInitialize()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ae818f6611d25ba3140bede410a52d659} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Kernel\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Initialize the RTOS Kernel. \begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a948609ee930d9b38336b9e1c2a4dfe12}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelLock@{osKernelLock}}
+\index{osKernelLock@{osKernelLock}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelLock()}{osKernelLock()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a948609ee930d9b38336b9e1c2a4dfe12} 
+int32\+\_\+t os\+Kernel\+Lock (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Lock the RTOS Kernel scheduler. \begin{DoxyReturn}{Returns}
+previous lock state (1 -\/ locked, 0 -\/ not locked, error code if negative). 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_ae7d0a71b9586cbbb49fcbdf6a04f0289}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelRestoreLock@{osKernelRestoreLock}}
+\index{osKernelRestoreLock@{osKernelRestoreLock}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelRestoreLock()}{osKernelRestoreLock()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ae7d0a71b9586cbbb49fcbdf6a04f0289} 
+int32\+\_\+t os\+Kernel\+Restore\+Lock (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{lock}{}\end{DoxyParamCaption})}
+
+Restore the RTOS Kernel scheduler lock state. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em lock} & lock state obtained by \doxylink{cmsis__os2_8h_a948609ee930d9b38336b9e1c2a4dfe12}{os\+Kernel\+Lock} or \doxylink{cmsis__os2_8h_af401728b4657456198c33fe75f8d6720}{os\+Kernel\+Unlock}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new lock state (1 -\/ locked, 0 -\/ not locked, error code if negative). 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a8c4b4d7ed34cab73c001665d9176aced}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelResume@{osKernelResume}}
+\index{osKernelResume@{osKernelResume}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelResume()}{osKernelResume()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a8c4b4d7ed34cab73c001665d9176aced} 
+void os\+Kernel\+Resume (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{sleep\+\_\+ticks}{}\end{DoxyParamCaption})}
+
+Resume the RTOS Kernel scheduler. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em sleep\+\_\+ticks} & time in ticks for how long the system was in sleep or power-\/down mode. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{cmsis__os2_8h_a9ae2cc00f0d89d7b6a307bba942b5221}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelStart@{osKernelStart}}
+\index{osKernelStart@{osKernelStart}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelStart()}{osKernelStart()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a9ae2cc00f0d89d7b6a307bba942b5221} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Kernel\+Start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Start the RTOS Kernel with executing the specified thread. 
+
+Start the RTOS Kernel scheduler. \begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em thread\+\_\+def} & thread definition referenced with \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_af0c7c6b5e09f8be198312144b5c9e453}{os\+Thread}. \\
+\hline
+{\em argument} & pointer that is passed to the thread function as start argument. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em status} & code that indicates the execution status of the function \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+MUST REMAIN UNCHANGED\+: {\bfseries{os\+Kernel\+Start}} shall be consistent in every CMSIS-\/\+RTOS. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{cmsis__os_8c_source_l00150}{150}} of file \mbox{\hyperlink{cmsis__os_8c_source}{cmsis\+\_\+os.\+c}}.
+
+\Hypertarget{cmsis__os2_8h_ae26683e1606ec633354a2876c68f0c1f}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelSuspend@{osKernelSuspend}}
+\index{osKernelSuspend@{osKernelSuspend}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelSuspend()}{osKernelSuspend()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ae26683e1606ec633354a2876c68f0c1f} 
+uint32\+\_\+t os\+Kernel\+Suspend (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Suspend the RTOS Kernel scheduler. \begin{DoxyReturn}{Returns}
+time in ticks, for how long the system can sleep or power-\/down. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_af401728b4657456198c33fe75f8d6720}\index{cmsis\_os2.h@{cmsis\_os2.h}!osKernelUnlock@{osKernelUnlock}}
+\index{osKernelUnlock@{osKernelUnlock}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osKernelUnlock()}{osKernelUnlock()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_af401728b4657456198c33fe75f8d6720} 
+int32\+\_\+t os\+Kernel\+Unlock (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Unlock the RTOS Kernel scheduler. \begin{DoxyReturn}{Returns}
+previous lock state (1 -\/ locked, 0 -\/ not locked, error code if negative). 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a8ead54e99ccb8f112356c88f99d38fbe}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMemoryPoolAlloc@{osMemoryPoolAlloc}}
+\index{osMemoryPoolAlloc@{osMemoryPoolAlloc}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMemoryPoolAlloc()}{osMemoryPoolAlloc()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a8ead54e99ccb8f112356c88f99d38fbe} 
+void \texorpdfstring{$\ast$}{*} os\+Memory\+Pool\+Alloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}}}]{mp\+\_\+id}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Allocate a memory block from a Memory Pool. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mp\+\_\+id} & memory pool ID obtained by \doxylink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{os\+Memory\+Pool\+New}. \\
+\hline
+\mbox{\texttt{in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+address of the allocated memory block or NULL in case of no memory is available. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{cmsis__os2_8h_a8ead54e99ccb8f112356c88f99d38fbe_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_a8c39e7e5cd2b9eda907466808e59d62e}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMemoryPoolDelete@{osMemoryPoolDelete}}
+\index{osMemoryPoolDelete@{osMemoryPoolDelete}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMemoryPoolDelete()}{osMemoryPoolDelete()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a8c39e7e5cd2b9eda907466808e59d62e} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Memory\+Pool\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}}}]{mp\+\_\+id}{}\end{DoxyParamCaption})}
+
+Delete a Memory Pool object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mp\+\_\+id} & memory pool ID obtained by \doxylink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{os\+Memory\+Pool\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{cmsis__os2_8h_a8c39e7e5cd2b9eda907466808e59d62e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_abb4f4560daa6d1f8c8789082ee186d16}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMemoryPoolFree@{osMemoryPoolFree}}
+\index{osMemoryPoolFree@{osMemoryPoolFree}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMemoryPoolFree()}{osMemoryPoolFree()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_abb4f4560daa6d1f8c8789082ee186d16} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Memory\+Pool\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}}}]{mp\+\_\+id}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{block}{}\end{DoxyParamCaption})}
+
+Return an allocated memory block back to a Memory Pool. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mp\+\_\+id} & memory pool ID obtained by \doxylink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{os\+Memory\+Pool\+New}. \\
+\hline
+\mbox{\texttt{in}}  & {\em block} & address of the allocated memory block to be returned to the memory pool. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{cmsis__os2_8h_abb4f4560daa6d1f8c8789082ee186d16_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_ab2bf059b7fa7679c3cccdaeec60b6c0e}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMemoryPoolGetBlockSize@{osMemoryPoolGetBlockSize}}
+\index{osMemoryPoolGetBlockSize@{osMemoryPoolGetBlockSize}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMemoryPoolGetBlockSize()}{osMemoryPoolGetBlockSize()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ab2bf059b7fa7679c3cccdaeec60b6c0e} 
+uint32\+\_\+t os\+Memory\+Pool\+Get\+Block\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}}}]{mp\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get memory block size in a Memory Pool. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mp\+\_\+id} & memory pool ID obtained by \doxylink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{os\+Memory\+Pool\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+memory block size in bytes. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{cmsis__os2_8h_ab2bf059b7fa7679c3cccdaeec60b6c0e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_ad696e94bfbe28f0b6613f9303fdf6a37}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMemoryPoolGetCapacity@{osMemoryPoolGetCapacity}}
+\index{osMemoryPoolGetCapacity@{osMemoryPoolGetCapacity}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMemoryPoolGetCapacity()}{osMemoryPoolGetCapacity()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ad696e94bfbe28f0b6613f9303fdf6a37} 
+uint32\+\_\+t os\+Memory\+Pool\+Get\+Capacity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}}}]{mp\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get maximum number of memory blocks in a Memory Pool. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mp\+\_\+id} & memory pool ID obtained by \doxylink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{os\+Memory\+Pool\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum number of memory blocks. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a958a9449bff8c95ce213de98eef5739d}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMemoryPoolGetCount@{osMemoryPoolGetCount}}
+\index{osMemoryPoolGetCount@{osMemoryPoolGetCount}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMemoryPoolGetCount()}{osMemoryPoolGetCount()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a958a9449bff8c95ce213de98eef5739d} 
+uint32\+\_\+t os\+Memory\+Pool\+Get\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}}}]{mp\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get number of memory blocks used in a Memory Pool. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mp\+\_\+id} & memory pool ID obtained by \doxylink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{os\+Memory\+Pool\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of memory blocks used. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_ab414a1e138205a55820acfa277c8f386}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMemoryPoolGetName@{osMemoryPoolGetName}}
+\index{osMemoryPoolGetName@{osMemoryPoolGetName}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMemoryPoolGetName()}{osMemoryPoolGetName()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ab414a1e138205a55820acfa277c8f386} 
+const char \texorpdfstring{$\ast$}{*} os\+Memory\+Pool\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}}}]{mp\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get name of a Memory Pool object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mp\+\_\+id} & memory pool ID obtained by \doxylink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{os\+Memory\+Pool\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+name as null-\/terminated string. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a0394cffa9479a7994e3b03c79c1cb909}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMemoryPoolGetSpace@{osMemoryPoolGetSpace}}
+\index{osMemoryPoolGetSpace@{osMemoryPoolGetSpace}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMemoryPoolGetSpace()}{osMemoryPoolGetSpace()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a0394cffa9479a7994e3b03c79c1cb909} 
+uint32\+\_\+t os\+Memory\+Pool\+Get\+Space (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}}}]{mp\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get number of memory blocks available in a Memory Pool. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mp\+\_\+id} & memory pool ID obtained by \doxylink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{os\+Memory\+Pool\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of memory blocks available. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMemoryPoolNew@{osMemoryPoolNew}}
+\index{osMemoryPoolNew@{osMemoryPoolNew}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMemoryPoolNew()}{osMemoryPoolNew()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc} 
+\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{os\+Memory\+Pool\+Id\+\_\+t}} os\+Memory\+Pool\+New (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{block\+\_\+count}{, }\item[{uint32\+\_\+t}]{block\+\_\+size}{, }\item[{const \mbox{\hyperlink{structos_memory_pool_attr__t}{os\+Memory\+Pool\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attr}{}\end{DoxyParamCaption})}
+
+Create and Initialize a Memory Pool object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em block\+\_\+count} & maximum number of memory blocks in memory pool. \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+\_\+size} & memory block size in bytes. \\
+\hline
+\mbox{\texttt{in}}  & {\em attr} & memory pool attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+memory pool ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_aba987f665444e0d83fa6a3a68bc72abe}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueueDelete@{osMessageQueueDelete}}
+\index{osMessageQueueDelete@{osMessageQueueDelete}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueDelete()}{osMessageQueueDelete()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_aba987f665444e0d83fa6a3a68bc72abe} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Message\+Queue\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id}{}\end{DoxyParamCaption})}
+
+Delete a Message Queue object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mq\+\_\+id} & message queue ID obtained by \doxylink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{cmsis__os2_8h_aba987f665444e0d83fa6a3a68bc72abe_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_ad90d4959466a7a65105061da8256ab9e}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueueGet@{osMessageQueueGet}}
+\index{osMessageQueueGet@{osMessageQueueGet}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGet()}{osMessageQueueGet()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ad90d4959466a7a65105061da8256ab9e} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Message\+Queue\+Get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{msg\+\_\+ptr}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{msg\+\_\+prio}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Get a Message from a Queue or timeout if Queue is empty. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mq\+\_\+id} & message queue ID obtained by \doxylink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}. \\
+\hline
+\mbox{\texttt{out}}  & {\em msg\+\_\+ptr} & pointer to buffer for message to get from a queue. \\
+\hline
+\mbox{\texttt{out}}  & {\em msg\+\_\+prio} & pointer to buffer for message priority or NULL. \\
+\hline
+\mbox{\texttt{in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{cmsis__os2_8h_ad90d4959466a7a65105061da8256ab9e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_ac24f87d4f395e9e9c900c320e45ade8a}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueueGetCapacity@{osMessageQueueGetCapacity}}
+\index{osMessageQueueGetCapacity@{osMessageQueueGetCapacity}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGetCapacity()}{osMessageQueueGetCapacity()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ac24f87d4f395e9e9c900c320e45ade8a} 
+uint32\+\_\+t os\+Message\+Queue\+Get\+Capacity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get maximum number of messages in a Message Queue. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mq\+\_\+id} & message queue ID obtained by \doxylink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum number of messages. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a6a32ac394fcff568b251c160cc3014b2}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueueGetCount@{osMessageQueueGetCount}}
+\index{osMessageQueueGetCount@{osMessageQueueGetCount}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGetCount()}{osMessageQueueGetCount()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a6a32ac394fcff568b251c160cc3014b2} 
+uint32\+\_\+t os\+Message\+Queue\+Get\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get number of queued messages in a Message Queue. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mq\+\_\+id} & message queue ID obtained by \doxylink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of queued messages. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a96d3d84069b20359de48109e28a1a89e}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueueGetMsgSize@{osMessageQueueGetMsgSize}}
+\index{osMessageQueueGetMsgSize@{osMessageQueueGetMsgSize}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGetMsgSize()}{osMessageQueueGetMsgSize()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a96d3d84069b20359de48109e28a1a89e} 
+uint32\+\_\+t os\+Message\+Queue\+Get\+Msg\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get maximum message size in a Message Queue. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mq\+\_\+id} & message queue ID obtained by \doxylink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+maximum message size in bytes. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_ae7cf7bf2b97a5ae481fb60fcce99247a}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueueGetName@{osMessageQueueGetName}}
+\index{osMessageQueueGetName@{osMessageQueueGetName}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGetName()}{osMessageQueueGetName()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ae7cf7bf2b97a5ae481fb60fcce99247a} 
+const char \texorpdfstring{$\ast$}{*} os\+Message\+Queue\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get name of a Message Queue object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mq\+\_\+id} & message queue ID obtained by \doxylink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+name as null-\/terminated string. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_addf0904427436dd3880d46263c2dc9fa}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueueGetSpace@{osMessageQueueGetSpace}}
+\index{osMessageQueueGetSpace@{osMessageQueueGetSpace}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueGetSpace()}{osMessageQueueGetSpace()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_addf0904427436dd3880d46263c2dc9fa} 
+uint32\+\_\+t os\+Message\+Queue\+Get\+Space (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get number of available slots for messages in a Message Queue. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mq\+\_\+id} & message queue ID obtained by \doxylink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of available slots for messages. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueueNew@{osMessageQueueNew}}
+\index{osMessageQueueNew@{osMessageQueueNew}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueNew()}{osMessageQueueNew()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed} 
+\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}} os\+Message\+Queue\+New (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{msg\+\_\+count}{, }\item[{uint32\+\_\+t}]{msg\+\_\+size}{, }\item[{const \mbox{\hyperlink{structos_message_queue_attr__t}{os\+Message\+Queue\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attr}{}\end{DoxyParamCaption})}
+
+Create and Initialize a Message Queue object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em msg\+\_\+count} & maximum number of messages in queue. \\
+\hline
+\mbox{\texttt{in}}  & {\em msg\+\_\+size} & maximum message size in bytes. \\
+\hline
+\mbox{\texttt{in}}  & {\em attr} & message queue attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+message queue ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_aa515fc8b956f721a8f72b2c505813bfc}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueuePut@{osMessageQueuePut}}
+\index{osMessageQueuePut@{osMessageQueuePut}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueuePut()}{osMessageQueuePut()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_aa515fc8b956f721a8f72b2c505813bfc} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Message\+Queue\+Put (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{msg\+\_\+ptr}{, }\item[{uint8\+\_\+t}]{msg\+\_\+prio}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Put a Message into a Queue or timeout if Queue is full. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mq\+\_\+id} & message queue ID obtained by \doxylink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}. \\
+\hline
+\mbox{\texttt{in}}  & {\em msg\+\_\+ptr} & pointer to buffer with message to put into a queue. \\
+\hline
+\mbox{\texttt{in}}  & {\em msg\+\_\+prio} & message priority. \\
+\hline
+\mbox{\texttt{in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{cmsis__os2_8h_aa515fc8b956f721a8f72b2c505813bfc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_ac6dce7f9ad132d266292c2e979d861b4}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMessageQueueReset@{osMessageQueueReset}}
+\index{osMessageQueueReset@{osMessageQueueReset}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMessageQueueReset()}{osMessageQueueReset()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ac6dce7f9ad132d266292c2e979d861b4} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Message\+Queue\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{os\+Message\+Queue\+Id\+\_\+t}}}]{mq\+\_\+id}{}\end{DoxyParamCaption})}
+
+Reset a Message Queue to initial empty state. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mq\+\_\+id} & message queue ID obtained by \doxylink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{os\+Message\+Queue\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_abc54686ea0fc281823b1763422d2a924}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMutexAcquire@{osMutexAcquire}}
+\index{osMutexAcquire@{osMutexAcquire}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMutexAcquire()}{osMutexAcquire()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_abc54686ea0fc281823b1763422d2a924} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Mutex\+Acquire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}}}]{mutex\+\_\+id}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Acquire a Mutex or timeout if it is locked. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mutex\+\_\+id} & mutex ID obtained by \doxylink{cmsis__os2_8h_ab90920022ab944296821368ef6bb52f8}{os\+Mutex\+New}. \\
+\hline
+\mbox{\texttt{in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_abee73ad227ba4587d3db12ef9bd582bc}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMutexDelete@{osMutexDelete}}
+\index{osMutexDelete@{osMutexDelete}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMutexDelete()}{osMutexDelete()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_abee73ad227ba4587d3db12ef9bd582bc} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Mutex\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}}}]{mutex\+\_\+id}{}\end{DoxyParamCaption})}
+
+Delete a Mutex object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mutex\+\_\+id} & mutex ID obtained by \doxylink{cmsis__os2_8h_ab90920022ab944296821368ef6bb52f8}{os\+Mutex\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a180839843a2eac396fb5afe165f28005}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMutexGetName@{osMutexGetName}}
+\index{osMutexGetName@{osMutexGetName}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMutexGetName()}{osMutexGetName()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a180839843a2eac396fb5afe165f28005} 
+const char \texorpdfstring{$\ast$}{*} os\+Mutex\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}}}]{mutex\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get name of a Mutex object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mutex\+\_\+id} & mutex ID obtained by \doxylink{cmsis__os2_8h_ab90920022ab944296821368ef6bb52f8}{os\+Mutex\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+name as null-\/terminated string. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a7f9a7666df0978738cd570cb700b83fb}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMutexGetOwner@{osMutexGetOwner}}
+\index{osMutexGetOwner@{osMutexGetOwner}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMutexGetOwner()}{osMutexGetOwner()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a7f9a7666df0978738cd570cb700b83fb} 
+\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} os\+Mutex\+Get\+Owner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}}}]{mutex\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get Thread which owns a Mutex object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mutex\+\_\+id} & mutex ID obtained by \doxylink{cmsis__os2_8h_ab90920022ab944296821368ef6bb52f8}{os\+Mutex\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+thread ID of owner thread or NULL when mutex was not acquired. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_ab90920022ab944296821368ef6bb52f8}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMutexNew@{osMutexNew}}
+\index{osMutexNew@{osMutexNew}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMutexNew()}{osMutexNew()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ab90920022ab944296821368ef6bb52f8} 
+\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}} os\+Mutex\+New (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structos_mutex_attr__t}{os\+Mutex\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attr}{}\end{DoxyParamCaption})}
+
+Create and Initialize a Mutex object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em attr} & mutex attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mutex ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{cmsis__os2_8h_ab90920022ab944296821368ef6bb52f8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_aea629705703580ff58776bf73c8db915}\index{cmsis\_os2.h@{cmsis\_os2.h}!osMutexRelease@{osMutexRelease}}
+\index{osMutexRelease@{osMutexRelease}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osMutexRelease()}{osMutexRelease()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_aea629705703580ff58776bf73c8db915} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Mutex\+Release (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a29b7ba721f4fe0b11c84c55d079cc3e7}{os\+Mutex\+Id\+\_\+t}}}]{mutex\+\_\+id}{}\end{DoxyParamCaption})}
+
+Release a Mutex that was acquired by \doxylink{cmsis__os2_8h_abc54686ea0fc281823b1763422d2a924}{os\+Mutex\+Acquire}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em mutex\+\_\+id} & mutex ID obtained by \doxylink{cmsis__os2_8h_ab90920022ab944296821368ef6bb52f8}{os\+Mutex\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a7e94c8b242a0c81f2cc79ec22895c87b}\index{cmsis\_os2.h@{cmsis\_os2.h}!osSemaphoreAcquire@{osSemaphoreAcquire}}
+\index{osSemaphoreAcquire@{osSemaphoreAcquire}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreAcquire()}{osSemaphoreAcquire()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a7e94c8b242a0c81f2cc79ec22895c87b} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Semaphore\+Acquire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}]{semaphore\+\_\+id}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Acquire a Semaphore token or timeout if no tokens are available. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em semaphore\+\_\+id} & semaphore ID obtained by \doxylink{cmsis__os2_8h_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}. \\
+\hline
+\mbox{\texttt{in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{cmsis__os2_8h_a7e94c8b242a0c81f2cc79ec22895c87b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_a81258ce9c67fa89f07cc49d2e136cd88}\index{cmsis\_os2.h@{cmsis\_os2.h}!osSemaphoreDelete@{osSemaphoreDelete}}
+\index{osSemaphoreDelete@{osSemaphoreDelete}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreDelete()}{osSemaphoreDelete()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a81258ce9c67fa89f07cc49d2e136cd88} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Semaphore\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}]{semaphore\+\_\+id}{}\end{DoxyParamCaption})}
+
+Delete a Semaphore object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em semaphore\+\_\+id} & semaphore ID obtained by \doxylink{cmsis__os2_8h_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a7559d4dff3cda9992fc5ab5de3e74c70}\index{cmsis\_os2.h@{cmsis\_os2.h}!osSemaphoreGetCount@{osSemaphoreGetCount}}
+\index{osSemaphoreGetCount@{osSemaphoreGetCount}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreGetCount()}{osSemaphoreGetCount()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a7559d4dff3cda9992fc5ab5de3e74c70} 
+uint32\+\_\+t os\+Semaphore\+Get\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}]{semaphore\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get current Semaphore token count. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em semaphore\+\_\+id} & semaphore ID obtained by \doxylink{cmsis__os2_8h_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of tokens available. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{cmsis__os2_8h_a7559d4dff3cda9992fc5ab5de3e74c70_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_a9586952051f00285f1482dbe6695bbc4}\index{cmsis\_os2.h@{cmsis\_os2.h}!osSemaphoreGetName@{osSemaphoreGetName}}
+\index{osSemaphoreGetName@{osSemaphoreGetName}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreGetName()}{osSemaphoreGetName()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a9586952051f00285f1482dbe6695bbc4} 
+const char \texorpdfstring{$\ast$}{*} os\+Semaphore\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}]{semaphore\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get name of a Semaphore object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em semaphore\+\_\+id} & semaphore ID obtained by \doxylink{cmsis__os2_8h_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+name as null-\/terminated string. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a2a39806ace781a0008a4374ca701b14a}\index{cmsis\_os2.h@{cmsis\_os2.h}!osSemaphoreNew@{osSemaphoreNew}}
+\index{osSemaphoreNew@{osSemaphoreNew}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreNew()}{osSemaphoreNew()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a2a39806ace781a0008a4374ca701b14a} 
+\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}} os\+Semaphore\+New (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{max\+\_\+count}{, }\item[{uint32\+\_\+t}]{initial\+\_\+count}{, }\item[{const \mbox{\hyperlink{structos_semaphore_attr__t}{os\+Semaphore\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attr}{}\end{DoxyParamCaption})}
+
+Create and Initialize a Semaphore object. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em max\+\_\+count} & maximum number of available tokens. \\
+\hline
+\mbox{\texttt{in}}  & {\em initial\+\_\+count} & initial number of available tokens. \\
+\hline
+\mbox{\texttt{in}}  & {\em attr} & semaphore attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+semaphore ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{cmsis__os2_8h_a2a39806ace781a0008a4374ca701b14a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_a0abcee1b5449d7a6928fb9248c690bb6}\index{cmsis\_os2.h@{cmsis\_os2.h}!osSemaphoreRelease@{osSemaphoreRelease}}
+\index{osSemaphoreRelease@{osSemaphoreRelease}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osSemaphoreRelease()}{osSemaphoreRelease()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a0abcee1b5449d7a6928fb9248c690bb6} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Semaphore\+Release (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a5abc2c02a86678b63a711e13894ac5b1}{os\+Semaphore\+Id\+\_\+t}}}]{semaphore\+\_\+id}{}\end{DoxyParamCaption})}
+
+Release a Semaphore token up to the initial maximum count. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em semaphore\+\_\+id} & semaphore ID obtained by \doxylink{cmsis__os2_8h_a2a39806ace781a0008a4374ca701b14a}{os\+Semaphore\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_aaad14cd9547341ea8109dc4e8540f1dc}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadDetach@{osThreadDetach}}
+\index{osThreadDetach@{osThreadDetach}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadDetach()}{osThreadDetach()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_aaad14cd9547341ea8109dc4e8540f1dc} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Detach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{}\end{DoxyParamCaption})}
+
+Detach a thread (thread storage can be reclaimed when thread terminates). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a5606604d56e21ece1a654664be877439}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadEnumerate@{osThreadEnumerate}}
+\index{osThreadEnumerate@{osThreadEnumerate}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadEnumerate()}{osThreadEnumerate()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a5606604d56e21ece1a654664be877439} 
+uint32\+\_\+t os\+Thread\+Enumerate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{thread\+\_\+array}{, }\item[{uint32\+\_\+t}]{array\+\_\+items}{}\end{DoxyParamCaption})}
+
+Enumerate active threads. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{out}}  & {\em thread\+\_\+array} & pointer to array for retrieving thread IDs. \\
+\hline
+\mbox{\texttt{in}}  & {\em array\+\_\+items} & maximum number of items in array for retrieving thread IDs. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of enumerated threads. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_addaa452dd7610e4096647a566d3556fc}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadExit@{osThreadExit}}
+\index{osThreadExit@{osThreadExit}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadExit()}{osThreadExit()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_addaa452dd7610e4096647a566d3556fc} 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_a153a4a31b276a9758959580538720a51}{\+\_\+\+\_\+\+NO\+\_\+\+RETURN}} void os\+Thread\+Exit (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Terminate execution of current running thread. 
+
+\Hypertarget{cmsis__os2_8h_a656abc1c862c5b9a2b13584c42cc0bfa}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadFlagsClear@{osThreadFlagsClear}}
+\index{osThreadFlagsClear@{osThreadFlagsClear}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadFlagsClear()}{osThreadFlagsClear()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a656abc1c862c5b9a2b13584c42cc0bfa} 
+uint32\+\_\+t os\+Thread\+Flags\+Clear (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{flags}{}\end{DoxyParamCaption})}
+
+Clear the specified Thread Flags of current running thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em flags} & specifies the flags of the thread that shall be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+thread flags before clearing or error code if highest bit set. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{cmsis__os2_8h_a656abc1c862c5b9a2b13584c42cc0bfa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_a85c8d2c89466e25abbcb545d9ddd71ba}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadFlagsGet@{osThreadFlagsGet}}
+\index{osThreadFlagsGet@{osThreadFlagsGet}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadFlagsGet()}{osThreadFlagsGet()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a85c8d2c89466e25abbcb545d9ddd71ba} 
+uint32\+\_\+t os\+Thread\+Flags\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get the current Thread Flags of current running thread. \begin{DoxyReturn}{Returns}
+current thread flags. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a6f89ef9caded1d9963c7b12b0f6412c9}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadFlagsSet@{osThreadFlagsSet}}
+\index{osThreadFlagsSet@{osThreadFlagsSet}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadFlagsSet()}{osThreadFlagsSet()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a6f89ef9caded1d9963c7b12b0f6412c9} 
+uint32\+\_\+t os\+Thread\+Flags\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{, }\item[{uint32\+\_\+t}]{flags}{}\end{DoxyParamCaption})}
+
+Set the specified Thread Flags of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\mbox{\texttt{in}}  & {\em flags} & specifies the flags of the thread that shall be set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+thread flags after setting or error code if highest bit set. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{cmsis__os2_8h_a6f89ef9caded1d9963c7b12b0f6412c9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_ac11542ad6300b600f872fc96e340ec2b}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadFlagsWait@{osThreadFlagsWait}}
+\index{osThreadFlagsWait@{osThreadFlagsWait}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadFlagsWait()}{osThreadFlagsWait()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ac11542ad6300b600f872fc96e340ec2b} 
+uint32\+\_\+t os\+Thread\+Flags\+Wait (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{flags}{, }\item[{uint32\+\_\+t}]{options}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Wait for one or more Thread Flags of the current running thread to become signaled. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em flags} & specifies the flags to wait for. \\
+\hline
+\mbox{\texttt{in}}  & {\em options} & specifies flags options (os\+Flags\+Xxxx). \\
+\hline
+\mbox{\texttt{in}}  & {\em timeout} & CMSIS\+\_\+\+RTOS\+\_\+\+Time\+Out\+Value or 0 in case of no time-\/out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+thread flags before clearing or error code if highest bit set. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{cmsis__os2_8h_ac11542ad6300b600f872fc96e340ec2b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_a495b3f812224e7301f23a691793765db}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadGetCount@{osThreadGetCount}}
+\index{osThreadGetCount@{osThreadGetCount}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadGetCount()}{osThreadGetCount()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a495b3f812224e7301f23a691793765db} 
+uint32\+\_\+t os\+Thread\+Get\+Count (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get number of active threads. \begin{DoxyReturn}{Returns}
+number of active threads. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a8df03548e89fbc56402a5cd584a505da}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadGetId@{osThreadGetId}}
+\index{osThreadGetId@{osThreadGetId}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadGetId()}{osThreadGetId()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a8df03548e89fbc56402a5cd584a505da} 
+\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} os\+Thread\+Get\+Id (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Return the thread ID of the current running thread. 
+
+Return the thread ID of the current running thread. \begin{DoxyReturn}{Returns}
+thread ID for reference by other functions or NULL in case of error.
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em thread} & ID for reference by other functions or NULL in case of error. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+MUST REMAIN UNCHANGED\+: {\bfseries{os\+Thread\+Get\+Id}} shall be consistent in every CMSIS-\/\+RTOS. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{cmsis__os_8c_source_l00240}{240}} of file \mbox{\hyperlink{cmsis__os_8c_source}{cmsis\+\_\+os.\+c}}.
+
+\Hypertarget{cmsis__os2_8h_ac3230f3a55a297514b013ebf38f27e0a}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadGetName@{osThreadGetName}}
+\index{osThreadGetName@{osThreadGetName}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadGetName()}{osThreadGetName()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ac3230f3a55a297514b013ebf38f27e0a} 
+const char \texorpdfstring{$\ast$}{*} os\+Thread\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get name of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+name as null-\/terminated string. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a0aeaf349604f456e68e78f9d3b42e44b}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadGetPriority@{osThreadGetPriority}}
+\index{osThreadGetPriority@{osThreadGetPriority}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadGetPriority()}{osThreadGetPriority()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a0aeaf349604f456e68e78f9d3b42e44b} 
+\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}} os\+Thread\+Get\+Priority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get current priority of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current priority value of the specified thread. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_ab9f8bd715d671c6ee27644867bc1bf65}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadGetStackSize@{osThreadGetStackSize}}
+\index{osThreadGetStackSize@{osThreadGetStackSize}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadGetStackSize()}{osThreadGetStackSize()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ab9f8bd715d671c6ee27644867bc1bf65} 
+uint32\+\_\+t os\+Thread\+Get\+Stack\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get stack size of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+stack size in bytes. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a9c83bd5dd8de329701775d6ef7012720}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadGetStackSpace@{osThreadGetStackSpace}}
+\index{osThreadGetStackSpace@{osThreadGetStackSpace}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadGetStackSpace()}{osThreadGetStackSpace()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a9c83bd5dd8de329701775d6ef7012720} 
+uint32\+\_\+t os\+Thread\+Get\+Stack\+Space (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get available stack space of a thread based on stack watermark recording during execution. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+remaining stack space in bytes. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_acc0a98b42f0a5928e12dc91dc76866b9}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadGetState@{osThreadGetState}}
+\index{osThreadGetState@{osThreadGetState}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadGetState()}{osThreadGetState()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_acc0a98b42f0a5928e12dc91dc76866b9} 
+\mbox{\hyperlink{cmsis__os2_8h_ad3dc89e942e38d9f3af858a0269a820d}{os\+Thread\+State\+\_\+t}} os\+Thread\+Get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get current thread state of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+current thread state of the specified thread. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a3fca90fb0679afeb968aa8c3d5874487}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadJoin@{osThreadJoin}}
+\index{osThreadJoin@{osThreadJoin}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadJoin()}{osThreadJoin()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a3fca90fb0679afeb968aa8c3d5874487} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Join (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{}\end{DoxyParamCaption})}
+
+Wait for specified thread to terminate. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadNew@{osThreadNew}}
+\index{osThreadNew@{osThreadNew}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadNew()}{osThreadNew()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f} 
+\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}} os\+Thread\+New (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a8ef2773ed8ef63ab8727e0d06ebec4d2}{os\+Thread\+Func\+\_\+t}}}]{func}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{argument}{, }\item[{const \mbox{\hyperlink{structos_thread_attr__t}{os\+Thread\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attr}{}\end{DoxyParamCaption})}
+
+Create a thread and add it to Active Threads. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em func} & thread function. \\
+\hline
+\mbox{\texttt{in}}  & {\em argument} & pointer that is passed to the thread function as start argument. \\
+\hline
+\mbox{\texttt{in}}  & {\em attr} & thread attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+thread ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_a3dbad90eff394b02de76a452c84c5d80}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadResume@{osThreadResume}}
+\index{osThreadResume@{osThreadResume}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadResume()}{osThreadResume()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a3dbad90eff394b02de76a452c84c5d80} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Resume (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{}\end{DoxyParamCaption})}
+
+Resume execution of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a861a420fb2d643115b06622903fb3bfb}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadSetPriority@{osThreadSetPriority}}
+\index{osThreadSetPriority@{osThreadSetPriority}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadSetPriority()}{osThreadSetPriority()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a861a420fb2d643115b06622903fb3bfb} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Set\+Priority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{, }\item[{\mbox{\hyperlink{cmsis__os2_8h_ad4e3e0971b41f2d17584a8c6837342ec}{os\+Priority\+\_\+t}}}]{priority}{}\end{DoxyParamCaption})}
+
+Change priority of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\mbox{\texttt{in}}  & {\em priority} & new priority value for the thread function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_aa9de419d0152bf77e9bbcd1f369fb990}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadSuspend@{osThreadSuspend}}
+\index{osThreadSuspend@{osThreadSuspend}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadSuspend()}{osThreadSuspend()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_aa9de419d0152bf77e9bbcd1f369fb990} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Suspend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{}\end{DoxyParamCaption})}
+
+Suspend execution of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a2f8ba6dba6e9c065a6e236ffd410d74a}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadTerminate@{osThreadTerminate}}
+\index{osThreadTerminate@{osThreadTerminate}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadTerminate()}{osThreadTerminate()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a2f8ba6dba6e9c065a6e236ffd410d74a} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Terminate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a6333e016ba9b008e6dd76851c38b9217}{os\+Thread\+Id\+\_\+t}}}]{thread\+\_\+id}{}\end{DoxyParamCaption})}
+
+Terminate execution of a thread. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em thread\+\_\+id} & thread ID obtained by \doxylink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{os\+Thread\+New} or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{os\+Thread\+Get\+Id}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_ad01c7ec26535b1de6b018bb9466720e2}\index{cmsis\_os2.h@{cmsis\_os2.h}!osThreadYield@{osThreadYield}}
+\index{osThreadYield@{osThreadYield}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osThreadYield()}{osThreadYield()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ad01c7ec26535b1de6b018bb9466720e2} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Thread\+Yield (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Pass control to next thread that is in state {\bfseries{READY}}. 
+
+Pass control to next thread that is in state {\bfseries{READY}}. \begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function.
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em status} & code that indicates the execution status of the function. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+MUST REMAIN UNCHANGED\+: {\bfseries{os\+Thread\+Yield}} shall be consistent in every CMSIS-\/\+RTOS. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{cmsis__os_8c_source_l00270}{270}} of file \mbox{\hyperlink{cmsis__os_8c_source}{cmsis\+\_\+os.\+c}}.
+
+\Hypertarget{cmsis__os2_8h_ad0001dd74721ab461789324806db2453}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerDelete@{osTimerDelete}}
+\index{osTimerDelete@{osTimerDelete}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osTimerDelete()}{osTimerDelete()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ad0001dd74721ab461789324806db2453} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Timer\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}}}]{timer\+\_\+id}{}\end{DoxyParamCaption})}
+
+Delete a timer. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em timer\+\_\+id} & timer ID obtained by \doxylink{cmsis__os2_8h_ad4e7f785c5f700a509f55a3bf6a62bec}{os\+Timer\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a7938dde88ada1a01b60f41cf120069c0}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerGetName@{osTimerGetName}}
+\index{osTimerGetName@{osTimerGetName}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osTimerGetName()}{osTimerGetName()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a7938dde88ada1a01b60f41cf120069c0} 
+const char \texorpdfstring{$\ast$}{*} os\+Timer\+Get\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}}}]{timer\+\_\+id}{}\end{DoxyParamCaption})}
+
+Get name of a timer. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em timer\+\_\+id} & timer ID obtained by \doxylink{cmsis__os2_8h_ad4e7f785c5f700a509f55a3bf6a62bec}{os\+Timer\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+name as null-\/terminated string. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_a69d3589f54194022c30dd01e45ec6741}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerIsRunning@{osTimerIsRunning}}
+\index{osTimerIsRunning@{osTimerIsRunning}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osTimerIsRunning()}{osTimerIsRunning()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_a69d3589f54194022c30dd01e45ec6741} 
+uint32\+\_\+t os\+Timer\+Is\+Running (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}}}]{timer\+\_\+id}{}\end{DoxyParamCaption})}
+
+Check if a timer is running. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em timer\+\_\+id} & timer ID obtained by \doxylink{cmsis__os2_8h_ad4e7f785c5f700a509f55a3bf6a62bec}{os\+Timer\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 not running, 1 running. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_ad4e7f785c5f700a509f55a3bf6a62bec}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerNew@{osTimerNew}}
+\index{osTimerNew@{osTimerNew}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osTimerNew()}{osTimerNew()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ad4e7f785c5f700a509f55a3bf6a62bec} 
+\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}} os\+Timer\+New (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_a77a298218f3c8382b39a09a6d134d040}{os\+Timer\+Func\+\_\+t}}}]{func}{, }\item[{\mbox{\hyperlink{cmsis__os2_8h_a7dc24a4c2b90334427081c3da7a71915}{os\+Timer\+Type\+\_\+t}}}]{type}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{argument}{, }\item[{const \mbox{\hyperlink{structos_timer_attr__t}{os\+Timer\+Attr\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attr}{}\end{DoxyParamCaption})}
+
+Create and Initialize a timer. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em func} & function pointer to callback function. \\
+\hline
+\mbox{\texttt{in}}  & {\em type} & \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_adac860eb9e1b4b0619271e6595ed83d9ad21712f8df5f97069c82dc9eec37b951}{os\+Timer\+Once} for one-\/shot or \doxylink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_adac860eb9e1b4b0619271e6595ed83d9ab9c91f9699162edb09bb7c90c11c8788}{os\+Timer\+Periodic} for periodic behavior. \\
+\hline
+\mbox{\texttt{in}}  & {\em argument} & argument to the timer callback function. \\
+\hline
+\mbox{\texttt{in}}  & {\em attr} & timer attributes; NULL\+: default values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+timer ID for reference by other functions or NULL in case of error. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{cmsis__os2_8h_ad4e7f785c5f700a509f55a3bf6a62bec_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{cmsis__os2_8h_ab6ee2859ea657641b7adfac599b8121d}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerStart@{osTimerStart}}
+\index{osTimerStart@{osTimerStart}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osTimerStart()}{osTimerStart()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_ab6ee2859ea657641b7adfac599b8121d} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Timer\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}}}]{timer\+\_\+id}{, }\item[{uint32\+\_\+t}]{ticks}{}\end{DoxyParamCaption})}
+
+Start or restart a timer. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em timer\+\_\+id} & timer ID obtained by \doxylink{cmsis__os2_8h_ad4e7f785c5f700a509f55a3bf6a62bec}{os\+Timer\+New}. \\
+\hline
+\mbox{\texttt{in}}  & {\em ticks} & time ticks value of the timer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}
+\Hypertarget{cmsis__os2_8h_abd7a89356da7717293eb0bc5d87b8ac9}\index{cmsis\_os2.h@{cmsis\_os2.h}!osTimerStop@{osTimerStop}}
+\index{osTimerStop@{osTimerStop}!cmsis\_os2.h@{cmsis\_os2.h}}
+\doxysubsubsection{\texorpdfstring{osTimerStop()}{osTimerStop()}}
+{\footnotesize\ttfamily \label{cmsis__os2_8h_abd7a89356da7717293eb0bc5d87b8ac9} 
+\mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{os\+Status\+\_\+t}} os\+Timer\+Stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cmsis__os2_8h_ac2000ac2a8c6740700fd8e6c938cff44}{os\+Timer\+Id\+\_\+t}}}]{timer\+\_\+id}{}\end{DoxyParamCaption})}
+
+Stop a timer. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em timer\+\_\+id} & timer ID obtained by \doxylink{cmsis__os2_8h_ad4e7f785c5f700a509f55a3bf6a62bec}{os\+Timer\+New}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+status code that indicates the execution status of the function. 
+\end{DoxyReturn}

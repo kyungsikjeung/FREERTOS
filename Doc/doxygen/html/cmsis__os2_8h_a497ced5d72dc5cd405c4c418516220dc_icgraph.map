@@ -1,0 +1,7 @@
+<map id="osMemoryPoolNew" name="osMemoryPoolNew">
+<area shape="rect" id="Node000001" title=" " alt="" coords="154,31,289,57"/>
+<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#aa177e7fe5820dd70d8c9e46ded131174" title="Create and Initialize mail queue." alt="" coords="6,5,105,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,34,104,29,105,23,139,29"/>
+<area shape="rect" id="Node000003" href="$cmsis__os_8c.html#a34af5c4f4ab38f4138ea7f1f9ece3a1a" title="Create and Initialize a memory pool." alt="" coords="5,56,106,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,59,107,64,106,59,138,54"/>
+</map>

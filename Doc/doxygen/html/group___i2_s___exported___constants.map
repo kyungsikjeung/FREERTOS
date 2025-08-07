@@ -1,0 +1,15 @@
+<map id="I2S Exported Constants" name="I2S Exported Constants">
+<area shape="rect" id="Node000002" href="$group___i2_s.html" title=" " alt="" coords="5,259,47,285"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="95,259,256,285"/>
+<area shape="rect" id="Node000008" href="$group___i2_s___audio___frequency.html" title=" " alt="" coords="324,5,467,32"/>
+<area shape="rect" id="Node000010" href="$group___i2_s___clock___polarity.html" title=" " alt="" coords="332,56,459,83"/>
+<area shape="rect" id="Node000013" href="$group___i2_s___clock___source.html" title=" " alt="" coords="304,107,487,133"/>
+<area shape="rect" id="Node000006" href="$group___i2_s___data___format.html" title=" " alt="" coords="336,157,455,184"/>
+<area shape="rect" id="Node000003" href="$group___i2_s___error.html" title=" " alt="" coords="359,208,432,235"/>
+<area shape="rect" id="Node000012" href="$group___i2_s___flags___definition.html" title=" " alt="" coords="328,259,464,285"/>
+<area shape="rect" id="Node000009" href="$group___i2_s___full_duplex___mode.html" title=" " alt="" coords="324,309,467,336"/>
+<area shape="rect" id="Node000011" href="$group___i2_s___interrupts___definition.html" title=" " alt="" coords="316,360,475,387"/>
+<area shape="rect" id="Node000007" href="$group___i2_s___m_c_l_k___output.html" title=" " alt="" coords="333,411,458,437"/>
+<area shape="rect" id="Node000004" href="$group___i2_s___mode.html" title=" " alt="" coords="357,461,434,488"/>
+<area shape="rect" id="Node000005" href="$group___i2_s___standard.html" title=" " alt="" coords="347,512,444,539"/>
+</map>

@@ -1,0 +1,107 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Source/\+Transform\+Functions/arm\+\_\+cfft\+\_\+radix2\+\_\+q31.c File Reference}
+\hypertarget{arm__cfft__radix2__q31_8c}{}\label{arm__cfft__radix2__q31_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/TransformFunctions/arm\_cfft\_radix2\_q31.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/TransformFunctions/arm\_cfft\_radix2\_q31.c}}
+{\ttfamily \#include "{}dsp/transform\+\_\+functions.\+h"{}}\newline
+Include dependency graph for arm\+\_\+cfft\+\_\+radix2\+\_\+q31.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__cfft__radix2__q31_8c__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{arm__cfft__radix2__q31_8c__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{arm__cfft__radix2__q31_8c_a36c1ec7fd1c2aa80d50979b6bf2a55ef}{arm\+\_\+radix2\+\_\+butterfly\+\_\+q31}} (\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint32\+\_\+t fft\+Len, const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Coef, uint16\+\_\+t twid\+Coef\+Modifier)
+\item 
+void \mbox{\hyperlink{arm__cfft__radix2__q31_8c_a07d1c0ad42637bee8be7482cab5c8956}{arm\+\_\+radix2\+\_\+butterfly\+\_\+inverse\+\_\+q31}} (\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint32\+\_\+t fft\+Len, const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Coef, uint16\+\_\+t twid\+Coef\+Modifier)
+\item 
+void \mbox{\hyperlink{arm__cfft__radix2__q31_8c_a82acdff1d26c7021c2a016a6e7e9eaf8}{arm\+\_\+bitreversal\+\_\+q31}} (\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint32\+\_\+t fft\+Len, uint16\+\_\+t bit\+Rev\+Factor, const uint16\+\_\+t \texorpdfstring{$\ast$}{*}p\+Bit\+Rev\+Tab)
+\begin{DoxyCompactList}\small\item\em In-\/place Q31 bit reversal function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___complex_f_f_t_ga6321f703ec87a274aedaab33d3e766b4}{arm\+\_\+cfft\+\_\+radix2\+\_\+q31}} (const \mbox{\hyperlink{structarm__cfft__radix2__instance__q31}{arm\+\_\+cfft\+\_\+radix2\+\_\+instance\+\_\+q31}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src)
+\begin{DoxyCompactList}\small\item\em Processing function for the fixed-\/point CFFT/\+CIFFT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{arm__cfft__radix2__q31_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm__cfft__radix2__q31_8c_a82acdff1d26c7021c2a016a6e7e9eaf8}\index{arm\_cfft\_radix2\_q31.c@{arm\_cfft\_radix2\_q31.c}!arm\_bitreversal\_q31@{arm\_bitreversal\_q31}}
+\index{arm\_bitreversal\_q31@{arm\_bitreversal\_q31}!arm\_cfft\_radix2\_q31.c@{arm\_cfft\_radix2\_q31.c}}
+\doxysubsubsection{\texorpdfstring{arm\_bitreversal\_q31()}{arm\_bitreversal\_q31()}}
+{\footnotesize\ttfamily \label{arm__cfft__radix2__q31_8c_a82acdff1d26c7021c2a016a6e7e9eaf8} 
+void arm\+\_\+bitreversal\+\_\+q31 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{uint32\+\_\+t}]{fft\+Len}{, }\item[{uint16\+\_\+t}]{bit\+Rev\+Factor}{, }\item[{const uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Bit\+Rev\+Tab}{}\end{DoxyParamCaption})}
+
+
+
+In-\/place Q31 bit reversal function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em p\+Src} & points to in-\/place Q31 data buffer. \\
+\hline
+\mbox{\texttt{in}}  & {\em fft\+Len} & length of FFT. \\
+\hline
+\mbox{\texttt{in}}  & {\em bit\+Rev\+Factor} & bit reversal modifier that supports different size FFTs with the same bit reversal table \\
+\hline
+\mbox{\texttt{in}}  & {\em p\+Bit\+Rev\+Tab} & points to bit reversal table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__bitreversal_8c_source_l00113}{113}} of file \mbox{\hyperlink{arm__bitreversal_8c_source}{arm\+\_\+bitreversal.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{arm__cfft__radix2__q31_8c_a82acdff1d26c7021c2a016a6e7e9eaf8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{arm__cfft__radix2__q31_8c_a07d1c0ad42637bee8be7482cab5c8956}\index{arm\_cfft\_radix2\_q31.c@{arm\_cfft\_radix2\_q31.c}!arm\_radix2\_butterfly\_inverse\_q31@{arm\_radix2\_butterfly\_inverse\_q31}}
+\index{arm\_radix2\_butterfly\_inverse\_q31@{arm\_radix2\_butterfly\_inverse\_q31}!arm\_cfft\_radix2\_q31.c@{arm\_cfft\_radix2\_q31.c}}
+\doxysubsubsection{\texorpdfstring{arm\_radix2\_butterfly\_inverse\_q31()}{arm\_radix2\_butterfly\_inverse\_q31()}}
+{\footnotesize\ttfamily \label{arm__cfft__radix2__q31_8c_a07d1c0ad42637bee8be7482cab5c8956} 
+void arm\+\_\+radix2\+\_\+butterfly\+\_\+inverse\+\_\+q31 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{uint32\+\_\+t}]{fft\+Len}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Coef}{, }\item[{uint16\+\_\+t}]{twid\+Coef\+Modifier}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{arm__cfft__radix2__q31_8c_source_l00217}{217}} of file \mbox{\hyperlink{arm__cfft__radix2__q31_8c_source}{arm\+\_\+cfft\+\_\+radix2\+\_\+q31.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{arm__cfft__radix2__q31_8c_a07d1c0ad42637bee8be7482cab5c8956_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{arm__cfft__radix2__q31_8c_a36c1ec7fd1c2aa80d50979b6bf2a55ef}\index{arm\_cfft\_radix2\_q31.c@{arm\_cfft\_radix2\_q31.c}!arm\_radix2\_butterfly\_q31@{arm\_radix2\_butterfly\_q31}}
+\index{arm\_radix2\_butterfly\_q31@{arm\_radix2\_butterfly\_q31}!arm\_cfft\_radix2\_q31.c@{arm\_cfft\_radix2\_q31.c}}
+\doxysubsubsection{\texorpdfstring{arm\_radix2\_butterfly\_q31()}{arm\_radix2\_butterfly\_q31()}}
+{\footnotesize\ttfamily \label{arm__cfft__radix2__q31_8c_a36c1ec7fd1c2aa80d50979b6bf2a55ef} 
+void arm\+\_\+radix2\+\_\+butterfly\+\_\+q31 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{uint32\+\_\+t}]{fft\+Len}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Coef}{, }\item[{uint16\+\_\+t}]{twid\+Coef\+Modifier}{}\end{DoxyParamCaption})}
+
+end of Complex\+FFT group 
+
+Definition at line \mbox{\hyperlink{arm__cfft__radix2__q31_8c_source_l00089}{89}} of file \mbox{\hyperlink{arm__cfft__radix2__q31_8c_source}{arm\+\_\+cfft\+\_\+radix2\+\_\+q31.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{arm__cfft__radix2__q31_8c_a36c1ec7fd1c2aa80d50979b6bf2a55ef_icgraph}
+\end{center}
+\end{figure}

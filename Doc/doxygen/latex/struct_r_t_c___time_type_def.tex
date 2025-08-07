@@ -1,0 +1,137 @@
+\doxysection{RTC\+\_\+\+Time\+Type\+Def Struct Reference}
+\hypertarget{struct_r_t_c___time_type_def}{}\label{struct_r_t_c___time_type_def}\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+
+
+RTC Time structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32f4xx\+\_\+hal\+\_\+rtc.\+h$>$}
+
+
+
+Collaboration diagram for RTC\+\_\+\+Time\+Type\+Def\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{struct_r_t_c___time_type_def__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a836edba653a6aa73789d68e7bd2ee757}{Hours}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a37e1bd6f0ab1dcc18f95f8d0193cd26e}{Minutes}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a42120bdc40e6f49bb5b4dec78220c87b}{Seconds}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a7ca2cf99b14ee49dae5c787b2800f482}{Time\+Format}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a8059189ca602372f4759497c776c8fbb}{Sub\+Seconds}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a0a6d7b93d51459e83607fd65d86aa497}{Second\+Fraction}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a07a6bb22b53266f71c1b97b5e6aeb5e4}{Day\+Light\+Saving}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_t_c___time_type_def_a26435214093d019db4d67a77a8ad99d1}{Store\+Operation}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+RTC Time structure definition. 
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00084}{84}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_r_t_c___time_type_def_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_r_t_c___time_type_def_a07a6bb22b53266f71c1b97b5e6aeb5e4}\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!DayLightSaving@{DayLightSaving}}
+\index{DayLightSaving@{DayLightSaving}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{DayLightSaving}{DayLightSaving}}
+{\footnotesize\ttfamily \label{struct_r_t_c___time_type_def_a07a6bb22b53266f71c1b97b5e6aeb5e4} 
+uint32\+\_\+t Day\+Light\+Saving}
+
+This interface is deprecated. To manage Daylight Saving Time, please use HAL\+\_\+\+RTC\+\_\+\+DST\+\_\+xxx functions 
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00109}{109}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{struct_r_t_c___time_type_def_a836edba653a6aa73789d68e7bd2ee757}\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!Hours@{Hours}}
+\index{Hours@{Hours}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{Hours}{Hours}}
+{\footnotesize\ttfamily \label{struct_r_t_c___time_type_def_a836edba653a6aa73789d68e7bd2ee757} 
+uint8\+\_\+t Hours}
+
+Specifies the RTC Time Hour. This parameter must be a number between Min\+\_\+\+Data = 0 and Max\+\_\+\+Data = 12 if the RTC\+\_\+\+Hour\+Format\+\_\+12 is selected This parameter must be a number between Min\+\_\+\+Data = 0 and Max\+\_\+\+Data = 23 if the RTC\+\_\+\+Hour\+Format\+\_\+24 is selected 
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00086}{86}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{struct_r_t_c___time_type_def_a37e1bd6f0ab1dcc18f95f8d0193cd26e}\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!Minutes@{Minutes}}
+\index{Minutes@{Minutes}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{Minutes}{Minutes}}
+{\footnotesize\ttfamily \label{struct_r_t_c___time_type_def_a37e1bd6f0ab1dcc18f95f8d0193cd26e} 
+uint8\+\_\+t Minutes}
+
+Specifies the RTC Time Minutes. This parameter must be a number between Min\+\_\+\+Data = 0 and Max\+\_\+\+Data = 59 
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00090}{90}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{struct_r_t_c___time_type_def_a0a6d7b93d51459e83607fd65d86aa497}\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!SecondFraction@{SecondFraction}}
+\index{SecondFraction@{SecondFraction}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{SecondFraction}{SecondFraction}}
+{\footnotesize\ttfamily \label{struct_r_t_c___time_type_def_a0a6d7b93d51459e83607fd65d86aa497} 
+uint32\+\_\+t Second\+Fraction}
+
+Specifies the range or granularity of Sub Second register content corresponding to Synchronous prescaler factor value (PREDIV\+\_\+S) This parameter corresponds to a time unit range between \mbox{[}0-\/1\mbox{]} Second with \mbox{[}1 Sec / Second\+Fraction +1\mbox{]} granularity. This field will be used only by HAL\+\_\+\+RTC\+\_\+\+Get\+Time function 
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00103}{103}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{struct_r_t_c___time_type_def_a42120bdc40e6f49bb5b4dec78220c87b}\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!Seconds@{Seconds}}
+\index{Seconds@{Seconds}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{Seconds}{Seconds}}
+{\footnotesize\ttfamily \label{struct_r_t_c___time_type_def_a42120bdc40e6f49bb5b4dec78220c87b} 
+uint8\+\_\+t Seconds}
+
+Specifies the RTC Time Seconds. This parameter must be a number between Min\+\_\+\+Data = 0 and Max\+\_\+\+Data = 59 
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00093}{93}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{struct_r_t_c___time_type_def_a26435214093d019db4d67a77a8ad99d1}\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!StoreOperation@{StoreOperation}}
+\index{StoreOperation@{StoreOperation}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{StoreOperation}{StoreOperation}}
+{\footnotesize\ttfamily \label{struct_r_t_c___time_type_def_a26435214093d019db4d67a77a8ad99d1} 
+uint32\+\_\+t Store\+Operation}
+
+This interface is deprecated. To manage Daylight Saving Time, please use HAL\+\_\+\+RTC\+\_\+\+DST\+\_\+xxx functions 
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00112}{112}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{struct_r_t_c___time_type_def_a8059189ca602372f4759497c776c8fbb}\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!SubSeconds@{SubSeconds}}
+\index{SubSeconds@{SubSeconds}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{SubSeconds}{SubSeconds}}
+{\footnotesize\ttfamily \label{struct_r_t_c___time_type_def_a8059189ca602372f4759497c776c8fbb} 
+uint32\+\_\+t Sub\+Seconds}
+
+Specifies the RTC\+\_\+\+SSR RTC Sub Second register content. This parameter corresponds to a time unit range between \mbox{[}0-\/1\mbox{]} Second with \mbox{[}1 Sec / Second\+Fraction +1\mbox{]} granularity 
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00099}{99}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{struct_r_t_c___time_type_def_a7ca2cf99b14ee49dae5c787b2800f482}\index{RTC\_TimeTypeDef@{RTC\_TimeTypeDef}!TimeFormat@{TimeFormat}}
+\index{TimeFormat@{TimeFormat}!RTC\_TimeTypeDef@{RTC\_TimeTypeDef}}
+\doxysubsubsection{\texorpdfstring{TimeFormat}{TimeFormat}}
+{\footnotesize\ttfamily \label{struct_r_t_c___time_type_def_a7ca2cf99b14ee49dae5c787b2800f482} 
+uint8\+\_\+t Time\+Format}
+
+Specifies the RTC AM/\+PM Time. This parameter can be a value of \doxylink{group___r_t_c___a_m___p_m___definitions}{RTC AM PM Definitions} 
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00096}{96}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+STM32\+F4xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32f4xx__hal__rtc_8h}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}\end{DoxyCompactItemize}

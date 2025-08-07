@@ -1,0 +1,21 @@
+<map id="arm_dct4_f32" name="arm_dct4_f32">
+<area shape="rect" id="Node000001" title="Processing function for the floating&#45;point DCT4/IDCT4." alt="" coords="5,89,106,116"/>
+<area shape="rect" id="Node000002" href="$group___cmplx_by_cmplx_mult.html#gae221504b01e4abfe5f335eafd801b4ed" title="Floating&#45;point complex&#45;by&#45;complex multiplication." alt="" coords="154,13,338,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,86,153,50,172,43,174,48,155,54,81,91"/>
+<area shape="rect" id="Node000003" href="$group___basic_mult.html#gacf950935141cad927bea886e88fd9e9b" title="Floating&#45;point vector multiplication." alt="" coords="196,64,296,91"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="106,93,180,83,181,89,106,99"/>
+<area shape="rect" id="Node000004" href="$group___real_f_f_t.html#ga3df1766d230532bc068fc4ed69d0fcdc" title="Processing function for the floating&#45;point RFFT/RIFFT. Source buffer is modified by this function." alt="" coords="201,115,291,141"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="106,107,185,117,184,123,106,112"/>
+<area shape="rect" id="Node000010" href="$group___basic_scale.html#ga5e769c8e22da173674c6abca7291e713" title="Multiplies a floating&#45;point vector by a scalar." alt="" coords="193,165,299,192"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="81,114,155,151,178,159,177,164,153,156,79,119"/>
+<area shape="rect" id="Node000005" href="$arm__bitreversal_8c.html#a81008b023cbc9d37b3ff849877d1eb52" title="In&#45;place floating&#45;point bit reversal function." alt="" coords="400,5,536,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="291,119,314,111,336,100,351,87,360,72,369,57,384,42,393,37,396,41,388,46,373,60,364,75,356,90,340,105,316,116,292,124"/>
+<area shape="rect" id="Node000006" href="$arm__cfft__radix4__f32_8c.html#ac00819467b00656801a5f6a9a5e6d824" title=" " alt="" coords="386,56,550,83"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="291,114,399,85,401,90,292,119"/>
+<area shape="rect" id="Node000007" href="$arm__cfft__radix4__f32_8c.html#ab3c001e14852633e343079f97cd96f44" title=" " alt="" coords="398,107,538,149"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="292,125,383,125,383,131,292,131"/>
+<area shape="rect" id="Node000008" href="$arm__rfft__f32_8c.html#afe1ca79cba2ffb718de94d57af948c9c" title="Core Real FFT process." alt="" coords="408,173,529,200"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="292,137,401,166,399,171,291,142"/>
+<area shape="rect" id="Node000009" href="$arm__rfft__f32_8c.html#a522656f688f96b46d74ecced3d641ba7" title="Core Real IFFT process." alt="" coords="406,224,530,251"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="292,132,316,140,340,151,356,166,364,181,373,196,388,210,396,215,393,219,384,214,369,199,360,184,351,169,336,156,314,145,291,137"/>
+</map>

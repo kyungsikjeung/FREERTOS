@@ -1,0 +1,22 @@
+<map id="HAL_Init" name="HAL_Init">
+<area shape="rect" id="Node000001" title="This function is used to initialize the HAL Library; it must be the first instruction to be executed ..." alt="" coords="5,107,78,133"/>
+<area shape="rect" id="Node000002" href="$stm32f4xx__hal__timebase__tim_8c.html#ga879cdb21ef051eb81ec51c18147397d5" title="This function configures the TIM1 as a time base source. The time source is configured to have 1ms ti..." alt="" coords="181,107,278,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,117,165,117,165,123,78,123"/>
+<area shape="rect" id="Node000009" href="$stm32f4xx__hal__msp_8c.html#gae4fb8e66865c87d0ebab74a726a6891f" title="Initialize the MSP." alt="" coords="181,31,278,57"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="76,104,179,61,181,66,78,109"/>
+<area shape="rect" id="Node000010" href="$group___c_o_r_t_e_x___exported___functions___group1.html#gad9be53e08b1498adea006e5e037f238f" title=" " alt="" coords="126,157,333,184"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="79,129,126,143,155,150,154,156,125,148,77,134"/>
+<area shape="rect" id="Node000003" href="$group___c_o_r_t_e_x___exported___functions___group1.html#gaaad4492c1b25e006d69948a15790352a" title=" " alt="" coords="394,56,552,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="278,107,390,84,392,89,279,113"/>
+<area shape="rect" id="Node000004" href="$group___c_o_r_t_e_x___exported___functions___group1.html#ga8581a82025a4780efd00876a66e3e91b" title=" " alt="" coords="396,5,551,32"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="258,104,332,67,380,42,399,35,401,40,382,46,334,72,261,108"/>
+<area shape="rect" id="Node000005" href="$group___r_c_c___exported___functions___group2.html#gabc95375dfca279d88b9ded9d063d2323" title=" " alt="" coords="381,107,565,133"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="278,117,365,117,365,123,278,123"/>
+<area shape="rect" id="Node000006" href="$group___r_c_c___exported___functions___group2.html#gabbd5f8933a5ee05e4b3384e33026aca1" title=" " alt="" coords="383,157,563,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="279,127,392,151,390,156,278,133"/>
+<area shape="rect" id="Node000007" href="$group___t_i_m___exported___functions___group1.html#ga1b288eb68eb52c97b8d187cdd6e9088f" title=" " alt="" coords="404,208,543,235"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="279,123,307,131,334,143,350,156,359,169,368,182,382,194,393,199,390,204,380,198,364,185,355,172,346,159,332,148,305,136,278,129"/>
+<area shape="rect" id="Node000008" href="$group___t_i_m___exported___functions___group1.html#gae517d80e2ac713069767df8e8915971e" title=" " alt="" coords="389,259,557,285"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="279,120,308,128,335,143,347,156,354,169,360,195,365,221,372,233,383,245,388,249,385,253,379,249,367,236,360,223,355,196,349,171,342,159,331,147,306,133,278,126"/>
+<area shape="poly" id="edge9_Node000009_Node000004" title=" " alt="" coords="278,36,379,26,380,31,279,42"/>
+</map>

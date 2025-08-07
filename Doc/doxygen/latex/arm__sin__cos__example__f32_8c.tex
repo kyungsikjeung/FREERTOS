@@ -1,0 +1,201 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Examples/\+ARM/arm\+\_\+sin\+\_\+cos\+\_\+example/arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.c File Reference}
+\hypertarget{arm__sin__cos__example__f32_8c}{}\label{arm__sin__cos__example__f32_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_sin\_cos\_example/arm\_sin\_cos\_example\_f32.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_sin\_cos\_example/arm\_sin\_cos\_example\_f32.c}}
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}arm\+\_\+math.\+h"{}}\newline
+Include dependency graph for arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__sin__cos__example__f32_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arm__sin__cos__example__f32_8c_af8a1d2ed31f7c9a00fec46a798edb61b}{MAX\+\_\+\+BLOCKSIZE}}~32
+\item 
+\#define \mbox{\hyperlink{arm__sin__cos__example__f32_8c_a3fd2b1bcd7ddcf506237987ad780f495}{DELTA}}~(0.\+0001f)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{arm__sin__cos__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__sin__cos__example__f32_8c_a8b3b7113988efd5bf11a247d07ae39a1}{test\+Input\+\_\+f32}} \mbox{[}\mbox{\hyperlink{arm__convolution__example__f32_8c_af8a1d2ed31f7c9a00fec46a798edb61b}{MAX\+\_\+\+BLOCKSIZE}}\mbox{]}
+\item 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__sin__cos__example__f32_8c_a8bcb5c1f75ed5f1737e435f0de1850a3}{test\+Ref\+Output\+\_\+f32}} = 1.\+000000000
+\item 
+uint32\+\_\+t \mbox{\hyperlink{arm__sin__cos__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}} = 32
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__sin__cos__example__f32_8c_a324833b61eae796082e07d078a67c34f}{test\+Output}}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__sin__cos__example__f32_8c_a85b1050fcef4347d69f35a9aee798f8a}{cos\+Output}}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__sin__cos__example__f32_8c_a1e232694019f6b61710fbff5ee27126c}{sin\+Output}}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__sin__cos__example__f32_8c_a2cb185794dcb587d158f346ab049cc4e}{cos\+Square\+Output}}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__sin__cos__example__f32_8c_aa5a66e866ebb91eb971f2805209e9d36}{sin\+Square\+Output}}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{arm__sin__cos__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{arm__sin__cos__example__f32_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm__sin__cos__example__f32_8c_a3fd2b1bcd7ddcf506237987ad780f495}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!DELTA@{DELTA}}
+\index{DELTA@{DELTA}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{DELTA}{DELTA}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_a3fd2b1bcd7ddcf506237987ad780f495} 
+\#define DELTA~(0.\+0001f)}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00095}{95}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__sin__cos__example__f32_8c_af8a1d2ed31f7c9a00fec46a798edb61b}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!MAX\_BLOCKSIZE@{MAX\_BLOCKSIZE}}
+\index{MAX\_BLOCKSIZE@{MAX\_BLOCKSIZE}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_BLOCKSIZE}{MAX\_BLOCKSIZE}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_af8a1d2ed31f7c9a00fec46a798edb61b} 
+\#define MAX\+\_\+\+BLOCKSIZE~32}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00094}{94}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{arm__sin__cos__example__f32_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm__sin__cos__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!main@{main}}
+\index{main@{main}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_a52d2cba30e6946c95578be946ac12a65} 
+int32\+\_\+t main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00131}{131}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{arm__sin__cos__example__f32_8c_a52d2cba30e6946c95578be946ac12a65_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{arm__sin__cos__example__f32_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{arm__sin__cos__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!blockSize@{blockSize}}
+\index{blockSize@{blockSize}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{blockSize}{blockSize}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0} 
+uint32\+\_\+t block\+Size = 32}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00118}{118}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__sin__cos__example__f32_8c_a85b1050fcef4347d69f35a9aee798f8a}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!cosOutput@{cosOutput}}
+\index{cosOutput@{cosOutput}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{cosOutput}{cosOutput}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_a85b1050fcef4347d69f35a9aee798f8a} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} cos\+Output}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00120}{120}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__sin__cos__example__f32_8c_a2cb185794dcb587d158f346ab049cc4e}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!cosSquareOutput@{cosSquareOutput}}
+\index{cosSquareOutput@{cosSquareOutput}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{cosSquareOutput}{cosSquareOutput}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_a2cb185794dcb587d158f346ab049cc4e} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} cos\+Square\+Output}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00122}{122}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__sin__cos__example__f32_8c_a1e232694019f6b61710fbff5ee27126c}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!sinOutput@{sinOutput}}
+\index{sinOutput@{sinOutput}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{sinOutput}{sinOutput}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_a1e232694019f6b61710fbff5ee27126c} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} sin\+Output}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00121}{121}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__sin__cos__example__f32_8c_aa5a66e866ebb91eb971f2805209e9d36}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!sinSquareOutput@{sinSquareOutput}}
+\index{sinSquareOutput@{sinSquareOutput}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{sinSquareOutput}{sinSquareOutput}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_aa5a66e866ebb91eb971f2805209e9d36} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} sin\+Square\+Output}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00123}{123}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__sin__cos__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!status@{status}}
+\index{status@{status}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_a88ccb294236ab22b00310c47164c53c3} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} status}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00129}{129}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__sin__cos__example__f32_8c_a8b3b7113988efd5bf11a247d07ae39a1}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!testInput\_f32@{testInput\_f32}}
+\index{testInput\_f32@{testInput\_f32}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{testInput\_f32}{testInput\_f32}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_a8b3b7113988efd5bf11a247d07ae39a1} 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} test\+Input\+\_\+f32\mbox{[}\mbox{\hyperlink{arm__convolution__example__f32_8c_af8a1d2ed31f7c9a00fec46a798edb61b}{MAX\+\_\+\+BLOCKSIZE}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ -\/1.244916875853235400,\ \ -\/4.793533929171324800,\ \ \ 0.360705030233248850,\ \ \ 0.827929644170887320,\ \ -\/3.299532218312426900,\ \ \ 3.427441903227623800,\ \ \ 3.422401784294607700,\ \ -\/0.108308165334010680,}
+\DoxyCodeLine{\ \ \ 0.941943896490312180,\ \ \ 0.502609575000365850,\ \ -\/0.537345278736373500,\ \ \ 2.088817392965764500,\ \ -\/1.693168684143455700,\ \ \ 6.283185307179590700,\ \ -\/0.392545884746175080,\ \ \ 0.327893095115825040,}
+\DoxyCodeLine{\ \ \ 3.070147440456292300,\ \ \ 0.170611405884662230,\ \ -\/0.275275082396073010,\ \ -\/2.395492805446796300,\ \ \ 0.847311163536506600,\ \ -\/3.845517018083148800,\ \ \ 2.055818378415868300,\ \ \ 4.672594161978930800,}
+\DoxyCodeLine{\ \ -\/1.990923030266425800,\ \ \ 2.469305197656249500,\ \ \ 3.609002606064021000,\ \ -\/4.586736582331667500,\ \ -\/4.147080139136136300,\ \ \ 1.643756718868359500,\ \ -\/1.150866392366494800,\ \ \ 1.985805026477433800}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00103}{103}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__sin__cos__example__f32_8c_a324833b61eae796082e07d078a67c34f}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!testOutput@{testOutput}}
+\index{testOutput@{testOutput}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{testOutput}{testOutput}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_a324833b61eae796082e07d078a67c34f} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} test\+Output}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00119}{119}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__sin__cos__example__f32_8c_a8bcb5c1f75ed5f1737e435f0de1850a3}\index{arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}!testRefOutput\_f32@{testRefOutput\_f32}}
+\index{testRefOutput\_f32@{testRefOutput\_f32}!arm\_sin\_cos\_example\_f32.c@{arm\_sin\_cos\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{testRefOutput\_f32}{testRefOutput\_f32}}
+{\footnotesize\ttfamily \label{arm__sin__cos__example__f32_8c_a8bcb5c1f75ed5f1737e435f0de1850a3} 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} test\+Ref\+Output\+\_\+f32 = 1.\+000000000}
+
+
+
+Definition at line \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source_l00113}{113}} of file \mbox{\hyperlink{arm__sin__cos__example__f32_8c_source}{arm\+\_\+sin\+\_\+cos\+\_\+example\+\_\+f32.\+c}}.
+

@@ -1,0 +1,106 @@
+\doxysection{3\+\_\+3\+\_\+queue\+\_\+multiplesource.\+c}
+\hypertarget{3__3__queue__multiplesource_8c_source}{}\label{3__3__queue__multiplesource_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/3\_3\_queue\_multiplesource.c@{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/3\_3\_queue\_multiplesource.c}}
+\mbox{\hyperlink{3__3__queue__multiplesource_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__init_8h}{driver\_init.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00005}\mbox{\hyperlink{3__3__queue__multiplesource_8c_aa78b6121b7586233293fb6cba5e19206}{00005}}\ \mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{QueueHandle\_t}}\ \mbox{\hyperlink{3__1__queue_8c_aa78b6121b7586233293fb6cba5e19206}{xQueue}};}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00007}00007\ \textcolor{comment}{/*\ Source\ 종류\ */}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00008}\mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3}{00008}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00009}\mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3a99aca24315c2d76ba016f7dfc0f79fba}{00009}}\ \ \ \ \ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3a99aca24315c2d76ba016f7dfc0f79fba}{SOURCE\_HMI}},}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00010}\mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3a2600a29f7c1847ed97192e27363f31cd}{00010}}\ \ \ \ \ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3a2600a29f7c1847ed97192e27363f31cd}{SOURCE\_CAN}},}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00011}\mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3af2859fb0942bea74084df702c490e3f6}{00011}}\ \ \ \ \ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3af2859fb0942bea74084df702c490e3f6}{SOURCE\_ANOTHER}}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00012}00012\ \}\ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3}{DataSource\_t}};}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00014}00014\ \textcolor{comment}{/*\ 전송할\ 데이터\ 구조체\ */}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00015}\mbox{\hyperlink{structsend_data__t}{00015}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00016}\mbox{\hyperlink{structsend_data__t_a30bdaa071b17cad1a0231d42a576685b}{00016}}\ \ \ \ \ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3}{DataSource\_t}}\ \mbox{\hyperlink{structsend_data__t_a30bdaa071b17cad1a0231d42a576685b}{source}};}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00017}\mbox{\hyperlink{structsend_data__t_a7a448c609e8704ce6b41a4b11e611e52}{00017}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structsend_data__t_a7a448c609e8704ce6b41a4b11e611e52}{uxValue}};}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00018}00018\ \}\mbox{\hyperlink{structsend_data__t}{sendData\_t}};}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00020}00020\ \textcolor{comment}{/*\ 전송할\ 데이터\ 예시\ */}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00021}\mbox{\hyperlink{3__3__queue__multiplesource_8c_a7384452c99d297a5d6c0c34e752900ad}{00021}}\ \mbox{\hyperlink{structsend_data__t}{sendData\_t}}\ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a7384452c99d297a5d6c0c34e752900ad}{dataToSend}}[3]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00022}00022\ \ \ \ \ \{\mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3a99aca24315c2d76ba016f7dfc0f79fba}{SOURCE\_HMI}},\ 100\},}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00023}00023\ \ \ \ \ \{\mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3a2600a29f7c1847ed97192e27363f31cd}{SOURCE\_CAN}},\ 200\},}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00024}00024\ \ \ \ \ \{\mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3af2859fb0942bea74084df702c490e3f6}{SOURCE\_ANOTHER}},\ 300\}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00025}00025\ \};}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00028}00028\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ sendTask1(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{structsend_data__t}{sendData\_t}}\ sendDataPointer\ =\ *(\mbox{\hyperlink{structsend_data__t}{sendData\_t}}*\ )pvParameters;\ \textcolor{comment}{//\ \{SOURCE\_HMI,\ 100\}\ -\/\ copy\ from\ dataToSend}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00030}00030\ \ \ \ \ sendDataPointer.\mbox{\hyperlink{structsend_data__t_a7a448c609e8704ce6b41a4b11e611e52}{uxValue}}\ =\ 111;\ \textcolor{comment}{//\ update\ Value,\ 실\ 코드에서는\ 실제\ HMI에서\ 받은\ 값으로\ 업데이트}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{queue_8h_a81d24a2c1199d58efb76fbee15853112}{xQueueSendToBack}}(\mbox{\hyperlink{3__1__queue_8c_aa78b6121b7586233293fb6cba5e19206}{xQueue}},\ \&sendDataPointer,\ \mbox{\hyperlink{portmacro_8h_a72723ba1e4a85ca14f25c2b9e066613d}{portMAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}(\mbox{\hyperlink{projdefs_8h_a353d0f62b82a402cb3db63706c81ec3f}{pdMS\_TO\_TICKS}}(200));}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00037}00037\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ sendTask2(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{structsend_data__t}{sendData\_t}}\ sendDataPointer\ =\ *(\mbox{\hyperlink{structsend_data__t}{sendData\_t}}*\ )pvParameters;\ \textcolor{comment}{//\ \{SOURCE\_CAN,\ 200\}\ -\/\ copy\ from\ dataToSend}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00039}00039\ \ \ \ \ sendDataPointer.\mbox{\hyperlink{structsend_data__t_a7a448c609e8704ce6b41a4b11e611e52}{uxValue}}\ =\ 222;\ \textcolor{comment}{//\ update\ Value\ \ }}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{queue_8h_a81d24a2c1199d58efb76fbee15853112}{xQueueSendToBack}}(\mbox{\hyperlink{3__1__queue_8c_aa78b6121b7586233293fb6cba5e19206}{xQueue}},\ \&sendDataPointer,\ \mbox{\hyperlink{portmacro_8h_a72723ba1e4a85ca14f25c2b9e066613d}{portMAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}(\mbox{\hyperlink{projdefs_8h_a353d0f62b82a402cb3db63706c81ec3f}{pdMS\_TO\_TICKS}}(200));}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00046}00046\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ sendTask3(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{structsend_data__t}{sendData\_t}}\ sendDataPointer\ =\ *(\mbox{\hyperlink{structsend_data__t}{sendData\_t}}*\ )pvParameters;\ \textcolor{comment}{//\ \{SOURCE\_ANOTHER,\ 300\}\ -\/\ copy\ from\ dataToSend}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00048}00048\ \ \ \ \ sendDataPointer.\mbox{\hyperlink{structsend_data__t_a7a448c609e8704ce6b41a4b11e611e52}{uxValue}}\ =\ 333;\ \textcolor{comment}{//\ update\ Value}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{queue_8h_a81d24a2c1199d58efb76fbee15853112}{xQueueSendToBack}}(\mbox{\hyperlink{3__1__queue_8c_aa78b6121b7586233293fb6cba5e19206}{xQueue}},\ \&sendDataPointer,\ \mbox{\hyperlink{portmacro_8h_a72723ba1e4a85ca14f25c2b9e066613d}{portMAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}(\mbox{\hyperlink{projdefs_8h_a353d0f62b82a402cb3db63706c81ec3f}{pdMS\_TO\_TICKS}}(200));}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00055}00055\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ receiveTask(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{structsend_data__t}{sendData\_t}}\ receivedData;}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{queue_8h_add7ee0701ba35904d190811b9e5a4eda}{uxQueueMessagesWaiting}}(\mbox{\hyperlink{3__1__queue_8c_aa78b6121b7586233293fb6cba5e19206}{xQueue}})\ !=\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg\ =\ \textcolor{stringliteral}{"{}Queue\ should\ have\ been\ empty!\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\_UART\_Transmit}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}},\ (uint8\_t\ *)msg,\ strlen(msg),\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_aad28bc64749c50dcedd6bf819fdc6974}{HAL\_MAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{queue_8h_ae8364d988c6f9b63c771cc2b3dfe5df9}{xQueueReceive}}(\mbox{\hyperlink{3__1__queue_8c_aa78b6121b7586233293fb6cba5e19206}{xQueue}},\ \&receivedData,\ \mbox{\hyperlink{portmacro_8h_a72723ba1e4a85ca14f25c2b9e066613d}{portMAX\_DELAY}})\ ==\ \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}})\ \{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Received\ from\ source\ \%d:\ value\ =\ \%lu\(\backslash\)r\(\backslash\)n"{}},\ receivedData.\mbox{\hyperlink{structsend_data__t_a30bdaa071b17cad1a0231d42a576685b}{source}},\ receivedData.\mbox{\hyperlink{structsend_data__t_a7a448c609e8704ce6b41a4b11e611e52}{uxValue}});}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Data\ Processing\ */}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ switch\ (receivedData.source)\ \{}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ case\ SOURCE\_HMI:}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ //\ Process\ HMI\ data}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ case\ SOURCE\_CAN:}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ //\ Process\ CAN\ data}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ case\ SOURCE\_ANOTHER:}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ //\ Process\ another\ data}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ default:}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ break;}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg\ =\ \textcolor{stringliteral}{"{}Failed\ to\ receive\ data\ from\ queue!\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\_UART\_Transmit}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}},\ (uint8\_t\ *)msg,\ strlen(msg),\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_aad28bc64749c50dcedd6bf819fdc6974}{HAL\_MAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00085}\mbox{\hyperlink{3__3__queue__multiplesource_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{00085}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{3__3__queue__multiplesource_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\{}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{driver__init_8h_aab7f079e70f08c868bbb3fdd41b86f82}{Driver\_Init}}();}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00087}00087\ \ \ \ \ \mbox{\hyperlink{3__1__queue_8c_aa78b6121b7586233293fb6cba5e19206}{xQueue}}\ =\ xQueueCreate(4,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structsend_data__t}{sendData\_t}}));}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00088}00088\ \ \ \ \ xTaskCreate(sendTask1,\textcolor{stringliteral}{"{}SOURCE\_HMI"{}},\ 128,\ \&\mbox{\hyperlink{3__3__queue__multiplesource_8c_a7384452c99d297a5d6c0c34e752900ad}{dataToSend}}[0],\ 1,\ NULL);}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00089}00089\ \ \ \ \ xTaskCreate(sendTask2,\textcolor{stringliteral}{"{}SOURCE\_CAN"{}},\ 128,\&\mbox{\hyperlink{3__3__queue__multiplesource_8c_a7384452c99d297a5d6c0c34e752900ad}{dataToSend}}[1],\ 1,\ NULL);}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00090}00090\ \ \ \ \ xTaskCreate(sendTask3,\textcolor{stringliteral}{"{}SOURCE\_ANOTHER"{}},\ 128,\&\mbox{\hyperlink{3__3__queue__multiplesource_8c_a7384452c99d297a5d6c0c34e752900ad}{dataToSend}}[2],\ 1,\ NULL);}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00091}00091\ \ \ \ \ xTaskCreate(receiveTask,\ \textcolor{stringliteral}{"{}Task1"{}},\ 128,\ NULL,\ 4,\ NULL);}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{vTaskStartScheduler}}();\ \ \ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{3__3__queue__multiplesource_8c_source_l00100}00100\ }
+
+\end{DoxyCode}

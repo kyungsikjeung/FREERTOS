@@ -1,0 +1,180 @@
+\doxysection{arm\+\_\+variance\+\_\+example\+\_\+f32.\+c}
+\hypertarget{arm__variance__example__f32_8c_source}{}\label{arm__variance__example__f32_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_variance\_example/arm\_variance\_example\_f32.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_variance\_example/arm\_variance\_example\_f32.c}}
+\mbox{\hyperlink{arm__variance__example__f32_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00001}00001\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00002}00002\ \textcolor{comment}{*\ Copyright\ (C)\ 2010-\/2012\ ARM\ Limited.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00003}00003\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00004}00004\ \textcolor{comment}{*\ \$Date:\ \ \ \ \ \ \ \ \ 17.\ January\ 2013}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00005}00005\ \textcolor{comment}{*\ \$Revision:\ \ \ \ \ V1.4.0}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00006}00006\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00007}00007\ \textcolor{comment}{*\ Project:\ \ \ \ \ \ \ CMSIS\ DSP\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00008}00008\ \textcolor{comment}{*\ Title:\ \ \ \ \ \ \ \ \ arm\_variance\_example\_f32.c}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00009}00009\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00010}00010\ \textcolor{comment}{*\ Description:\ \ \ Example\ code\ demonstrating\ variance\ calculation\ of\ input\ sequence.}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00011}00011\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00012}00012\ \textcolor{comment}{*\ Target\ Processor:\ Cortex-\/M4/Cortex-\/M3}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00013}00013\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00014}00014\ \textcolor{comment}{*\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00015}00015\ \textcolor{comment}{*\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00016}00016\ \textcolor{comment}{*\ are\ met:}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00017}00017\ \textcolor{comment}{*\ \ \ -\/\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00018}00018\ \textcolor{comment}{*\ \ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00019}00019\ \textcolor{comment}{*\ \ \ -\/\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00020}00020\ \textcolor{comment}{*\ \ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00021}00021\ \textcolor{comment}{*\ \ \ \ \ the\ documentation\ and/or\ other\ materials\ provided\ with\ the}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00022}00022\ \textcolor{comment}{*\ \ \ \ \ distribution.}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00023}00023\ \textcolor{comment}{*\ \ \ -\/\ Neither\ the\ name\ of\ ARM\ LIMITED\ nor\ the\ names\ of\ its\ contributors}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00024}00024\ \textcolor{comment}{*\ \ \ \ \ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived\ from\ this}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00025}00025\ \textcolor{comment}{*\ \ \ \ \ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00026}00026\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00027}00027\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00028}00028\ \textcolor{comment}{*\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00029}00029\ \textcolor{comment}{*\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00030}00030\ \textcolor{comment}{*\ FOR\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00031}00031\ \textcolor{comment}{*\ COPYRIGHT\ OWNER\ OR\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00032}00032\ \textcolor{comment}{*\ INCIDENTAL,\ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00033}00033\ \textcolor{comment}{*\ BUT\ NOT\ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00034}00034\ \textcolor{comment}{*\ LOSS\ OF\ USE,\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00035}00035\ \textcolor{comment}{*\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00036}00036\ \textcolor{comment}{*\ LIABILITY,\ OR\ TORT\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00037}00037\ \textcolor{comment}{*\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00038}00038\ \textcolor{comment}{*\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00039}00039\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00094}00094\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00095}00095\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__math_8h}{arm\_math.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00097}00097\ \textcolor{preprocessor}{\#if\ defined(SEMIHOSTING)}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00098}00098\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00099}00099\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00101}00101\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00102}00102\ \textcolor{comment}{*\ Defines\ each\ of\ the\ tests\ performed}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00103}00103\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00104}\mbox{\hyperlink{arm__variance__example__f32_8c_af8a1d2ed31f7c9a00fec46a798edb61b}{00104}}\ \textcolor{preprocessor}{\#define\ MAX\_BLOCKSIZE\ \ \ 32}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00105}\mbox{\hyperlink{arm__variance__example__f32_8c_a3fd2b1bcd7ddcf506237987ad780f495}{00105}}\ \textcolor{preprocessor}{\#define\ DELTA\ \ \ \ \ \ \ \ \ \ \ (0.000001f)}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00108}00108\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00109}00109\ \textcolor{comment}{*\ Declare\ I/O\ buffers}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00110}00110\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00111}\mbox{\hyperlink{arm__variance__example__f32_8c_acc43b372d92d5027b9f9cac782c8b3c7}{00111}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__signal__converge__example__f32_8c_a16e759789fbc05f878863f009066c8ea}{wire1}}[\mbox{\hyperlink{arm__convolution__example__f32_8c_af8a1d2ed31f7c9a00fec46a798edb61b}{MAX\_BLOCKSIZE}}];}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00112}\mbox{\hyperlink{arm__variance__example__f32_8c_a41a9afab5be5ccd2e6f618b83102f0d1}{00112}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__signal__converge__example__f32_8c_a4e370163c81ae2b72cc655a6b79e4c6a}{wire2}}[\mbox{\hyperlink{arm__convolution__example__f32_8c_af8a1d2ed31f7c9a00fec46a798edb61b}{MAX\_BLOCKSIZE}}];}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00113}\mbox{\hyperlink{arm__variance__example__f32_8c_af61f43ad332a2322e43ced590b6d9768}{00113}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__signal__converge__example__f32_8c_a7e2cceadf6ec7f0aa0f698a680fa3a4b}{wire3}}[\mbox{\hyperlink{arm__convolution__example__f32_8c_af8a1d2ed31f7c9a00fec46a798edb61b}{MAX\_BLOCKSIZE}}];}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00115}00115\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00116}00116\ \textcolor{comment}{*\ Test\ input\ data\ for\ Floating\ point\ Variance\ example\ for\ 32-\/blockSize}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00117}00117\ \textcolor{comment}{*\ Generated\ by\ the\ MATLAB\ randn()\ function}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00118}00118\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00120}\mbox{\hyperlink{arm__variance__example__f32_8c_a9170ec9e681e2b519fe9c46a30455841}{00120}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__graphic__equalizer__data_8c_a987ef9f3767fa5e083bcf2dd1efed05c}{testInput\_f32}}[32]\ =}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00121}00121\ \{}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00122}00122\ \ \ -\/0.432564811528221,\ \ -\/1.665584378238097,\ \ \ 0.125332306474831,\ \ \ 0.287676420358549,}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00123}00123\ \ \ -\/1.146471350681464,\ \ \ 1.190915465642999,\ \ \ 1.189164201652103,\ \ -\/0.037633276593318,}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00124}00124\ \ \ \ 0.327292361408654,\ \ \ 0.174639142820925,\ \ -\/0.186708577681439,\ \ \ 0.725790548293303,}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00125}00125\ \ \ -\/0.588316543014189,\ \ \ 2.183185818197101,\ \ -\/0.136395883086596,\ \ \ 0.113931313520810,}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00126}00126\ \ \ \ 1.066768211359189,\ \ \ 0.059281460523605,\ \ -\/0.095648405483669,\ \ -\/0.832349463650022,}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00127}00127\ \ \ \ 0.294410816392640,\ \ -\/1.336181857937804,\ \ \ 0.714324551818952,\ \ \ 1.623562064446271,}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00128}00128\ \ \ -\/0.691775701702287,\ \ \ 0.857996672828263,\ \ \ 1.254001421602532,\ \ -\/1.593729576447477,}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00129}00129\ \ \ -\/1.440964431901020,\ \ \ 0.571147623658178,\ \ -\/0.399885577715363,\ \ \ 0.689997375464345}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00131}00131\ \};}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00133}00133\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00134}00134\ \textcolor{comment}{*\ Declare\ Global\ variables}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00135}00135\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00136}\mbox{\hyperlink{arm__variance__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{00136}}\ uint32\_t\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}}\ =\ 32;}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00137}\mbox{\hyperlink{arm__variance__example__f32_8c_a26cbbfe2a7905669e8440159465050df}{00137}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \ \mbox{\hyperlink{arm__variance__example__f32_8c_a26cbbfe2a7905669e8440159465050df}{refVarianceOut}}\ =\ 0.903941793931839;}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00139}00139\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00140}00140\ \textcolor{comment}{*\ Variance\ calculation\ test}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00141}00141\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00143}\mbox{\hyperlink{arm__variance__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}{00143}}\ int32\_t\ \mbox{\hyperlink{arm__variance__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00144}00144\ \{}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00145}00145\ \ \ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00146}00146\ \ \ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_acc9290716b3c97381ce52d14b4b01681}{mean}},\ oneByBlockSize;}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00147}00147\ \ \ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ variance;}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00148}00148\ \ \ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ diff;}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00150}00150\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a9f8b2a10bd827fb4600e77d455902eb0}{ARM\_MATH\_SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00152}00152\ \textcolor{preprocessor}{\#if\ defined(SEMIHOSTING)}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00153}00153\ \ \ printf(\textcolor{stringliteral}{"{}START\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00154}00154\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00156}00156\ \ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00157}00157\ \ \ \textcolor{comment}{/*\ Calculation\ of\ mean\ value\ of\ input\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00159}00159\ \ \ \textcolor{comment}{/*\ x'\ =\ 1/blockSize\ *\ (x(0)*\ 1\ +\ x(1)\ *\ 1\ +\ ...\ +\ x(n-\/1)\ *\ 1)\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00161}00161\ \ \ \textcolor{comment}{/*\ Fill\ wire1\ buffer\ with\ 1.0\ value\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00162}00162\ \ \ \mbox{\hyperlink{group___fill_ga2248e8d3901b4afb7827163132baad94}{arm\_fill\_f32}}(1.0,\ \ \mbox{\hyperlink{arm__signal__converge__example__f32_8c_a16e759789fbc05f878863f009066c8ea}{wire1}},\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}});}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00164}00164\ \ \ \textcolor{comment}{/*\ Calculate\ the\ dot\ product\ of\ wire1\ and\ wire2\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00165}00165\ \ \ \textcolor{comment}{/*\ (x(0)*\ 1\ +\ x(1)\ *\ 1\ +\ ...+\ x(n-\/1)\ *\ 1)\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00166}00166\ \ \ \mbox{\hyperlink{group___basic_dot_prod_gadf26f6bc62d6416528663ad3e46fbf67}{arm\_dot\_prod\_f32}}(\mbox{\hyperlink{arm__graphic__equalizer__data_8c_a987ef9f3767fa5e083bcf2dd1efed05c}{testInput\_f32}},\ \mbox{\hyperlink{arm__signal__converge__example__f32_8c_a16e759789fbc05f878863f009066c8ea}{wire1}},\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}},\ \&\mbox{\hyperlink{arm__class__marks__example__f32_8c_acc9290716b3c97381ce52d14b4b01681}{mean}});}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00168}00168\ \ \ \textcolor{comment}{/*\ Calculation\ of\ 1/blockSize\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00169}00169\ \ \ oneByBlockSize\ =\ 1.0\ /\ (\mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}});}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00171}00171\ \ \ \textcolor{comment}{/*\ 1/blockSize\ *\ (x(0)*\ 1\ +\ x(1)\ *\ 1\ +\ ...\ +\ x(n-\/1)\ *\ 1)\ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00172}00172\ \ \ \mbox{\hyperlink{group___basic_mult_gacf950935141cad927bea886e88fd9e9b}{arm\_mult\_f32}}(\&\mbox{\hyperlink{arm__class__marks__example__f32_8c_acc9290716b3c97381ce52d14b4b01681}{mean}},\ \&oneByBlockSize,\ \&\mbox{\hyperlink{arm__class__marks__example__f32_8c_acc9290716b3c97381ce52d14b4b01681}{mean}},\ 1);}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00175}00175\ \ \ \textcolor{comment}{/*\ Calculation\ of\ variance\ value\ of\ input\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00177}00177\ \ \ \textcolor{comment}{/*\ (1/blockSize)\ *\ (x(0)\ -\/\ x')\ *\ (x(0)\ -\/\ x')\ +\ (x(1)\ -\/\ x')\ *\ (x(1)\ -\/\ x')\ +\ ...\ +\ (x(n-\/1)\ -\/\ x')\ *\ (x(n-\/1)\ -\/\ x')\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00179}00179\ \ \ \textcolor{comment}{/*\ Fill\ wire2\ with\ mean\ value\ x'\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00180}00180\ \ \ \mbox{\hyperlink{group___fill_ga2248e8d3901b4afb7827163132baad94}{arm\_fill\_f32}}(\mbox{\hyperlink{arm__class__marks__example__f32_8c_acc9290716b3c97381ce52d14b4b01681}{mean}},\ \ \mbox{\hyperlink{arm__signal__converge__example__f32_8c_a4e370163c81ae2b72cc655a6b79e4c6a}{wire2}},\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}});}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00182}00182\ \ \ \textcolor{comment}{/*\ wire3\ contains\ (x-\/x')\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00183}00183\ \ \ \mbox{\hyperlink{group___basic_sub_ga76b8b2aec34269c6de0b090cab00fb33}{arm\_sub\_f32}}(\mbox{\hyperlink{arm__graphic__equalizer__data_8c_a987ef9f3767fa5e083bcf2dd1efed05c}{testInput\_f32}},\ \mbox{\hyperlink{arm__signal__converge__example__f32_8c_a4e370163c81ae2b72cc655a6b79e4c6a}{wire2}},\ \mbox{\hyperlink{arm__signal__converge__example__f32_8c_a7e2cceadf6ec7f0aa0f698a680fa3a4b}{wire3}},\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}});}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00185}00185\ \ \ \textcolor{comment}{/*\ wire2\ contains\ (x-\/x')\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00186}00186\ \ \ \mbox{\hyperlink{group__copy_gaa6dfe9554ca61eb3d1eee498396bce88}{arm\_copy\_f32}}(\mbox{\hyperlink{arm__signal__converge__example__f32_8c_a7e2cceadf6ec7f0aa0f698a680fa3a4b}{wire3}},\ \mbox{\hyperlink{arm__signal__converge__example__f32_8c_a4e370163c81ae2b72cc655a6b79e4c6a}{wire2}},\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}});}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00188}00188\ \ \ \textcolor{comment}{/*\ (x(0)\ -\/\ x')\ *\ (x(0)\ -\/\ x')\ +\ (x(1)\ -\/\ x')\ *\ (x(1)\ -\/\ x')\ +\ ...\ +\ (x(n-\/1)\ -\/\ x')\ *\ (x(n-\/1)\ -\/\ x')\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00189}00189\ \ \ \mbox{\hyperlink{group___basic_dot_prod_gadf26f6bc62d6416528663ad3e46fbf67}{arm\_dot\_prod\_f32}}(\mbox{\hyperlink{arm__signal__converge__example__f32_8c_a4e370163c81ae2b72cc655a6b79e4c6a}{wire2}},\ \mbox{\hyperlink{arm__signal__converge__example__f32_8c_a7e2cceadf6ec7f0aa0f698a680fa3a4b}{wire3}},\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}},\ \&variance);}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00191}00191\ \ \ \ \ \textcolor{comment}{/*\ Calculation\ of\ 1/blockSize\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00192}00192\ \ \ oneByBlockSize\ =\ 1.0\ /\ (\mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}}\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00194}00194\ \ \ \textcolor{comment}{/*\ Calculation\ of\ variance\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00195}00195\ \ \ \mbox{\hyperlink{group___basic_mult_gacf950935141cad927bea886e88fd9e9b}{arm\_mult\_f32}}(\&variance,\ \&oneByBlockSize,\ \&variance,\ 1);}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00197}00197\ \ \ \textcolor{comment}{/*\ absolute\ value\ of\ difference\ between\ ref\ and\ test\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00198}00198\ \ \ diff\ =\ fabsf(\mbox{\hyperlink{arm__variance__example__f32_8c_a26cbbfe2a7905669e8440159465050df}{refVarianceOut}}\ -\/\ variance);}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00200}00200\ \ \ \textcolor{comment}{/*\ Comparison\ of\ variance\ value\ with\ reference\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00201}00201\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ (diff\ >\ \mbox{\hyperlink{arm__convolution__example__f32_8c_a3fd2b1bcd7ddcf506237987ad780f495}{DELTA}})\ ?\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a09457f2be656b35015fd6d36202fa376}{ARM\_MATH\_TEST\_FAILURE}}\ :\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a9f8b2a10bd827fb4600e77d455902eb0}{ARM\_MATH\_SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00203}00203\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ !=\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a9f8b2a10bd827fb4600e77d455902eb0}{ARM\_MATH\_SUCCESS}})}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00204}00204\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00205}00205\ \textcolor{preprocessor}{\#if\ defined\ (SEMIHOSTING)}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00206}00206\ \ \ \ \ printf(\textcolor{stringliteral}{"{}FAILURE\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00207}00207\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00208}00208\ \ \ \ \ \textcolor{keywordflow}{while}\ (1);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ main\ function\ does\ not\ return\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00209}00209\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00210}00210\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00211}00211\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00212}00212\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00213}00213\ \textcolor{preprocessor}{\#if\ defined\ (SEMIHOSTING)}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00214}00214\ \ \ \ \ printf(\textcolor{stringliteral}{"{}SUCCESS\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00215}00215\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00216}00216\ \ \ \ \ \textcolor{keywordflow}{while}\ (1);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ main\ function\ does\ not\ return\ */}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00217}00217\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00218}00218\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00220}00220\ \}}
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{arm__variance__example__f32_8c_source_l00224}00224\ }
+
+\end{DoxyCode}

@@ -1,0 +1,28 @@
+\chapter{TEST }
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_t_e_s_t}{}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_t_e_s_t}\index{TEST@{TEST}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@startuml}
+\DoxyCodeLine{title\ FreeRTOS:\ 중앙\ 집중형\ 지연\ 인터럽트\ 처리\ 흐름}
+\DoxyCodeLine{}
+\DoxyCodeLine{actor\ "{}주기적\ Task\(\backslash\)nvPeriodicTask()"{}\ as\ Periodic}
+\DoxyCodeLine{participant\ "{}ISR\(\backslash\)n(EX:\ EXTI,\ 타이머\ 등)"{}\ as\ ISR}
+\DoxyCodeLine{participant\ "{}xTimerPendFunctionCallFromISR()"{}\ as\ PendCall}
+\DoxyCodeLine{participant\ "{}Daemon\ Task"{}\ as\ Daemon}
+\DoxyCodeLine{participant\ "{}vDeferredHandlingFunction()"{}\ as\ Handler}
+\DoxyCodeLine{}
+\DoxyCodeLine{==\ 주기적\ 인터럽트\ 유도\ ==}
+\DoxyCodeLine{Periodic\ -\/>\ ISR:\ 인터럽트\ 발생\ (500ms마다)}
+\DoxyCodeLine{}
+\DoxyCodeLine{==\ ISR에서\ 처리\ 위임\ ==}
+\DoxyCodeLine{ISR\ -\/>\ PendCall:\ xTimerPendFunctionCallFromISR(vDeferredHandlingFunction)}
+\DoxyCodeLine{PendCall\ -\/>\ Daemon:\ 타이머\ 큐에\ 함수\ 등록}
+\DoxyCodeLine{}
+\DoxyCodeLine{==\ Daemon\ Task에서\ 처리\ ==}
+\DoxyCodeLine{Daemon\ -\/>\ Handler:\ vDeferredHandlingFunction(pvParam,\ ulParam)}
+\DoxyCodeLine{Handler\ -\/>\ Handler:\ 이벤트\ 처리\ (ex.\ printf)}
+\DoxyCodeLine{}
+\DoxyCodeLine{@enduml}
+
+\end{DoxyCode}
+ 

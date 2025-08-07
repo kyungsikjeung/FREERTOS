@@ -1,0 +1,90 @@
+\doxysection{DAP\+\_\+vendor.\+c}
+\hypertarget{_d_a_p__vendor_8c_source}{}\label{_d_a_p__vendor_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DAP/Firmware/Source/DAP\_vendor.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DAP/Firmware/Source/DAP\_vendor.c}}
+\mbox{\hyperlink{_d_a_p__vendor_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2013-\/2017\ ARM\ Limited.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00004}00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00006}00006\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00007}00007\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00008}00008\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00010}00010\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00013}00013\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00014}00014\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00015}00015\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00016}00016\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00017}00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00018}00018\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00019}00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00020}00020\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 1.\ December\ 2017}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00021}00021\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V2.0.0}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00022}00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00023}00023\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS-\/DAP\ Source}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00024}00024\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ DAP\_vendor.c\ CMSIS-\/DAP\ Vendor\ Commands}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00025}00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00026}00026\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d_a_p__config_8h}{DAP\_config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_d_a_p_8h}{DAP.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00031}00031\ \textcolor{comment}{//**************************************************************************************************}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00048}\mbox{\hyperlink{group___d_a_p___vendor___adapt__gr_ga4b5a61fc8135928f86c2be713ca53974}{00048}}\ uint32\_t\ \mbox{\hyperlink{group___d_a_p___vendor___adapt__gr_ga4b5a61fc8135928f86c2be713ca53974}{DAP\_ProcessVendorCommand}}(\textcolor{keyword}{const}\ uint8\_t\ *request,\ uint8\_t\ *response)\ \{}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00049}00049\ \ \ uint32\_t\ num\ =\ (1U\ <<\ 16)\ |\ 1U;}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00051}00051\ \ \ *response++\ =\ *request;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ copy\ Command\ ID}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00053}00053\ \ \ \textcolor{keywordflow}{switch}\ (*request++)\ \{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ first\ byte\ in\ request\ is\ Command\ ID}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a1e7a7a4964636b9994ddd34f278cb14c}{ID\_DAP\_Vendor0}}:}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00055}00055\ \textcolor{preprocessor}{\#if\ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ example\ user\ command}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00056}00056\ \ \ \ \ \ \ num\ +=\ 1U\ <<\ 16;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ increment\ request\ count}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00057}00057\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*request\ ==\ 1U)\ \{\ \ \ \ \ \ \textcolor{comment}{//\ when\ first\ command\ data\ byte\ is\ 1}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ *response++\ =\ \textcolor{charliteral}{'X'};\ \ \ \ \ \ \ \textcolor{comment}{//\ send\ 'X'\ as\ response}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ num++;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ increment\ response\ count}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00060}00060\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00061}00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00062}00062\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a586ccd859574c0e208024d0a6c146ae2}{ID\_DAP\_Vendor1}}:\ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_af258a52538aef262d3630ad8512ce66e}{ID\_DAP\_Vendor2}}:\ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a2c7c1f1ce12a3facc90105ff5d7911c9}{ID\_DAP\_Vendor3}}:\ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a8bb93171fe01f1754442e81c4982d520}{ID\_DAP\_Vendor4}}:\ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_adf3ec7789b7d0ada188aee86a39cdcb4}{ID\_DAP\_Vendor5}}:\ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a6286b787ce41aa597dbed7d8fb61bb52}{ID\_DAP\_Vendor6}}:\ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_abe6ac4ad7c49ceccccf59213a5fd69db}{ID\_DAP\_Vendor7}}:\ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_ab6a53ed37736809a3de2f1d4d7e60907}{ID\_DAP\_Vendor8}}:\ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a236b53d3f114dd32e98ca1d86944dbce}{ID\_DAP\_Vendor9}}:\ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_ad8102449de3ec0531a1dd371518b6562}{ID\_DAP\_Vendor10}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_adb36358fe65c8f74976ca8c920f28d0c}{ID\_DAP\_Vendor11}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a2dd3f5f4012d515a9bed69fad8df3614}{ID\_DAP\_Vendor12}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_ab99b757df23eb0b410b93afaf8c50fa8}{ID\_DAP\_Vendor13}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_ae5395862f0ce01342388aa14cebc2e71}{ID\_DAP\_Vendor14}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a444a482a17bd356c270b8f1b776cdb20}{ID\_DAP\_Vendor15}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_abeaa11167461c5a5b93afa8514b36978}{ID\_DAP\_Vendor16}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a9aa33bd769817643107406705539dd4f}{ID\_DAP\_Vendor17}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a68d70821dc7edd5cc4e2ed4c236f03b9}{ID\_DAP\_Vendor18}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a8015bb98fcd5cf3fa65eb1a30f66756f}{ID\_DAP\_Vendor19}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a4d0c939898a5c457d5f642f443f081b0}{ID\_DAP\_Vendor20}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_afe65f482bd37473064a88097eabe8890}{ID\_DAP\_Vendor21}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a4dc76687aac4bc34f2bfa12a4782f6c6}{ID\_DAP\_Vendor22}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a2172e6ae37b30763ffe19e2f18b5b6e3}{ID\_DAP\_Vendor23}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_ae33e24556632e1a1aeb6c09db3f302ba}{ID\_DAP\_Vendor24}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a2a23bd1b2eace0eb55c3c39bf27c0937}{ID\_DAP\_Vendor25}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a99c87fc780f94e71988aaae9481ee1ba}{ID\_DAP\_Vendor26}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_ae438477b03ba6aed5a64d3a047e07985}{ID\_DAP\_Vendor27}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a24fc3c3fbd14a5512db7c532b7d5da92}{ID\_DAP\_Vendor28}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_ae0e2ca9a8b5d33c4a34e5dff44c2aeb2}{ID\_DAP\_Vendor29}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a8736cd68328f32a8af36acf5d0f122fa}{ID\_DAP\_Vendor30}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_d_a_p_8h_a032dcd80f52ca9ea4bc406e7936516e6}{ID\_DAP\_Vendor31}}:\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00095}00095\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00097}00097\ \ \ \textcolor{keywordflow}{return}\ (num);}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00098}00098\ \}}
+\DoxyCodeLine{\Hypertarget{_d_a_p__vendor_8c_source_l00099}00099\ }
+
+\end{DoxyCode}

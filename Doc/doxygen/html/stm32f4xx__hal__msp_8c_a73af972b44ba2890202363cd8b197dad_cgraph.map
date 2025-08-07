@@ -1,0 +1,5 @@
+<map id="HAL_PCD_MspInit" name="HAL_PCD_MspInit">
+<area shape="rect" id="Node000001" title="PCD MSP Initialization This function configures the hardware resources used in this example." alt="" coords="5,5,139,32"/>
+<area shape="rect" id="Node000002" href="$group___g_p_i_o___exported___functions___group1.html#ga41bda93b6dd639e4905fdb1454eff98e" title=" " alt="" coords="187,5,299,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,16,171,16,171,21,139,21"/>
+</map>

@@ -1,0 +1,97 @@
+\chapter{Multiple Source Queue }
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e}{}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e}\index{Multiple Source Queue@{Multiple Source Queue}}
+\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md82}%
+\Hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md82}%
+
+
+송신 Task들은 각각 고유한 {\ttfamily 데이터 식별자(\+ID)}와 {\ttfamily 값(\+Value)}를 포함한 구조체 데이터를 생성하여 공용 Queue로 전송하며, 수신 Task는 이 Queue에서 데이터를 수신한 후, 식별자(\+ID)에 따라 통신 메시지를 분류하고 처리하는 방식이 필요
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md84}{}\doxysection{\texorpdfstring{1. Objective}{1. Objective}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md84}
+
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{structsend_data__t}{send\+Data\+\_\+t}} 구조체를 통해 Source와 값(\+Value)을 함께 큐에 전송
+\item 각 송신 Task는 고유 Source를 기반으로 주기적으로 데이터를 전송
+\item 수신 Task는 Queue에서 데이터를 수신하고 Source에 따라 처리 수행
+\item {\ttfamily \doxylink{queue_8h_add7ee0701ba35904d190811b9e5a4eda}{ux\+Queue\+Messages\+Waiting()}}를 통해 큐 상태를 모니터링
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md86}{}\doxysection{\texorpdfstring{2. 시스템 구성}{2. 시스템 구성}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md86}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 구성 요소  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 구성 요소  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endhead
+{\ttfamily send\+Task1}  &Source\+: {\ttfamily SOURCE\+\_\+\+HMI}, 전송값\+: 111  \\\cline{1-2}
+{\ttfamily send\+Task2}  &Source\+: {\ttfamily SOURCE\+\_\+\+CAN}, 전송값\+: 222  \\\cline{1-2}
+{\ttfamily send\+Task3}  &Source\+: {\ttfamily SOURCE\+\_\+\+ANOTHER}, 전송값\+: 333  \\\cline{1-2}
+{\ttfamily receive\+Task}  &각 Task로부터 데이터를 수신하고 처리  \\\cline{1-2}
+{\ttfamily x\+Queue}  &{\ttfamily \doxylink{structsend_data__t}{send\+Data\+\_\+t}} 구조체 큐, 길이 4  \\\cline{1-2}
+\end{longtabu}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md88}{}\doxysection{\texorpdfstring{3. 주요 구조체}{3. 주요 구조체}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md88}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3a99aca24315c2d76ba016f7dfc0f79fba}{SOURCE\_HMI}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3a2600a29f7c1847ed97192e27363f31cd}{SOURCE\_CAN}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3af2859fb0942bea74084df702c490e3f6}{SOURCE\_ANOTHER}}}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3}{DataSource\_t}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{3__3__queue__multiplesource_8c_a47facd3e64b3e33ae6d58a73988987c3}{DataSource\_t}}\ source;}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ uxValue;}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{structsend_data__t}{sendData\_t}};}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md89}{}\doxysection{\texorpdfstring{4.시퀀스 다이어그램}{4.시퀀스 다이어그램}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md89}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@startuml}
+\DoxyCodeLine{title\ Multi\ Sender\ /\ One\ Receiver\ Queue\ Flow}
+\DoxyCodeLine{actor\ sendTask1}
+\DoxyCodeLine{actor\ sendTask2}
+\DoxyCodeLine{actor\ sendTask3}
+\DoxyCodeLine{participant\ "{}xQueue\(\backslash\)n(sendData\_t)"{}\ as\ Queue}
+\DoxyCodeLine{actor\ receiveTask}
+\DoxyCodeLine{loop\ Every\ 200ms}
+\DoxyCodeLine{\ \ \ \ sendTask1\ -\/>\ Queue\ :\ xQueueSendToBack(HMI,\ 111)}
+\DoxyCodeLine{end}
+\DoxyCodeLine{loop\ Every\ 200ms}
+\DoxyCodeLine{\ \ \ \ sendTask2\ -\/>\ Queue\ :\ xQueueSendToBack(CAN,\ 222)}
+\DoxyCodeLine{end}
+\DoxyCodeLine{loop\ Every\ 200ms}
+\DoxyCodeLine{\ \ \ \ sendTask3\ -\/>\ Queue\ :\ xQueueSendToBack(ANOTHER,\ 333)}
+\DoxyCodeLine{end}
+\DoxyCodeLine{loop\ Forever}
+\DoxyCodeLine{\ \ \ \ receiveTask\ -\/>\ Queue\ :\ xQueueReceive()}
+\DoxyCodeLine{\ \ \ \ alt\ on\ success}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ receiveTask\ -\/>\ UART\ :\ printf(source,\ value)}
+\DoxyCodeLine{\ \ \ \ else\ on\ fail}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ receiveTask\ -\/>\ UART\ :\ "{}Failed\ to\ receive!"{}}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{end}
+\DoxyCodeLine{@enduml}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md90}{}\doxysection{\texorpdfstring{5.\+UART 출력 예시}{5.\+UART 출력 예시}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__3___q_u_e_u_e___m_u_l_t_i_p_l_e_s_o_u_r_c_e_autotoc_md90}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Received\ from\ source\ 0:\ value\ =\ 111}
+\DoxyCodeLine{Received\ from\ source\ 1:\ value\ =\ 222}
+\DoxyCodeLine{Received\ from\ source\ 2:\ value\ =\ 333}
+
+\end{DoxyCode}
+ ※ source 값은 enum 기반 정수 (0 = HMI, 1 = CAN, 2 = ANOTHER)로 출력됨
+
+⚠️ 주의 사항 send\+Data\+Pointer는 구조체 복사본을 생성하므로 원본은 변경되지 않음 ux\+Queue\+Messages\+Waiting(x\+Queue) != 3 조건문은 큐가 가득 찼는지 확인 송신 Task가 빠르게 실행되어도 큐가 4개까지 버퍼링 가능 Source에 따른 분기 처리는 switch(received\+Data.\+source)로 확장 가능
+
+✅ 결론 이 구조는 여러 소스에서 공통 큐로 데이터를 보낼 때 매우 유용 Source를 기준으로 분기 처리 및 로깅, 통계 등 다양하게 확장 가능 구조체 기반으로 통일된 인터페이스를 제공하여 유지 보수 용이성 향상 

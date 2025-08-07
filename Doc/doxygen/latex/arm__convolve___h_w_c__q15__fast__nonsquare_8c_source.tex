@@ -1,0 +1,226 @@
+\doxysection{arm\+\_\+convolve\+\_\+\+HWC\+\_\+q15\+\_\+fast\+\_\+nonsquare.\+c}
+\hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source}{}\label{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ConvolutionFunctions/arm\_convolve\_HWC\_q15\_fast\_nonsquare.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ConvolutionFunctions/arm\_convolve\_HWC\_q15\_fast\_nonsquare.c}}
+\mbox{\hyperlink{arm__convolve___h_w_c__q15__fast__nonsquare_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2010-\/2021\ Arm\ Limited\ or\ its\ affiliates.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00004}00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00006}00006\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00007}00007\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00008}00008\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00010}00010\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00013}00013\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00014}00014\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00015}00015\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00016}00016\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00019}00019\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00020}00020\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS\ NN\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00021}00021\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ arm\_convolve\_HWC\_q15\_fast.c}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00022}00022\ \textcolor{comment}{\ *\ Description:\ \ Fast\ Q15\ version\ of\ convolution}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00023}00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00024}00024\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ July\ 20,\ 2021}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00025}00025\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V.1.1.2}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00026}00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00027}00027\ \textcolor{comment}{\ *\ Target\ Processor:\ \ Cortex-\/M\ cores}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00028}00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00029}00029\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nnfunctions_8h}{arm\_nnfunctions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nnsupportfunctions_8h}{arm\_nnsupportfunctions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00084}\mbox{\hyperlink{group___n_n_conv_ga614ec3b71eb96e29952ec3f09e7b9c3c}{00084}}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{group___n_n_conv_ga614ec3b71eb96e29952ec3f09e7b9c3c}{arm\_convolve\_HWC\_q15\_fast\_nonsquare}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *Im\_in,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ dim\_im\_in\_x,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ dim\_im\_in\_y,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ ch\_im\_in,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *wt,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ ch\_im\_out,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ dim\_kernel\_x,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ dim\_kernel\_y,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ padding\_x,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ padding\_y,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ stride\_x,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ stride\_y,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *bias,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ bias\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ out\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *Im\_out,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ dim\_im\_out\_x,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ dim\_im\_out\_y,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *bufferA,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *bufferB)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00104}00104\ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00105}00105\ \ \ \ \ (void)bufferB;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00106}00106\ \textcolor{preprocessor}{\#if\ defined(ARM\_MATH\_DSP)\ \&\&\ !defined(ARM\_MATH\_MVEI)}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00107}00107\ \ \ \ \ int16\_t\ i\_out\_y,\ i\_out\_x,\ i\_ker\_y,\ i\_ker\_x;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00109}00109\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pBuffer\ =\ bufferA;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00110}00110\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *im\_buffer\ =\ bufferA;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00111}00111\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pOut\ =\ Im\_out;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00113}00113\ \ \ \ \ \textcolor{keywordflow}{if}\ (ch\_im\_in\ \%\ 2\ !=\ 0\ ||\ ch\_im\_out\ \%\ 2\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00114}00114\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ check\ if\ the\ input\ dimension\ meets\ the\ constraints\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a7071b92f1f6bc3c5c312a237ea91105b}{ARM\_MATH\_SIZE\_MISMATCH}};}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00119}00119\ \ \ \ \ \textcolor{comment}{/*\ Run\ the\ following\ code\ for\ Cortex-\/M4\ and\ Cortex-\/M7\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00121}00121\ \ \ \ \ \textcolor{comment}{/*\ This\ part\ implements\ the\ im2col\ function\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\_out\_y\ =\ 0;\ i\_out\_y\ <\ dim\_im\_out\_y;\ i\_out\_y++)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00123}00123\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\_out\_x\ =\ 0;\ i\_out\_x\ <\ dim\_im\_out\_x;\ i\_out\_x++)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\_ker\_y\ =\ i\_out\_y\ *\ stride\_y\ -\/\ padding\_y;\ i\_ker\_y\ <\ i\_out\_y\ *\ stride\_y\ -\/\ padding\_y\ +\ dim\_kernel\_y;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\_ker\_y++)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\_ker\_x\ =\ i\_out\_x\ *\ stride\_x\ -\/\ padding\_x;\ i\_ker\_x\ <\ i\_out\_x\ *\ stride\_x\ -\/\ padding\_x\ +\ dim\_kernel\_x;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\_ker\_x++)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\_ker\_y\ <\ 0\ ||\ i\_ker\_y\ >=\ dim\_im\_in\_y\ ||\ i\_ker\_x\ <\ 0\ ||\ i\_ker\_x\ >=\ dim\_im\_in\_x)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ arm\_fill\_q15(0,\ pBuffer,\ ch\_im\_in);\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memset(pBuffer,\ 0,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}})\ *\ ch\_im\_in);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ arm\_copy\_q15((q15\_t\ *)\ Im\_in\ +\ (i\_ker\_y\ *\ dim\_im\_in\_x\ +\ i\_ker\_x)\ *\ ch\_im\_in,\ pBuffer,}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00140}00140\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ ch\_im\_in);\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memcpy(pBuffer,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *)Im\_in\ +\ (i\_ker\_y\ *\ dim\_im\_in\_x\ +\ i\_ker\_x)\ *\ ch\_im\_in,}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}})\ *\ ch\_im\_in);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pBuffer\ +=\ ch\_im\_in;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\_out\_x\ \&\ 0x1)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ initialize\ the\ matrix\ pointers\ for\ A\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pA\ =\ wt;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ set\ up\ the\ second\ output\ pointers\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pOut2\ =\ pOut\ +\ ch\_im\_out;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ this\ loop\ over\ rows\ in\ A\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ ch\_im\_out;\ i\ +=\ 2)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ setup\ pointers\ for\ B\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pB\ =\ im\_buffer;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pB2\ =\ pB\ +\ ch\_im\_in\ *\ dim\_kernel\_y\ *\ dim\_kernel\_x;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ aling\ the\ second\ pointer\ for\ A\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pA2\ =\ pA\ +\ ch\_im\_in\ *\ dim\_kernel\_y\ *\ dim\_kernel\_x;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ init\ the\ sum\ with\ bias\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ sum\ =\ ((\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}})bias[i]\ <<\ bias\_shift)\ +\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4cbd428a2b4a4f6b2a6e4219520c7ce0}{NN\_ROUND}}(out\_shift);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ sum2\ =\ ((\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}})bias[i]\ <<\ bias\_shift)\ +\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4cbd428a2b4a4f6b2a6e4219520c7ce0}{NN\_ROUND}}(out\_shift);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ sum3\ =\ ((\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}})bias[i\ +\ 1]\ <<\ bias\_shift)\ +\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4cbd428a2b4a4f6b2a6e4219520c7ce0}{NN\_ROUND}}(out\_shift);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ sum4\ =\ ((\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}})bias[i\ +\ 1]\ <<\ bias\_shift)\ +\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4cbd428a2b4a4f6b2a6e4219520c7ce0}{NN\_ROUND}}(out\_shift);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ colCnt\ =\ ch\_im\_in\ *\ dim\_kernel\_y\ *\ dim\_kernel\_x\ >>\ 1;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ accumulate\ over\ the\ vector\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (colCnt)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ inA1\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_afdda94a339b76615d3161e9fc63f4d21}{arm\_nn\_read\_q15x2\_ia}}(\&pA);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ inB1\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_afdda94a339b76615d3161e9fc63f4d21}{arm\_nn\_read\_q15x2\_ia}}(\&pB);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ inA2\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_afdda94a339b76615d3161e9fc63f4d21}{arm\_nn\_read\_q15x2\_ia}}(\&pA2);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ inB2\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_afdda94a339b76615d3161e9fc63f4d21}{arm\_nn\_read\_q15x2\_ia}}(\&pB2);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a61b23642ffa771bbe7da998f98e3f75e}{\_\_SMLAD}}(inA1,\ inB1,\ sum);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum2\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a61b23642ffa771bbe7da998f98e3f75e}{\_\_SMLAD}}(inA1,\ inB2,\ sum2);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum3\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a61b23642ffa771bbe7da998f98e3f75e}{\_\_SMLAD}}(inA2,\ inB1,\ sum3);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum4\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a61b23642ffa771bbe7da998f98e3f75e}{\_\_SMLAD}}(inA2,\ inB2,\ sum4);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ colCnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{/*\ while\ over\ colCnt\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ colCnt\ =\ ch\_im\_in\ *\ dim\_kernel\_y\ *\ dim\_kernel\_x\ \&\ 0x1;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (colCnt)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ inA1\ =\ *pA++;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ inB1\ =\ *pB++;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ inA2\ =\ *pA2++;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ inB2\ =\ *pB2++;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum\ +=\ inA1\ *\ inB1;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum2\ +=\ inA1\ *\ inB2;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum3\ +=\ inA2\ *\ inB1;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sum4\ +=\ inA2\ *\ inB2;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ colCnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{/*\ while\ over\ colCnt\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pOut++\ =\ (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}})\mbox{\hyperlink{_core___a_2_include_2cmsis__armcc_8h_a3c013c2ed76ebc48c283c8bae17b9ab8}{\_\_SSAT}}(sum\ >>\ out\_shift,\ 16);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pOut++\ =\ (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}})\mbox{\hyperlink{_core___a_2_include_2cmsis__armcc_8h_a3c013c2ed76ebc48c283c8bae17b9ab8}{\_\_SSAT}}(sum3\ >>\ out\_shift,\ 16);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pOut2++\ =\ (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}})\mbox{\hyperlink{_core___a_2_include_2cmsis__armcc_8h_a3c013c2ed76ebc48c283c8bae17b9ab8}{\_\_SSAT}}(sum2\ >>\ out\_shift,\ 16);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pOut2++\ =\ (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}})\mbox{\hyperlink{_core___a_2_include_2cmsis__armcc_8h_a3c013c2ed76ebc48c283c8bae17b9ab8}{\_\_SSAT}}(sum4\ >>\ out\_shift,\ 16);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ skip\ the\ row\ computed\ with\ A2\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pA\ +=\ ch\_im\_in\ *\ dim\_kernel\_y\ *\ dim\_kernel\_x;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{/*\ for\ over\ ch\_im\_out\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pOut\ +=\ ch\_im\_out;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ counter\ reset\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pBuffer\ =\ im\_buffer;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00218}00218\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00220}00220\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00221}00221\ \ \ \ \ (void)bufferA;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00222}00222\ \ \ \ \ \textcolor{comment}{/*\ Run\ the\ following\ code\ as\ reference\ implementation\ for\ Cortex-\/M0\ and\ Cortex-\/M3\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00223}00223\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j,\ k,\ l,\ m,\ n;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00224}00224\ \ \ \ \ \textcolor{keywordtype}{int}\ conv\_out;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00225}00225\ \ \ \ \ \textcolor{keywordtype}{int}\ in\_row,\ in\_col;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00227}00227\ \ \ \ \ \textcolor{keywordflow}{if}\ (ch\_im\_in\ \%\ 2\ !=\ 0\ ||\ ch\_im\_out\ \%\ 2\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00228}00228\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ check\ if\ the\ input\ dimension\ meets\ the\ constraints\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a7071b92f1f6bc3c5c312a237ea91105b}{ARM\_MATH\_SIZE\_MISMATCH}};}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00231}00231\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00233}00233\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ ch\_im\_out;\ i++)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00234}00234\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ dim\_im\_out\_y;\ j++)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (k\ =\ 0;\ k\ <\ dim\_im\_out\_x;\ k++)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conv\_out\ =\ ((\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}})bias[i]\ <<\ bias\_shift)\ +\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4cbd428a2b4a4f6b2a6e4219520c7ce0}{NN\_ROUND}}(out\_shift);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (m\ =\ 0;\ m\ <\ dim\_kernel\_y;\ m++)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (n\ =\ 0;\ n\ <\ dim\_kernel\_x;\ n++)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\_row\ =\ stride\_y\ *\ j\ +\ m\ -\/\ padding\_y;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\_col\ =\ stride\_x\ *\ k\ +\ n\ -\/\ padding\_x;}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (in\_row\ >=\ 0\ \&\&\ in\_col\ >=\ 0\ \&\&\ in\_row\ <\ dim\_im\_in\_y\ \&\&\ in\_col\ <\ dim\_im\_in\_x)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (l\ =\ 0;\ l\ <\ ch\_im\_in;\ l++)}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conv\_out\ +=\ Im\_in[(in\_row\ *\ dim\_im\_in\_x\ +\ in\_col)\ *\ ch\_im\_in\ +\ l]\ *}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wt[i\ *\ ch\_im\_in\ *\ dim\_kernel\_x\ *\ dim\_kernel\_y\ +\ (m\ *\ dim\_kernel\_x\ +\ n)\ *\ ch\_im\_in\ +}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ l];}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Im\_out[i\ +\ (j\ *\ dim\_im\_out\_x\ +\ k)\ *\ ch\_im\_out]\ =\ (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}})\mbox{\hyperlink{_core___a_2_include_2cmsis__armcc_8h_a3c013c2ed76ebc48c283c8bae17b9ab8}{\_\_SSAT}}((conv\_out\ >>\ out\_shift),\ 16);}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00260}00260\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00262}00262\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ARM\_MATH\_DSP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00264}00264\ \ \ \ \ \textcolor{comment}{/*\ Return\ to\ application\ */}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00265}00265\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a9f8b2a10bd827fb4600e77d455902eb0}{ARM\_MATH\_SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00266}00266\ \}}
+\DoxyCodeLine{\Hypertarget{arm__convolve___h_w_c__q15__fast__nonsquare_8c_source_l00267}00267\ }
+
+\end{DoxyCode}

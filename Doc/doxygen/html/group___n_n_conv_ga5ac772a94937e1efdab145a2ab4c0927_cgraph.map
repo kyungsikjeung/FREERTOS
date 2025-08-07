@@ -1,0 +1,55 @@
+<map id="arm_convolve_wrapper_s8" name="arm_convolve_wrapper_s8">
+<area shape="rect" id="Node000001" title="s8 convolution layer wrapper function with the main purpose to call the optimal kernel available in c..." alt="" coords="5,440,182,467"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#ga5b85b56e06e563c05b08ad6ba7423e1d" title="1xn convolution" alt="" coords="230,440,395,467"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,451,214,451,214,456,182,456"/>
+<area shape="rect" id="Node000003" href="$group___n_n_conv.html#ga34bb5c05805ca7d5ea9681fcad8a711d" title="Basic s8 convolution function." alt="" coords="472,282,595,308"/>
+<area shape="poly" id="edge32_Node000001_Node000003" title=" " alt="" coords="132,437,479,312,481,317,134,442"/>
+<area shape="rect" id="Node000018" href="$group___n_n_conv.html#ga53608c814d9b8a458f4d87f8f40051b7" title="Fast s8 version for 1x1 convolution (non&#45;square shape)" alt="" coords="443,542,623,568"/>
+<area shape="poly" id="edge22_Node000001_Node000018" title=" " alt="" coords="156,465,458,535,456,540,155,470"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="331,438,499,315,502,320,334,442"/>
+<area shape="rect" id="Node000007" href="$group___n_n_basic_math.html#gae2308fbfe9d11a742a712a0fe01643ae" title="Matrix&#45;multiplication with requantization &amp; activation function for four rows and one column." alt="" coords="682,450,836,492"/>
+<area shape="poly" id="edge21_Node000002_Node000007" title=" " alt="" coords="396,454,667,465,667,470,396,460"/>
+<area shape="rect" id="Node000017" href="$group___n_n_basic_math.html#ga5224f2f155a59498c97f4d62ae726ea5" title="General Matrix&#45;multiplication without requantization for one row &amp; one column." alt="" coords="682,516,836,559"/>
+<area shape="poly" id="edge20_Node000002_Node000017" title=" " alt="" coords="388,465,667,518,666,523,387,470"/>
+<area shape="rect" id="Node000004" href="$_core___a_2_include_2cmsis__gcc_8h.html#a61b23642ffa771bbe7da998f98e3f75e" title=" " alt="" coords="933,114,1014,140"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="540,280,560,251,589,215,626,179,670,150,734,128,800,118,864,115,918,118,918,123,864,121,801,123,735,133,673,155,629,183,593,219,564,254,545,283"/>
+<area shape="rect" id="Node000005" href="$group___n_n_conv.html#gac057b0749e2a6828ae21f762f3fa0c85" title="Get the required buffer size for s8 convolution function." alt="" coords="685,215,833,258"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="587,279,669,257,670,262,588,284"/>
+<area shape="rect" id="Node000006" href="$arm__nnsupportfunctions_8h.html#a085459f6280c8f586ddd64998dece532" title="memcpy optimized for MVE" alt="" coords="698,282,820,308"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="595,292,683,292,683,298,595,298"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="546,307,597,368,633,404,673,436,680,440,677,445,670,440,629,408,593,372,542,311"/>
+<area shape="rect" id="Node000008" href="$arm__nn__mat__mult__kernel__s8__s16_8c.html#ab2040b03e85717f57f8fcaf83db838e4" title="Matrix&#45;multiplication function for convolution with per&#45;channel requantization." alt="" coords="675,47,843,90"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="539,280,587,200,625,151,670,106,685,96,688,100,673,111,629,154,591,203,544,283"/>
+<area shape="rect" id="Node000009" href="$arm__nnsupportfunctions_8h.html#afdda94a339b76615d3161e9fc63f4d21" title="Read 2 q15 elements and post increment pointer." alt="" coords="896,26,1052,52"/>
+<area shape="poly" id="edge15_Node000003_Node000009" title=" " alt="" coords="534,281,545,231,569,162,587,125,610,90,637,58,670,33,699,19,731,9,796,3,860,8,915,19,914,24,859,13,796,8,732,14,701,24,673,37,641,62,614,93,592,127,574,164,550,233,539,282"/>
+<area shape="rect" id="Node000010" href="$arm__nnsupportfunctions_8h.html#a6a13b7a567485da5fc7f0d311318886d" title="Requantize a given value." alt="" coords="908,332,1040,359"/>
+<area shape="poly" id="edge16_Node000003_Node000010" title=" " alt="" coords="596,305,672,318,787,330,893,339,892,344,787,336,671,323,595,310"/>
+<area shape="rect" id="Node000013" href="$arm__nn__mat__mult__s8_8c.html#abbf4861fa6ef3a83bc309ca9320ae20c" title="General Matrix&#45;multiplication function with per&#45;channel requantization." alt="" coords="686,164,832,191"/>
+<area shape="poly" id="edge13_Node000003_Node000013" title=" " alt="" coords="550,279,602,241,670,201,686,194,688,199,673,206,605,245,553,284"/>
+<area shape="rect" id="Node000014" href="$group__nndata__convert.html#gab2d48529ae05b350a015f8f1e6596a31" title="Converts the elements from a q7 vector to a q15 vector with an added offset." alt="" coords="688,383,830,426"/>
+<area shape="poly" id="edge17_Node000003_Node000014" title=" " alt="" coords="562,307,673,362,697,374,695,379,670,367,560,311"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="840,88,919,110,917,115,839,93"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="843,54,880,49,881,54,843,60"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="788,88,849,151,913,241,960,318,955,320,909,244,845,154,784,92"/>
+<area shape="rect" id="Node000011" href="$arm__nnsupportfunctions_8h.html#ab6dbc2fd53fae3ccdd1d0d70c8d3b491" title="Rounding divide by power of two." alt="" coords="1101,291,1269,334"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="1040,333,1085,326,1086,331,1040,338"/>
+<area shape="rect" id="Node000012" href="$arm__nnsupportfunctions_8h.html#a4e5183e2400227aafc91fb796fe99a6d" title="Doubling high multiply without saturation. This is intended for requantization where the scale is a p..." alt="" coords="1110,358,1260,400"/>
+<area shape="poly" id="edge12_Node000010_Node000012" title=" " alt="" coords="1040,354,1095,362,1094,367,1040,359"/>
+<area shape="poly" id="edge14_Node000013_Node000010" title=" " alt="" coords="825,189,848,201,883,228,913,259,958,318,954,321,909,262,879,232,845,205,822,194"/>
+<area shape="rect" id="Node000015" href="$arm__nnsupportfunctions_8h.html#ac9f7be20432a6926ac07c1f44b1b02fe" title="Read 4 q7 from q7 pointer and post increment pointer." alt="" coords="900,499,1048,526"/>
+<area shape="poly" id="edge18_Node000014_Node000015" title=" " alt="" coords="822,424,848,435,940,488,938,493,845,440,820,429"/>
+<area shape="rect" id="Node000016" href="$arm__nnsupportfunctions_8h.html#a9477fb2f82284ac4fe20b2efb721f5f5" title="Write 2 q15 elements and post increment pointer." alt="" coords="895,391,1053,418"/>
+<area shape="poly" id="edge19_Node000014_Node000016" title=" " alt="" coords="830,402,879,402,879,407,830,407"/>
+<area shape="poly" id="edge24_Node000018_Node000007" title=" " alt="" coords="570,539,684,496,686,501,572,544"/>
+<area shape="poly" id="edge31_Node000018_Node000010" title=" " alt="" coords="567,567,625,586,699,601,738,603,776,599,812,588,845,569,864,549,873,527,875,504,873,480,870,430,877,403,893,377,907,365,910,369,897,381,882,405,876,430,878,480,880,504,878,528,869,552,848,573,814,593,777,604,738,608,698,606,624,591,566,572"/>
+<area shape="poly" id="edge23_Node000018_Node000017" title=" " alt="" coords="624,546,667,542,667,548,624,551"/>
+<area shape="rect" id="Node000019" href="$group___n_n_basic_math.html#ga360cdaa16c399e3bfbeaaa7296c326e1" title="General Matrix&#45;multiplication function with per&#45;channel requantization. This function assumes:" alt="" coords="671,634,847,660"/>
+<area shape="poly" id="edge25_Node000018_Node000019" title=" " alt="" coords="566,567,672,613,706,626,704,631,670,618,564,571"/>
+<area shape="poly" id="edge26_Node000019_Node000004" title=" " alt="" coords="782,631,815,605,844,570,861,536,871,505,877,449,879,391,883,358,892,320,925,228,957,154,962,156,930,230,897,321,888,359,884,392,882,450,876,506,866,538,849,573,819,609,785,635"/>
+<area shape="poly" id="edge30_Node000019_Node000010" title=" " alt="" coords="820,631,845,613,864,584,871,555,872,527,869,498,865,469,866,439,874,409,893,377,905,366,909,369,897,381,879,411,871,440,871,469,874,497,877,527,877,556,868,586,849,617,824,635"/>
+<area shape="poly" id="edge29_Node000019_Node000015" title=" " alt="" coords="805,631,845,613,901,574,947,534,950,538,905,578,848,617,807,636"/>
+<area shape="rect" id="Node000020" href="$_core___a_2_include_2cmsis__gcc_8h.html#a0eeab076e5b40fce9536bdc30e85864f" title=" " alt="" coords="932,608,1016,635"/>
+<area shape="poly" id="edge27_Node000019_Node000020" title=" " alt="" coords="847,634,916,626,917,631,848,639"/>
+<area shape="rect" id="Node000021" href="$arm__nnsupportfunctions_8h.html#a31fa46f17212fbcb65d2cdae06fc08f5" title="Read 4 q7 values." alt="" coords="908,659,1040,686"/>
+<area shape="poly" id="edge28_Node000019_Node000021" title=" " alt="" coords="848,655,893,660,893,666,847,660"/>
+</map>

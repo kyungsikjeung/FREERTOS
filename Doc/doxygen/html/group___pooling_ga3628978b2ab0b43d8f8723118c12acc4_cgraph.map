@@ -1,0 +1,5 @@
+<map id="arm_max_pool_s8" name="arm_max_pool_s8">
+<area shape="rect" id="Node000001" title="s8 max pooling function." alt="" coords="5,5,133,32"/>
+<area shape="rect" id="Node000002" href="$arm__nnsupportfunctions_8h.html#a085459f6280c8f586ddd64998dece532" title="memcpy optimized for MVE" alt="" coords="181,5,302,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,16,165,16,165,21,133,21"/>
+</map>

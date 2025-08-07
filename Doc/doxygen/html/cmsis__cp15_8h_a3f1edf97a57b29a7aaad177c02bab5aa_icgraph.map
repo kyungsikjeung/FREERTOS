@@ -1,0 +1,5 @@
+<map id="__set_BPIALL" name="__set_BPIALL">
+<area shape="rect" id="Node000001" title="Set BPIALL." alt="" coords="197,5,302,32"/>
+<area shape="rect" id="Node000002" href="$core__ca_8h.html#a78968f859eef7851ea6bb1bad88693a0" title="Invalidate entire branch predictor array." alt="" coords="5,5,149,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,21,149,21,149,16,181,16"/>
+</map>

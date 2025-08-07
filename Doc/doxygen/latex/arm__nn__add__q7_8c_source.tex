@@ -1,0 +1,78 @@
+\doxysection{arm\+\_\+nn\+\_\+add\+\_\+q7.\+c}
+\hypertarget{arm__nn__add__q7_8c_source}{}\label{arm__nn__add__q7_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/NNSupportFunctions/arm\_nn\_add\_q7.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/NNSupportFunctions/arm\_nn\_add\_q7.c}}
+\mbox{\hyperlink{arm__nn__add__q7_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2010-\/2018\ Arm\ Limited\ or\ its\ affiliates.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00004}00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00006}00006\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00007}00007\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00008}00008\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00010}00010\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00013}00013\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00014}00014\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00015}00015\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00016}00016\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00019}00019\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00020}00020\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS\ NN\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00021}00021\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ arm\_nn\_add\_q7.c}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00022}00022\ \textcolor{comment}{\ *\ Description:\ \ Non\ saturating\ addition\ of\ elements\ of\ a\ q7\ vector.}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00023}00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00024}00024\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 20.\ July\ 2021}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00025}00025\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V.1.1.1}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00026}00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00027}00027\ \textcolor{comment}{\ *\ Target\ Processor:\ \ Cortex-\/M\ cores}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00028}00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00029}00029\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nn__tables_8h}{arm\_nn\_tables.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nnsupportfunctions_8h}{arm\_nnsupportfunctions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00043}\mbox{\hyperlink{group___n_n_basic_math_gae65bde3218210820d789659179e14ce3}{00043}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___n_n_basic_math_gae65bde3218210820d789659179e14ce3}{arm\_nn\_add\_q7}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *input,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ *output,\ uint32\_t\ block\_size)}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00044}00044\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00045}00045\ \ \ \ \ uint32\_t\ block\_count;}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00047}00047\ \textcolor{preprocessor}{\#if\ defined(ARM\_MATH\_DSP)\ \&\&\ !defined(ARM\_MATH\_MVEI)}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00048}00048\ \ \ \ \ \textcolor{comment}{/*\ Loop\ unrolling:\ Compute\ 4\ outputs\ at\ a\ time\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00049}00049\ \ \ \ \ block\_count\ =\ block\_size\ >>\ 2U;}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{while}\ (block\_count\ >\ 0U)}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00052}00052\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ mult\_q15x2\ =\ (1UL\ <<\ 16)\ |\ 1UL;}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ in\_q7x4\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ac9f7be20432a6926ac07c1f44b1b02fe}{arm\_nn\_read\_q7x4\_ia}}(\&input);}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ temp\_q15x2\ =\ \_\_SXTAB16(\mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0eeab076e5b40fce9536bdc30e85864f}{\_\_SXTB16}}(in\_q7x4),\ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga95b9bd281ddeda378b85afdb8f2ced86}{\_\_ROR}}((uint32\_t)in\_q7x4,\ 8));}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a61b23642ffa771bbe7da998f98e3f75e}{\_\_SMLAD}}(temp\_q15x2,\ mult\_q15x2,\ result);}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Decrement\ loop\ counter\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ block\_count-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00063}00063\ \ \ \ \ \textcolor{comment}{/*\ Loop\ unrolling:\ Compute\ remaining\ outputs\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00064}00064\ \ \ \ \ block\_count\ =\ block\_size\ \&\ 0x3;}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00065}00065\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00066}00066\ \ \ \ \ block\_count\ =\ block\_size;}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00067}00067\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{while}\ (block\_count\ >\ 0U)}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00069}00069\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Add\ and\ store\ result\ in\ destination\ buffer.\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ result\ +=\ *input++;}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Decrement\ loop\ counter\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ block\_count-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00077}00077\ \ \ \ \ *output\ =\ result;}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nn__add__q7_8c_source_l00079}00079\ }
+
+\end{DoxyCode}

@@ -1,0 +1,7 @@
+<map id="osSemaphoreWait" name="osSemaphoreWait">
+<area shape="rect" id="Node000001" title="Wait until a Semaphore token becomes available." alt="" coords="5,31,133,57"/>
+<area shape="rect" id="Node000002" href="$cmsis__os2_8h.html#a7e94c8b242a0c81f2cc79ec22895c87b" title=" " alt="" coords="187,5,332,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,33,171,28,171,33,133,38"/>
+<area shape="rect" id="Node000003" href="$cmsis__os2_8h.html#a7559d4dff3cda9992fc5ab5de3e74c70" title=" " alt="" coords="181,56,338,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,50,166,54,165,59,132,55"/>
+</map>

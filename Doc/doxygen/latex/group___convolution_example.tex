@@ -1,0 +1,60 @@
+\doxysubsection{Convolution Example }
+\hypertarget{group___convolution_example}{}\label{group___convolution_example}\index{Convolution Example@{Convolution Example}}
+Collaboration diagram for Convolution Example\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{group___convolution_example}
+\end{center}
+\end{figure}
+\begin{DoxyParagraph}{Description\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+Demonstrates the convolution theorem with the use of the Complex FFT, Complex-\/by-\/\+Complex Multiplication, and Support Functions.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Algorithm\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+The convolution theorem states that convolution in the time domain corresponds to multiplication in the frequency domain. Therefore, the Fourier transform of the convoution of two signals is equal to the product of their individual Fourier transforms. The Fourier transform of a signal can be evaluated efficiently using the Fast Fourier Transform (FFT). 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+Two input signals, {\ttfamily a\mbox{[}n\mbox{]}} and {\ttfamily b\mbox{[}n\mbox{]}}, with lengths {\ttfamily n1} and {\ttfamily n2} respectively, are zero padded so that their lengths become {\ttfamily N}, which is greater than or equal to {\ttfamily (n1+n2-\/1)} and is a power of 4 as FFT implementation is radix-\/4. The convolution of {\ttfamily a\mbox{[}n\mbox{]}} and {\ttfamily b\mbox{[}n\mbox{]}} is obtained by taking the FFT of the input signals, multiplying the Fourier transforms of the two signals, and taking the inverse FFT of the multiplied result. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+This is denoted by the following equations\+: 
+\begin{DoxyPre} A[k] = FFT(a[n],N)
+B[k] = FFT(b[n],N)
+conv(a[n], b[n]) = IFFT(A[k] * B[k], N)\end{DoxyPre}
+ where {\ttfamily A\mbox{[}k\mbox{]}} and {\ttfamily B\mbox{[}k\mbox{]}} are the N-\/point FFTs of the signals {\ttfamily a\mbox{[}n\mbox{]}} and {\ttfamily b\mbox{[}n\mbox{]}} respectively. The length of the convolved signal is {\ttfamily (n1+n2-\/1)}.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Block Diagram\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Variables Description\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\begin{DoxyItemize}
+\item {\ttfamily test\+Input\+A\+\_\+f32} points to the first input sequence \item {\ttfamily src\+ALen} length of the first input sequence \item {\ttfamily test\+Input\+B\+\_\+f32} points to the second input sequence \item {\ttfamily src\+BLen} length of the second input sequence \item {\ttfamily out\+Len} length of convolution output sequence, {\ttfamily (src\+ALen + src\+BLen -\/ 1)} \item {\ttfamily AxB} points to the output array where the product of individual FFTs of inputs is stored.\end{DoxyItemize}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{CMSIS DSP Software Library Functions Used\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+
+\begin{DoxyItemize}
+\item \doxylink{group___fill_ga2248e8d3901b4afb7827163132baad94}{arm\+\_\+fill\+\_\+f32()}
+\item \doxylink{group__copy_gaa6dfe9554ca61eb3d1eee498396bce88}{arm\+\_\+copy\+\_\+f32()}
+\item \doxylink{group___complex_f_f_t_gaf336459f684f0b17bfae539ef1b1b78a}{arm\+\_\+cfft\+\_\+radix4\+\_\+init\+\_\+f32()}
+\item \doxylink{group___complex_f_f_t_ga521f670cd9c571bc61aff9bec89f4c26}{arm\+\_\+cfft\+\_\+radix4\+\_\+f32()}
+\item \doxylink{group___cmplx_by_cmplx_mult_gae221504b01e4abfe5f335eafd801b4ed}{arm\+\_\+cmplx\+\_\+mult\+\_\+cmplx\+\_\+f32()}
+\end{DoxyItemize}
+\end{DoxyParagraph}
+{\bfseries{ Refer }} \doxylink{arm_convolution_example_f32_8c-example}{arm\+\_\+convolution\+\_\+example\+\_\+f32.\+c} 

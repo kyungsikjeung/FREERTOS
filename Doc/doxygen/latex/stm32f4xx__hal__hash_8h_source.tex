@@ -1,0 +1,374 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+hash.\+h}
+\hypertarget{stm32f4xx__hal__hash_8h_source}{}\label{stm32f4xx__hal__hash_8h_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_hash.h@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_hash.h}}
+\mbox{\hyperlink{stm32f4xx__hal__hash_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00019}00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00020}00020\ \textcolor{preprocessor}{\#ifndef\ STM32F4xx\_HAL\_HASH\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ STM32F4xx\_HAL\_HASH\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00023}00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00024}00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00027}00027\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal__def_8h}{stm32f4xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00033}00033\ \textcolor{preprocessor}{\#if\ defined\ (HASH)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00038}00038\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00046}00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00047}00047\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00048}00048\ \ \ uint32\_t\ DataType;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00051}00051\ \ \ uint32\_t\ KeySize;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00053}00053\ \ \ uint8\_t\ *pKey;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00055}00055\ \}\ HASH\_InitTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00060}00060\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00061}00061\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00062}00062\ \ \ HAL\_HASH\_STATE\_RESET\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x00U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00063}00063\ \ \ HAL\_HASH\_STATE\_READY\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x01U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00064}00064\ \ \ HAL\_HASH\_STATE\_BUSY\ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x02U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00065}00065\ \ \ HAL\_HASH\_STATE\_TIMEOUT\ \ \ \ \ \ \ \ \ \ \ =\ 0x06U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00066}00066\ \ \ HAL\_HASH\_STATE\_ERROR\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x07U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00067}00067\ \ \ HAL\_HASH\_STATE\_SUSPENDED\ \ \ \ \ \ \ \ \ =\ 0x08U\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00068}00068\ \}\ HAL\_HASH\_StateTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00073}00073\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00075}00075\ \ \ HAL\_HASH\_PHASE\_READY\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x01U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00076}00076\ \ \ HAL\_HASH\_PHASE\_PROCESS\ \ \ \ \ \ \ \ \ \ \ =\ 0x02U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00077}00077\ \ \ HAL\_HASH\_PHASE\_HMAC\_STEP\_1\ \ \ \ \ \ \ =\ 0x03U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00079}00079\ \ \ HAL\_HASH\_PHASE\_HMAC\_STEP\_2\ \ \ \ \ \ \ =\ 0x04U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00081}00081\ \ \ HAL\_HASH\_PHASE\_HMAC\_STEP\_3\ \ \ \ \ \ \ =\ 0x05U\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00083}00083\ \}\ HAL\_HASH\_PhaseTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00088}00088\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00089}00089\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00090}00090\ \ \ HAL\_HASH\_SUSPEND\_NONE\ \ \ \ \ \ \ \ \ \ \ \ =\ 0x00U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00091}00091\ \ \ HAL\_HASH\_SUSPEND\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x01U\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00092}00092\ \}\ HAL\_HASH\_SuspendTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00094}00094\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ ==\ 1U)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00098}00098\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00100}00100\ \ \ HAL\_HASH\_MSPINIT\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ =\ 0x00U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00101}00101\ \ \ HAL\_HASH\_MSPDEINIT\_CB\_ID\ \ \ \ \ \ \ \ \ =\ 0x01U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00102}00102\ \ \ HAL\_HASH\_INPUTCPLT\_CB\_ID\ \ \ \ \ \ \ \ \ =\ 0x02U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00103}00103\ \ \ HAL\_HASH\_DGSTCPLT\_CB\_ID\ \ \ \ \ \ \ \ \ \ =\ 0x03U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00104}00104\ \ \ HAL\_HASH\_ERROR\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x04U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00105}00105\ \}\ HAL\_HASH\_CallbackIDTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00106}00106\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00112}00112\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00113}00113\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_\_HASH\_HandleTypeDef}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00114}00114\ \#else}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00115}00115\ typedef\ struct}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00116}00116\ \#endif\ \textcolor{comment}{/*\ (USE\_HAL\_HASH\_REGISTER\_CALLBACKS)\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00117}00117\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00118}00118\ \ \ HASH\_InitTypeDef\ \ \ \ \ \ \ \ \ \ \ Init;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00120}00120\ \ \ uint8\_t\ \textcolor{keyword}{const}\ \ \ \ \ \ \ \ \ \ \ \ \ \ *pHashInBuffPtr;\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00122}00122\ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pHashOutBuffPtr;\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00124}00124\ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pHashKeyBuffPtr;\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00126}00126\ \ \ uint8\_t\ \textcolor{keyword}{const}\ \ \ \ \ \ \ \ \ \ \ \ \ \ *pHashMsgBuffPtr;\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00128}00128\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HashBuffSize;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00130}00130\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ HashInCount;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00132}00132\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ HashITCounter;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00134}00134\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ HashKeyCount;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00136}00136\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ \ \ \ \ \ Status;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00138}00138\ \ \ HAL\_HASH\_PhaseTypeDef\ \ \ \ \ \ Phase;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00140}00140\ \ \ \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ \ \ \ \ \ \ \ \ \ *hdmain;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00142}00142\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\_LockTypeDef}}\ \ \ \ \ \ \ \ \ \ \ \ Lock;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00144}00144\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ HAL\_HASH\_StateTypeDef\ State;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00146}00146\ \ \ HAL\_HASH\_SuspendTypeDef\ \ \ \ SuspendRequest;\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00148}00148\ \ \ \mbox{\hyperlink{group___exported__types_ga89136caac2e14c55151f527ac02daaff}{FlagStatus}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DigestCalculationDisable;\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00150}00150\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ NbWordsAlreadyPushed;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00152}00152\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ ErrorCode;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00154}00154\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ Accumulation;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00156}00156\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00157}00157\ \ \ void\ (*\ InCpltCallback)(\textcolor{keyword}{struct\ }\_\_HASH\_HandleTypeDef\ *hhash);\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00159}00159\ \ \ void\ (*\ DgstCpltCallback)(\textcolor{keyword}{struct\ }\_\_HASH\_HandleTypeDef\ *hhash);\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00161}00161\ \ \ void\ (*\ ErrorCallback)(\textcolor{keyword}{struct\ }\_\_HASH\_HandleTypeDef\ *hhash);\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00163}00163\ \ \ void\ (*\ MspInitCallback)(\textcolor{keyword}{struct\ }\_\_HASH\_HandleTypeDef\ *hhash);\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00165}00165\ \ \ void\ (*\ MspDeInitCallback)(\textcolor{keyword}{struct\ }\_\_HASH\_HandleTypeDef\ *hhash);\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00167}00167\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ (USE\_HAL\_HASH\_REGISTER\_CALLBACKS)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00168}00168\ \}\ HASH\_HandleTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00170}00170\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ ==\ 1U)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00174}00174\ \textcolor{keyword}{typedef}\ \ void\ (*pHASH\_CallbackTypeDef)(HASH\_HandleTypeDef\ *hhash);\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00175}00175\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00181}00181\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00190}00190\ \textcolor{preprocessor}{\#define\ HASH\_ALGOSELECTION\_SHA1\ \ \ \ \ \ 0x00000000U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00191}00191\ \textcolor{preprocessor}{\#define\ HASH\_ALGOSELECTION\_MD5\ \ \ \ \ \ \ HASH\_CR\_ALGO\_0\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00192}00192\ \textcolor{preprocessor}{\#define\ HASH\_ALGOSELECTION\_SHA224\ \ \ \ HASH\_CR\_ALGO\_1\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00193}00193\ \textcolor{preprocessor}{\#define\ HASH\_ALGOSELECTION\_SHA256\ \ \ \ HASH\_CR\_ALGO\ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00201}00201\ \textcolor{preprocessor}{\#define\ HASH\_ALGOMODE\_HASH\ \ \ \ \ \ \ \ \ 0x00000000U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00202}00202\ \textcolor{preprocessor}{\#define\ HASH\_ALGOMODE\_HMAC\ \ \ \ \ \ \ \ \ HASH\_CR\_MODE\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00210}00210\ \textcolor{preprocessor}{\#define\ HASH\_DATATYPE\_32B\ \ \ \ \ \ \ \ \ \ 0x00000000U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00211}00211\ \textcolor{preprocessor}{\#define\ HASH\_DATATYPE\_16B\ \ \ \ \ \ \ \ \ \ HASH\_CR\_DATATYPE\_0\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00212}00212\ \textcolor{preprocessor}{\#define\ HASH\_DATATYPE\_8B\ \ \ \ \ \ \ \ \ \ \ HASH\_CR\_DATATYPE\_1\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00213}00213\ \textcolor{preprocessor}{\#define\ HASH\_DATATYPE\_1B\ \ \ \ \ \ \ \ \ \ \ HASH\_CR\_DATATYPE\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00221}00221\ \textcolor{preprocessor}{\#define\ HASH\_HMAC\_KEYTYPE\_SHORTKEY\ \ \ \ \ \ 0x00000000U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00222}00222\ \textcolor{preprocessor}{\#define\ HASH\_HMAC\_KEYTYPE\_LONGKEY\ \ \ \ \ \ \ HASH\_CR\_LKEY\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00230}00230\ \textcolor{preprocessor}{\#define\ HASH\_FLAG\_DINIS\ \ \ \ \ \ \ \ \ \ \ \ HASH\_SR\_DINIS\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00231}00231\ \textcolor{preprocessor}{\#define\ HASH\_FLAG\_DCIS\ \ \ \ \ \ \ \ \ \ \ \ \ HASH\_SR\_DCIS\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00232}00232\ \textcolor{preprocessor}{\#define\ HASH\_FLAG\_DMAS\ \ \ \ \ \ \ \ \ \ \ \ \ HASH\_SR\_DMAS\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00233}00233\ \textcolor{preprocessor}{\#define\ HASH\_FLAG\_BUSY\ \ \ \ \ \ \ \ \ \ \ \ \ HASH\_SR\_BUSY\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00234}00234\ \textcolor{preprocessor}{\#define\ HASH\_FLAG\_DINNE\ \ \ \ \ \ \ \ \ \ \ \ HASH\_CR\_DINNE\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00243}00243\ \textcolor{preprocessor}{\#define\ HASH\_IT\_DINI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HASH\_IMR\_DINIE\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00244}00244\ \textcolor{preprocessor}{\#define\ HASH\_IT\_DCI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HASH\_IMR\_DCIE\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00253}00253\ \textcolor{preprocessor}{\#define\ \ HAL\_HASH\_ERROR\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00254}00254\ \textcolor{preprocessor}{\#define\ \ HAL\_HASH\_ERROR\_IT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00255}00255\ \textcolor{preprocessor}{\#define\ \ HAL\_HASH\_ERROR\_DMA\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00256}00256\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ ==\ 1U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00257}00257\ \textcolor{preprocessor}{\#define\ \ HAL\_HASH\_ERROR\_INVALID\_CALLBACK\ 0x00000004U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00258}00258\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00267}00267\ \textcolor{comment}{/*\ Exported\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00282}00282\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_GET\_FLAG(\_\_FLAG\_\_)\ \ (((\_\_FLAG\_\_)\ >\ 8U)\ \ ?\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00283}00283\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((HASH-\/>CR\ \&\ (\_\_FLAG\_\_))\ ==\ (\_\_FLAG\_\_))\ :\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00284}00284\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((HASH-\/>SR\ \&\ (\_\_FLAG\_\_))\ ==\ (\_\_FLAG\_\_))\ )}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00294}00294\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_CLEAR\_FLAG(\_\_FLAG\_\_)\ CLEAR\_BIT(HASH-\/>SR,\ (\_\_FLAG\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00304}00304\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_ENABLE\_IT(\_\_INTERRUPT\_\_)\ \ \ SET\_BIT(HASH-\/>IMR,\ (\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00313}00313\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_DISABLE\_IT(\_\_INTERRUPT\_\_)\ \ \ CLEAR\_BIT(HASH-\/>IMR,\ (\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00320}00320\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00321}00321\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ do\{\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00322}00322\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>State\ =\ HAL\_HASH\_STATE\_RESET;\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00323}00323\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>MspInitCallback\ =\ NULL;\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00324}00324\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>MspDeInitCallback\ =\ NULL;\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00325}00325\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}while(0)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00326}00326\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00327}00327\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ ((\_\_HANDLE\_\_)-\/>State\ =\ HAL\_HASH\_STATE\_RESET)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00328}00328\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00335}00335\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_RESET\_HANDLE\_STATUS(\_\_HANDLE\_\_)\ ((\_\_HANDLE\_\_)-\/>Status\ =\ HAL\_OK)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00342}00342\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_SET\_MDMAT()\ \ \ \ \ \ \ \ \ \ SET\_BIT(HASH-\/>CR,\ HASH\_CR\_MDMAT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00348}00348\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_RESET\_MDMAT()\ \ \ \ \ \ \ \ CLEAR\_BIT(HASH-\/>CR,\ HASH\_CR\_MDMAT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00349}00349\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00355}00355\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_START\_DIGEST()\ \ \ \ \ \ \ SET\_BIT(HASH-\/>STR,\ HASH\_STR\_DCAL)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00362}00362\ \textcolor{preprocessor}{\#define\ \ \_\_HAL\_HASH\_SET\_NBVALIDBITS(\_\_SIZE\_\_)\ \ \ \ MODIFY\_REG(HASH-\/>STR,\ HASH\_STR\_NBLW,\ 8U\ *\ ((\_\_SIZE\_\_)\ \%\ 4U))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00368}00368\ \textcolor{preprocessor}{\#define\ \_\_HAL\_HASH\_INIT()\ \ \ \ \ \ \ SET\_BIT(HASH-\/>CR,\ HASH\_CR\_INIT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00373}00373\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00374}00374\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00375}00375\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00383}00383\ \textcolor{preprocessor}{\#if\ defined(HASH\_CR\_MDMAT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00384}00384\ \textcolor{preprocessor}{\#define\ HASH\_DIGEST\_LENGTH()\ ((READ\_BIT(HASH-\/>CR,\ HASH\_CR\_ALGO)\ ==\ HASH\_ALGOSELECTION\_SHA1)\ \ \ ?\ \ 20U\ :\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00385}00385\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((READ\_BIT(HASH-\/>CR,\ HASH\_CR\_ALGO)\ ==\ HASH\_ALGOSELECTION\_SHA224)\ ?\ \ 28U\ :\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00386}00386\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((READ\_BIT(HASH-\/>CR,\ HASH\_CR\_ALGO)\ ==\ HASH\_ALGOSELECTION\_SHA256)\ ?\ \ 32U\ :\ 16U\ )\ )\ )}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00387}00387\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00388}00388\ \textcolor{preprocessor}{\#define\ HASH\_DIGEST\_LENGTH()\ ((READ\_BIT(HASH-\/>CR,\ HASH\_CR\_ALGO)\ ==\ HASH\_ALGOSELECTION\_SHA1)\ \ \ ?\ \ 20U\ :\ 16)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00389}00389\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ HASH\_CR\_MDMAT*/}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00394}00394\ \textcolor{preprocessor}{\#define\ HASH\_NBW\_PUSHED()\ ((READ\_BIT(HASH-\/>CR,\ HASH\_CR\_NBW))\ >>\ 8U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00401}00401\ \textcolor{preprocessor}{\#define\ IS\_HASH\_DATATYPE(\_\_DATATYPE\_\_)\ (((\_\_DATATYPE\_\_)\ ==\ HASH\_DATATYPE\_32B)||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00402}00402\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_DATATYPE\_\_)\ ==\ HASH\_DATATYPE\_16B)||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00403}00403\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_DATATYPE\_\_)\ ==\ HASH\_DATATYPE\_8B)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00404}00404\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_DATATYPE\_\_)\ ==\ HASH\_DATATYPE\_1B))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00405}00405\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00413}00413\ \textcolor{preprocessor}{\#define\ IS\_HASH\_DMA\_MULTIBUFFER\_SIZE(\_\_SIZE\_\_)\ \ ((READ\_BIT(HASH-\/>CR,\ HASH\_CR\_MDMAT)\ ==\ 0U)\ ||\ (((\_\_SIZE\_\_)\ \%\ 4U)\ ==\ 0U))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00414}00414\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00423}00423\ \textcolor{preprocessor}{\#define\ IS\_HMAC\_DMA\_MULTIBUFFER\_SIZE(\_\_HANDLE\_\_,\_\_SIZE\_\_)\ \ ((((\_\_HANDLE\_\_)-\/>DigestCalculationDisable)\ ==\ RESET)\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00424}00424\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ (((\_\_SIZE\_\_)\ \%\ 4U)\ ==\ 0U))}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00430}00430\ \textcolor{preprocessor}{\#define\ IS\_HASH\_PROCESSING(\_\_HANDLE\_\_)\ \ ((\_\_HANDLE\_\_)-\/>Phase\ ==\ HAL\_HASH\_PHASE\_PROCESS)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00431}00431\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00437}00437\ \textcolor{preprocessor}{\#define\ IS\_HMAC\_PROCESSING(\_\_HANDLE\_\_)\ \ (((\_\_HANDLE\_\_)-\/>Phase\ ==\ HAL\_HASH\_PHASE\_HMAC\_STEP\_1)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00438}00438\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Phase\ ==\ HAL\_HASH\_PHASE\_HMAC\_STEP\_2)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00439}00439\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Phase\ ==\ HAL\_HASH\_PHASE\_HMAC\_STEP\_3))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00440}00440\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00444}00444\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00445}00445\ \textcolor{comment}{/*\ Include\ HASH\ HAL\ Extended\ module\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00446}00446\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal__hash__ex_8h}{stm32f4xx\_hal\_hash\_ex.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00447}00447\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00448}00448\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00452}00452\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00457}00457\ \textcolor{comment}{/*\ Initialization/de-\/initialization\ methods\ \ **********************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00458}00458\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_Init(HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00459}00459\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_DeInit(HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00460}00460\ \textcolor{keywordtype}{void}\ HAL\_HASH\_MspInit(HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00461}00461\ \textcolor{keywordtype}{void}\ HAL\_HASH\_MspDeInit(HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00462}00462\ \textcolor{keywordtype}{void}\ HAL\_HASH\_InCpltCallback(HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00463}00463\ \textcolor{keywordtype}{void}\ HAL\_HASH\_DgstCpltCallback(HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00464}00464\ \textcolor{keywordtype}{void}\ HAL\_HASH\_ErrorCallback(HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00465}00465\ \textcolor{comment}{/*\ Callbacks\ Register/UnRegister\ functions\ \ ***********************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00466}00466\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00467}00467\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_RegisterCallback(HASH\_HandleTypeDef\ *hhash,\ HAL\_HASH\_CallbackIDTypeDef\ CallbackID,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pHASH\_CallbackTypeDef\ pCallback);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00469}00469\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_UnRegisterCallback(HASH\_HandleTypeDef\ *hhash,\ HAL\_HASH\_CallbackIDTypeDef\ CallbackID);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00470}00470\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_HASH\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00471}00471\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00472}00472\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00476}00476\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00480}00480\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00481}00481\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00482}00482\ \textcolor{comment}{/*\ HASH\ processing\ using\ polling\ \ *********************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00483}00483\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_SHA1\_Start(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00484}00484\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00485}00485\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00486}00486\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_MD5\_Start(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00487}00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00488}00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00489}00489\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_MD5\_Accmlt(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00490}00490\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_SHA1\_Accmlt(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00491}00491\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_MD5\_Accmlt\_End(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00493}00493\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_SHA1\_Accmlt\_End(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00496}00496\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00500}00500\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00504}00504\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00505}00505\ \textcolor{comment}{/*\ HASH\ processing\ using\ IT\ \ **************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00506}00506\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_SHA1\_Start\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00508}00508\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_SHA1\_Accmlt\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00509}00509\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_SHA1\_Accmlt\_End\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00510}00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00511}00511\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_MD5\_Start\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00512}00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00513}00513\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_MD5\_Accmlt\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00514}00514\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_MD5\_Accmlt\_End\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00515}00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00516}00516\ \textcolor{keywordtype}{void}\ HAL\_HASH\_IRQHandler(HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00520}00520\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00524}00524\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00525}00525\ \textcolor{comment}{/*\ HASH\ processing\ using\ DMA\ \ *************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00526}00526\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_SHA1\_Start\_DMA(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00527}00527\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_SHA1\_Finish(HASH\_HandleTypeDef\ *hhash,\ uint8\_t\ *pOutBuffer,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00528}00528\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_MD5\_Start\_DMA(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00529}00529\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_MD5\_Finish(HASH\_HandleTypeDef\ *hhash,\ uint8\_t\ *pOutBuffer,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00530}00530\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00534}00534\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00538}00538\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00539}00539\ \textcolor{comment}{/*\ HASH-\/MAC\ processing\ using\ polling\ \ *****************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00540}00540\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HMAC\_SHA1\_Start(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00541}00541\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00542}00542\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00543}00543\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HMAC\_MD5\_Start(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00544}00544\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00545}00545\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00546}00546\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00550}00550\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00554}00554\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00555}00555\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HMAC\_MD5\_Start\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00556}00556\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00557}00557\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HMAC\_SHA1\_Start\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00559}00559\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00563}00563\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00567}00567\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00568}00568\ \textcolor{comment}{/*\ HASH-\/HMAC\ processing\ using\ DMA\ \ ********************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00569}00569\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HMAC\_SHA1\_Start\_DMA(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00570}00570\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HMAC\_MD5\_Start\_DMA(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00571}00571\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00575}00575\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00579}00579\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00580}00580\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00581}00581\ \textcolor{comment}{/*\ Peripheral\ State\ methods\ \ **************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00582}00582\ HAL\_HASH\_StateTypeDef\ HAL\_HASH\_GetState(\textcolor{keyword}{const}\ HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00583}00583\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_GetStatus(\textcolor{keyword}{const}\ HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00584}00584\ \textcolor{keywordtype}{void}\ HAL\_HASH\_ContextSaving(\textcolor{keyword}{const}\ HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *pMemBuffer);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00585}00585\ \textcolor{keywordtype}{void}\ HAL\_HASH\_ContextRestoring(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *pMemBuffer);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00586}00586\ \textcolor{keywordtype}{void}\ HAL\_HASH\_SwFeed\_ProcessSuspend(HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00587}00587\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_HASH\_DMAFeed\_ProcessSuspend(HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00588}00588\ uint32\_t\ HAL\_HASH\_GetError(\textcolor{keyword}{const}\ HASH\_HandleTypeDef\ *hhash);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00589}00589\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00593}00593\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00597}00597\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00598}00598\ \textcolor{comment}{/*\ Private\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00599}00599\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00603}00603\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00604}00604\ \textcolor{comment}{/*\ Private\ functions\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00605}00605\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HASH\_Start(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00606}00606\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00607}00607\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Timeout,\ uint32\_t\ Algorithm);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00608}00608\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HASH\_Accumulate(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00609}00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Algorithm);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00610}00610\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HASH\_Accumulate\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00611}00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Algorithm);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00612}00612\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HASH\_Start\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00613}00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Algorithm);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00615}00615\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HASH\_Start\_DMA(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00616}00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Algorithm);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00617}00617\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HASH\_Finish(HASH\_HandleTypeDef\ *hhash,\ uint8\_t\ *pOutBuffer,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00618}00618\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HMAC\_Start(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00619}00619\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00620}00620\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Timeout,\ uint32\_t\ Algorithm);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00621}00621\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HMAC\_Start\_IT(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00622}00622\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pOutBuffer,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00623}00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Algorithm);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00624}00624\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HMAC\_Start\_DMA(HASH\_HandleTypeDef\ *hhash,\ \textcolor{keyword}{const}\ uint8\_t\ *\textcolor{keyword}{const}\ pInBuffer,\ uint32\_t\ Size,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00625}00625\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ Algorithm);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00626}00626\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00630}00630\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00634}00634\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \ HASH*/}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00638}00638\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00639}00639\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00640}00640\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00641}00641\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00642}00642\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00643}00643\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00644}00644\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00645}00645\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F4xx\_HAL\_HASH\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__hash_8h_source_l00646}00646\ }
+
+\end{DoxyCode}

@@ -1,0 +1,105 @@
+\chapter{🕒 Free\+RTOS 타이머 예제\+: One-\/\+Shot \& Auto-\/\+Reload }
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d}{}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d}\index{🕒 FreeRTOS 타이머 예제: One-\/Shot \& Auto-\/Reload@{🕒 FreeRTOS 타이머 예제: One-\/Shot \& Auto-\/Reload}}
+\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md57}%
+\Hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md57}%
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md58}{}\doxysection{\texorpdfstring{목적 (Objective)}{목적 (Objective)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md58}
+이 예제는 Free\+RTOS에서 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+One-\/\+Shot 타이머\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}와 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Auto-\/\+Reload 타이머\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}를 함께 사용하는 구조를 보여줍니다. ~\newline
+ 타이머 콜백에서 각 타이머의 ID 및 핸들을 활용하여 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}타이머 종류를 구분\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}하고, ~\newline
+ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}동적으로 타이머 동작을 제어\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}하는 기법을 실습합니다.
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md60}{}\doxysection{\texorpdfstring{시스템 구성}{시스템 구성}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md60}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 구성 요소  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 구성 요소  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endhead
+{\ttfamily x\+One\+Shot\+Timer}  &1회만 실행되는 타이머 (1초 후 실행)  \\\cline{1-2}
+{\ttfamily x\+Auto\+Reload\+Timer}  &반복 실행되는 타이머 (0.\+5초 간격, 최대 5회)  \\\cline{1-2}
+{\ttfamily v\+Starter\+Task}  &타이머 생성 및 시작 담당 태스크  \\\cline{1-2}
+{\ttfamily prv\+Timer\+Callback}  &타이머 콜백 함수, 실행 횟수를 추적함  \\\cline{1-2}
+\end{longtabu}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md62}{}\doxysection{\texorpdfstring{동작 시나리오}{동작 시나리오}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md62}
+
+\begin{DoxyEnumerate}
+\item 시스템이 시작되면 {\ttfamily v\+Starter\+Task}가 실행되어 두 개의 타이머를 생성하고 시작합니다.
+\item One-\/\+Shot 타이머는 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}1초 후 한 번만 콜백\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}을 호출합니다.
+\item Auto-\/\+Reload 타이머는 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}0.5초마다 콜백\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}을 호출하며, \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}5회 후 정지\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}됩니다.
+\item 각 콜백에서는 실행 시각과 어떤 타이머인지 로그를 출력합니다.
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md64}{}\doxysection{\texorpdfstring{주요 함수 요약}{주요 함수 요약}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md64}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 함수명  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 함수명  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endhead
+{\ttfamily x\+Timer\+Create()}  &타이머 생성  \\\cline{1-2}
+{\ttfamily \doxylink{timers_8h_a3a9b838f48991e852ce05c986b0eeb8c}{x\+Timer\+Start()}}  &타이머 시작  \\\cline{1-2}
+{\ttfamily \doxylink{timers_8h_a8327c7fc10aee414cb163b445c5269a4}{x\+Timer\+Stop()}}  &타이머 정지  \\\cline{1-2}
+{\ttfamily \doxylink{timers_8h_a1f06045a953481dd7012d4c7762990cb}{v\+Timer\+Set\+Timer\+ID()}}  &사용자 정의 데이터(\+ID) 설정  \\\cline{1-2}
+{\ttfamily \doxylink{timers_8h_a116df5c5464393c6aeda6ecec6c9e916}{pv\+Timer\+Get\+Timer\+ID()}}  &ID 값 읽기  \\\cline{1-2}
+{\ttfamily \doxylink{task_8h_a753ecfe23e7386066ecccad5d16422f7}{x\+Task\+Get\+Tick\+Count()}}  &현재 Tick 읽기  \\\cline{1-2}
+{\ttfamily \doxylink{2__3__timer__timerid_8c_a58ec64c472727b9c2addc743f8d464ed}{v\+Print\+String\+And\+Number()}}  &로그 출력 (tick 포함)  \\\cline{1-2}
+\end{longtabu}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md66}{}\doxysection{\texorpdfstring{UART 출력 예시 (출력 결과)}{UART 출력 예시 (출력 결과)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md66}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{One-\/shot\ timer\ callback\ executing\ at\ tick\ 1000}
+\DoxyCodeLine{Auto-\/reload\ timer\ callback\ executing\ at\ tick\ 500}
+\DoxyCodeLine{Auto-\/reload\ timer\ callback\ executing\ at\ tick\ 1000}
+\DoxyCodeLine{Auto-\/reload\ timer\ callback\ executing\ at\ tick\ 1500}
+\DoxyCodeLine{Auto-\/reload\ timer\ callback\ executing\ at\ tick\ 2000}
+\DoxyCodeLine{Auto-\/reload\ timer\ callback\ executing\ at\ tick\ 2500}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md67}{}\doxysection{\texorpdfstring{동작 개요 (Plant\+UML 시퀀스 다이어그램)}{동작 개요 (Plant\+UML 시퀀스 다이어그램)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__3___t_i_m_e_r___t_i_m_e_r_i_d_autotoc_md67}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@startuml}
+\DoxyCodeLine{actor\ User}
+\DoxyCodeLine{participant\ "{}StarterTask"{}\ as\ T}
+\DoxyCodeLine{participant\ "{}OneShotTimer"{}\ as\ O}
+\DoxyCodeLine{participant\ "{}AutoReloadTimer"{}\ as\ A}
+\DoxyCodeLine{participant\ "{}Callback\ Function"{}\ as\ C}
+\DoxyCodeLine{}
+\DoxyCodeLine{==\ 시스템\ 시작\ ==}
+\DoxyCodeLine{User\ -\/>\ T\ :\ 시스템\ 부팅}
+\DoxyCodeLine{}
+\DoxyCodeLine{T\ -\/>\ O\ :\ xTimerCreate\ (1초,\ One-\/shot)}
+\DoxyCodeLine{T\ -\/>\ A\ :\ xTimerCreate\ (0.5초,\ Auto-\/reload)}
+\DoxyCodeLine{T\ -\/>\ O\ :\ xTimerStart}
+\DoxyCodeLine{T\ -\/>\ A\ :\ xTimerStart}
+\DoxyCodeLine{T\ -\/>\ T\ :\ vTaskDelete}
+\DoxyCodeLine{}
+\DoxyCodeLine{==\ 콜백\ 반복\ ==}
+\DoxyCodeLine{O\ -\/>\ C\ :\ prvTimerCallback\ (tick\ 1000)}
+\DoxyCodeLine{A\ -\/>\ C\ :\ prvTimerCallback\ (tick\ 500)}
+\DoxyCodeLine{A\ -\/>\ C\ :\ prvTimerCallback\ (tick\ 1000)}
+\DoxyCodeLine{A\ -\/>\ C\ :\ prvTimerCallback\ (tick\ 1500)}
+\DoxyCodeLine{A\ -\/>\ C\ :\ prvTimerCallback\ (tick\ 2000)}
+\DoxyCodeLine{A\ -\/>\ C\ :\ prvTimerCallback\ (tick\ 2500)}
+\DoxyCodeLine{A\ -\/>\ A\ :\ xTimerStop\ (after\ 5\ times)}
+\DoxyCodeLine{@enduml}
+
+\end{DoxyCode}
+ 💡 위 다이어그램은 One-\/\+Shot과 Auto-\/\+Reload 타이머가 어떻게 작동하며 콜백이 어떻게 호출되는지 시각적으로 설명합니다.
+
+✅ 참고사항 x\+Timer == x\+One\+Shot\+Timer 비교는 실제 타이머 핸들 주소를 비교하여 어떤 타이머에서 호출되었는지 판별하는 용도입니다. pv\+Timer\+ID를 사용해 실행 횟수를 추적할 수 있고, 필요시 구조체로도 확장 가능합니다. (디버깅 용이-\/로그에 이름 출력 가능) 

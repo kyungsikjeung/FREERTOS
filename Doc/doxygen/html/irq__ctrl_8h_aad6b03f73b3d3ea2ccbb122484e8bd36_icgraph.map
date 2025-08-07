@@ -1,0 +1,9 @@
+<map id="IRQ_ClearPending" name="IRQ_ClearPending">
+<area shape="rect" id="Node000001" title=" " alt="" coords="235,56,365,83"/>
+<area shape="rect" id="Node000002" href="$os__tick__gtim_8c.html#a14c430d2b363ebd9f904b0822a9314e7" title="Acknowledge execution of OS Tick timer interrupt." alt="" coords="5,5,187,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,54,152,35,153,30,229,49"/>
+<area shape="rect" id="Node000003" href="$os__tick__gtim_8c.html#a50fc040b66fabd1945d2bd1d0d05661d" title="Disable OS Tick timer interrupt." alt="" coords="34,56,158,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="219,72,158,72,158,67,219,67"/>
+<area shape="rect" id="Node000004" href="$os__tick__gtim_8c.html#a5eeffb4d9dc6c6802fee8898096d9a59" title=" " alt="" coords="39,107,153,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="229,90,153,109,152,103,228,84"/>
+</map>

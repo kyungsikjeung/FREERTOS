@@ -1,0 +1,153 @@
+\doxysubsubsection{CRC Exported Macros }
+\hypertarget{group___c_r_c___exported___macros}{}\label{group___c_r_c___exported___macros}\index{CRC Exported Macros@{CRC Exported Macros}}
+Collaboration diagram for CRC Exported Macros\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{group___c_r_c___exported___macros}
+\end{center}
+\end{figure}
+\doxysubsubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___c_r_c___exported___macros_gab6ec5d74fdff177143f4b22652a18114}{\+\_\+\+\_\+\+HAL\+\_\+\+CRC\+\_\+\+RESET\+\_\+\+HANDLE\+\_\+\+STATE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Reset CRC handle state. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___c_r_c___exported___macros_ga0007a05fb01806007181e12eedc14d28}{\+\_\+\+\_\+\+HAL\+\_\+\+CRC\+\_\+\+DR\+\_\+\+RESET}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Reset CRC Data Register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___c_r_c___exported___macros_ga1d890aa6f337f97fb9a3e8537f1bbc72}{\+\_\+\+\_\+\+HAL\+\_\+\+CRC\+\_\+\+SET\+\_\+\+IDR}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+VALUE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Store data in the Independent Data (ID) register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___c_r_c___exported___macros_ga028e074ed7a9505ea0ac48a16489c5d0}{\+\_\+\+\_\+\+HAL\+\_\+\+CRC\+\_\+\+GET\+\_\+\+IDR}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Return the data stored in the Independent Data (ID) register. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Detailed Description}
+
+
+\label{doc-define-members}
+\Hypertarget{group___c_r_c___exported___macros_doc-define-members}
+\doxysubsubsubsection{Macro Definition Documentation}
+\Hypertarget{group___c_r_c___exported___macros_ga0007a05fb01806007181e12eedc14d28}\index{CRC Exported Macros@{CRC Exported Macros}!\_\_HAL\_CRC\_DR\_RESET@{\_\_HAL\_CRC\_DR\_RESET}}
+\index{\_\_HAL\_CRC\_DR\_RESET@{\_\_HAL\_CRC\_DR\_RESET}!CRC Exported Macros@{CRC Exported Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{\_\_HAL\_CRC\_DR\_RESET}{\_\_HAL\_CRC\_DR\_RESET}}
+{\footnotesize\ttfamily \label{group___c_r_c___exported___macros_ga0007a05fb01806007181e12eedc14d28} 
+\#define \+\_\+\+\_\+\+HAL\+\_\+\+CRC\+\_\+\+DR\+\_\+\+RESET(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_\_HANDLE\_\_)-\/>Instance-\/>CR\ |=\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7d57481fb891a0964b40f721354c56d7}{CRC\_CR\_RESET}})}
+
+\end{DoxyCode}
+
+
+Reset CRC Data Register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & CRC handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__crc_8h_source_l00097}{97}} of file \mbox{\hyperlink{stm32f4xx__hal__crc_8h_source}{stm32f4xx\+\_\+hal\+\_\+crc.\+h}}.
+
+\Hypertarget{group___c_r_c___exported___macros_ga028e074ed7a9505ea0ac48a16489c5d0}\index{CRC Exported Macros@{CRC Exported Macros}!\_\_HAL\_CRC\_GET\_IDR@{\_\_HAL\_CRC\_GET\_IDR}}
+\index{\_\_HAL\_CRC\_GET\_IDR@{\_\_HAL\_CRC\_GET\_IDR}!CRC Exported Macros@{CRC Exported Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{\_\_HAL\_CRC\_GET\_IDR}{\_\_HAL\_CRC\_GET\_IDR}}
+{\footnotesize\ttfamily \label{group___c_r_c___exported___macros_ga028e074ed7a9505ea0ac48a16489c5d0} 
+\#define \+\_\+\+\_\+\+HAL\+\_\+\+CRC\+\_\+\+GET\+\_\+\+IDR(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((\_\_HANDLE\_\_)-\/>Instance-\/>IDR)\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae9a0feb3cf1d8c5871e663ca4a174cc0}{CRC\_IDR\_IDR}})}
+
+\end{DoxyCode}
+
+
+Return the data stored in the Independent Data (ID) register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & CRC handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Refer to the Reference Manual to get the authorized {\bfseries{VALUE}} length in bits 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em Value} & of the ID register \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__crc_8h_source_l00114}{114}} of file \mbox{\hyperlink{stm32f4xx__hal__crc_8h_source}{stm32f4xx\+\_\+hal\+\_\+crc.\+h}}.
+
+\Hypertarget{group___c_r_c___exported___macros_gab6ec5d74fdff177143f4b22652a18114}\index{CRC Exported Macros@{CRC Exported Macros}!\_\_HAL\_CRC\_RESET\_HANDLE\_STATE@{\_\_HAL\_CRC\_RESET\_HANDLE\_STATE}}
+\index{\_\_HAL\_CRC\_RESET\_HANDLE\_STATE@{\_\_HAL\_CRC\_RESET\_HANDLE\_STATE}!CRC Exported Macros@{CRC Exported Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{\_\_HAL\_CRC\_RESET\_HANDLE\_STATE}{\_\_HAL\_CRC\_RESET\_HANDLE\_STATE}}
+{\footnotesize\ttfamily \label{group___c_r_c___exported___macros_gab6ec5d74fdff177143f4b22652a18114} 
+\#define \+\_\+\+\_\+\+HAL\+\_\+\+CRC\+\_\+\+RESET\+\_\+\+HANDLE\+\_\+\+STATE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_\_HANDLE\_\_)-\/>State\ =\ \mbox{\hyperlink{group___c_r_c___exported___types_gga1021d6f27a072d45f6f3b233eefd8bbea313bbe8353f8a8b48fbd129261266a97}{HAL\_CRC\_STATE\_RESET}})}
+
+\end{DoxyCode}
+
+
+Reset CRC handle state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & CRC handle. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__crc_8h_source_l00090}{90}} of file \mbox{\hyperlink{stm32f4xx__hal__crc_8h_source}{stm32f4xx\+\_\+hal\+\_\+crc.\+h}}.
+
+\Hypertarget{group___c_r_c___exported___macros_ga1d890aa6f337f97fb9a3e8537f1bbc72}\index{CRC Exported Macros@{CRC Exported Macros}!\_\_HAL\_CRC\_SET\_IDR@{\_\_HAL\_CRC\_SET\_IDR}}
+\index{\_\_HAL\_CRC\_SET\_IDR@{\_\_HAL\_CRC\_SET\_IDR}!CRC Exported Macros@{CRC Exported Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{\_\_HAL\_CRC\_SET\_IDR}{\_\_HAL\_CRC\_SET\_IDR}}
+{\footnotesize\ttfamily \label{group___c_r_c___exported___macros_ga1d890aa6f337f97fb9a3e8537f1bbc72} 
+\#define \+\_\+\+\_\+\+HAL\+\_\+\+CRC\+\_\+\+SET\+\_\+\+IDR(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+}{, }\item[{}]{\+\_\+\+\_\+\+VALUE\+\_\+\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\mbox{\hyperlink{group___exported__macro_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}((\_\_HANDLE\_\_)-\/>Instance-\/>IDR,\ (\_\_VALUE\_\_)))}
+
+\end{DoxyCode}
+
+
+Store data in the Independent Data (ID) register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & CRC handle \\
+\hline
+{\em \+\_\+\+\_\+\+VALUE\+\_\+\+\_\+} & Value to be stored in the ID register \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Refer to the Reference Manual to get the authorized {\bfseries{VALUE}} length in bits 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__crc_8h_source_l00106}{106}} of file \mbox{\hyperlink{stm32f4xx__hal__crc_8h_source}{stm32f4xx\+\_\+hal\+\_\+crc.\+h}}.
+

@@ -1,0 +1,7 @@
+<map id="__QADD8" name="__QADD8">
+<area shape="rect" id="Node000001" title=" " alt="" coords="157,31,238,57"/>
+<area shape="rect" id="Node000002" href="$group___basic_add.html#gafaecefa2be70b02118c8a317e183f247" title="Q7 vector addition." alt="" coords="11,5,103,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,37,103,30,104,24,142,31"/>
+<area shape="rect" id="Node000003" href="$group___basic_offset.html#ga26adad00c10390145b02080a53e782b4" title="Adds a constant offset to a Q7 vector." alt="" coords="5,56,109,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,57,109,63,108,57,141,51"/>
+</map>

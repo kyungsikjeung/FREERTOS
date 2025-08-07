@@ -1,0 +1,203 @@
+\doxysubsection{Basic math functions }
+\hypertarget{group___basic_math}{}\label{group___basic_math}\index{Basic math functions@{Basic math functions}}
+Collaboration diagram for Basic math functions\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___basic_math}
+\end{center}
+\end{figure}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___basic_math_ga9e988362b8860a0108e62caf03e19b45}{arm\+\_\+elementwise\+\_\+add\+\_\+s16}} (const int16\+\_\+t \texorpdfstring{$\ast$}{*}input\+\_\+1\+\_\+vect, const int16\+\_\+t \texorpdfstring{$\ast$}{*}input\+\_\+2\+\_\+vect, const int32\+\_\+t input\+\_\+1\+\_\+offset, const int32\+\_\+t input\+\_\+1\+\_\+mult, const int32\+\_\+t input\+\_\+1\+\_\+shift, const int32\+\_\+t input\+\_\+2\+\_\+offset, const int32\+\_\+t input\+\_\+2\+\_\+mult, const int32\+\_\+t input\+\_\+2\+\_\+shift, const int32\+\_\+t left\+\_\+shift, int16\+\_\+t \texorpdfstring{$\ast$}{*}output, const int32\+\_\+t out\+\_\+offset, const int32\+\_\+t out\+\_\+mult, const int32\+\_\+t out\+\_\+shift, const int32\+\_\+t out\+\_\+activation\+\_\+min, const int32\+\_\+t out\+\_\+activation\+\_\+max, const int32\+\_\+t block\+\_\+size)
+\begin{DoxyCompactList}\small\item\em s16 elementwise add of two vectors \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___basic_math_ga19f5c245db9ecfb7918fe1fc4f16af2b}{arm\+\_\+elementwise\+\_\+add\+\_\+s8}} (const int8\+\_\+t \texorpdfstring{$\ast$}{*}input\+\_\+1\+\_\+vect, const int8\+\_\+t \texorpdfstring{$\ast$}{*}input\+\_\+2\+\_\+vect, const int32\+\_\+t input\+\_\+1\+\_\+offset, const int32\+\_\+t input\+\_\+1\+\_\+mult, const int32\+\_\+t input\+\_\+1\+\_\+shift, const int32\+\_\+t input\+\_\+2\+\_\+offset, const int32\+\_\+t input\+\_\+2\+\_\+mult, const int32\+\_\+t input\+\_\+2\+\_\+shift, const int32\+\_\+t left\+\_\+shift, int8\+\_\+t \texorpdfstring{$\ast$}{*}output, const int32\+\_\+t out\+\_\+offset, const int32\+\_\+t out\+\_\+mult, const int32\+\_\+t out\+\_\+shift, const int32\+\_\+t out\+\_\+activation\+\_\+min, const int32\+\_\+t out\+\_\+activation\+\_\+max, const int32\+\_\+t block\+\_\+size)
+\begin{DoxyCompactList}\small\item\em s8 elementwise add of two vectors \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___basic_math_gab38457329632897eb6efedf9dfcef1e4}{arm\+\_\+elementwise\+\_\+mul\+\_\+s16}} (const int16\+\_\+t \texorpdfstring{$\ast$}{*}input\+\_\+1\+\_\+vect, const int16\+\_\+t \texorpdfstring{$\ast$}{*}input\+\_\+2\+\_\+vect, const int32\+\_\+t input\+\_\+1\+\_\+offset, const int32\+\_\+t input\+\_\+2\+\_\+offset, int16\+\_\+t \texorpdfstring{$\ast$}{*}output, const int32\+\_\+t out\+\_\+offset, const int32\+\_\+t out\+\_\+mult, const int32\+\_\+t out\+\_\+shift, const int32\+\_\+t out\+\_\+activation\+\_\+min, const int32\+\_\+t out\+\_\+activation\+\_\+max, const int32\+\_\+t block\+\_\+size)
+\begin{DoxyCompactList}\small\item\em s16 element wise multiplication of two vectors \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___basic_math_ga345f342f6368a715ca3816c3cc3b7f70}{arm\+\_\+elementwise\+\_\+mul\+\_\+s8}} (const int8\+\_\+t \texorpdfstring{$\ast$}{*}input\+\_\+1\+\_\+vect, const int8\+\_\+t \texorpdfstring{$\ast$}{*}input\+\_\+2\+\_\+vect, const int32\+\_\+t input\+\_\+1\+\_\+offset, const int32\+\_\+t input\+\_\+2\+\_\+offset, int8\+\_\+t \texorpdfstring{$\ast$}{*}output, const int32\+\_\+t out\+\_\+offset, const int32\+\_\+t out\+\_\+mult, const int32\+\_\+t out\+\_\+shift, const int32\+\_\+t out\+\_\+activation\+\_\+min, const int32\+\_\+t out\+\_\+activation\+\_\+max, const int32\+\_\+t block\+\_\+size)
+\begin{DoxyCompactList}\small\item\em s8 element wise multiplication of two vectors \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Elementwise add and multiplication functions.
+
+\label{doc-func-members}
+\Hypertarget{group___basic_math_doc-func-members}
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group___basic_math_ga9e988362b8860a0108e62caf03e19b45}\index{Basic math functions@{Basic math functions}!arm\_elementwise\_add\_s16@{arm\_elementwise\_add\_s16}}
+\index{arm\_elementwise\_add\_s16@{arm\_elementwise\_add\_s16}!Basic math functions@{Basic math functions}}
+\doxysubsubsubsection{\texorpdfstring{arm\_elementwise\_add\_s16()}{arm\_elementwise\_add\_s16()}}
+{\footnotesize\ttfamily \label{group___basic_math_ga9e988362b8860a0108e62caf03e19b45} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+elementwise\+\_\+add\+\_\+s16 (\begin{DoxyParamCaption}\item[{const int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{input\+\_\+1\+\_\+vect}{, }\item[{const int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{input\+\_\+2\+\_\+vect}{, }\item[{const int32\+\_\+t}]{input\+\_\+1\+\_\+offset}{, }\item[{const int32\+\_\+t}]{input\+\_\+1\+\_\+mult}{, }\item[{const int32\+\_\+t}]{input\+\_\+1\+\_\+shift}{, }\item[{const int32\+\_\+t}]{input\+\_\+2\+\_\+offset}{, }\item[{const int32\+\_\+t}]{input\+\_\+2\+\_\+mult}{, }\item[{const int32\+\_\+t}]{input\+\_\+2\+\_\+shift}{, }\item[{const int32\+\_\+t}]{left\+\_\+shift}{, }\item[{int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{output}{, }\item[{const int32\+\_\+t}]{out\+\_\+offset}{, }\item[{const int32\+\_\+t}]{out\+\_\+mult}{, }\item[{const int32\+\_\+t}]{out\+\_\+shift}{, }\item[{const int32\+\_\+t}]{out\+\_\+activation\+\_\+min}{, }\item[{const int32\+\_\+t}]{out\+\_\+activation\+\_\+max}{, }\item[{const int32\+\_\+t}]{block\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+s16 elementwise add of two vectors 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em input\+\_\+1\+\_\+vect} & pointer to input vector 1 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+2\+\_\+vect} & pointer to input vector 2 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+1\+\_\+offset} & offset for input 1. Not used. \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+1\+\_\+mult} & multiplier for input 1 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+1\+\_\+shift} & shift for input 1 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+2\+\_\+offset} & offset for input 2. Not used. \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+2\+\_\+mult} & multiplier for input 2 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+2\+\_\+shift} & shift for input 2 \\
+\hline
+\mbox{\texttt{in}}  & {\em left\+\_\+shift} & input left shift \\
+\hline
+\mbox{\texttt{in,out}}  & {\em output} & pointer to output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+offset} & output offset. Not used. \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+mult} & output multiplier \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+shift} & output shift \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+activation\+\_\+min} & minimum value to clamp output to. Min\+: -\/32768 \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+activation\+\_\+max} & maximum value to clamp output to. Max\+: 32767 \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+\_\+size} & number of samples \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns ARM\+\_\+\+MATH\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__elementwise__add__s16_8c_source_l00052}{52}} of file \mbox{\hyperlink{arm__elementwise__add__s16_8c_source}{arm\+\_\+elementwise\+\_\+add\+\_\+s16.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___basic_math_ga9e988362b8860a0108e62caf03e19b45_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___basic_math_ga19f5c245db9ecfb7918fe1fc4f16af2b}\index{Basic math functions@{Basic math functions}!arm\_elementwise\_add\_s8@{arm\_elementwise\_add\_s8}}
+\index{arm\_elementwise\_add\_s8@{arm\_elementwise\_add\_s8}!Basic math functions@{Basic math functions}}
+\doxysubsubsubsection{\texorpdfstring{arm\_elementwise\_add\_s8()}{arm\_elementwise\_add\_s8()}}
+{\footnotesize\ttfamily \label{group___basic_math_ga19f5c245db9ecfb7918fe1fc4f16af2b} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+elementwise\+\_\+add\+\_\+s8 (\begin{DoxyParamCaption}\item[{const int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{input\+\_\+1\+\_\+vect}{, }\item[{const int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{input\+\_\+2\+\_\+vect}{, }\item[{const int32\+\_\+t}]{input\+\_\+1\+\_\+offset}{, }\item[{const int32\+\_\+t}]{input\+\_\+1\+\_\+mult}{, }\item[{const int32\+\_\+t}]{input\+\_\+1\+\_\+shift}{, }\item[{const int32\+\_\+t}]{input\+\_\+2\+\_\+offset}{, }\item[{const int32\+\_\+t}]{input\+\_\+2\+\_\+mult}{, }\item[{const int32\+\_\+t}]{input\+\_\+2\+\_\+shift}{, }\item[{const int32\+\_\+t}]{left\+\_\+shift}{, }\item[{int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{output}{, }\item[{const int32\+\_\+t}]{out\+\_\+offset}{, }\item[{const int32\+\_\+t}]{out\+\_\+mult}{, }\item[{const int32\+\_\+t}]{out\+\_\+shift}{, }\item[{const int32\+\_\+t}]{out\+\_\+activation\+\_\+min}{, }\item[{const int32\+\_\+t}]{out\+\_\+activation\+\_\+max}{, }\item[{const int32\+\_\+t}]{block\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+s8 elementwise add of two vectors 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em input\+\_\+1\+\_\+vect} & pointer to input vector 1 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+2\+\_\+vect} & pointer to input vector 2 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+1\+\_\+offset} & offset for input 1. Range\+: -\/127 to 128 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+1\+\_\+mult} & multiplier for input 1 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+1\+\_\+shift} & shift for input 1 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+2\+\_\+offset} & offset for input 2. Range\+: -\/127 to 128 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+2\+\_\+mult} & multiplier for input 2 \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+2\+\_\+shift} & shift for input 2 \\
+\hline
+\mbox{\texttt{in}}  & {\em left\+\_\+shift} & input left shift \\
+\hline
+\mbox{\texttt{in,out}}  & {\em output} & pointer to output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+offset} & output offset. Range\+: -\/128 to 127 \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+mult} & output multiplier \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+shift} & output shift \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+activation\+\_\+min} & minimum value to clamp output to. Min\+: -\/128 \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+activation\+\_\+max} & maximum value to clamp output to. Max\+: 127 \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+\_\+size} & number of samples \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns ARM\+\_\+\+MATH\+\_\+\+SUCCESS 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__elementwise__add__s8_8c_source_l00052}{52}} of file \mbox{\hyperlink{arm__elementwise__add__s8_8c_source}{arm\+\_\+elementwise\+\_\+add\+\_\+s8.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___basic_math_ga19f5c245db9ecfb7918fe1fc4f16af2b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___basic_math_gab38457329632897eb6efedf9dfcef1e4}\index{Basic math functions@{Basic math functions}!arm\_elementwise\_mul\_s16@{arm\_elementwise\_mul\_s16}}
+\index{arm\_elementwise\_mul\_s16@{arm\_elementwise\_mul\_s16}!Basic math functions@{Basic math functions}}
+\doxysubsubsubsection{\texorpdfstring{arm\_elementwise\_mul\_s16()}{arm\_elementwise\_mul\_s16()}}
+{\footnotesize\ttfamily \label{group___basic_math_gab38457329632897eb6efedf9dfcef1e4} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+elementwise\+\_\+mul\+\_\+s16 (\begin{DoxyParamCaption}\item[{const int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{input\+\_\+1\+\_\+vect}{, }\item[{const int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{input\+\_\+2\+\_\+vect}{, }\item[{const int32\+\_\+t}]{input\+\_\+1\+\_\+offset}{, }\item[{const int32\+\_\+t}]{input\+\_\+2\+\_\+offset}{, }\item[{int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{output}{, }\item[{const int32\+\_\+t}]{out\+\_\+offset}{, }\item[{const int32\+\_\+t}]{out\+\_\+mult}{, }\item[{const int32\+\_\+t}]{out\+\_\+shift}{, }\item[{const int32\+\_\+t}]{out\+\_\+activation\+\_\+min}{, }\item[{const int32\+\_\+t}]{out\+\_\+activation\+\_\+max}{, }\item[{const int32\+\_\+t}]{block\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+s16 element wise multiplication of two vectors 
+
+s16 elementwise multiplication
+
+\begin{DoxyNote}{Note}
+Refer header file for details. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{arm__elementwise__mul__s16_8c_source_l00049}{49}} of file \mbox{\hyperlink{arm__elementwise__mul__s16_8c_source}{arm\+\_\+elementwise\+\_\+mul\+\_\+s16.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___basic_math_gab38457329632897eb6efedf9dfcef1e4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___basic_math_ga345f342f6368a715ca3816c3cc3b7f70}\index{Basic math functions@{Basic math functions}!arm\_elementwise\_mul\_s8@{arm\_elementwise\_mul\_s8}}
+\index{arm\_elementwise\_mul\_s8@{arm\_elementwise\_mul\_s8}!Basic math functions@{Basic math functions}}
+\doxysubsubsubsection{\texorpdfstring{arm\_elementwise\_mul\_s8()}{arm\_elementwise\_mul\_s8()}}
+{\footnotesize\ttfamily \label{group___basic_math_ga345f342f6368a715ca3816c3cc3b7f70} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+elementwise\+\_\+mul\+\_\+s8 (\begin{DoxyParamCaption}\item[{const int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{input\+\_\+1\+\_\+vect}{, }\item[{const int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{input\+\_\+2\+\_\+vect}{, }\item[{const int32\+\_\+t}]{input\+\_\+1\+\_\+offset}{, }\item[{const int32\+\_\+t}]{input\+\_\+2\+\_\+offset}{, }\item[{int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{output}{, }\item[{const int32\+\_\+t}]{out\+\_\+offset}{, }\item[{const int32\+\_\+t}]{out\+\_\+mult}{, }\item[{const int32\+\_\+t}]{out\+\_\+shift}{, }\item[{const int32\+\_\+t}]{out\+\_\+activation\+\_\+min}{, }\item[{const int32\+\_\+t}]{out\+\_\+activation\+\_\+max}{, }\item[{const int32\+\_\+t}]{block\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+s8 element wise multiplication of two vectors 
+
+s8 elementwise multiplication
+
+\begin{DoxyNote}{Note}
+Refer header file for details. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{arm__elementwise__mul__s8_8c_source_l00050}{50}} of file \mbox{\hyperlink{arm__elementwise__mul__s8_8c_source}{arm\+\_\+elementwise\+\_\+mul\+\_\+s8.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___basic_math_ga345f342f6368a715ca3816c3cc3b7f70_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,9 @@
+<map id="xTaskNotifyWait" name="xTaskNotifyWait">
+<area shape="rect" id="Node000001" title=" " alt="" coords="206,56,323,83"/>
+<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#a38860acda96df47da6923348d96fc4c9" title="Wait for one or more Signal Flags to become signaled for the current RUNNING thread." alt="" coords="33,5,130,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,54,130,35,131,30,200,49"/>
+<area shape="rect" id="Node000003" href="$stream__buffer_8c.html#afcfcf6f4bc80ec5e31e5e1f8093cacac" title=" " alt="" coords="5,56,158,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,72,158,72,158,67,190,67"/>
+<area shape="rect" id="Node000004" href="$stream__buffer_8c.html#adf807ecf262fcd5df2584d5d3e6ed6c5" title=" " alt="" coords="14,107,149,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,90,133,109,132,103,198,85"/>
+</map>

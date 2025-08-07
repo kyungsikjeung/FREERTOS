@@ -1,0 +1,7 @@
+<map id="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Include/os_tick.h" name="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Include/os_tick.h">
+<area shape="rect" id="Node000001" title="CMSIS OS Tick header file." alt="" coords="126,5,297,64"/>
+<area shape="rect" id="Node000002" href="$os__systick_8c.html" title="CMSIS OS Tick SysTick implementation." alt="" coords="5,112,197,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,77,133,114,129,110,169,73"/>
+<area shape="rect" id="Node000003" href="$os__tick__gtim_8c.html" title="CMSIS OS Tick implementation for Generic Timer." alt="" coords="221,112,424,171"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,73,294,110,290,114,251,77"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="osMessageQueuePut" name="osMessageQueuePut">
+<area shape="rect" id="Node000001" title=" " alt="" coords="162,31,308,57"/>
+<area shape="rect" id="Node000002" href="$cmsis__os1_8c.html#a000c34eb539a90d1fee8603da2a4d360" title=" " alt="" coords="20,5,99,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,34,99,27,100,22,147,29"/>
+<area shape="rect" id="Node000003" href="$cmsis__os_8c.html#ac0dcf462fc92de8ffaba6cc004514a6d" title="Put a Message to a Queue." alt="" coords="5,56,114,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,59,114,64,113,59,146,54"/>
+</map>

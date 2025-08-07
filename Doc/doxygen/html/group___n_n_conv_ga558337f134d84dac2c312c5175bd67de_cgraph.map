@@ -1,0 +1,11 @@
+<map id="arm_depthwise_conv_3x3_s8" name="arm_depthwise_conv_3x3_s8">
+<area shape="rect" id="Node000001" title="Optimized s8 depthwise convolution function for 3x3 kernel size with some constraints on the input ar..." alt="" coords="5,23,150,65"/>
+<area shape="rect" id="Node000002" href="$arm__nnsupportfunctions_8h.html#a31fa46f17212fbcb65d2cdae06fc08f5" title="Read 4 q7 values." alt="" coords="198,5,329,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,31,182,27,183,32,151,37"/>
+<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#a6a13b7a567485da5fc7f0d311318886d" title="Requantize a given value." alt="" coords="198,56,329,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,51,183,56,182,61,150,57"/>
+<area shape="rect" id="Node000004" href="$arm__nnsupportfunctions_8h.html#ab6dbc2fd53fae3ccdd1d0d70c8d3b491" title="Rounding divide by power of two." alt="" coords="377,15,545,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="329,56,361,50,362,55,330,61"/>
+<area shape="rect" id="Node000005" href="$arm__nnsupportfunctions_8h.html#a4e5183e2400227aafc91fb796fe99a6d" title="Doubling high multiply without saturation. This is intended for requantization where the scale is a p..." alt="" coords="386,81,536,124"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="330,78,371,85,370,90,329,83"/>
+</map>

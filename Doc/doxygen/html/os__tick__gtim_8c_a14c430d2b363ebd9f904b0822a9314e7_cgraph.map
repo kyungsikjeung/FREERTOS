@@ -1,0 +1,5 @@
+<map id="OS_Tick_AcknowledgeIRQ" name="OS_Tick_AcknowledgeIRQ">
+<area shape="rect" id="Node000001" title="Acknowledge execution of OS Tick timer interrupt." alt="" coords="5,5,187,32"/>
+<area shape="rect" id="Node000002" href="$irq__ctrl_8h.html#aad6b03f73b3d3ea2ccbb122484e8bd36" title=" " alt="" coords="235,5,365,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,16,219,16,219,21,187,21"/>
+</map>

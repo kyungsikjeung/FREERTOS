@@ -1,0 +1,10 @@
+<map id="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/Include/core_sc000.h" name="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/Include/core_sc000.h">
+<area shape="rect" id="Node000001" title="CMSIS SC000 Core Peripheral Access Layer Header File." alt="" coords="5,5,177,64"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="83,187,147,213"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,67,36,83,24,101,18,119,23,137,43,161,70,179,67,183,40,165,18,140,13,119,19,98,32,79,49,63"/>
+<area shape="rect" id="Node000003" href="$_include_2cmsis__version_8h.html" title="CMSIS Core(M) Version definitions." alt="" coords="33,112,149,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="94,64,94,96,88,96,88,64"/>
+<area shape="rect" id="Node000004" href="$_include_2cmsis__compiler_8h.html" title="CMSIS compiler generic header file." alt="" coords="173,112,297,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="139,62,203,101,200,106,136,67"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="215,141,150,181,148,176,213,137"/>
+</map>

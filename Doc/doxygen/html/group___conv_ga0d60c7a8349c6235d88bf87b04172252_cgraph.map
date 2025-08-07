@@ -1,0 +1,15 @@
+<map id="arm_conv_opt_q15" name="arm_conv_opt_q15">
+<area shape="rect" id="Node000001" title="Convolution of Q15 sequences." alt="" coords="5,107,137,133"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#af106137a5a4291961cda38d4dde8b99e" title=" " alt="" coords="194,5,282,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,104,183,42,192,37,194,42,186,46,92,108"/>
+<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#a57ee26084e2ed2c0f79586365cd7162e" title=" " alt="" coords="189,56,286,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="117,103,176,85,178,90,118,109"/>
+<area shape="rect" id="Node000004" href="$group__copy.html#gaeb9e8c16ec7fe1235e5610142400f15f" title="Copies the elements of a Q15 vector." alt="" coords="185,107,291,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="137,117,169,117,169,123,137,123"/>
+<area shape="rect" id="Node000005" href="$arm__math__memory_8h.html#a576a0e2a4667277b42c478dfda753dc6" title="Write 2 Q15 to Q15 pointer and increment pointer afterwards." alt="" coords="339,157,447,184"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="130,131,185,143,324,161,323,167,184,148,129,137"/>
+<area shape="rect" id="Node000006" href="$group___fill.html#ga76b21c32a3783a2b3334d930a646e5d8" title="Fills a constant value into a Q15 vector." alt="" coords="192,208,284,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="96,132,203,197,200,202,93,136"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="282,131,336,149,334,154,280,137"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="280,205,334,187,336,192,282,210"/>
+</map>

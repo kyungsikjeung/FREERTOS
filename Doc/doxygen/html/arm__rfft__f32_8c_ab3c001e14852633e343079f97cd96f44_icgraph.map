@@ -1,0 +1,11 @@
+<map id="arm_radix4_butterfly_inverse_f32" name="arm_radix4_butterfly_inverse_f32">
+<area shape="rect" id="Node000001" title=" " alt="" coords="337,23,476,65"/>
+<area shape="rect" id="Node000002" href="$group___complex_f_f_t.html#ga521f670cd9c571bc61aff9bec89f4c26" title="Processing function for the floating&#45;point Radix&#45;4 CFFT/CIFFT." alt="" coords="154,5,289,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="322,35,289,31,290,25,322,30"/>
+<area shape="rect" id="Node000004" href="$group___real_f_f_t.html#ga3df1766d230532bc068fc4ed69d0fcdc" title="Processing function for the floating&#45;point RFFT/RIFFT. Source buffer is modified by this function." alt="" coords="176,56,266,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="322,58,267,66,266,61,321,53"/>
+<area shape="rect" id="Node000003" href="$arm__convolution__example__f32_8c.html#a52d2cba30e6946c95578be946ac12a65" title=" " alt="" coords="31,5,80,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="138,21,81,21,81,16,138,16"/>
+<area shape="rect" id="Node000005" href="$group___d_c_t4___i_d_c_t4.html#gafd538d68886848bc090ec2b0d364cc81" title="Processing function for the floating&#45;point DCT4/IDCT4." alt="" coords="5,56,106,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="161,72,106,72,106,67,161,67"/>
+</map>

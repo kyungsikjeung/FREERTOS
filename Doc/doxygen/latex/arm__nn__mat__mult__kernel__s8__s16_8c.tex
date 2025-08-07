@@ -1,0 +1,84 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+NN/\+Source/\+Convolution\+Functions/arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+kernel\+\_\+s8\+\_\+s16.c File Reference}
+\hypertarget{arm__nn__mat__mult__kernel__s8__s16_8c}{}\label{arm__nn__mat__mult__kernel__s8__s16_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ConvolutionFunctions/arm\_nn\_mat\_mult\_kernel\_s8\_s16.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ConvolutionFunctions/arm\_nn\_mat\_mult\_kernel\_s8\_s16.c}}
+{\ttfamily \#include "{}arm\+\_\+nnfunctions.\+h"{}}\newline
+{\ttfamily \#include "{}arm\+\_\+nnsupportfunctions.\+h"{}}\newline
+Include dependency graph for arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+kernel\+\_\+s8\+\_\+s16.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__nn__mat__mult__kernel__s8__s16_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{arm__nn__mat__mult__kernel__s8__s16_8c_ab2040b03e85717f57f8fcaf83db838e4}{arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+kernel\+\_\+s8\+\_\+s16}} (const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}input\+\_\+a, const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}input\+\_\+b, const uint16\+\_\+t output\+\_\+ch, const int32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+shift, const int32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+mult, const int32\+\_\+t out\+\_\+offset, const int16\+\_\+t activation\+\_\+min, const int16\+\_\+t activation\+\_\+max, const uint16\+\_\+t num\+\_\+col\+\_\+a, const int32\+\_\+t \texorpdfstring{$\ast$}{*}const output\+\_\+bias, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}out\+\_\+0)
+\begin{DoxyCompactList}\small\item\em Matrix-\/multiplication function for convolution with per-\/channel requantization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{arm__nn__mat__mult__kernel__s8__s16_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm__nn__mat__mult__kernel__s8__s16_8c_ab2040b03e85717f57f8fcaf83db838e4}\index{arm\_nn\_mat\_mult\_kernel\_s8\_s16.c@{arm\_nn\_mat\_mult\_kernel\_s8\_s16.c}!arm\_nn\_mat\_mult\_kernel\_s8\_s16@{arm\_nn\_mat\_mult\_kernel\_s8\_s16}}
+\index{arm\_nn\_mat\_mult\_kernel\_s8\_s16@{arm\_nn\_mat\_mult\_kernel\_s8\_s16}!arm\_nn\_mat\_mult\_kernel\_s8\_s16.c@{arm\_nn\_mat\_mult\_kernel\_s8\_s16.c}}
+\doxysubsubsection{\texorpdfstring{arm\_nn\_mat\_mult\_kernel\_s8\_s16()}{arm\_nn\_mat\_mult\_kernel\_s8\_s16()}}
+{\footnotesize\ttfamily \label{arm__nn__mat__mult__kernel__s8__s16_8c_ab2040b03e85717f57f8fcaf83db838e4} 
+\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*} arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+kernel\+\_\+s8\+\_\+s16 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{input\+\_\+a}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{input\+\_\+b}{, }\item[{const uint16\+\_\+t}]{output\+\_\+ch}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+shift}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+mult}{, }\item[{const int32\+\_\+t}]{out\+\_\+offset}{, }\item[{const int16\+\_\+t}]{activation\+\_\+min}{, }\item[{const int16\+\_\+t}]{activation\+\_\+max}{, }\item[{const uint16\+\_\+t}]{num\+\_\+col\+\_\+a}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}const}]{output\+\_\+bias}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{out\+\_\+0}{}\end{DoxyParamCaption})}
+
+
+
+Matrix-\/multiplication function for convolution with per-\/channel requantization. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em input\+\_\+a} & pointer to operand A \\
+\hline
+\mbox{\texttt{in}}  & {\em input\+\_\+b} & pointer to operand B, always consists of 2 vectors. \\
+\hline
+\mbox{\texttt{in}}  & {\em output\+\_\+ch} & number of rows of A \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+shift} & pointer to per output channel requantization shift parameter. \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+mult} & pointer to per output channel requantization multiplier parameter. \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+offset} & output tensor offset. \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+min} & minimum value to clamp the output to. Range \+: int8 \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+max} & maximum value to clamp the output to. Range \+: int8 \\
+\hline
+\mbox{\texttt{in}}  & {\em num\+\_\+col\+\_\+a} & number of columns of A \\
+\hline
+\mbox{\texttt{in}}  & {\em output\+\_\+bias} & per output channel bias. Range \+: int32 \\
+\hline
+\mbox{\texttt{in,out}}  & {\em out\+\_\+0} & pointer to output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns one of the two
+\begin{DoxyEnumerate}
+\item The incremented output pointer for a successful operation or
+\item NULL if implementation is not available.
+\end{DoxyEnumerate}
+\end{DoxyReturn}
+This function does the matrix multiplication of weight matrix for all output channels with 2 columns from im2col and produces two elements/output\+\_\+channel. The outputs are clamped in the range provided by activation min and max. Supported framework\+: Tensor\+Flow Lite micro. 
+
+Definition at line \mbox{\hyperlink{arm__nn__mat__mult__kernel__s8__s16_8c_source_l00040}{40}} of file \mbox{\hyperlink{arm__nn__mat__mult__kernel__s8__s16_8c_source}{arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+kernel\+\_\+s8\+\_\+s16.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__nn__mat__mult__kernel__s8__s16_8c_ab2040b03e85717f57f8fcaf83db838e4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__nn__mat__mult__kernel__s8__s16_8c_ab2040b03e85717f57f8fcaf83db838e4_icgraph}
+\end{center}
+\end{figure}

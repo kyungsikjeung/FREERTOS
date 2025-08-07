@@ -1,0 +1,55 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+fmpsmbus\+\_\+ex.\+c}
+\hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source}{}\label{stm32f4xx__hal__fmpsmbus__ex_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_fmpsmbus\_ex.c@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_fmpsmbus\_ex.c}}
+\mbox{\hyperlink{stm32f4xx__hal__fmpsmbus__ex_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00039}00039\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00040}00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal_8h}{stm32f4xx\_hal.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00051}00051\ \textcolor{preprocessor}{\#ifdef\ HAL\_FMPSMBUS\_MODULE\_ENABLED}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00052}00052\ \textcolor{preprocessor}{\#if\ defined(FMPI2C\_CR1\_PE)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00054}00054\ \textcolor{comment}{/*\ Private\ typedef\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00055}00055\ \textcolor{comment}{/*\ Private\ define\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00056}00056\ \textcolor{comment}{/*\ Private\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00057}00057\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00058}00058\ \textcolor{comment}{/*\ Private\ function\ prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00059}00059\ \textcolor{comment}{/*\ Private\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00090}00090\ \textcolor{keywordtype}{void}\ HAL\_FMPSMBUSEx\_EnableFastModePlus(uint32\_t\ ConfigFastModePlus)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00092}00092\ \ \ \textcolor{comment}{/*\ Check\ the\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00093}00093\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_FMPSMBUS\_FASTMODEPLUS(ConfigFastModePlus));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00095}00095\ \ \ \textcolor{comment}{/*\ Enable\ SYSCFG\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00096}00096\ \ \ \mbox{\hyperlink{group___r_c_c___a_p_b2___clock___enable___disable_gafc3ffcbb86e4913ae336ba094ca199e1}{\_\_HAL\_RCC\_SYSCFG\_CLK\_ENABLE}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00098}00098\ \ \ \textcolor{comment}{/*\ Enable\ fast\ mode\ plus\ driving\ capability\ for\ selected\ pin\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00099}00099\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga3c833fe1c486cb62250ccbca32899cb8}{SYSCFG}}-\/>CFGR,\ (uint32\_t)ConfigFastModePlus);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00113}00113\ \textcolor{keywordtype}{void}\ HAL\_FMPSMBUSEx\_DisableFastModePlus(uint32\_t\ ConfigFastModePlus)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00114}00114\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00115}00115\ \ \ \textcolor{comment}{/*\ Check\ the\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00116}00116\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_FMPSMBUS\_FASTMODEPLUS(ConfigFastModePlus));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00118}00118\ \ \ \textcolor{comment}{/*\ Enable\ SYSCFG\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00119}00119\ \ \ \mbox{\hyperlink{group___r_c_c___a_p_b2___clock___enable___disable_gafc3ffcbb86e4913ae336ba094ca199e1}{\_\_HAL\_RCC\_SYSCFG\_CLK\_ENABLE}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00121}00121\ \ \ \textcolor{comment}{/*\ Disable\ fast\ mode\ plus\ driving\ capability\ for\ selected\ pin\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00122}00122\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga3c833fe1c486cb62250ccbca32899cb8}{SYSCFG}}-\/>CFGR,\ (uint32\_t)ConfigFastModePlus);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00123}00123\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00137}00137\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ FMPI2C\_CR1\_PE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00138}00138\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_FMPSMBUS\_MODULE\_ENABLED\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__fmpsmbus__ex_8c_source_l00142}00142\ }
+
+\end{DoxyCode}

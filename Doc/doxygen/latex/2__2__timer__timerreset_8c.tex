@@ -1,0 +1,158 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Core/\+Src/\+Main\+Program/2\+\_\+2\+\_\+timer\+\_\+timerreset.c File Reference}
+\hypertarget{2__2__timer__timerreset_8c}{}\label{2__2__timer__timerreset_8c}\index{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/2\_2\_timer\_timerreset.c@{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/2\_2\_timer\_timerreset.c}}
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+init.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for 2\+\_\+2\+\_\+timer\+\_\+timerreset.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{2__2__timer__timerreset_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{2__2__timer__timerreset_8c_a513d2a4c928a60b5f4cec6b4ffb57468}{reset\+Flag}} (\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} \mbox{\hyperlink{timerperiodchange_8c_a3e934bb5849bde559bb0310c8814e5fe}{x\+Timer}})
+\item 
+void \mbox{\hyperlink{2__2__timer__timerreset_8c_af39dc352302e4d1f7e9b908f5e3fdb71}{turn\+On\+Back\+Light}} ()
+\item 
+void \mbox{\hyperlink{2__2__timer__timerreset_8c_acb5de967469f72e032d5f26cb16986ac}{detect\+Key\+Input}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\item 
+int \mbox{\hyperlink{2__2__timer__timerreset_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} \mbox{\hyperlink{2__2__timer__timerreset_8c_a0339da893ec1c241a8a05e807284b3f0}{one\+Shot\+Timer\+Handle}} = NULL
+\item 
+volatile bool \mbox{\hyperlink{2__2__timer__timerreset_8c_aaeba8066c68f59ff9aa76e5d67a96fb5}{is\+Button\+Pushed}} = false
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{2__2__timer__timerreset_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{2__2__timer__timerreset_8c_acb5de967469f72e032d5f26cb16986ac}\index{2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}!detectKeyInput@{detectKeyInput}}
+\index{detectKeyInput@{detectKeyInput}!2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}}
+\doxysubsubsection{\texorpdfstring{detectKeyInput()}{detectKeyInput()}}
+{\footnotesize\ttfamily \label{2__2__timer__timerreset_8c_acb5de967469f72e032d5f26cb16986ac} 
+void detect\+Key\+Input (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{2__2__timer__timerreset_8c_source_l00030}{30}} of file \mbox{\hyperlink{2__2__timer__timerreset_8c_source}{2\+\_\+2\+\_\+timer\+\_\+timerreset.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{2__2__timer__timerreset_8c_acb5de967469f72e032d5f26cb16986ac_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{2__2__timer__timerreset_8c_acb5de967469f72e032d5f26cb16986ac_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{2__2__timer__timerreset_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}!main@{main}}
+\index{main@{main}!2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{2__2__timer__timerreset_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{2__2__timer__timerreset_8c_source_l00058}{58}} of file \mbox{\hyperlink{2__2__timer__timerreset_8c_source}{2\+\_\+2\+\_\+timer\+\_\+timerreset.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{2__2__timer__timerreset_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{2__2__timer__timerreset_8c_a513d2a4c928a60b5f4cec6b4ffb57468}\index{2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}!resetFlag@{resetFlag}}
+\index{resetFlag@{resetFlag}!2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}}
+\doxysubsubsection{\texorpdfstring{resetFlag()}{resetFlag()}}
+{\footnotesize\ttfamily \label{2__2__timer__timerreset_8c_a513d2a4c928a60b5f4cec6b4ffb57468} 
+void reset\+Flag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}}}]{x\+Timer}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{2__2__timer__timerreset_8c_source_l00013}{13}} of file \mbox{\hyperlink{2__2__timer__timerreset_8c_source}{2\+\_\+2\+\_\+timer\+\_\+timerreset.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{2__2__timer__timerreset_8c_a513d2a4c928a60b5f4cec6b4ffb57468_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{2__2__timer__timerreset_8c_a513d2a4c928a60b5f4cec6b4ffb57468_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{2__2__timer__timerreset_8c_af39dc352302e4d1f7e9b908f5e3fdb71}\index{2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}!turnOnBackLight@{turnOnBackLight}}
+\index{turnOnBackLight@{turnOnBackLight}!2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}}
+\doxysubsubsection{\texorpdfstring{turnOnBackLight()}{turnOnBackLight()}}
+{\footnotesize\ttfamily \label{2__2__timer__timerreset_8c_af39dc352302e4d1f7e9b908f5e3fdb71} 
+void turn\+On\+Back\+Light (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{2__2__timer__timerreset_8c_source_l00023}{23}} of file \mbox{\hyperlink{2__2__timer__timerreset_8c_source}{2\+\_\+2\+\_\+timer\+\_\+timerreset.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{2__2__timer__timerreset_8c_af39dc352302e4d1f7e9b908f5e3fdb71_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{2__2__timer__timerreset_8c_af39dc352302e4d1f7e9b908f5e3fdb71_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{2__2__timer__timerreset_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{2__2__timer__timerreset_8c_aaeba8066c68f59ff9aa76e5d67a96fb5}\index{2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}!isButtonPushed@{isButtonPushed}}
+\index{isButtonPushed@{isButtonPushed}!2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}}
+\doxysubsubsection{\texorpdfstring{isButtonPushed}{isButtonPushed}}
+{\footnotesize\ttfamily \label{2__2__timer__timerreset_8c_aaeba8066c68f59ff9aa76e5d67a96fb5} 
+volatile bool is\+Button\+Pushed = false}
+
+
+
+Definition at line \mbox{\hyperlink{2__2__timer__timerreset_8c_source_l00010}{10}} of file \mbox{\hyperlink{2__2__timer__timerreset_8c_source}{2\+\_\+2\+\_\+timer\+\_\+timerreset.\+c}}.
+
+\Hypertarget{2__2__timer__timerreset_8c_a0339da893ec1c241a8a05e807284b3f0}\index{2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}!oneShotTimerHandle@{oneShotTimerHandle}}
+\index{oneShotTimerHandle@{oneShotTimerHandle}!2\_2\_timer\_timerreset.c@{2\_2\_timer\_timerreset.c}}
+\doxysubsubsection{\texorpdfstring{oneShotTimerHandle}{oneShotTimerHandle}}
+{\footnotesize\ttfamily \label{2__2__timer__timerreset_8c_a0339da893ec1c241a8a05e807284b3f0} 
+\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} one\+Shot\+Timer\+Handle = NULL}
+
+
+
+Definition at line \mbox{\hyperlink{2__2__timer__timerreset_8c_source_l00007}{7}} of file \mbox{\hyperlink{2__2__timer__timerreset_8c_source}{2\+\_\+2\+\_\+timer\+\_\+timerreset.\+c}}.
+

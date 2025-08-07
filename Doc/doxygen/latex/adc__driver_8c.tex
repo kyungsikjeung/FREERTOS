@@ -1,0 +1,362 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Core/\+Src/\+User\+Driver/adc\+\_\+driver.c File Reference}
+\hypertarget{adc__driver_8c}{}\label{adc__driver_8c}\index{C:/Users/TOVIS/test/TestRtos/Core/Src/UserDriver/adc\_driver.c@{C:/Users/TOVIS/test/TestRtos/Core/Src/UserDriver/adc\_driver.c}}
+{\ttfamily \#include "{}adc\+\_\+driver.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for adc\+\_\+driver.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adc__driver_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{adc__driver_8c_a4acb6ac811c38d9fbbe486ce6fca9535}{ADC\+\_\+\+Driver\+\_\+\+Init}} (\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}driver)
+\begin{DoxyCompactList}\small\item\em ADC 드라이버 초기화 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{adc__driver_8c_aa44f554b8927d5c5ceb0009ae562858f}{ADC\+\_\+\+Driver\+\_\+\+Start}} (\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}driver)
+\begin{DoxyCompactList}\small\item\em ADC 드라이버 시작 (타이머 시작) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{adc__driver_8c_a6d7bfacb64232478800dc9bee1daf84b}{ADC\+\_\+\+Driver\+\_\+\+Stop}} (\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}driver)
+\begin{DoxyCompactList}\small\item\em ADC 드라이버 정지 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} \mbox{\hyperlink{adc__driver_8c_aaf61bdf222fa6f5ec9720369eff97a90}{ADC\+\_\+\+Driver\+\_\+\+Get\+Data}} (\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}driver, \mbox{\hyperlink{struct_a_d_c___data__t}{ADC\+\_\+\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}data, \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}} timeout)
+\begin{DoxyCompactList}\small\item\em ADC 변환된 데이터 수신 \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{adc__driver_8c_a98272162c59734ba625d8455d095df4d}{ADC\+\_\+\+Driver\+\_\+\+Get\+Queue\+Count}} (\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}driver)
+\begin{DoxyCompactList}\small\item\em ADC 큐의 남은 메시지 개수 반환 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{adc__driver_8c_af83458206088a7cf1ef7316d768ccd99}{ADC\+\_\+\+Driver\+\_\+\+Clear\+Queue}} (\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}driver)
+\begin{DoxyCompactList}\small\item\em ADC 큐 초기화 (비우기) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{adc__driver_8c_a4a6cf4ecc0b626f4d64358ad331d0757}{ADC\+\_\+\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em ADC 태스크 (변환 완료 시 데이터 처리) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___a_d_c___exported___functions___group2_gaf20a88180db1113be1e89266917d148b}{HAL\+\_\+\+ADC\+\_\+\+Conv\+Cplt\+Callback}} (\mbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\begin{DoxyCompactList}\small\item\em HAL 콜백 -\/ ADC 변환 완료 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{adc__driver_8c_aaf6ce196dde98712e1223b99766e06c0}{DMA2\+\_\+\+Stream0\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em DMA 인터럽트 핸들러 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{adc__driver_8c_a06406eadf297fa89a6eaf9586b227a69}{ADC\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em ADC 인터럽트 핸들러 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \mbox{\hyperlink{adc__driver_8c_ac07374bb1ad17983403a31fda93f4de7}{g\+\_\+adc\+\_\+driver}} = \{0\}
+\begin{DoxyCompactList}\small\item\em 전역 ADC 드라이버 인스턴스 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{adc__driver_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{adc__driver_8c_af83458206088a7cf1ef7316d768ccd99}\index{adc\_driver.c@{adc\_driver.c}!ADC\_Driver\_ClearQueue@{ADC\_Driver\_ClearQueue}}
+\index{ADC\_Driver\_ClearQueue@{ADC\_Driver\_ClearQueue}!adc\_driver.c@{adc\_driver.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_Driver\_ClearQueue()}{ADC\_Driver\_ClearQueue()}}
+{\footnotesize\ttfamily \label{adc__driver_8c_af83458206088a7cf1ef7316d768ccd99} 
+void ADC\+\_\+\+Driver\+\_\+\+Clear\+Queue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{driver}{}\end{DoxyParamCaption})}
+
+
+
+ADC 큐 초기화 (비우기) 
+
+ADC 큐를 비움
+
+
+\begin{DoxyParams}{Parameters}
+{\em driver} & ADC 드라이버 포인터 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{adc__driver_8c_source_l00186}{186}} of file \mbox{\hyperlink{adc__driver_8c_source}{adc\+\_\+driver.\+c}}.
+
+\Hypertarget{adc__driver_8c_aaf61bdf222fa6f5ec9720369eff97a90}\index{adc\_driver.c@{adc\_driver.c}!ADC\_Driver\_GetData@{ADC\_Driver\_GetData}}
+\index{ADC\_Driver\_GetData@{ADC\_Driver\_GetData}!adc\_driver.c@{adc\_driver.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_Driver\_GetData()}{ADC\_Driver\_GetData()}}
+{\footnotesize\ttfamily \label{adc__driver_8c_aaf61bdf222fa6f5ec9720369eff97a90} 
+\mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{Base\+Type\+\_\+t}} ADC\+\_\+\+Driver\+\_\+\+Get\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{driver}{, }\item[{\mbox{\hyperlink{struct_a_d_c___data__t}{ADC\+\_\+\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{\mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{Tick\+Type\+\_\+t}}}]{timeout}{}\end{DoxyParamCaption})}
+
+
+
+ADC 변환된 데이터 수신 
+
+ADC 큐에서 데이터 수신
+
+
+\begin{DoxyParams}{Parameters}
+{\em driver} & ADC 드라이버 포인터 \\
+\hline
+{\em data} & 수신할 구조체 포인터 \\
+\hline
+{\em timeout} & 수신 대기 시간 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em pd\+TRUE} & or pd\+FALSE \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{adc__driver_8c_source_l00167}{167}} of file \mbox{\hyperlink{adc__driver_8c_source}{adc\+\_\+driver.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adc__driver_8c_aaf61bdf222fa6f5ec9720369eff97a90_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adc__driver_8c_aaf61bdf222fa6f5ec9720369eff97a90_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{adc__driver_8c_a98272162c59734ba625d8455d095df4d}\index{adc\_driver.c@{adc\_driver.c}!ADC\_Driver\_GetQueueCount@{ADC\_Driver\_GetQueueCount}}
+\index{ADC\_Driver\_GetQueueCount@{ADC\_Driver\_GetQueueCount}!adc\_driver.c@{adc\_driver.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_Driver\_GetQueueCount()}{ADC\_Driver\_GetQueueCount()}}
+{\footnotesize\ttfamily \label{adc__driver_8c_a98272162c59734ba625d8455d095df4d} 
+uint32\+\_\+t ADC\+\_\+\+Driver\+\_\+\+Get\+Queue\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{driver}{}\end{DoxyParamCaption})}
+
+
+
+ADC 큐의 남은 메시지 개수 반환 
+
+ADC 큐에 쌓인 데이터 개수 반환
+
+
+\begin{DoxyParams}{Parameters}
+{\em driver} & ADC 드라이버 포인터 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 메시지} & 개수 \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{adc__driver_8c_source_l00177}{177}} of file \mbox{\hyperlink{adc__driver_8c_source}{adc\+\_\+driver.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adc__driver_8c_a98272162c59734ba625d8455d095df4d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adc__driver_8c_a98272162c59734ba625d8455d095df4d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{adc__driver_8c_a4acb6ac811c38d9fbbe486ce6fca9535}\index{adc\_driver.c@{adc\_driver.c}!ADC\_Driver\_Init@{ADC\_Driver\_Init}}
+\index{ADC\_Driver\_Init@{ADC\_Driver\_Init}!adc\_driver.c@{adc\_driver.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_Driver\_Init()}{ADC\_Driver\_Init()}}
+{\footnotesize\ttfamily \label{adc__driver_8c_a4acb6ac811c38d9fbbe486ce6fca9535} 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} ADC\+\_\+\+Driver\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{driver}{}\end{DoxyParamCaption})}
+
+
+
+ADC 드라이버 초기화 
+
+
+\begin{DoxyParams}{Parameters}
+{\em driver} & ADC 드라이버 구조체 포인터 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em HAL\+\_\+\+OK} & 또는 오류 코드 \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{adc__driver_8c_source_l00015}{15}} of file \mbox{\hyperlink{adc__driver_8c_source}{adc\+\_\+driver.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adc__driver_8c_a4acb6ac811c38d9fbbe486ce6fca9535_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{adc__driver_8c_a4acb6ac811c38d9fbbe486ce6fca9535_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{adc__driver_8c_aa44f554b8927d5c5ceb0009ae562858f}\index{adc\_driver.c@{adc\_driver.c}!ADC\_Driver\_Start@{ADC\_Driver\_Start}}
+\index{ADC\_Driver\_Start@{ADC\_Driver\_Start}!adc\_driver.c@{adc\_driver.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_Driver\_Start()}{ADC\_Driver\_Start()}}
+{\footnotesize\ttfamily \label{adc__driver_8c_aa44f554b8927d5c5ceb0009ae562858f} 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} ADC\+\_\+\+Driver\+\_\+\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{driver}{}\end{DoxyParamCaption})}
+
+
+
+ADC 드라이버 시작 (타이머 시작) 
+
+ADC 측정 시작 (DMA 방식)
+
+
+\begin{DoxyParams}{Parameters}
+{\em driver} & ADC 드라이버 포인터 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em HAL\+\_\+\+OK} & 또는 HAL\+\_\+\+ERROR \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{adc__driver_8c_source_l00139}{139}} of file \mbox{\hyperlink{adc__driver_8c_source}{adc\+\_\+driver.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{adc__driver_8c_aa44f554b8927d5c5ceb0009ae562858f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{adc__driver_8c_a6d7bfacb64232478800dc9bee1daf84b}\index{adc\_driver.c@{adc\_driver.c}!ADC\_Driver\_Stop@{ADC\_Driver\_Stop}}
+\index{ADC\_Driver\_Stop@{ADC\_Driver\_Stop}!adc\_driver.c@{adc\_driver.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_Driver\_Stop()}{ADC\_Driver\_Stop()}}
+{\footnotesize\ttfamily \label{adc__driver_8c_a6d7bfacb64232478800dc9bee1daf84b} 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} ADC\+\_\+\+Driver\+\_\+\+Stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{driver}{}\end{DoxyParamCaption})}
+
+
+
+ADC 드라이버 정지 
+
+ADC 측정 중지
+
+
+\begin{DoxyParams}{Parameters}
+{\em driver} & ADC 드라이버 포인터 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em HAL\+\_\+\+OK} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{adc__driver_8c_source_l00151}{151}} of file \mbox{\hyperlink{adc__driver_8c_source}{adc\+\_\+driver.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{adc__driver_8c_a6d7bfacb64232478800dc9bee1daf84b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{adc__driver_8c_a06406eadf297fa89a6eaf9586b227a69}\index{adc\_driver.c@{adc\_driver.c}!ADC\_IRQHandler@{ADC\_IRQHandler}}
+\index{ADC\_IRQHandler@{ADC\_IRQHandler}!adc\_driver.c@{adc\_driver.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_IRQHandler()}{ADC\_IRQHandler()}}
+{\footnotesize\ttfamily \label{adc__driver_8c_a06406eadf297fa89a6eaf9586b227a69} 
+void ADC\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+ADC 인터럽트 핸들러 
+
+ADC 인터럽트 핸들러 (옵션) 
+
+Definition at line \mbox{\hyperlink{adc__driver_8c_source_l00256}{256}} of file \mbox{\hyperlink{adc__driver_8c_source}{adc\+\_\+driver.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{adc__driver_8c_a06406eadf297fa89a6eaf9586b227a69_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{adc__driver_8c_a4a6cf4ecc0b626f4d64358ad331d0757}\index{adc\_driver.c@{adc\_driver.c}!ADC\_Task@{ADC\_Task}}
+\index{ADC\_Task@{ADC\_Task}!adc\_driver.c@{adc\_driver.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_Task()}{ADC\_Task()}}
+{\footnotesize\ttfamily \label{adc__driver_8c_a4a6cf4ecc0b626f4d64358ad331d0757} 
+void ADC\+\_\+\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+ADC 태스크 (변환 완료 시 데이터 처리) 
+
+ADC 측정을 수행하는 Free\+RTOS 태스크
+
+
+\begin{DoxyParams}{Parameters}
+{\em pv\+Parameters} & \doxylink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t} 포인터 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{adc__driver_8c_source_l00205}{205}} of file \mbox{\hyperlink{adc__driver_8c_source}{adc\+\_\+driver.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adc__driver_8c_a4a6cf4ecc0b626f4d64358ad331d0757_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{adc__driver_8c_a4a6cf4ecc0b626f4d64358ad331d0757_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{adc__driver_8c_aaf6ce196dde98712e1223b99766e06c0}\index{adc\_driver.c@{adc\_driver.c}!DMA2\_Stream0\_IRQHandler@{DMA2\_Stream0\_IRQHandler}}
+\index{DMA2\_Stream0\_IRQHandler@{DMA2\_Stream0\_IRQHandler}!adc\_driver.c@{adc\_driver.c}}
+\doxysubsubsection{\texorpdfstring{DMA2\_Stream0\_IRQHandler()}{DMA2\_Stream0\_IRQHandler()}}
+{\footnotesize\ttfamily \label{adc__driver_8c_aaf6ce196dde98712e1223b99766e06c0} 
+void DMA2\+\_\+\+Stream0\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+DMA 인터럽트 핸들러 
+
+DMA 인터럽트 핸들러 (DMA2\+\_\+\+Stream0용) 
+
+Definition at line \mbox{\hyperlink{adc__driver_8c_source_l00248}{248}} of file \mbox{\hyperlink{adc__driver_8c_source}{adc\+\_\+driver.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{adc__driver_8c_aaf6ce196dde98712e1223b99766e06c0_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{adc__driver_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{adc__driver_8c_ac07374bb1ad17983403a31fda93f4de7}\index{adc\_driver.c@{adc\_driver.c}!g\_adc\_driver@{g\_adc\_driver}}
+\index{g\_adc\_driver@{g\_adc\_driver}!adc\_driver.c@{adc\_driver.c}}
+\doxysubsubsection{\texorpdfstring{g\_adc\_driver}{g\_adc\_driver}}
+{\footnotesize\ttfamily \label{adc__driver_8c_ac07374bb1ad17983403a31fda93f4de7} 
+\mbox{\hyperlink{struct_a_d_c___driver__t}{ADC\+\_\+\+Driver\+\_\+t}} g\+\_\+adc\+\_\+driver = \{0\}}
+
+
+
+전역 ADC 드라이버 인스턴스 
+
+
+
+Definition at line \mbox{\hyperlink{adc__driver_8c_source_l00005}{5}} of file \mbox{\hyperlink{adc__driver_8c_source}{adc\+\_\+driver.\+c}}.
+

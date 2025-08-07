@@ -1,0 +1,5 @@
+<map id="arm_convolve_s16" name="arm_convolve_s16">
+<area shape="rect" id="Node000001" title="Basic s16 convolution function." alt="" coords="237,5,367,32"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#gaf1b719fadc837ba10c065fa0aa1d31fc" title="s16 convolution layer wrapper function with the main purpose to call the optimal kernel available in ..." alt="" coords="5,5,189,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,21,189,21,189,16,221,16"/>
+</map>

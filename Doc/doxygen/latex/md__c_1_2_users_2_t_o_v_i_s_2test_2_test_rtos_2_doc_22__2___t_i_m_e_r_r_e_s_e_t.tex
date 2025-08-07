@@ -1,0 +1,64 @@
+\chapter{Free\+RTOS + One-\/shot Timer\+: 버튼 입력 후 백라이트 자동 OFF 제어 예제 }
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t}{}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t}\index{FreeRTOS + One-\/shot Timer: 버튼 입력 후 백라이트 자동 OFF 제어 예제@{FreeRTOS + One-\/shot Timer: 버튼 입력 후 백라이트 자동 OFF 제어 예제}}
+\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md48}%
+\Hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md48}%
+
+
+이 예제는 사용자 버튼을 눌렀을 때 LED 백라이트를 켜고, 5초 뒤 자동으로 끄는 One-\/shot 소프트웨어 타이머 제어 방식을 보여줍니다.\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md49}{}\doxysection{\texorpdfstring{1. 목적 (Objective)}{1. 목적 (Objective)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md49}
+버튼 입력을 감지하여 백라이트 ON 5초 타이머를 통해 자동으로 백라이트 OFF 타이머가 이미 작동 중일 경우, 리셋을 통해 다시 5초 대기\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md50}{}\doxysection{\texorpdfstring{2. 시스템 구성}{2. 시스템 구성}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md50}
+항목 설명 입력 USER\+\_\+\+Btn (GPIO 버튼) 출력 LD1, LD2, LD3 (GPIO LED 백라이트) 타이머 x\+Timer\+Create() 사용, 5초 One-\/shot 폴링 주기 50ms (디바운싱 겸용)\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md51}{}\doxysection{\texorpdfstring{3. 동작 시나리오}{3. 동작 시나리오}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md51}
+프로그램 시작 시 타이머는 대기 상태 버튼을 누르면 백라이트 ON 이후 5초 후 \doxylink{2__2__timer__timerreset_8c_a513d2a4c928a60b5f4cec6b4ffb57468}{reset\+Flag()} 콜백에서 백라이트 OFF 버튼이 눌릴 때마다 타이머가 리셋되어 5초가 연장됨\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md52}{}\doxysection{\texorpdfstring{4. 주요 함수}{4. 주요 함수}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md52}
+함수 설명
+\begin{DoxyItemize}
+\item {\bfseries{\doxylink{group___g_p_i_o___exported___functions___group2_gaf2b819ea6551319ddd5670db318d2e4e}{HAL\+\_\+\+GPIO\+\_\+\+Read\+Pin()}}} 버튼 입력 읽기
+\item {\bfseries{\doxylink{group___g_p_i_o___exported___functions___group2_gaf4b97bdf533a02f51ef696d43b6da5c4}{HAL\+\_\+\+GPIO\+\_\+\+Write\+Pin()}}} LED 백라이트 제어
+\item {\bfseries{x\+Timer\+Create()}} 소프트웨어 타이머 생성
+\item {\bfseries{\doxylink{timers_8h_a3a9b838f48991e852ce05c986b0eeb8c}{x\+Timer\+Start()}}} 타이머 시작
+\item {\bfseries{\doxylink{timers_8h_a8081b4541b752908dc55df2693e53287}{x\+Timer\+Reset()}}} 타이머 재시작
+\item {\bfseries{\doxylink{timers_8h_a2cd9b1399fb25203be698f123846dc33}{x\+Timer\+Is\+Timer\+Active()}}} 타이머 실행 중 여부 확인
+\item {\bfseries{\doxylink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{v\+Task\+Delay()}}} 폴링 간격 제어 (50ms)
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md53}{}\doxysection{\texorpdfstring{5. UART 출력 예시 (버튼 눌렀을 시)}{5. UART 출력 예시 (버튼 눌렀을 시)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md53}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{reset\ Flag}
+
+\end{DoxyCode}
+ \hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md54}{}\doxysection{\texorpdfstring{6. 코드 요약}{6. 코드 요약}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md54}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (button\ 눌림\ 감지됨)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{2__2__timer__timerreset_8c_af39dc352302e4d1f7e9b908f5e3fdb71}{turnOnBackLight}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{2__2__timer__timerreset_8c_aaeba8066c68f59ff9aa76e5d67a96fb5}{isButtonPushed}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{timers_8h_a2cd9b1399fb25203be698f123846dc33}{xTimerIsTimerActive}}(\mbox{\hyperlink{2__2__timer__timerreset_8c_a0339da893ec1c241a8a05e807284b3f0}{oneShotTimerHandle}})\ ==\ \mbox{\hyperlink{projdefs_8h_aa56260e937e7e203026707e5ba944273}{pdFALSE}})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{timers_8h_a3a9b838f48991e852ce05c986b0eeb8c}{xTimerStart}}(\mbox{\hyperlink{2__2__timer__timerreset_8c_a0339da893ec1c241a8a05e807284b3f0}{oneShotTimerHandle}},\ 0);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{timers_8h_a8081b4541b752908dc55df2693e53287}{xTimerReset}}(\mbox{\hyperlink{2__2__timer__timerreset_8c_a0339da893ec1c241a8a05e807284b3f0}{oneShotTimerHandle}},\ 0);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md55}{}\doxysection{\texorpdfstring{7. 시퀀스 다이어그램 (Plant\+UML)}{7. 시퀀스 다이어그램 (Plant\+UML)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md55}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@startuml}
+\DoxyCodeLine{autonumber}
+\DoxyCodeLine{actor\ "{}사용자"{}\ as\ User}
+\DoxyCodeLine{participant\ "{}detectKeyInput\ Task"{}\ as\ Task}
+\DoxyCodeLine{participant\ "{}One-\/shot\ Timer"{}\ as\ Timer}
+\DoxyCodeLine{participant\ "{}백라이트\ (LED)"{}\ as\ Backlight}
+\DoxyCodeLine{}
+\DoxyCodeLine{==\ 버튼\ 눌림\ ==}
+\DoxyCodeLine{User\ -\/>\ Task:\ 버튼\ 누름}
+\DoxyCodeLine{Task\ -\/>\ Backlight:\ turnOnBackLight()}
+\DoxyCodeLine{Task\ -\/>\ Timer:\ xTimerStart()\ 또는\ xTimerReset()}
+\DoxyCodeLine{}
+\DoxyCodeLine{==\ 타이머\ 만료\ (5초\ 후)\ ==}
+\DoxyCodeLine{Timer\ -\/>\ Task:\ resetFlag()\ 콜백}
+\DoxyCodeLine{Task\ -\/>\ Backlight:\ turnOffBackLight()}
+\DoxyCodeLine{@enduml}
+
+\end{DoxyCode}
+ \hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md56}{}\doxysection{\texorpdfstring{8. 결론}{8. 결론}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_22__2___t_i_m_e_r_r_e_s_e_t_autotoc_md56}
+사용자의 단일 입력 이벤트를 트리거로, 타이머를 이용해 일정 시간 후 자동 동작을 구현할 수 있음
+
+타이머 상태 확인 및 리셋 기능을 통해 사용자 경험 향상 (입력 반복 시 대기 시간 연장) 

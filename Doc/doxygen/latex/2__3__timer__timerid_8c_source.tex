@@ -1,0 +1,91 @@
+\doxysection{2\+\_\+3\+\_\+timer\+\_\+timerid.\+c}
+\hypertarget{2__3__timer__timerid_8c_source}{}\label{2__3__timer__timerid_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/2\_3\_timer\_timerid.c@{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/2\_3\_timer\_timerid.c}}
+\mbox{\hyperlink{2__3__timer__timerid_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__init_8h}{driver\_init.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00004}00004\ \textcolor{comment}{/*\ 타이머\ 핸들\ */}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00005}00005\ \textcolor{keyword}{static}\ \mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{TimerHandle\_t}}\ xOneShotTimer\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00006}00006\ \textcolor{keyword}{static}\ \mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{TimerHandle\_t}}\ xAutoReloadTimer\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00008}00008\ \textcolor{comment}{/*\ 문자열\ 출력\ 함수\ (예:\ UART\ 대신\ printf\ 사용)\ */}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00009}\mbox{\hyperlink{2__3__timer__timerid_8c_a58ec64c472727b9c2addc743f8d464ed}{00009}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{2__3__timer__timerid_8c_a58ec64c472727b9c2addc743f8d464ed}{vPrintStringAndNumber}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg,\ \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}}\ tick)\ \{}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00010}00010\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%s\ at\ tick\ \%lu\(\backslash\)n"{}},\ msg,\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long})tick);}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00011}00011\ \}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00013}00013\ \textcolor{comment}{/*\ 타이머\ 콜백\ 함수:\ 두\ 타이머에서\ 공통\ 사용\ */}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00014}00014\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ prvTimerCallback(\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{TimerHandle\_t}}\ \mbox{\hyperlink{timerperiodchange_8c_a3e934bb5849bde559bb0310c8814e5fe}{xTimer}})}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{portmacro_8h_aa69c48c6e902ce54f70886e6573c92a9}{TickType\_t}}\ xTimeNow;}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00017}00017\ \ \ \ \ uint32\_t\ ulExecutionCount;}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00019}00019\ \ \ \ \ \textcolor{comment}{//\ 1.\ 현재\ ID\ 값(실행\ 횟수)을\ 가져와서\ 1\ 증가}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00020}00020\ \ \ \ \ ulExecutionCount\ =\ (uint32\_t)\ \mbox{\hyperlink{timers_8h_a116df5c5464393c6aeda6ecec6c9e916}{pvTimerGetTimerID}}(\mbox{\hyperlink{timerperiodchange_8c_a3e934bb5849bde559bb0310c8814e5fe}{xTimer}});}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00021}00021\ \ \ \ \ ulExecutionCount++;}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ 2.\ 새로운\ 실행\ 횟수로\ ID\ 업데이트}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{timers_8h_a1f06045a953481dd7012d4c7762990cb}{vTimerSetTimerID}}(\mbox{\hyperlink{timerperiodchange_8c_a3e934bb5849bde559bb0310c8814e5fe}{xTimer}},\ (\textcolor{keywordtype}{void}\ *)\ ulExecutionCount);}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ 3.\ 현재\ tick\ 획득}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00027}00027\ \ \ \ \ xTimeNow\ =\ \mbox{\hyperlink{task_8h_a753ecfe23e7386066ecccad5d16422f7}{xTaskGetTickCount}}();}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ 4.\ 어떤\ 타이머인지\ 구분\ 후\ 메시지\ 출력}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{timerperiodchange_8c_a3e934bb5849bde559bb0310c8814e5fe}{xTimer}}\ ==\ xOneShotTimer)}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00031}00031\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{2__3__timer__timerid_8c_a58ec64c472727b9c2addc743f8d464ed}{vPrintStringAndNumber}}(\textcolor{stringliteral}{"{}One-\/shot\ timer\ callback\ executing"{}},\ xTimeNow);}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00035}00035\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{2__3__timer__timerid_8c_a58ec64c472727b9c2addc743f8d464ed}{vPrintStringAndNumber}}(\textcolor{stringliteral}{"{}Auto-\/reload\ timer\ callback\ executing"{}},\ xTimeNow);}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 5.\ 오토리로드\ 타이머는\ 5번\ 실행\ 후\ 정지}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ulExecutionCount\ ==\ 5)}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{timers_8h_a8327c7fc10aee414cb163b445c5269a4}{xTimerStop}}(\mbox{\hyperlink{timerperiodchange_8c_a3e934bb5849bde559bb0310c8814e5fe}{xTimer}},\ 0);\ \ \textcolor{comment}{//\ 블로킹\ 없이\ 정지}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00043}00043\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00046}00046\ \textcolor{comment}{/*\ 시작\ 태스크:\ 타이머\ 생성\ 및\ 시작\ */}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00047}\mbox{\hyperlink{2__3__timer__timerid_8c_af8a12ef75ae7351b60d36397141ff47c}{00047}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{2__3__timer__timerid_8c_af8a12ef75ae7351b60d36397141ff47c}{vStarterTask}}(\textcolor{keywordtype}{void}\ *pvParameters)}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00048}00048\ \{}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ 1.\ One-\/shot\ 타이머\ 생성\ (1초\ 후\ 단\ 1회\ 실행)}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00050}00050\ \ \ \ \ xOneShotTimer\ =\ xTimerCreate(}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}OneShot"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 이름}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{projdefs_8h_a353d0f62b82a402cb3db63706c81ec3f}{pdMS\_TO\_TICKS}}(1000),\ \ \ \ \ \ \textcolor{comment}{//\ 기간:\ 1000ms}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{projdefs_8h_aa56260e937e7e203026707e5ba944273}{pdFALSE}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 자동\ 재시작\ 여부\ (false\ =\ one-\/shot)}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *)0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 초기\ 실행\ 횟수}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ prvTimerCallback\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 콜백\ 함수}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00056}00056\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00058}00058\ \ \ \ \ \textcolor{comment}{//\ 2.\ Auto-\/reload\ 타이머\ 생성\ (0.5초\ 간격\ 반복\ 실행)}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00059}00059\ \ \ \ \ xAutoReloadTimer\ =\ xTimerCreate(}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}AutoReload"{}},\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 이름}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{projdefs_8h_a353d0f62b82a402cb3db63706c81ec3f}{pdMS\_TO\_TICKS}}(500),\ \ \ \ \ \ \ \textcolor{comment}{//\ 기간:\ 500ms}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{projdefs_8h_af268cf937960eb029256bd9c4d949fbe}{pdTRUE}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 자동\ 재시작\ 여부}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *)0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 초기\ 실행\ 횟수}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ prvTimerCallback\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 콜백\ 함수}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00065}00065\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//\ 3.\ 타이머\ 시작}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{timers_8h_a3a9b838f48991e852ce05c986b0eeb8c}{xTimerStart}}(xOneShotTimer,\ 0);}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00069}00069\ \ \ \ \ \mbox{\hyperlink{timers_8h_a3a9b838f48991e852ce05c986b0eeb8c}{xTimerStart}}(xAutoReloadTimer,\ 0);}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//\ 4.\ 자신은\ 종료}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{task_8h_a27ff4ebce26565bef136bda84201ff80}{vTaskDelete}}(NULL);}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00073}00073\ \}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00075}00075\ \textcolor{comment}{/*\ 메인\ 함수\ */}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00076}\mbox{\hyperlink{2__3__timer__timerid_8c_a840291bc02cba5474a4cb46a9b9566fe}{00076}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{2__3__timer__timerid_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00077}00077\ \{}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{driver__init_8h_aab7f079e70f08c868bbb3fdd41b86f82}{Driver\_Init}}();}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00079}00079\ \ \ \ \ \textcolor{comment}{//\ 시작\ 태스크\ 생성}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00080}00080\ \ \ \ \ xTaskCreate(\mbox{\hyperlink{2__3__timer__timerid_8c_af8a12ef75ae7351b60d36397141ff47c}{vStarterTask}},\ \textcolor{stringliteral}{"{}Starter"{}},\ \mbox{\hyperlink{_free_r_t_o_s_config_8h_a6c534a6cf8a00528fe0be42083484f9a}{configMINIMAL\_STACK\_SIZE}}\ +\ 100,\ NULL,\ 1,\ NULL);}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//\ 스케줄러\ 시작}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00082}00082\ \ \ \ \ \mbox{\hyperlink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{vTaskStartScheduler}}();}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ 실행\ 도달\ 불가}}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{for}\ (;;);}
+\DoxyCodeLine{\Hypertarget{2__3__timer__timerid_8c_source_l00085}00085\ \}}
+
+\end{DoxyCode}

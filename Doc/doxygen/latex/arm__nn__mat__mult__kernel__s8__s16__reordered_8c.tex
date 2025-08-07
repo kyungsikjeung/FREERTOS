@@ -1,0 +1,40 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+NN/\+Source/\+Convolution\+Functions/arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+kernel\+\_\+s8\+\_\+s16\+\_\+reordered.c File Reference}
+\hypertarget{arm__nn__mat__mult__kernel__s8__s16__reordered_8c}{}\label{arm__nn__mat__mult__kernel__s8__s16__reordered_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ConvolutionFunctions/arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ConvolutionFunctions/arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered.c}}
+{\ttfamily \#include "{}arm\+\_\+nnfunctions.\+h"{}}\newline
+{\ttfamily \#include "{}arm\+\_\+nnsupportfunctions.\+h"{}}\newline
+Include dependency graph for arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+kernel\+\_\+s8\+\_\+s16\+\_\+reordered.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__nn__mat__mult__kernel__s8__s16__reordered_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{arm__nn__mat__mult__kernel__s8__s16__reordered_8c_aacb9f12c6b1df4ac3116e837b62ab431}{arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+kernel\+\_\+s8\+\_\+s16\+\_\+reordered}} (const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}input\+\_\+a, const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}input\+\_\+b, const uint16\+\_\+t output\+\_\+ch, const int32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+shift, const int32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+mult, const int32\+\_\+t out\+\_\+offset, const int16\+\_\+t activation\+\_\+min, const int16\+\_\+t activation\+\_\+max, const uint16\+\_\+t num\+\_\+col\+\_\+a, const int32\+\_\+t \texorpdfstring{$\ast$}{*}const output\+\_\+bias, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}out\+\_\+0)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{arm__nn__mat__mult__kernel__s8__s16__reordered_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm__nn__mat__mult__kernel__s8__s16__reordered_8c_aacb9f12c6b1df4ac3116e837b62ab431}\index{arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered.c@{arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered.c}!arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered@{arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered}}
+\index{arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered@{arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered}!arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered.c@{arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered.c}}
+\doxysubsubsection{\texorpdfstring{arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered()}{arm\_nn\_mat\_mult\_kernel\_s8\_s16\_reordered()}}
+{\footnotesize\ttfamily \label{arm__nn__mat__mult__kernel__s8__s16__reordered_8c_aacb9f12c6b1df4ac3116e837b62ab431} 
+\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*} arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+kernel\+\_\+s8\+\_\+s16\+\_\+reordered (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{input\+\_\+a}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{input\+\_\+b}{, }\item[{const uint16\+\_\+t}]{output\+\_\+ch}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+shift}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+mult}{, }\item[{const int32\+\_\+t}]{out\+\_\+offset}{, }\item[{const int16\+\_\+t}]{activation\+\_\+min}{, }\item[{const int16\+\_\+t}]{activation\+\_\+max}{, }\item[{const uint16\+\_\+t}]{num\+\_\+col\+\_\+a}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}const}]{output\+\_\+bias}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{out\+\_\+0}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{arm__nn__mat__mult__kernel__s8__s16__reordered_8c_source_l00043}{43}} of file \mbox{\hyperlink{arm__nn__mat__mult__kernel__s8__s16__reordered_8c_source}{arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+kernel\+\_\+s8\+\_\+s16\+\_\+reordered.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__nn__mat__mult__kernel__s8__s16__reordered_8c_aacb9f12c6b1df4ac3116e837b62ab431_cgraph}
+\end{center}
+\end{figure}

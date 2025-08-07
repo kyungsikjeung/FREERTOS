@@ -1,0 +1,42 @@
+\doxysection{stm32f4xx\+\_\+ll\+\_\+pwr.\+c}
+\hypertarget{stm32f4xx__ll__pwr_8c_source}{}\label{stm32f4xx__ll__pwr_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_ll\_pwr.c@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_ll\_pwr.c}}
+\mbox{\hyperlink{stm32f4xx__ll__pwr_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00017}00017\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00019}00019\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__ll__pwr_8h}{stm32f4xx\_ll\_pwr.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__ll__bus_8h}{stm32f4xx\_ll\_bus.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00027}00027\ \textcolor{preprocessor}{\#if\ defined(PWR)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00033}00033\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00034}00034\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00035}00035\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00036}00036\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00037}00037\ \textcolor{comment}{/*\ Private\ function\ prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00039}00039\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00054}00054\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_PWR\_DeInit(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00056}00056\ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ PWR\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00057}00057\ \ \ LL\_APB1\_GRP1\_ForceReset(LL\_APB1\_GRP1\_PERIPH\_PWR);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00059}00059\ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ PWR\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00060}00060\ \ \ LL\_APB1\_GRP1\_ReleaseReset(LL\_APB1\_GRP1\_PERIPH\_PWR);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00062}00062\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00076}00076\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ defined(PWR)\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__pwr_8c_source_l00081}00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_FULL\_LL\_DRIVER\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

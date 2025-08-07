@@ -1,0 +1,1296 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+nor.\+c}
+\hypertarget{stm32f4xx__hal__nor_8c_source}{}\label{stm32f4xx__hal__nor_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_nor.c@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_nor.c}}
+\mbox{\hyperlink{stm32f4xx__hal__nor_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00106}00106\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00107}00107\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal_8h}{stm32f4xx\_hal.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00109}00109\ \textcolor{preprocessor}{\#if\ \ defined(FMC\_Bank1)\ ||\ defined(FSMC\_Bank1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00115}00115\ \textcolor{preprocessor}{\#ifdef\ HAL\_NOR\_MODULE\_ENABLED}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00122}00122\ \textcolor{comment}{/*\ Private\ typedef\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00123}00123\ \textcolor{comment}{/*\ Private\ define\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00129}00129\ \textcolor{comment}{/*\ Constants\ to\ define\ address\ to\ set\ to\ write\ a\ command\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00130}00130\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_FIRST\_BYTE\ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0AAA}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00131}00131\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_FIRST\_CFI\_BYTE\ \ \ \ \ \ \ \ (uint16\_t)0x00AA}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00132}00132\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_SECOND\_BYTE\ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0555}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00133}00133\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_THIRD\_BYTE\ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0AAA}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00135}00135\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_FIRST\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0555}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00136}00136\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_FIRST\_CFI\ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0055}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00137}00137\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_SECOND\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x02AA}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00138}00138\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_THIRD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0555}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00139}00139\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_FOURTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0555}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00140}00140\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_FIFTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x02AA}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00141}00141\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_ADDRESS\_SIXTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0555}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00143}00143\ \textcolor{comment}{/*\ Constants\ to\ define\ data\ to\ program\ a\ command\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00144}00144\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_READ\_RESET\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x00F0}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00145}00145\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_FIRST\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x00AA}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00146}00146\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_SECOND\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0055}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00147}00147\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_AUTO\_SELECT\ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0090}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00148}00148\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_PROGRAM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x00A0}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00149}00149\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_THIRD\ \ \ (uint16\_t)0x0080}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00150}00150\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_FOURTH\ \ (uint16\_t)0x00AA}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00151}00151\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_FIFTH\ \ \ (uint16\_t)0x0055}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00152}00152\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_CHIP\_ERASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0010}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00153}00153\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_CFI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0098}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00155}00155\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_BUFFER\_AND\_PROG\ \ \ \ \ \ \ \ \ \ (uint8\_t)0x25}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00156}00156\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_BUFFER\_AND\_PROG\_CONFIRM\ \ (uint8\_t)0x29}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00157}00157\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_DATA\_BLOCK\_ERASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8\_t)0x30}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00159}00159\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_READ\_ARRAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x00FF}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00160}00160\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_WORD\_PROGRAM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0040}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00161}00161\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_BUFFERED\_PROGRAM\ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x00E8}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00162}00162\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_CONFIRM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x00D0}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00163}00163\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_BLOCK\_ERASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0020}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00164}00164\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_BLOCK\_UNLOCK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0060}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00165}00165\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_READ\_STATUS\_REG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0070}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00166}00166\ \textcolor{preprocessor}{\#define\ NOR\_CMD\_CLEAR\_STATUS\_REG\ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0050}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00168}00168\ \textcolor{comment}{/*\ Mask\ on\ NOR\ STATUS\ REGISTER\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00169}00169\ \textcolor{preprocessor}{\#define\ NOR\_MASK\_STATUS\_DQ4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0010}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00170}00170\ \textcolor{preprocessor}{\#define\ NOR\_MASK\_STATUS\_DQ5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0020}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00171}00171\ \textcolor{preprocessor}{\#define\ NOR\_MASK\_STATUS\_DQ6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0040}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00172}00172\ \textcolor{preprocessor}{\#define\ NOR\_MASK\_STATUS\_DQ7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0080}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00174}00174\ \textcolor{comment}{/*\ Address\ of\ the\ primary\ command\ set\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00175}00175\ \textcolor{preprocessor}{\#define\ NOR\_ADDRESS\_COMMAND\_SET\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0013}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00177}00177\ \textcolor{comment}{/*\ Command\ set\ code\ assignment\ (defined\ in\ JEDEC\ JEP137B\ version\ may\ 2004)\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00178}00178\ \textcolor{preprocessor}{\#define\ NOR\_INTEL\_SHARP\_EXT\_COMMAND\_SET\ \ \ \ \ \ \ (uint16\_t)0x0001\ }\textcolor{comment}{/*\ Supported\ in\ this\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00179}00179\ \textcolor{preprocessor}{\#define\ NOR\_AMD\_FUJITSU\_COMMAND\_SET\ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0002\ }\textcolor{comment}{/*\ Supported\ in\ this\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00180}00180\ \textcolor{preprocessor}{\#define\ NOR\_INTEL\_STANDARD\_COMMAND\_SET\ \ \ \ \ \ \ \ (uint16\_t)0x0003\ }\textcolor{comment}{/*\ Not\ Supported\ in\ this\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00181}00181\ \textcolor{preprocessor}{\#define\ NOR\_AMD\_FUJITSU\_EXT\_COMMAND\_SET\ \ \ \ \ \ \ (uint16\_t)0x0004\ }\textcolor{comment}{/*\ Not\ Supported\ in\ this\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00182}00182\ \textcolor{preprocessor}{\#define\ NOR\_WINDBOND\_STANDARD\_COMMAND\_SET\ \ \ \ \ (uint16\_t)0x0006\ }\textcolor{comment}{/*\ Not\ Supported\ in\ this\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00183}00183\ \textcolor{preprocessor}{\#define\ NOR\_MITSUBISHI\_STANDARD\_COMMAND\_SET\ \ \ (uint16\_t)0x0100\ }\textcolor{comment}{/*\ Not\ Supported\ in\ this\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00184}00184\ \textcolor{preprocessor}{\#define\ NOR\_MITSUBISHI\_EXT\_COMMAND\_SET\ \ \ \ \ \ \ \ (uint16\_t)0x0101\ }\textcolor{comment}{/*\ Not\ Supported\ in\ this\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00185}00185\ \textcolor{preprocessor}{\#define\ NOR\_PAGE\_WRITE\_COMMAND\_SET\ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0102\ }\textcolor{comment}{/*\ Not\ Supported\ in\ this\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00186}00186\ \textcolor{preprocessor}{\#define\ NOR\_INTEL\_PERFORMANCE\_COMMAND\_SET\ \ \ \ \ (uint16\_t)0x0200\ }\textcolor{comment}{/*\ Not\ Supported\ in\ this\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00187}00187\ \textcolor{preprocessor}{\#define\ NOR\_INTEL\_DATA\_COMMAND\_SET\ \ \ \ \ \ \ \ \ \ \ \ (uint16\_t)0x0210\ }\textcolor{comment}{/*\ Not\ Supported\ in\ this\ driver\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00193}00193\ \textcolor{comment}{/*\ Private\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00194}00194\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00199}00199\ \textcolor{keyword}{static}\ uint32\_t\ uwNORMemoryDataWidth\ \ =\ NOR\_MEMORY\_8B;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00205}00205\ \textcolor{comment}{/*\ Private\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00206}00206\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00234}00234\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_Init(NOR\_HandleTypeDef\ *hnor,\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga11bfe33266edbe384abe8942a1c9eaaf}{FMC\_NORSRAM\_TimingTypeDef}}\ *Timing,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga11bfe33266edbe384abe8942a1c9eaaf}{FMC\_NORSRAM\_TimingTypeDef}}\ *ExtTiming)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00236}00236\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00237}00237\ \ \ uint32\_t\ deviceaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00238}00238\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00240}00240\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ handle\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00241}00241\ \ \ \textcolor{keywordflow}{if}\ (hnor\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00242}00242\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00243}00243\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00244}00244\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00246}00246\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_RESET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00247}00247\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00248}00248\ \ \ \ \ \textcolor{comment}{/*\ Allocate\ lock\ resource\ and\ initialize\ it\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00249}00249\ \ \ \ \ hnor-\/>Lock\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ab367482e943333a1299294eadaad284ba9bd487430440139444e6e7ff226005c0}{HAL\_UNLOCKED}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00251}00251\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_NOR\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00252}00252\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>MspInitCallback\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00253}00253\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00254}00254\ \ \ \ \ \ \ hnor-\/>MspInitCallback\ =\ HAL\_NOR\_MspInit;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00255}00255\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00257}00257\ \ \ \ \ \textcolor{comment}{/*\ Init\ the\ low\ level\ hardware\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00258}00258\ \ \ \ \ hnor-\/>MspInitCallback(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00259}00259\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00260}00260\ \ \ \ \ \textcolor{comment}{/*\ Initialize\ the\ low\ level\ hardware\ (MSP)\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00261}00261\ \ \ \ \ HAL\_NOR\_MspInit(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00262}00262\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ (USE\_HAL\_NOR\_REGISTER\_CALLBACKS)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00263}00263\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00265}00265\ \ \ \textcolor{comment}{/*\ Initialize\ NOR\ control\ Interface\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00266}00266\ \ \ (void)\mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gadcd17e1723f3c9ae54fb91c4e209a977}{FMC\_NORSRAM\_Init}}(hnor-\/>Instance,\ \&(hnor-\/>Init));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00268}00268\ \ \ \textcolor{comment}{/*\ Initialize\ NOR\ timing\ Interface\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00269}00269\ \ \ (void)\mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga536dc9a6ede50df68d55d8460e23c8e7}{FMC\_NORSRAM\_Timing\_Init}}(hnor-\/>Instance,\ Timing,\ hnor-\/>Init.NSBank);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00271}00271\ \ \ \textcolor{comment}{/*\ Initialize\ NOR\ extended\ mode\ timing\ Interface\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00272}00272\ \ \ (void)\mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga94507a9a975471fca77486a27c2fd5af}{FMC\_NORSRAM\_Extended\_Timing\_Init}}(hnor-\/>Extended,\ ExtTiming,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hnor-\/>Init.NSBank,\ hnor-\/>Init.ExtendedMode);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00275}00275\ \ \ \textcolor{comment}{/*\ Enable\ the\ NORSRAM\ device\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00276}00276\ \ \ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gaa8b789b3dc6094d3f5181f12b3e9f4ac}{\_\_FMC\_NORSRAM\_ENABLE}}(hnor-\/>Instance,\ hnor-\/>Init.NSBank);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00278}00278\ \ \ \textcolor{comment}{/*\ Initialize\ NOR\ Memory\ Data\ Width*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00279}00279\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.MemoryDataWidth\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gabfc59a8d291d1cc049e657d021ead97c}{FMC\_NORSRAM\_MEM\_BUS\_WIDTH\_8}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00280}00280\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00281}00281\ \ \ \ \ uwNORMemoryDataWidth\ =\ NOR\_MEMORY\_8B;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00282}00282\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00283}00283\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00284}00284\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00285}00285\ \ \ \ \ uwNORMemoryDataWidth\ =\ NOR\_MEMORY\_16B;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00286}00286\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00288}00288\ \ \ \textcolor{comment}{/*\ Initialize\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00289}00289\ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_READY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00291}00291\ \ \ \textcolor{comment}{/*\ Select\ the\ NOR\ device\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00292}00292\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gae21fc4cb32bdf66a091f9b07542128c0}{FMC\_NORSRAM\_BANK1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00293}00293\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00294}00294\ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00295}00295\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00296}00296\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga62300a734aa0e396592f6f7635b634e9}{FMC\_NORSRAM\_BANK2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00297}00297\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00298}00298\ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00299}00299\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00300}00300\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga6f7b4268d1fd3acb923f92b8907968fe}{FMC\_NORSRAM\_BANK3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00301}00301\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00302}00302\ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00303}00303\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00304}00304\ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ FMC\_NORSRAM\_BANK4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00305}00305\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00306}00306\ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00307}00307\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00309}00309\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.WriteOperation\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga092a1fcc2e841ea9b3498a5a10aa014d}{FMC\_WRITE\_OPERATION\_DISABLE}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00310}00310\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00311}00311\ \ \ \ \ (void)\mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga78715eb3516afb14dd90863df43388cf}{FMC\_NORSRAM\_WriteOperation\_Disable}}(hnor-\/>Instance,\ hnor-\/>Init.NSBank);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00313}00313\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00314}00314\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_PROTECTED;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00315}00315\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00316}00316\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00317}00317\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00318}00318\ \ \ \ \ \textcolor{comment}{/*\ Get\ the\ value\ of\ the\ command\ set\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00319}00319\ \ \ \ \ \textcolor{keywordflow}{if}\ (uwNORMemoryDataWidth\ ==\ NOR\_MEMORY\_8B)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00320}00320\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00321}00321\ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_CFI\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CFI);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00323}00323\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00324}00324\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00325}00325\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00326}00326\ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_CFI),\ NOR\_CMD\_DATA\_CFI);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00327}00327\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00329}00329\ \ \ \ \ hnor-\/>CommandSet\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)\ NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_ADDRESS\_COMMAND\_SET);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00331}00331\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ HAL\_NOR\_ReturnToReadMode(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00332}00332\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00333}00333\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00334}00334\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00335}00335\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00336}00336\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00343}00343\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_DeInit(NOR\_HandleTypeDef\ *hnor)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00344}00344\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00345}00345\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_NOR\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00346}00346\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>MspDeInitCallback\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00347}00347\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00348}00348\ \ \ \ \ hnor-\/>MspDeInitCallback\ =\ HAL\_NOR\_MspDeInit;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00349}00349\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00351}00351\ \ \ \textcolor{comment}{/*\ DeInit\ the\ low\ level\ hardware\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00352}00352\ \ \ hnor-\/>MspDeInitCallback(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00353}00353\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00354}00354\ \ \ \textcolor{comment}{/*\ De-\/Initialize\ the\ low\ level\ hardware\ (MSP)\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00355}00355\ \ \ HAL\_NOR\_MspDeInit(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00356}00356\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ (USE\_HAL\_NOR\_REGISTER\_CALLBACKS)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00358}00358\ \ \ \textcolor{comment}{/*\ Configure\ the\ NOR\ registers\ with\ their\ reset\ values\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00359}00359\ \ \ (void)\mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga287693ca1f2a4b4b70fa5657645a1d92}{FMC\_NORSRAM\_DeInit}}(hnor-\/>Instance,\ hnor-\/>Extended,\ hnor-\/>Init.NSBank);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00361}00361\ \ \ \textcolor{comment}{/*\ Reset\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00362}00362\ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_RESET;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00364}00364\ \ \ \textcolor{comment}{/*\ Release\ Lock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00365}00365\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00366}00366\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00367}00367\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00368}00368\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00376}00376\ \_\_weak\ \textcolor{keywordtype}{void}\ HAL\_NOR\_MspInit(NOR\_HandleTypeDef\ *hnor)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00377}00377\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00378}00378\ \ \ \textcolor{comment}{/*\ Prevent\ unused\ argument(s)\ compilation\ warning\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00379}00379\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00380}00380\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00381}00381\ \ \ \textcolor{comment}{/*\ NOTE\ :\ This\ function\ Should\ not\ be\ modified,\ when\ the\ callback\ is\ needed,}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00382}00382\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ the\ HAL\_NOR\_MspInit\ could\ be\ implemented\ in\ the\ user\ file}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00383}00383\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00384}00384\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00392}00392\ \_\_weak\ \textcolor{keywordtype}{void}\ HAL\_NOR\_MspDeInit(NOR\_HandleTypeDef\ *hnor)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00393}00393\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00394}00394\ \ \ \textcolor{comment}{/*\ Prevent\ unused\ argument(s)\ compilation\ warning\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00395}00395\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00397}00397\ \ \ \textcolor{comment}{/*\ NOTE\ :\ This\ function\ Should\ not\ be\ modified,\ when\ the\ callback\ is\ needed,}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00398}00398\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ the\ HAL\_NOR\_MspDeInit\ could\ be\ implemented\ in\ the\ user\ file}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00399}00399\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00400}00400\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00401}00401\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00409}00409\ \_\_weak\ \textcolor{keywordtype}{void}\ HAL\_NOR\_MspWait(NOR\_HandleTypeDef\ *hnor,\ uint32\_t\ Timeout)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00410}00410\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00411}00411\ \ \ \textcolor{comment}{/*\ Prevent\ unused\ argument(s)\ compilation\ warning\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00412}00412\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00413}00413\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00414}00414\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00415}00415\ \ \ \textcolor{comment}{/*\ NOTE\ :\ This\ function\ Should\ not\ be\ modified,\ when\ the\ callback\ is\ needed,}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00416}00416\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ the\ HAL\_NOR\_MspWait\ could\ be\ implemented\ in\ the\ user\ file}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00417}00417\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00418}00418\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00423}00423\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00437}00437\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00445}00445\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_Read\_ID(NOR\_HandleTypeDef\ *hnor,\ NOR\_IDTypeDef\ *pNOR\_ID)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00446}00446\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00447}00447\ \ \ uint32\_t\ deviceaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00448}00448\ \ \ HAL\_NOR\_StateTypeDef\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00449}00449\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00451}00451\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00452}00452\ \ \ state\ =\ hnor-\/>State;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00453}00453\ \ \ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_BUSY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00454}00454\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00455}00455\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa8532fa3641ae7c14cb1b0554e2d9cbc7}{HAL\_BUSY}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00456}00456\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00457}00457\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_PROTECTED)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00458}00458\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00459}00459\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00460}00460\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00461}00461\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00462}00462\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00463}00463\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00464}00464\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00466}00466\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00467}00467\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00468}00468\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00469}00469\ \ \ \ \ \textcolor{comment}{/*\ Select\ the\ NOR\ device\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00470}00470\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gae21fc4cb32bdf66a091f9b07542128c0}{FMC\_NORSRAM\_BANK1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00471}00471\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00472}00472\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00473}00473\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00474}00474\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga62300a734aa0e396592f6f7635b634e9}{FMC\_NORSRAM\_BANK2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00475}00475\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00476}00476\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00477}00477\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00478}00478\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga6f7b4268d1fd3acb923f92b8907968fe}{FMC\_NORSRAM\_BANK3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00479}00479\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00480}00480\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00481}00481\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00482}00482\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ FMC\_NORSRAM\_BANK4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00483}00483\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00484}00484\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00485}00485\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00486}00486\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00487}00487\ \ \ \ \ \textcolor{comment}{/*\ Send\ read\ ID\ command\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00488}00488\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_AMD\_FUJITSU\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00489}00489\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00490}00490\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (uwNORMemoryDataWidth\ ==\ NOR\_MEMORY\_8B)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00491}00491\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00492}00492\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00493}00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00494}00494\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00495}00495\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00496}00496\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00497}00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_AUTO\_SELECT);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00498}00498\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00499}00499\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00500}00500\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00501}00501\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST),\ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00502}00502\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND),\ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00503}00503\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00504}00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_AUTO\_SELECT);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00505}00505\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00506}00506\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00507}00507\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_INTEL\_SHARP\_EXT\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00508}00508\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00509}00509\ \ \ \ \ \ \ NOR\_WRITE(deviceaddress,\ NOR\_CMD\_DATA\_AUTO\_SELECT);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00510}00510\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00511}00511\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00512}00512\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00513}00513\ \ \ \ \ \ \ \textcolor{comment}{/*\ Primary\ command\ set\ not\ supported\ by\ the\ driver\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00514}00514\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00515}00515\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00516}00516\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00517}00517\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00518}00518\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00519}00519\ \ \ \ \ \ \ \textcolor{comment}{/*\ Read\ the\ NOR\ IDs\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00520}00520\ \ \ \ \ \ \ pNOR\_ID-\/>Manufacturer\_Code\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)\ NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ MC\_ADDRESS);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00521}00521\ \ \ \ \ \ \ pNOR\_ID-\/>Device\_Code1\ \ \ \ \ \ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)\ NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00522}00522\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DEVICE\_CODE1\_ADDR);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00523}00523\ \ \ \ \ \ \ pNOR\_ID-\/>Device\_Code2\ \ \ \ \ \ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)\ NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00524}00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DEVICE\_CODE2\_ADDR);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00525}00525\ \ \ \ \ \ \ pNOR\_ID-\/>Device\_Code3\ \ \ \ \ \ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)\ NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00526}00526\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DEVICE\_CODE3\_ADDR);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00527}00527\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00528}00528\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00529}00529\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00530}00530\ \ \ \ \ hnor-\/>State\ =\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00531}00531\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00532}00532\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00533}00533\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00534}00534\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00535}00535\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00536}00536\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00537}00537\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00538}00538\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00539}00539\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00540}00540\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00541}00541\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00542}00542\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00549}00549\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_ReturnToReadMode(NOR\_HandleTypeDef\ *hnor)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00550}00550\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00551}00551\ \ \ uint32\_t\ deviceaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00552}00552\ \ \ HAL\_NOR\_StateTypeDef\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00553}00553\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00554}00554\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00555}00555\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00556}00556\ \ \ state\ =\ hnor-\/>State;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00557}00557\ \ \ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_BUSY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00558}00558\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00559}00559\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa8532fa3641ae7c14cb1b0554e2d9cbc7}{HAL\_BUSY}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00560}00560\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00561}00561\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_PROTECTED)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00562}00562\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00563}00563\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00564}00564\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00565}00565\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00566}00566\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00567}00567\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00568}00568\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00569}00569\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00570}00570\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00571}00571\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00572}00572\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00573}00573\ \ \ \ \ \textcolor{comment}{/*\ Select\ the\ NOR\ device\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00574}00574\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gae21fc4cb32bdf66a091f9b07542128c0}{FMC\_NORSRAM\_BANK1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00575}00575\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00576}00576\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00577}00577\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00578}00578\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga62300a734aa0e396592f6f7635b634e9}{FMC\_NORSRAM\_BANK2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00579}00579\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00580}00580\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00581}00581\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00582}00582\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga6f7b4268d1fd3acb923f92b8907968fe}{FMC\_NORSRAM\_BANK3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00583}00583\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00584}00584\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00585}00585\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00586}00586\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ FMC\_NORSRAM\_BANK4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00587}00587\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00588}00588\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00589}00589\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00590}00590\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00591}00591\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_AMD\_FUJITSU\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00592}00592\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00593}00593\ \ \ \ \ \ \ NOR\_WRITE(deviceaddress,\ NOR\_CMD\_DATA\_READ\_RESET);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00594}00594\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00595}00595\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_INTEL\_SHARP\_EXT\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00596}00596\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00597}00597\ \ \ \ \ \ \ NOR\_WRITE(deviceaddress,\ NOR\_CMD\_READ\_ARRAY);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00598}00598\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00599}00599\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00600}00600\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00601}00601\ \ \ \ \ \ \ \textcolor{comment}{/*\ Primary\ command\ set\ not\ supported\ by\ the\ driver\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00602}00602\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00603}00603\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00604}00604\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00605}00605\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00606}00606\ \ \ \ \ hnor-\/>State\ =\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00607}00607\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00608}00608\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00609}00609\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00610}00610\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00611}00611\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00612}00612\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00613}00613\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00614}00614\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00615}00615\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00616}00616\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00617}00617\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00618}00618\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00627}00627\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_Read(NOR\_HandleTypeDef\ *hnor,\ uint32\_t\ *pAddress,\ uint16\_t\ *pData)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00628}00628\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00629}00629\ \ \ uint32\_t\ deviceaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00630}00630\ \ \ HAL\_NOR\_StateTypeDef\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00631}00631\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00632}00632\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00633}00633\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00634}00634\ \ \ state\ =\ hnor-\/>State;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00635}00635\ \ \ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_BUSY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00636}00636\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00637}00637\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa8532fa3641ae7c14cb1b0554e2d9cbc7}{HAL\_BUSY}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00638}00638\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00639}00639\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_PROTECTED)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00640}00640\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00641}00641\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00642}00642\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00643}00643\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00644}00644\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00645}00645\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00646}00646\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00647}00647\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00648}00648\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00649}00649\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00650}00650\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00651}00651\ \ \ \ \ \textcolor{comment}{/*\ Select\ the\ NOR\ device\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00652}00652\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gae21fc4cb32bdf66a091f9b07542128c0}{FMC\_NORSRAM\_BANK1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00653}00653\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00654}00654\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00655}00655\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00656}00656\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga62300a734aa0e396592f6f7635b634e9}{FMC\_NORSRAM\_BANK2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00657}00657\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00658}00658\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00659}00659\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00660}00660\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga6f7b4268d1fd3acb923f92b8907968fe}{FMC\_NORSRAM\_BANK3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00661}00661\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00662}00662\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00663}00663\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00664}00664\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ FMC\_NORSRAM\_BANK4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00665}00665\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00666}00666\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00667}00667\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00668}00668\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00669}00669\ \ \ \ \ \textcolor{comment}{/*\ Send\ read\ data\ command\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00670}00670\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_AMD\_FUJITSU\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00671}00671\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00672}00672\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (uwNORMemoryDataWidth\ ==\ NOR\_MEMORY\_8B)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00673}00673\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00674}00674\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00675}00675\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00676}00676\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00677}00677\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00678}00678\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00679}00679\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_READ\_RESET);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00680}00680\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00681}00681\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00682}00682\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00683}00683\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST),\ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00684}00684\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND),\ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00685}00685\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00686}00686\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_READ\_RESET);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00687}00687\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00688}00688\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00689}00689\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_INTEL\_SHARP\_EXT\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00690}00690\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00691}00691\ \ \ \ \ \ \ NOR\_WRITE(pAddress,\ NOR\_CMD\_READ\_ARRAY);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00692}00692\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00693}00693\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00694}00694\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00695}00695\ \ \ \ \ \ \ \textcolor{comment}{/*\ Primary\ command\ set\ not\ supported\ by\ the\ driver\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00696}00696\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00697}00697\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00698}00698\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00699}00699\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00700}00700\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00701}00701\ \ \ \ \ \ \ \textcolor{comment}{/*\ Read\ the\ data\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00702}00702\ \ \ \ \ \ \ *pData\ =\ (uint16\_t)(*(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ *)pAddress);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00703}00703\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00704}00704\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00705}00705\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00706}00706\ \ \ \ \ hnor-\/>State\ =\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00707}00707\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00708}00708\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00709}00709\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00710}00710\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00711}00711\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00712}00712\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00713}00713\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00714}00714\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00715}00715\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00716}00716\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00717}00717\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00718}00718\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00727}00727\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_Program(NOR\_HandleTypeDef\ *hnor,\ uint32\_t\ *pAddress,\ uint16\_t\ *pData)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00728}00728\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00729}00729\ \ \ uint32\_t\ deviceaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00730}00730\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00731}00731\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00732}00732\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00733}00733\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_BUSY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00734}00734\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00735}00735\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa8532fa3641ae7c14cb1b0554e2d9cbc7}{HAL\_BUSY}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00736}00736\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00737}00737\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00738}00738\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00739}00739\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00740}00740\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00741}00741\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00742}00742\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00743}00743\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00744}00744\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00745}00745\ \ \ \ \ \textcolor{comment}{/*\ Select\ the\ NOR\ device\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00746}00746\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gae21fc4cb32bdf66a091f9b07542128c0}{FMC\_NORSRAM\_BANK1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00747}00747\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00748}00748\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00749}00749\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00750}00750\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga62300a734aa0e396592f6f7635b634e9}{FMC\_NORSRAM\_BANK2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00751}00751\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00752}00752\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00753}00753\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00754}00754\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga6f7b4268d1fd3acb923f92b8907968fe}{FMC\_NORSRAM\_BANK3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00755}00755\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00756}00756\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00757}00757\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00758}00758\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ FMC\_NORSRAM\_BANK4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00759}00759\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00760}00760\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00761}00761\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00762}00762\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00763}00763\ \ \ \ \ \textcolor{comment}{/*\ Send\ program\ data\ command\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00764}00764\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_AMD\_FUJITSU\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00765}00765\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00766}00766\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (uwNORMemoryDataWidth\ ==\ NOR\_MEMORY\_8B)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00767}00767\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00768}00768\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00769}00769\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00770}00770\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00771}00771\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00772}00772\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00773}00773\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_PROGRAM);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00774}00774\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00775}00775\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00776}00776\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00777}00777\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST),\ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00778}00778\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND),\ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00779}00779\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD),\ NOR\_CMD\_DATA\_PROGRAM);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00780}00780\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00781}00781\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00782}00782\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_INTEL\_SHARP\_EXT\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00783}00783\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00784}00784\ \ \ \ \ \ \ NOR\_WRITE(pAddress,\ NOR\_CMD\_WORD\_PROGRAM);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00785}00785\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00786}00786\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00787}00787\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00788}00788\ \ \ \ \ \ \ \textcolor{comment}{/*\ Primary\ command\ set\ not\ supported\ by\ the\ driver\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00789}00789\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00790}00790\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00791}00791\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00792}00792\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00793}00793\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00794}00794\ \ \ \ \ \ \ \textcolor{comment}{/*\ Write\ the\ data\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00795}00795\ \ \ \ \ \ \ NOR\_WRITE(pAddress,\ *pData);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00796}00796\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00797}00797\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00798}00798\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00799}00799\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_READY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00800}00800\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00801}00801\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00802}00802\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00803}00803\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00804}00804\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00805}00805\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00806}00806\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00807}00807\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00808}00808\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00809}00809\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00810}00810\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00811}00811\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00821}00821\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_ReadBuffer(NOR\_HandleTypeDef\ *hnor,\ uint32\_t\ uwAddress,\ uint16\_t\ *pData,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00822}00822\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ uwBufferSize)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00823}00823\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00824}00824\ \ \ uint32\_t\ deviceaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00825}00825\ \ \ uint32\_t\ size\ =\ uwBufferSize;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00826}00826\ \ \ uint32\_t\ address\ =\ uwAddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00827}00827\ \ \ uint16\_t\ *data\ =\ pData;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00828}00828\ \ \ HAL\_NOR\_StateTypeDef\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00829}00829\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00830}00830\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00831}00831\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00832}00832\ \ \ state\ =\ hnor-\/>State;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00833}00833\ \ \ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_BUSY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00834}00834\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00835}00835\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa8532fa3641ae7c14cb1b0554e2d9cbc7}{HAL\_BUSY}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00836}00836\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00837}00837\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_PROTECTED)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00838}00838\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00839}00839\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00840}00840\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00841}00841\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00842}00842\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00843}00843\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00844}00844\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00845}00845\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00846}00846\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00847}00847\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00848}00848\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00849}00849\ \ \ \ \ \textcolor{comment}{/*\ Select\ the\ NOR\ device\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00850}00850\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gae21fc4cb32bdf66a091f9b07542128c0}{FMC\_NORSRAM\_BANK1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00851}00851\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00852}00852\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00853}00853\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00854}00854\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga62300a734aa0e396592f6f7635b634e9}{FMC\_NORSRAM\_BANK2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00855}00855\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00856}00856\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00857}00857\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00858}00858\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga6f7b4268d1fd3acb923f92b8907968fe}{FMC\_NORSRAM\_BANK3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00859}00859\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00860}00860\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00861}00861\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00862}00862\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ FMC\_NORSRAM\_BANK4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00863}00863\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00864}00864\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00865}00865\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00866}00866\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00867}00867\ \ \ \ \ \textcolor{comment}{/*\ Send\ read\ data\ command\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00868}00868\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_AMD\_FUJITSU\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00869}00869\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00870}00870\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (uwNORMemoryDataWidth\ ==\ NOR\_MEMORY\_8B)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00871}00871\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00872}00872\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00873}00873\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00874}00874\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00875}00875\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00876}00876\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00877}00877\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_READ\_RESET);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00878}00878\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00879}00879\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00880}00880\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00881}00881\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST),\ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00882}00882\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND),\ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00883}00883\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00884}00884\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_READ\_RESET);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00885}00885\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00886}00886\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00887}00887\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_INTEL\_SHARP\_EXT\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00888}00888\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00889}00889\ \ \ \ \ \ \ NOR\_WRITE(deviceaddress,\ NOR\_CMD\_READ\_ARRAY);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00890}00890\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00891}00891\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00892}00892\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00893}00893\ \ \ \ \ \ \ \textcolor{comment}{/*\ Primary\ command\ set\ not\ supported\ by\ the\ driver\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00894}00894\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00895}00895\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00896}00896\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00897}00897\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00898}00898\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00899}00899\ \ \ \ \ \ \ \textcolor{comment}{/*\ Read\ buffer\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00900}00900\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (size\ >\ 0U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00901}00901\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00902}00902\ \ \ \ \ \ \ \ \ *data\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)address;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00903}00903\ \ \ \ \ \ \ \ \ data++;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00904}00904\ \ \ \ \ \ \ \ \ address\ +=\ 2U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00905}00905\ \ \ \ \ \ \ \ \ size-\/-\/;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00906}00906\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00907}00907\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00908}00908\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00909}00909\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00910}00910\ \ \ \ \ hnor-\/>State\ =\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00911}00911\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00912}00912\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00913}00913\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00914}00914\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00915}00915\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00916}00916\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00917}00917\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00918}00918\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00919}00919\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00920}00920\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00921}00921\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00922}00922\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00932}00932\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_ProgramBuffer(NOR\_HandleTypeDef\ *hnor,\ uint32\_t\ uwAddress,\ uint16\_t\ *pData,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00933}00933\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ uwBufferSize)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00934}00934\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00935}00935\ \ \ uint16\_t\ *p\_currentaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00936}00936\ \ \ \textcolor{keyword}{const}\ uint16\_t\ *p\_endaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00937}00937\ \ \ uint16\_t\ *data\ =\ pData;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00938}00938\ \ \ uint32\_t\ deviceaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00939}00939\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00940}00940\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00941}00941\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00942}00942\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_BUSY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00943}00943\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00944}00944\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa8532fa3641ae7c14cb1b0554e2d9cbc7}{HAL\_BUSY}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00945}00945\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00946}00946\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00947}00947\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00948}00948\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00949}00949\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00950}00950\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00951}00951\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00952}00952\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00953}00953\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00954}00954\ \ \ \ \ \textcolor{comment}{/*\ Select\ the\ NOR\ device\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00955}00955\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gae21fc4cb32bdf66a091f9b07542128c0}{FMC\_NORSRAM\_BANK1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00956}00956\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00957}00957\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00958}00958\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00959}00959\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga62300a734aa0e396592f6f7635b634e9}{FMC\_NORSRAM\_BANK2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00960}00960\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00961}00961\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00962}00962\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00963}00963\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga6f7b4268d1fd3acb923f92b8907968fe}{FMC\_NORSRAM\_BANK3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00964}00964\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00965}00965\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00966}00966\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00967}00967\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ FMC\_NORSRAM\_BANK4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00968}00968\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00969}00969\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00970}00970\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00971}00971\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00972}00972\ \ \ \ \ \textcolor{comment}{/*\ Initialize\ variables\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00973}00973\ \ \ \ \ p\_currentaddress\ \ =\ (uint16\_t\ *)(deviceaddress\ +\ uwAddress);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00974}00974\ \ \ \ \ p\_endaddress\ \ \ \ \ \ =\ (uint16\_t\ *)(deviceaddress\ +\ uwAddress\ +\ (2U\ *\ (uwBufferSize\ -\/\ 1U)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00975}00975\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00976}00976\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_AMD\_FUJITSU\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00977}00977\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00978}00978\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (uwNORMemoryDataWidth\ ==\ NOR\_MEMORY\_8B)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00979}00979\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00980}00980\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Issue\ unlock\ command\ sequence\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00981}00981\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00982}00982\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00983}00983\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00984}00984\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00985}00985\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00986}00986\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00987}00987\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00988}00988\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Issue\ unlock\ command\ sequence\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00989}00989\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST),\ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00990}00990\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND),\ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00991}00991\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00992}00992\ \ \ \ \ \ \ \textcolor{comment}{/*\ Write\ Buffer\ Load\ Command\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00993}00993\ \ \ \ \ \ \ NOR\_WRITE((deviceaddress\ +\ uwAddress),\ NOR\_CMD\_DATA\_BUFFER\_AND\_PROG);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00994}00994\ \ \ \ \ \ \ NOR\_WRITE((deviceaddress\ +\ uwAddress),\ (uint16\_t)(uwBufferSize\ -\/\ 1U));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00995}00995\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00996}00996\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_INTEL\_SHARP\_EXT\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00997}00997\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00998}00998\ \ \ \ \ \ \ \textcolor{comment}{/*\ Write\ Buffer\ Load\ Command\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l00999}00999\ \ \ \ \ \ \ NOR\_WRITE((deviceaddress\ +\ uwAddress),\ NOR\_CMD\_BUFFERED\_PROGRAM);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01000}01000\ \ \ \ \ \ \ NOR\_WRITE((deviceaddress\ +\ uwAddress),\ (uint16\_t)(uwBufferSize\ -\/\ 1U));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01001}01001\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01002}01002\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01003}01003\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01004}01004\ \ \ \ \ \ \ \textcolor{comment}{/*\ Primary\ command\ set\ not\ supported\ by\ the\ driver\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01005}01005\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01006}01006\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01007}01007\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01008}01008\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01009}01009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01010}01010\ \ \ \ \ \ \ \textcolor{comment}{/*\ Load\ Data\ into\ NOR\ Buffer\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01011}01011\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (p\_currentaddress\ <=\ p\_endaddress)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01012}01012\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01013}01013\ \ \ \ \ \ \ \ \ NOR\_WRITE(p\_currentaddress,\ *data);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01014}01014\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01015}01015\ \ \ \ \ \ \ \ \ data++;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01016}01016\ \ \ \ \ \ \ \ \ p\_currentaddress\ ++;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01017}01017\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01018}01018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01019}01019\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_AMD\_FUJITSU\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01020}01020\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01021}01021\ \ \ \ \ \ \ \ \ NOR\_WRITE((deviceaddress\ +\ uwAddress),\ NOR\_CMD\_DATA\_BUFFER\_AND\_PROG\_CONFIRM);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01022}01022\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01023}01023\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ =>\ hnor-\/>CommandSet\ ==\ NOR\_INTEL\_SHARP\_EXT\_COMMAND\_SET\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01024}01024\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01025}01025\ \ \ \ \ \ \ \ \ NOR\_WRITE((deviceaddress\ +\ uwAddress),\ NOR\_CMD\_CONFIRM);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01026}01026\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01027}01027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01028}01028\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01029}01029\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01030}01030\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_READY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01031}01031\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01032}01032\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01033}01033\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01034}01034\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01035}01035\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01036}01036\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01037}01037\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01038}01038\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01039}01039\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01040}01040\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01041}01041\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01042}01042\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01043}01043\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01052}01052\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_Erase\_Block(NOR\_HandleTypeDef\ *hnor,\ uint32\_t\ BlockAddress,\ uint32\_t\ Address)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01053}01053\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01054}01054\ \ \ uint32\_t\ deviceaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01055}01055\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01056}01056\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01057}01057\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01058}01058\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_BUSY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01059}01059\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01060}01060\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa8532fa3641ae7c14cb1b0554e2d9cbc7}{HAL\_BUSY}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01061}01061\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01062}01062\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01063}01063\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01064}01064\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01065}01065\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01066}01066\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01067}01067\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01068}01068\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01069}01069\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01070}01070\ \ \ \ \ \textcolor{comment}{/*\ Select\ the\ NOR\ device\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01071}01071\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gae21fc4cb32bdf66a091f9b07542128c0}{FMC\_NORSRAM\_BANK1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01072}01072\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01073}01073\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01074}01074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01075}01075\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga62300a734aa0e396592f6f7635b634e9}{FMC\_NORSRAM\_BANK2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01076}01076\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01077}01077\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01078}01078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01079}01079\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga6f7b4268d1fd3acb923f92b8907968fe}{FMC\_NORSRAM\_BANK3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01080}01080\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01081}01081\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01082}01082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01083}01083\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ FMC\_NORSRAM\_BANK4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01084}01084\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01085}01085\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01086}01086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01087}01087\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01088}01088\ \ \ \ \ \textcolor{comment}{/*\ Send\ block\ erase\ command\ sequence\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01089}01089\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_AMD\_FUJITSU\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01090}01090\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01091}01091\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (uwNORMemoryDataWidth\ ==\ NOR\_MEMORY\_8B)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01092}01092\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01093}01093\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01094}01094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01095}01095\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01096}01096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01097}01097\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01098}01098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_THIRD);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01099}01099\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01100}01100\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01101}01101\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01102}01102\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST),\ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01103}01103\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND),\ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01104}01104\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01105}01105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_THIRD);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01106}01106\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FOURTH),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01107}01107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_FOURTH);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01108}01108\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIFTH),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01109}01109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_FIFTH);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01110}01110\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01111}01111\ \ \ \ \ \ \ NOR\_WRITE((uint32\_t)(BlockAddress\ +\ Address),\ NOR\_CMD\_DATA\_BLOCK\_ERASE);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01112}01112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01113}01113\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_INTEL\_SHARP\_EXT\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01114}01114\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01115}01115\ \ \ \ \ \ \ NOR\_WRITE((BlockAddress\ +\ Address),\ NOR\_CMD\_BLOCK\_UNLOCK);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01116}01116\ \ \ \ \ \ \ NOR\_WRITE((BlockAddress\ +\ Address),\ NOR\_CMD\_CONFIRM);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01117}01117\ \ \ \ \ \ \ NOR\_WRITE((BlockAddress\ +\ Address),\ NOR\_CMD\_BLOCK\_ERASE);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01118}01118\ \ \ \ \ \ \ NOR\_WRITE((BlockAddress\ +\ Address),\ NOR\_CMD\_CONFIRM);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01119}01119\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01120}01120\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01121}01121\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01122}01122\ \ \ \ \ \ \ \textcolor{comment}{/*\ Primary\ command\ set\ not\ supported\ by\ the\ driver\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01123}01123\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01124}01124\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01125}01125\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01126}01126\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ memory\ status\ and\ update\ the\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01127}01127\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_READY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01128}01128\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01129}01129\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01130}01130\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01131}01131\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01132}01132\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01133}01133\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01134}01134\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01135}01135\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01136}01136\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01137}01137\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01138}01138\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01139}01139\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01140}01140\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01148}01148\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_Erase\_Chip(NOR\_HandleTypeDef\ *hnor,\ uint32\_t\ Address)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01149}01149\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01150}01150\ \ \ uint32\_t\ deviceaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01151}01151\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01152}01152\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(Address);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01153}01153\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01154}01154\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01155}01155\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_BUSY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01156}01156\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01157}01157\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa8532fa3641ae7c14cb1b0554e2d9cbc7}{HAL\_BUSY}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01158}01158\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01159}01159\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01160}01160\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01161}01161\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01162}01162\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01163}01163\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01164}01164\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01165}01165\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01166}01166\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01167}01167\ \ \ \ \ \textcolor{comment}{/*\ Select\ the\ NOR\ device\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01168}01168\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gae21fc4cb32bdf66a091f9b07542128c0}{FMC\_NORSRAM\_BANK1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01169}01169\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01170}01170\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01171}01171\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01172}01172\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga62300a734aa0e396592f6f7635b634e9}{FMC\_NORSRAM\_BANK2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01173}01173\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01174}01174\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01175}01175\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01176}01176\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga6f7b4268d1fd3acb923f92b8907968fe}{FMC\_NORSRAM\_BANK3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01177}01177\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01178}01178\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01179}01179\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01180}01180\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ FMC\_NORSRAM\_BANK4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01181}01181\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01182}01182\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01183}01183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01184}01184\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01185}01185\ \ \ \ \ \textcolor{comment}{/*\ Send\ NOR\ chip\ erase\ command\ sequence\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01186}01186\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_AMD\_FUJITSU\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01187}01187\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01188}01188\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (uwNORMemoryDataWidth\ ==\ NOR\_MEMORY\_8B)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01189}01189\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01190}01190\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01191}01191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01192}01192\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01193}01193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01194}01194\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01195}01195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_THIRD);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01196}01196\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01197}01197\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01198}01198\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01199}01199\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST),\ NOR\_CMD\_DATA\_FIRST);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01200}01200\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SECOND),\ NOR\_CMD\_DATA\_SECOND);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01201}01201\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_THIRD),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01202}01202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_THIRD);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01203}01203\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FOURTH),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01204}01204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_FOURTH);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01205}01205\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIFTH),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01206}01206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CHIP\_BLOCK\_ERASE\_FIFTH);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01207}01207\ \ \ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_SIXTH),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01208}01208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CHIP\_ERASE);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01209}01209\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01210}01210\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01211}01211\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01212}01212\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01213}01213\ \ \ \ \ \ \ \textcolor{comment}{/*\ Primary\ command\ set\ not\ supported\ by\ the\ driver\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01214}01214\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01215}01215\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01216}01216\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01217}01217\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ memory\ status\ and\ update\ the\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01218}01218\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_READY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01219}01219\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01220}01220\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01221}01221\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01222}01222\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01223}01223\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01224}01224\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01225}01225\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01226}01226\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01227}01227\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01228}01228\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01229}01229\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01230}01230\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01238}01238\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_Read\_CFI(NOR\_HandleTypeDef\ *hnor,\ NOR\_CFITypeDef\ *pNOR\_CFI)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01239}01239\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01240}01240\ \ \ uint32\_t\ deviceaddress;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01241}01241\ \ \ HAL\_NOR\_StateTypeDef\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01242}01242\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01243}01243\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01244}01244\ \ \ state\ =\ hnor-\/>State;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01245}01245\ \ \ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_BUSY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01246}01246\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01247}01247\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa8532fa3641ae7c14cb1b0554e2d9cbc7}{HAL\_BUSY}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01248}01248\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01249}01249\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_PROTECTED)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01250}01250\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01251}01251\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01252}01252\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01253}01253\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (state\ ==\ HAL\_NOR\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01254}01254\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01255}01255\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01256}01256\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01257}01257\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01258}01258\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01259}01259\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01260}01260\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01261}01261\ \ \ \ \ \textcolor{comment}{/*\ Select\ the\ NOR\ device\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01262}01262\ \ \ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_gae21fc4cb32bdf66a091f9b07542128c0}{FMC\_NORSRAM\_BANK1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01263}01263\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01264}01264\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01265}01265\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01266}01266\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga62300a734aa0e396592f6f7635b634e9}{FMC\_NORSRAM\_BANK2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01267}01267\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01268}01268\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01269}01269\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01270}01270\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>Init.NSBank\ ==\ \mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga6f7b4268d1fd3acb923f92b8907968fe}{FMC\_NORSRAM\_BANK3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01271}01271\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01272}01272\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01273}01273\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01274}01274\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ FMC\_NORSRAM\_BANK4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01275}01275\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01276}01276\ \ \ \ \ \ \ deviceaddress\ =\ NOR\_MEMORY\_ADRESS4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01277}01277\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01278}01278\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01279}01279\ \ \ \ \ \textcolor{comment}{/*\ Send\ read\ CFI\ query\ command\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01280}01280\ \ \ \ \ \textcolor{keywordflow}{if}\ (uwNORMemoryDataWidth\ ==\ NOR\_MEMORY\_8B)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01281}01281\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01282}01282\ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_CFI\_BYTE),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01283}01283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NOR\_CMD\_DATA\_CFI);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01284}01284\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01285}01285\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01286}01286\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01287}01287\ \ \ \ \ \ \ NOR\_WRITE(NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ NOR\_CMD\_ADDRESS\_FIRST\_CFI),\ NOR\_CMD\_DATA\_CFI);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01288}01288\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01289}01289\ \ \ \ \ \textcolor{comment}{/*\ read\ the\ NOR\ CFI\ information\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01290}01290\ \ \ \ \ pNOR\_CFI-\/>CFI\_1\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)\ NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ CFI1\_ADDRESS);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01291}01291\ \ \ \ \ pNOR\_CFI-\/>CFI\_2\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)\ NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ CFI2\_ADDRESS);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01292}01292\ \ \ \ \ pNOR\_CFI-\/>CFI\_3\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)\ NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ CFI3\_ADDRESS);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01293}01293\ \ \ \ \ pNOR\_CFI-\/>CFI\_4\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)\ NOR\_ADDR\_SHIFT(deviceaddress,\ uwNORMemoryDataWidth,\ CFI4\_ADDRESS);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01294}01294\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01295}01295\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01296}01296\ \ \ \ \ hnor-\/>State\ =\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01297}01297\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01298}01298\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01299}01299\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01300}01300\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01301}01301\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01302}01302\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01303}01303\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01304}01304\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01305}01305\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01306}01306\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01307}01307\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01308}01308\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01309}01309\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_NOR\_REGISTER\_CALLBACKS\ ==\ 1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01321}01321\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_RegisterCallback(NOR\_HandleTypeDef\ *hnor,\ HAL\_NOR\_CallbackIDTypeDef\ CallbackId,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01322}01322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNOR\_CallbackTypeDef\ pCallback)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01323}01323\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01324}01324\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01325}01325\ \ \ HAL\_NOR\_StateTypeDef\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01326}01326\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01327}01327\ \ \ \textcolor{keywordflow}{if}\ (pCallback\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01328}01328\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01329}01329\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01330}01330\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01331}01331\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01332}01332\ \ \ state\ =\ hnor-\/>State;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01333}01333\ \ \ \textcolor{keywordflow}{if}\ ((state\ ==\ HAL\_NOR\_STATE\_READY)\ ||\ (state\ ==\ HAL\_NOR\_STATE\_RESET)\ ||\ (state\ ==\ HAL\_NOR\_STATE\_PROTECTED))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01334}01334\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01335}01335\ \ \ \ \ \textcolor{keywordflow}{switch}\ (CallbackId)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01336}01336\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01337}01337\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_NOR\_MSP\_INIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01338}01338\ \ \ \ \ \ \ \ \ hnor-\/>MspInitCallback\ =\ pCallback;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01339}01339\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01340}01340\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_NOR\_MSP\_DEINIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01341}01341\ \ \ \ \ \ \ \ \ hnor-\/>MspDeInitCallback\ =\ pCallback;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01342}01342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01343}01343\ \ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01344}01344\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ update\ return\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01345}01345\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01346}01346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01347}01347\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01348}01348\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01349}01349\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01350}01350\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01351}01351\ \ \ \ \ \textcolor{comment}{/*\ update\ return\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01352}01352\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01353}01353\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01354}01354\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01355}01355\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01356}01356\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01357}01357\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01368}01368\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_UnRegisterCallback(NOR\_HandleTypeDef\ *hnor,\ HAL\_NOR\_CallbackIDTypeDef\ CallbackId)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01369}01369\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01370}01370\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01371}01371\ \ \ HAL\_NOR\_StateTypeDef\ state;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01372}01372\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01373}01373\ \ \ state\ =\ hnor-\/>State;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01374}01374\ \ \ \textcolor{keywordflow}{if}\ ((state\ ==\ HAL\_NOR\_STATE\_READY)\ ||\ (state\ ==\ HAL\_NOR\_STATE\_RESET)\ ||\ (state\ ==\ HAL\_NOR\_STATE\_PROTECTED))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01375}01375\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01376}01376\ \ \ \ \ \textcolor{keywordflow}{switch}\ (CallbackId)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01377}01377\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01378}01378\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_NOR\_MSP\_INIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01379}01379\ \ \ \ \ \ \ \ \ hnor-\/>MspInitCallback\ =\ HAL\_NOR\_MspInit;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01380}01380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01381}01381\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_NOR\_MSP\_DEINIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01382}01382\ \ \ \ \ \ \ \ \ hnor-\/>MspDeInitCallback\ =\ HAL\_NOR\_MspDeInit;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01383}01383\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01384}01384\ \ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01385}01385\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ update\ return\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01386}01386\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01387}01387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01388}01388\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01389}01389\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01390}01390\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01391}01391\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01392}01392\ \ \ \ \ \textcolor{comment}{/*\ update\ return\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01393}01393\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01394}01394\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01395}01395\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01396}01396\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01397}01397\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01398}01398\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ (USE\_HAL\_NOR\_REGISTER\_CALLBACKS)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01399}01399\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01403}01403\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01418}01418\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01425}01425\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_WriteOperation\_Enable(NOR\_HandleTypeDef\ *hnor)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01426}01426\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01427}01427\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01428}01428\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_PROTECTED)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01429}01429\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01430}01430\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01431}01431\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01432}01432\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01433}01433\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01434}01434\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01435}01435\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01436}01436\ \ \ \ \ \textcolor{comment}{/*\ Enable\ write\ operation\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01437}01437\ \ \ \ \ (void)\mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga80b74385930a4c50e0fbfa499419c791}{FMC\_NORSRAM\_WriteOperation\_Enable}}(hnor-\/>Instance,\ hnor-\/>Init.NSBank);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01438}01438\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01439}01439\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01440}01440\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_READY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01441}01441\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01442}01442\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01443}01443\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01444}01444\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01445}01445\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01446}01446\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01447}01447\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01448}01448\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01449}01449\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01450}01450\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01451}01451\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01452}01452\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01459}01459\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_NOR\_WriteOperation\_Disable(NOR\_HandleTypeDef\ *hnor)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01460}01460\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01461}01461\ \ \ \textcolor{comment}{/*\ Check\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01462}01462\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>State\ ==\ HAL\_NOR\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01463}01463\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01464}01464\ \ \ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01465}01465\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01466}01466\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01467}01467\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01468}01468\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01469}01469\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01470}01470\ \ \ \ \ \textcolor{comment}{/*\ Disable\ write\ operation\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01471}01471\ \ \ \ \ (void)\mbox{\hyperlink{group___f_s_m_c___l_l___alias__definition_ga78715eb3516afb14dd90863df43388cf}{FMC\_NORSRAM\_WriteOperation\_Disable}}(hnor-\/>Instance,\ hnor-\/>Init.NSBank);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01472}01472\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01473}01473\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ NOR\ controller\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01474}01474\ \ \ \ \ hnor-\/>State\ =\ HAL\_NOR\_STATE\_PROTECTED;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01475}01475\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01476}01476\ \ \ \ \ \textcolor{comment}{/*\ Process\ unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01477}01477\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hnor);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01478}01478\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01479}01479\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01480}01480\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01481}01481\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01482}01482\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01483}01483\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01484}01484\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01485}01485\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01486}01486\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01490}01490\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01505}01505\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01512}01512\ HAL\_NOR\_StateTypeDef\ HAL\_NOR\_GetState(\textcolor{keyword}{const}\ NOR\_HandleTypeDef\ *hnor)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01513}01513\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01514}01514\ \ \ \textcolor{keywordflow}{return}\ hnor-\/>State;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01515}01515\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01516}01516\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01526}01526\ HAL\_NOR\_StatusTypeDef\ HAL\_NOR\_GetStatus(NOR\_HandleTypeDef\ *hnor,\ uint32\_t\ Address,\ uint32\_t\ Timeout)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01527}01527\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01528}01528\ \ \ HAL\_NOR\_StatusTypeDef\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ HAL\_NOR\_STATUS\_ONGOING;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01529}01529\ \ \ uint16\_t\ tmpsr1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01530}01530\ \ \ uint16\_t\ tmpsr2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01531}01531\ \ \ uint32\_t\ tickstart;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01532}01532\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01533}01533\ \ \ \textcolor{comment}{/*\ Poll\ on\ NOR\ memory\ Ready/Busy\ signal\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01534}01534\ \ \ HAL\_NOR\_MspWait(hnor,\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01535}01535\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01536}01536\ \ \ \textcolor{comment}{/*\ Get\ the\ NOR\ memory\ operation\ status\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01537}01537\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01538}01538\ \ \ \textcolor{comment}{/*\ Get\ tick\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01539}01539\ \ \ tickstart\ =\ \mbox{\hyperlink{group___h_a_l___exported___functions___group2_gac9b3a85a73735ac840d0dcb59bc0fdd6}{HAL\_GetTick}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01540}01540\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01541}01541\ \ \ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_AMD\_FUJITSU\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01542}01542\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01543}01543\ \ \ \ \ \textcolor{keywordflow}{while}\ ((\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ !=\ HAL\_NOR\_STATUS\_SUCCESS)\ \&\&\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ !=\ HAL\_NOR\_STATUS\_TIMEOUT))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01544}01544\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01545}01545\ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ the\ Timeout\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01546}01546\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Timeout\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_aad28bc64749c50dcedd6bf819fdc6974}{HAL\_MAX\_DELAY}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01547}01547\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01548}01548\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((\mbox{\hyperlink{group___h_a_l___exported___functions___group2_gac9b3a85a73735ac840d0dcb59bc0fdd6}{HAL\_GetTick}}()\ -\/\ tickstart)\ >\ Timeout)\ ||\ (Timeout\ ==\ 0U))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01549}01549\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01550}01550\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ HAL\_NOR\_STATUS\_TIMEOUT;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01551}01551\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01552}01552\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01553}01553\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01554}01554\ \ \ \ \ \ \ \textcolor{comment}{/*\ Read\ NOR\ status\ register\ (DQ6\ and\ DQ5)\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01555}01555\ \ \ \ \ \ \ tmpsr1\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)Address;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01556}01556\ \ \ \ \ \ \ tmpsr2\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)Address;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01557}01557\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01558}01558\ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ DQ6\ did\ not\ toggle\ between\ the\ two\ reads\ then\ return\ HAL\_NOR\_STATUS\_SUCCESS\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01559}01559\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((tmpsr1\ \&\ NOR\_MASK\_STATUS\_DQ6)\ ==\ (tmpsr2\ \&\ NOR\_MASK\_STATUS\_DQ6))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01560}01560\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01561}01561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ HAL\_NOR\_STATUS\_SUCCESS\ ;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01562}01562\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01563}01563\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01564}01564\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((tmpsr1\ \&\ NOR\_MASK\_STATUS\_DQ5)\ ==\ NOR\_MASK\_STATUS\_DQ5)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01565}01565\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01566}01566\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ HAL\_NOR\_STATUS\_ONGOING;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01567}01567\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01568}01568\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01569}01569\ \ \ \ \ \ \ tmpsr1\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)Address;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01570}01570\ \ \ \ \ \ \ tmpsr2\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)Address;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01571}01571\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01572}01572\ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ DQ6\ did\ not\ toggle\ between\ the\ two\ reads\ then\ return\ HAL\_NOR\_STATUS\_SUCCESS\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01573}01573\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((tmpsr1\ \&\ NOR\_MASK\_STATUS\_DQ6)\ ==\ (tmpsr2\ \&\ NOR\_MASK\_STATUS\_DQ6))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01574}01574\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01575}01575\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ HAL\_NOR\_STATUS\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01576}01576\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01577}01577\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((tmpsr1\ \&\ NOR\_MASK\_STATUS\_DQ5)\ ==\ NOR\_MASK\_STATUS\_DQ5)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01578}01578\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01579}01579\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ HAL\_NOR\_STATUS\_ERROR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01580}01580\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01581}01581\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01582}01582\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01583}01583\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hnor-\/>CommandSet\ ==\ NOR\_INTEL\_SHARP\_EXT\_COMMAND\_SET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01584}01584\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01585}01585\ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01586}01586\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01587}01587\ \ \ \ \ \ \ NOR\_WRITE(Address,\ NOR\_CMD\_READ\_STATUS\_REG);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01588}01588\ \ \ \ \ \ \ tmpsr2\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)(Address);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01589}01589\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01590}01590\ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ for\ the\ Timeout\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01591}01591\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Timeout\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_aad28bc64749c50dcedd6bf819fdc6974}{HAL\_MAX\_DELAY}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01592}01592\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01593}01593\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((\mbox{\hyperlink{group___h_a_l___exported___functions___group2_gac9b3a85a73735ac840d0dcb59bc0fdd6}{HAL\_GetTick}}()\ -\/\ tickstart)\ >\ Timeout)\ ||\ (Timeout\ ==\ 0U))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01594}01594\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01595}01595\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ HAL\_NOR\_STATUS\_TIMEOUT;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01596}01596\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01597}01597\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01598}01598\ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((tmpsr2\ \&\ NOR\_MASK\_STATUS\_DQ7)\ ==\ 0U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01599}01599\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01600}01600\ \ \ \ \ NOR\_WRITE(Address,\ NOR\_CMD\_READ\_STATUS\_REG);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01601}01601\ \ \ \ \ tmpsr1\ =\ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint16\_t\ *)(Address);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01602}01602\ \ \ \ \ \textcolor{keywordflow}{if}\ ((tmpsr1\ \ \&\ (NOR\_MASK\_STATUS\_DQ5\ |\ NOR\_MASK\_STATUS\_DQ4))\ !=\ 0U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01603}01603\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01604}01604\ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ Status\ Register\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01605}01605\ \ \ \ \ \ \ NOR\_WRITE(Address,\ NOR\_CMD\_READ\_STATUS\_REG);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01606}01606\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ HAL\_NOR\_STATUS\_ERROR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01607}01607\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01608}01608\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01609}01609\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01610}01610\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ HAL\_NOR\_STATUS\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01611}01611\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01612}01612\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01613}01613\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01614}01614\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01615}01615\ \ \ \ \ \textcolor{comment}{/*\ Primary\ command\ set\ not\ supported\ by\ the\ driver\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01616}01616\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ HAL\_NOR\_STATUS\_ERROR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01617}01617\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01618}01618\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01619}01619\ \ \ \textcolor{comment}{/*\ Return\ the\ operation\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01620}01620\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01621}01621\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01622}01622\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01626}01626\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01630}01630\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01634}01634\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01635}01635\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_NOR\_MODULE\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01636}01636\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01640}01640\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__nor_8c_source_l01641}01641\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ FMC\_Bank1\ ||\ FSMC\_Bank1\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,9 @@
+<map id="arm_scale_f32" name="arm_scale_f32">
+<area shape="rect" id="Node000001" title="Multiplies a floating&#45;point vector by a scalar." alt="" coords="158,56,264,83"/>
+<area shape="rect" id="Node000002" href="$group___d_c_t4___i_d_c_t4.html#gafd538d68886848bc090ec2b0d364cc81" title="Processing function for the floating&#45;point DCT4/IDCT4." alt="" coords="7,5,108,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,53,99,35,101,30,154,48"/>
+<area shape="rect" id="Node000003" href="$group___m_f_c_c.html#gada3ab681711c96cc8b39394a42614678" title="MFCC F32." alt="" coords="5,56,110,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,72,110,72,110,67,142,67"/>
+<area shape="rect" id="Node000004" href="$arm__graphic__equalizer__example__q31_8c.html#a52d2cba30e6946c95578be946ac12a65" title=" " alt="" coords="33,107,82,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="154,91,83,115,82,110,153,86"/>
+</map>

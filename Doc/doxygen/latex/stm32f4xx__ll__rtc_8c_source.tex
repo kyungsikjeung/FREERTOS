@@ -1,0 +1,656 @@
+\doxysection{stm32f4xx\+\_\+ll\+\_\+rtc.\+c}
+\hypertarget{stm32f4xx__ll__rtc_8c_source}{}\label{stm32f4xx__ll__rtc_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_ll\_rtc.c@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_ll\_rtc.c}}
+\mbox{\hyperlink{stm32f4xx__ll__rtc_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00018}00018\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00020}00020\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__ll__rtc_8h}{stm32f4xx\_ll\_rtc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__ll__cortex_8h}{stm32f4xx\_ll\_cortex.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00023}00023\ \textcolor{preprocessor}{\#ifdef\ \ USE\_FULL\_ASSERT}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}stm32\_assert.h"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00025}00025\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00026}00026\ \textcolor{preprocessor}{\#define\ assert\_param(expr)\ ((void)0U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00027}00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00033}00033\ \textcolor{preprocessor}{\#if\ defined(RTC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00039}00039\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00040}00040\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00041}00041\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00045}00045\ \textcolor{comment}{/*\ Default\ values\ used\ for\ prescaler\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00046}00046\ \textcolor{preprocessor}{\#define\ RTC\_ASYNCH\_PRESC\_DEFAULT\ \ \ \ \ 0x0000007FU}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00047}00047\ \textcolor{preprocessor}{\#define\ RTC\_SYNCH\_PRESC\_DEFAULT\ \ \ \ \ \ 0x000000FFU}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00049}00049\ \textcolor{comment}{/*\ Values\ used\ for\ timeout\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00050}00050\ \textcolor{preprocessor}{\#define\ RTC\_INITMODE\_TIMEOUT\ \ \ \ \ \ \ \ \ 1000U\ }\textcolor{comment}{/*\ 1s\ when\ tick\ set\ to\ 1ms\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00051}00051\ \textcolor{preprocessor}{\#define\ RTC\_SYNCHRO\_TIMEOUT\ \ \ \ \ \ \ \ \ \ 1000U\ }\textcolor{comment}{/*\ 1s\ when\ tick\ set\ to\ 1ms\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00056}00056\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00061}00061\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_HOURFORMAT(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_RTC\_HOURFORMAT\_24HOUR)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00062}00062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_HOURFORMAT\_AMPM))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00064}00064\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_ASYNCH\_PREDIV(\_\_VALUE\_\_)\ \ \ ((\_\_VALUE\_\_)\ <=\ 0x7FU)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00066}00066\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_SYNCH\_PREDIV(\_\_VALUE\_\_)\ \ \ \ ((\_\_VALUE\_\_)\ <=\ 0x7FFFU)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00068}00068\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_FORMAT(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_RTC\_FORMAT\_BIN)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00069}00069\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_FORMAT\_BCD))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00071}00071\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_TIME\_FORMAT(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_RTC\_TIME\_FORMAT\_AM\_OR\_24)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00072}00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_TIME\_FORMAT\_PM))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00074}00074\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_HOUR12(\_\_HOUR\_\_)\ \ \ \ \ \ \ \ \ \ \ \ (((\_\_HOUR\_\_)\ >\ 0U)\ \&\&\ ((\_\_HOUR\_\_)\ <=\ 12U))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00075}00075\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_HOUR24(\_\_HOUR\_\_)\ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HOUR\_\_)\ <=\ 23U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00076}00076\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_MINUTES(\_\_MINUTES\_\_)\ \ \ \ \ \ \ \ ((\_\_MINUTES\_\_)\ <=\ 59U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00077}00077\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_SECONDS(\_\_SECONDS\_\_)\ \ \ \ \ \ \ \ ((\_\_SECONDS\_\_)\ <=\ 59U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00079}00079\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_WEEKDAY(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_RTC\_WEEKDAY\_MONDAY)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00080}00080\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_WEEKDAY\_TUESDAY)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00081}00081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_WEEKDAY\_WEDNESDAY)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00082}00082\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_WEEKDAY\_THURSDAY)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00083}00083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_WEEKDAY\_FRIDAY)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00084}00084\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_WEEKDAY\_SATURDAY)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00085}00085\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_WEEKDAY\_SUNDAY))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00087}00087\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_DAY(\_\_DAY\_\_)\ \ \ \ \ (((\_\_DAY\_\_)\ >=\ 1U)\ \&\&\ ((\_\_DAY\_\_)\ <=\ 31U))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00089}00089\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_MONTH(\_\_MONTH\_\_)\ (((\_\_MONTH\_\_)\ >=\ 1U)\ \&\&\ ((\_\_MONTH\_\_)\ <=\ 12U))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00091}00091\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_YEAR(\_\_YEAR\_\_)\ \ \ ((\_\_YEAR\_\_)\ <=\ 99U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00093}00093\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_ALMA\_MASK(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMA\_MASK\_NONE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00094}00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMA\_MASK\_DATEWEEKDAY)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00095}00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMA\_MASK\_HOURS)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00096}00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMA\_MASK\_MINUTES)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00097}00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMA\_MASK\_SECONDS)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00098}00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMA\_MASK\_ALL))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00100}00100\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_ALMB\_MASK(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMB\_MASK\_NONE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00101}00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMB\_MASK\_DATEWEEKDAY)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00102}00102\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMB\_MASK\_HOURS)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00103}00103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMB\_MASK\_MINUTES)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00104}00104\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMB\_MASK\_SECONDS)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00105}00105\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RTC\_ALMB\_MASK\_ALL))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00107}00107\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_ALMA\_DATE\_WEEKDAY\_SEL(\_\_SEL\_\_)\ (((\_\_SEL\_\_)\ ==\ LL\_RTC\_ALMA\_DATEWEEKDAYSEL\_DATE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00108}00108\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_SEL\_\_)\ ==\ LL\_RTC\_ALMA\_DATEWEEKDAYSEL\_WEEKDAY))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00110}00110\ \textcolor{preprocessor}{\#define\ IS\_LL\_RTC\_ALMB\_DATE\_WEEKDAY\_SEL(\_\_SEL\_\_)\ (((\_\_SEL\_\_)\ ==\ LL\_RTC\_ALMB\_DATEWEEKDAYSEL\_DATE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00111}00111\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_SEL\_\_)\ ==\ LL\_RTC\_ALMB\_DATEWEEKDAYSEL\_WEEKDAY))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00116}00116\ \textcolor{comment}{/*\ Private\ function\ prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00117}00117\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00135}00135\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_RTC\_DeInit(\mbox{\hyperlink{struct_r_t_c___type_def}{RTC\_TypeDef}}\ *RTCx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00136}00136\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00137}00137\ \ \ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00139}00139\ \ \ \textcolor{comment}{/*\ Check\ the\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00140}00140\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_gab4230e8bd4d88adc4250f041d67375ce}{IS\_RTC\_ALL\_INSTANCE}}(RTCx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00142}00142\ \ \ \textcolor{comment}{/*\ Disable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00143}00143\ \ \ LL\_RTC\_DisableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00145}00145\ \ \ \textcolor{comment}{/*\ Set\ Initialization\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00146}00146\ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_EnterInitMode(RTCx)\ !=\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00147}00147\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00148}00148\ \ \ \ \ \textcolor{comment}{/*\ Reset\ TR,\ DR\ and\ CR\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00149}00149\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ TR,\ \ \ \ \ \ \ 0x00000000U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00150}00150\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ WUTR,\ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2e412c1448a7e20974f5b46129799eeb}{RTC\_WUTR\_WUT}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00151}00151\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ DR,\ \ \ \ \ \ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga30cb803b191670a41aea89a91e53fe61}{RTC\_DR\_WDU\_0}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga54f64678df9fe08a2afd732c275ae7a0}{RTC\_DR\_MU\_0}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0ffd9b610a0ba3f1caad707ff2fb0a3f}{RTC\_DR\_DU\_0}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00153}00153\ \ \ \ \ \textcolor{comment}{/*\ Reset\ All\ CR\ bits\ except\ CR[2:0]\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00154}00154\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ CR,\ (LL\_RTC\_ReadReg(RTCx,\ CR)\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga54a2d55571417d9dfb05826b40d997b0}{RTC\_CR\_WUCKSEL}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00156}00156\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ PRER,\ \ \ \ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad248dca1e9532ba31f98d3ec9d2f8711}{RTC\_PRER\_PREDIV\_A}}\ |\ RTC\_SYNCH\_PRESC\_DEFAULT));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00157}00157\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ ALRMAR,\ \ \ 0x00000000U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00158}00158\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ ALRMBR,\ \ \ 0x00000000U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00159}00159\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ CALR,\ \ \ \ \ 0x00000000U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00160}00160\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ SHIFTR,\ \ \ 0x00000000U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00161}00161\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ ALRMASSR,\ 0x00000000U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00162}00162\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ ALRMBSSR,\ 0x00000000U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00164}00164\ \ \ \ \ \textcolor{comment}{/*\ Reset\ ISR\ register\ and\ exit\ initialization\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00165}00165\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ ISR,\ \ \ \ \ \ 0x00000000U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00167}00167\ \ \ \ \ \textcolor{comment}{/*\ Reset\ Tamper\ and\ alternate\ functions\ configuration\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00168}00168\ \ \ \ \ LL\_RTC\_WriteReg(RTCx,\ TAFCR,\ 0x00000000U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00170}00170\ \ \ \ \ \textcolor{comment}{/*\ Wait\ till\ the\ RTC\ RSF\ flag\ is\ set\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00171}00171\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ LL\_RTC\_WaitForSynchro(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00172}00172\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00174}00174\ \ \ \textcolor{comment}{/*\ Enable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00175}00175\ \ \ LL\_RTC\_EnableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00177}00177\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00178}00178\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00192}00192\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_RTC\_Init(\mbox{\hyperlink{struct_r_t_c___type_def}{RTC\_TypeDef}}\ *RTCx,\ LL\_RTC\_InitTypeDef\ *RTC\_InitStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00193}00193\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00194}00194\ \ \ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00196}00196\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00197}00197\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_gab4230e8bd4d88adc4250f041d67375ce}{IS\_RTC\_ALL\_INSTANCE}}(RTCx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00198}00198\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOURFORMAT(RTC\_InitStruct-\/>HourFormat));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00199}00199\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_ASYNCH\_PREDIV(RTC\_InitStruct-\/>AsynchPrescaler));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00200}00200\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_SYNCH\_PREDIV(RTC\_InitStruct-\/>SynchPrescaler));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00202}00202\ \ \ \textcolor{comment}{/*\ Disable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00203}00203\ \ \ LL\_RTC\_DisableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00205}00205\ \ \ \textcolor{comment}{/*\ Set\ Initialization\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00206}00206\ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_EnterInitMode(RTCx)\ !=\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00207}00207\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00208}00208\ \ \ \ \ \textcolor{comment}{/*\ Set\ Hour\ Format\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00209}00209\ \ \ \ \ LL\_RTC\_SetHourFormat(RTCx,\ RTC\_InitStruct-\/>HourFormat);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00211}00211\ \ \ \ \ \textcolor{comment}{/*\ Configure\ Synchronous\ and\ Asynchronous\ prescaler\ factor\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00212}00212\ \ \ \ \ LL\_RTC\_SetSynchPrescaler(RTCx,\ RTC\_InitStruct-\/>SynchPrescaler);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00213}00213\ \ \ \ \ LL\_RTC\_SetAsynchPrescaler(RTCx,\ RTC\_InitStruct-\/>AsynchPrescaler);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00215}00215\ \ \ \ \ \textcolor{comment}{/*\ Exit\ Initialization\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00216}00216\ \ \ \ \ LL\_RTC\_DisableInitMode(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00218}00218\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00219}00219\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00220}00220\ \ \ \textcolor{comment}{/*\ Enable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00221}00221\ \ \ LL\_RTC\_EnableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00223}00223\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00224}00224\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00231}00231\ \textcolor{keywordtype}{void}\ LL\_RTC\_StructInit(LL\_RTC\_InitTypeDef\ *RTC\_InitStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00232}00232\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00233}00233\ \ \ \textcolor{comment}{/*\ Set\ RTC\_InitStruct\ fields\ to\ default\ values\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00234}00234\ \ \ RTC\_InitStruct-\/>HourFormat\ \ \ \ \ \ =\ LL\_RTC\_HOURFORMAT\_24HOUR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00235}00235\ \ \ RTC\_InitStruct-\/>AsynchPrescaler\ =\ RTC\_ASYNCH\_PRESC\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00236}00236\ \ \ RTC\_InitStruct-\/>SynchPrescaler\ \ =\ RTC\_SYNCH\_PRESC\_DEFAULT;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00237}00237\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00251}00251\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_RTC\_TIME\_Init(\mbox{\hyperlink{struct_r_t_c___type_def}{RTC\_TypeDef}}\ *RTCx,\ uint32\_t\ RTC\_Format,\ LL\_RTC\_TimeTypeDef\ *RTC\_TimeStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00252}00252\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00253}00253\ \ \ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00255}00255\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00256}00256\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_gab4230e8bd4d88adc4250f041d67375ce}{IS\_RTC\_ALL\_INSTANCE}}(RTCx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00257}00257\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_FORMAT(RTC\_Format));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00259}00259\ \ \ \textcolor{keywordflow}{if}\ (RTC\_Format\ ==\ LL\_RTC\_FORMAT\_BIN)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00260}00260\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00261}00261\ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_GetHourFormat(RTCx)\ !=\ LL\_RTC\_HOURFORMAT\_24HOUR)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00262}00262\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00263}00263\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR12(RTC\_TimeStruct-\/>Hours));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00264}00264\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_TIME\_FORMAT(RTC\_TimeStruct-\/>TimeFormat));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00265}00265\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00266}00266\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00267}00267\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00268}00268\ \ \ \ \ \ \ RTC\_TimeStruct-\/>TimeFormat\ =\ 0x00U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00269}00269\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR24(RTC\_TimeStruct-\/>Hours));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00270}00270\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00271}00271\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_MINUTES(RTC\_TimeStruct-\/>Minutes));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00272}00272\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_SECONDS(RTC\_TimeStruct-\/>Seconds));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00273}00273\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00274}00274\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00275}00275\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00276}00276\ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_GetHourFormat(RTCx)\ !=\ LL\_RTC\_HOURFORMAT\_24HOUR)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00277}00277\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00278}00278\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR12(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_TimeStruct-\/>Hours)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00279}00279\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_TIME\_FORMAT(RTC\_TimeStruct-\/>TimeFormat));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00280}00280\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00281}00281\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00282}00282\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00283}00283\ \ \ \ \ \ \ RTC\_TimeStruct-\/>TimeFormat\ =\ 0x00U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00284}00284\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR24(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_TimeStruct-\/>Hours)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00285}00285\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00286}00286\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_MINUTES(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_TimeStruct-\/>Minutes)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00287}00287\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_SECONDS(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_TimeStruct-\/>Seconds)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00288}00288\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00290}00290\ \ \ \textcolor{comment}{/*\ Disable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00291}00291\ \ \ LL\_RTC\_DisableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00293}00293\ \ \ \textcolor{comment}{/*\ Set\ Initialization\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00294}00294\ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_EnterInitMode(RTCx)\ !=\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00295}00295\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00296}00296\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ input\ parameters\ format\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00297}00297\ \ \ \ \ \textcolor{keywordflow}{if}\ (RTC\_Format\ !=\ LL\_RTC\_FORMAT\_BIN)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00298}00298\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00299}00299\ \ \ \ \ \ \ LL\_RTC\_TIME\_Config(RTCx,\ RTC\_TimeStruct-\/>TimeFormat,\ RTC\_TimeStruct-\/>Hours,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RTC\_TimeStruct-\/>Minutes,\ RTC\_TimeStruct-\/>Seconds);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00301}00301\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00302}00302\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00303}00303\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00304}00304\ \ \ \ \ \ \ LL\_RTC\_TIME\_Config(RTCx,\ RTC\_TimeStruct-\/>TimeFormat,\ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_TimeStruct-\/>Hours),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_TimeStruct-\/>Minutes),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_TimeStruct-\/>Seconds));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00307}00307\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00309}00309\ \ \ \ \ \textcolor{comment}{/*\ Exit\ Initialization\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00310}00310\ \ \ \ \ LL\_RTC\_DisableInitMode(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00312}00312\ \ \ \ \ \textcolor{comment}{/*\ If\ \ RTC\_CR\_BYPSHAD\ bit\ =\ 0,\ wait\ for\ synchro\ else\ this\ check\ is\ not\ needed\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00313}00313\ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_IsShadowRegBypassEnabled(RTCx)\ ==\ 0U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00314}00314\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00315}00315\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ LL\_RTC\_WaitForSynchro(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00316}00316\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00317}00317\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00318}00318\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00319}00319\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00320}00320\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00321}00321\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00322}00322\ \ \ \textcolor{comment}{/*\ Enable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00323}00323\ \ \ LL\_RTC\_EnableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00325}00325\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00326}00326\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00333}00333\ \textcolor{keywordtype}{void}\ LL\_RTC\_TIME\_StructInit(LL\_RTC\_TimeTypeDef\ *RTC\_TimeStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00334}00334\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00335}00335\ \ \ \textcolor{comment}{/*\ Time\ =\ 00h:00min:00sec\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00336}00336\ \ \ RTC\_TimeStruct-\/>TimeFormat\ =\ LL\_RTC\_TIME\_FORMAT\_AM\_OR\_24;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00337}00337\ \ \ RTC\_TimeStruct-\/>Hours\ \ \ \ \ \ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00338}00338\ \ \ RTC\_TimeStruct-\/>Minutes\ \ \ \ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00339}00339\ \ \ RTC\_TimeStruct-\/>Seconds\ \ \ \ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00340}00340\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00354}00354\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_RTC\_DATE\_Init(\mbox{\hyperlink{struct_r_t_c___type_def}{RTC\_TypeDef}}\ *RTCx,\ uint32\_t\ RTC\_Format,\ LL\_RTC\_DateTypeDef\ *RTC\_DateStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00355}00355\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00356}00356\ \ \ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00358}00358\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00359}00359\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_gab4230e8bd4d88adc4250f041d67375ce}{IS\_RTC\_ALL\_INSTANCE}}(RTCx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00360}00360\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_FORMAT(RTC\_Format));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00361}00361\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00362}00362\ \ \ \textcolor{keywordflow}{if}\ ((RTC\_Format\ ==\ LL\_RTC\_FORMAT\_BIN)\ \&\&\ ((RTC\_DateStruct-\/>Month\ \&\ 0x10U)\ ==\ 0x10U))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00363}00363\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00364}00364\ \ \ \ \ RTC\_DateStruct-\/>Month\ =\ (uint8\_t)(RTC\_DateStruct-\/>Month\ \&\ (uint8\_t)\string~(0x10U))\ +\ 0x0AU;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00365}00365\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00366}00366\ \ \ \textcolor{keywordflow}{if}\ (RTC\_Format\ ==\ LL\_RTC\_FORMAT\_BIN)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00367}00367\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00368}00368\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_YEAR(RTC\_DateStruct-\/>Year));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00369}00369\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_MONTH(RTC\_DateStruct-\/>Month));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00370}00370\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_DAY(RTC\_DateStruct-\/>Day));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00371}00371\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00372}00372\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00373}00373\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00374}00374\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_YEAR(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_DateStruct-\/>Year)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00375}00375\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_MONTH(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_DateStruct-\/>Month)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00376}00376\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_DAY(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_DateStruct-\/>Day)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00377}00377\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00378}00378\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_WEEKDAY(RTC\_DateStruct-\/>WeekDay));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00380}00380\ \ \ \textcolor{comment}{/*\ Disable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00381}00381\ \ \ LL\_RTC\_DisableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00382}00382\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00383}00383\ \ \ \textcolor{comment}{/*\ Set\ Initialization\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00384}00384\ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_EnterInitMode(RTCx)\ !=\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00385}00385\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00386}00386\ \ \ \ \ \textcolor{comment}{/*\ Check\ the\ input\ parameters\ format\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00387}00387\ \ \ \ \ \textcolor{keywordflow}{if}\ (RTC\_Format\ !=\ LL\_RTC\_FORMAT\_BIN)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00388}00388\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00389}00389\ \ \ \ \ \ \ LL\_RTC\_DATE\_Config(RTCx,\ RTC\_DateStruct-\/>WeekDay,\ RTC\_DateStruct-\/>Day,\ RTC\_DateStruct-\/>Month,\ RTC\_DateStruct-\/>Year);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00390}00390\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00391}00391\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00392}00392\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00393}00393\ \ \ \ \ \ \ LL\_RTC\_DATE\_Config(RTCx,\ RTC\_DateStruct-\/>WeekDay,\ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_DateStruct-\/>Day),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_DateStruct-\/>Month),\ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_DateStruct-\/>Year));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00395}00395\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00396}00396\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00397}00397\ \ \ \ \ \textcolor{comment}{/*\ Exit\ Initialization\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00398}00398\ \ \ \ \ LL\_RTC\_DisableInitMode(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00399}00399\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00400}00400\ \ \ \ \ \textcolor{comment}{/*\ If\ \ RTC\_CR\_BYPSHAD\ bit\ =\ 0,\ wait\ for\ synchro\ else\ this\ check\ is\ not\ needed\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00401}00401\ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_IsShadowRegBypassEnabled(RTCx)\ ==\ 0U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00402}00402\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00403}00403\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ LL\_RTC\_WaitForSynchro(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00404}00404\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00405}00405\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00406}00406\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00407}00407\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00408}00408\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00409}00409\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00410}00410\ \ \ \textcolor{comment}{/*\ Enable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00411}00411\ \ \ LL\_RTC\_EnableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00413}00413\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00414}00414\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00421}00421\ \textcolor{keywordtype}{void}\ LL\_RTC\_DATE\_StructInit(LL\_RTC\_DateTypeDef\ *RTC\_DateStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00422}00422\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00423}00423\ \ \ \textcolor{comment}{/*\ Monday,\ January\ 01\ xx00\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00424}00424\ \ \ RTC\_DateStruct-\/>WeekDay\ =\ LL\_RTC\_WEEKDAY\_MONDAY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00425}00425\ \ \ RTC\_DateStruct-\/>Day\ \ \ \ \ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00426}00426\ \ \ RTC\_DateStruct-\/>Month\ \ \ =\ LL\_RTC\_MONTH\_JANUARY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00427}00427\ \ \ RTC\_DateStruct-\/>Year\ \ \ \ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00428}00428\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00444}00444\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_RTC\_ALMA\_Init(\mbox{\hyperlink{struct_r_t_c___type_def}{RTC\_TypeDef}}\ *RTCx,\ uint32\_t\ RTC\_Format,\ LL\_RTC\_AlarmTypeDef\ *RTC\_AlarmStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00445}00445\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00446}00446\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00447}00447\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_gab4230e8bd4d88adc4250f041d67375ce}{IS\_RTC\_ALL\_INSTANCE}}(RTCx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00448}00448\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_FORMAT(RTC\_Format));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00449}00449\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_ALMA\_MASK(RTC\_AlarmStruct-\/>AlarmMask));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00450}00450\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_ALMA\_DATE\_WEEKDAY\_SEL(RTC\_AlarmStruct-\/>AlarmDateWeekDaySel));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00451}00451\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00452}00452\ \ \ \textcolor{keywordflow}{if}\ (RTC\_Format\ ==\ LL\_RTC\_FORMAT\_BIN)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00453}00453\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00454}00454\ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_GetHourFormat(RTCx)\ !=\ LL\_RTC\_HOURFORMAT\_24HOUR)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00455}00455\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00456}00456\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR12(RTC\_AlarmStruct-\/>AlarmTime.Hours));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00457}00457\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_TIME\_FORMAT(RTC\_AlarmStruct-\/>AlarmTime.TimeFormat));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00458}00458\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00459}00459\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00460}00460\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00461}00461\ \ \ \ \ \ \ RTC\_AlarmStruct-\/>AlarmTime.TimeFormat\ =\ 0x00U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00462}00462\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR24(RTC\_AlarmStruct-\/>AlarmTime.Hours));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00463}00463\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00464}00464\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_MINUTES(RTC\_AlarmStruct-\/>AlarmTime.Minutes));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00465}00465\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_SECONDS(RTC\_AlarmStruct-\/>AlarmTime.Seconds));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00467}00467\ \ \ \ \ \textcolor{keywordflow}{if}\ (RTC\_AlarmStruct-\/>AlarmDateWeekDaySel\ ==\ LL\_RTC\_ALMA\_DATEWEEKDAYSEL\_DATE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00468}00468\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00469}00469\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_DAY(RTC\_AlarmStruct-\/>AlarmDateWeekDay));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00470}00470\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00471}00471\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00472}00472\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00473}00473\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_WEEKDAY(RTC\_AlarmStruct-\/>AlarmDateWeekDay));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00474}00474\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00475}00475\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00476}00476\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00477}00477\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00478}00478\ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_GetHourFormat(RTCx)\ !=\ LL\_RTC\_HOURFORMAT\_24HOUR)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00479}00479\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00480}00480\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR12(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmTime.Hours)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00481}00481\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_TIME\_FORMAT(RTC\_AlarmStruct-\/>AlarmTime.TimeFormat));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00482}00482\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00483}00483\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00484}00484\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00485}00485\ \ \ \ \ \ \ RTC\_AlarmStruct-\/>AlarmTime.TimeFormat\ =\ 0x00U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00486}00486\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR24(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmTime.Hours)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00487}00487\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00488}00488\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00489}00489\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_MINUTES(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmTime.Minutes)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00490}00490\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_SECONDS(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmTime.Seconds)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00492}00492\ \ \ \ \ \textcolor{keywordflow}{if}\ (RTC\_AlarmStruct-\/>AlarmDateWeekDaySel\ ==\ LL\_RTC\_ALMA\_DATEWEEKDAYSEL\_DATE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00493}00493\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00494}00494\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_DAY(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmDateWeekDay)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00495}00495\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00496}00496\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00497}00497\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00498}00498\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_WEEKDAY(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmDateWeekDay)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00499}00499\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00500}00500\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00501}00501\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00502}00502\ \ \ \textcolor{comment}{/*\ Disable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00503}00503\ \ \ LL\_RTC\_DisableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00504}00504\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00505}00505\ \ \ \textcolor{comment}{/*\ Select\ weekday\ selection\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00506}00506\ \ \ \textcolor{keywordflow}{if}\ (RTC\_AlarmStruct-\/>AlarmDateWeekDaySel\ ==\ LL\_RTC\_ALMA\_DATEWEEKDAYSEL\_DATE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00507}00507\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00508}00508\ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ date\ for\ ALARM\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00509}00509\ \ \ \ \ LL\_RTC\_ALMA\_DisableWeekday(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00510}00510\ \ \ \ \ \textcolor{keywordflow}{if}\ (RTC\_Format\ !=\ LL\_RTC\_FORMAT\_BIN)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00511}00511\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00512}00512\ \ \ \ \ \ \ LL\_RTC\_ALMA\_SetDay(RTCx,\ RTC\_AlarmStruct-\/>AlarmDateWeekDay);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00513}00513\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00514}00514\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00515}00515\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00516}00516\ \ \ \ \ \ \ LL\_RTC\_ALMA\_SetDay(RTCx,\ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_AlarmStruct-\/>AlarmDateWeekDay));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00517}00517\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00518}00518\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00519}00519\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00520}00520\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00521}00521\ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ week\ day\ for\ ALARM\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00522}00522\ \ \ \ \ LL\_RTC\_ALMA\_EnableWeekday(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00523}00523\ \ \ \ \ LL\_RTC\_ALMA\_SetWeekDay(RTCx,\ RTC\_AlarmStruct-\/>AlarmDateWeekDay);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00524}00524\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00525}00525\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00526}00526\ \ \ \textcolor{comment}{/*\ Configure\ the\ Alarm\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00527}00527\ \ \ \textcolor{keywordflow}{if}\ (RTC\_Format\ !=\ LL\_RTC\_FORMAT\_BIN)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00528}00528\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00529}00529\ \ \ \ \ LL\_RTC\_ALMA\_ConfigTime(RTCx,\ RTC\_AlarmStruct-\/>AlarmTime.TimeFormat,\ RTC\_AlarmStruct-\/>AlarmTime.Hours,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00530}00530\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RTC\_AlarmStruct-\/>AlarmTime.Minutes,\ RTC\_AlarmStruct-\/>AlarmTime.Seconds);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00531}00531\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00532}00532\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00533}00533\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00534}00534\ \ \ \ \ LL\_RTC\_ALMA\_ConfigTime(RTCx,\ RTC\_AlarmStruct-\/>AlarmTime.TimeFormat,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00535}00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_AlarmStruct-\/>AlarmTime.Hours),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00536}00536\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_AlarmStruct-\/>AlarmTime.Minutes),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00537}00537\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_AlarmStruct-\/>AlarmTime.Seconds));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00538}00538\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00539}00539\ \ \ \textcolor{comment}{/*\ Set\ ALARM\ mask\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00540}00540\ \ \ LL\_RTC\_ALMA\_SetMask(RTCx,\ RTC\_AlarmStruct-\/>AlarmMask);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00541}00541\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00542}00542\ \ \ \textcolor{comment}{/*\ Enable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00543}00543\ \ \ LL\_RTC\_EnableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00544}00544\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00545}00545\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00546}00546\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00547}00547\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00562}00562\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_RTC\_ALMB\_Init(\mbox{\hyperlink{struct_r_t_c___type_def}{RTC\_TypeDef}}\ *RTCx,\ uint32\_t\ RTC\_Format,\ LL\_RTC\_AlarmTypeDef\ *RTC\_AlarmStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00563}00563\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00564}00564\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00565}00565\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_gab4230e8bd4d88adc4250f041d67375ce}{IS\_RTC\_ALL\_INSTANCE}}(RTCx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00566}00566\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_FORMAT(RTC\_Format));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00567}00567\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_ALMB\_MASK(RTC\_AlarmStruct-\/>AlarmMask));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00568}00568\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_ALMB\_DATE\_WEEKDAY\_SEL(RTC\_AlarmStruct-\/>AlarmDateWeekDaySel));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00569}00569\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00570}00570\ \ \ \textcolor{keywordflow}{if}\ (RTC\_Format\ ==\ LL\_RTC\_FORMAT\_BIN)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00571}00571\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00572}00572\ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_GetHourFormat(RTCx)\ !=\ LL\_RTC\_HOURFORMAT\_24HOUR)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00573}00573\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00574}00574\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR12(RTC\_AlarmStruct-\/>AlarmTime.Hours));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00575}00575\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_TIME\_FORMAT(RTC\_AlarmStruct-\/>AlarmTime.TimeFormat));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00576}00576\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00577}00577\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00578}00578\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00579}00579\ \ \ \ \ \ \ RTC\_AlarmStruct-\/>AlarmTime.TimeFormat\ =\ 0x00U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00580}00580\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR24(RTC\_AlarmStruct-\/>AlarmTime.Hours));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00581}00581\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00582}00582\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_MINUTES(RTC\_AlarmStruct-\/>AlarmTime.Minutes));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00583}00583\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_SECONDS(RTC\_AlarmStruct-\/>AlarmTime.Seconds));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00584}00584\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00585}00585\ \ \ \ \ \textcolor{keywordflow}{if}\ (RTC\_AlarmStruct-\/>AlarmDateWeekDaySel\ ==\ LL\_RTC\_ALMB\_DATEWEEKDAYSEL\_DATE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00586}00586\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00587}00587\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_DAY(RTC\_AlarmStruct-\/>AlarmDateWeekDay));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00588}00588\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00589}00589\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00590}00590\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00591}00591\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_WEEKDAY(RTC\_AlarmStruct-\/>AlarmDateWeekDay));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00592}00592\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00593}00593\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00594}00594\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00595}00595\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00596}00596\ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_GetHourFormat(RTCx)\ !=\ LL\_RTC\_HOURFORMAT\_24HOUR)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00597}00597\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00598}00598\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR12(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmTime.Hours)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00599}00599\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_TIME\_FORMAT(RTC\_AlarmStruct-\/>AlarmTime.TimeFormat));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00600}00600\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00601}00601\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00602}00602\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00603}00603\ \ \ \ \ \ \ RTC\_AlarmStruct-\/>AlarmTime.TimeFormat\ =\ 0x00U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00604}00604\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_HOUR24(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmTime.Hours)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00605}00605\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00606}00606\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00607}00607\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_MINUTES(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmTime.Minutes)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00608}00608\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_SECONDS(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmTime.Seconds)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00609}00609\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00610}00610\ \ \ \ \ \textcolor{keywordflow}{if}\ (RTC\_AlarmStruct-\/>AlarmDateWeekDaySel\ ==\ LL\_RTC\_ALMB\_DATEWEEKDAYSEL\_DATE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00611}00611\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00612}00612\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_DAY(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmDateWeekDay)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00613}00613\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00614}00614\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00615}00615\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00616}00616\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RTC\_WEEKDAY(\_\_LL\_RTC\_CONVERT\_BCD2BIN(RTC\_AlarmStruct-\/>AlarmDateWeekDay)));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00617}00617\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00618}00618\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00619}00619\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00620}00620\ \ \ \textcolor{comment}{/*\ Disable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00621}00621\ \ \ LL\_RTC\_DisableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00622}00622\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00623}00623\ \ \ \textcolor{comment}{/*\ Select\ weekday\ selection\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00624}00624\ \ \ \textcolor{keywordflow}{if}\ (RTC\_AlarmStruct-\/>AlarmDateWeekDaySel\ ==\ LL\_RTC\_ALMB\_DATEWEEKDAYSEL\_DATE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00625}00625\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00626}00626\ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ date\ for\ ALARM\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00627}00627\ \ \ \ \ LL\_RTC\_ALMB\_DisableWeekday(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00628}00628\ \ \ \ \ \textcolor{keywordflow}{if}\ (RTC\_Format\ !=\ LL\_RTC\_FORMAT\_BIN)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00629}00629\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00630}00630\ \ \ \ \ \ \ LL\_RTC\_ALMB\_SetDay(RTCx,\ RTC\_AlarmStruct-\/>AlarmDateWeekDay);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00631}00631\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00632}00632\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00633}00633\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00634}00634\ \ \ \ \ \ \ LL\_RTC\_ALMB\_SetDay(RTCx,\ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_AlarmStruct-\/>AlarmDateWeekDay));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00635}00635\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00636}00636\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00637}00637\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00638}00638\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00639}00639\ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ week\ day\ for\ ALARM\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00640}00640\ \ \ \ \ LL\_RTC\_ALMB\_EnableWeekday(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00641}00641\ \ \ \ \ LL\_RTC\_ALMB\_SetWeekDay(RTCx,\ RTC\_AlarmStruct-\/>AlarmDateWeekDay);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00642}00642\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00643}00643\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00644}00644\ \ \ \textcolor{comment}{/*\ Configure\ the\ Alarm\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00645}00645\ \ \ \textcolor{keywordflow}{if}\ (RTC\_Format\ !=\ LL\_RTC\_FORMAT\_BIN)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00646}00646\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00647}00647\ \ \ \ \ LL\_RTC\_ALMB\_ConfigTime(RTCx,\ RTC\_AlarmStruct-\/>AlarmTime.TimeFormat,\ RTC\_AlarmStruct-\/>AlarmTime.Hours,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00648}00648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RTC\_AlarmStruct-\/>AlarmTime.Minutes,\ RTC\_AlarmStruct-\/>AlarmTime.Seconds);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00649}00649\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00650}00650\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00651}00651\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00652}00652\ \ \ \ \ LL\_RTC\_ALMB\_ConfigTime(RTCx,\ RTC\_AlarmStruct-\/>AlarmTime.TimeFormat,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00653}00653\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_AlarmStruct-\/>AlarmTime.Hours),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00654}00654\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_AlarmStruct-\/>AlarmTime.Minutes),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00655}00655\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_LL\_RTC\_CONVERT\_BIN2BCD(RTC\_AlarmStruct-\/>AlarmTime.Seconds));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00656}00656\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00657}00657\ \ \ \textcolor{comment}{/*\ Set\ ALARM\ mask\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00658}00658\ \ \ LL\_RTC\_ALMB\_SetMask(RTCx,\ RTC\_AlarmStruct-\/>AlarmMask);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00659}00659\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00660}00660\ \ \ \textcolor{comment}{/*\ Enable\ the\ write\ protection\ for\ RTC\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00661}00661\ \ \ LL\_RTC\_EnableWriteProtection(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00662}00662\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00663}00663\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00664}00664\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00665}00665\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00672}00672\ \textcolor{keywordtype}{void}\ LL\_RTC\_ALMA\_StructInit(LL\_RTC\_AlarmTypeDef\ *RTC\_AlarmStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00673}00673\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00674}00674\ \ \ \textcolor{comment}{/*\ Alarm\ Time\ Settings\ :\ Time\ =\ 00h:00mn:00sec\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00675}00675\ \ \ RTC\_AlarmStruct-\/>AlarmTime.TimeFormat\ =\ LL\_RTC\_ALMA\_TIME\_FORMAT\_AM;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00676}00676\ \ \ RTC\_AlarmStruct-\/>AlarmTime.Hours\ \ \ \ \ \ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00677}00677\ \ \ RTC\_AlarmStruct-\/>AlarmTime.Minutes\ \ \ \ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00678}00678\ \ \ RTC\_AlarmStruct-\/>AlarmTime.Seconds\ \ \ \ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00679}00679\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00680}00680\ \ \ \textcolor{comment}{/*\ Alarm\ Day\ Settings\ :\ Day\ =\ 1st\ day\ of\ the\ month\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00681}00681\ \ \ RTC\_AlarmStruct-\/>AlarmDateWeekDaySel\ =\ LL\_RTC\_ALMA\_DATEWEEKDAYSEL\_DATE;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00682}00682\ \ \ RTC\_AlarmStruct-\/>AlarmDateWeekDay\ \ \ \ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00683}00683\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00684}00684\ \ \ \textcolor{comment}{/*\ Alarm\ Masks\ Settings\ :\ Mask\ =\ \ all\ fields\ are\ not\ masked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00685}00685\ \ \ RTC\_AlarmStruct-\/>AlarmMask\ \ \ \ \ \ \ \ \ \ \ =\ LL\_RTC\_ALMA\_MASK\_NONE;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00686}00686\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00687}00687\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00694}00694\ \textcolor{keywordtype}{void}\ LL\_RTC\_ALMB\_StructInit(LL\_RTC\_AlarmTypeDef\ *RTC\_AlarmStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00695}00695\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00696}00696\ \ \ \textcolor{comment}{/*\ Alarm\ Time\ Settings\ :\ Time\ =\ 00h:00mn:00sec\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00697}00697\ \ \ RTC\_AlarmStruct-\/>AlarmTime.TimeFormat\ =\ LL\_RTC\_ALMB\_TIME\_FORMAT\_AM;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00698}00698\ \ \ RTC\_AlarmStruct-\/>AlarmTime.Hours\ \ \ \ \ \ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00699}00699\ \ \ RTC\_AlarmStruct-\/>AlarmTime.Minutes\ \ \ \ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00700}00700\ \ \ RTC\_AlarmStruct-\/>AlarmTime.Seconds\ \ \ \ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00701}00701\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00702}00702\ \ \ \textcolor{comment}{/*\ Alarm\ Day\ Settings\ :\ Day\ =\ 1st\ day\ of\ the\ month\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00703}00703\ \ \ RTC\_AlarmStruct-\/>AlarmDateWeekDaySel\ =\ LL\_RTC\_ALMB\_DATEWEEKDAYSEL\_DATE;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00704}00704\ \ \ RTC\_AlarmStruct-\/>AlarmDateWeekDay\ \ \ \ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00705}00705\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00706}00706\ \ \ \textcolor{comment}{/*\ Alarm\ Masks\ Settings\ :\ Mask\ =\ \ all\ fields\ are\ not\ masked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00707}00707\ \ \ RTC\_AlarmStruct-\/>AlarmMask\ \ \ \ \ \ \ \ \ \ \ =\ LL\_RTC\_ALMB\_MASK\_NONE;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00708}00708\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00709}00709\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00719}00719\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_RTC\_EnterInitMode(\mbox{\hyperlink{struct_r_t_c___type_def}{RTC\_TypeDef}}\ *RTCx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00720}00720\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00721}00721\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ timeout\ =\ RTC\_INITMODE\_TIMEOUT;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00722}00722\ \ \ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00723}00723\ \ \ uint32\_t\ tmp\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00724}00724\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00725}00725\ \ \ \textcolor{comment}{/*\ Check\ the\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00726}00726\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_gab4230e8bd4d88adc4250f041d67375ce}{IS\_RTC\_ALL\_INSTANCE}}(RTCx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00727}00727\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00728}00728\ \ \ \textcolor{comment}{/*\ Check\ if\ the\ Initialization\ mode\ is\ set\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00729}00729\ \ \ \textcolor{keywordflow}{if}\ (LL\_RTC\_IsActiveFlag\_INIT(RTCx)\ ==\ 0U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00730}00730\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00731}00731\ \ \ \ \ \textcolor{comment}{/*\ Set\ the\ Initialization\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00732}00732\ \ \ \ \ LL\_RTC\_EnableInitMode(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00733}00733\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00734}00734\ \ \ \ \ \textcolor{comment}{/*\ Wait\ till\ RTC\ is\ in\ INIT\ state\ and\ if\ Time\ out\ is\ reached\ exit\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00735}00735\ \ \ \ \ tmp\ =\ LL\_RTC\_IsActiveFlag\_INIT(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00736}00736\ \ \ \ \ \textcolor{keywordflow}{while}\ ((timeout\ !=\ 0U)\ \&\&\ (tmp\ !=\ 1U))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00737}00737\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00738}00738\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group___c_o_r_t_e_x___l_l___e_f___s_y_s_t_i_c_k_gaf5dfb37d859552753594f9cc66431ba6}{LL\_SYSTICK\_IsActiveCounterFlag}}()\ ==\ 1U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00739}00739\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00740}00740\ \ \ \ \ \ \ \ \ timeout\ -\/-\/;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00741}00741\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00742}00742\ \ \ \ \ \ \ tmp\ =\ LL\_RTC\_IsActiveFlag\_INIT(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00743}00743\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (timeout\ ==\ 0U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00744}00744\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00745}00745\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00746}00746\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00747}00747\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00748}00748\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00749}00749\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00750}00750\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00751}00751\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00763}00763\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_RTC\_ExitInitMode(\mbox{\hyperlink{struct_r_t_c___type_def}{RTC\_TypeDef}}\ *RTCx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00764}00764\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00765}00765\ \ \ \textcolor{comment}{/*\ Check\ the\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00766}00766\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_gab4230e8bd4d88adc4250f041d67375ce}{IS\_RTC\_ALL\_INSTANCE}}(RTCx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00767}00767\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00768}00768\ \ \ \textcolor{comment}{/*\ Disable\ initialization\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00769}00769\ \ \ LL\_RTC\_DisableInitMode(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00770}00770\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00771}00771\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00772}00772\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00773}00773\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00790}00790\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_RTC\_WaitForSynchro(\mbox{\hyperlink{struct_r_t_c___type_def}{RTC\_TypeDef}}\ *RTCx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00791}00791\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00792}00792\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ timeout\ =\ RTC\_SYNCHRO\_TIMEOUT;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00793}00793\ \ \ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00794}00794\ \ \ uint32\_t\ tmp\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00795}00795\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00796}00796\ \ \ \textcolor{comment}{/*\ Check\ the\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00797}00797\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_gab4230e8bd4d88adc4250f041d67375ce}{IS\_RTC\_ALL\_INSTANCE}}(RTCx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00798}00798\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00799}00799\ \ \ \textcolor{comment}{/*\ Clear\ RSF\ flag\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00800}00800\ \ \ LL\_RTC\_ClearFlag\_RS(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00801}00801\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00802}00802\ \ \ \textcolor{comment}{/*\ Wait\ the\ registers\ to\ be\ synchronised\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00803}00803\ \ \ tmp\ =\ LL\_RTC\_IsActiveFlag\_RS(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00804}00804\ \ \ \textcolor{keywordflow}{while}\ ((timeout\ !=\ 0U)\ \&\&\ (tmp\ !=\ 1U))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00805}00805\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00806}00806\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group___c_o_r_t_e_x___l_l___e_f___s_y_s_t_i_c_k_gaf5dfb37d859552753594f9cc66431ba6}{LL\_SYSTICK\_IsActiveCounterFlag}}()\ ==\ 1U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00807}00807\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00808}00808\ \ \ \ \ \ \ timeout-\/-\/;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00809}00809\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00810}00810\ \ \ \ \ tmp\ =\ LL\_RTC\_IsActiveFlag\_RS(RTCx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00811}00811\ \ \ \ \ \textcolor{keywordflow}{if}\ (timeout\ ==\ 0U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00812}00812\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00813}00813\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00814}00814\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00815}00815\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00816}00816\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00817}00817\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00818}00818\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00819}00819\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00823}00823\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00827}00827\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00831}00831\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00832}00832\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ defined(RTC)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00833}00833\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00837}00837\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rtc_8c_source_l00838}00838\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_FULL\_LL\_DRIVER\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

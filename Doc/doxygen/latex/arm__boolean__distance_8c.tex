@@ -1,0 +1,198 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Source/\+Distance\+Functions/arm\+\_\+boolean\+\_\+distance.c File Reference}
+\hypertarget{arm__boolean__distance_8c}{}\label{arm__boolean__distance_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/DistanceFunctions/arm\_boolean\_distance.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/DistanceFunctions/arm\_boolean\_distance.c}}
+{\ttfamily \#include "{}dsp/distance\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}arm\+\_\+boolean\+\_\+distance\+\_\+template.\+h"{}}\newline
+Include dependency graph for arm\+\_\+boolean\+\_\+distance.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__boolean__distance_8c__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{arm__boolean__distance_8c__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a08ca909b46b12e894320afaabce3056e}{TT}}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a1c0168a9703a05a19de4ce775acc6647}{TF}}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_af7e6a89df64351664a7d4ed5e9fc997f}{FT}}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}{EXT}}~\+\_\+\+TT\+\_\+\+TF\+\_\+\+FT
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a1c0168a9703a05a19de4ce775acc6647}{TF}}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_af7e6a89df64351664a7d4ed5e9fc997f}{FT}}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}{EXT}}~\+\_\+\+TF\+\_\+\+FT
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a08ca909b46b12e894320afaabce3056e}{TT}}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a201a0d2d698f67adfe3f4ca209a3c7ff}{FF}}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a1c0168a9703a05a19de4ce775acc6647}{TF}}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_af7e6a89df64351664a7d4ed5e9fc997f}{FT}}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}{EXT}}~\+\_\+\+TT\+\_\+\+FF\+\_\+\+TF\+\_\+\+FT
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a08ca909b46b12e894320afaabce3056e}{TT}}
+\item 
+\#define \mbox{\hyperlink{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}{EXT}}~\+\_\+\+TT
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{arm__boolean__distance_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!EXT@{EXT}}
+\index{EXT@{EXT}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{EXT}{EXT}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c} 
+\#define EXT~\+\_\+\+TT\+\_\+\+TF\+\_\+\+FT}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00047}{47}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!EXT@{EXT}}
+\index{EXT@{EXT}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{EXT}{EXT}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c} 
+\#define EXT~\+\_\+\+TF\+\_\+\+FT}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00047}{47}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!EXT@{EXT}}
+\index{EXT@{EXT}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{EXT}{EXT}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c} 
+\#define EXT~\+\_\+\+TT\+\_\+\+FF\+\_\+\+TF\+\_\+\+FT}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00047}{47}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!EXT@{EXT}}
+\index{EXT@{EXT}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{EXT}{EXT}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c} 
+\#define EXT~\+\_\+\+TT}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00047}{47}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_a201a0d2d698f67adfe3f4ca209a3c7ff}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!FF@{FF}}
+\index{FF@{FF}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{FF}{FF}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a201a0d2d698f67adfe3f4ca209a3c7ff} 
+\#define FF}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00066}{66}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_af7e6a89df64351664a7d4ed5e9fc997f}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!FT@{FT}}
+\index{FT@{FT}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{FT}{FT}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_af7e6a89df64351664a7d4ed5e9fc997f} 
+\#define FT}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00046}{46}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_af7e6a89df64351664a7d4ed5e9fc997f}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!FT@{FT}}
+\index{FT@{FT}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{FT}{FT}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_af7e6a89df64351664a7d4ed5e9fc997f} 
+\#define FT}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00046}{46}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_af7e6a89df64351664a7d4ed5e9fc997f}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!FT@{FT}}
+\index{FT@{FT}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{FT}{FT}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_af7e6a89df64351664a7d4ed5e9fc997f} 
+\#define FT}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00046}{46}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_a1c0168a9703a05a19de4ce775acc6647}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!TF@{TF}}
+\index{TF@{TF}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{TF}{TF}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a1c0168a9703a05a19de4ce775acc6647} 
+\#define TF}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00045}{45}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_a1c0168a9703a05a19de4ce775acc6647}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!TF@{TF}}
+\index{TF@{TF}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{TF}{TF}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a1c0168a9703a05a19de4ce775acc6647} 
+\#define TF}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00045}{45}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_a1c0168a9703a05a19de4ce775acc6647}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!TF@{TF}}
+\index{TF@{TF}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{TF}{TF}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a1c0168a9703a05a19de4ce775acc6647} 
+\#define TF}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00045}{45}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_a08ca909b46b12e894320afaabce3056e}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!TT@{TT}}
+\index{TT@{TT}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{TT}{TT}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a08ca909b46b12e894320afaabce3056e} 
+\#define TT}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00044}{44}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_a08ca909b46b12e894320afaabce3056e}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!TT@{TT}}
+\index{TT@{TT}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{TT}{TT}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a08ca909b46b12e894320afaabce3056e} 
+\#define TT}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00044}{44}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+
+\Hypertarget{arm__boolean__distance_8c_a08ca909b46b12e894320afaabce3056e}\index{arm\_boolean\_distance.c@{arm\_boolean\_distance.c}!TT@{TT}}
+\index{TT@{TT}!arm\_boolean\_distance.c@{arm\_boolean\_distance.c}}
+\doxysubsubsection{\texorpdfstring{TT}{TT}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{arm__boolean__distance_8c_a08ca909b46b12e894320afaabce3056e} 
+\#define TT}
+
+
+
+Definition at line \mbox{\hyperlink{arm__boolean__distance_8c_source_l00044}{44}} of file \mbox{\hyperlink{arm__boolean__distance_8c_source}{arm\+\_\+boolean\+\_\+distance.\+c}}.
+

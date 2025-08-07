@@ -1,0 +1,5 @@
+<map id="arm_dot_prod_f64" name="arm_dot_prod_f64">
+<area shape="rect" id="Node000001" title="Dot product of floating&#45;point vectors." alt="" coords="223,5,348,32"/>
+<area shape="rect" id="Node000002" href="$group___cosine_dist.html#ga0f00ad1993b20b2928107e6a8fc4e2ef" title="Cosine distance between two vectors." alt="" coords="5,5,175,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,21,175,21,175,16,207,16"/>
+</map>

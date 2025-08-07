@@ -1,0 +1,57 @@
+<map id="__QSUB16" name="__QSUB16">
+<area shape="rect" id="Node000001" title=" " alt="" coords="951,325,1038,352"/>
+<area shape="rect" id="Node000002" href="$group___basic_abs.html#ga5cd90f9490ba8711c86e6f4bd7154359" title="Q15 vector absolute value." alt="" coords="770,56,869,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="987,310,979,265,963,210,938,153,921,127,901,103,886,92,868,83,871,78,889,87,905,99,925,124,943,150,968,208,984,264,993,309"/>
+<area shape="rect" id="Node000009" href="$arm__cfft__q15_8c.html#abe669acc8db57d1fb9b1e2bba30f2224" title=" " alt="" coords="542,275,674,317"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="935,336,735,316,674,308,675,303,736,311,936,331"/>
+<area shape="rect" id="Node000013" href="$arm__cfft__q15_8c.html#af1d4a751153857c173511e0c77ab4fa9" title=" " alt="" coords="528,493,688,520"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="987,367,975,396,957,428,934,459,904,484,852,507,795,519,739,523,688,521,688,515,739,517,795,514,850,502,902,479,930,455,953,425,970,394,982,365"/>
+<area shape="rect" id="Node000014" href="$group___matrix_sub.html#gaf647776a425b7f9dd0aca3e11d81f02f" title="Q15 matrix subtraction." alt="" coords="755,208,884,235"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="972,315,941,281,902,249,878,238,880,233,904,244,945,277,976,311"/>
+<area shape="rect" id="Node000015" href="$group___basic_negate.html#ga55b8bbbcd318d5142925bc221db30186" title="Negates the elements of a Q15 vector." alt="" coords="549,107,667,133"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="987,311,978,272,961,227,937,183,920,164,901,148,874,132,845,120,782,108,721,107,667,112,667,106,721,102,783,103,846,115,877,127,905,143,924,160,941,180,966,225,983,271,992,310"/>
+<area shape="rect" id="Node000016" href="$arm__cfft__radix2__q15_8c.html#a972f4e810203402dcf4cafdba7554a36" title=" " alt="" coords="750,259,889,301"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="937,322,884,304,886,299,939,317"/>
+<area shape="rect" id="Node000018" href="$arm__cfft__radix2__q15_8c.html#abd0991b879ae7baf479040f8fbf82289" title=" " alt="" coords="736,157,903,184"/>
+<area shape="poly" id="edge21_Node000001_Node000018" title=" " alt="" coords="980,312,950,254,928,224,901,198,882,187,885,182,905,194,932,220,955,251,985,310"/>
+<area shape="rect" id="Node000019" href="$arm__cfft__radix4__q15_8c.html#af65a7f0397b531999b7bd21e0b3a1f9f" title="Core function for the Q15 CIFFT butterfly process." alt="" coords="750,376,889,419"/>
+<area shape="poly" id="edge23_Node000001_Node000019" title=" " alt="" coords="939,360,886,378,884,373,937,355"/>
+<area shape="rect" id="Node000021" href="$arm__cfft__radix4__q15_8c.html#af337f7275e22af2196f61c94a0ca079a" title="Core function for the Q15 CFFT butterfly process." alt="" coords="736,443,903,469"/>
+<area shape="poly" id="edge27_Node000001_Node000021" title=" " alt="" coords="976,366,945,401,904,433,880,444,878,440,902,428,941,397,972,363"/>
+<area shape="rect" id="Node000022" href="$group___acti.html#ga53bcc00e54b802919bb3c89c143ee5ba" title="Q15 RELU function." alt="" coords="770,544,869,571"/>
+<area shape="poly" id="edge31_Node000001_Node000022" title=" " alt="" coords="989,368,978,404,961,446,937,489,905,527,889,539,871,548,868,543,886,534,901,523,932,486,956,444,973,402,984,366"/>
+<area shape="rect" id="Node000023" href="$group___basic_sub.html#ga33a096c2860eca18bbc4e6966409064f" title="Q15 vector subtraction." alt="" coords="770,595,869,621"/>
+<area shape="poly" id="edge32_Node000001_Node000023" title=" " alt="" coords="993,368,986,415,971,473,944,533,927,560,905,585,889,596,870,603,868,598,886,591,901,581,922,557,940,530,965,471,981,414,988,367"/>
+<area shape="rect" id="Node000003" href="$group__divide.html#ga3d5bc8179cdfb12288d58d99d635e4cb" title="Fixed point division." alt="" coords="552,56,664,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="754,72,665,72,665,67,754,67"/>
+<area shape="rect" id="Node000004" href="$arm__atan2__q15_8c.html#a10801ffb94cd8481398f5d9826ad5e86" title=" " alt="" coords="377,107,480,133"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="544,90,479,109,478,104,543,85"/>
+<area shape="rect" id="Node000006" href="$group___m_f_c_c.html#ga1ec288fa9eb7e85c8196c32dfe8f3f9b" title="MFCC Q15." alt="" coords="5,291,113,317"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="536,68,440,64,330,65,229,75,190,84,162,97,138,117,119,141,90,196,73,251,65,291,60,290,68,249,85,194,114,138,135,113,159,92,189,79,229,70,329,60,440,59,536,62"/>
+<area shape="rect" id="Node000007" href="$arm__levinson__durbin__q31_8c.html#a23311be79a9c610acae9e3fae494bda1" title=" " alt="" coords="401,5,456,32"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="543,54,456,29,457,24,544,49"/>
+<area shape="rect" id="Node000005" href="$group__atan2.html#ga9d424b6eaf16bfc41be3e88335cfb801" title="Arc tangent in radian of y/x using sign of x and y to determine right quadrant." alt="" coords="190,107,300,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="361,123,301,123,301,117,361,117"/>
+<area shape="rect" id="Node000008" href="$group___l_d.html#ga62b3cbd165b27673f5c17a6e72697e76" title="Levinson Durbin." alt="" coords="161,5,329,32"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="386,21,330,21,330,16,386,16"/>
+<area shape="rect" id="Node000010" href="$group___complex_f_f_t.html#ga68cdacd2267a2967955e40e6b7ec1229" title="Processing function for Q15 complex FFT." alt="" coords="380,341,477,368"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="528,325,473,343,471,338,527,320"/>
+<area shape="poly" id="edge10_Node000010_Node000006" title=" " alt="" coords="365,340,329,332,213,317,113,309,113,304,214,312,329,327,366,335"/>
+<area shape="rect" id="Node000011" href="$group___real_f_f_t.html#ga00e615f5db21736ad5b27fb6146f3fc5" title="Processing function for the Q15 RFFT/RIFFT." alt="" coords="198,341,292,368"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="365,357,292,357,292,352,365,352"/>
+<area shape="poly" id="edge13_Node000011_Node000006" title=" " alt="" coords="183,341,110,320,111,315,184,335"/>
+<area shape="rect" id="Node000012" href="$group___d_c_t4___i_d_c_t4.html#ga114cb9635059f678df291fcc887aaf2b" title="Processing function for the Q15 DCT4/IDCT4." alt="" coords="7,341,111,368"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="183,357,111,357,111,352,183,352"/>
+<area shape="poly" id="edge15_Node000013_Node000010" title=" " alt="" coords="547,489,527,477,497,451,471,421,436,370,440,367,475,418,501,447,530,473,549,484"/>
+<area shape="poly" id="edge18_Node000015_Node000004" title=" " alt="" coords="534,123,481,123,481,117,534,117"/>
+<area shape="rect" id="Node000017" href="$group___complex_f_f_t.html#ga55b424341dc3efd3fa0bcaaff4bdbf40" title="Processing function for the fixed&#45;point CFFT/CIFFT." alt="" coords="539,191,677,217"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="743,255,646,220,648,215,744,250"/>
+<area shape="poly" id="edge22_Node000018_Node000017" title=" " alt="" coords="721,189,678,196,677,190,720,184"/>
+<area shape="poly" id="edge26_Node000019_Node000009" title=" " alt="" coords="758,371,653,320,656,316,760,366"/>
+<area shape="poly" id="edge24_Node000019_Node000010" title=" " alt="" coords="734,388,687,383,477,361,477,356,688,377,734,383"/>
+<area shape="rect" id="Node000020" href="$group___complex_f_f_t.html#ga8d66cdac41b8bf6cefdb895456eee84a" title="Processing function for the Q15 CFFT/CIFFT." alt="" coords="539,392,677,419"/>
+<area shape="poly" id="edge25_Node000019_Node000020" title=" " alt="" coords="734,403,678,405,678,400,734,398"/>
+<area shape="poly" id="edge28_Node000021_Node000010" title=" " alt="" coords="720,464,625,457,575,448,527,433,501,420,477,403,441,370,444,366,480,399,504,415,529,428,577,443,626,452,720,458"/>
+<area shape="poly" id="edge30_Node000021_Node000013" title=" " alt="" coords="746,476,667,495,666,490,745,471"/>
+<area shape="poly" id="edge29_Node000021_Node000020" title=" " alt="" coords="745,441,666,422,667,417,746,436"/>
+</map>

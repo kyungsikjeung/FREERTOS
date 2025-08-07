@@ -1,0 +1,22 @@
+<map id="arm_nn_read_q7x4" name="arm_nn_read_q7x4">
+<area shape="rect" id="Node000001" title="Read 4 q7 values." alt="" coords="705,164,837,191"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#ga98f2ead67d7cbdf558b0cd8a3b8fc148" title="Q7 version of convolution for RGB image." alt="" coords="458,5,657,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="752,152,713,98,686,70,656,46,632,35,635,30,659,42,690,66,717,94,757,149"/>
+<area shape="rect" id="Node000003" href="$group___n_n_conv.html#ga558337f134d84dac2c312c5175bd67de" title="Optimized s8 depthwise convolution function for 3x3 kernel size with some constraints on the input ar..." alt="" coords="486,56,630,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="735,158,656,113,629,102,631,97,658,108,738,153"/>
+<area shape="rect" id="Node000005" href="$group___n_n_conv.html#gab9dc832c407c0fe0f4d6fbb063e85e97" title="Optimized s8 depthwise convolution function with constraint that in_channel equals out_channel...." alt="" coords="486,123,630,165"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="690,167,630,158,631,153,690,162"/>
+<area shape="rect" id="Node000006" href="$group___n_n_conv.html#gad3d21b3bc6dbd6f3b97d01104349cb0a" title="Q7 depthwise separable convolution function." alt="" coords="472,189,644,232"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="690,193,645,200,644,195,689,187"/>
+<area shape="rect" id="Node000007" href="$group___n_n_conv.html#ga32ac508c5467813a84f74f96655dc697" title="Q7 depthwise separable convolution function (non&#45;square shape)" alt="" coords="466,256,650,299"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="738,202,658,246,631,258,629,253,656,242,735,197"/>
+<area shape="rect" id="Node000008" href="$group___n_n_basic_math.html#ga360cdaa16c399e3bfbeaaa7296c326e1" title="General Matrix&#45;multiplication function with per&#45;channel requantization. This function assumes:" alt="" coords="470,323,645,349"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="757,206,717,260,690,289,659,313,635,325,632,320,656,308,686,285,713,257,752,202"/>
+<area shape="rect" id="Node000004" href="$group___n_n_conv.html#gabca128df92f9486ebdac7eee3178c0fd" title="Wrapper function to pick the right optimized s8 depthwise convolution function." alt="" coords="248,89,392,132"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="470,92,393,103,392,98,470,87"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="470,134,392,123,393,118,470,129"/>
+<area shape="rect" id="Node000009" href="$group___n_n_conv.html#ga53608c814d9b8a458f4d87f8f40051b7" title="Fast s8 version for 1x1 convolution (non&#45;square shape)" alt="" coords="230,323,410,349"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="454,339,410,339,410,333,454,333"/>
+<area shape="rect" id="Node000010" href="$group___n_n_conv.html#ga5ac772a94937e1efdab145a2ab4c0927" title="s8 convolution layer wrapper function with the main purpose to call the optimal kernel available in c..." alt="" coords="5,323,182,349"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="214,339,182,339,182,333,214,333"/>
+</map>

@@ -1,0 +1,206 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+pccard.\+h}
+\hypertarget{stm32f4xx__hal__pccard_8h_source}{}\label{stm32f4xx__hal__pccard_8h_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_pccard.h@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_pccard.h}}
+\mbox{\hyperlink{stm32f4xx__hal__pccard_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00019}00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00020}00020\ \textcolor{preprocessor}{\#ifndef\ STM32F4xx\_HAL\_PCCARD\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ STM32F4xx\_HAL\_PCCARD\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00023}00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00024}00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00027}00027\ \textcolor{preprocessor}{\#if\ defined(FMC\_Bank4)\ ||\ defined(FSMC\_Bank4)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00029}00029\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00030}00030\ \textcolor{preprocessor}{\#if\ defined(FSMC\_Bank4)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__ll__fsmc_8h}{stm32f4xx\_ll\_fsmc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00032}00032\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__ll__fmc_8h}{stm32f4xx\_ll\_fmc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00034}00034\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ FSMC\_Bank4\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00044}00044\ \textcolor{comment}{/*\ Exported\ typedef\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00052}00052\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00054}00054\ \ \ HAL\_PCCARD\_STATE\_RESET\ \ \ \ \ =\ 0x00U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00055}00055\ \ \ HAL\_PCCARD\_STATE\_READY\ \ \ \ \ =\ 0x01U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00056}00056\ \ \ HAL\_PCCARD\_STATE\_BUSY\ \ \ \ \ \ =\ 0x02U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00057}00057\ \ \ HAL\_PCCARD\_STATE\_ERROR\ \ \ \ \ =\ 0x04U\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00058}00058\ \}\ HAL\_PCCARD\_StateTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00060}00060\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00061}00061\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00062}00062\ \ \ HAL\_PCCARD\_STATUS\_SUCCESS\ =\ 0U,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00063}00063\ \ \ HAL\_PCCARD\_STATUS\_ONGOING,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00064}00064\ \ \ HAL\_PCCARD\_STATUS\_ERROR,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00065}00065\ \ \ HAL\_PCCARD\_STATUS\_TIMEOUT}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00066}00066\ \}\ HAL\_PCCARD\_StatusTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00071}00071\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_PCCARD\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00072}00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_\_PCCARD\_HandleTypeDef}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00073}00073\ \#else}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00074}00074\ typedef\ struct}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00075}00075\ \#endif\ \textcolor{comment}{/*\ USE\_HAL\_PCCARD\_REGISTER\_CALLBACKS\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00076}00076\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00077}00077\ \ \ FMC\_PCCARD\_TypeDef\ \ \ \ \ \ \ \ \ \ \ *Instance;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00079}00079\ \ \ FMC\_PCCARD\_InitTypeDef\ \ \ \ \ \ \ Init;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00081}00081\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ HAL\_PCCARD\_StateTypeDef\ State;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00083}00083\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\_LockTypeDef}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ Lock;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00085}00085\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_PCCARD\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00086}00086\ \ \ void\ (*\ MspInitCallback)(\textcolor{keyword}{struct\ }\_\_PCCARD\_HandleTypeDef\ *hpccard);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00087}00087\ \ \ void\ (*\ MspDeInitCallback)(\textcolor{keyword}{struct\ }\_\_PCCARD\_HandleTypeDef\ *hpccard);\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00088}00088\ \ \ void\ (*\ ItCallback)(\textcolor{keyword}{struct\ }\_\_PCCARD\_HandleTypeDef\ *hpccard);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00089}00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_PCCARD\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00090}00090\ \}\ PCCARD\_HandleTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00092}00092\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_PCCARD\_REGISTER\_CALLBACKS\ ==\ 1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00096}00096\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00097}00097\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00098}00098\ \ \ HAL\_PCCARD\_MSP\_INIT\_CB\_ID\ \ \ \ \ \ \ =\ 0x00U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00099}00099\ \ \ HAL\_PCCARD\_MSP\_DEINIT\_CB\_ID\ \ \ \ \ =\ 0x01U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00100}00100\ \ \ HAL\_PCCARD\_IT\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x02U\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00101}00101\ \}\ HAL\_PCCARD\_CallbackIDTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00106}00106\ \textcolor{keyword}{typedef}\ void\ (*pPCCARD\_CallbackTypeDef)(PCCARD\_HandleTypeDef\ *hpccard);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00107}00107\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_PCCARD\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00112}00112\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00113}00113\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00121}00121\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_PCCARD\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00122}00122\ \textcolor{preprocessor}{\#define\ \_\_HAL\_PCCARD\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ \ \ \ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00123}00123\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>State\ =\ HAL\_PCCARD\_STATE\_RESET;\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00124}00124\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>MspInitCallback\ =\ NULL;\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00125}00125\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>MspDeInitCallback\ =\ NULL;\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00126}00126\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ while(0)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00127}00127\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00128}00128\ \textcolor{preprocessor}{\#define\ \_\_HAL\_PCCARD\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ ((\_\_HANDLE\_\_)-\/>State\ =\ HAL\_PCCARD\_STATE\_RESET)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00129}00129\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_PCCARD\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00134}00134\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00142}00142\ \textcolor{comment}{/*\ Initialization/de-\/initialization\ functions\ \ **********************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00143}00143\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ HAL\_PCCARD\_Init(PCCARD\_HandleTypeDef\ *hpccard,\ FMC\_NAND\_PCC\_TimingTypeDef\ *ComSpaceTiming,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMC\_NAND\_PCC\_TimingTypeDef\ *AttSpaceTiming,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FMC\_NAND\_PCC\_TimingTypeDef\ *IOSpaceTiming);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00146}00146\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ HAL\_PCCARD\_DeInit(PCCARD\_HandleTypeDef\ *hpccard);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00147}00147\ \textcolor{keywordtype}{void}\ HAL\_PCCARD\_MspInit(PCCARD\_HandleTypeDef\ *hpccard);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00148}00148\ \textcolor{keywordtype}{void}\ HAL\_PCCARD\_MspDeInit(PCCARD\_HandleTypeDef\ *hpccard);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00156}00156\ \textcolor{comment}{/*\ IO\ operation\ functions\ \ *****************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00157}00157\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ HAL\_PCCARD\_Read\_ID(PCCARD\_HandleTypeDef\ *hpccard,\ uint8\_t\ CompactFlash\_ID[],\ uint8\_t\ *pStatus);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00158}00158\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ HAL\_PCCARD\_Write\_Sector(PCCARD\_HandleTypeDef\ *hpccard,\ uint16\_t\ *pBuffer,\ uint16\_t\ SectorAddress,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pStatus);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00160}00160\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ HAL\_PCCARD\_Read\_Sector(PCCARD\_HandleTypeDef\ *hpccard,\ uint16\_t\ *pBuffer,\ uint16\_t\ SectorAddress,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ *pStatus);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00162}00162\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ HAL\_PCCARD\_Erase\_Sector(PCCARD\_HandleTypeDef\ *hpccard,\ uint16\_t\ SectorAddress,\ uint8\_t\ *pStatus);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00163}00163\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ HAL\_PCCARD\_Reset(PCCARD\_HandleTypeDef\ *hpccard);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00164}00164\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_IRQHandler(PCCARD\_HandleTypeDef\ *hpccard);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00165}00165\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_ITCallback(PCCARD\_HandleTypeDef\ *hpccard);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00167}00167\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_PCCARD\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00168}00168\ \textcolor{comment}{/*\ PCCARD\ callback\ registering/unregistering\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00169}00169\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ HAL\_PCCARD\_RegisterCallback(PCCARD\_HandleTypeDef\ *hpccard,\ HAL\_PCCARD\_CallbackIDTypeDef\ CallbackId,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pPCCARD\_CallbackTypeDef\ pCallback);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00171}00171\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ HAL\_PCCARD\_UnRegisterCallback(PCCARD\_HandleTypeDef\ *hpccard,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_CallbackIDTypeDef\ CallbackId);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00173}00173\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_PCCARD\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00181}00181\ \textcolor{comment}{/*\ PCCARD\ State\ functions\ *******************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00182}00182\ HAL\_PCCARD\_StateTypeDef\ \ HAL\_PCCARD\_GetState(PCCARD\_HandleTypeDef\ *hpccard);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00183}00183\ HAL\_PCCARD\_StatusTypeDef\ HAL\_PCCARD\_GetStatus(PCCARD\_HandleTypeDef\ *hpccard);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00184}00184\ HAL\_PCCARD\_StatusTypeDef\ HAL\_PCCARD\_ReadStatus(PCCARD\_HandleTypeDef\ *hpccard);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00192}00192\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00193}00193\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00194}00194\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00198}00198\ \textcolor{preprocessor}{\#define\ PCCARD\_DEVICE\_ADDRESS\ \ \ \ \ \ \ \ \ \ \ \ \ 0x90000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00199}00199\ \textcolor{preprocessor}{\#define\ PCCARD\_ATTRIBUTE\_SPACE\_ADDRESS\ \ \ \ 0x98000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Attribute\ space\ size\ to\ @0x9BFF\ FFFF\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00200}00200\ \textcolor{preprocessor}{\#define\ PCCARD\_COMMON\_SPACE\_ADDRESS\ \ \ \ \ \ \ PCCARD\_DEVICE\_ADDRESS\ \ \ \ }\textcolor{comment}{/*\ Common\ space\ size\ to\ @0x93FF\ FFFF\ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00201}00201\ \textcolor{preprocessor}{\#define\ PCCARD\_IO\_SPACE\_ADDRESS\ \ \ \ \ \ \ \ \ \ \ 0x9C000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ IO\ space\ size\ to\ @0x9FFF\ FFFF\ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00202}00202\ \textcolor{preprocessor}{\#define\ PCCARD\_IO\_SPACE\_PRIMARY\_ADDR\ \ \ \ \ \ 0x9C0001F0U\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ IO\ space\ size\ to\ @0x9FFF\ FFFF\ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00204}00204\ \textcolor{comment}{/*\ Flash-\/ATA\ registers\ description\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00205}00205\ \textcolor{preprocessor}{\#define\ ATA\_DATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x00)\ \ \ \ }\textcolor{comment}{/*\ Data\ register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00206}00206\ \textcolor{preprocessor}{\#define\ ATA\_SECTOR\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x02)\ \ \ \ }\textcolor{comment}{/*\ Sector\ Count\ register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00207}00207\ \textcolor{preprocessor}{\#define\ ATA\_SECTOR\_NUMBER\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x03)\ \ \ \ }\textcolor{comment}{/*\ Sector\ Number\ register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00208}00208\ \textcolor{preprocessor}{\#define\ ATA\_CYLINDER\_LOW\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x04)\ \ \ \ }\textcolor{comment}{/*\ Cylinder\ low\ register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00209}00209\ \textcolor{preprocessor}{\#define\ ATA\_CYLINDER\_HIGH\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x05)\ \ \ \ }\textcolor{comment}{/*\ Cylinder\ high\ register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00210}00210\ \textcolor{preprocessor}{\#define\ ATA\_CARD\_HEAD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x06)\ \ \ \ }\textcolor{comment}{/*\ Card/Head\ register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00211}00211\ \textcolor{preprocessor}{\#define\ ATA\_STATUS\_CMD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x07)\ \ \ \ }\textcolor{comment}{/*\ Status(read)/Command(write)\ register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00212}00212\ \textcolor{preprocessor}{\#define\ ATA\_STATUS\_CMD\_ALTERNATE\ \ \ \ \ \ \ ((uint8\_t)0x0E)\ \ \ \ }\textcolor{comment}{/*\ Alternate\ Status(read)/Command(write)\ register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00213}00213\ \textcolor{preprocessor}{\#define\ ATA\_COMMON\_DATA\_AREA\ \ \ \ \ \ \ \ \ \ \ ((uint16\_t)0x0400)\ }\textcolor{comment}{/*\ Start\ of\ data\ area\ (for\ Common\ access\ only!)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00214}00214\ \textcolor{preprocessor}{\#define\ ATA\_CARD\_CONFIGURATION\ \ \ \ \ \ \ \ \ ((uint16\_t)0x0202)\ }\textcolor{comment}{/*\ Card\ Configuration\ and\ Status\ Register\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00216}00216\ \textcolor{comment}{/*\ Flash-\/ATA\ commands\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00217}00217\ \textcolor{preprocessor}{\#define\ ATA\_READ\_SECTOR\_CMD\ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x20)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00218}00218\ \textcolor{preprocessor}{\#define\ ATA\_WRITE\_SECTOR\_CMD\ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x30)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00219}00219\ \textcolor{preprocessor}{\#define\ ATA\_ERASE\_SECTOR\_CMD\ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0xC0)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00220}00220\ \textcolor{preprocessor}{\#define\ ATA\_IDENTIFY\_CMD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0xEC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00222}00222\ \textcolor{comment}{/*\ PC\ Card/Compact\ Flash\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00223}00223\ \textcolor{preprocessor}{\#define\ PCCARD\_TIMEOUT\_ERROR\ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x60)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00224}00224\ \textcolor{preprocessor}{\#define\ PCCARD\_BUSY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x80)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00225}00225\ \textcolor{preprocessor}{\#define\ PCCARD\_PROGR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x01)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00226}00226\ \textcolor{preprocessor}{\#define\ PCCARD\_READY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x40)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00228}00228\ \textcolor{preprocessor}{\#define\ PCCARD\_SECTOR\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ 255U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ In\ half\ words\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00233}00233\ \textcolor{comment}{/*\ Compact\ Flash\ redefinition\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00234}00234\ \textcolor{preprocessor}{\#define\ HAL\_CF\_Init\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_Init}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00235}00235\ \textcolor{preprocessor}{\#define\ HAL\_CF\_DeInit\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_DeInit}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00236}00236\ \textcolor{preprocessor}{\#define\ HAL\_CF\_MspInit\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_MspInit}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00237}00237\ \textcolor{preprocessor}{\#define\ HAL\_CF\_MspDeInit\ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_MspDeInit}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00239}00239\ \textcolor{preprocessor}{\#define\ HAL\_CF\_Read\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_Read\_ID}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00240}00240\ \textcolor{preprocessor}{\#define\ HAL\_CF\_Write\_Sector\ \ \ \ \ \ \ \ \ HAL\_PCCARD\_Write\_Sector}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00241}00241\ \textcolor{preprocessor}{\#define\ HAL\_CF\_Read\_Sector\ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_Read\_Sector}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00242}00242\ \textcolor{preprocessor}{\#define\ HAL\_CF\_Erase\_Sector\ \ \ \ \ \ \ \ \ HAL\_PCCARD\_Erase\_Sector}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00243}00243\ \textcolor{preprocessor}{\#define\ HAL\_CF\_Reset\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_Reset}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00244}00244\ \textcolor{preprocessor}{\#define\ HAL\_CF\_IRQHandler\ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_IRQHandler}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00245}00245\ \textcolor{preprocessor}{\#define\ HAL\_CF\_ITCallback\ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_ITCallback}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00247}00247\ \textcolor{preprocessor}{\#define\ HAL\_CF\_GetState\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_GetState}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00248}00248\ \textcolor{preprocessor}{\#define\ HAL\_CF\_GetStatus\ \ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_GetStatus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00249}00249\ \textcolor{preprocessor}{\#define\ HAL\_CF\_ReadStatus\ \ \ \ \ \ \ \ \ \ \ HAL\_PCCARD\_ReadStatus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00251}00251\ \textcolor{preprocessor}{\#define\ HAL\_CF\_STATUS\_SUCCESS\ \ \ \ \ \ \ HAL\_PCCARD\_STATUS\_SUCCESS}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00252}00252\ \textcolor{preprocessor}{\#define\ HAL\_CF\_STATUS\_ONGOING\ \ \ \ \ \ \ HAL\_PCCARD\_STATUS\_ONGOING}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00253}00253\ \textcolor{preprocessor}{\#define\ HAL\_CF\_STATUS\_ERROR\ \ \ \ \ \ \ \ \ HAL\_PCCARD\_STATUS\_ERROR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00254}00254\ \textcolor{preprocessor}{\#define\ HAL\_CF\_STATUS\_TIMEOUT\ \ \ \ \ \ \ HAL\_PCCARD\_STATUS\_TIMEOUT}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00255}00255\ \textcolor{preprocessor}{\#define\ HAL\_CF\_StatusTypeDef\ \ \ \ \ \ \ \ HAL\_PCCARD\_StatusTypeDef}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00257}00257\ \textcolor{preprocessor}{\#define\ CF\_DEVICE\_ADDRESS\ \ \ \ \ \ \ \ \ \ \ PCCARD\_DEVICE\_ADDRESS}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00258}00258\ \textcolor{preprocessor}{\#define\ CF\_ATTRIBUTE\_SPACE\_ADDRESS\ \ PCCARD\_ATTRIBUTE\_SPACE\_ADDRESS}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00259}00259\ \textcolor{preprocessor}{\#define\ CF\_COMMON\_SPACE\_ADDRESS\ \ \ \ \ PCCARD\_COMMON\_SPACE\_ADDRESS}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00260}00260\ \textcolor{preprocessor}{\#define\ CF\_IO\_SPACE\_ADDRESS\ \ \ \ \ \ \ \ \ PCCARD\_IO\_SPACE\_ADDRESS}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00261}00261\ \textcolor{preprocessor}{\#define\ CF\_IO\_SPACE\_PRIMARY\_ADDR\ \ \ \ PCCARD\_IO\_SPACE\_PRIMARY\_ADDR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00263}00263\ \textcolor{preprocessor}{\#define\ CF\_TIMEOUT\_ERROR\ \ \ \ \ \ \ \ \ \ \ \ PCCARD\_TIMEOUT\_ERROR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00264}00264\ \textcolor{preprocessor}{\#define\ CF\_BUSY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PCCARD\_BUSY}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00265}00265\ \textcolor{preprocessor}{\#define\ CF\_PROGR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PCCARD\_PROGR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00266}00266\ \textcolor{preprocessor}{\#define\ CF\_READY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PCCARD\_READY}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00268}00268\ \textcolor{preprocessor}{\#define\ CF\_SECTOR\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ PCCARD\_SECTOR\_SIZE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00270}00270\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00280}00280\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \ FMC\_Bank4\ ||\ FSMC\_Bank4\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00282}00282\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00283}00283\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00284}00284\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pccard_8h_source_l00286}00286\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F4xx\_HAL\_PCCARD\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

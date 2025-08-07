@@ -1,0 +1,7 @@
+<map id="arm_offset_q7" name="arm_offset_q7">
+<area shape="rect" id="Node000001" title="Adds a constant offset to a Q7 vector." alt="" coords="5,31,109,57"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a41a3a818b0550cbf3fbe68e184197570" title=" " alt="" coords="167,5,248,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,33,151,25,152,31,110,38"/>
+<area shape="rect" id="Node000003" href="$arm__math__memory_8h.html#a05bde59a4c7dd866d0a2e3e6fcac17bd" title="Write 4 Q7 to Q7 pointer and increment pointer afterwards." alt="" coords="157,56,258,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,50,142,56,141,61,109,55"/>
+</map>

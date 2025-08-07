@@ -1,0 +1,5 @@
+<map id="osThreadFlagsWait" name="osThreadFlagsWait">
+<area shape="rect" id="Node000001" title=" " alt="" coords="151,5,284,32"/>
+<area shape="rect" id="Node000002" href="$cmsis__os_8c.html#a38860acda96df47da6923348d96fc4c9" title="Wait for one or more Signal Flags to become signaled for the current RUNNING thread." alt="" coords="5,5,103,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,21,103,21,103,16,135,16"/>
+</map>

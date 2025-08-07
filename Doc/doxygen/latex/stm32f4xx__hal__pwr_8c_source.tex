@@ -1,0 +1,250 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+pwr.\+c}
+\hypertarget{stm32f4xx__hal__pwr_8c_source}{}\label{stm32f4xx__hal__pwr_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_pwr.c@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_pwr.c}}
+\mbox{\hyperlink{stm32f4xx__hal__pwr_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00001}00001\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00023}00023\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal_8h}{stm32f4xx\_hal.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00035}00035\ \textcolor{preprocessor}{\#ifdef\ HAL\_PWR\_MODULE\_ENABLED}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00037}00037\ \textcolor{comment}{/*\ Private\ typedef\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00038}00038\ \textcolor{comment}{/*\ Private\ define\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00042}00042\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00046}00046\ \textcolor{preprocessor}{\#define\ PVD\_MODE\_IT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00010000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00047}00047\ \textcolor{preprocessor}{\#define\ PVD\_MODE\_EVT\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00020000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00048}00048\ \textcolor{preprocessor}{\#define\ PVD\_RISING\_EDGE\ \ \ \ \ \ \ \ \ \ \ 0x00000001U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00049}00049\ \textcolor{preprocessor}{\#define\ PVD\_FALLING\_EDGE\ \ \ \ \ \ \ \ \ \ 0x00000002U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00053}00053\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00057}00057\ \textcolor{comment}{/*\ Private\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00058}00058\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00059}00059\ \textcolor{comment}{/*\ Private\ function\ prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00060}00060\ \textcolor{comment}{/*\ Private\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00090}00090\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group1_ga7edb99b94a46448c34f0301b0a077ff5}{HAL\_PWR\_DeInit}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00092}00092\ \ \ \mbox{\hyperlink{group___r_c_c___a_p_b1___force___release___reset_gaf454341fae45fdfacfea2f45c07ce3e0}{\_\_HAL\_RCC\_PWR\_FORCE\_RESET}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00093}00093\ \ \ \mbox{\hyperlink{group___r_c_c___a_p_b1___force___release___reset_gaaa5a340d38d50e508243f48bbb47dd32}{\_\_HAL\_RCC\_PWR\_RELEASE\_RESET}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00108}00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group1_ga3d07cef39bf294db4aed7e06e5dbf9af}{HAL\_PWR\_EnableBkUpAccess}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00109}00109\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00110}00110\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ dummyread;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00111}00111\ \ \ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ *)\ \mbox{\hyperlink{group___p_w_r___c_r__register__alias_ga799ab60bdbcfc1076cf2d7f206d09b0c}{CR\_DBP\_BB}}\ =\ (uint32\_t)\mbox{\hyperlink{group___exported__types_ggac9a7e9a35d2513ec15c3b537aaa4fba1a7d46875fa3ebd2c34d2756950eda83bf}{ENABLE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00112}00112\ \ \ dummyread\ =\ \mbox{\hyperlink{group___peripheral__declaration_ga04651c526497822a859942b928e57f8e}{PWR}}-\/>CR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00113}00113\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(dummyread);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00114}00114\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00128}00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group1_ga1513de5f2e4b72e094fb04bab786fec8}{HAL\_PWR\_DisableBkUpAccess}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00129}00129\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00130}00130\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ dummyread;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00131}00131\ \ \ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ *)\ \mbox{\hyperlink{group___p_w_r___c_r__register__alias_ga799ab60bdbcfc1076cf2d7f206d09b0c}{CR\_DBP\_BB}}\ =\ (uint32\_t)\mbox{\hyperlink{group___exported__types_ggac9a7e9a35d2513ec15c3b537aaa4fba1ad3a9df141be0ccf10389b640f492b26d}{DISABLE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00132}00132\ \ \ dummyread\ =\ \mbox{\hyperlink{group___peripheral__declaration_ga04651c526497822a859942b928e57f8e}{PWR}}-\/>CR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00133}00133\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(dummyread);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00134}00134\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00275}00275\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_ga87e59191de350b0942847624ddbe6d9d}{HAL\_PWR\_ConfigPVD}}(\mbox{\hyperlink{struct_p_w_r___p_v_d_type_def}{PWR\_PVDTypeDef}}\ *sConfigPVD)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00276}00276\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00277}00277\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00278}00278\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___p_w_r___i_s___p_w_r___definitions_gabac4485a57abc97aad91eaa0b65ae927}{IS\_PWR\_PVD\_LEVEL}}(sConfigPVD-\/>\mbox{\hyperlink{struct_p_w_r___p_v_d_type_def_abf0db5c2b84ba24ffeedab5cf06bad31}{PVDLevel}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00279}00279\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___p_w_r___i_s___p_w_r___definitions_ga8edfbbba20e58a9281408c23dc6ff7ef}{IS\_PWR\_PVD\_MODE}}(sConfigPVD-\/>\mbox{\hyperlink{struct_p_w_r___p_v_d_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00280}00280\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00281}00281\ \ \ \textcolor{comment}{/*\ Set\ PLS[7:5]\ bits\ according\ to\ PVDLevel\ value\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00282}00282\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(\mbox{\hyperlink{group___peripheral__declaration_ga04651c526497822a859942b928e57f8e}{PWR}}-\/>CR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac73c24d43953c7598e42acdd4c4e7435}{PWR\_CR\_PLS}},\ sConfigPVD-\/>\mbox{\hyperlink{struct_p_w_r___p_v_d_type_def_abf0db5c2b84ba24ffeedab5cf06bad31}{PVDLevel}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00283}00283\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00284}00284\ \ \ \textcolor{comment}{/*\ Clear\ any\ previous\ config.\ Keep\ it\ clear\ if\ no\ event\ or\ IT\ mode\ is\ selected\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00285}00285\ \ \ \mbox{\hyperlink{group___p_w_r___exported___macro_ga8bd379e960497722450c7cea474a7e7a}{\_\_HAL\_PWR\_PVD\_EXTI\_DISABLE\_EVENT}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00286}00286\ \ \ \mbox{\hyperlink{group___p_w_r___exported___macro_gad240d7bf8f15191b068497b9aead1f1f}{\_\_HAL\_PWR\_PVD\_EXTI\_DISABLE\_IT}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00287}00287\ \ \ \mbox{\hyperlink{group___p_w_r___exported___macro_ga1ca8fd7f3286a176f6be540c75a004c6}{\_\_HAL\_PWR\_PVD\_EXTI\_DISABLE\_RISING\_EDGE}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00288}00288\ \ \ \mbox{\hyperlink{group___p_w_r___exported___macro_ga1ca57168205f8cd8d1014e6eb9465f2d}{\_\_HAL\_PWR\_PVD\_EXTI\_DISABLE\_FALLING\_EDGE}}();\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00290}00290\ \ \ \textcolor{comment}{/*\ Configure\ interrupt\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00291}00291\ \ \ \textcolor{keywordflow}{if}((sConfigPVD-\/>\mbox{\hyperlink{struct_p_w_r___p_v_d_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}}\ \&\ PVD\_MODE\_IT)\ ==\ PVD\_MODE\_IT)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00292}00292\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00293}00293\ \ \ \ \ \mbox{\hyperlink{group___p_w_r___exported___macro_ga3180f039cf14ef78a64089f387f8f9c2}{\_\_HAL\_PWR\_PVD\_EXTI\_ENABLE\_IT}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00294}00294\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00295}00295\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00296}00296\ \ \ \textcolor{comment}{/*\ Configure\ event\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00297}00297\ \ \ \textcolor{keywordflow}{if}((sConfigPVD-\/>\mbox{\hyperlink{struct_p_w_r___p_v_d_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}}\ \&\ PVD\_MODE\_EVT)\ ==\ PVD\_MODE\_EVT)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00298}00298\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00299}00299\ \ \ \ \ \mbox{\hyperlink{group___p_w_r___exported___macro_gae5ba5672fe8cb7c1686c7f2cc211b128}{\_\_HAL\_PWR\_PVD\_EXTI\_ENABLE\_EVENT}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00300}00300\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00301}00301\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00302}00302\ \ \ \textcolor{comment}{/*\ Configure\ the\ edge\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00303}00303\ \ \ \textcolor{keywordflow}{if}((sConfigPVD-\/>\mbox{\hyperlink{struct_p_w_r___p_v_d_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}}\ \&\ PVD\_RISING\_EDGE)\ ==\ PVD\_RISING\_EDGE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00304}00304\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00305}00305\ \ \ \ \ \mbox{\hyperlink{group___p_w_r___exported___macro_ga7bef3f30c9fe267c99d5240fbf3f878c}{\_\_HAL\_PWR\_PVD\_EXTI\_ENABLE\_RISING\_EDGE}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00306}00306\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00307}00307\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00308}00308\ \ \ \textcolor{keywordflow}{if}((sConfigPVD-\/>\mbox{\hyperlink{struct_p_w_r___p_v_d_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}}\ \&\ PVD\_FALLING\_EDGE)\ ==\ PVD\_FALLING\_EDGE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00309}00309\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00310}00310\ \ \ \ \ \mbox{\hyperlink{group___p_w_r___exported___macro_ga5b971478563a00e1ee1a9d8ca8054e08}{\_\_HAL\_PWR\_PVD\_EXTI\_ENABLE\_FALLING\_EDGE}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00311}00311\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00312}00312\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00318}00318\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_ga729c254eac1847073d8a55621384107d}{HAL\_PWR\_EnablePVD}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00319}00319\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00320}00320\ \ \ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ *)\ \mbox{\hyperlink{group___p_w_r___c_r__register__alias_ga49f51ef8285a6be76fd204d49a00709c}{CR\_PVDE\_BB}}\ =\ (uint32\_t)\mbox{\hyperlink{group___exported__types_ggac9a7e9a35d2513ec15c3b537aaa4fba1a7d46875fa3ebd2c34d2756950eda83bf}{ENABLE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00321}00321\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00327}00327\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_ga3a843cc2fd1a1bb02c7f2dfa355bf9ec}{HAL\_PWR\_DisablePVD}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00328}00328\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00329}00329\ \ \ *(\mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ *)\ \mbox{\hyperlink{group___p_w_r___c_r__register__alias_ga49f51ef8285a6be76fd204d49a00709c}{CR\_PVDE\_BB}}\ =\ (uint32\_t)\mbox{\hyperlink{group___exported__types_ggac9a7e9a35d2513ec15c3b537aaa4fba1ad3a9df141be0ccf10389b640f492b26d}{DISABLE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00330}00330\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00341}00341\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_gaa76f42833a89110293f687b034164916}{HAL\_PWR\_EnableWakeUpPin}}(uint32\_t\ WakeUpPinx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00342}00342\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00343}00343\ \ \ \textcolor{comment}{/*\ Check\ the\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00344}00344\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_gac6fcc59d6ff95b8feda1b228517f9c3f}{IS\_PWR\_WAKEUP\_PIN}}(WakeUpPinx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00346}00346\ \ \ \textcolor{comment}{/*\ Enable\ the\ wake\ up\ pin\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00347}00347\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga04651c526497822a859942b928e57f8e}{PWR}}-\/>CSR,\ WakeUpPinx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00348}00348\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00349}00349\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00359}00359\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_gab12ca816929e23e36f5ed8f4ccdb1472}{HAL\_PWR\_DisableWakeUpPin}}(uint32\_t\ WakeUpPinx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00360}00360\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00361}00361\ \ \ \textcolor{comment}{/*\ Check\ the\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00362}00362\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_gac6fcc59d6ff95b8feda1b228517f9c3f}{IS\_PWR\_WAKEUP\_PIN}}(WakeUpPinx));\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00364}00364\ \ \ \textcolor{comment}{/*\ Disable\ the\ wake\ up\ pin\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00365}00365\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga04651c526497822a859942b928e57f8e}{PWR}}-\/>CSR,\ WakeUpPinx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00366}00366\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00367}00367\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00391}00391\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_ga5c84f4e046525c22d233c8a3443fab5f}{HAL\_PWR\_EnterSLEEPMode}}(uint32\_t\ Regulator,\ uint8\_t\ SLEEPEntry)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00392}00392\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00393}00393\ \ \ \textcolor{comment}{/*\ Prevent\ unused\ argument(s)\ compilation\ warning\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00394}00394\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(Regulator);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00396}00396\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00397}00397\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___p_w_r___i_s___p_w_r___definitions_ga03c105070272141c0bab5f2b74469072}{IS\_PWR\_REGULATOR}}(Regulator));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00398}00398\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___p_w_r___i_s___p_w_r___definitions_ga9b36a9c213a77d36340788b2e7e277ff}{IS\_PWR\_SLEEP\_ENTRY}}(SLEEPEntry));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00399}00399\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00400}00400\ \ \ \textcolor{comment}{/*\ Clear\ SLEEPDEEP\ bit\ of\ Cortex\ System\ Control\ Register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00401}00401\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SCR,\ ((uint32\_t)\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga77c06a69c63f4b3f6ec1032e911e18e7}{SCB\_SCR\_SLEEPDEEP\_Msk}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00402}00402\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00403}00403\ \ \ \textcolor{comment}{/*\ Select\ SLEEP\ mode\ entry\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00404}00404\ \ \ \textcolor{keywordflow}{if}(SLEEPEntry\ ==\ \mbox{\hyperlink{group___p_w_r___s_l_e_e_p__mode__entry_ga4f0f99a3526c57efb3501b016639fa45}{PWR\_SLEEPENTRY\_WFI}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00405}00405\ \ \ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00406}00406\ \ \ \ \ \textcolor{comment}{/*\ Request\ Wait\ For\ Interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00407}00407\ \ \ \ \ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gad23bf2b78a9a4524157c9de0d30b7448}{\_\_WFI}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00408}00408\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00409}00409\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00410}00410\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00411}00411\ \ \ \ \ \textcolor{keywordflow}{if}(SLEEPEntry\ !=\ \mbox{\hyperlink{group___p_w_r___s_l_e_e_p__mode__entry_gaeadb773262e7e18f9597d86056412dc8}{PWR\_SLEEPENTRY\_WFE\_NO\_EVT\_CLEAR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00412}00412\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00413}00413\ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ all\ pending\ event\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00414}00414\ \ \ \ \ \ \ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaab4f296d0022b4b10dc0976eb22052f9}{\_\_SEV}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00415}00415\ \ \ \ \ \ \ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaac6cc7dd4325d9cb40d3290fa5244b3d}{\_\_WFE}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00416}00416\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00418}00418\ \ \ \ \ \textcolor{comment}{/*\ Request\ Wait\ For\ Event\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00419}00419\ \ \ \ \ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaac6cc7dd4325d9cb40d3290fa5244b3d}{\_\_WFE}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00420}00420\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00421}00421\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00445}00445\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_gacfca5f1062274423e08317c0a5a225fa}{HAL\_PWR\_EnterSTOPMode}}(uint32\_t\ Regulator,\ uint8\_t\ STOPEntry)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00446}00446\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00447}00447\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00448}00448\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___p_w_r___i_s___p_w_r___definitions_ga03c105070272141c0bab5f2b74469072}{IS\_PWR\_REGULATOR}}(Regulator));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00449}00449\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___p_w_r___i_s___p_w_r___definitions_ga4a94eb1f400dec6e486fbc229cbea8a0}{IS\_PWR\_STOP\_ENTRY}}(STOPEntry));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00450}00450\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00451}00451\ \ \ \textcolor{comment}{/*\ Select\ the\ regulator\ state\ in\ Stop\ mode:\ Set\ PDDS\ and\ LPDS\ bits\ according\ to\ PWR\_Regulator\ value\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00452}00452\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(\mbox{\hyperlink{group___peripheral__declaration_ga04651c526497822a859942b928e57f8e}{PWR}}-\/>CR,\ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8c8075e98772470804c9e3fe74984115}{PWR\_CR\_PDDS}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3aeb8d6f2539b0a3a4b851aeba0eea66}{PWR\_CR\_LPDS}}),\ Regulator);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00453}00453\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00454}00454\ \ \ \textcolor{comment}{/*\ Set\ SLEEPDEEP\ bit\ of\ Cortex\ System\ Control\ Register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00455}00455\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SCR,\ ((uint32\_t)\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga77c06a69c63f4b3f6ec1032e911e18e7}{SCB\_SCR\_SLEEPDEEP\_Msk}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00456}00456\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00457}00457\ \ \ \textcolor{comment}{/*\ Select\ Stop\ mode\ entry\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00458}00458\ \ \ \textcolor{keywordflow}{if}(STOPEntry\ ==\ \mbox{\hyperlink{group___p_w_r___s_t_o_p__mode__entry_ga3bdb1a9c9b421b73ab148d45eb90fa9b}{PWR\_STOPENTRY\_WFI}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00459}00459\ \ \ \{\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00460}00460\ \ \ \ \ \textcolor{comment}{/*\ Request\ Wait\ For\ Interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00461}00461\ \ \ \ \ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gad23bf2b78a9a4524157c9de0d30b7448}{\_\_WFI}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00462}00462\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00463}00463\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00464}00464\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00465}00465\ \ \ \ \ \textcolor{keywordflow}{if}(STOPEntry\ !=\ \mbox{\hyperlink{group___p_w_r___s_t_o_p__mode__entry_gac21cb27b2acd8e42dd5cac1142eac689}{PWR\_STOPENTRY\_WFE\_NO\_EVT\_CLEAR}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00466}00466\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00467}00467\ \ \ \ \ \ \ \textcolor{comment}{/*\ Clear\ all\ pending\ event\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00468}00468\ \ \ \ \ \ \ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaab4f296d0022b4b10dc0976eb22052f9}{\_\_SEV}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00469}00469\ \ \ \ \ \ \ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaac6cc7dd4325d9cb40d3290fa5244b3d}{\_\_WFE}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00470}00470\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00471}00471\ \ \ \ \ \textcolor{comment}{/*\ Request\ Wait\ For\ Event\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00472}00472\ \ \ \ \ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaac6cc7dd4325d9cb40d3290fa5244b3d}{\_\_WFE}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00473}00473\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00474}00474\ \ \ \textcolor{comment}{/*\ Reset\ SLEEPDEEP\ bit\ of\ Cortex\ System\ Control\ Register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00475}00475\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SCR,\ ((uint32\_t)\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga77c06a69c63f4b3f6ec1032e911e18e7}{SCB\_SCR\_SLEEPDEEP\_Msk}}));\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00476}00476\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00488}00488\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_ga40736f74c169077fcd08f34470559aa2}{HAL\_PWR\_EnterSTANDBYMode}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00489}00489\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00490}00490\ \ \ \textcolor{comment}{/*\ Select\ Standby\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00491}00491\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga04651c526497822a859942b928e57f8e}{PWR}}-\/>CR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8c8075e98772470804c9e3fe74984115}{PWR\_CR\_PDDS}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00492}00492\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00493}00493\ \ \ \textcolor{comment}{/*\ Set\ SLEEPDEEP\ bit\ of\ Cortex\ System\ Control\ Register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00494}00494\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SCR,\ ((uint32\_t)\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga77c06a69c63f4b3f6ec1032e911e18e7}{SCB\_SCR\_SLEEPDEEP\_Msk}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00495}00495\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00496}00496\ \ \ \textcolor{comment}{/*\ This\ option\ is\ used\ to\ ensure\ that\ store\ operations\ are\ completed\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00497}00497\ \textcolor{preprocessor}{\#if\ defined\ (\ \_\_CC\_ARM)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00498}00498\ \ \ \_\_force\_stores();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00499}00499\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00500}00500\ \ \ \textcolor{comment}{/*\ Request\ Wait\ For\ Interrupt\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00501}00501\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gad23bf2b78a9a4524157c9de0d30b7448}{\_\_WFI}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00502}00502\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00503}00503\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00509}00509\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_gae3403237bde597d72b32f0434932a047}{HAL\_PWR\_PVD\_IRQHandler}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00510}00510\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00511}00511\ \ \ \textcolor{comment}{/*\ Check\ PWR\ Exti\ flag\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00512}00512\ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{group___p_w_r___exported___macro_ga5e66fa75359b51066e0731ac1e5ae438}{\_\_HAL\_PWR\_PVD\_EXTI\_GET\_FLAG}}()\ !=\ \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{RESET}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00513}00513\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00514}00514\ \ \ \ \ \textcolor{comment}{/*\ PWR\ PVD\ interrupt\ user\ callback\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00515}00515\ \ \ \ \ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_gaa4843b3eb7989f5b95e1218af4086940}{HAL\_PWR\_PVDCallback}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00516}00516\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00517}00517\ \ \ \ \ \textcolor{comment}{/*\ Clear\ PWR\ Exti\ pending\ bit\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00518}00518\ \ \ \ \ \mbox{\hyperlink{group___p_w_r___exported___macro_gac0fb2218bc050f5d8fdb1a3f28590352}{\_\_HAL\_PWR\_PVD\_EXTI\_CLEAR\_FLAG}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00519}00519\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00520}00520\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00521}00521\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00526}00526\ \_\_weak\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_gaa4843b3eb7989f5b95e1218af4086940}{HAL\_PWR\_PVDCallback}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00527}00527\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00528}00528\ \ \ \textcolor{comment}{/*\ NOTE\ :\ This\ function\ Should\ not\ be\ modified,\ when\ the\ callback\ is\ needed,}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00529}00529\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ the\ HAL\_PWR\_PVDCallback\ could\ be\ implemented\ in\ the\ user\ file}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00530}00530\ \textcolor{comment}{\ \ \ */}\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00531}00531\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00532}00532\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00541}00541\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_ga85d0154c96068b286072a64fca4c7e6a}{HAL\_PWR\_EnableSleepOnExit}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00542}00542\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00543}00543\ \ \ \textcolor{comment}{/*\ Set\ SLEEPONEXIT\ bit\ of\ Cortex\ System\ Control\ Register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00544}00544\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SCR,\ ((uint32\_t)\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga50a243e317b9a70781b02758d45b05ee}{SCB\_SCR\_SLEEPONEXIT\_Msk}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00545}00545\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00546}00546\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00553}00553\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_ga1da299e8186a3e08a694865bd41c3bb0}{HAL\_PWR\_DisableSleepOnExit}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00554}00554\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00555}00555\ \ \ \textcolor{comment}{/*\ Clear\ SLEEPONEXIT\ bit\ of\ Cortex\ System\ Control\ Register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00556}00556\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SCR,\ ((uint32\_t)\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga50a243e317b9a70781b02758d45b05ee}{SCB\_SCR\_SLEEPONEXIT\_Msk}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00557}00557\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00558}00558\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00565}00565\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_ga6f33b1c8c8cc85129c68ac302a281033}{HAL\_PWR\_EnableSEVOnPend}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00566}00566\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00567}00567\ \ \ \textcolor{comment}{/*\ Set\ SEVONPEND\ bit\ of\ Cortex\ System\ Control\ Register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00568}00568\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SCR,\ ((uint32\_t)\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gafb98656644a14342e467505f69a997c9}{SCB\_SCR\_SEVONPEND\_Msk}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00569}00569\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00570}00570\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00577}00577\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___p_w_r___exported___functions___group2_ga7811014def9b864dd490a63ada4bab68}{HAL\_PWR\_DisableSEVOnPend}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00578}00578\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00579}00579\ \ \ \textcolor{comment}{/*\ Clear\ SEVONPEND\ bit\ of\ Cortex\ System\ Control\ Register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00580}00580\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SCR,\ ((uint32\_t)\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gafb98656644a14342e467505f69a997c9}{SCB\_SCR\_SEVONPEND\_Msk}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00581}00581\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00582}00582\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00586}00586\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00590}00590\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00591}00591\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_PWR\_MODULE\_ENABLED\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__pwr_8c_source_l00595}00595\ }
+
+\end{DoxyCode}

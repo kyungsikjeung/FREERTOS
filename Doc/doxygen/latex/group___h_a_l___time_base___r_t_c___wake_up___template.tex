@@ -1,0 +1,248 @@
+\doxysubsection{HAL Time\+Base RTC Wake\+Up Template }
+\hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template}{}\label{group___h_a_l___time_base___r_t_c___wake_up___template}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+Collaboration diagram for HAL Time\+Base RTC Wake\+Up Template\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___h_a_l___time_base___r_t_c___wake_up___template}
+\end{center}
+\end{figure}
+\doxysubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___h_a_l___time_base___r_t_c___wake_up___template_ga5da1cd82e5ae713267918a9c85b4dc77}{RTC\+\_\+\+CLOCK\+\_\+\+SOURCE\+\_\+\+HSE}}
+\item 
+\#define \mbox{\hyperlink{group___h_a_l___time_base___r_t_c___wake_up___template_gac483fb44f1611ddb407a4aacec7ae4e7}{RTC\+\_\+\+ASYNCH\+\_\+\+PREDIV}}~99U
+\item 
+\#define \mbox{\hyperlink{group___h_a_l___time_base___r_t_c___wake_up___template_ga433a49865e4af2e0972e6bbbea894d51}{RTC\+\_\+\+SYNCH\+\_\+\+PREDIV}}~9U
+\item 
+\#define \mbox{\hyperlink{group___h_a_l___time_base___r_t_c___wake_up___template_gad4aef0e3572ec727de3815fcff26220a}{RCC\+\_\+\+RTCCLKSOURCE\+\_\+1\+MHZ}}~((uint32\+\_\+t)((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabe30dbd38f6456990ee641648bc05d40}{RCC\+\_\+\+BDCR\+\_\+\+RTCSEL}} \texorpdfstring{$\vert$}{|} (uint32\+\_\+t)((\mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\+\_\+\+VALUE}}/1000000U) $<$$<$ 16U)))
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___h_a_l___time_base___r_t_c___wake_up___template_ga53a3fe340e323e2fec8d851cd2e83554}{RTC\+\_\+\+WKUP\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles WAKE UP TIMER interrupt request. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___h_a_l___time_base___r_t_c___wake_up___template_ga879cdb21ef051eb81ec51c18147397d5}{HAL\+\_\+\+Init\+Tick}} (uint32\+\_\+t Tick\+Priority)
+\begin{DoxyCompactList}\small\item\em This function configures the RTC\+\_\+\+WKUP as a time base source. The time source is configured to have 1ms time base with a dedicated Tick interrupt priority. Wakeup Time base = ((RTC\+\_\+\+ASYNCH\+\_\+\+PREDIV + 1) \texorpdfstring{$\ast$}{*} (RTC\+\_\+\+SYNCH\+\_\+\+PREDIV + 1)) / RTC\+\_\+\+CLOCK = 1ms Wakeup Time = Wakeup\+Timebase \texorpdfstring{$\ast$}{*} Wake\+Up\+Counter (0 + 1) = 1 ms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___time_base___r_t_c___wake_up___template_gaaf651af2afe688a991c657f64f8fa5f9}{HAL\+\_\+\+Suspend\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em Suspend Tick increment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___time_base___r_t_c___wake_up___template_ga24e0ee9dae1ec0f9d19200f5575ff790}{HAL\+\_\+\+Resume\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em Resume Tick increment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___time_base___r_t_c___wake_up___template_gac9ed5d6224b5c86f2845a9c1af7d94de}{HAL\+\_\+\+RTCEx\+\_\+\+Wake\+Up\+Timer\+Event\+Callback}} (\mbox{\hyperlink{struct_r_t_c___handle_type_def}{RTC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hrtc)
+\begin{DoxyCompactList}\small\item\em Wake Up Timer Event Callback in non blocking mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_r_t_c___handle_type_def}{RTC\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{group___h_a_l___time_base___r_t_c___wake_up___template_ga66edbb38f0b45759c28ecd5aede14478}{h\+RTC\+\_\+\+Handle}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+
+
+\label{doc-define-members}
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_doc-define-members}
+\doxysubsubsection{Macro Definition Documentation}
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_gad4aef0e3572ec727de3815fcff26220a}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}!RCC\_RTCCLKSOURCE\_1MHZ@{RCC\_RTCCLKSOURCE\_1MHZ}}
+\index{RCC\_RTCCLKSOURCE\_1MHZ@{RCC\_RTCCLKSOURCE\_1MHZ}!HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+\doxysubsubsubsection{\texorpdfstring{RCC\_RTCCLKSOURCE\_1MHZ}{RCC\_RTCCLKSOURCE\_1MHZ}}
+{\footnotesize\ttfamily \label{group___h_a_l___time_base___r_t_c___wake_up___template_gad4aef0e3572ec727de3815fcff26220a} 
+\#define RCC\+\_\+\+RTCCLKSOURCE\+\_\+1\+MHZ~((uint32\+\_\+t)((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabe30dbd38f6456990ee641648bc05d40}{RCC\+\_\+\+BDCR\+\_\+\+RTCSEL}} \texorpdfstring{$\vert$}{|} (uint32\+\_\+t)((\mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\+\_\+\+VALUE}}/1000000U) $<$$<$ 16U)))}
+
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source_l00075}{75}} of file \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source}{stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+rtc\+\_\+wakeup\+\_\+template.\+c}}.
+
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_gac483fb44f1611ddb407a4aacec7ae4e7}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}!RTC\_ASYNCH\_PREDIV@{RTC\_ASYNCH\_PREDIV}}
+\index{RTC\_ASYNCH\_PREDIV@{RTC\_ASYNCH\_PREDIV}!HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+\doxysubsubsubsection{\texorpdfstring{RTC\_ASYNCH\_PREDIV}{RTC\_ASYNCH\_PREDIV}}
+{\footnotesize\ttfamily \label{group___h_a_l___time_base___r_t_c___wake_up___template_gac483fb44f1611ddb407a4aacec7ae4e7} 
+\#define RTC\+\_\+\+ASYNCH\+\_\+\+PREDIV~99U}
+
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source_l00073}{73}} of file \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source}{stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+rtc\+\_\+wakeup\+\_\+template.\+c}}.
+
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_ga5da1cd82e5ae713267918a9c85b4dc77}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}!RTC\_CLOCK\_SOURCE\_HSE@{RTC\_CLOCK\_SOURCE\_HSE}}
+\index{RTC\_CLOCK\_SOURCE\_HSE@{RTC\_CLOCK\_SOURCE\_HSE}!HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+\doxysubsubsubsection{\texorpdfstring{RTC\_CLOCK\_SOURCE\_HSE}{RTC\_CLOCK\_SOURCE\_HSE}}
+{\footnotesize\ttfamily \label{group___h_a_l___time_base___r_t_c___wake_up___template_ga5da1cd82e5ae713267918a9c85b4dc77} 
+\#define RTC\+\_\+\+CLOCK\+\_\+\+SOURCE\+\_\+\+HSE}
+
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source_l00068}{68}} of file \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source}{stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+rtc\+\_\+wakeup\+\_\+template.\+c}}.
+
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_ga433a49865e4af2e0972e6bbbea894d51}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}!RTC\_SYNCH\_PREDIV@{RTC\_SYNCH\_PREDIV}}
+\index{RTC\_SYNCH\_PREDIV@{RTC\_SYNCH\_PREDIV}!HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+\doxysubsubsubsection{\texorpdfstring{RTC\_SYNCH\_PREDIV}{RTC\_SYNCH\_PREDIV}}
+{\footnotesize\ttfamily \label{group___h_a_l___time_base___r_t_c___wake_up___template_ga433a49865e4af2e0972e6bbbea894d51} 
+\#define RTC\+\_\+\+SYNCH\+\_\+\+PREDIV~9U}
+
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source_l00074}{74}} of file \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source}{stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+rtc\+\_\+wakeup\+\_\+template.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_doc-func-members}
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_ga879cdb21ef051eb81ec51c18147397d5}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}!HAL\_InitTick@{HAL\_InitTick}}
+\index{HAL\_InitTick@{HAL\_InitTick}!HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+\doxysubsubsubsection{\texorpdfstring{HAL\_InitTick()}{HAL\_InitTick()}}
+{\footnotesize\ttfamily \label{group___h_a_l___time_base___r_t_c___wake_up___template_ga879cdb21ef051eb81ec51c18147397d5} 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} HAL\+\_\+\+Init\+Tick (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Tick\+Priority}{}\end{DoxyParamCaption})}
+
+
+
+This function configures the RTC\+\_\+\+WKUP as a time base source. The time source is configured to have 1ms time base with a dedicated Tick interrupt priority. Wakeup Time base = ((RTC\+\_\+\+ASYNCH\+\_\+\+PREDIV + 1) \texorpdfstring{$\ast$}{*} (RTC\+\_\+\+SYNCH\+\_\+\+PREDIV + 1)) / RTC\+\_\+\+CLOCK = 1ms Wakeup Time = Wakeup\+Timebase \texorpdfstring{$\ast$}{*} Wake\+Up\+Counter (0 + 1) = 1 ms. 
+
+\begin{DoxyNote}{Note}
+This function is called automatically at the beginning of program after reset by \doxylink{group___h_a_l___exported___functions___group1_gaecac54d350c3730e6831eb404e557dc4}{HAL\+\_\+\+Init()} or at any time when clock is configured, by \doxylink{group___r_c_c___exported___functions___group1_gadb770505476995fc13c2ca7290d9c484}{HAL\+\_\+\+RCC\+\_\+\+Clock\+Config()}. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em Tick\+Priority} & Tick interrupt priority. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em HAL} & status \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source_l00103}{103}} of file \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source}{stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+rtc\+\_\+wakeup\+\_\+template.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{group___h_a_l___time_base___r_t_c___wake_up___template_ga879cdb21ef051eb81ec51c18147397d5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_ga24e0ee9dae1ec0f9d19200f5575ff790}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}!HAL\_ResumeTick@{HAL\_ResumeTick}}
+\index{HAL\_ResumeTick@{HAL\_ResumeTick}!HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+\doxysubsubsubsection{\texorpdfstring{HAL\_ResumeTick()}{HAL\_ResumeTick()}}
+{\footnotesize\ttfamily \label{group___h_a_l___time_base___r_t_c___wake_up___template_ga24e0ee9dae1ec0f9d19200f5575ff790} 
+void HAL\+\_\+\+Resume\+Tick (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Resume Tick increment. 
+
+\begin{DoxyNote}{Note}
+Enable the tick increment by Enabling RTC\+\_\+\+WKUP interrupt. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source_l00253}{253}} of file \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source}{stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+rtc\+\_\+wakeup\+\_\+template.\+c}}.
+
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_gac9ed5d6224b5c86f2845a9c1af7d94de}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}!HAL\_RTCEx\_WakeUpTimerEventCallback@{HAL\_RTCEx\_WakeUpTimerEventCallback}}
+\index{HAL\_RTCEx\_WakeUpTimerEventCallback@{HAL\_RTCEx\_WakeUpTimerEventCallback}!HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+\doxysubsubsubsection{\texorpdfstring{HAL\_RTCEx\_WakeUpTimerEventCallback()}{HAL\_RTCEx\_WakeUpTimerEventCallback()}}
+{\footnotesize\ttfamily \label{group___h_a_l___time_base___r_t_c___wake_up___template_gac9ed5d6224b5c86f2845a9c1af7d94de} 
+void HAL\+\_\+\+RTCEx\+\_\+\+Wake\+Up\+Timer\+Event\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_r_t_c___handle_type_def}{RTC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}}]{hrtc}{}\end{DoxyParamCaption})}
+
+
+
+Wake Up Timer Event Callback in non blocking mode. 
+
+\begin{DoxyNote}{Note}
+This function is called when RTC\+\_\+\+WKUP interrupt took place, inside \doxylink{group___h_a_l___time_base___r_t_c___wake_up___template_ga53a3fe340e323e2fec8d851cd2e83554}{RTC\+\_\+\+WKUP\+\_\+\+IRQHandler()}. It makes a direct call to \doxylink{group___h_a_l___exported___functions___group2_gaba5b726bfedd013bf7bb5a51d5c4f188}{HAL\+\_\+\+Inc\+Tick()} to increment a global variable "{}uw\+Tick"{} used as application time base. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em hrtc} & RTC handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source_l00271}{271}} of file \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source}{stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+rtc\+\_\+wakeup\+\_\+template.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___h_a_l___time_base___r_t_c___wake_up___template_gac9ed5d6224b5c86f2845a9c1af7d94de_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_gaaf651af2afe688a991c657f64f8fa5f9}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}!HAL\_SuspendTick@{HAL\_SuspendTick}}
+\index{HAL\_SuspendTick@{HAL\_SuspendTick}!HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+\doxysubsubsubsection{\texorpdfstring{HAL\_SuspendTick()}{HAL\_SuspendTick()}}
+{\footnotesize\ttfamily \label{group___h_a_l___time_base___r_t_c___wake_up___template_gaaf651af2afe688a991c657f64f8fa5f9} 
+void HAL\+\_\+\+Suspend\+Tick (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Suspend Tick increment. 
+
+\begin{DoxyNote}{Note}
+Disable the tick increment by disabling RTC\+\_\+\+WKUP interrupt. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source_l00238}{238}} of file \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source}{stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+rtc\+\_\+wakeup\+\_\+template.\+c}}.
+
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_ga53a3fe340e323e2fec8d851cd2e83554}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}!RTC\_WKUP\_IRQHandler@{RTC\_WKUP\_IRQHandler}}
+\index{RTC\_WKUP\_IRQHandler@{RTC\_WKUP\_IRQHandler}!HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+\doxysubsubsubsection{\texorpdfstring{RTC\_WKUP\_IRQHandler()}{RTC\_WKUP\_IRQHandler()}}
+{\footnotesize\ttfamily \label{group___h_a_l___time_base___r_t_c___wake_up___template_ga53a3fe340e323e2fec8d851cd2e83554} 
+void RTC\+\_\+\+WKUP\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function handles WAKE UP TIMER interrupt request. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source_l00280}{280}} of file \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source}{stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+rtc\+\_\+wakeup\+\_\+template.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___h_a_l___time_base___r_t_c___wake_up___template_ga53a3fe340e323e2fec8d851cd2e83554_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_doc-var-members}
+\doxysubsubsection{Variable Documentation}
+\Hypertarget{group___h_a_l___time_base___r_t_c___wake_up___template_ga66edbb38f0b45759c28ecd5aede14478}\index{HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}!hRTC\_Handle@{hRTC\_Handle}}
+\index{hRTC\_Handle@{hRTC\_Handle}!HAL TimeBase RTC WakeUp Template@{HAL TimeBase RTC WakeUp Template}}
+\doxysubsubsubsection{\texorpdfstring{hRTC\_Handle}{hRTC\_Handle}}
+{\footnotesize\ttfamily \label{group___h_a_l___time_base___r_t_c___wake_up___template_ga66edbb38f0b45759c28ecd5aede14478} 
+\mbox{\hyperlink{struct_r_t_c___handle_type_def}{RTC\+\_\+\+Handle\+Type\+Def}} h\+RTC\+\_\+\+Handle}
+
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source_l00083}{83}} of file \mbox{\hyperlink{stm32f4xx__hal__timebase__rtc__wakeup__template_8c_source}{stm32f4xx\+\_\+hal\+\_\+timebase\+\_\+rtc\+\_\+wakeup\+\_\+template.\+c}}.
+

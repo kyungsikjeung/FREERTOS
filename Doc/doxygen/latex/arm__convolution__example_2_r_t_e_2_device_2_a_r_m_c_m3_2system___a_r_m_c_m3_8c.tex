@@ -1,0 +1,88 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Examples/\+ARM/arm\+\_\+convolution\+\_\+example/\+RTE/\+Device/\+ARMCM3/system\+\_\+\+ARMCM3.c File Reference}
+\hypertarget{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c}{}\label{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_convolution\_example/RTE/Device/ARMCM3/system\_ARMCM3.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_convolution\_example/RTE/Device/ARMCM3/system\_ARMCM3.c}}
+
+
+CMSIS Device System Source File for ARMCM3 Device.  
+
+
+{\ttfamily \#include "{}ARMCM3.\+h"{}}\newline
+Include dependency graph for system\+\_\+\+ARMCM3.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_a3cad0f9b3c40159bd2fbd7f5e60f2fff}{XTAL}}~(50000000\+UL)     /\texorpdfstring{$\ast$}{*} Oscillator frequency \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_a95982eccb57c2ae35f8ba3d8f0b05653}{SYSTEM\+\_\+\+CLOCK}}~(\mbox{\hyperlink{arm__bayes__example_2_r_t_e_2_device_2_a_r_m_c_m0_2system___a_r_m_c_m0_8c_a3cad0f9b3c40159bd2fbd7f5e60f2fff}{XTAL}} / 2U)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___s_t_m32_f4xx___system___exported___functions_gae0c36a9591fe6e9c45ecb21a794f0f0f}{System\+Core\+Clock\+Update}} (void)
+\begin{DoxyCompactList}\small\item\em Update System\+Core\+Clock variable according to Clock Register Values. The System\+Core\+Clock variable contains the core clock (HCLK), it can be used by the user application to setup the Sys\+Tick timer or configure other parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___s_t_m32_f4xx___system___exported___functions_ga93f514700ccf00d08dbdcff7f1224eb2}{System\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Setup the microcontroller system Initialize the FPU setting, vector table location and External memory configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const VECTOR\+\_\+\+TABLE\+\_\+\+Type \mbox{\hyperlink{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_ae13af0e2d6b611ae88030626104e0059}{\+\_\+\+\_\+\+VECTOR\+\_\+\+TABLE}} \mbox{[}240\mbox{]}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___s_t_m32_f4xx___system___exported__types_gaa3cd3e43291e81e795d642b79b6088e6}{System\+Core\+Clock}} = \mbox{\hyperlink{arm__bayes__example_2_r_t_e_2_device_2_a_r_m_c_m0_2system___a_r_m_c_m0_8c_a95982eccb57c2ae35f8ba3d8f0b05653}{SYSTEM\+\_\+\+CLOCK}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+CMSIS Device System Source File for ARMCM3 Device. 
+
+\begin{DoxyVersion}{Version}
+V1.\+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+15. November 2019 
+\end{DoxyDate}
+
+
+Definition in file \mbox{\hyperlink{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_source}{system\+\_\+\+ARMCM3.\+c}}.
+
+
+
+\label{doc-define-members}
+\Hypertarget{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_a95982eccb57c2ae35f8ba3d8f0b05653}\index{system\_ARMCM3.c@{system\_ARMCM3.c}!SYSTEM\_CLOCK@{SYSTEM\_CLOCK}}
+\index{SYSTEM\_CLOCK@{SYSTEM\_CLOCK}!system\_ARMCM3.c@{system\_ARMCM3.c}}
+\doxysubsubsection{\texorpdfstring{SYSTEM\_CLOCK}{SYSTEM\_CLOCK}}
+{\footnotesize\ttfamily \label{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_a95982eccb57c2ae35f8ba3d8f0b05653} 
+\#define SYSTEM\+\_\+\+CLOCK~(\mbox{\hyperlink{arm__bayes__example_2_r_t_e_2_device_2_a_r_m_c_m0_2system___a_r_m_c_m0_8c_a3cad0f9b3c40159bd2fbd7f5e60f2fff}{XTAL}} / 2U)}
+
+
+
+Definition at line \mbox{\hyperlink{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_source_l00033}{33}} of file \mbox{\hyperlink{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_source}{system\+\_\+\+ARMCM3.\+c}}.
+
+\Hypertarget{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_a3cad0f9b3c40159bd2fbd7f5e60f2fff}\index{system\_ARMCM3.c@{system\_ARMCM3.c}!XTAL@{XTAL}}
+\index{XTAL@{XTAL}!system\_ARMCM3.c@{system\_ARMCM3.c}}
+\doxysubsubsection{\texorpdfstring{XTAL}{XTAL}}
+{\footnotesize\ttfamily \label{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_a3cad0f9b3c40159bd2fbd7f5e60f2fff} 
+\#define XTAL~(50000000\+UL)     /\texorpdfstring{$\ast$}{*} Oscillator frequency \texorpdfstring{$\ast$}{*}/}
+
+
+
+Definition at line \mbox{\hyperlink{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_source_l00031}{31}} of file \mbox{\hyperlink{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_source}{system\+\_\+\+ARMCM3.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_ae13af0e2d6b611ae88030626104e0059}\index{system\_ARMCM3.c@{system\_ARMCM3.c}!\_\_VECTOR\_TABLE@{\_\_VECTOR\_TABLE}}
+\index{\_\_VECTOR\_TABLE@{\_\_VECTOR\_TABLE}!system\_ARMCM3.c@{system\_ARMCM3.c}}
+\doxysubsubsection{\texorpdfstring{\_\_VECTOR\_TABLE}{\_\_VECTOR\_TABLE}}
+{\footnotesize\ttfamily \label{arm__convolution__example_2_r_t_e_2_device_2_a_r_m_c_m3_2system___a_r_m_c_m3_8c_ae13af0e2d6b611ae88030626104e0059} 
+const VECTOR\+\_\+\+TABLE\+\_\+\+Type \+\_\+\+\_\+\+VECTOR\+\_\+\+TABLE\mbox{[}240\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

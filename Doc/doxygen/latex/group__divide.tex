@@ -1,0 +1,113 @@
+\doxysubsection{Fixed point division }
+\hypertarget{group__divide}{}\label{group__divide}\index{Fixed point division@{Fixed point division}}
+Collaboration diagram for Fixed point division\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{group__divide}
+\end{center}
+\end{figure}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group__divide_ga3d5bc8179cdfb12288d58d99d635e4cb}{arm\+\_\+divide\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} numerator, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} denominator, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}quotient, int16\+\_\+t \texorpdfstring{$\ast$}{*}shift)
+\begin{DoxyCompactList}\small\item\em Fixed point division. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group__divide_ga250c0a49bd2e42282f3296d51138a5cb}{arm\+\_\+divide\+\_\+q31}} (\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} numerator, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} denominator, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}quotient, int16\+\_\+t \texorpdfstring{$\ast$}{*}shift)
+\begin{DoxyCompactList}\small\item\em Fixed point division. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group__divide_doc-func-members}
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group__divide_ga3d5bc8179cdfb12288d58d99d635e4cb}\index{Fixed point division@{Fixed point division}!arm\_divide\_q15@{arm\_divide\_q15}}
+\index{arm\_divide\_q15@{arm\_divide\_q15}!Fixed point division@{Fixed point division}}
+\doxysubsubsubsection{\texorpdfstring{arm\_divide\_q15()}{arm\_divide\_q15()}}
+{\footnotesize\ttfamily \label{group__divide_ga3d5bc8179cdfb12288d58d99d635e4cb} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+divide\+\_\+q15 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}}}]{numerator}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}}}]{denominator}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{quotient}{, }\item[{int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{shift}{}\end{DoxyParamCaption})}
+
+
+
+Fixed point division. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em numerator} & Numerator \\
+\hline
+\mbox{\texttt{in}}  & {\em denominator} & Denominator \\
+\hline
+\mbox{\texttt{out}}  & {\em quotient} & Quotient value normalized between -\/1.\+0 and 1.\+0 \\
+\hline
+\mbox{\texttt{out}}  & {\em shift} & Shift left value to get the unnormalized quotient \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error status
+\end{DoxyReturn}
+When dividing by 0, an error ARM\+\_\+\+MATH\+\_\+\+NANINF is returned. And the quotient is forced to the saturated negative or positive value. 
+
+Definition at line \mbox{\hyperlink{arm__divide__q15_8c_source_l00060}{60}} of file \mbox{\hyperlink{arm__divide__q15_8c_source}{arm\+\_\+divide\+\_\+q15.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__divide_ga3d5bc8179cdfb12288d58d99d635e4cb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__divide_ga3d5bc8179cdfb12288d58d99d635e4cb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__divide_ga250c0a49bd2e42282f3296d51138a5cb}\index{Fixed point division@{Fixed point division}!arm\_divide\_q31@{arm\_divide\_q31}}
+\index{arm\_divide\_q31@{arm\_divide\_q31}!Fixed point division@{Fixed point division}}
+\doxysubsubsubsection{\texorpdfstring{arm\_divide\_q31()}{arm\_divide\_q31()}}
+{\footnotesize\ttfamily \label{group__divide_ga250c0a49bd2e42282f3296d51138a5cb} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+divide\+\_\+q31 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}}}]{numerator}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}}}]{denominator}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{quotient}{, }\item[{int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{shift}{}\end{DoxyParamCaption})}
+
+
+
+Fixed point division. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em numerator} & Numerator \\
+\hline
+\mbox{\texttt{in}}  & {\em denominator} & Denominator \\
+\hline
+\mbox{\texttt{out}}  & {\em quotient} & Quotient value normalized between -\/1.\+0 and 1.\+0 \\
+\hline
+\mbox{\texttt{out}}  & {\em shift} & Shift left value to get the unnormalized quotient \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error status
+\end{DoxyReturn}
+When dividing by 0, an error ARM\+\_\+\+MATH\+\_\+\+NANINF is returned. And the quotient is forced to the saturated negative or positive value. 
+
+Definition at line \mbox{\hyperlink{arm__divide__q31_8c_source_l00060}{60}} of file \mbox{\hyperlink{arm__divide__q31_8c_source}{arm\+\_\+divide\+\_\+q31.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__divide_ga250c0a49bd2e42282f3296d51138a5cb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group__divide_ga250c0a49bd2e42282f3296d51138a5cb_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,17 @@
+<map id="Basic Math Functions" name="Basic Math Functions">
+<area shape="rect" id="Node000004" href="$group___and.html" title=" " alt="" coords="227,5,362,32"/>
+<area shape="rect" id="Node000002" href="$group___basic_abs.html" title=" " alt="" coords="221,56,369,83"/>
+<area shape="rect" id="Node000003" href="$group___basic_add.html" title=" " alt="" coords="241,107,349,133"/>
+<area shape="rect" id="Node000005" href="$group___basic_clip.html" title=" " alt="" coords="223,157,367,184"/>
+<area shape="rect" id="Node000006" href="$group___basic_dot_prod.html" title=" " alt="" coords="229,208,361,235"/>
+<area shape="rect" id="Node000007" href="$group___basic_mult.html" title=" " alt="" coords="226,259,364,285"/>
+<area shape="rect" id="Node000008" href="$group___basic_negate.html" title=" " alt="" coords="243,309,347,336"/>
+<area shape="rect" id="Node000010" href="$group___basic_offset.html" title=" " alt="" coords="246,360,344,387"/>
+<area shape="rect" id="Node000012" href="$group___basic_scale.html" title=" " alt="" coords="247,411,342,437"/>
+<area shape="rect" id="Node000013" href="$group___basic_shift.html" title=" " alt="" coords="250,461,340,488"/>
+<area shape="rect" id="Node000014" href="$group___basic_sub.html" title=" " alt="" coords="231,512,359,539"/>
+<area shape="rect" id="Node000009" href="$group___not.html" title=" " alt="" coords="227,563,362,589"/>
+<area shape="rect" id="Node000011" href="$group___or.html" title=" " alt="" coords="204,613,386,640"/>
+<area shape="rect" id="Node000015" href="$group___xor.html" title=" " alt="" coords="202,664,388,691"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,335,154,361"/>
+</map>

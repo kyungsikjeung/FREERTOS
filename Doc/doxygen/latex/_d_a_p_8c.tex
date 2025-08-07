@@ -1,0 +1,186 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DAP/\+Firmware/\+Source/\+DAP.c File Reference}
+\hypertarget{_d_a_p_8c}{}\label{_d_a_p_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DAP/Firmware/Source/DAP.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DAP/Firmware/Source/DAP.c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}DAP\+\_\+config.\+h"{}}\newline
+{\ttfamily \#include "{}DAP.\+h"{}}\newline
+Include dependency graph for DAP.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_a_p_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_d_a_p_8c_a608334d7a395b472de3ea5a62ee87191}{MAX\+\_\+\+SWJ\+\_\+\+CLOCK}}(delay\+\_\+cycles)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_d_a_p_8c_ab1b4ded624d5d162f8d18acdc0916716}{Delayms}} (uint32\+\_\+t delay)
+\item 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\+\_\+\+\_\+\+WEAK}} uint32\+\_\+t \mbox{\hyperlink{_d_a_p_8c_a7722b4d6b0444dff61934b1d722d6584}{DAP\+\_\+\+Process\+Vendor\+Command}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}request, uint8\+\_\+t \texorpdfstring{$\ast$}{*}response)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_d_a_p_8c_aa530badfdff2e308e57572e8e9ea9563}{DAP\+\_\+\+Process\+Command}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}request, uint8\+\_\+t \texorpdfstring{$\ast$}{*}response)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_d_a_p_8c_a8152232d8bb856a58c61978dfc603d3f}{DAP\+\_\+\+Execute\+Command}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}request, uint8\+\_\+t \texorpdfstring{$\ast$}{*}response)
+\item 
+void \mbox{\hyperlink{_d_a_p_8c_ad52132af04808b4c11da9b68fe3c9767}{DAP\+\_\+\+Setup}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_d_a_p___data__t}{DAP\+\_\+\+Data\+\_\+t}} \mbox{\hyperlink{_d_a_p_8c_a5fa568a1d3169085aabda492f9970cde}{DAP\+\_\+\+Data}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{_d_a_p_8c_a9c4cea10fa707cb59419f1a1eb99bc36}{DAP\+\_\+\+Transfer\+Abort}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{_d_a_p_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_d_a_p_8c_a608334d7a395b472de3ea5a62ee87191}\index{DAP.c@{DAP.c}!MAX\_SWJ\_CLOCK@{MAX\_SWJ\_CLOCK}}
+\index{MAX\_SWJ\_CLOCK@{MAX\_SWJ\_CLOCK}!DAP.c@{DAP.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_SWJ\_CLOCK}{MAX\_SWJ\_CLOCK}}
+{\footnotesize\ttfamily \label{_d_a_p_8c_a608334d7a395b472de3ea5a62ee87191} 
+\#define MAX\+\_\+\+SWJ\+\_\+\+CLOCK(\begin{DoxyParamCaption}\item[{}]{delay\+\_\+cycles}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ ((\mbox{\hyperlink{group___d_a_p___config___debug__gr_ga512016e5f1966a8fd45b3f1a81ba5b8f}{CPU\_CLOCK}}/2U)\ /\ (\mbox{\hyperlink{group___d_a_p___config___debug__gr_ga119c70409a24e3a8bb35df07dffeb8c8}{IO\_PORT\_WRITE\_CYCLES}}\ +\ delay\_cycles))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_d_a_p_8c_source_l00048}{48}} of file \mbox{\hyperlink{_d_a_p_8c_source}{DAP.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{_d_a_p_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_d_a_p_8c_a8152232d8bb856a58c61978dfc603d3f}\index{DAP.c@{DAP.c}!DAP\_ExecuteCommand@{DAP\_ExecuteCommand}}
+\index{DAP\_ExecuteCommand@{DAP\_ExecuteCommand}!DAP.c@{DAP.c}}
+\doxysubsubsection{\texorpdfstring{DAP\_ExecuteCommand()}{DAP\_ExecuteCommand()}}
+{\footnotesize\ttfamily \label{_d_a_p_8c_a8152232d8bb856a58c61978dfc603d3f} 
+uint32\+\_\+t DAP\+\_\+\+Execute\+Command (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{request}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{response}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_d_a_p_8c_source_l01770}{1770}} of file \mbox{\hyperlink{_d_a_p_8c_source}{DAP.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_a_p_8c_a8152232d8bb856a58c61978dfc603d3f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_d_a_p_8c_aa530badfdff2e308e57572e8e9ea9563}\index{DAP.c@{DAP.c}!DAP\_ProcessCommand@{DAP\_ProcessCommand}}
+\index{DAP\_ProcessCommand@{DAP\_ProcessCommand}!DAP.c@{DAP.c}}
+\doxysubsubsection{\texorpdfstring{DAP\_ProcessCommand()}{DAP\_ProcessCommand()}}
+{\footnotesize\ttfamily \label{_d_a_p_8c_aa530badfdff2e308e57572e8e9ea9563} 
+uint32\+\_\+t DAP\+\_\+\+Process\+Command (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{request}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{response}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_d_a_p_8c_source_l01639}{1639}} of file \mbox{\hyperlink{_d_a_p_8c_source}{DAP.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_a_p_8c_aa530badfdff2e308e57572e8e9ea9563_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_a_p_8c_aa530badfdff2e308e57572e8e9ea9563_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_d_a_p_8c_a7722b4d6b0444dff61934b1d722d6584}\index{DAP.c@{DAP.c}!DAP\_ProcessVendorCommand@{DAP\_ProcessVendorCommand}}
+\index{DAP\_ProcessVendorCommand@{DAP\_ProcessVendorCommand}!DAP.c@{DAP.c}}
+\doxysubsubsection{\texorpdfstring{DAP\_ProcessVendorCommand()}{DAP\_ProcessVendorCommand()}}
+{\footnotesize\ttfamily \label{_d_a_p_8c_a7722b4d6b0444dff61934b1d722d6584} 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\+\_\+\+\_\+\+WEAK}} uint32\+\_\+t DAP\+\_\+\+Process\+Vendor\+Command (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{request}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{response}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_d_a_p_8c_source_l01627}{1627}} of file \mbox{\hyperlink{_d_a_p_8c_source}{DAP.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_a_p_8c_a7722b4d6b0444dff61934b1d722d6584_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_d_a_p_8c_ad52132af04808b4c11da9b68fe3c9767}\index{DAP.c@{DAP.c}!DAP\_Setup@{DAP\_Setup}}
+\index{DAP\_Setup@{DAP\_Setup}!DAP.c@{DAP.c}}
+\doxysubsubsection{\texorpdfstring{DAP\_Setup()}{DAP\_Setup()}}
+{\footnotesize\ttfamily \label{_d_a_p_8c_ad52132af04808b4c11da9b68fe3c9767} 
+void DAP\+\_\+\+Setup (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_d_a_p_8c_source_l01792}{1792}} of file \mbox{\hyperlink{_d_a_p_8c_source}{DAP.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{_d_a_p_8c_ad52132af04808b4c11da9b68fe3c9767_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_d_a_p_8c_ab1b4ded624d5d162f8d18acdc0916716}\index{DAP.c@{DAP.c}!Delayms@{Delayms}}
+\index{Delayms@{Delayms}!DAP.c@{DAP.c}}
+\doxysubsubsection{\texorpdfstring{Delayms()}{Delayms()}}
+{\footnotesize\ttfamily \label{_d_a_p_8c_ab1b4ded624d5d162f8d18acdc0916716} 
+void Delayms (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{delay}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_d_a_p_8c_source_l00187}{187}} of file \mbox{\hyperlink{_d_a_p_8c_source}{DAP.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{_d_a_p_8c_ab1b4ded624d5d162f8d18acdc0916716_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{_d_a_p_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{_d_a_p_8c_a5fa568a1d3169085aabda492f9970cde}\index{DAP.c@{DAP.c}!DAP\_Data@{DAP\_Data}}
+\index{DAP\_Data@{DAP\_Data}!DAP.c@{DAP.c}}
+\doxysubsubsection{\texorpdfstring{DAP\_Data}{DAP\_Data}}
+{\footnotesize\ttfamily \label{_d_a_p_8c_a5fa568a1d3169085aabda492f9970cde} 
+\mbox{\hyperlink{struct_d_a_p___data__t}{DAP\+\_\+\+Data\+\_\+t}} DAP\+\_\+\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{_d_a_p_8c_source_l00052}{52}} of file \mbox{\hyperlink{_d_a_p_8c_source}{DAP.\+c}}.
+
+\Hypertarget{_d_a_p_8c_a9c4cea10fa707cb59419f1a1eb99bc36}\index{DAP.c@{DAP.c}!DAP\_TransferAbort@{DAP\_TransferAbort}}
+\index{DAP\_TransferAbort@{DAP\_TransferAbort}!DAP.c@{DAP.c}}
+\doxysubsubsection{\texorpdfstring{DAP\_TransferAbort}{DAP\_TransferAbort}}
+{\footnotesize\ttfamily \label{_d_a_p_8c_a9c4cea10fa707cb59419f1a1eb99bc36} 
+volatile uint8\+\_\+t DAP\+\_\+\+Transfer\+Abort}
+
+
+
+Definition at line \mbox{\hyperlink{_d_a_p_8c_source_l00053}{53}} of file \mbox{\hyperlink{_d_a_p_8c_source}{DAP.\+c}}.
+

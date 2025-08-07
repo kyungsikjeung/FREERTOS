@@ -1,0 +1,7 @@
+<map id="arm_convolve_wrapper_s16_get_buffer_size" name="arm_convolve_wrapper_s16_get_buffer_size">
+<area shape="rect" id="Node000001" title="Get the required buffer size for arm_convolve_wrapper_s16." alt="" coords="5,39,161,81"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#ga8db7c4be84de273cfba630106d912737" title="Get the required buffer size for fast s16 convolution function." alt="" coords="209,5,368,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,45,193,39,194,45,161,50"/>
+<area shape="rect" id="Node000003" href="$group___n_n_conv.html#gaf8ee642967e4b1b05465621979de1baa" title="Get the required buffer size for s16 convolution function." alt="" coords="211,72,366,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,70,196,76,195,81,161,75"/>
+</map>

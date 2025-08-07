@@ -1,0 +1,5 @@
+<map id="HAL_SYSTICK_Config" name="HAL_SYSTICK_Config">
+<area shape="rect" id="Node000001" title=" " alt="" coords="151,5,308,32"/>
+<area shape="rect" id="Node000002" href="$group___h_a_l___exported___functions___group1.html#ga879cdb21ef051eb81ec51c18147397d5" title="This function configures the source of the time base. The time source is configured to have 1ms time ..." alt="" coords="5,5,103,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,21,103,21,103,16,135,16"/>
+</map>

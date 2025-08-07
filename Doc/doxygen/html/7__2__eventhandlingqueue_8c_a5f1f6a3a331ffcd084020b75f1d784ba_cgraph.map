@@ -1,0 +1,16 @@
+<map id="vSendAcceptRequestToTheTCPTask" name="vSendAcceptRequestToTheTCPTask">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,245,57"/>
+<area shape="rect" id="Node000002" href="$group___u_a_r_t___exported___functions___group2.html#ga01a7a7ac3cf0a262814ba44ee7580ddb" title=" " alt="" coords="293,5,441,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,29,277,25,278,31,245,34"/>
+<area shape="rect" id="Node000003" href="$heap__5_8c.html#a1e7cea2fd1bc894ea3b5f5e8179d259b" title=" " alt="" coords="328,56,406,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,54,312,61,312,66,245,59"/>
+<area shape="rect" id="Node000004" href="$tasks_8c.html#a084d232640bd1d04bcac0b8784417015" title=" " alt="" coords="489,31,611,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="406,61,473,52,474,57,407,67"/>
+<area shape="rect" id="Node000005" href="$tasks_8c.html#adf830ea0f150fcdfdaa944667137f080" title=" " alt="" coords="490,81,610,108"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="407,72,475,82,474,87,406,77"/>
+<area shape="rect" id="Node000006" href="$list_8c.html#a274fdced76bbdd9d8a4c4840ded2920c" title=" " alt="" coords="847,81,952,108"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="611,92,831,92,831,97,611,97"/>
+<area shape="rect" id="Node000007" href="$tasks_8c.html#a54f31e9aef0eb7b87e48c7d68ecc84c1" title=" " alt="" coords="659,107,799,133"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="611,101,645,105,644,111,610,106"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="799,107,831,102,831,107,799,112"/>
+</map>

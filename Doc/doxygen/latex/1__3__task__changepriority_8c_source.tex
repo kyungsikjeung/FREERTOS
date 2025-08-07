@@ -1,0 +1,75 @@
+\doxysection{1\+\_\+3\+\_\+task\+\_\+changepriority.\+c}
+\hypertarget{1__3__task__changepriority_8c_source}{}\label{1__3__task__changepriority_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/1\_3\_task\_changepriority.c@{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/1\_3\_task\_changepriority.c}}
+\mbox{\hyperlink{1__3__task__changepriority_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00001}00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00008}00008\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__init_8h}{driver\_init.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00013}00013\ \textcolor{comment}{//\ 전역\ 태스크\ 핸들}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00014}\mbox{\hyperlink{1__3__task__changepriority_8c_aff1950284f27cfc34f047a63400cf7af}{00014}}\ \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{TaskHandle\_t}}\ \mbox{\hyperlink{1__3__task__changepriority_8c_aff1950284f27cfc34f047a63400cf7af}{xTask1Handle}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00015}\mbox{\hyperlink{1__3__task__changepriority_8c_ac0e3c886f6822ea1c9b4adede92c98e8}{00015}}\ \mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{TaskHandle\_t}}\ \mbox{\hyperlink{1__3__task__changepriority_8c_ac0e3c886f6822ea1c9b4adede92c98e8}{xTask2Handle}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00017}00017\ \textcolor{comment}{//\ 태스크\ 선언}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00018}00018\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{1__3__task__changepriority_8c_a902a64ca782182bd7360b69639f74063}{Task1}}(\textcolor{keywordtype}{void}\ *pvParameters);}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00019}00019\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{1__3__task__changepriority_8c_af01c7f41ef35453d7c0e896db918be88}{Task2}}(\textcolor{keywordtype}{void}\ *pvParameters);}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00021}\mbox{\hyperlink{1__3__task__changepriority_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{00021}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{1__3__task__changepriority_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\ \{}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{driver__init_8h_aab7f079e70f08c868bbb3fdd41b86f82}{Driver\_Init}}();}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}}\ result;}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//\ Task2\ 생성\ (우선순위\ 1)}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00026}00026\ \ \ \ \ result\ =\ xTaskCreate(\mbox{\hyperlink{1__2__task__roundrobin_8c_af01c7f41ef35453d7c0e896db918be88}{Task2}},\ \textcolor{stringliteral}{"{}Task2"{}},\ \mbox{\hyperlink{_free_r_t_o_s_config_8h_a6c534a6cf8a00528fe0be42083484f9a}{configMINIMAL\_STACK\_SIZE}},\ NULL,\ 1,\ \&\mbox{\hyperlink{1__3__task__changepriority_8c_ac0e3c886f6822ea1c9b4adede92c98e8}{xTask2Handle}});}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{if}(result\ !=\ \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}})\ \{}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\_UART\_Transmit}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}},\ (uint8\_t\ *)\textcolor{stringliteral}{"{}Task2\ 생성\ 실패\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Task2\ 생성\ 실패\(\backslash\)r\(\backslash\)n"{}}),\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_aad28bc64749c50dcedd6bf819fdc6974}{HAL\_MAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00029}00029\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\_UART\_Transmit}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}},\ (uint8\_t\ *)\textcolor{stringliteral}{"{}Task2\ 생성\ 성공\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Task2\ 생성\ 성공\(\backslash\)r\(\backslash\)n"{}}),\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_aad28bc64749c50dcedd6bf819fdc6974}{HAL\_MAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ Task1\ 생성\ (우선순위\ 2)}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00034}00034\ \ \ \ \ result\ =\ xTaskCreate(\mbox{\hyperlink{1__2__task__roundrobin_8c_a902a64ca782182bd7360b69639f74063}{Task1}},\ \textcolor{stringliteral}{"{}Task1"{}},\ \mbox{\hyperlink{_free_r_t_o_s_config_8h_a6c534a6cf8a00528fe0be42083484f9a}{configMINIMAL\_STACK\_SIZE}},\ NULL,\ 2,\ \&\mbox{\hyperlink{1__3__task__changepriority_8c_aff1950284f27cfc34f047a63400cf7af}{xTask1Handle}});}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}(result\ !=\ \mbox{\hyperlink{projdefs_8h_a07848d3078849bd32353c69d30a479b3}{pdPASS}})\ \{}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\_UART\_Transmit}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}},\ (uint8\_t\ *)\textcolor{stringliteral}{"{}Task1\ 생성\ 실패\(\backslash\)r\(\backslash\)n"{}},\ strlen(\textcolor{stringliteral}{"{}Task1\ 생성\ 실패\(\backslash\)r\(\backslash\)n"{}}),\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_aad28bc64749c50dcedd6bf819fdc6974}{HAL\_MAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ 스케줄러\ 시작}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{vTaskStartScheduler}}();}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 코드\ 도달하지\ 않음}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00049}00049\ \textcolor{comment}{//\ Task1:\ Task2의\ 우선순위를\ 높임}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00050}\mbox{\hyperlink{1__3__task__changepriority_8c_a902a64ca782182bd7360b69639f74063}{00050}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{1__3__task__changepriority_8c_a902a64ca782182bd7360b69639f74063}{Task1}}(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}}\ uxPriority\ =\ \mbox{\hyperlink{task_8h_a18d1148c845f5c4bff3b9e5b2077e058}{uxTaskPriorityGet}}(NULL);\ \textcolor{comment}{//\ 현재\ Task1\ 우선순위}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (;;)\ \{}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ msg\ =\ \textcolor{stringliteral}{"{}Task1:\ Task2의\ 우선순위를\ 높입니다.\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\_UART\_Transmit}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}},\ (uint8\_t\ *)msg,\ strlen(msg),\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_aad28bc64749c50dcedd6bf819fdc6974}{HAL\_MAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Task2\ 우선순위\ =\ Task1보다\ 높게\ 설정}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{task_8h_a1ee31be76e326e0644dbd6ac40a787b6}{vTaskPrioritySet}}(\mbox{\hyperlink{1__3__task__changepriority_8c_ac0e3c886f6822ea1c9b4adede92c98e8}{xTask2Handle}},\ uxPriority\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Task1은\ 여기서\ 선점당함}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00064}00064\ \textcolor{comment}{//\ Task2:\ 자신의\ 우선순위를\ 다시\ 낮춤}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00065}\mbox{\hyperlink{1__3__task__changepriority_8c_af01c7f41ef35453d7c0e896db918be88}{00065}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{1__3__task__changepriority_8c_af01c7f41ef35453d7c0e896db918be88}{Task2}}(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}}\ uxPriority\ =\ \mbox{\hyperlink{task_8h_a18d1148c845f5c4bff3b9e5b2077e058}{uxTaskPriorityGet}}(NULL);\ \textcolor{comment}{//\ 현재\ Task2\ 우선순위}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{for}\ (;;)\ \{}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ msg\ =\ \textcolor{stringliteral}{"{}Task2:\ 자신의\ 우선순위를\ 다시\ 낮춥니다.\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\_UART\_Transmit}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}},\ (uint8\_t\ *)msg,\ strlen(msg),\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_aad28bc64749c50dcedd6bf819fdc6974}{HAL\_MAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 우선순위\ 다시\ 낮춰서\ Task1에\ CPU\ 양보}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{task_8h_a1ee31be76e326e0644dbd6ac40a787b6}{vTaskPrioritySet}}(NULL,\ uxPriority\ -\/\ 2);}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{1__3__task__changepriority_8c_source_l00075}00075\ \}}
+
+\end{DoxyCode}

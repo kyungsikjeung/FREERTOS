@@ -1,0 +1,7 @@
+<map id="arm_power_q7" name="arm_power_q7">
+<area shape="rect" id="Node000001" title="Sum of the squares of the elements of a Q7 vector." alt="" coords="5,31,112,57"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a61b23642ffa771bbe7da998f98e3f75e" title=" " alt="" coords="161,5,242,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,32,145,26,146,31,113,37"/>
+<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#a0eeab076e5b40fce9536bdc30e85864f" title=" " alt="" coords="160,56,244,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,51,145,57,144,62,112,56"/>
+</map>

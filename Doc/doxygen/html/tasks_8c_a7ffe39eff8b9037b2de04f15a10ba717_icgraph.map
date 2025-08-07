@@ -1,0 +1,11 @@
+<map id="uxTaskResetEventItemValue" name="uxTaskResetEventItemValue">
+<area shape="rect" id="Node000001" title=" " alt="" coords="429,31,620,57"/>
+<area shape="rect" id="Node000002" href="$event__groups_8c.html#ac38db316f0928c7ddaacb677a75dbc03" title=" " alt="" coords="244,5,372,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,34,372,29,372,23,414,28"/>
+<area shape="rect" id="Node000003" href="$event__groups_8c.html#a379c5cca4552d3d8acd4c51e8220a6c3" title=" " alt="" coords="235,56,381,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="414,60,382,63,381,58,414,54"/>
+<area shape="rect" id="Node000004" href="$7__1__eventgroup__networkconnectionsync_8c.html#ab6bac22f89d6f07bbfd989d4b32c18a2" title=" " alt="" coords="103,56,187,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="219,72,187,72,187,67,219,67"/>
+<area shape="rect" id="Node000005" href="$7__1__eventgroup__networkconnectionsync_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,56,55,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="87,72,55,72,55,67,87,67"/>
+</map>

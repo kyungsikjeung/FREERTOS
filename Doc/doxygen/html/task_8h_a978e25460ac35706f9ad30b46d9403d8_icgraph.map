@@ -1,0 +1,97 @@
+<map id="xTaskIncrementTick" name="xTaskIncrementTick">
+<area shape="rect" id="Node000001" title=" " alt="" coords="932,436,1071,463"/>
+<area shape="rect" id="Node000002" href="$port_8c.html#a78100b2d36913d0b45565be8975e5de8" title=" " alt="" coords="739,259,884,285"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="973,427,825,288,829,284,977,423"/>
+<area shape="rect" id="Node000004" href="$tasks_8c.html#adf830ea0f150fcdfdaa944667137f080" title=" " alt="" coords="751,461,872,488"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="917,463,872,469,871,464,916,458"/>
+<area shape="rect" id="Node000003" href="$cmsis__os_8c.html#ab169d629ebefc57e030b324d4cce9eea" title="Handles the tick increment." alt="" coords="548,31,673,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="799,245,783,206,760,159,728,112,689,71,670,60,673,56,692,67,733,109,764,157,788,204,803,243"/>
+<area shape="rect" id="Node000005" href="$cmsis__os_8c.html#a909a8098efc243cec5729ac51fdb3bdc" title="Resume execution of a all suspended threads." alt="" coords="541,259,680,285"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="796,448,779,414,756,374,725,334,689,299,669,288,672,284,692,295,729,330,760,371,784,412,801,446"/>
+<area shape="rect" id="Node000006" href="$heap__5_8c.html#ac56bcb7515f081a5b3df83935499fa4a" title=" " alt="" coords="562,309,659,336"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="779,454,628,338,631,334,782,450"/>
+<area shape="rect" id="Node000013" href="$heap__2_8c.html#ac56bcb7515f081a5b3df83935499fa4a" title=" " alt="" coords="562,461,659,488"/>
+<area shape="poly" id="edge13_Node000004_Node000013" title=" " alt="" coords="735,477,659,477,659,472,735,472"/>
+<area shape="rect" id="Node000014" href="$event__groups_8c.html#a6939faca89fc4ba52fa8288527042464" title=" " alt="" coords="543,512,678,539"/>
+<area shape="poly" id="edge14_Node000004_Node000014" title=" " alt="" coords="741,495,667,514,666,509,740,490"/>
+<area shape="rect" id="Node000015" href="$heap__2_8c.html#a1e7cea2fd1bc894ea3b5f5e8179d259b" title=" " alt="" coords="571,563,650,589"/>
+<area shape="poly" id="edge15_Node000004_Node000015" title=" " alt="" coords="781,499,740,527,692,553,651,568,649,563,690,548,737,522,778,495"/>
+<area shape="rect" id="Node000016" href="$heap__5_8c.html#abbecc6cff952357f60cce5014ecbe470" title=" " alt="" coords="543,613,678,640"/>
+<area shape="poly" id="edge16_Node000004_Node000016" title=" " alt="" coords="794,503,751,554,723,580,692,604,668,615,666,610,689,599,720,576,747,550,790,499"/>
+<area shape="rect" id="Node000017" href="$event__groups_8c.html#a9ac7cd970f50e2e50a494b656e0eb239" title=" " alt="" coords="540,689,681,716"/>
+<area shape="poly" id="edge17_Node000004_Node000017" title=" " alt="" coords="799,503,756,575,726,616,693,654,667,675,641,691,638,686,664,670,689,650,722,613,751,572,794,501"/>
+<area shape="rect" id="Node000022" href="$event__groups_8c.html#ac38db316f0928c7ddaacb677a75dbc03" title=" " alt="" coords="323,816,450,843"/>
+<area shape="poly" id="edge24_Node000004_Node000022" title=" " alt="" coords="807,504,794,553,772,613,739,676,717,705,692,730,672,745,652,755,616,764,577,768,531,781,508,794,483,806,449,818,447,813,481,802,505,789,529,776,576,763,615,758,651,750,669,741,689,726,713,701,734,673,767,611,789,551,802,503"/>
+<area shape="rect" id="Node000023" href="$event__groups_8c.html#a379c5cca4552d3d8acd4c51e8220a6c3" title=" " alt="" coords="537,791,684,817"/>
+<area shape="poly" id="edge25_Node000004_Node000023" title=" " alt="" coords="809,504,797,560,776,632,742,707,719,742,692,774,665,792,662,788,689,770,715,739,737,704,771,630,792,559,803,503"/>
+<area shape="rect" id="Node000025" href="$queue_8c.html#acb67c81366c00896b21cd826e07d885d" title=" " alt="" coords="540,841,681,868"/>
+<area shape="poly" id="edge28_Node000004_Node000025" title=" " alt="" coords="811,504,804,570,786,658,770,704,750,750,724,793,692,831,676,843,673,839,689,827,720,790,745,748,765,703,780,656,799,569,806,503"/>
+<area shape="rect" id="Node000026" href="$queue_8c.html#a8f68e37e931bbf95440c8845f512e090" title=" " alt="" coords="562,81,659,108"/>
+<area shape="poly" id="edge29_Node000004_Node000026" title=" " alt="" coords="796,448,736,298,725,254,719,218,710,184,689,147,667,126,642,111,645,106,670,122,693,144,715,182,724,217,730,253,741,297,801,446"/>
+<area shape="rect" id="Node000030" href="$queue_8c.html#ad0a166f3b1219a5e37e31f8090d4800d" title=" " alt="" coords="553,411,668,437"/>
+<area shape="poly" id="edge33_Node000004_Node000030" title=" " alt="" coords="740,459,666,441,667,435,741,454"/>
+<area shape="rect" id="Node000043" href="$queue_8c.html#ade45e48664e5ec17ea091f00cd34394f" title=" " alt="" coords="530,157,691,184"/>
+<area shape="poly" id="edge50_Node000004_Node000043" title=" " alt="" coords="796,448,736,300,689,198,672,187,675,182,693,194,741,298,801,446"/>
+<area shape="rect" id="Node000044" href="$tasks_8c.html#aea7126047f4a766a28f579a0027f00c3" title=" " alt="" coords="540,208,681,235"/>
+<area shape="poly" id="edge51_Node000004_Node000044" title=" " alt="" coords="800,447,786,403,763,350,731,295,711,271,689,249,671,237,674,233,692,245,715,267,736,292,768,348,791,401,805,445"/>
+<area shape="rect" id="Node000007" href="$cmsis__os_8c.html#aa177e7fe5820dd70d8c9e46ded131174" title="Create and Initialize mail queue." alt="" coords="124,132,222,159"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="546,312,528,299,514,279,507,259,506,218,504,180,497,163,481,147,450,130,416,119,380,113,343,112,273,120,216,134,215,129,272,115,343,107,380,108,417,113,452,125,484,143,501,160,510,179,512,218,512,258,519,277,532,295,549,307"/>
+<area shape="rect" id="Node000008" href="$cmsis__os_8c.html#a34af5c4f4ab38f4138ea7f1f9ece3a1a" title="Create and Initialize a memory pool." alt="" coords="336,157,437,184"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="546,311,529,299,517,286,510,273,504,247,498,222,492,210,481,198,460,186,437,178,438,173,462,181,484,194,496,207,503,220,509,246,515,271,521,283,532,295,549,306"/>
+<area shape="rect" id="Node000009" href="$3__2__queue__queuingpointers_8c.html#ad6e9cc27804e807c41cc1d2f3dd1dac4" title=" " alt="" coords="342,259,432,285"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="546,311,432,285,433,280,547,306"/>
+<area shape="rect" id="Node000011" href="$7__2__eventhandlingqueue_8c.html#a40c54f3024de03e9f57811f6e90566fc" title=" " alt="" coords="314,208,459,235"/>
+<area shape="poly" id="edge11_Node000006_Node000011" title=" " alt="" coords="546,308,529,300,514,286,504,273,495,261,481,249,456,238,458,233,484,244,499,257,509,270,517,283,532,295,548,304"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="321,166,222,154,223,148,322,160"/>
+<area shape="rect" id="Node000010" href="$3__2__queue__queuingpointers_8c.html#abf9e6b7e6f15df4b525a2e7705ba3089" title=" " alt="" coords="148,385,198,412"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="327,286,292,300,260,320,231,344,188,387,184,383,228,340,257,316,290,295,326,281"/>
+<area shape="rect" id="Node000012" href="$7__2__eventhandlingqueue_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="148,259,198,285"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="313,241,199,269,197,264,312,236"/>
+<area shape="rect" id="Node000018" href="$event__groups_8c.html#a54db6cc97bbb926aa4b78d5affc257d9" title=" " alt="" coords="291,715,482,741"/>
+<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="525,715,483,720,482,715,524,710"/>
+<area shape="rect" id="Node000019" href="$7__1__eventgroup__networkconnectionsync_8c.html#ae4262c2997dee47caba6157e80c5f277" title=" " alt="" coords="315,765,458,792"/>
+<area shape="poly" id="edge19_Node000017_Node000019" title=" " alt="" coords="562,725,483,756,445,767,443,762,481,751,560,720"/>
+<area shape="rect" id="Node000021" href="$7__1__eventgroup__networkconnectionsync_8c.html#ae3e03c194f2c2ead94b26d8e1a8f1688" title=" " alt="" coords="322,664,451,691"/>
+<area shape="poly" id="edge21_Node000017_Node000021" title=" " alt="" coords="524,696,451,687,452,682,525,690"/>
+<area shape="poly" id="edge23_Node000017_Node000022" title=" " alt="" coords="550,725,532,737,517,754,509,771,501,789,484,806,452,822,449,817,481,802,496,786,504,769,513,751,529,733,547,721"/>
+<area shape="rect" id="Node000020" href="$7__1__eventgroup__networkconnectionsync_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="148,765,198,792"/>
+<area shape="poly" id="edge20_Node000019_Node000020" title=" " alt="" coords="299,781,198,781,198,776,299,776"/>
+<area shape="poly" id="edge22_Node000021_Node000020" title=" " alt="" coords="309,698,292,705,237,736,193,767,190,762,234,731,290,700,307,693"/>
+<area shape="rect" id="Node000024" href="$7__1__eventgroup__networkconnectionsync_8c.html#ab6bac22f89d6f07bbfd989d4b32c18a2" title=" " alt="" coords="344,867,429,893"/>
+<area shape="poly" id="edge26_Node000023_Node000024" title=" " alt="" coords="548,825,531,832,508,845,483,857,430,874,428,869,481,852,505,840,529,827,546,820"/>
+<area shape="poly" id="edge27_Node000024_Node000020" title=" " alt="" coords="328,871,290,857,234,826,190,795,193,790,237,821,292,852,330,866"/>
+<area shape="rect" id="Node000027" href="$cmsis__os_8c.html#aee1081c573fe04809315378a37c0ce23" title="Receive an item from a queue without removing the item from the queue." alt="" coords="328,5,446,32"/>
+<area shape="poly" id="edge30_Node000026_Node000027" title=" " alt="" coords="547,78,529,72,505,59,481,46,445,35,447,30,483,42,508,54,531,67,548,74"/>
+<area shape="rect" id="Node000028" href="$3__4__queue__mailbox_8c.html#a2fdd18477f6c617ff2d5ce5d27c799a6" title=" " alt="" coords="338,56,436,83"/>
+<area shape="poly" id="edge31_Node000026_Node000028" title=" " alt="" coords="546,90,436,77,436,72,547,85"/>
+<area shape="rect" id="Node000029" href="$3__4__queue__mailbox_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="148,56,198,83"/>
+<area shape="poly" id="edge32_Node000028_Node000029" title=" " alt="" coords="322,72,198,72,198,67,322,67"/>
+<area shape="rect" id="Node000031" href="$adc__driver_8c.html#aaf61bdf222fa6f5ec9720369eff97a90" title="ADC 큐에서 데이터 수신" alt="" coords="312,563,461,589"/>
+<area shape="poly" id="edge34_Node000030_Node000031" title=" " alt="" coords="541,445,532,451,521,463,515,475,509,501,503,527,496,540,484,553,463,566,460,561,481,549,492,537,498,525,504,500,510,474,517,460,529,447,538,441"/>
+<area shape="rect" id="Node000035" href="$adc__driver_8c.html#a4a6cf4ecc0b626f4d64358ad331d0757" title="ADC 측정을 수행하는 FreeRTOS 태스크" alt="" coords="344,461,429,488"/>
+<area shape="poly" id="edge39_Node000030_Node000035" title=" " alt="" coords="539,443,431,468,429,462,537,438"/>
+<area shape="rect" id="Node000037" href="$cmsis__os_8c.html#ac6ad7e6e7d6c4a80e60da22c57a42ccd" title="Get a mail from a queue." alt="" coords="346,613,427,640"/>
+<area shape="poly" id="edge42_Node000030_Node000037" title=" " alt="" coords="541,444,532,451,518,470,512,488,509,526,507,565,499,584,484,603,457,620,428,627,426,622,455,615,481,599,495,581,502,563,504,526,506,487,514,467,528,447,538,440"/>
+<area shape="rect" id="Node000038" href="$cmsis__os_8c.html#a6c6892b8f2296cca6becd57ca2d7e1ae" title="Get a Message or Wait for a Message from a Queue." alt="" coords="332,360,441,387"/>
+<area shape="poly" id="edge43_Node000030_Node000038" title=" " alt="" coords="537,410,441,388,443,383,539,405"/>
+<area shape="rect" id="Node000039" href="$3__2__queue__queuingpointers_8c.html#a9d93014f8bf058a6984c15b1e4427184" title=" " alt="" coords="336,411,437,437"/>
+<area shape="poly" id="edge44_Node000030_Node000039" title=" " alt="" coords="538,427,438,427,438,421,538,421"/>
+<area shape="rect" id="Node000040" href="$3__5__queue__queueset_8c.html#a365255f27e73e0893b7886f57d45844a" title=" " alt="" coords="332,512,441,539"/>
+<area shape="poly" id="edge46_Node000030_Node000040" title=" " alt="" coords="541,446,532,452,517,464,509,476,499,490,484,502,442,519,440,514,481,498,495,486,504,473,514,460,529,447,539,442"/>
+<area shape="rect" id="Node000042" href="$7__2__eventhandlingqueue_8c.html#a3aad97e7d35c549438e6111b40e76e0f" title=" " alt="" coords="345,309,428,336"/>
+<area shape="poly" id="edge48_Node000030_Node000042" title=" " alt="" coords="576,404,532,376,481,350,428,334,430,328,483,346,535,372,579,399"/>
+<area shape="rect" id="Node000032" href="$test_8c.html#aa7eff00fa291676a4fa13c205e93c695" title="ADC 실시간 모니터링 태스크" alt="" coords="105,613,240,640"/>
+<area shape="poly" id="edge35_Node000031_Node000032" title=" " alt="" coords="313,596,233,615,232,610,312,591"/>
+<area shape="rect" id="Node000034" href="$test_8c.html#abc1ca7d958b0651ca5045c3c94ca9500" title="ADC 데이터 분석 및 처리 태스크" alt="" coords="103,563,243,589"/>
+<area shape="poly" id="edge37_Node000031_Node000034" title=" " alt="" coords="297,579,243,579,243,573,297,573"/>
+<area shape="rect" id="Node000033" href="$test_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="메인 함수 &#45; 시스템 초기화 및 FreeRTOS 시작" alt="" coords="5,563,55,589"/>
+<area shape="poly" id="edge36_Node000032_Node000033" title=" " alt="" coords="118,610,54,587,56,582,120,605"/>
+<area shape="poly" id="edge38_Node000034_Node000033" title=" " alt="" coords="87,579,55,579,55,573,87,573"/>
+<area shape="rect" id="Node000036" href="$adc__driver_8c.html#a4acb6ac811c38d9fbbe486ce6fca9535" title="ADC 드라이버 초기화" alt="" coords="114,461,232,488"/>
+<area shape="poly" id="edge40_Node000035_Node000036" title=" " alt="" coords="329,477,232,477,232,472,329,472"/>
+<area shape="poly" id="edge41_Node000036_Node000033" title=" " alt="" coords="112,497,104,502,69,533,43,564,39,561,65,529,101,498,109,493"/>
+<area shape="poly" id="edge45_Node000039_Node000010" title=" " alt="" coords="321,419,198,404,198,399,321,414"/>
+<area shape="rect" id="Node000041" href="$3__5__queue__queueset_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="148,512,198,539"/>
+<area shape="poly" id="edge47_Node000040_Node000041" title=" " alt="" coords="317,528,198,528,198,523,317,523"/>
+<area shape="poly" id="edge49_Node000042_Node000012" title=" " alt="" coords="329,312,197,280,198,275,331,307"/>
+</map>

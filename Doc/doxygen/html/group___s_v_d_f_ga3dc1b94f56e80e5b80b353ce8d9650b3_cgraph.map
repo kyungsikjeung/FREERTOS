@@ -1,0 +1,21 @@
+<map id="arm_svdf_state_s16_s8" name="arm_svdf_state_s16_s8">
+<area shape="rect" id="Node000001" title="s8 SVDF function with 16 bit state tensor and 16 bit time weights" alt="" coords="5,84,166,111"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a61b23642ffa771bbe7da998f98e3f75e" title=" " alt="" coords="450,5,532,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,81,213,63,435,24,435,29,214,68,138,86"/>
+<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#afdda94a339b76615d3161e9fc63f4d21" title="Read 2 q15 elements and post increment pointer." alt="" coords="214,172,369,199"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,109,215,158,231,164,229,169,213,162,111,114"/>
+<area shape="rect" id="Node000004" href="$arm__nnsupportfunctions_8h.html#a6a13b7a567485da5fc7f0d311318886d" title="Requantize a given value." alt="" coords="426,57,557,84"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="166,89,410,73,410,79,166,95"/>
+<area shape="rect" id="Node000007" href="$group___n_n_basic_math.html#gac0675e8069a303ce2e8f8ed2a9320859" title="s8 Vector by Matrix (transposed) multiplication with s16 output" alt="" coords="215,105,368,148"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="166,106,200,111,199,116,166,111"/>
+<area shape="rect" id="Node000005" href="$arm__nnsupportfunctions_8h.html#ab6dbc2fd53fae3ccdd1d0d70c8d3b491" title="Rounding divide by power of two." alt="" coords="613,16,782,59"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="557,57,597,51,598,56,557,63"/>
+<area shape="rect" id="Node000006" href="$arm__nnsupportfunctions_8h.html#a4e5183e2400227aafc91fb796fe99a6d" title="Doubling high multiply without saturation. This is intended for requantization where the scale is a p..." alt="" coords="622,83,773,125"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="557,79,608,87,607,92,557,84"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="320,103,364,73,416,43,435,34,437,39,418,48,367,77,323,107"/>
+<area shape="poly" id="edge10_Node000007_Node000004" title=" " alt="" coords="368,103,426,86,427,91,369,108"/>
+<area shape="rect" id="Node000008" href="$_core___a_2_include_2cmsis__gcc_8h.html#ad92ce801e7aab7ef1bd2698cb523c1de" title=" " alt="" coords="454,112,528,139"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="368,123,439,123,439,128,368,129"/>
+<area shape="rect" id="Node000009" href="$arm__nnsupportfunctions_8h.html#ac9f7be20432a6926ac07c1f44b1b02fe" title="Read 4 q7 from q7 pointer and post increment pointer." alt="" coords="417,163,565,189"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="369,143,420,156,419,161,368,148"/>
+</map>

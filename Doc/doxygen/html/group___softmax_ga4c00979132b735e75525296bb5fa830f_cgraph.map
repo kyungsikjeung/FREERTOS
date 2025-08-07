@@ -1,0 +1,5 @@
+<map id="arm_softmax_s8_s16" name="arm_softmax_s8_s16">
+<area shape="rect" id="Node000001" title="S8 to s16 softmax function." alt="" coords="5,5,152,32"/>
+<area shape="rect" id="Node000002" href="$group___softmax.html#gaa5632ba67b623b5dff0c4a2d8e2a9a3a" title="Common softmax function for s8 input and s8 or s16 output." alt="" coords="200,5,396,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,16,184,16,184,21,152,21"/>
+</map>

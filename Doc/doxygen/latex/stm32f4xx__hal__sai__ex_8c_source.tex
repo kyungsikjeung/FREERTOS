@@ -1,0 +1,226 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+sai\+\_\+ex.\+c}
+\hypertarget{stm32f4xx__hal__sai__ex_8c_source}{}\label{stm32f4xx__hal__sai__ex_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_sai\_ex.c@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_sai\_ex.c}}
+\mbox{\hyperlink{stm32f4xx__hal__sai__ex_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00039}00039\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00040}00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal_8h}{stm32f4xx\_hal.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00051}00051\ \textcolor{preprocessor}{\#ifdef\ HAL\_SAI\_MODULE\_ENABLED}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00053}00053\ \textcolor{preprocessor}{\#if\ defined(STM32F427xx)\ ||\ defined(STM32F437xx)\ ||\ defined(STM32F429xx)\ ||\ defined(STM32F439xx)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00054}00054\ \textcolor{preprocessor}{\ \ \ \ defined(STM32F446xx)\ ||\ defined(STM32F469xx)\ ||\ defined(STM32F479xx)\ ||\ defined(STM32F413xx)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00055}00055\ \textcolor{preprocessor}{\ \ \ \ defined(STM32F423xx)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00057}00057\ \textcolor{comment}{/*\ Private\ typedef\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00058}00058\ \textcolor{comment}{/*\ Private\ define\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00059}00059\ \textcolor{comment}{/*\ SAI\ registers\ Masks\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00060}00060\ \textcolor{comment}{/*\ Private\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00061}00061\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00062}00062\ \textcolor{comment}{/*\ Private\ function\ prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00063}00063\ \textcolor{comment}{/*\ Private\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00072}00072\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00098}00098\ \textcolor{keywordtype}{void}\ SAI\_BlockSynchroConfig(\textcolor{keyword}{const}\ SAI\_HandleTypeDef\ *hsai)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00100}00100\ \ \ uint32\_t\ tmpregisterGCR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00102}00102\ \textcolor{preprocessor}{\#if\ defined(STM32F446xx)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00103}00103\ \ \ \textcolor{comment}{/*\ This\ setting\ must\ be\ done\ with\ both\ audio\ block\ (A\ \&\ B)\ disabled\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00104}00104\ \ \ \textcolor{keywordflow}{switch}\ (hsai-\/>Init.SynchroExt)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00105}00105\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00106}00106\ \ \ \ \ \textcolor{keywordflow}{case}\ SAI\_SYNCEXT\_DISABLE\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00107}00107\ \ \ \ \ \ \ tmpregisterGCR\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00108}00108\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{case}\ SAI\_SYNCEXT\_OUTBLOCKA\_ENABLE\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00110}00110\ \ \ \ \ \ \ tmpregisterGCR\ =\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4e3a859999059ec321655a71ff53440f}{SAI\_GCR\_SYNCOUT\_0}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00111}00111\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{case}\ SAI\_SYNCEXT\_OUTBLOCKB\_ENABLE\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00113}00113\ \ \ \ \ \ \ tmpregisterGCR\ =\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gab2c03899faccbae6c741743eb032dedc}{SAI\_GCR\_SYNCOUT\_1}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00114}00114\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00116}00116\ \ \ \ \ \ \ tmpregisterGCR\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00117}00117\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00118}00118\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00120}00120\ \ \ \textcolor{keywordflow}{if}\ ((hsai-\/>Init.Synchro)\ ==\ SAI\_SYNCHRONOUS\_EXT\_SAI2)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00121}00121\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00122}00122\ \ \ \ \ tmpregisterGCR\ |=\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1d53daedcc93ebd30f9c358955cd3362}{SAI\_GCR\_SYNCIN\_0}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00123}00123\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00125}00125\ \ \ \textcolor{keywordflow}{if}\ ((hsai-\/>Instance\ ==\ \mbox{\hyperlink{group___peripheral__declaration_gaa29e42155e075c03d156d759b4e69c5c}{SAI1\_Block\_A}})\ ||\ (hsai-\/>Instance\ ==\ \mbox{\hyperlink{group___peripheral__declaration_gaaa4ab9bf6de588a9309acd4bf007c4e0}{SAI1\_Block\_B}}))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00126}00126\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00127}00127\ \ \ \ \ \mbox{\hyperlink{group___peripheral__declaration_gaa878b214698fcf74a3268d07562abbb2}{SAI1}}-\/>GCR\ =\ tmpregisterGCR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00128}00128\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00129}00129\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00130}00130\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00131}00131\ \ \ \ \ \mbox{\hyperlink{group___peripheral__declaration_gac248a1f09e97346a66175a54ca7f9062}{SAI2}}-\/>GCR\ =\ tmpregisterGCR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00132}00132\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00133}00133\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F446xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00134}00134\ \textcolor{preprocessor}{\#if\ defined(STM32F427xx)\ ||\ defined(STM32F437xx)\ ||\ defined(STM32F429xx)\ ||\ defined(STM32F439xx)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00135}00135\ \textcolor{preprocessor}{\ \ \ \ defined(STM32F469xx)\ ||\ defined(STM32F479xx)\ ||\ defined(STM32F413xx)\ ||\ defined(STM32F423xx)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00136}00136\ \ \ \textcolor{comment}{/*\ This\ setting\ must\ be\ done\ with\ both\ audio\ block\ (A\ \&\ B)\ disabled\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00137}00137\ \ \ \textcolor{keywordflow}{switch}\ (hsai-\/>Init.SynchroExt)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00138}00138\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00139}00139\ \ \ \ \ \textcolor{keywordflow}{case}\ SAI\_SYNCEXT\_DISABLE\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00140}00140\ \ \ \ \ \ \ tmpregisterGCR\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00141}00141\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00142}00142\ \ \ \ \ \textcolor{keywordflow}{case}\ SAI\_SYNCEXT\_OUTBLOCKA\_ENABLE\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00143}00143\ \ \ \ \ \ \ tmpregisterGCR\ =\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4e3a859999059ec321655a71ff53440f}{SAI\_GCR\_SYNCOUT\_0}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00144}00144\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00145}00145\ \ \ \ \ \textcolor{keywordflow}{case}\ SAI\_SYNCEXT\_OUTBLOCKB\_ENABLE\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00146}00146\ \ \ \ \ \ \ tmpregisterGCR\ =\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gab2c03899faccbae6c741743eb032dedc}{SAI\_GCR\_SYNCOUT\_1}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00147}00147\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00148}00148\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00149}00149\ \ \ \ \ \ \ tmpregisterGCR\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00150}00150\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00151}00151\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00152}00152\ \ \ \mbox{\hyperlink{group___peripheral__declaration_gaa878b214698fcf74a3268d07562abbb2}{SAI1}}-\/>GCR\ =\ tmpregisterGCR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00153}00153\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F427xx\ ||\ STM32F437xx\ ||\ STM32F429xx\ ||\ STM32F439xx\ ||\ STM32F469xx\ ||\ STM32F479xx\ ||\ STM32F413xx\ ||\ STM32F423xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00154}00154\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00161}00161\ uint32\_t\ SAI\_GetInputClock(\textcolor{keyword}{const}\ SAI\_HandleTypeDef\ *hsai)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00162}00162\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00163}00163\ \ \ \textcolor{comment}{/*\ This\ variable\ used\ to\ store\ the\ SAI\_CK\_x\ (value\ in\ Hz)\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00164}00164\ \ \ uint32\_t\ saiclocksource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00166}00166\ \textcolor{preprocessor}{\#if\ defined(STM32F446xx)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00167}00167\ \ \ \textcolor{keywordflow}{if}\ ((hsai-\/>Instance\ ==\ \mbox{\hyperlink{group___peripheral__declaration_gaa29e42155e075c03d156d759b4e69c5c}{SAI1\_Block\_A}})\ ||\ (hsai-\/>Instance\ ==\ \mbox{\hyperlink{group___peripheral__declaration_gaaa4ab9bf6de588a9309acd4bf007c4e0}{SAI1\_Block\_B}}))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00168}00168\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00169}00169\ \ \ \ \ saiclocksource\ =\ \mbox{\hyperlink{group___r_c_c_ex___exported___functions___group1_ga14acaeb88163a6bb0839470b753ba1bd}{HAL\_RCCEx\_GetPeriphCLKFreq}}(RCC\_PERIPHCLK\_SAI1);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00170}00170\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00171}00171\ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ SAI2\_Block\_A\ ||\ SAI2\_Block\_B*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00172}00172\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00173}00173\ \ \ \ \ saiclocksource\ =\ \mbox{\hyperlink{group___r_c_c_ex___exported___functions___group1_ga14acaeb88163a6bb0839470b753ba1bd}{HAL\_RCCEx\_GetPeriphCLKFreq}}(RCC\_PERIPHCLK\_SAI2);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00174}00174\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00175}00175\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F446xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00176}00176\ \textcolor{preprocessor}{\#if\ defined(STM32F427xx)\ ||\ defined(STM32F437xx)\ ||\ defined(STM32F429xx)\ ||\ defined(STM32F439xx)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00177}00177\ \textcolor{preprocessor}{\ \ defined(STM32F469xx)\ ||\ defined(STM32F479xx)\ ||\ defined(STM32F413xx)\ ||\ defined(STM32F423xx)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00178}00178\ \ \ uint32\_t\ vcoinput\ =\ 0U,\ tmpreg\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00180}00180\ \ \ \textcolor{comment}{/*\ Check\ the\ SAI\ Block\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00181}00181\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_SAI\_CLK\_SOURCE(hsai-\/>Init.ClockSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00183}00183\ \ \ \textcolor{comment}{/*\ SAI\ Block\ clock\ source\ selection\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00184}00184\ \ \ \textcolor{keywordflow}{if}\ (hsai-\/>Instance\ ==\ \mbox{\hyperlink{group___peripheral__declaration_gaa29e42155e075c03d156d759b4e69c5c}{SAI1\_Block\_A}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00185}00185\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00186}00186\ \ \ \ \ \_\_HAL\_RCC\_SAI\_BLOCKACLKSOURCE\_CONFIG(hsai-\/>Init.ClockSource);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00187}00187\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00188}00188\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00189}00189\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00190}00190\ \ \ \ \ \_\_HAL\_RCC\_SAI\_BLOCKBCLKSOURCE\_CONFIG((uint32\_t)(hsai-\/>Init.ClockSource\ <<\ 2U));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00191}00191\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00193}00193\ \ \ \textcolor{comment}{/*\ VCO\ Input\ Clock\ value\ calculation\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00194}00194\ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga92cb53ea81d2c47537eb217cc6659a2e}{RCC\_PLLCFGR\_PLLSRC}})\ ==\ \mbox{\hyperlink{group___r_c_c___p_l_l___clock___source_ga0e07703f1ccb3d60f8a47a2dc631c218}{RCC\_PLLSOURCE\_HSI}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00195}00195\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00196}00196\ \ \ \ \ \textcolor{comment}{/*\ In\ Case\ the\ PLL\ Source\ is\ HSI\ (Internal\ Clock)\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00197}00197\ \ \ \ \ vcoinput\ =\ (\mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}}\ /\ (uint32\_t)(\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9a42e8b9ee60126976d9be056e5e66b1}{RCC\_PLLCFGR\_PLLM}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00198}00198\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00199}00199\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00200}00200\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00201}00201\ \ \ \ \ \textcolor{comment}{/*\ In\ Case\ the\ PLL\ Source\ is\ HSE\ (External\ Clock)\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00202}00202\ \ \ \ \ vcoinput\ =\ ((\mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}}\ /\ (uint32\_t)(\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9a42e8b9ee60126976d9be056e5e66b1}{RCC\_PLLCFGR\_PLLM}})));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00203}00203\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00204}00204\ \textcolor{preprocessor}{\#if\ defined(STM32F413xx)\ ||\ defined(STM32F423xx)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00205}00205\ \ \ \textcolor{comment}{/*\ SAI\_CLK\_x\ :\ SAI\ Block\ Clock\ configuration\ for\ different\ clock\ sources\ selected\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00206}00206\ \ \ \textcolor{keywordflow}{if}\ (hsai-\/>Init.ClockSource\ ==\ SAI\_CLKSOURCE\_PLLR)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00207}00207\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00208}00208\ \ \ \ \ \textcolor{comment}{/*\ Configure\ the\ PLLI2S\ division\ factor\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00209}00209\ \ \ \ \ \textcolor{comment}{/*\ PLL\_VCO\ Input\ \ =\ PLL\_SOURCE/PLLM\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00210}00210\ \ \ \ \ \textcolor{comment}{/*\ PLL\_VCO\ Output\ =\ PLL\_VCO\ Input\ *\ PLLN\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00211}00211\ \ \ \ \ \textcolor{comment}{/*\ SAI\_CLK(first\ level)\ =\ PLL\_VCO\ Output/PLLR\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00212}00212\ \ \ \ \ tmpreg\ =\ (\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf94ebe400d76dd3d34e78244a8ceb050}{RCC\_PLLCFGR\_PLLR}})\ >>\ 28U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00213}00213\ \ \ \ \ saiclocksource\ =\ (vcoinput\ *\ ((\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4b571901d7cdc93ca1ecc1531f26ba6a}{RCC\_PLLCFGR\_PLLN}})\ >>\ 6U))\ /\ (tmpreg);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00215}00215\ \ \ \ \ \textcolor{comment}{/*\ SAI\_CLK\_x\ =\ SAI\_CLK(first\ level)/PLLDIVR\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00216}00216\ \ \ \ \ tmpreg\ =\ (((\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>DCKCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga705e2a170c9c570275f3d6bb0c74947b}{RCC\_DCKCFGR\_PLLDIVR}})\ >>\ 8U)\ +\ 1U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00218}00218\ \ \ \ \ saiclocksource\ =\ saiclocksource\ /\ (tmpreg);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00220}00220\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00221}00221\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hsai-\/>Init.ClockSource\ ==\ SAI\_CLKSOURCE\_PLLI2S)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00222}00222\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00223}00223\ \ \ \ \ \textcolor{comment}{/*\ Configure\ the\ PLLI2S\ division\ factor\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00224}00224\ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\_VCO\ Input\ \ =\ PLL\_SOURCE/PLLM\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00225}00225\ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\_VCO\ Output\ =\ PLLI2S\_VCO\ Input\ *\ PLLI2SN\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00226}00226\ \ \ \ \ \textcolor{comment}{/*\ SAI\_CLK(first\ level)\ =\ PLLI2S\_VCO\ Output/PLLI2SR\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00227}00227\ \ \ \ \ tmpreg\ =\ (\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLI2SCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0c599fc84dcde859974ed5b334e90f50}{RCC\_PLLI2SCFGR\_PLLI2SR}})\ >>\ 28U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00228}00228\ \ \ \ \ saiclocksource\ =\ (vcoinput\ *\ ((\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLI2SCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga68db5b1d90f9b62359888ed1175a0cef}{RCC\_PLLI2SCFGR\_PLLI2SN}})\ >>\ 6U))\ /\ (tmpreg);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00230}00230\ \ \ \ \ \textcolor{comment}{/*\ SAI\_CLK\_x\ =\ SAI\_CLK(first\ level)/PLLI2SDIVR\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00231}00231\ \ \ \ \ tmpreg\ =\ ((\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>DCKCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabb31f05850ee591a1f7b841cb347d701}{RCC\_DCKCFGR\_PLLI2SDIVR}})\ +\ 1U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00232}00232\ \ \ \ \ saiclocksource\ =\ saiclocksource\ /\ (tmpreg);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00233}00233\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00234}00234\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hsai-\/>Init.ClockSource\ ==\ SAI\_CLKSOURCE\_HS)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00235}00235\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00236}00236\ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga92cb53ea81d2c47537eb217cc6659a2e}{RCC\_PLLCFGR\_PLLSRC}})\ ==\ \mbox{\hyperlink{group___r_c_c___p_l_l___clock___source_ga197cea7fe5c2db26fe7fcdb0f99dd4d7}{RCC\_PLLSOURCE\_HSE}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00237}00237\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00238}00238\ \ \ \ \ \ \ \textcolor{comment}{/*\ Get\ the\ I2S\ source\ clock\ value\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00239}00239\ \ \ \ \ \ \ saiclocksource\ =\ (uint32\_t)(\mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00240}00240\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00241}00241\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00242}00242\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00243}00243\ \ \ \ \ \ \ \textcolor{comment}{/*\ Get\ the\ I2S\ source\ clock\ value\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00244}00244\ \ \ \ \ \ \ saiclocksource\ =\ (uint32\_t)(\mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00245}00245\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00246}00246\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00247}00247\ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ sConfig-\/>ClockSource\ ==\ SAI\_CLKSource\_Ext\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00248}00248\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00249}00249\ \ \ \ \ saiclocksource\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a8c47c935e91e70569098b41718558648}{EXTERNAL\_CLOCK\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00250}00250\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00251}00251\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00252}00252\ \ \ \textcolor{comment}{/*\ SAI\_CLK\_x\ :\ SAI\ Block\ Clock\ configuration\ for\ different\ clock\ sources\ selected\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00253}00253\ \ \ \textcolor{keywordflow}{if}\ (hsai-\/>Init.ClockSource\ ==\ SAI\_CLKSOURCE\_PLLSAI)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00254}00254\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00255}00255\ \ \ \ \ \textcolor{comment}{/*\ Configure\ the\ PLLI2S\ division\ factor\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00256}00256\ \ \ \ \ \textcolor{comment}{/*\ PLLSAI\_VCO\ Input\ \ =\ PLL\_SOURCE/PLLM\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00257}00257\ \ \ \ \ \textcolor{comment}{/*\ PLLSAI\_VCO\ Output\ =\ PLLSAI\_VCO\ Input\ *\ PLLSAIN\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00258}00258\ \ \ \ \ \textcolor{comment}{/*\ SAI\_CLK(first\ level)\ =\ PLLSAI\_VCO\ Output/PLLSAIQ\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00259}00259\ \ \ \ \ tmpreg\ =\ (\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLSAICFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga155627f8db4927361e1a1e6046b409dc}{RCC\_PLLSAICFGR\_PLLSAIQ}})\ >>\ 24U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00260}00260\ \ \ \ \ saiclocksource\ =\ (vcoinput\ *\ ((\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLSAICFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2687fbf92acdf2984c142cd95ef4a2e4}{RCC\_PLLSAICFGR\_PLLSAIN}})\ >>\ 6U))\ /\ (tmpreg);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00262}00262\ \ \ \ \ \textcolor{comment}{/*\ SAI\_CLK\_x\ =\ SAI\_CLK(first\ level)/PLLSAIDIVQ\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00263}00263\ \ \ \ \ tmpreg\ =\ (((\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>DCKCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga881b528af3124735a1f78fad18b27f0f}{RCC\_DCKCFGR\_PLLSAIDIVQ}})\ >>\ 8U)\ +\ 1U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00264}00264\ \ \ \ \ saiclocksource\ =\ saiclocksource\ /\ (tmpreg);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00266}00266\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00267}00267\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hsai-\/>Init.ClockSource\ ==\ SAI\_CLKSOURCE\_PLLI2S)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00268}00268\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00269}00269\ \ \ \ \ \textcolor{comment}{/*\ Configure\ the\ PLLI2S\ division\ factor\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00270}00270\ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\_VCO\ Input\ \ =\ PLL\_SOURCE/PLLM\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00271}00271\ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\_VCO\ Output\ =\ PLLI2S\_VCO\ Input\ *\ PLLI2SN\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00272}00272\ \ \ \ \ \textcolor{comment}{/*\ SAI\_CLK(first\ level)\ =\ PLLI2S\_VCO\ Output/PLLI2SQ\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00273}00273\ \ \ \ \ tmpreg\ =\ (\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLI2SCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0c3d21c4f7d5bef1eff3f7e8184c5a78}{RCC\_PLLI2SCFGR\_PLLI2SQ}})\ >>\ 24U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00274}00274\ \ \ \ \ saiclocksource\ =\ (vcoinput\ *\ ((\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>PLLI2SCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga68db5b1d90f9b62359888ed1175a0cef}{RCC\_PLLI2SCFGR\_PLLI2SN}})\ >>\ 6U))\ /\ (tmpreg);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00276}00276\ \ \ \ \ \textcolor{comment}{/*\ SAI\_CLK\_x\ =\ SAI\_CLK(first\ level)/PLLI2SDIVQ\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00277}00277\ \ \ \ \ tmpreg\ =\ ((\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>DCKCFGR\ \&\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga18080f9f063307e69574aa540d77c4c1}{RCC\_DCKCFGR\_PLLI2SDIVQ}})\ +\ 1U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00278}00278\ \ \ \ \ saiclocksource\ =\ saiclocksource\ /\ (tmpreg);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00279}00279\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00280}00280\ \ \ \textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ sConfig-\/>ClockSource\ ==\ SAI\_CLKSource\_Ext\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00281}00281\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00282}00282\ \ \ \ \ \textcolor{comment}{/*\ Enable\ the\ External\ Clock\ selection\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00283}00283\ \ \ \ \ \_\_HAL\_RCC\_I2S\_CONFIG(RCC\_I2SCLKSOURCE\_EXT);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00285}00285\ \ \ \ \ saiclocksource\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a8c47c935e91e70569098b41718558648}{EXTERNAL\_CLOCK\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00286}00286\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00287}00287\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F413xx\ ||\ STM32F423xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00288}00288\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F427xx\ ||\ STM32F437xx\ ||\ STM32F429xx\ ||\ STM32F439xx\ ||\ STM32F469xx\ ||\ STM32F479xx\ ||\ STM32F413xx\ ||\ STM32F423xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00289}00289\ \ \ \textcolor{comment}{/*\ the\ return\ result\ is\ the\ value\ of\ SAI\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00290}00290\ \ \ \textcolor{keywordflow}{return}\ saiclocksource;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00291}00291\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00301}00301\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F427xx\ ||\ STM32F437xx\ ||\ STM32F429xx\ ||\ STM32F439xx\ \ ||\ STM32F446xx\ ||\ STM32F469xx\ ||\ STM32F479xx\ ||\ STM32F413xx\ ||\ STM32F423xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00302}00302\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_SAI\_MODULE\_ENABLED\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8c_source_l00310}00310\ }
+
+\end{DoxyCode}

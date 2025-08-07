@@ -1,0 +1,404 @@
+\doxysection{SCTLR\+\_\+\+Type Union Reference}
+\hypertarget{union_s_c_t_l_r___type}{}\label{union_s_c_t_l_r___type}\index{SCTLR\_Type@{SCTLR\_Type}}
+
+
+{\ttfamily \#include $<$core\+\_\+ca.\+h$>$}
+
+
+
+Collaboration diagram for SCTLR\+\_\+\+Type\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{union_s_c_t_l_r___type__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_ab938d107530771687dc6e478ca1cea10}{M}}:1\\
+\>\>{\em bit: 0 MMU enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_a055180a06f02213937971e350d24232f}{A}}:1\\
+\>\>{\em bit: 1 Alignment check enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_a7a1caf92f32fe9ebd8d1fe89b06c7776}{C}}:1\\
+\>\>{\em bit: 2 Cache enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_a20c14941e28b508989aa0616e7da359d}{CP15BEN}}:1\\
+\>\>{\em bit: 5 CP15 barrier enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_a6254fd9c7aeecc526904d21b26168fdb}{B}}:1\\
+\>\>{\em bit: 7 Endianness model }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_a7f5eddd4e53bb8b31f1b363a4af6da89}{SW}}:1\\
+\>\>{\em bit: 10 SWP and SWPB enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_a5ae954cbd9986cd64625d7fa00943c8e}{Z}}:1\\
+\>\>{\em bit: 11 Branch prediction enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_a4c9521189df41a29b4ae85fcd605d30c}{I}}:1\\
+\>\>{\em bit: 12 Instruction cache enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_acd4a2b64faee91e4a9eef300667fa222}{V}}:1\\
+\>\>{\em bit: 13 Vectors bit }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_abb85be17853f5487474ca373923240f7}{RR}}:1\\
+\>\>{\em bit: 14 Round Robin select }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_acd05a44bd04f3fe2cafc8d969448493a}{HA}}:1\\
+\>\>{\em bit: 17 Hardware Access flag enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_aa27b6ff641427c1b03f375f71bca5138}{WXN}}:1\\
+\>\>{\em bit: 19 Write permission implies XN }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_ad2b2e73ce67b6ab892ddc63c1ff32aee}{UWXN}}:1\\
+\>\>{\em bit: 20 Unprivileged write permission implies PL1 XN }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_a1444305e07ef55a5f4b93ed8632fdfa7}{FI}}:1\\
+\>\>{\em bit: 21 Fast interrupts configuration enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_aa12d7d1d2c95315549032b6e19db5d03}{U}}:1\\
+\>\>{\em bit: 22 Alignment model }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_ae468946ce7e647a2eae3be7f7d4bca18}{VE}}:1\\
+\>\>{\em bit: 24 Interrupt Vectors Enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_a098aab6ba5a545770fefc2a6c6705429}{EE}}:1\\
+\>\>{\em bit: 25 Exception Endianness }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_aef103a9721cc848a7294ba57a18c468d}{NMFI}}:1\\
+\>\>{\em bit: 27 Non-\/maskable FIQ (NMFI) support }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_aaca87e3b5620ef9b50f0519f7037ee34}{TRE}}:1\\
+\>\>{\em bit: 28 TEX remap enable. }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_a2af9418043e806db34f128b69a491d01}{AFE}}:1\\
+\>\>{\em bit: 29 Access flag enable }\\
+\>uint32\_t \mbox{\hyperlink{union_s_c_t_l_r___type_abb5f1e76a6c473e515a5e14f3b9c17d3}{TE}}:1\\
+\>\>{\em bit: 30 Thumb Exception enable }\\
+\} \mbox{\hyperlink{union_s_c_t_l_r___type_a1560458256486d73d031085d95604579}{b}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em Structure used for bit access. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{union_s_c_t_l_r___type_ad0fb62e7a08e70fc5e0a76b67809f84b}{w}}
+\begin{DoxyCompactList}\small\item\em Type used for word access. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00275}{275}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{union_s_c_t_l_r___type_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{union_s_c_t_l_r___type_a055180a06f02213937971e350d24232f}\index{SCTLR\_Type@{SCTLR\_Type}!A@{A}}
+\index{A@{A}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{A}{A}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a055180a06f02213937971e350d24232f} 
+uint32\+\_\+t A}
+
+
+
+bit\+: 1 Alignment check enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00280}{280}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_a2af9418043e806db34f128b69a491d01}\index{SCTLR\_Type@{SCTLR\_Type}!AFE@{AFE}}
+\index{AFE@{AFE}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{AFE}{AFE}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a2af9418043e806db34f128b69a491d01} 
+uint32\+\_\+t AFE}
+
+
+
+bit\+: 29 Access flag enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00305}{305}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_a6254fd9c7aeecc526904d21b26168fdb}\index{SCTLR\_Type@{SCTLR\_Type}!B@{B}}
+\index{B@{B}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{B}{B}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a6254fd9c7aeecc526904d21b26168fdb} 
+uint32\+\_\+t B}
+
+
+
+bit\+: 7 Endianness model 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00285}{285}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_a1560458256486d73d031085d95604579}\index{SCTLR\_Type@{SCTLR\_Type}!b@{b}}
+\index{b@{b}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{[struct]}{[struct]}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a1560458256486d73d031085d95604579} 
+struct  \{ ... \}  b}
+
+
+
+Structure used for bit access. 
+
+\Hypertarget{union_s_c_t_l_r___type_a7a1caf92f32fe9ebd8d1fe89b06c7776}\index{SCTLR\_Type@{SCTLR\_Type}!C@{C}}
+\index{C@{C}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{C}{C}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a7a1caf92f32fe9ebd8d1fe89b06c7776} 
+uint32\+\_\+t C}
+
+
+
+bit\+: 2 Cache enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00281}{281}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_a20c14941e28b508989aa0616e7da359d}\index{SCTLR\_Type@{SCTLR\_Type}!CP15BEN@{CP15BEN}}
+\index{CP15BEN@{CP15BEN}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{CP15BEN}{CP15BEN}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a20c14941e28b508989aa0616e7da359d} 
+uint32\+\_\+t CP15\+BEN}
+
+
+
+bit\+: 5 CP15 barrier enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00283}{283}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_a098aab6ba5a545770fefc2a6c6705429}\index{SCTLR\_Type@{SCTLR\_Type}!EE@{EE}}
+\index{EE@{EE}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{EE}{EE}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a098aab6ba5a545770fefc2a6c6705429} 
+uint32\+\_\+t EE}
+
+
+
+bit\+: 25 Exception Endianness 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00301}{301}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_a1444305e07ef55a5f4b93ed8632fdfa7}\index{SCTLR\_Type@{SCTLR\_Type}!FI@{FI}}
+\index{FI@{FI}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{FI}{FI}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a1444305e07ef55a5f4b93ed8632fdfa7} 
+uint32\+\_\+t FI}
+
+
+
+bit\+: 21 Fast interrupts configuration enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00297}{297}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_acd05a44bd04f3fe2cafc8d969448493a}\index{SCTLR\_Type@{SCTLR\_Type}!HA@{HA}}
+\index{HA@{HA}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{HA}{HA}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_acd05a44bd04f3fe2cafc8d969448493a} 
+uint32\+\_\+t HA}
+
+
+
+bit\+: 17 Hardware Access flag enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00293}{293}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_a4c9521189df41a29b4ae85fcd605d30c}\index{SCTLR\_Type@{SCTLR\_Type}!I@{I}}
+\index{I@{I}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{I}{I}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a4c9521189df41a29b4ae85fcd605d30c} 
+uint32\+\_\+t I}
+
+
+
+bit\+: 12 Instruction cache enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00289}{289}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_ab938d107530771687dc6e478ca1cea10}\index{SCTLR\_Type@{SCTLR\_Type}!M@{M}}
+\index{M@{M}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{M}{M}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_ab938d107530771687dc6e478ca1cea10} 
+uint32\+\_\+t M}
+
+
+
+bit\+: 0 MMU enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00279}{279}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_aef103a9721cc848a7294ba57a18c468d}\index{SCTLR\_Type@{SCTLR\_Type}!NMFI@{NMFI}}
+\index{NMFI@{NMFI}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{NMFI}{NMFI}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_aef103a9721cc848a7294ba57a18c468d} 
+uint32\+\_\+t NMFI}
+
+
+
+bit\+: 27 Non-\/maskable FIQ (NMFI) support 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00303}{303}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_abb85be17853f5487474ca373923240f7}\index{SCTLR\_Type@{SCTLR\_Type}!RR@{RR}}
+\index{RR@{RR}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{RR}{RR}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_abb85be17853f5487474ca373923240f7} 
+uint32\+\_\+t RR}
+
+
+
+bit\+: 14 Round Robin select 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00291}{291}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_a7f5eddd4e53bb8b31f1b363a4af6da89}\index{SCTLR\_Type@{SCTLR\_Type}!SW@{SW}}
+\index{SW@{SW}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{SW}{SW}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a7f5eddd4e53bb8b31f1b363a4af6da89} 
+uint32\+\_\+t SW}
+
+
+
+bit\+: 10 SWP and SWPB enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00287}{287}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_abb5f1e76a6c473e515a5e14f3b9c17d3}\index{SCTLR\_Type@{SCTLR\_Type}!TE@{TE}}
+\index{TE@{TE}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{TE}{TE}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_abb5f1e76a6c473e515a5e14f3b9c17d3} 
+uint32\+\_\+t TE}
+
+
+
+bit\+: 30 Thumb Exception enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00306}{306}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_aaca87e3b5620ef9b50f0519f7037ee34}\index{SCTLR\_Type@{SCTLR\_Type}!TRE@{TRE}}
+\index{TRE@{TRE}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{TRE}{TRE}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_aaca87e3b5620ef9b50f0519f7037ee34} 
+uint32\+\_\+t TRE}
+
+
+
+bit\+: 28 TEX remap enable. 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00304}{304}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_aa12d7d1d2c95315549032b6e19db5d03}\index{SCTLR\_Type@{SCTLR\_Type}!U@{U}}
+\index{U@{U}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{U}{U}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_aa12d7d1d2c95315549032b6e19db5d03} 
+uint32\+\_\+t U}
+
+
+
+bit\+: 22 Alignment model 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00298}{298}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_ad2b2e73ce67b6ab892ddc63c1ff32aee}\index{SCTLR\_Type@{SCTLR\_Type}!UWXN@{UWXN}}
+\index{UWXN@{UWXN}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{UWXN}{UWXN}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_ad2b2e73ce67b6ab892ddc63c1ff32aee} 
+uint32\+\_\+t UWXN}
+
+
+
+bit\+: 20 Unprivileged write permission implies PL1 XN 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00296}{296}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_acd4a2b64faee91e4a9eef300667fa222}\index{SCTLR\_Type@{SCTLR\_Type}!V@{V}}
+\index{V@{V}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{V}{V}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_acd4a2b64faee91e4a9eef300667fa222} 
+uint32\+\_\+t V}
+
+
+
+bit\+: 13 Vectors bit 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00290}{290}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_ae468946ce7e647a2eae3be7f7d4bca18}\index{SCTLR\_Type@{SCTLR\_Type}!VE@{VE}}
+\index{VE@{VE}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{VE}{VE}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_ae468946ce7e647a2eae3be7f7d4bca18} 
+uint32\+\_\+t VE}
+
+
+
+bit\+: 24 Interrupt Vectors Enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00300}{300}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_ad0fb62e7a08e70fc5e0a76b67809f84b}\index{SCTLR\_Type@{SCTLR\_Type}!w@{w}}
+\index{w@{w}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_ad0fb62e7a08e70fc5e0a76b67809f84b} 
+uint32\+\_\+t w}
+
+
+
+Type used for word access. 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00309}{309}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_aa27b6ff641427c1b03f375f71bca5138}\index{SCTLR\_Type@{SCTLR\_Type}!WXN@{WXN}}
+\index{WXN@{WXN}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{WXN}{WXN}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_aa27b6ff641427c1b03f375f71bca5138} 
+uint32\+\_\+t WXN}
+
+
+
+bit\+: 19 Write permission implies XN 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00295}{295}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_s_c_t_l_r___type_a5ae954cbd9986cd64625d7fa00943c8e}\index{SCTLR\_Type@{SCTLR\_Type}!Z@{Z}}
+\index{Z@{Z}!SCTLR\_Type@{SCTLR\_Type}}
+\doxysubsubsection{\texorpdfstring{Z}{Z}}
+{\footnotesize\ttfamily \label{union_s_c_t_l_r___type_a5ae954cbd9986cd64625d7fa00943c8e} 
+uint32\+\_\+t Z}
+
+
+
+bit\+: 11 Branch prediction enable 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00288}{288}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+Core\+\_\+\+A/\+Include/\mbox{\hyperlink{core__ca_8h}{core\+\_\+ca.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,7 @@
+<map id="arm_inv_park_q31" name="arm_inv_park_q31">
+<area shape="rect" id="Node000001" title="Inverse Park transform for Q31 version." alt="" coords="5,31,133,57"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#ad92ce801e7aab7ef1bd2698cb523c1de" title=" " alt="" coords="181,5,255,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,30,165,25,166,30,134,36"/>
+<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#a11e5ff95c57c57fe6ec151d7efc42a28" title=" " alt="" coords="181,56,254,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="134,52,166,58,165,63,133,58"/>
+</map>

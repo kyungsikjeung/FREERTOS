@@ -1,0 +1,132 @@
+\doxysection{os\+\_\+systick.\+c}
+\hypertarget{os__systick_8c_source}{}\label{os__systick_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Source/os\_systick.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Source/os\_systick.c}}
+\mbox{\hyperlink{os__systick_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00001}00001\ \textcolor{comment}{/**************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00007}00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00008}00008\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2017-\/2021\ ARM\ Limited.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00010}00010\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00013}00013\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00014}00014\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00015}00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00016}00016\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00017}00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00018}00018\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00019}00019\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00020}00020\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00021}00021\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00022}00022\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00023}00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{os__tick_8h}{os\_tick.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00027}00027\ \textcolor{comment}{//lint\ -\/emacro((923,9078),SCB,SysTick)\ "{}cast\ from\ unsigned\ long\ to\ pointer"{}}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}RTE\_Components.h"{}}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00029}00029\ \textcolor{preprocessor}{\#include\ CMSIS\_device\_header}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00031}00031\ \textcolor{preprocessor}{\#ifdef\ \ SysTick}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00033}00033\ \textcolor{preprocessor}{\#ifndef\ SYSTICK\_IRQ\_PRIORITY}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00034}00034\ \textcolor{preprocessor}{\#define\ SYSTICK\_IRQ\_PRIORITY\ \ \ \ 0xFFU}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00035}00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00037}00037\ \textcolor{keyword}{static}\ uint8\_t\ PendST\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}((section(\textcolor{stringliteral}{"{}.bss.os"{}})));}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00039}00039\ \textcolor{comment}{//\ Setup\ OS\ Tick.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00040}00040\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\_\_WEAK}}\ int32\_t\ \mbox{\hyperlink{os__tick_8h_a5eeffb4d9dc6c6802fee8898096d9a59}{OS\_Tick\_Setup}}\ (uint32\_t\ freq,\ \mbox{\hyperlink{irq__ctrl_8h_a27589275c894aa295615df4764404b98}{IRQHandler\_t}}\ handler)\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00041}00041\ \ \ uint32\_t\ load;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00042}00042\ \ \ (void)handler;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00044}00044\ \ \ \textcolor{keywordflow}{if}\ (freq\ ==\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//lint\ -\/e\{904\}\ "{}Return\ statement\ before\ end\ of\ function"{}}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{return}\ (-\/1);}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00047}00047\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00049}00049\ \ \ load\ =\ (\mbox{\hyperlink{group___s_t_m32_f4xx___system___private___variables_gaa3cd3e43291e81e795d642b79b6088e6}{SystemCoreClock}}\ /\ freq)\ -\/\ 1U;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00050}00050\ \ \ \textcolor{keywordflow}{if}\ (load\ >\ 0x00FFFFFFU)\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//lint\ -\/e\{904\}\ "{}Return\ statement\ before\ end\ of\ function"{}}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{return}\ (-\/1);}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00053}00053\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00055}00055\ \ \ \textcolor{comment}{//\ Set\ SysTick\ Interrupt\ Priority}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00056}00056\ \textcolor{preprocessor}{\#if\ \ \ ((defined(\_\_ARM\_ARCH\_8M\_MAIN\_\_)\ \ \ \&\&\ (\_\_ARM\_ARCH\_8M\_MAIN\_\_\ \ \ !=\ 0))\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00057}00057\ \textcolor{preprocessor}{\ \ \ \ \ \ \ (defined(\_\_ARM\_ARCH\_8\_1M\_MAIN\_\_)\ \&\&\ (\_\_ARM\_ARCH\_8\_1M\_MAIN\_\_\ !=\ 0))\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00058}00058\ \textcolor{preprocessor}{\ \ \ \ \ \ \ (defined(\_\_CORTEX\_M)\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ (\_\_CORTEX\_M\ \ \ \ \ \ \ \ \ \ \ \ \ ==\ 7U)))}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00059}00059\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SHPR[11]\ =\ SYSTICK\_IRQ\_PRIORITY;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00060}00060\ \textcolor{preprocessor}{\#elif\ \ (defined(\_\_ARM\_ARCH\_8M\_BASE\_\_)\ \ \ \&\&\ (\_\_ARM\_ARCH\_8M\_BASE\_\_\ \ \ !=\ 0))}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00061}00061\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SHPR[1]\ |=\ ((uint32\_t)SYSTICK\_IRQ\_PRIORITY\ <<\ 24);}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00062}00062\ \textcolor{preprocessor}{\#elif\ ((defined(\_\_ARM\_ARCH\_7M\_\_)\ \ \ \ \ \ \ \ \&\&\ (\_\_ARM\_ARCH\_7M\_\_\ \ \ \ \ \ \ \ !=\ 0))\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00063}00063\ \textcolor{preprocessor}{\ \ \ \ \ \ \ (defined(\_\_ARM\_ARCH\_7EM\_\_)\ \ \ \ \ \ \ \&\&\ (\_\_ARM\_ARCH\_7EM\_\_\ \ \ \ \ \ \ !=\ 0)))}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00064}00064\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SHP[11]\ \ =\ SYSTICK\_IRQ\_PRIORITY;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00065}00065\ \textcolor{preprocessor}{\#elif\ \ (defined(\_\_ARM\_ARCH\_6M\_\_)\ \ \ \ \ \ \ \ \&\&\ (\_\_ARM\_ARCH\_6M\_\_\ \ \ \ \ \ \ \ !=\ 0))}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00066}00066\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>SHP[1]\ \ |=\ ((uint32\_t)SYSTICK\_IRQ\_PRIORITY\ <<\ 24);}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00067}00067\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00068}00068\ \textcolor{preprocessor}{\#error\ "{}Unknown\ ARM\ Core!"{}}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00069}00069\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00071}00071\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>CTRL\ =\ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaa41d06039797423a46596bd313d57373}{SysTick\_CTRL\_CLKSOURCE\_Msk}}\ |\ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga95bb984266ca764024836a870238a027}{SysTick\_CTRL\_TICKINT\_Msk}};}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00072}00072\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>LOAD\ =\ \ load;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00073}00073\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>VAL\ \ =\ \ 0U;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00075}00075\ \ \ PendST\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00077}00077\ \ \ \textcolor{keywordflow}{return}\ (0);}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00081}00081\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\_\_WEAK}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__tick_8h_aaa0d6ddef6816e8e5650fde3daf191e7}{OS\_Tick\_Enable}}\ (\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00083}00083\ \ \ \textcolor{keywordflow}{if}\ (PendST\ !=\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00084}00084\ \ \ \ \ PendST\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00085}00085\ \ \ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>ICSR\ =\ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga7325b61ea0ec323ef2d5c893b112e546}{SCB\_ICSR\_PENDSTSET\_Msk}};}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00086}00086\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00088}00088\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>CTRL\ |=\ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga16c9fee0ed0235524bdeb38af328fd1f}{SysTick\_CTRL\_ENABLE\_Msk}};}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00092}00092\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\_\_WEAK}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__tick_8h_a50fc040b66fabd1945d2bd1d0d05661d}{OS\_Tick\_Disable}}\ (\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00094}00094\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>CTRL\ \&=\ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga16c9fee0ed0235524bdeb38af328fd1f}{\string~SysTick\_CTRL\_ENABLE\_Msk}};}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00096}00096\ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>ICSR\ \&\ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga7325b61ea0ec323ef2d5c893b112e546}{SCB\_ICSR\_PENDSTSET\_Msk}})\ !=\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>ICSR\ =\ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gab241827d2a793269d8cd99b9b28c2157}{SCB\_ICSR\_PENDSTCLR\_Msk}};}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00098}00098\ \ \ \ \ PendST\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00099}00099\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00102}00102\ \textcolor{comment}{//\ Acknowledge\ OS\ Tick\ IRQ.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00103}00103\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\_\_WEAK}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{os__tick_8h_a14c430d2b363ebd9f904b0822a9314e7}{OS\_Tick\_AcknowledgeIRQ}}\ (\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00104}00104\ \ \ (void)\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>CTRL;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00107}00107\ \textcolor{comment}{//\ Get\ OS\ Tick\ IRQ\ number.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00108}00108\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\_\_WEAK}}\ int32\_t\ \ \mbox{\hyperlink{os__tick_8h_aa8b4eca23e3ffe2df403291958cdc905}{OS\_Tick\_GetIRQn}}\ (\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00109}00109\ \ \ \textcolor{keywordflow}{return}\ ((int32\_t)\mbox{\hyperlink{group___peripheral__interrupt__number__definition_gga7e1129cd8a196f4284d41db3e82ad5c8a6dbff8f8543325f3474cbae2446776e7}{SysTick\_IRQn}});}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00112}00112\ \textcolor{comment}{//\ Get\ OS\ Tick\ clock.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00113}00113\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\_\_WEAK}}\ uint32\_t\ \mbox{\hyperlink{os__tick_8h_a936217ea28236fb57648973e0d8f627a}{OS\_Tick\_GetClock}}\ (\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00114}00114\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{group___s_t_m32_f4xx___system___private___variables_gaa3cd3e43291e81e795d642b79b6088e6}{SystemCoreClock}});}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00115}00115\ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00117}00117\ \textcolor{comment}{//\ Get\ OS\ Tick\ interval.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00118}00118\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\_\_WEAK}}\ uint32\_t\ \mbox{\hyperlink{os__tick_8h_a123151dc19d5a94a68f12cdbf61a9bb5}{OS\_Tick\_GetInterval}}\ (\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00119}00119\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>LOAD\ +\ 1U);}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00122}00122\ \textcolor{comment}{//\ Get\ OS\ Tick\ count\ value.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00123}00123\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\_\_WEAK}}\ uint32\_t\ \mbox{\hyperlink{os__tick_8h_aa64a145a554f1e5077848938d7f39c92}{OS\_Tick\_GetCount}}\ (\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00124}00124\ \ \ uint32\_t\ load\ =\ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>LOAD;}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00125}00125\ \ \ \textcolor{keywordflow}{return}\ \ (load\ -\/\ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>VAL);}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00126}00126\ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00128}00128\ \textcolor{comment}{//\ Get\ OS\ Tick\ overflow\ status.}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00129}00129\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ac607bf387b29162be6a9b77fc7999539}{\_\_WEAK}}\ uint32\_t\ \mbox{\hyperlink{os__tick_8h_a8a30df14420fb3372dbce9f91de46a88}{OS\_Tick\_GetOverflow}}\ (\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00130}00130\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>ICSR\ \&\ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga7325b61ea0ec323ef2d5c893b112e546}{SCB\_ICSR\_PENDSTSET\_Msk}})\ >>\ \mbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga9dbb3358c6167c9c3f85661b90fb2794}{SCB\_ICSR\_PENDSTSET\_Pos}});}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00131}00131\ \}}
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{os__systick_8c_source_l00133}00133\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ SysTick}}
+
+\end{DoxyCode}

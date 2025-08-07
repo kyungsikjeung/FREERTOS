@@ -1,0 +1,14 @@
+<map id="xTASK_STATUS" name="xTASK_STATUS">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,395,167,613"/>
+<area shape="rect" id="Node000002" href="$structtsk_task_control_block.html" title=" " alt="" coords="20,189,152,323"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,322,89,378,84,378,84,322"/>
+<area shape="rect" id="Node000003" href="$structx_l_i_s_t___i_t_e_m.html" title=" " alt="" coords="214,5,303,96"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="215,59,182,66,147,77,115,96,90,122,79,146,75,173,70,172,74,144,85,118,112,91,145,73,181,60,214,54"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="303,31,321,36,327,42,329,51,327,60,321,66,317,62,322,57,324,51,323,45,318,40,302,36"/>
+<area shape="rect" id="Node000004" href="$structx_l_i_s_t.html" title=" " alt="" coords="292,469,422,539"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="244,97,229,144,218,201,215,262,218,293,226,322,242,360,263,395,312,456,308,459,259,398,237,362,220,324,213,293,210,262,213,200,224,143,238,95"/>
+<area shape="rect" id="Node000005" href="$structx_m_i_n_i___l_i_s_t___i_t_e_m.html" title=" " alt="" coords="297,221,417,291"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="282,95,336,205,331,207,277,97"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="379,468,406,423,426,370,437,320,440,280,436,240,426,190,417,152,409,138,395,122,358,94,317,73,320,69,361,89,399,118,413,135,422,150,432,189,442,240,446,280,442,321,432,371,410,425,384,471"/>
+<area shape="poly" id="edge6_Node000004_Node000005" title=" " alt="" coords="360,290,360,452,354,452,354,290"/>
+</map>

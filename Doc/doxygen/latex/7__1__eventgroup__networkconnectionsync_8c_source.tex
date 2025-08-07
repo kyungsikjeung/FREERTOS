@@ -1,0 +1,71 @@
+\doxysection{7\+\_\+1\+\_\+eventgroup\+\_\+networkconnectionsync.\+c}
+\hypertarget{7__1__eventgroup__networkconnectionsync_8c_source}{}\label{7__1__eventgroup__networkconnectionsync_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/7\_1\_eventgroup\_networkconnectionsync.c@{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/7\_1\_eventgroup\_networkconnectionsync.c}}
+\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__init_8h}{driver\_init.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00004}00004\ \textcolor{comment}{/*\ \ EventGroup\ 비트\ 정의\ */}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00005}\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ad552e7688532cbbecd3967538ced06ac}{00005}}\ \textcolor{preprocessor}{\#define\ WIFI\_CONNECTED\_BIT\ \ \ \ (1\ <<\ 0)}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00006}\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a4356ddcf111d352d6f05054a770838c6}{00006}}\ \textcolor{preprocessor}{\#define\ SERVER\_CONNECTED\_BIT\ \ (1\ <<\ 1)}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00008}00008\ \textcolor{comment}{/*\ \ EventGroup\ 핸들\ */}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00009}\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a23235b0baa8a2582eb7db3a681345615}{00009}}\ \mbox{\hyperlink{event__groups_8h_acab96e0b6a5cab7f7b29822b79cc78ed}{EventGroupHandle\_t}}\ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a23235b0baa8a2582eb7db3a681345615}{xEventGroup}};}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00011}00011\ \textcolor{comment}{/*\ \ Wi-\/Fi\ 연결\ Task\ */}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00012}\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ae3e03c194f2c2ead94b26d8e1a8f1688}{00012}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ae3e03c194f2c2ead94b26d8e1a8f1688}{vWifiConnectTask}}(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}(\mbox{\hyperlink{projdefs_8h_a353d0f62b82a402cb3db63706c81ec3f}{pdMS\_TO\_TICKS}}(1000));\ \ \textcolor{comment}{//\ Wi-\/Fi\ 연결에\ 1초\ 소요되는\ 시뮬레이션}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00014}00014\ \ \ \ \ printf(\textcolor{stringliteral}{"{}[Tick\ \%lu]\ \ Wi-\/Fi\ 연결\ 완료\(\backslash\)n"{}},\ \mbox{\hyperlink{task_8h_a753ecfe23e7386066ecccad5d16422f7}{xTaskGetTickCount}}());}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{event__groups_8c_a9ac7cd970f50e2e50a494b656e0eb239}{xEventGroupSetBits}}(\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a23235b0baa8a2582eb7db3a681345615}{xEventGroup}},\ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ad552e7688532cbbecd3967538ced06ac}{WIFI\_CONNECTED\_BIT}});}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{task_8h_a27ff4ebce26565bef136bda84201ff80}{vTaskDelete}}(NULL);}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00017}00017\ \}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00019}00019\ \textcolor{comment}{/*\ \ 서버\ 연결\ Task\ */}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00020}\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ae4262c2997dee47caba6157e80c5f277}{00020}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ae4262c2997dee47caba6157e80c5f277}{vServerConnectTask}}(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}(\mbox{\hyperlink{projdefs_8h_a353d0f62b82a402cb3db63706c81ec3f}{pdMS\_TO\_TICKS}}(1500));\ \ \textcolor{comment}{//\ 서버\ 연결에\ 1.5초\ 소요되는\ 시뮬레이션}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00022}00022\ \ \ \ \ printf(\textcolor{stringliteral}{"{}[Tick\ \%lu]\ \ 서버\ 연결\ 완료\(\backslash\)n"{}},\ \mbox{\hyperlink{task_8h_a753ecfe23e7386066ecccad5d16422f7}{xTaskGetTickCount}}());}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{event__groups_8c_a9ac7cd970f50e2e50a494b656e0eb239}{xEventGroupSetBits}}(\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a23235b0baa8a2582eb7db3a681345615}{xEventGroup}},\ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a4356ddcf111d352d6f05054a770838c6}{SERVER\_CONNECTED\_BIT}});}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{task_8h_a27ff4ebce26565bef136bda84201ff80}{vTaskDelete}}(NULL);}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00027}00027\ \textcolor{comment}{/*\ \ 메인\ 통신\ Task:\ 두\ 연결이\ 완료되면\ 데이터\ 전송\ */}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00028}\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ab6bac22f89d6f07bbfd989d4b32c18a2}{00028}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ab6bac22f89d6f07bbfd989d4b32c18a2}{vDataTask}}(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00029}00029\ \ \ \ \ printf(\textcolor{stringliteral}{"{}[Tick\ \%lu]\ \ 데이터\ 전송을\ 위해\ 연결\ 대기\ 중...\(\backslash\)n"{}},\ \mbox{\hyperlink{task_8h_a753ecfe23e7386066ecccad5d16422f7}{xTaskGetTickCount}}());}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{event__groups_8c_a379c5cca4552d3d8acd4c51e8220a6c3}{xEventGroupWaitBits}}(}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a23235b0baa8a2582eb7db3a681345615}{xEventGroup}},}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ad552e7688532cbbecd3967538ced06ac}{WIFI\_CONNECTED\_BIT}}\ |\ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a4356ddcf111d352d6f05054a770838c6}{SERVER\_CONNECTED\_BIT}},}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{projdefs_8h_af268cf937960eb029256bd9c4d949fbe}{pdTRUE}},\ \ \ \ \ \textcolor{comment}{//\ 비트\ 자동\ 클리어}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{projdefs_8h_af268cf937960eb029256bd9c4d949fbe}{pdTRUE}},\ \ \ \ \ \textcolor{comment}{//\ 모든\ 비트가\ Set될\ 때까지\ 대기\ (AND\ 조건)}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{portmacro_8h_a72723ba1e4a85ca14f25c2b9e066613d}{portMAX\_DELAY}}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00037}00037\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00039}00039\ \ \ \ \ printf(\textcolor{stringliteral}{"{}[Tick\ \%lu]\ \ 모든\ 연결\ 완료됨.\ 데이터\ 전송\ 시작!\(\backslash\)n"{}},\ \mbox{\hyperlink{task_8h_a753ecfe23e7386066ecccad5d16422f7}{xTaskGetTickCount}}());}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}[Tick\ \%lu]\ \ 주기적\ 데이터\ 전송\ 중...\(\backslash\)n"{}},\ \mbox{\hyperlink{task_8h_a753ecfe23e7386066ecccad5d16422f7}{xTaskGetTickCount}}());}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}(\mbox{\hyperlink{projdefs_8h_a353d0f62b82a402cb3db63706c81ec3f}{pdMS\_TO\_TICKS}}(2000));}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00047}\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a840291bc02cba5474a4cb46a9b9566fe}{00047}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ \ 하드웨어\ 및\ 드라이버\ 초기화}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{driver__init_8h_aab7f079e70f08c868bbb3fdd41b86f82}{Driver\_Init}}();}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//\ \ EventGroup\ 생성}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_a23235b0baa8a2582eb7db3a681345615}{xEventGroup}}\ =\ xEventGroupCreate();}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00054}00054\ \ \ \ \ \textcolor{comment}{//\ \ Task\ 생성}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00055}00055\ \ \ \ \ xTaskCreate(\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ae3e03c194f2c2ead94b26d8e1a8f1688}{vWifiConnectTask}},\ \ \ \ \textcolor{stringliteral}{"{}WiFi"{}},\ \ \ 1000,\ NULL,\ 1,\ NULL);}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00056}00056\ \ \ \ \ xTaskCreate(\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ae4262c2997dee47caba6157e80c5f277}{vServerConnectTask}},\ \ \textcolor{stringliteral}{"{}Server"{}},\ 1000,\ NULL,\ 1,\ NULL);}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00057}00057\ \ \ \ \ xTaskCreate(\mbox{\hyperlink{7__1__eventgroup__networkconnectionsync_8c_ab6bac22f89d6f07bbfd989d4b32c18a2}{vDataTask}},\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Data"{}},\ \ \ 1000,\ NULL,\ 2,\ NULL);}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00059}00059\ \ \ \ \ \textcolor{comment}{//\ \ 스케줄러\ 시작}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{vTaskStartScheduler}}();}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//\ \ 실패\ 시\ 무한\ 루프}}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{while}\ (1);}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{7__1__eventgroup__networkconnectionsync_8c_source_l00065}00065\ \}}
+
+\end{DoxyCode}

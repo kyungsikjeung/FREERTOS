@@ -1,62 +1,158 @@
 #include "main.h"
 #include "driver_init.h"
-#include "string.h"     // for memcpy, memcmp
+#include "adc_driver.h"
 
-/* 공유 배열 (Race Condition 실험 대상) */
-volatile uint8_t shared[4] = {0};
+// 태스크 함수 프로토타입
+/**
+ * @brief ADC 실시간 모니터링 태스크
+ * @param pvParameters 태스크에 전달할 파라미터 (사용하지 않음)
+ */
+void vADC_MonitorTask(void *pvParameters);
 
-/* 기준값 */
-const uint8_t expected1[4] = {0xAA, 0xAA, 0xAA, 0xAA};
-const uint8_t expected2[4] = {0x55, 0x55, 0x55, 0x55};
+/**
+ * @brief ADC 데이터 분석 및 처리 태스크
+ * @param pvParameters 태스크에 전달할 파라미터 (사용하지 않음)
+ */
+void vADC_ProcessTask(void *pvParameters);
 
-/* Writer Task (의도적 커럽션 유도) */
-void vTask1(void *pvParameters)
-{
-    while (1)
-    {
-
-        
-        memcpy((void *)shared, expected1, 4);  // 비원자적 복사
-        taskYIELD(); 
-        
-        // 빠른 루프로 충돌 가능성 증가
-    }
-}
-
-/* Reader Task (중간 상태까지 포함해서 감지) */
-void vTask2(void *pvParameters)
-{
-    uint8_t temp[4];  // 로컬 복사 버퍼
-
-    while (1)
-    {
-        memcpy(temp, (const void *)shared, 4);  // 일관성 있는 순간 값 확보
-        // 만약 복사된 temp값이 {0x11, 0x22, 0x33, 0x44} 혹은 {0x44, 0x33, 0x22, 0x11}; 둘중 하나가 아니라면
-
-        if (memcmp(temp, expected1, 4) != 0 && memcmp(temp, expected2, 4) != 0){
-            printf("❌ FAULT DETECTED: shared = {%02X %02X %02X %02X}\n",
-                   temp[0], temp[1], temp[2], temp[3]);
-        }
-        else
-        {
-            printf("🟢 shared OK: {%02X %02X %02X %02X}\n",
-                   temp[0], temp[1], temp[2], temp[3]);
-        }
-        taskYIELD(); 
-    }
-}
-
+/**
+ * @brief 메인 함수 - 시스템 초기화 및 FreeRTOS 시작
+ * 
+ * @return int (도달하지 않음)
+ */
 int main(void)
 {
-    Driver_Init();  // UART 등 주변 장치 초기화
+    // 하드웨어 초기화
+    Driver_Init();
 
-    // Task 생성
-    xTaskCreate(vTask1, "Writer", 256, NULL, 1, NULL);
-    xTaskCreate(vTask2, "Reader", 256, NULL, 1, NULL);
+    // ADC 드라이버 초기화
+    if (ADC_Driver_Init(&g_adc_driver) != HAL_OK) {
+        printf(" ADC 드라이버 초기화 실패\r\n");
+        while(1);
+    }
 
-    // FreeRTOS 스케줄러 시작
+    // ADC 모니터 태스크 생성
+    xTaskCreate(
+        vADC_MonitorTask,
+        "ADC_Monitor",
+        256,
+        NULL,
+        3,
+        NULL
+    );
+
+    // ADC 데이터 처리 태스크 생성
+    xTaskCreate(
+        vADC_ProcessTask,
+        "ADC_Process",
+        256,
+        NULL,
+        2,
+        NULL
+    );
+
+    // ADC 샘플링 시작
+    if (ADC_Driver_Start(&g_adc_driver) != HAL_OK) {
+        printf(" ADC 샘플링 시작 실패\r\n");
+        while(1);
+    }
+
+    // 스케줄러 시작
     vTaskStartScheduler();
 
-    // 도달하지 않음
+    // 여기에 도달하면 안됨
     while (1);
+}
+
+/**
+ * @brief ADC 모니터링 태스크
+ * 
+ * ADC 드라이버로부터 데이터를 주기적으로 수신하여 UART로 출력한다.
+ * 1초마다 큐 상태와 ADC 채널 값을 출력한다.
+ * 
+ * @param pvParameters 사용되지 않음
+ */
+void vADC_MonitorTask(void *pvParameters)
+{
+    ADC_Data_t adc_data;
+    TickType_t last_wake_time = xTaskGetTickCount();
+
+    printf("ADC 모니터링 태스크 시작\r\n");
+
+    for (;;) {
+        // 500ms 타임아웃으로 데이터 수신
+        if (ADC_Driver_GetData(&g_adc_driver, &adc_data, pdMS_TO_TICKS(500)) == pdPASS) {
+            
+            printf(" [%lu] ADC 값: ", adc_data.timestamp);
+            #ifdef LOG_ADC_VALUES
+            for (int i = 0; i < ADC_CHANNEL_COUNT; i++) {
+                printf("CH%d:%4u ", i, adc_data.channel_values[i]);
+            }
+            #endif
+
+            // 큐 상태 표시
+            uint32_t queue_count = ADC_Driver_GetQueueCount(&g_adc_driver);
+            printf("(큐: %lu/%d)\r\n", queue_count, ADC_QUEUE_SIZE);
+            
+        } else {
+            printf("  ADC 데이터 타임아웃\r\n");
+        }
+
+        // 1초 주기로 실행
+        vTaskDelayUntil(&last_wake_time, pdMS_TO_TICKS(1000));
+    }
+}
+
+/**
+ * @brief ADC 데이터 처리 태스크
+ * 
+ * ADC 데이터를 수신하고 각 채널에 대해 통계값(평균, 최대, 최소)을 계산한다.
+ * 100개의 샘플마다 통계를 UART로 출력한다.
+ * 
+ * @param pvParameters 사용되지 않음
+ */
+void vADC_ProcessTask(void *pvParameters)
+{
+    ADC_Data_t adc_data;
+    uint32_t sample_count = 0;
+    uint32_t sum[ADC_CHANNEL_COUNT] = {0};
+    uint16_t max_values[ADC_CHANNEL_COUNT] = {0};
+    uint16_t min_values[ADC_CHANNEL_COUNT] = {4095, 4095, 4095};
+
+    printf("ADC 데이터 처리 태스크 시작\r\n");
+
+    for (;;) {
+        // 데이터 수신 (무한 대기)
+        if (ADC_Driver_GetData(&g_adc_driver, &adc_data, portMAX_DELAY) == pdPASS) {
+            sample_count++;
+
+            // 채널별 통계 계산
+            for (int i = 0; i < ADC_CHANNEL_COUNT; i++) {
+                uint16_t value = adc_data.channel_values[i];
+
+                sum[i] += value;
+                if (value > max_values[i]) max_values[i] = value;
+                if (value < min_values[i]) min_values[i] = value;
+            }
+
+            // 100개 샘플마다 통계 출력
+            if (sample_count % 100 == 0) {
+                printf("\r\n100샘플 통계 (샘플#%lu):\r\n", sample_count);
+
+                for (int i = 0; i < ADC_CHANNEL_COUNT; i++) {
+                    uint16_t avg = sum[i] / 100;
+
+                    printf("  CH%d - 평균:%4u, 최대:%4u, 최소:%4u\r\n", 
+                           i, avg, max_values[i], min_values[i]);
+
+                    // 통계 리셋
+                    sum[i] = 0;
+                    max_values[i] = 0;
+                    min_values[i] = 4095;
+                }
+
+                printf("\r\n");
+            }
+        }
+    }
 }

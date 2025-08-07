@@ -1,0 +1,5 @@
+<map id="arm_recip_q15" name="arm_recip_q15">
+<area shape="rect" id="Node000001" title="Function to Calculates 1/in (reciprocal) value of Q15 Data type." alt="" coords="189,5,295,32"/>
+<area shape="rect" id="Node000002" href="$group___l_m_s___n_o_r_m.html#gaf03debfeb77ec5a9934e1b23f1ff6c48" title="Processing function for Q15 normalized LMS filter." alt="" coords="5,5,141,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,21,141,21,141,16,173,16"/>
+</map>

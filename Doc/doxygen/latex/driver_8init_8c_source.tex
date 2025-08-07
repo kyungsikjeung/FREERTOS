@@ -1,0 +1,204 @@
+\doxysection{driver.\+init.\+c}
+\hypertarget{driver_8init_8c_source}{}\label{driver_8init_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Core/Src/driver.init.c@{C:/Users/TOVIS/test/TestRtos/Core/Src/driver.init.c}}
+\mbox{\hyperlink{driver_8init_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00001}00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00008}00008\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00010}00010\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{driver__init_8h}{driver\_init.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00015}00015\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00016}\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{00016}}\ \mbox{\hyperlink{group___u_a_r_t___exported___types_ga5de4a49eb132735325e706f406c69d6e}{UART\_HandleTypeDef}}\ \mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00017}\mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{00017}}\ PCD\_HandleTypeDef\ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00020}00020\ \textcolor{preprocessor}{\#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00021}00021\ \textcolor{preprocessor}{\#define\ PUTCHAR\_PROTOTYPE\ int\ \_\_io\_putchar(int\ ch)}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00022}00022\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00023}\mbox{\hyperlink{driver_8init_8c_ac040eb6679fed6e591776425aa7abd9d}{00023}}\ \textcolor{preprocessor}{\#define\ PUTCHAR\_PROTOTYPE\ int\ fputc(int\ ch,\ FILE\ *f)}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00024}00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00026}\mbox{\hyperlink{driver_8init_8c_a6b71e3c5cd86d6941c8f4a8beb1b354f}{00026}}\ \mbox{\hyperlink{driver_8init_8c_ac040eb6679fed6e591776425aa7abd9d}{PUTCHAR\_PROTOTYPE}}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00028}00028\ \ \ \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\_UART\_Transmit}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}},\ (uint8\_t\ *)\&\mbox{\hyperlink{driver_8init_8c_a0523c05685d59544dca911cb6a3db77d}{ch}},\ 1,\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_aad28bc64749c50dcedd6bf819fdc6974}{HAL\_MAX\_DELAY}});}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00029}\mbox{\hyperlink{driver_8init_8c_a0523c05685d59544dca911cb6a3db77d}{00029}}\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{driver_8init_8c_a0523c05685d59544dca911cb6a3db77d}{ch}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00034}00034\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ GPIO\_Init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00035}00035\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ USART3\_UART\_Init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00036}00036\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ USB\_OTG\_FS\_PCD\_Init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00037}00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver_8init_8c_a70af21c671abfcc773614a9a4f63d920}{SystemClock\_Config}}(\textcolor{keywordtype}{void});\ \ \textcolor{comment}{//\ 함수\ 선언\ 추가}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00045}\mbox{\hyperlink{driver__init_8h_aab7f079e70f08c868bbb3fdd41b86f82}{00045}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver_8init_8c_aab7f079e70f08c868bbb3fdd41b86f82}{Driver\_Init}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00047}00047\ \ \ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00048}00048\ \ \ \mbox{\hyperlink{group___h_a_l___exported___functions___group1_gaecac54d350c3730e6831eb404e557dc4}{HAL\_Init}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00049}00049\ \ \ \mbox{\hyperlink{driver_8init_8c_a70af21c671abfcc773614a9a4f63d920}{SystemClock\_Config}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00050}00050\ \ \ GPIO\_Init();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00051}00051\ \ \ USART3\_UART\_Init();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00052}00052\ \ \ USB\_OTG\_FS\_PCD\_Init();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00053}00053\ \ \ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00054}00054\ \ \ \textcolor{comment}{//\ Clear\ screen\ and\ print\ initialization\ message}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00055}00055\ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)x1B[1;1H\(\backslash\)x1B[2J"{}});\ \ \textcolor{comment}{//\ Clear\ screen\ using\ standard\ escape\ sequence}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00056}00056\ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/MCU\ Driver\ Init-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00057}00057\ \ \ \mbox{\hyperlink{group___h_a_l___exported___functions___group2_gab1dc1e6b438daacfe38a312a90221330}{HAL\_Delay}}(100);}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00058}00058\ \ \ \mbox{\hyperlink{group___h_a_l___exported___functions___group2_gab1dc1e6b438daacfe38a312a90221330}{HAL\_Delay}}(2000);}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00059}00059\ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 300000;\ i++);\ \textcolor{comment}{//\ Simple\ delay\ loop}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00067}\mbox{\hyperlink{driver_8init_8c_a70af21c671abfcc773614a9a4f63d920}{00067}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver_8init_8c_a70af21c671abfcc773614a9a4f63d920}{SystemClock\_Config}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00068}00068\ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00069}00069\ \ \ \mbox{\hyperlink{struct_r_c_c___osc_init_type_def}{RCC\_OscInitTypeDef}}\ RCC\_OscInitStruct\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00070}00070\ \ \ \mbox{\hyperlink{struct_r_c_c___clk_init_type_def}{RCC\_ClkInitTypeDef}}\ RCC\_ClkInitStruct\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00072}00072\ \ \ \textcolor{comment}{//\ Configure\ the\ main\ internal\ regulator\ output\ voltage}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00073}00073\ \ \ \mbox{\hyperlink{group___r_c_c___a_p_b1___clock___enable___disable_ga6c7399cc977622172aeda52a86ceed92}{\_\_HAL\_RCC\_PWR\_CLK\_ENABLE}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00074}00074\ \ \ \mbox{\hyperlink{group___p_w_r_ex___exported___constants_ga1ee778f7ff494723bd0ef04ec44b0f77}{\_\_HAL\_PWR\_VOLTAGESCALING\_CONFIG}}(\mbox{\hyperlink{group___p_w_r_ex___regulator___voltage___scale_ga3b5ca5ab9c19938a14d273825bcf840e}{PWR\_REGULATOR\_VOLTAGE\_SCALE1}});}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00076}00076\ \ \ \textcolor{comment}{//\ Initializes\ the\ RCC\ Oscillators\ according\ to\ the\ specified\ parameters}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00077}00077\ \ \ \textcolor{comment}{//\ in\ the\ RCC\_OscInitTypeDef\ structure.}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00078}00078\ \ \ RCC\_OscInitStruct.\mbox{\hyperlink{struct_r_c_c___osc_init_type_def_a23b9d1da2a92936c618d2416406275a3}{OscillatorType}}\ =\ \mbox{\hyperlink{group___r_c_c___oscillator___type_ga28cacd402dec84e548c9e4ba86d4603f}{RCC\_OSCILLATORTYPE\_HSE}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00079}00079\ \ \ RCC\_OscInitStruct.\mbox{\hyperlink{struct_r_c_c___osc_init_type_def_ad499b1bbeeb8096235b534a9bfa53c9d}{HSEState}}\ =\ \mbox{\hyperlink{group___r_c_c___h_s_e___config_ga5ca515db2d5c4d5bdb9ee3d154df2704}{RCC\_HSE\_BYPASS}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00080}00080\ \ \ RCC\_OscInitStruct.\mbox{\hyperlink{struct_r_c_c___osc_init_type_def_a7ec4025786fa81e2a4bfc42832c0eddf}{PLL}}.\mbox{\hyperlink{struct_r_c_c___p_l_l_init_type_def_ab3bb33f461bb409576e1c899c962e0b0}{PLLState}}\ =\ \mbox{\hyperlink{group___r_c_c___p_l_l___config_gaf86dbee130304ba5760818f56d34ec91}{RCC\_PLL\_ON}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00081}00081\ \ \ RCC\_OscInitStruct.\mbox{\hyperlink{struct_r_c_c___osc_init_type_def_a7ec4025786fa81e2a4bfc42832c0eddf}{PLL}}.\mbox{\hyperlink{struct_r_c_c___p_l_l_init_type_def_a418ecda4a355c6a161e4893a7bc1897f}{PLLSource}}\ =\ \mbox{\hyperlink{group___r_c_c___p_l_l___clock___source_ga197cea7fe5c2db26fe7fcdb0f99dd4d7}{RCC\_PLLSOURCE\_HSE}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00082}00082\ \ \ RCC\_OscInitStruct.\mbox{\hyperlink{struct_r_c_c___osc_init_type_def_a7ec4025786fa81e2a4bfc42832c0eddf}{PLL}}.\mbox{\hyperlink{struct_r_c_c___p_l_l_init_type_def_adb1ffaed93a1680042e24b5442b90af4}{PLLM}}\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00083}00083\ \ \ RCC\_OscInitStruct.\mbox{\hyperlink{struct_r_c_c___osc_init_type_def_a7ec4025786fa81e2a4bfc42832c0eddf}{PLL}}.\mbox{\hyperlink{struct_r_c_c___p_l_l_init_type_def_a2e8a73f7961f8d6570193c68daba88a6}{PLLN}}\ =\ 168;}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00084}00084\ \ \ RCC\_OscInitStruct.\mbox{\hyperlink{struct_r_c_c___osc_init_type_def_a7ec4025786fa81e2a4bfc42832c0eddf}{PLL}}.\mbox{\hyperlink{struct_r_c_c___p_l_l_init_type_def_ae2047a6040de6fcd43e0033a7b09a226}{PLLP}}\ =\ \mbox{\hyperlink{group___r_c_c___p_l_l_p___clock___divider_ga16248cbd581f020b8a8d1cf0d9f0864d}{RCC\_PLLP\_DIV2}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00085}00085\ \ \ RCC\_OscInitStruct.\mbox{\hyperlink{struct_r_c_c___osc_init_type_def_a7ec4025786fa81e2a4bfc42832c0eddf}{PLL}}.\mbox{\hyperlink{struct_r_c_c___p_l_l_init_type_def_a4f9e0db99adb7afb9d2a87a2b4f433ab}{PLLQ}}\ =\ 7;}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00086}00086\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group___r_c_c___exported___functions___group1_gaaf070da42c717e9d2d79e858b647b782}{HAL\_RCC\_OscConfig}}(\&RCC\_OscInitStruct)\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}})}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00087}00087\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{driver_8init_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00089}00089\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00091}00091\ \ \ \textcolor{comment}{//\ Initializes\ the\ CPU,\ AHB\ and\ APB\ buses\ clocks}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00092}00092\ \ \ RCC\_ClkInitStruct.\mbox{\hyperlink{struct_r_c_c___clk_init_type_def_afe92b105bff8e698233c286bb3018384}{ClockType}}\ =\ \mbox{\hyperlink{group___r_c_c___system___clock___type_gaa5330efbd790632856a2b15851517ef9}{RCC\_CLOCKTYPE\_HCLK}}|\mbox{\hyperlink{group___r_c_c___system___clock___type_ga7e721f5bf3fe925f78dae0356165332e}{RCC\_CLOCKTYPE\_SYSCLK}}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\mbox{\hyperlink{group___r_c_c___system___clock___type_gab00c7b70f0770a616be4b5df45a454c4}{RCC\_CLOCKTYPE\_PCLK1}}|\mbox{\hyperlink{group___r_c_c___system___clock___type_gaef7e78706e597a6551d71f5f9ad60cc0}{RCC\_CLOCKTYPE\_PCLK2}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00094}00094\ \ \ RCC\_ClkInitStruct.\mbox{\hyperlink{struct_r_c_c___clk_init_type_def_a02b70c23b593a55814d887f483ea0871}{SYSCLKSource}}\ =\ \mbox{\hyperlink{group___r_c_c___system___clock___source_ga5caf08ac71d7dd7e7b2e3e421606aca7}{RCC\_SYSCLKSOURCE\_PLLCLK}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00095}00095\ \ \ RCC\_ClkInitStruct.\mbox{\hyperlink{struct_r_c_c___clk_init_type_def_a082c91ea9f270509aca7ae6ec42c2a54}{AHBCLKDivider}}\ =\ \mbox{\hyperlink{group___r_c_c___a_h_b___clock___source_ga226f5bf675015ea677868132b6b83494}{RCC\_SYSCLK\_DIV1}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00096}00096\ \ \ RCC\_ClkInitStruct.\mbox{\hyperlink{struct_r_c_c___clk_init_type_def_a994aca51c40decfc340e045da1a6ca19}{APB1CLKDivider}}\ =\ \mbox{\hyperlink{group___r_c_c___a_p_b1___a_p_b2___clock___source_ga85b5f4fd936e22a3f4df5ed756f6e083}{RCC\_HCLK\_DIV4}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00097}00097\ \ \ RCC\_ClkInitStruct.\mbox{\hyperlink{struct_r_c_c___clk_init_type_def_a9bbc30e9f4ddf462bc1fa6ea273eb4db}{APB2CLKDivider}}\ =\ \mbox{\hyperlink{group___r_c_c___a_p_b1___a_p_b2___clock___source_ga4d2ebcf280d85e8449a5fb7b994b5169}{RCC\_HCLK\_DIV2}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00099}00099\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group___r_c_c___exported___functions___group1_gadb770505476995fc13c2ca7290d9c484}{HAL\_RCC\_ClockConfig}}(\&RCC\_ClkInitStruct,\ FLASH\_LATENCY\_5)\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}})}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00100}00100\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00101}00101\ \ \ \ \ \mbox{\hyperlink{driver_8init_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00102}00102\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00111}00111\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ USART3\_UART\_Init(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00112}00112\ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00113}00113\ \ \ \mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}.Instance\ =\ \mbox{\hyperlink{group___peripheral__declaration_ga2350115553c1fe0a7bc14e6a7ec6a225}{USART3}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00114}00114\ \ \ \mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}.Init.BaudRate\ =\ 115200;}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00115}00115\ \ \ \mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}.Init.WordLength\ =\ \mbox{\hyperlink{group___u_a_r_t___word___length_gaf394e9abaf17932ee89591f990fe6407}{UART\_WORDLENGTH\_8B}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00116}00116\ \ \ \mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}.Init.StopBits\ =\ \mbox{\hyperlink{group___u_a_r_t___stop___bits_ga7cf97e555292d574de8abc596ba0e2ce}{UART\_STOPBITS\_1}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00117}00117\ \ \ \mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}.Init.Parity\ =\ \mbox{\hyperlink{group___u_a_r_t___parity_ga270dea6e1a92dd83fe58802450bdd60c}{UART\_PARITY\_NONE}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00118}00118\ \ \ \mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}.Init.Mode\ =\ \mbox{\hyperlink{group___u_a_r_t___mode_gab47c162935901e89322e2ce6700b6744}{UART\_MODE\_TX\_RX}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00119}00119\ \ \ \mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}.Init.HwFlowCtl\ =\ \mbox{\hyperlink{group___u_a_r_t___hardware___flow___control_gae0569001c06b7760cd38c481f84116cf}{UART\_HWCONTROL\_NONE}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00120}00120\ \ \ \mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}}.Init.OverSampling\ =\ \mbox{\hyperlink{group___u_a_r_t___over___sampling_gaa6a320ec65d248d76f21de818db1a2f0}{UART\_OVERSAMPLING\_16}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00121}00121\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{group___u_a_r_t___exported___functions___group1_gabe47045024787099b0bfa82bbe7b0b6a}{HAL\_UART\_Init}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}})\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}})}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00122}00122\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00123}00123\ \ \ \ \ \mbox{\hyperlink{driver_8init_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00124}00124\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00125}00125\ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00132}00132\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ GPIO\_Init(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00133}00133\ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00134}00134\ \ \ \mbox{\hyperlink{struct_g_p_i_o___init_type_def}{GPIO\_InitTypeDef}}\ GPIO\_InitStruct\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00135}00135\ \ \ \mbox{\hyperlink{group___r_c_c___a_h_b1___clock___enable___disable_ga5ebfeb136612f370950f52306d29b6fd}{\_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00136}00136\ \ \ \mbox{\hyperlink{group___r_c_c___a_h_b1___clock___enable___disable_ga041e72359b94f19569e774030fc6ebff}{\_\_HAL\_RCC\_GPIOH\_CLK\_ENABLE}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00137}00137\ \ \ \mbox{\hyperlink{group___r_c_c___a_h_b1___clock___enable___disable_ga1fde58d775fd2458002df817a68f486e}{\_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00138}00138\ \ \ \mbox{\hyperlink{group___r_c_c___a_h_b1___clock___enable___disable_ga5ad43f3f4d8163d40f7d402ef75d27c5}{\_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00139}00139\ \ \ \_\_HAL\_RCC\_GPIOD\_CLK\_ENABLE();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00140}00140\ \ \ \_\_HAL\_RCC\_GPIOG\_CLK\_ENABLE();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00142}00142\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pin\ Output\ Level\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00143}00143\ \ \ \mbox{\hyperlink{group___g_p_i_o___exported___functions___group2_gaf4b97bdf533a02f51ef696d43b6da5c4}{HAL\_GPIO\_WritePin}}(\mbox{\hyperlink{group___peripheral__declaration_ga68b66ac73be4c836db878a42e1fea3cd}{GPIOB}},\ \mbox{\hyperlink{main_8h_a6eff34015a2021110f6c96c0e1450e92}{LD1\_Pin}}|\mbox{\hyperlink{main_8h_a71154fae0eacbdf882bd1481164f0652}{LD3\_Pin}}|\mbox{\hyperlink{main_8h_af17a94dd613cff35c699b06c7c6a2820}{LD2\_Pin}},\ \mbox{\hyperlink{group___g_p_i_o___exported___types_gga5b3ef0486b179415581eb342e0ea6b43a90af2af95004ea61d76950ff3f2f6ec2}{GPIO\_PIN\_RESET}});}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00145}00145\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pin\ Output\ Level\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00146}00146\ \ \ \mbox{\hyperlink{group___g_p_i_o___exported___functions___group2_gaf4b97bdf533a02f51ef696d43b6da5c4}{HAL\_GPIO\_WritePin}}(\mbox{\hyperlink{main_8h_a5db7c0806ce6c115745ed14f60ab2adc}{USB\_PowerSwitchOn\_GPIO\_Port}},\ \mbox{\hyperlink{main_8h_ac6a2dc0fb5b4c97982241561d055071b}{USB\_PowerSwitchOn\_Pin}},\ \mbox{\hyperlink{group___g_p_i_o___exported___types_gga5b3ef0486b179415581eb342e0ea6b43a90af2af95004ea61d76950ff3f2f6ec2}{GPIO\_PIN\_RESET}});}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00148}00148\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pin\ :\ USER\_Btn\_Pin\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00149}00149\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a871d0ab74071724e96b7cc9ae2a7532b}{Pin}}\ =\ \mbox{\hyperlink{main_8h_a9ddc054768a8315b2a997ad15a7e89ae}{USER\_Btn\_Pin}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00150}00150\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}}\ =\ \mbox{\hyperlink{group___g_p_i_o__mode__define_ga088659562e68426d9a72821ea4fd8d50}{GPIO\_MODE\_IT\_RISING}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00151}00151\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a6cdde08eb507b710f8179a4326548e26}{Pull}}\ =\ \mbox{\hyperlink{group___g_p_i_o__pull__define_ga5c2862579882c1cc64e36d38fbd07a4c}{GPIO\_NOPULL}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00152}00152\ \ \ \mbox{\hyperlink{group___g_p_i_o___exported___functions___group1_ga41bda93b6dd639e4905fdb1454eff98e}{HAL\_GPIO\_Init}}(\mbox{\hyperlink{main_8h_ad6e307989b29ec5e1417d8a7f74f5b09}{USER\_Btn\_GPIO\_Port}},\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00154}00154\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pins\ :\ LD1\_Pin\ LD3\_Pin\ LD2\_Pin\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00155}00155\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a871d0ab74071724e96b7cc9ae2a7532b}{Pin}}\ =\ \mbox{\hyperlink{main_8h_a6eff34015a2021110f6c96c0e1450e92}{LD1\_Pin}}|\mbox{\hyperlink{main_8h_a71154fae0eacbdf882bd1481164f0652}{LD3\_Pin}}|\mbox{\hyperlink{main_8h_af17a94dd613cff35c699b06c7c6a2820}{LD2\_Pin}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00156}00156\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}}\ =\ \mbox{\hyperlink{group___g_p_i_o__mode__define_ga1013838a64cec2f8c88f079c449d1982}{GPIO\_MODE\_OUTPUT\_PP}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00157}00157\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a6cdde08eb507b710f8179a4326548e26}{Pull}}\ =\ \mbox{\hyperlink{group___g_p_i_o__pull__define_ga5c2862579882c1cc64e36d38fbd07a4c}{GPIO\_NOPULL}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00158}00158\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_ad04b2041f59d32492ec36a891418f3fd}{Speed}}\ =\ \mbox{\hyperlink{group___g_p_i_o__speed__define_gab7916c4265bfa1b26a5205ea9c1caa4e}{GPIO\_SPEED\_FREQ\_LOW}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00159}00159\ \ \ \mbox{\hyperlink{group___g_p_i_o___exported___functions___group1_ga41bda93b6dd639e4905fdb1454eff98e}{HAL\_GPIO\_Init}}(\mbox{\hyperlink{group___peripheral__declaration_ga68b66ac73be4c836db878a42e1fea3cd}{GPIOB}},\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00161}00161\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pin\ :\ USB\_PowerSwitchOn\_Pin\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00162}00162\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a871d0ab74071724e96b7cc9ae2a7532b}{Pin}}\ =\ \mbox{\hyperlink{main_8h_ac6a2dc0fb5b4c97982241561d055071b}{USB\_PowerSwitchOn\_Pin}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00163}00163\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}}\ =\ \mbox{\hyperlink{group___g_p_i_o__mode__define_ga1013838a64cec2f8c88f079c449d1982}{GPIO\_MODE\_OUTPUT\_PP}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00164}00164\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a6cdde08eb507b710f8179a4326548e26}{Pull}}\ =\ \mbox{\hyperlink{group___g_p_i_o__pull__define_ga5c2862579882c1cc64e36d38fbd07a4c}{GPIO\_NOPULL}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00165}00165\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_ad04b2041f59d32492ec36a891418f3fd}{Speed}}\ =\ \mbox{\hyperlink{group___g_p_i_o__speed__define_gab7916c4265bfa1b26a5205ea9c1caa4e}{GPIO\_SPEED\_FREQ\_LOW}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00166}00166\ \ \ \mbox{\hyperlink{group___g_p_i_o___exported___functions___group1_ga41bda93b6dd639e4905fdb1454eff98e}{HAL\_GPIO\_Init}}(\mbox{\hyperlink{main_8h_a5db7c0806ce6c115745ed14f60ab2adc}{USB\_PowerSwitchOn\_GPIO\_Port}},\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00168}00168\ \ \ \textcolor{comment}{/*Configure\ GPIO\ pin\ :\ USB\_OverCurrent\_Pin\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00169}00169\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a871d0ab74071724e96b7cc9ae2a7532b}{Pin}}\ =\ \mbox{\hyperlink{main_8h_a5f694023cd08d58c51d1180acdf9f23e}{USB\_OverCurrent\_Pin}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00170}00170\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}}\ =\ \mbox{\hyperlink{group___g_p_i_o__mode__define_gaf40bec3146810028a84b628d37d3b391}{GPIO\_MODE\_INPUT}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00171}00171\ \ \ GPIO\_InitStruct.\mbox{\hyperlink{struct_g_p_i_o___init_type_def_a6cdde08eb507b710f8179a4326548e26}{Pull}}\ =\ \mbox{\hyperlink{group___g_p_i_o__pull__define_ga5c2862579882c1cc64e36d38fbd07a4c}{GPIO\_NOPULL}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00172}00172\ \ \ \mbox{\hyperlink{group___g_p_i_o___exported___functions___group1_ga41bda93b6dd639e4905fdb1454eff98e}{HAL\_GPIO\_Init}}(\mbox{\hyperlink{main_8h_a1829ecac7848b602aa65b3b4015c27e3}{USB\_OverCurrent\_GPIO\_Port}},\ \&GPIO\_InitStruct);}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00174}00174\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ MX\_GPIO\_Init\_2\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00175}00175\ \textcolor{comment}{/*\ USER\ CODE\ END\ MX\_GPIO\_Init\_2\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00176}00176\ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00183}00183\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ USB\_OTG\_FS\_PCD\_Init(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00184}00184\ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00185}00185\ \ \ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}}.Instance\ =\ \mbox{\hyperlink{group___peripheral__declaration_ga9ebb053ee138fb47cdfede0e3371123d}{USB\_OTG\_FS}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00186}00186\ \ \ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}}.Init.dev\_endpoints\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00187}00187\ \ \ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}}.Init.speed\ =\ PCD\_SPEED\_FULL;}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00188}00188\ \ \ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}}.Init.dma\_enable\ =\ \mbox{\hyperlink{group___exported__types_ggac9a7e9a35d2513ec15c3b537aaa4fba1ad3a9df141be0ccf10389b640f492b26d}{DISABLE}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00189}00189\ \ \ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}}.Init.phy\_itface\ =\ PCD\_PHY\_EMBEDDED;}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00190}00190\ \ \ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}}.Init.Sof\_enable\ =\ \mbox{\hyperlink{group___exported__types_ggac9a7e9a35d2513ec15c3b537aaa4fba1a7d46875fa3ebd2c34d2756950eda83bf}{ENABLE}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00191}00191\ \ \ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}}.Init.low\_power\_enable\ =\ \mbox{\hyperlink{group___exported__types_ggac9a7e9a35d2513ec15c3b537aaa4fba1ad3a9df141be0ccf10389b640f492b26d}{DISABLE}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00192}00192\ \ \ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}}.Init.lpm\_enable\ =\ \mbox{\hyperlink{group___exported__types_ggac9a7e9a35d2513ec15c3b537aaa4fba1ad3a9df141be0ccf10389b640f492b26d}{DISABLE}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00193}00193\ \ \ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}}.Init.vbus\_sensing\_enable\ =\ \mbox{\hyperlink{group___exported__types_ggac9a7e9a35d2513ec15c3b537aaa4fba1a7d46875fa3ebd2c34d2756950eda83bf}{ENABLE}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00194}00194\ \ \ \mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}}.Init.use\_dedicated\_ep1\ =\ \mbox{\hyperlink{group___exported__types_ggac9a7e9a35d2513ec15c3b537aaa4fba1ad3a9df141be0ccf10389b640f492b26d}{DISABLE}};}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00195}00195\ \ \ \textcolor{keywordflow}{if}\ (HAL\_PCD\_Init(\&\mbox{\hyperlink{driver__init_8h_a3ec0d70a6cb9406d997fb3d006cc940d}{hpcd\_USB\_OTG\_FS}})\ !=\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}})}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00196}00196\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00197}00197\ \ \ \ \ \mbox{\hyperlink{driver_8init_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00198}00198\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00199}00199\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ USB\_OTG\_FS\_Init\ 2\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00201}00201\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ USB\_OTG\_FS\_Init\ 2\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00203}00203\ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00206}\mbox{\hyperlink{group___t_i_m___exported___functions___group9_ga8a3b0ad512a6e6c6157440b68d395eac}{00206}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___t_i_m___exported___functions___group9_ga8a3b0ad512a6e6c6157440b68d395eac}{HAL\_TIM\_PeriodElapsedCallback}}(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim)}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00207}00207\ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00208}00208\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Callback\ 0\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00210}00210\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ Callback\ 0\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00211}00211\ \ \ \textcolor{keywordflow}{if}\ (htim-\/>\mbox{\hyperlink{struct_t_i_m___handle_type_def_a4076faade36875a6a05767135bb70b86}{Instance}}\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga2e87451fea8dc9380056d3cfc5ed81fb}{TIM1}})\ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00212}00212\ \ \ \ \ \mbox{\hyperlink{group___h_a_l___exported___functions___group2_gaba5b726bfedd013bf7bb5a51d5c4f188}{HAL\_IncTick}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00213}00213\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00214}00214\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Callback\ 1\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00216}00216\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ Callback\ 1\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00217}00217\ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00219}\mbox{\hyperlink{main_8h_a1730ffe1e560465665eb47d9264826f9}{00219}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{driver_8init_8c_a1730ffe1e560465665eb47d9264826f9}{Error\_Handler}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00220}00220\ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00221}00221\ \ \ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Error\_Handler\_Debug\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00222}00222\ \ \ \textcolor{comment}{/*\ User\ can\ add\ his\ own\ implementation\ to\ report\ the\ HAL\ error\ return\ state\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00223}00223\ \ \ \mbox{\hyperlink{group___c_m_s_i_s___core___reg_acc_functions_ga9a8f966bf50cc372e7ac092f612efd1a}{\_\_disable\_irq}}();}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00224}00224\ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00225}00225\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00226}00226\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00227}00227\ \ \ \textcolor{comment}{/*\ USER\ CODE\ END\ Error\_Handler\_Debug\ */}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00228}00228\ \}}
+\DoxyCodeLine{\Hypertarget{driver_8init_8c_source_l00229}00229\ }
+
+\end{DoxyCode}

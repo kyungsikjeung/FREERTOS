@@ -1,0 +1,1405 @@
+\doxysection{stm32f4xx\+\_\+ll\+\_\+rcc.\+c}
+\hypertarget{stm32f4xx__ll__rcc_8c_source}{}\label{stm32f4xx__ll__rcc_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_ll\_rcc.c@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_ll\_rcc.c}}
+\mbox{\hyperlink{stm32f4xx__ll__rcc_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00017}00017\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00019}00019\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__ll__rcc_8h}{stm32f4xx\_ll\_rcc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00021}00021\ \textcolor{preprocessor}{\#ifdef\ \ USE\_FULL\_ASSERT}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}stm32\_assert.h"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00023}00023\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00024}00024\ \textcolor{preprocessor}{\#define\ assert\_param(expr)\ ((void)0U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00025}00025\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_FULL\_ASSERT\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00030}00030\ \textcolor{preprocessor}{\#if\ defined(RCC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00036}00036\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00037}00037\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00038}00038\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00039}00039\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00043}00043\ \textcolor{preprocessor}{\#if\ defined(FMPI2C1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00044}00044\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_FMPI2C\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ \ ((\_\_VALUE\_\_)\ ==\ LL\_RCC\_FMPI2C1\_CLKSOURCE)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00045}00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ FMPI2C1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00047}00047\ \textcolor{preprocessor}{\#if\ defined(LPTIM1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00048}00048\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_LPTIM\_CLKSOURCE(\_\_VALUE\_\_)\ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_LPTIM1\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00049}00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LPTIM1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00051}00051\ \textcolor{preprocessor}{\#if\ defined(SAI1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00052}00052\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_SAI1SRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00053}00053\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_SAI\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_SAI1\_CLKSOURCE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00054}00054\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RCC\_SAI2\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00055}00055\ \textcolor{preprocessor}{\#elif\ defined(RCC\_DCKCFGR\_SAI1ASRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00056}00056\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_SAI\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_SAI1\_A\_CLKSOURCE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00057}00057\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RCC\_SAI1\_B\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00058}00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_SAI1SRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00059}00059\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SAI1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00061}00061\ \textcolor{preprocessor}{\#if\ defined(SDIO)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00062}00062\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_SDIO\_CLKSOURCE(\_\_VALUE\_\_)\ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_SDIO\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00063}00063\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SDIO\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00065}00065\ \textcolor{preprocessor}{\#if\ defined(RNG)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00066}00066\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_RNG\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_RNG\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00067}00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RNG\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00069}00069\ \textcolor{preprocessor}{\#if\ defined(USB\_OTG\_FS)\ ||\ defined(USB\_OTG\_HS)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00070}00070\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_USB\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_USB\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00071}00071\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USB\_OTG\_FS\ ||\ USB\_OTG\_HS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00073}00073\ \textcolor{preprocessor}{\#if\ defined(DFSDM2\_Channel0)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00074}00074\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_DFSDM\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_DFSDM1\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00076}00076\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_DFSDM\_AUDIO\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_DFSDM1\_AUDIO\_CLKSOURCE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00077}00077\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RCC\_DFSDM2\_AUDIO\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00078}00078\ \textcolor{preprocessor}{\#elif\ defined(DFSDM1\_Channel0)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00079}00079\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_DFSDM\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_DFSDM1\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00081}00081\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_DFSDM\_AUDIO\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_DFSDM1\_AUDIO\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00082}00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DFSDM2\_Channel0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00084}00084\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_I2S2SRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00085}00085\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_I2S\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_I2S1\_CLKSOURCE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00086}00086\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_RCC\_I2S2\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00087}00087\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00088}00088\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_I2S\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_I2S1\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00089}00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_I2S2SRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00091}00091\ \textcolor{preprocessor}{\#if\ defined(CEC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00092}00092\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_CEC\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_CEC\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00093}00093\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CEC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00095}00095\ \textcolor{preprocessor}{\#if\ defined(DSI)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00096}00096\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_DSI\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_DSI\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00097}00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DSI\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00099}00099\ \textcolor{preprocessor}{\#if\ defined(LTDC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00100}00100\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_LTDC\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_LTDC\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00101}00101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LTDC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00103}00103\ \textcolor{preprocessor}{\#if\ defined(SPDIFRX)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00104}00104\ \textcolor{preprocessor}{\#define\ IS\_LL\_RCC\_SPDIFRX\_CLKSOURCE(\_\_VALUE\_\_)\ \ \ \ (((\_\_VALUE\_\_)\ ==\ LL\_RCC\_SPDIFRX1\_CLKSOURCE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00105}00105\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SPDIFRX\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00110}00110\ \textcolor{comment}{/*\ Private\ function\ prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00114}00114\ uint32\_t\ RCC\_GetSystemClockFreq(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00115}00115\ uint32\_t\ RCC\_GetHCLKClockFreq(uint32\_t\ SYSCLK\_Frequency);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00116}00116\ uint32\_t\ RCC\_GetPCLK1ClockFreq(uint32\_t\ HCLK\_Frequency);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00117}00117\ uint32\_t\ RCC\_GetPCLK2ClockFreq(uint32\_t\ HCLK\_Frequency);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00118}00118\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_SYS(uint32\_t\ SYSCLK\_Source);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00119}00119\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_48M(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00120}00120\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_I2SSRC)\ ||\ defined(RCC\_DCKCFGR\_I2S1SRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00121}00121\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_I2S(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00122}00122\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_I2SSRC\ ||\ RCC\_DCKCFGR\_I2S1SRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00123}00123\ \textcolor{preprocessor}{\#if\ defined(SPDIFRX)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00124}00124\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_SPDIFRX(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00125}00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SPDIFRX\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00126}00126\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLCFGR\_PLLR)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00127}00127\ \textcolor{preprocessor}{\#if\ defined(SAI1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00128}00128\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_SAI(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00129}00129\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SAI1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00130}00130\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLCFGR\_PLLR\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00131}00131\ \textcolor{preprocessor}{\#if\ defined(DSI)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00132}00132\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_DSI(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00133}00133\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DSI\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00134}00134\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLSAI\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00135}00135\ uint32\_t\ RCC\_PLLSAI\_GetFreqDomain\_SAI(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00136}00136\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLSAICFGR\_PLLSAIP)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00137}00137\ uint32\_t\ RCC\_PLLSAI\_GetFreqDomain\_48M(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00138}00138\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLSAICFGR\_PLLSAIP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00139}00139\ \textcolor{preprocessor}{\#if\ defined(LTDC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00140}00140\ uint32\_t\ RCC\_PLLSAI\_GetFreqDomain\_LTDC(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00141}00141\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LTDC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00142}00142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLSAI\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00143}00143\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2S\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00144}00144\ uint32\_t\ RCC\_PLLI2S\_GetFreqDomain\_I2S(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00145}00145\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2SCFGR\_PLLI2SQ)\ \&\&\ !defined(RCC\_DCKCFGR\_PLLI2SDIVQ)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00146}00146\ uint32\_t\ RCC\_PLLI2S\_GetFreqDomain\_48M(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00147}00147\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2SCFGR\_PLLI2SQ\ \&\&\ !RCC\_DCKCFGR\_PLLI2SDIVQ\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00148}00148\ \textcolor{preprocessor}{\#if\ defined(SAI1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00149}00149\ uint32\_t\ RCC\_PLLI2S\_GetFreqDomain\_SAI(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00150}00150\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SAI1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00151}00151\ \textcolor{preprocessor}{\#if\ defined(SPDIFRX)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00152}00152\ uint32\_t\ RCC\_PLLI2S\_GetFreqDomain\_SPDIFRX(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00153}00153\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SPDIFRX\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00154}00154\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2S\_SUPPORT\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00160}00160\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00184}00184\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_RCC\_DeInit(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00185}00185\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00186}00186\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ vl\_mask;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00188}00188\ \ \ \textcolor{comment}{/*\ Set\ HSION\ bit\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00189}00189\ \ \ LL\_RCC\_HSI\_Enable();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00191}00191\ \ \ \textcolor{comment}{/*\ Wait\ for\ HSI\ READY\ bit\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00192}00192\ \ \ \textcolor{keywordflow}{while}\ (LL\_RCC\_HSI\_IsReady()\ !=\ 1U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00193}00193\ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00195}00195\ \ \ \textcolor{comment}{/*\ Reset\ CFGR\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00196}00196\ \ \ LL\_RCC\_WriteReg(CFGR,\ 0x00000000U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00198}00198\ \ \ \textcolor{comment}{/*\ Read\ CR\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00199}00199\ \ \ vl\_mask\ =\ LL\_RCC\_ReadReg(CR);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00201}00201\ \ \ \textcolor{comment}{/*\ Reset\ HSEON,\ HSEBYP,\ PLLON,\ CSSON\ bits\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00202}00202\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(vl\_mask,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gadb8228c9020595b4cf9995137b8c9a7d}{RCC\_CR\_HSEON}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaa3288090671af5a959aae4d7f7696d55}{RCC\_CR\_HSEBYP}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad0e73d5b0a4883e074d40029b49ee47e}{RCC\_CR\_PLLON}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gacc05308869ad055e1e6f2c32d738aecd}{RCC\_CR\_CSSON}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00205}00205\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLSAI\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00206}00206\ \ \ \textcolor{comment}{/*\ Reset\ PLLSAION\ bit\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00207}00207\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(vl\_mask,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gafe6e58efc5730641fd3282ba749e4d1b}{RCC\_CR\_PLLSAION}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00208}00208\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLSAI\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00210}00210\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2S\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00211}00211\ \ \ \textcolor{comment}{/*\ Reset\ PLLI2SON\ bit\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00212}00212\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(vl\_mask,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3ccb8964b640530f1080f9ea549d8133}{RCC\_CR\_PLLI2SON}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00213}00213\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2S\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00215}00215\ \ \ \textcolor{comment}{/*\ Write\ new\ value\ in\ CR\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00216}00216\ \ \ LL\_RCC\_WriteReg(CR,\ vl\_mask);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00218}00218\ \ \ \textcolor{comment}{/*\ Set\ HSITRIM\ bits\ to\ the\ reset\ value*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00219}00219\ \ \ LL\_RCC\_HSI\_SetCalibTrimming(0x10U);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00221}00221\ \ \ \textcolor{comment}{/*\ Wait\ for\ PLL\ READY\ bit\ to\ be\ reset\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00222}00222\ \ \ \textcolor{keywordflow}{while}\ (LL\_RCC\_PLL\_IsReady()\ !=\ 0U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00223}00223\ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00225}00225\ \ \ \textcolor{comment}{/*\ Reset\ PLLCFGR\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00226}00226\ \ \ LL\_RCC\_WriteReg(PLLCFGR,\ \mbox{\hyperlink{group___exported__macros_gab0a3c8475d96f7bb0c8a6b8a7e0c943c}{RCC\_PLLCFGR\_RST\_VALUE}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00228}00228\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2S\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00229}00229\ \ \ \textcolor{comment}{/*\ Reset\ PLLI2SCFGR\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00230}00230\ \ \ LL\_RCC\_WriteReg(PLLI2SCFGR,\ \mbox{\hyperlink{group___exported__macros_gab5ca7e3fcb49274bb60c660221bbca5b}{RCC\_PLLI2SCFGR\_RST\_VALUE}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00231}00231\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2S\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00233}00233\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLSAI\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00234}00234\ \ \ \textcolor{comment}{/*\ Reset\ PLLSAICFGR\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00235}00235\ \ \ LL\_RCC\_WriteReg(PLLSAICFGR,\ \mbox{\hyperlink{group___exported__macros_ga0ce0a3354926bb0035c77f91e1813d35}{RCC\_PLLSAICFGR\_RST\_VALUE}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00236}00236\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLSAI\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00238}00238\ \ \ \textcolor{comment}{/*\ Disable\ all\ interrupts\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00239}00239\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>CIR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga872ba937149a7372138df06f8188ab56}{RCC\_CIR\_LSIRDYIE}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6a0ad2672c9ba1b26012cbc6d423dff8}{RCC\_CIR\_LSERDYIE}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac714351a6f9dab4741354fb017638580}{RCC\_CIR\_HSIRDYIE}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5492f9b58600cf66616eb931b48b3c11}{RCC\_CIR\_HSERDYIE}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1b70927cab2ba9cf82d1620cf88b0f95}{RCC\_CIR\_PLLRDYIE}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00241}00241\ \textcolor{preprocessor}{\#if\ defined(RCC\_CIR\_PLLI2SRDYIE)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00242}00242\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>CIR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1ca3cbf69c7cce53e974316dbf38d3dc}{RCC\_CIR\_PLLI2SRDYIE}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00243}00243\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_CIR\_PLLI2SRDYIE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00245}00245\ \textcolor{preprocessor}{\#if\ defined(RCC\_CIR\_PLLSAIRDYIE)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00246}00246\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>CIR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaea7017a347f40972bc457594991a5470}{RCC\_CIR\_PLLSAIRDYIE}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00247}00247\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_CIR\_PLLSAIRDYIE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00249}00249\ \ \ \textcolor{comment}{/*\ Clear\ all\ interrupt\ flags\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00250}00250\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>CIR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga982989563f1a95c89bf7f4a25d99f704}{RCC\_CIR\_LSIRDYC}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga144b5147f3a8d0bfda04618e301986aa}{RCC\_CIR\_LSERDYC}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad1b58377908e5c31a684747d0a80ecb2}{RCC\_CIR\_HSIRDYC}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9464e8188d717902990b467a9396d238}{RCC\_CIR\_HSERDYC}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga245af864b194f0c2b2389ea1ee49a396}{RCC\_CIR\_PLLRDYC}}\ |}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga46edb2b9568f002feba7b4312ed92c1f}{RCC\_CIR\_CSSC}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00253}00253\ \textcolor{preprocessor}{\#if\ defined(RCC\_CIR\_PLLI2SRDYC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00254}00254\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>CIR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga73e79cc7236f5f76cb97c8012771e6bb}{RCC\_CIR\_PLLI2SRDYC}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00255}00255\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_CIR\_PLLI2SRDYC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00257}00257\ \textcolor{preprocessor}{\#if\ defined(RCC\_CIR\_PLLSAIRDYC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00258}00258\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>CIR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga425b11a624411ace33a1884128175f4f}{RCC\_CIR\_PLLSAIRDYC}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00259}00259\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_CIR\_PLLSAIRDYC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00261}00261\ \ \ \textcolor{comment}{/*\ Clear\ LSION\ bit\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00262}00262\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>CSR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga803cbf97bda1ebaf9afee2a3c9f0851b}{RCC\_CSR\_LSION}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00264}00264\ \ \ \textcolor{comment}{/*\ Reset\ all\ CSR\ flags\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00265}00265\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(\mbox{\hyperlink{group___peripheral__declaration_ga74944438a086975793d26ae48d5882d4}{RCC}}-\/>CSR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gafc26c5996b14005a70afbeaa29aae716}{RCC\_CSR\_RMVF}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00267}00267\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00268}00268\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00303}00303\ \textcolor{keywordtype}{void}\ LL\_RCC\_GetSystemClocksFreq(LL\_RCC\_ClocksTypeDef\ *RCC\_Clocks)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00304}00304\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00305}00305\ \ \ \textcolor{comment}{/*\ Get\ SYSCLK\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00306}00306\ \ \ RCC\_Clocks-\/>SYSCLK\_Frequency\ =\ RCC\_GetSystemClockFreq();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00308}00308\ \ \ \textcolor{comment}{/*\ HCLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00309}00309\ \ \ RCC\_Clocks-\/>HCLK\_Frequency\ \ \ =\ RCC\_GetHCLKClockFreq(RCC\_Clocks-\/>SYSCLK\_Frequency);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00311}00311\ \ \ \textcolor{comment}{/*\ PCLK1\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00312}00312\ \ \ RCC\_Clocks-\/>PCLK1\_Frequency\ \ =\ RCC\_GetPCLK1ClockFreq(RCC\_Clocks-\/>HCLK\_Frequency);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00314}00314\ \ \ \textcolor{comment}{/*\ PCLK2\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00315}00315\ \ \ RCC\_Clocks-\/>PCLK2\_Frequency\ \ =\ RCC\_GetPCLK2ClockFreq(RCC\_Clocks-\/>HCLK\_Frequency);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00316}00316\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00318}00318\ \textcolor{preprocessor}{\#if\ defined(FMPI2C1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00326}00326\ uint32\_t\ LL\_RCC\_GetFMPI2CClockFreq(uint32\_t\ FMPI2CxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00327}00327\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00328}00328\ \ \ uint32\_t\ FMPI2C\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00330}00330\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00331}00331\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_FMPI2C\_CLKSOURCE(FMPI2CxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00333}00333\ \ \ \textcolor{keywordflow}{if}\ (FMPI2CxSource\ ==\ LL\_RCC\_FMPI2C1\_CLKSOURCE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00334}00334\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00335}00335\ \ \ \ \ \textcolor{comment}{/*\ FMPI2C1\ CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00336}00336\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetFMPI2CClockSource(FMPI2CxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00337}00337\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00338}00338\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_FMPI2C1\_CLKSOURCE\_SYSCLK:\ \textcolor{comment}{/*\ FMPI2C1\ Clock\ is\ System\ Clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00339}00339\ \ \ \ \ \ \ \ \ FMPI2C\_frequency\ =\ RCC\_GetSystemClockFreq();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00340}00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00342}00342\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_FMPI2C1\_CLKSOURCE\_HSI:\ \ \ \ \textcolor{comment}{/*\ FMPI2C1\ Clock\ is\ HSI\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00343}00343\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ FMPI2C\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00346}00346\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00347}00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00349}00349\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_FMPI2C1\_CLKSOURCE\_PCLK1:\ \ \textcolor{comment}{/*\ FMPI2C1\ Clock\ is\ PCLK1\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00350}00350\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00351}00351\ \ \ \ \ \ \ \ \ FMPI2C\_frequency\ =\ RCC\_GetPCLK1ClockFreq(RCC\_GetHCLKClockFreq(RCC\_GetSystemClockFreq()));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00352}00352\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00353}00353\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00354}00354\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00355}00355\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00356}00356\ \ \ \textcolor{keywordflow}{return}\ FMPI2C\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00357}00357\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00358}00358\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ FMPI2C1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00370}00370\ uint32\_t\ LL\_RCC\_GetI2SClockFreq(uint32\_t\ I2SxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00371}00371\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00372}00372\ \ \ uint32\_t\ i2s\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00373}00373\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00374}00374\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00375}00375\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_I2S\_CLKSOURCE(I2SxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00376}00376\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00377}00377\ \ \ \textcolor{keywordflow}{if}\ (I2SxSource\ ==\ LL\_RCC\_I2S1\_CLKSOURCE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00378}00378\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00379}00379\ \ \ \ \ \textcolor{comment}{/*\ I2S1\ CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00380}00380\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetI2SClockSource(I2SxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00381}00381\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00382}00382\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2S\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00383}00383\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_I2S1\_CLKSOURCE\_PLLI2S:\ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S1\ Clock\ is\ PLLI2S\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00384}00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLI2S\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00385}00385\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ i2s\_frequency\ =\ RCC\_PLLI2S\_GetFreqDomain\_I2S();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00387}00387\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00388}00388\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00389}00389\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2S\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00391}00391\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_I2SSRC)\ ||\ defined(RCC\_DCKCFGR\_I2S1SRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00392}00392\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_I2S1\_CLKSOURCE\_PLL:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S1\ Clock\ is\ PLL\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00393}00393\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00394}00394\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ i2s\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_I2S();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00396}00396\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00397}00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00399}00399\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_I2S1\_CLKSOURCE\_PLLSRC:\ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S1\ Clock\ is\ PLL\ Main\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00400}00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_PLL\_GetMainSource())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00401}00401\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S1\ Clock\ is\ HSE\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSE\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2s\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00408}00408\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S1\ Clock\ is\ HSI\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00412}00412\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2s\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00416}00416\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00417}00417\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00418}00418\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_I2SSRC\ ||\ RCC\_DCKCFGR\_I2S1SRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00420}00420\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_I2S1\_CLKSOURCE\_PIN:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S1\ Clock\ is\ External\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00421}00421\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00422}00422\ \ \ \ \ \ \ \ \ i2s\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a8c47c935e91e70569098b41718558648}{EXTERNAL\_CLOCK\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00423}00423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00424}00424\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00425}00425\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00426}00426\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_I2S2SRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00427}00427\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00428}00428\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00429}00429\ \ \ \ \ \textcolor{comment}{/*\ I2S2\ CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00430}00430\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetI2SClockSource(I2SxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00431}00431\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00432}00432\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_I2S2\_CLKSOURCE\_PLLI2S:\ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S2\ Clock\ is\ PLLI2S\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00433}00433\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLI2S\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00434}00434\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ i2s\_frequency\ =\ RCC\_PLLI2S\_GetFreqDomain\_I2S();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00436}00436\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00437}00437\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00439}00439\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_I2S2\_CLKSOURCE\_PLL:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S2\ Clock\ is\ PLL\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00440}00440\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00441}00441\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ i2s\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_I2S();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00443}00443\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00444}00444\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00445}00445\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00446}00446\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_I2S2\_CLKSOURCE\_PLLSRC:\ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S2\ Clock\ is\ PLL\ Main\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00447}00447\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_PLL\_GetMainSource())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00448}00448\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00449}00449\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S2\ Clock\ is\ HSE\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00450}00450\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSE\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00451}00451\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2s\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00454}00454\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00455}00455\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00456}00456\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S2\ Clock\ is\ HSI\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00460}00460\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2s\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00461}00461\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00462}00462\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00463}00463\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00464}00464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00466}00466\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_I2S2\_CLKSOURCE\_PIN:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ I2S2\ Clock\ is\ External\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00467}00467\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00468}00468\ \ \ \ \ \ \ \ \ i2s\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a8c47c935e91e70569098b41718558648}{EXTERNAL\_CLOCK\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00469}00469\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00470}00470\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00471}00471\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00472}00472\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_I2S2SRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00473}00473\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00474}00474\ \ \ \textcolor{keywordflow}{return}\ i2s\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00475}00475\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00476}00476\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00477}00477\ \textcolor{preprocessor}{\#if\ defined(LPTIM1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00485}00485\ uint32\_t\ LL\_RCC\_GetLPTIMClockFreq(uint32\_t\ LPTIMxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00486}00486\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00487}00487\ \ \ uint32\_t\ lptim\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00488}00488\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00489}00489\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00490}00490\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_LPTIM\_CLKSOURCE(LPTIMxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00492}00492\ \ \ \textcolor{keywordflow}{if}\ (LPTIMxSource\ ==\ LL\_RCC\_LPTIM1\_CLKSOURCE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00493}00493\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00494}00494\ \ \ \ \ \textcolor{comment}{/*\ LPTIM1CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00495}00495\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetLPTIMClockSource(LPTIMxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00496}00496\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00497}00497\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_LPTIM1\_CLKSOURCE\_LSI:\ \ \ \ \textcolor{comment}{/*\ LPTIM1\ Clock\ is\ LSI\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00498}00498\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_LSI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00499}00499\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00500}00500\ \ \ \ \ \ \ \ \ \ \ lptim\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a4872023e65449c0506aac3ea6bec99e9}{LSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00501}00501\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00502}00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00503}00503\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00504}00504\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_LPTIM1\_CLKSOURCE\_HSI:\ \ \ \ \textcolor{comment}{/*\ LPTIM1\ Clock\ is\ HSI\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00505}00505\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00506}00506\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ lptim\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00508}00508\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00509}00509\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00510}00510\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00511}00511\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_LPTIM1\_CLKSOURCE\_LSE:\ \ \ \ \textcolor{comment}{/*\ LPTIM1\ Clock\ is\ LSE\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00512}00512\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_LSE\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00513}00513\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00514}00514\ \ \ \ \ \ \ \ \ \ \ lptim\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a7bbb9d19e5189a6ccd0fb6fa6177d20d}{LSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00515}00515\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00516}00516\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00517}00517\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00518}00518\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_LPTIM1\_CLKSOURCE\_PCLK1:\ \ \textcolor{comment}{/*\ LPTIM1\ Clock\ is\ PCLK1\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00519}00519\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00520}00520\ \ \ \ \ \ \ \ \ lptim\_frequency\ =\ RCC\_GetPCLK1ClockFreq(RCC\_GetHCLKClockFreq(RCC\_GetSystemClockFreq()));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00521}00521\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00522}00522\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00523}00523\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00524}00524\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00525}00525\ \ \ \textcolor{keywordflow}{return}\ lptim\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00526}00526\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00527}00527\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LPTIM1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00528}00528\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00529}00529\ \textcolor{preprocessor}{\#if\ defined(SAI1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00542}00542\ uint32\_t\ LL\_RCC\_GetSAIClockFreq(uint32\_t\ SAIxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00543}00543\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00544}00544\ \ \ uint32\_t\ sai\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00545}00545\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00546}00546\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00547}00547\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_SAI\_CLKSOURCE(SAIxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00548}00548\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00549}00549\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_SAI1SRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00550}00550\ \ \ \textcolor{keywordflow}{if}\ ((SAIxSource\ ==\ LL\_RCC\_SAI1\_CLKSOURCE)\ ||\ (SAIxSource\ ==\ LL\_RCC\_SAI2\_CLKSOURCE))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00551}00551\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00552}00552\ \ \ \ \ \textcolor{comment}{/*\ SAI1CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00553}00553\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetSAIClockSource(SAIxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00554}00554\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00555}00555\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_CLKSOURCE\_PLLSAI:\ \ \ \ \ \textcolor{comment}{/*\ PLLSAI\ clock\ used\ as\ SAI1\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00556}00556\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI2\_CLKSOURCE\_PLLSAI:\ \ \ \ \ \textcolor{comment}{/*\ PLLSAI\ clock\ used\ as\ SAI2\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00557}00557\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLSAI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00558}00558\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00559}00559\ \ \ \ \ \ \ \ \ \ \ sai\_frequency\ =\ RCC\_PLLSAI\_GetFreqDomain\_SAI();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00560}00560\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00561}00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00562}00562\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00563}00563\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_CLKSOURCE\_PLLI2S:\ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\ clock\ used\ as\ SAI1\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00564}00564\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI2\_CLKSOURCE\_PLLI2S:\ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\ clock\ used\ as\ SAI2\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00565}00565\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLI2S\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00566}00566\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00567}00567\ \ \ \ \ \ \ \ \ \ \ sai\_frequency\ =\ RCC\_PLLI2S\_GetFreqDomain\_SAI();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00568}00568\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00569}00569\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00570}00570\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00571}00571\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_CLKSOURCE\_PLL:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ SAI1\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00572}00572\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI2\_CLKSOURCE\_PLL:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ SAI2\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00573}00573\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00574}00574\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00575}00575\ \ \ \ \ \ \ \ \ \ \ sai\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_SAI();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00576}00576\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00577}00577\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00578}00578\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00579}00579\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI2\_CLKSOURCE\_PLLSRC:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00580}00580\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_PLL\_GetMainSource())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00581}00581\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00582}00582\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ HSE\ clock\ used\ as\ SAI2\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00583}00583\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSE\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00584}00584\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00585}00585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sai\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00586}00586\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00587}00587\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00588}00588\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00589}00589\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ HSI\ clock\ used\ as\ SAI2\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00590}00590\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00591}00591\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00592}00592\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00593}00593\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sai\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00594}00594\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00595}00595\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00596}00596\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00597}00597\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00598}00598\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00599}00599\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_CLKSOURCE\_PIN:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ External\ input\ clock\ used\ as\ SAI1\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00600}00600\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00601}00601\ \ \ \ \ \ \ \ \ sai\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a8c47c935e91e70569098b41718558648}{EXTERNAL\_CLOCK\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00602}00602\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00603}00603\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00604}00604\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00605}00605\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_SAI1SRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00606}00606\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_SAI1ASRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00607}00607\ \ \ \textcolor{keywordflow}{if}\ ((SAIxSource\ ==\ LL\_RCC\_SAI1\_A\_CLKSOURCE)\ ||\ (SAIxSource\ ==\ LL\_RCC\_SAI1\_B\_CLKSOURCE))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00608}00608\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00609}00609\ \ \ \ \ \textcolor{comment}{/*\ SAI1CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00610}00610\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetSAIClockSource(SAIxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00611}00611\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00612}00612\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLSAI\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00613}00613\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_A\_CLKSOURCE\_PLLSAI:\ \ \ \ \ \textcolor{comment}{/*\ PLLSAI\ clock\ used\ as\ SAI1\ Block\ A\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00614}00614\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_B\_CLKSOURCE\_PLLSAI:\ \ \ \ \ \textcolor{comment}{/*\ PLLSAI\ clock\ used\ as\ SAI1\ Block\ B\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00615}00615\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLSAI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00616}00616\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00617}00617\ \ \ \ \ \ \ \ \ \ \ sai\_frequency\ =\ RCC\_PLLSAI\_GetFreqDomain\_SAI();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00618}00618\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00619}00619\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00620}00620\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLSAI\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00621}00621\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00622}00622\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_A\_CLKSOURCE\_PLLI2S:\ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\ clock\ used\ as\ SAI1\ Block\ A\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00623}00623\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_B\_CLKSOURCE\_PLLI2S:\ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\ clock\ used\ as\ SAI1\ Block\ B\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00624}00624\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLI2S\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00625}00625\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00626}00626\ \ \ \ \ \ \ \ \ \ \ sai\_frequency\ =\ RCC\_PLLI2S\_GetFreqDomain\_SAI();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00627}00627\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00628}00628\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00629}00629\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00630}00630\ \textcolor{preprocessor}{\#if\ defined(RCC\_SAI1A\_PLLSOURCE\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00631}00631\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_A\_CLKSOURCE\_PLL:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ SAI1\ Block\ A\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00632}00632\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_B\_CLKSOURCE\_PLL:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ SAI1\ Block\ B\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00633}00633\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00634}00634\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00635}00635\ \ \ \ \ \ \ \ \ \ \ sai\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_SAI();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00636}00636\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00637}00637\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00638}00638\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00639}00639\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_A\_CLKSOURCE\_PLLSRC:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00640}00640\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_B\_CLKSOURCE\_PLLSRC:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00641}00641\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_PLL\_GetMainSource())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00642}00642\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00643}00643\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ HSE\ clock\ used\ as\ SAI1\ Block\ A\ or\ B\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00644}00644\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSE\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00645}00645\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00646}00646\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sai\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00647}00647\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00648}00648\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00649}00649\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00650}00650\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ HSI\ clock\ used\ as\ SAI1\ Block\ A\ or\ B\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00651}00651\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00652}00652\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00653}00653\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00654}00654\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sai\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00655}00655\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00656}00656\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00657}00657\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00658}00658\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00659}00659\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_SAI1A\_PLLSOURCE\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00660}00660\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00661}00661\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_A\_CLKSOURCE\_PIN:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ External\ input\ clock\ used\ as\ SAI1\ Block\ A\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00662}00662\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SAI1\_B\_CLKSOURCE\_PIN:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ External\ input\ clock\ used\ as\ SAI1\ Block\ B\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00663}00663\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00664}00664\ \ \ \ \ \ \ \ \ sai\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a8c47c935e91e70569098b41718558648}{EXTERNAL\_CLOCK\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00665}00665\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00666}00666\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00667}00667\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00668}00668\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_SAI1ASRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00669}00669\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00670}00670\ \ \ \textcolor{keywordflow}{return}\ sai\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00671}00671\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00672}00672\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SAI1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00673}00673\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00674}00674\ \textcolor{preprocessor}{\#if\ defined(SDIO)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00682}00682\ uint32\_t\ LL\_RCC\_GetSDIOClockFreq(uint32\_t\ SDIOxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00683}00683\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00684}00684\ \ \ uint32\_t\ SDIO\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00685}00685\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00686}00686\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00687}00687\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_SDIO\_CLKSOURCE(SDIOxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00688}00688\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00689}00689\ \ \ \textcolor{keywordflow}{if}\ (SDIOxSource\ ==\ LL\_RCC\_SDIO\_CLKSOURCE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00690}00690\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00691}00691\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_SDIOSEL)\ ||\ defined(RCC\_DCKCFGR2\_SDIOSEL)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00692}00692\ \ \ \ \ \textcolor{comment}{/*\ SDIOCLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00693}00693\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetSDIOClockSource(SDIOxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00694}00694\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00695}00695\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SDIO\_CLKSOURCE\_PLL48CLK:\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLL48M\ clock\ used\ as\ SDIO\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00696}00696\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetCK48MClockSource(LL\_RCC\_CK48M\_CLKSOURCE))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00697}00697\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00698}00698\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_CK48M\_CLKSOURCE\_PLL:\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ 48Mhz\ domain\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00699}00699\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00700}00700\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00701}00701\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDIO\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00702}00702\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00703}00703\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00704}00704\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00705}00705\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLSAI\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00706}00706\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_CK48M\_CLKSOURCE\_PLLSAI:\ \ \ \ \ \ \textcolor{comment}{/*\ PLLSAI\ clock\ used\ as\ 48Mhz\ domain\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00707}00707\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00708}00708\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLSAI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00709}00709\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00710}00710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDIO\_frequency\ =\ RCC\_PLLSAI\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00711}00711\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00712}00712\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00713}00713\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLSAI\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00714}00714\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00715}00715\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2SCFGR\_PLLI2SQ)\ \&\&\ !defined(RCC\_DCKCFGR\_PLLI2SDIVQ)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00716}00716\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_CK48M\_CLKSOURCE\_PLLI2S:\ \ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\ clock\ used\ as\ 48Mhz\ domain\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00717}00717\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00718}00718\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLI2S\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00719}00719\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00720}00720\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDIO\_frequency\ =\ RCC\_PLLI2S\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00721}00721\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00722}00722\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00723}00723\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2SCFGR\_PLLI2SQ\ \&\&\ !RCC\_DCKCFGR\_PLLI2SDIVQ\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00724}00724\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00725}00725\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00726}00726\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00727}00727\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SDIO\_CLKSOURCE\_SYSCLK:\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ SDIO\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00728}00728\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00729}00729\ \ \ \ \ \ \ \ \ SDIO\_frequency\ =\ RCC\_GetSystemClockFreq();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00730}00730\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00731}00731\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00732}00732\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00733}00733\ \ \ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ 48Mhz\ domain\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00734}00734\ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00735}00735\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00736}00736\ \ \ \ \ \ \ SDIO\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00737}00737\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00738}00738\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_SDIOSEL\ ||\ RCC\_DCKCFGR2\_SDIOSEL\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00739}00739\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00740}00740\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00741}00741\ \ \ \textcolor{keywordflow}{return}\ SDIO\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00742}00742\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00743}00743\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SDIO\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00744}00744\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00745}00745\ \textcolor{preprocessor}{\#if\ defined(RNG)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00753}00753\ uint32\_t\ LL\_RCC\_GetRNGClockFreq(uint32\_t\ RNGxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00754}00754\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00755}00755\ \ \ uint32\_t\ rng\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00756}00756\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00757}00757\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00758}00758\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_RNG\_CLKSOURCE(RNGxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00759}00759\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00760}00760\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_CK48MSEL)\ ||\ defined(RCC\_DCKCFGR2\_CK48MSEL)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00761}00761\ \ \ \textcolor{comment}{/*\ RNGCLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00762}00762\ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetRNGClockSource(RNGxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00763}00763\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00764}00764\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2SCFGR\_PLLI2SQ)\ \&\&\ !defined(RCC\_DCKCFGR\_PLLI2SDIVQ)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00765}00765\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_RNG\_CLKSOURCE\_PLLI2S:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\ clock\ used\ as\ RNG\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00766}00766\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLI2S\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00767}00767\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00768}00768\ \ \ \ \ \ \ \ \ rng\_frequency\ =\ RCC\_PLLI2S\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00769}00769\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00770}00770\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00771}00771\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2SCFGR\_PLLI2SQ\ \&\&\ !RCC\_DCKCFGR\_PLLI2SDIVQ\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00772}00772\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00773}00773\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLSAI\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00774}00774\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_RNG\_CLKSOURCE\_PLLSAI:\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLLSAI\ clock\ used\ as\ RNG\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00775}00775\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLSAI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00776}00776\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00777}00777\ \ \ \ \ \ \ \ \ rng\_frequency\ =\ RCC\_PLLSAI\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00778}00778\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00779}00779\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00780}00780\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLSAI\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00781}00781\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00782}00782\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_RNG\_CLKSOURCE\_PLL:\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ RNG\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00783}00783\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00784}00784\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00785}00785\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00786}00786\ \ \ \ \ \ \ \ \ rng\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00787}00787\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00788}00788\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00789}00789\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00790}00790\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00791}00791\ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ RNG\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00792}00792\ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00793}00793\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00794}00794\ \ \ \ \ rng\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00795}00795\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00796}00796\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_CK48MSEL\ ||\ RCC\_DCKCFGR2\_CK48MSEL\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00797}00797\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00798}00798\ \ \ \textcolor{keywordflow}{return}\ rng\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00799}00799\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00800}00800\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RNG\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00801}00801\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00802}00802\ \textcolor{preprocessor}{\#if\ defined(CEC)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00810}00810\ uint32\_t\ LL\_RCC\_GetCECClockFreq(uint32\_t\ CECxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00811}00811\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00812}00812\ \ \ uint32\_t\ cec\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00813}00813\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00814}00814\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00815}00815\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_CEC\_CLKSOURCE(CECxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00816}00816\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00817}00817\ \ \ \textcolor{comment}{/*\ CECCLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00818}00818\ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetCECClockSource(CECxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00819}00819\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00820}00820\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_CEC\_CLKSOURCE\_LSE:\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ CEC\ Clock\ is\ LSE\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00821}00821\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_LSE\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00822}00822\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00823}00823\ \ \ \ \ \ \ \ \ cec\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a7bbb9d19e5189a6ccd0fb6fa6177d20d}{LSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00824}00824\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00825}00825\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00826}00826\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00827}00827\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_CEC\_CLKSOURCE\_HSI\_DIV488:\ \ \ \ \textcolor{comment}{/*\ CEC\ Clock\ is\ HSI\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00828}00828\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00829}00829\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_HSI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00830}00830\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00831}00831\ \ \ \ \ \ \ \ \ cec\_frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}}\ /\ 488U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00832}00832\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00833}00833\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00834}00834\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00835}00835\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00836}00836\ \ \ \textcolor{keywordflow}{return}\ cec\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00837}00837\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00838}00838\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CEC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00839}00839\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00840}00840\ \textcolor{preprocessor}{\#if\ defined(USB\_OTG\_FS)\ ||\ defined(USB\_OTG\_HS)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00848}00848\ uint32\_t\ LL\_RCC\_GetUSBClockFreq(uint32\_t\ USBxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00849}00849\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00850}00850\ \ \ uint32\_t\ usb\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00851}00851\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00852}00852\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00853}00853\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_USB\_CLKSOURCE(USBxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00854}00854\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00855}00855\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_CK48MSEL)\ ||\ defined(RCC\_DCKCFGR2\_CK48MSEL)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00856}00856\ \ \ \textcolor{comment}{/*\ USBCLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00857}00857\ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetUSBClockSource(USBxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00858}00858\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00859}00859\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2SCFGR\_PLLI2SQ)\ \&\&\ !defined(RCC\_DCKCFGR\_PLLI2SDIVQ)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00860}00860\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_USB\_CLKSOURCE\_PLLI2S:\ \ \ \ \ \ \ \textcolor{comment}{/*\ PLLI2S\ clock\ used\ as\ USB\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00861}00861\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLI2S\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00862}00862\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00863}00863\ \ \ \ \ \ \ \ \ usb\_frequency\ =\ RCC\_PLLI2S\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00864}00864\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00865}00865\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00866}00866\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00867}00867\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2SCFGR\_PLLI2SQ\ \&\&\ !RCC\_DCKCFGR\_PLLI2SDIVQ\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00868}00868\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00869}00869\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLSAI\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00870}00870\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_USB\_CLKSOURCE\_PLLSAI:\ \ \ \ \ \ \ \textcolor{comment}{/*\ PLLSAI\ clock\ used\ as\ USB\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00871}00871\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLSAI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00872}00872\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00873}00873\ \ \ \ \ \ \ \ \ usb\_frequency\ =\ RCC\_PLLSAI\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00874}00874\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00875}00875\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00876}00876\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLSAI\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00877}00877\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00878}00878\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_USB\_CLKSOURCE\_PLL:\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ USB\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00879}00879\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00880}00880\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00881}00881\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00882}00882\ \ \ \ \ \ \ \ \ usb\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00883}00883\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00884}00884\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00885}00885\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00886}00886\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00887}00887\ \ \ \textcolor{comment}{/*\ PLL\ clock\ used\ as\ USB\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00888}00888\ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00889}00889\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00890}00890\ \ \ \ \ usb\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_48M();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00891}00891\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00892}00892\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_CK48MSEL\ ||\ RCC\_DCKCFGR2\_CK48MSEL\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00893}00893\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00894}00894\ \ \ \textcolor{keywordflow}{return}\ usb\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00895}00895\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00896}00896\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USB\_OTG\_FS\ ||\ USB\_OTG\_HS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00897}00897\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00898}00898\ \textcolor{preprocessor}{\#if\ defined(DFSDM1\_Channel0)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00908}00908\ uint32\_t\ LL\_RCC\_GetDFSDMClockFreq(uint32\_t\ DFSDMxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00909}00909\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00910}00910\ \ \ uint32\_t\ dfsdm\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00911}00911\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00912}00912\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00913}00913\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_DFSDM\_CLKSOURCE(DFSDMxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00914}00914\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00915}00915\ \ \ \textcolor{keywordflow}{if}\ (DFSDMxSource\ ==\ LL\_RCC\_DFSDM1\_CLKSOURCE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00916}00916\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00917}00917\ \ \ \ \ \textcolor{comment}{/*\ DFSDM1CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00918}00918\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetDFSDMClockSource(DFSDMxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00919}00919\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00920}00920\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_DFSDM1\_CLKSOURCE\_SYSCLK:\ \ \ \ \ \ \textcolor{comment}{/*\ DFSDM1\ Clock\ is\ SYSCLK\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00921}00921\ \ \ \ \ \ \ \ \ dfsdm\_frequency\ =\ RCC\_GetSystemClockFreq();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00922}00922\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00923}00923\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00924}00924\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_DFSDM1\_CLKSOURCE\_PCLK2:\ \ \ \ \ \ \ \textcolor{comment}{/*\ DFSDM1\ Clock\ is\ PCLK2\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00925}00925\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00926}00926\ \ \ \ \ \ \ \ \ dfsdm\_frequency\ =\ RCC\_GetPCLK2ClockFreq(RCC\_GetHCLKClockFreq(RCC\_GetSystemClockFreq()));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00927}00927\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00928}00928\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00929}00929\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00930}00930\ \textcolor{preprocessor}{\#if\ defined(DFSDM2\_Channel0)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00931}00931\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00932}00932\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00933}00933\ \ \ \ \ \textcolor{comment}{/*\ DFSDM2CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00934}00934\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetDFSDMClockSource(DFSDMxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00935}00935\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00936}00936\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_DFSDM2\_CLKSOURCE\_SYSCLK:\ \ \ \ \ \ \textcolor{comment}{/*\ DFSDM2\ Clock\ is\ SYSCLK\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00937}00937\ \ \ \ \ \ \ \ \ dfsdm\_frequency\ =\ RCC\_GetSystemClockFreq();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00938}00938\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00939}00939\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00940}00940\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_DFSDM2\_CLKSOURCE\_PCLK2:\ \ \ \ \ \ \ \textcolor{comment}{/*\ DFSDM2\ Clock\ is\ PCLK2\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00941}00941\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00942}00942\ \ \ \ \ \ \ \ \ dfsdm\_frequency\ =\ RCC\_GetPCLK2ClockFreq(RCC\_GetHCLKClockFreq(RCC\_GetSystemClockFreq()));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00943}00943\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00944}00944\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00945}00945\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00946}00946\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DFSDM2\_Channel0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00947}00947\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00948}00948\ \ \ \textcolor{keywordflow}{return}\ dfsdm\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00949}00949\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00950}00950\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00961}00961\ uint32\_t\ LL\_RCC\_GetDFSDMAudioClockFreq(uint32\_t\ DFSDMxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00962}00962\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00963}00963\ \ \ uint32\_t\ dfsdm\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00964}00964\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00965}00965\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00966}00966\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_DFSDM\_AUDIO\_CLKSOURCE(DFSDMxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00967}00967\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00968}00968\ \ \ \textcolor{keywordflow}{if}\ (DFSDMxSource\ ==\ LL\_RCC\_DFSDM1\_AUDIO\_CLKSOURCE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00969}00969\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00970}00970\ \ \ \ \ \textcolor{comment}{/*\ DFSDM1CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00971}00971\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetDFSDMAudioClockSource(DFSDMxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00972}00972\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00973}00973\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_DFSDM1\_AUDIO\_CLKSOURCE\_I2S1:\ \ \ \ \ \textcolor{comment}{/*\ I2S1\ clock\ used\ as\ DFSDM1\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00974}00974\ \ \ \ \ \ \ \ \ dfsdm\_frequency\ =\ LL\_RCC\_GetI2SClockFreq(LL\_RCC\_I2S1\_CLKSOURCE);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00975}00975\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00976}00976\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00977}00977\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_DFSDM1\_AUDIO\_CLKSOURCE\_I2S2:\ \ \ \ \ \textcolor{comment}{/*\ I2S2\ clock\ used\ as\ DFSDM1\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00978}00978\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00979}00979\ \ \ \ \ \ \ \ \ dfsdm\_frequency\ =\ LL\_RCC\_GetI2SClockFreq(LL\_RCC\_I2S2\_CLKSOURCE);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00980}00980\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00981}00981\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00982}00982\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00983}00983\ \textcolor{preprocessor}{\#if\ defined(DFSDM2\_Channel0)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00984}00984\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00985}00985\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00986}00986\ \ \ \ \ \textcolor{comment}{/*\ DFSDM2CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00987}00987\ \ \ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetDFSDMAudioClockSource(DFSDMxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00988}00988\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00989}00989\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_DFSDM2\_AUDIO\_CLKSOURCE\_I2S1:\ \ \ \ \ \textcolor{comment}{/*\ I2S1\ clock\ used\ as\ DFSDM2\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00990}00990\ \ \ \ \ \ \ \ \ dfsdm\_frequency\ =\ LL\_RCC\_GetI2SClockFreq(LL\_RCC\_I2S1\_CLKSOURCE);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00991}00991\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00992}00992\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00993}00993\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_DFSDM2\_AUDIO\_CLKSOURCE\_I2S2:\ \ \ \ \ \textcolor{comment}{/*\ I2S2\ clock\ used\ as\ DFSDM2\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00994}00994\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00995}00995\ \ \ \ \ \ \ \ \ dfsdm\_frequency\ =\ LL\_RCC\_GetI2SClockFreq(LL\_RCC\_I2S2\_CLKSOURCE);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00996}00996\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00997}00997\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00998}00998\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l00999}00999\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DFSDM2\_Channel0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01000}01000\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01001}01001\ \ \ \textcolor{keywordflow}{return}\ dfsdm\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01002}01002\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01003}01003\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DFSDM1\_Channel0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01004}01004\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01005}01005\ \textcolor{preprocessor}{\#if\ defined(DSI)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01014}01014\ uint32\_t\ LL\_RCC\_GetDSIClockFreq(uint32\_t\ DSIxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01015}01015\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01016}01016\ \ \ uint32\_t\ dsi\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01017}01017\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01018}01018\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01019}01019\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_DSI\_CLKSOURCE(DSIxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01020}01020\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01021}01021\ \ \ \textcolor{comment}{/*\ DSICLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01022}01022\ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetDSIClockSource(DSIxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01023}01023\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01024}01024\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_DSI\_CLKSOURCE\_PLL:\ \ \ \ \ \textcolor{comment}{/*\ DSI\ Clock\ is\ PLL\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01025}01025\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01026}01026\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01027}01027\ \ \ \ \ \ \ \ \ dsi\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_DSI();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01028}01028\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01029}01029\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01030}01030\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01031}01031\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_DSI\_CLKSOURCE\_PHY:\ \ \ \ \textcolor{comment}{/*\ DSI\ Clock\ is\ DSI\ physical\ clock.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01032}01032\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01033}01033\ \ \ \ \ \ \ dsi\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NA;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01034}01034\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01035}01035\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01036}01036\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01037}01037\ \ \ \textcolor{keywordflow}{return}\ dsi\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01038}01038\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01039}01039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DSI\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01040}01040\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01041}01041\ \textcolor{preprocessor}{\#if\ defined(LTDC)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01049}01049\ uint32\_t\ LL\_RCC\_GetLTDCClockFreq(uint32\_t\ LTDCxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01050}01050\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01051}01051\ \ \ uint32\_t\ ltdc\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01052}01052\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01053}01053\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01054}01054\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_LTDC\_CLKSOURCE(LTDCxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01055}01055\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01056}01056\ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLSAI\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01057}01057\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01058}01058\ \ \ \ \ ltdc\_frequency\ =\ RCC\_PLLSAI\_GetFreqDomain\_LTDC();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01059}01059\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01060}01060\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01061}01061\ \ \ \textcolor{keywordflow}{return}\ ltdc\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01062}01062\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01063}01063\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LTDC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01064}01064\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01065}01065\ \textcolor{preprocessor}{\#if\ defined(SPDIFRX)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01073}01073\ uint32\_t\ LL\_RCC\_GetSPDIFRXClockFreq(uint32\_t\ SPDIFRXxSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01074}01074\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01075}01075\ \ \ uint32\_t\ spdifrx\_frequency\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01076}01076\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01077}01077\ \ \ \textcolor{comment}{/*\ Check\ parameter\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01078}01078\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_RCC\_SPDIFRX\_CLKSOURCE(SPDIFRXxSource));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01079}01079\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01080}01080\ \ \ \textcolor{comment}{/*\ SPDIFRX1CLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01081}01081\ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetSPDIFRXClockSource(SPDIFRXxSource))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01082}01082\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01083}01083\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SPDIFRX1\_CLKSOURCE\_PLLI2S:\ \ \textcolor{comment}{/*\ SPDIFRX\ Clock\ is\ PLLI2S\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01084}01084\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLLI2S\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01085}01085\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01086}01086\ \ \ \ \ \ \ \ \ spdifrx\_frequency\ =\ RCC\_PLLI2S\_GetFreqDomain\_SPDIFRX();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01087}01087\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01088}01088\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01089}01089\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01090}01090\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SPDIFRX1\_CLKSOURCE\_PLL:\ \ \ \ \ \textcolor{comment}{/*\ SPDIFRX\ Clock\ is\ PLL\ Osc.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01091}01091\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01092}01092\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (LL\_RCC\_PLL\_IsReady())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01093}01093\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01094}01094\ \ \ \ \ \ \ \ \ spdifrx\_frequency\ =\ RCC\_PLL\_GetFreqDomain\_SPDIFRX();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01095}01095\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01096}01096\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01097}01097\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01098}01098\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01099}01099\ \ \ \textcolor{keywordflow}{return}\ spdifrx\_frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01100}01100\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01101}01101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SPDIFRX\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01102}01102\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01106}01106\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01110}01110\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01114}01114\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01119}01119\ uint32\_t\ RCC\_GetSystemClockFreq(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01120}01120\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01121}01121\ \ \ uint32\_t\ frequency\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01122}01122\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01123}01123\ \ \ \textcolor{comment}{/*\ Get\ SYSCLK\ source\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01124}01124\ \ \ \textcolor{keywordflow}{switch}\ (LL\_RCC\_GetSysClkSource())}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01125}01125\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01126}01126\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SYS\_CLKSOURCE\_STATUS\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ system\ clock\ \ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01127}01127\ \ \ \ \ \ \ frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01128}01128\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01129}01129\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01130}01130\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SYS\_CLKSOURCE\_STATUS\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ system\ clock\ \ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01131}01131\ \ \ \ \ \ \ frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01132}01132\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01133}01133\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01134}01134\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SYS\_CLKSOURCE\_STATUS\_PLL:\ \ \textcolor{comment}{/*\ PLL\ used\ as\ system\ clock\ \ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01135}01135\ \ \ \ \ \ \ frequency\ =\ RCC\_PLL\_GetFreqDomain\_SYS(LL\_RCC\_SYS\_CLKSOURCE\_STATUS\_PLL);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01136}01136\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01137}01137\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01138}01138\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLR\_SYSCLK\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01139}01139\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_SYS\_CLKSOURCE\_STATUS\_PLLR:\ \textcolor{comment}{/*\ PLLR\ used\ as\ system\ clock\ \ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01140}01140\ \ \ \ \ \ \ frequency\ =\ RCC\_PLL\_GetFreqDomain\_SYS(LL\_RCC\_SYS\_CLKSOURCE\_STATUS\_PLLR);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01141}01141\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01142}01142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLR\_SYSCLK\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01143}01143\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01144}01144\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01145}01145\ \ \ \ \ \ \ frequency\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01146}01146\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01147}01147\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01148}01148\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01149}01149\ \ \ \textcolor{keywordflow}{return}\ frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01150}01150\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01151}01151\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01157}01157\ uint32\_t\ RCC\_GetHCLKClockFreq(uint32\_t\ SYSCLK\_Frequency)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01158}01158\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01159}01159\ \ \ \textcolor{comment}{/*\ HCLK\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01160}01160\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_HCLK\_FREQ(SYSCLK\_Frequency,\ LL\_RCC\_GetAHBPrescaler());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01161}01161\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01162}01162\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01168}01168\ uint32\_t\ RCC\_GetPCLK1ClockFreq(uint32\_t\ HCLK\_Frequency)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01169}01169\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01170}01170\ \ \ \textcolor{comment}{/*\ PCLK1\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01171}01171\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_PCLK1\_FREQ(HCLK\_Frequency,\ LL\_RCC\_GetAPB1Prescaler());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01172}01172\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01173}01173\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01179}01179\ uint32\_t\ RCC\_GetPCLK2ClockFreq(uint32\_t\ HCLK\_Frequency)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01180}01180\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01181}01181\ \ \ \textcolor{comment}{/*\ PCLK2\ clock\ frequency\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01182}01182\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_PCLK2\_FREQ(HCLK\_Frequency,\ LL\_RCC\_GetAPB2Prescaler());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01183}01183\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01184}01184\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01190}01190\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_SYS(uint32\_t\ SYSCLK\_Source)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01191}01191\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01192}01192\ \ \ uint32\_t\ pllinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01193}01193\ \ \ uint32\_t\ pllsource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01194}01194\ \ \ uint32\_t\ plloutputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01195}01195\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01196}01196\ \ \ \textcolor{comment}{/*\ PLL\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLM)\ *\ PLLN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01197}01197\ \textcolor{comment}{\ \ \ \ \ SYSCLK\ =\ PLL\_VCO\ /\ (PLLP\ or\ PLLR)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01198}01198\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01199}01199\ \ \ pllsource\ =\ LL\_RCC\_PLL\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01200}01200\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01201}01201\ \ \ \textcolor{keywordflow}{switch}\ (pllsource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01202}01202\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01203}01203\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01204}01204\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01205}01205\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01206}01206\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01207}01207\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01208}01208\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01209}01209\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01210}01210\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01211}01211\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01212}01212\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01213}01213\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01214}01214\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01215}01215\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01216}01216\ \ \ \textcolor{keywordflow}{if}\ (SYSCLK\_Source\ ==\ LL\_RCC\_SYS\_CLKSOURCE\_STATUS\_PLL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01217}01217\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01218}01218\ \ \ \ \ plloutputfreq\ =\ \_\_LL\_RCC\_CALC\_PLLCLK\_FREQ(pllinputfreq,\ LL\_RCC\_PLL\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01219}01219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLL\_GetN(),\ LL\_RCC\_PLL\_GetP());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01220}01220\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01221}01221\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLR\_SYSCLK\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01222}01222\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01223}01223\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01224}01224\ \ \ \ \ plloutputfreq\ =\ \_\_LL\_RCC\_CALC\_PLLRCLK\_FREQ(pllinputfreq,\ LL\_RCC\_PLL\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01225}01225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLL\_GetN(),\ LL\_RCC\_PLL\_GetR());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01226}01226\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01227}01227\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLR\_SYSCLK\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01228}01228\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01229}01229\ \ \ \textcolor{keywordflow}{return}\ plloutputfreq;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01230}01230\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01231}01231\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01236}01236\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_48M(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01237}01237\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01238}01238\ \ \ uint32\_t\ pllinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01239}01239\ \ \ uint32\_t\ pllsource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01240}01240\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01241}01241\ \ \ \textcolor{comment}{/*\ PLL\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLM\ )\ *\ PLLN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01242}01242\ \textcolor{comment}{\ \ \ \ \ 48M\ Domain\ clock\ =\ PLL\_VCO\ /\ PLLQ}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01243}01243\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01244}01244\ \ \ pllsource\ =\ LL\_RCC\_PLL\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01245}01245\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01246}01246\ \ \ \textcolor{keywordflow}{switch}\ (pllsource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01247}01247\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01248}01248\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01249}01249\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01250}01250\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01251}01251\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01252}01252\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01253}01253\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01254}01254\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01255}01255\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01256}01256\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01257}01257\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01258}01258\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01259}01259\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01260}01260\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_PLLCLK\_48M\_FREQ(pllinputfreq,\ LL\_RCC\_PLL\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01261}01261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLL\_GetN(),\ LL\_RCC\_PLL\_GetQ());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01262}01262\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01263}01263\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01264}01264\ \textcolor{preprocessor}{\#if\ defined(DSI)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01269}01269\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_DSI(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01270}01270\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01271}01271\ \ \ uint32\_t\ pllinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01272}01272\ \ \ uint32\_t\ pllsource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01273}01273\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01274}01274\ \ \ \textcolor{comment}{/*\ PLL\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLM)\ *\ PLLN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01275}01275\ \textcolor{comment}{\ \ \ \ \ DSICLK\ =\ PLL\_VCO\ /\ PLLR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01276}01276\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01277}01277\ \ \ pllsource\ =\ LL\_RCC\_PLL\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01278}01278\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01279}01279\ \ \ \textcolor{keywordflow}{switch}\ (pllsource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01280}01280\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01281}01281\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01282}01282\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01283}01283\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01284}01284\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01285}01285\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01286}01286\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01287}01287\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01288}01288\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01289}01289\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01290}01290\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_PLLCLK\_DSI\_FREQ(pllinputfreq,\ LL\_RCC\_PLL\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01291}01291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLL\_GetN(),\ LL\_RCC\_PLL\_GetR());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01292}01292\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01293}01293\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DSI\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01294}01294\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01295}01295\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_I2SSRC)\ ||\ defined(RCC\_DCKCFGR\_I2S1SRC)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01300}01300\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_I2S(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01301}01301\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01302}01302\ \ \ uint32\_t\ pllinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01303}01303\ \ \ uint32\_t\ pllsource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01304}01304\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01305}01305\ \ \ \textcolor{comment}{/*\ PLL\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLM)\ *\ PLLN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01306}01306\ \textcolor{comment}{\ \ \ \ \ I2SCLK\ =\ PLL\_VCO\ /\ PLLR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01307}01307\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01308}01308\ \ \ pllsource\ =\ LL\_RCC\_PLL\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01309}01309\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01310}01310\ \ \ \textcolor{keywordflow}{switch}\ (pllsource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01311}01311\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01312}01312\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01313}01313\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01314}01314\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01315}01315\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01316}01316\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01317}01317\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01318}01318\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01319}01319\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01320}01320\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01321}01321\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_PLLCLK\_I2S\_FREQ(pllinputfreq,\ LL\_RCC\_PLL\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01322}01322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLL\_GetN(),\ LL\_RCC\_PLL\_GetR());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01323}01323\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01324}01324\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_I2SSRC\ ||\ RCC\_DCKCFGR\_I2S1SRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01325}01325\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01326}01326\ \textcolor{preprocessor}{\#if\ defined(SPDIFRX)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01331}01331\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_SPDIFRX(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01332}01332\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01333}01333\ \ \ uint32\_t\ pllinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01334}01334\ \ \ uint32\_t\ pllsource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01335}01335\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01336}01336\ \ \ \textcolor{comment}{/*\ PLL\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLM)\ *\ PLLN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01337}01337\ \textcolor{comment}{\ \ \ \ \ SPDIFRXCLK\ =\ PLL\_VCO\ /\ PLLR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01338}01338\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01339}01339\ \ \ pllsource\ =\ LL\_RCC\_PLL\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01340}01340\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01341}01341\ \ \ \textcolor{keywordflow}{switch}\ (pllsource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01342}01342\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01343}01343\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01344}01344\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01345}01345\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01346}01346\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01347}01347\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01348}01348\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01349}01349\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01350}01350\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01351}01351\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01352}01352\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_PLLCLK\_SPDIFRX\_FREQ(pllinputfreq,\ LL\_RCC\_PLL\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01353}01353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLL\_GetN(),\ LL\_RCC\_PLL\_GetR());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01354}01354\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01355}01355\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SPDIFRX\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01356}01356\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01357}01357\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLCFGR\_PLLR)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01358}01358\ \textcolor{preprocessor}{\#if\ defined(SAI1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01363}01363\ uint32\_t\ RCC\_PLL\_GetFreqDomain\_SAI(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01364}01364\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01365}01365\ \ \ uint32\_t\ pllinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01366}01366\ \ \ uint32\_t\ pllsource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01367}01367\ \ \ uint32\_t\ plloutputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01368}01368\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01369}01369\ \ \ \textcolor{comment}{/*\ PLL\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLM)\ *\ PLLN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01370}01370\ \textcolor{comment}{\ \ \ \ \ SAICLK\ =\ (PLL\_VCO\ /\ PLLR)\ /\ PLLDIVR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01371}01371\ \textcolor{comment}{\ \ \ \ \ or}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01372}01372\ \textcolor{comment}{\ \ \ \ \ SAICLK\ =\ PLL\_VCO\ /\ PLLR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01373}01373\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01374}01374\ \ \ pllsource\ =\ LL\_RCC\_PLL\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01375}01375\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01376}01376\ \ \ \textcolor{keywordflow}{switch}\ (pllsource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01377}01377\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01378}01378\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01379}01379\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01380}01380\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01381}01381\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01382}01382\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLL\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01383}01383\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01384}01384\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01385}01385\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01386}01386\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01387}01387\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01388}01388\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_PLLDIVR)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01389}01389\ \ \ plloutputfreq\ =\ \_\_LL\_RCC\_CALC\_PLLCLK\_SAI\_FREQ(pllinputfreq,\ LL\_RCC\_PLL\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01390}01390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLL\_GetN(),\ LL\_RCC\_PLL\_GetR(),\ LL\_RCC\_PLL\_GetDIVR());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01391}01391\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01392}01392\ \ \ plloutputfreq\ =\ \_\_LL\_RCC\_CALC\_PLLCLK\_SAI\_FREQ(pllinputfreq,\ LL\_RCC\_PLL\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01393}01393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLL\_GetN(),\ LL\_RCC\_PLL\_GetR());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01394}01394\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_PLLDIVR\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01395}01395\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01396}01396\ \ \ \textcolor{keywordflow}{return}\ plloutputfreq;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01397}01397\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01398}01398\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SAI1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01399}01399\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLCFGR\_PLLR\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01400}01400\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01401}01401\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLSAI\_SUPPORT)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01406}01406\ uint32\_t\ RCC\_PLLSAI\_GetFreqDomain\_SAI(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01407}01407\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01408}01408\ \ \ uint32\_t\ pllinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01409}01409\ \ \ uint32\_t\ pllsource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01410}01410\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01411}01411\ \ \ \textcolor{comment}{/*\ PLLSAI\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLSAIM)\ *\ PLLSAIN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01412}01412\ \textcolor{comment}{\ \ \ \ \ SAI\ domain\ clock\ \ =\ (PLLSAI\_VCO\ /\ PLLSAIQ)\ /\ PLLSAIDIVQ}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01413}01413\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01414}01414\ \ \ pllsource\ =\ LL\_RCC\_PLL\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01415}01415\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01416}01416\ \ \ \textcolor{keywordflow}{switch}\ (pllsource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01417}01417\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01418}01418\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLLSAI\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01419}01419\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01420}01420\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01421}01421\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01422}01422\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLLSAI\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01423}01423\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01424}01424\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01425}01425\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01426}01426\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01427}01427\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01428}01428\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01429}01429\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01430}01430\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_PLLSAI\_SAI\_FREQ(pllinputfreq,\ LL\_RCC\_PLLSAI\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01431}01431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLLSAI\_GetN(),\ LL\_RCC\_PLLSAI\_GetQ(),\ LL\_RCC\_PLLSAI\_GetDIVQ());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01432}01432\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01433}01433\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01434}01434\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLSAICFGR\_PLLSAIP)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01439}01439\ uint32\_t\ RCC\_PLLSAI\_GetFreqDomain\_48M(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01440}01440\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01441}01441\ \ \ uint32\_t\ pllinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01442}01442\ \ \ uint32\_t\ pllsource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01443}01443\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01444}01444\ \ \ \textcolor{comment}{/*\ PLLSAI\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLSAIM)\ *\ PLLSAIN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01445}01445\ \textcolor{comment}{\ \ \ \ \ 48M\ Domain\ clock\ \ =\ PLLSAI\_VCO\ /\ PLLSAIP}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01446}01446\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01447}01447\ \ \ pllsource\ =\ LL\_RCC\_PLL\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01448}01448\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01449}01449\ \ \ \textcolor{keywordflow}{switch}\ (pllsource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01450}01450\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01451}01451\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLLSAI\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01452}01452\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01453}01453\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01454}01454\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01455}01455\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLLSAI\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01456}01456\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01457}01457\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01458}01458\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01459}01459\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01460}01460\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01461}01461\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01462}01462\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01463}01463\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_PLLSAI\_48M\_FREQ(pllinputfreq,\ LL\_RCC\_PLLSAI\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01464}01464\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLLSAI\_GetN(),\ LL\_RCC\_PLLSAI\_GetP());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01465}01465\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01466}01466\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLSAICFGR\_PLLSAIP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01467}01467\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01468}01468\ \textcolor{preprocessor}{\#if\ defined(LTDC)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01473}01473\ uint32\_t\ RCC\_PLLSAI\_GetFreqDomain\_LTDC(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01474}01474\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01475}01475\ \ \ uint32\_t\ pllinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01476}01476\ \ \ uint32\_t\ pllsource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01477}01477\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01478}01478\ \ \ \textcolor{comment}{/*\ PLLSAI\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLSAIM)\ *\ PLLSAIN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01479}01479\ \textcolor{comment}{\ \ \ \ \ LTDC\ Domain\ clock\ \ =\ (PLLSAI\_VCO\ /\ PLLSAIR)\ /\ PLLSAIDIVR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01480}01480\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01481}01481\ \ \ pllsource\ =\ LL\_RCC\_PLL\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01482}01482\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01483}01483\ \ \ \textcolor{keywordflow}{switch}\ (pllsource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01484}01484\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01485}01485\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLLSAI\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01486}01486\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01487}01487\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01488}01488\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01489}01489\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLLSAI\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01490}01490\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01491}01491\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01492}01492\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01493}01493\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01494}01494\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01495}01495\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01496}01496\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01497}01497\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_PLLSAI\_LTDC\_FREQ(pllinputfreq,\ LL\_RCC\_PLLSAI\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01498}01498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLLSAI\_GetN(),\ LL\_RCC\_PLLSAI\_GetR(),\ LL\_RCC\_PLLSAI\_GetDIVR());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01499}01499\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01500}01500\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LTDC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01501}01501\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLSAI\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01502}01502\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01503}01503\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2S\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01504}01504\ \textcolor{preprocessor}{\#if\ defined(SAI1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01509}01509\ uint32\_t\ RCC\_PLLI2S\_GetFreqDomain\_SAI(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01510}01510\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01511}01511\ \ \ uint32\_t\ plli2sinputfreq\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01512}01512\ \ \ uint32\_t\ plli2ssource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01513}01513\ \ \ uint32\_t\ plli2soutputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01514}01514\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01515}01515\ \ \ \textcolor{comment}{/*\ PLLI2S\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLI2SM)\ *\ PLLI2SN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01516}01516\ \textcolor{comment}{\ \ \ \ \ SAI\ domain\ clock\ \ =\ (PLLI2S\_VCO\ /\ PLLI2SQ)\ /\ PLLI2SDIVQ}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01517}01517\ \textcolor{comment}{\ \ \ \ \ or}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01518}01518\ \textcolor{comment}{\ \ \ \ \ SAI\ domain\ clock\ \ =\ (PLLI2S\_VCO\ /\ PLLI2SR)\ /\ PLLI2SDIVR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01519}01519\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01520}01520\ \ \ plli2ssource\ =\ LL\_RCC\_PLLI2S\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01521}01521\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01522}01522\ \ \ \textcolor{keywordflow}{switch}\ (plli2ssource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01523}01523\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01524}01524\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \ \ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01525}01525\ \ \ \ \ \ \ plli2sinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01526}01526\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01527}01527\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01528}01528\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2SCFGR\_PLLI2SSRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01529}01529\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLI2SSOURCE\_PIN:\ \ \textcolor{comment}{/*\ External\ pin\ input\ clock\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01530}01530\ \ \ \ \ \ \ plli2sinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a8c47c935e91e70569098b41718558648}{EXTERNAL\_CLOCK\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01531}01531\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01532}01532\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2SCFGR\_PLLI2SSRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01533}01533\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01534}01534\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \ \ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01535}01535\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01536}01536\ \ \ \ \ \ \ plli2sinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01537}01537\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01538}01538\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01539}01539\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01540}01540\ \textcolor{preprocessor}{\#if\ defined(RCC\_DCKCFGR\_PLLI2SDIVQ)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01541}01541\ \ \ plli2soutputfreq\ =\ \_\_LL\_RCC\_CALC\_PLLI2S\_SAI\_FREQ(plli2sinputfreq,\ LL\_RCC\_PLLI2S\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01542}01542\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLLI2S\_GetN(),\ LL\_RCC\_PLLI2S\_GetQ(),\ LL\_RCC\_PLLI2S\_GetDIVQ());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01543}01543\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01544}01544\ \ \ plli2soutputfreq\ =\ \_\_LL\_RCC\_CALC\_PLLI2S\_SAI\_FREQ(plli2sinputfreq,\ LL\_RCC\_PLLI2S\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01545}01545\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLLI2S\_GetN(),\ LL\_RCC\_PLLI2S\_GetR(),\ LL\_RCC\_PLLI2S\_GetDIVR());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01546}01546\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_DCKCFGR\_PLLI2SDIVQ\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01547}01547\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01548}01548\ \ \ \textcolor{keywordflow}{return}\ plli2soutputfreq;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01549}01549\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01550}01550\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SAI1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01551}01551\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01552}01552\ \textcolor{preprocessor}{\#if\ defined(SPDIFRX)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01557}01557\ uint32\_t\ RCC\_PLLI2S\_GetFreqDomain\_SPDIFRX(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01558}01558\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01559}01559\ \ \ uint32\_t\ pllinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01560}01560\ \ \ uint32\_t\ pllsource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01561}01561\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01562}01562\ \ \ \textcolor{comment}{/*\ PLLI2S\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLI2SM)\ *\ PLLI2SN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01563}01563\ \textcolor{comment}{\ \ \ \ \ SPDIFRX\ Domain\ clock\ \ =\ PLLI2S\_VCO\ /\ PLLI2SP}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01564}01564\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01565}01565\ \ \ pllsource\ =\ LL\_RCC\_PLLI2S\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01566}01566\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01567}01567\ \ \ \textcolor{keywordflow}{switch}\ (pllsource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01568}01568\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01569}01569\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01570}01570\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01571}01571\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01572}01572\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01573}01573\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01574}01574\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01575}01575\ \ \ \ \ \ \ pllinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01576}01576\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01577}01577\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01578}01578\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01579}01579\ \ \ \textcolor{keywordflow}{return}\ \_\_LL\_RCC\_CALC\_PLLI2S\_SPDIFRX\_FREQ(pllinputfreq,\ LL\_RCC\_PLLI2S\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01580}01580\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLLI2S\_GetN(),\ LL\_RCC\_PLLI2S\_GetP());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01581}01581\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01582}01582\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SPDIFRX\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01583}01583\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01588}01588\ uint32\_t\ RCC\_PLLI2S\_GetFreqDomain\_I2S(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01589}01589\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01590}01590\ \ \ uint32\_t\ plli2sinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01591}01591\ \ \ uint32\_t\ plli2ssource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01592}01592\ \ \ uint32\_t\ plli2soutputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01593}01593\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01594}01594\ \ \ \textcolor{comment}{/*\ PLLI2S\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLI2SM)\ *\ PLLI2SN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01595}01595\ \textcolor{comment}{\ \ \ \ \ I2S\ Domain\ clock\ \ =\ PLLI2S\_VCO\ /\ PLLI2SR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01596}01596\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01597}01597\ \ \ plli2ssource\ =\ LL\_RCC\_PLLI2S\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01598}01598\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01599}01599\ \ \ \textcolor{keywordflow}{switch}\ (plli2ssource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01600}01600\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01601}01601\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \ \ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01602}01602\ \ \ \ \ \ \ plli2sinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01603}01603\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01604}01604\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01605}01605\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2SCFGR\_PLLI2SSRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01606}01606\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLI2SSOURCE\_PIN:\ \ \textcolor{comment}{/*\ External\ pin\ input\ clock\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01607}01607\ \ \ \ \ \ \ plli2sinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a8c47c935e91e70569098b41718558648}{EXTERNAL\_CLOCK\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01608}01608\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01609}01609\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2SCFGR\_PLLI2SSRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01610}01610\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01611}01611\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \ \ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01612}01612\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01613}01613\ \ \ \ \ \ \ plli2sinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01614}01614\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01615}01615\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01616}01616\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01617}01617\ \ \ plli2soutputfreq\ =\ \_\_LL\_RCC\_CALC\_PLLI2S\_I2S\_FREQ(plli2sinputfreq,\ LL\_RCC\_PLLI2S\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01618}01618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLLI2S\_GetN(),\ LL\_RCC\_PLLI2S\_GetR());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01619}01619\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01620}01620\ \ \ \textcolor{keywordflow}{return}\ plli2soutputfreq;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01621}01621\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01622}01622\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01623}01623\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2SCFGR\_PLLI2SQ)\ \&\&\ !defined(RCC\_DCKCFGR\_PLLI2SDIVQ)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01628}01628\ uint32\_t\ RCC\_PLLI2S\_GetFreqDomain\_48M(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01629}01629\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01630}01630\ \ \ uint32\_t\ plli2sinputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01631}01631\ \ \ uint32\_t\ plli2ssource\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01632}01632\ \ \ uint32\_t\ plli2soutputfreq\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01633}01633\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01634}01634\ \ \ \textcolor{comment}{/*\ PLL48M\_VCO\ =\ (HSE\_VALUE\ or\ HSI\_VALUE\ /\ PLLI2SM)\ *\ PLLI2SN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01635}01635\ \textcolor{comment}{\ \ \ \ \ 48M\ Domain\ clock\ \ =\ PLLI2S\_VCO\ /\ PLLI2SQ}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01636}01636\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01637}01637\ \ \ plli2ssource\ =\ LL\_RCC\_PLLI2S\_GetMainSource();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01638}01638\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01639}01639\ \ \ \textcolor{keywordflow}{switch}\ (plli2ssource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01640}01640\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01641}01641\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSE:\ \ \ \ \ \textcolor{comment}{/*\ HSE\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01642}01642\ \ \ \ \ \ \ plli2sinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aeafcff4f57440c60e64812dddd13e7cb}{HSE\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01643}01643\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01644}01644\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01645}01645\ \textcolor{preprocessor}{\#if\ defined(RCC\_PLLI2SCFGR\_PLLI2SSRC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01646}01646\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLI2SSOURCE\_PIN:\ \ \textcolor{comment}{/*\ External\ pin\ input\ clock\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01647}01647\ \ \ \ \ \ \ plli2sinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a8c47c935e91e70569098b41718558648}{EXTERNAL\_CLOCK\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01648}01648\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01649}01649\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2SCFGR\_PLLI2SSRC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01650}01650\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01651}01651\ \ \ \ \ \textcolor{keywordflow}{case}\ LL\_RCC\_PLLSOURCE\_HSI:\ \ \ \ \ \textcolor{comment}{/*\ HSI\ used\ as\ PLLI2S\ clock\ source\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01652}01652\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01653}01653\ \ \ \ \ \ \ plli2sinputfreq\ =\ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_aaa8c76e274d0f6dd2cefb5d0b17fbc37}{HSI\_VALUE}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01654}01654\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01655}01655\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01656}01656\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01657}01657\ \ \ plli2soutputfreq\ =\ \_\_LL\_RCC\_CALC\_PLLI2S\_48M\_FREQ(plli2sinputfreq,\ LL\_RCC\_PLLI2S\_GetDivider(),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01658}01658\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LL\_RCC\_PLLI2S\_GetN(),\ LL\_RCC\_PLLI2S\_GetQ());}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01659}01659\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01660}01660\ \ \ \textcolor{keywordflow}{return}\ plli2soutputfreq;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01661}01661\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01662}01662\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2SCFGR\_PLLI2SQ\ \&\&\ !RCC\_DCKCFGR\_PLLI2SDIVQ\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01663}01663\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_PLLI2S\_SUPPORT\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01667}01667\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01671}01671\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01672}01672\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ defined(RCC)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01673}01673\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01677}01677\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01678}01678\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_FULL\_LL\_DRIVER\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__rcc_8c_source_l01679}01679\ }
+
+\end{DoxyCode}

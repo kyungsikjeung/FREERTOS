@@ -1,0 +1,200 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Examples/\+ARM/arm\+\_\+linear\+\_\+interp\+\_\+example/arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.c File Reference}
+\hypertarget{arm__linear__interp__example__f32_8c}{}\label{arm__linear__interp__example__f32_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_linear\_interp\_example/arm\_linear\_interp\_example\_f32.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_linear\_interp\_example/arm\_linear\_interp\_example\_f32.c}}
+{\ttfamily \#include "{}arm\+\_\+math.\+h"{}}\newline
+{\ttfamily \#include "{}math\+\_\+helper.\+h"{}}\newline
+Include dependency graph for arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__linear__interp__example__f32_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arm__linear__interp__example__f32_8c_af08ec3fef897d77c6817638bf0e0c5c6}{SNR\+\_\+\+THRESHOLD}}~90
+\item 
+\#define \mbox{\hyperlink{arm__linear__interp__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\+\_\+\+LENGTH\+\_\+\+SAMPLES}}~10
+\item 
+\#define \mbox{\hyperlink{arm__linear__interp__example__f32_8c_a0ecae49cebd837aac53411c8f877503d}{XSPACING}}~(0.\+005f)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{arm__linear__interp__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__linear__interp__example__f32_8c_a4be0c4d25e63ce04b8cc8ad070805287}{test\+Input\+Sin\+\_\+f32}} \mbox{[}\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\+\_\+\+LENGTH\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__linear__interp__example__f32_8c_a5a33218d422603f3e5267b6984bdddd1}{test\+Ref\+Sin\+Output32\+\_\+f32}} \mbox{[}\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\+\_\+\+LENGTH\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__linear__interp__example__f32_8c_afd4d61aad5f35a4e42d580004e2f9a1d}{test\+Output}} \mbox{[}\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\+\_\+\+LENGTH\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__linear__interp__example__f32_8c_a8ca7d0ad6e04efed464bcaacedacf925}{test\+Lin\+Int\+Output}} \mbox{[}\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\+\_\+\+LENGTH\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+const float \mbox{\hyperlink{arm__linear__interp__example__f32_8c_ab01b60c3faca4a492739bea167cbeb84}{arm\+\_\+linear\+\_\+interep\+\_\+table}} \mbox{[}1884\mbox{]}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__linear__interp__example__f32_8c_ad492c21cf2dd4e9199ae46c77f812cbc}{snr1}}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__linear__interp__example__f32_8c_a269948ab25f230d33e3f22eab85aa1cf}{snr2}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{arm__linear__interp__example__f32_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm__linear__interp__example__f32_8c_af08ec3fef897d77c6817638bf0e0c5c6}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!SNR\_THRESHOLD@{SNR\_THRESHOLD}}
+\index{SNR\_THRESHOLD@{SNR\_THRESHOLD}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{SNR\_THRESHOLD}{SNR\_THRESHOLD}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_af08ec3fef897d77c6817638bf0e0c5c6} 
+\#define SNR\+\_\+\+THRESHOLD~90}
+
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source_l00094}{94}} of file \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__linear__interp__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!TEST\_LENGTH\_SAMPLES@{TEST\_LENGTH\_SAMPLES}}
+\index{TEST\_LENGTH\_SAMPLES@{TEST\_LENGTH\_SAMPLES}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{TEST\_LENGTH\_SAMPLES}{TEST\_LENGTH\_SAMPLES}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_abc004a7fade488e72310fd96c0a101dc} 
+\#define TEST\+\_\+\+LENGTH\+\_\+\+SAMPLES~10}
+
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source_l00095}{95}} of file \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__linear__interp__example__f32_8c_a0ecae49cebd837aac53411c8f877503d}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!XSPACING@{XSPACING}}
+\index{XSPACING@{XSPACING}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{XSPACING}{XSPACING}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_a0ecae49cebd837aac53411c8f877503d} 
+\#define XSPACING~(0.\+005f)}
+
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source_l00096}{96}} of file \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{arm__linear__interp__example__f32_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm__linear__interp__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!main@{main}}
+\index{main@{main}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_a52d2cba30e6946c95578be946ac12a65} 
+int32\+\_\+t main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source_l00150}{150}} of file \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{arm__linear__interp__example__f32_8c_a52d2cba30e6946c95578be946ac12a65_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{arm__linear__interp__example__f32_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{arm__linear__interp__example__f32_8c_ab01b60c3faca4a492739bea167cbeb84}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!arm\_linear\_interep\_table@{arm\_linear\_interep\_table}}
+\index{arm\_linear\_interep\_table@{arm\_linear\_interep\_table}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{arm\_linear\_interep\_table}{arm\_linear\_interep\_table}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_ab01b60c3faca4a492739bea167cbeb84} 
+const float arm\+\_\+linear\+\_\+interep\+\_\+table\mbox{[}1884\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__data_8c_source_l00049}{49}} of file \mbox{\hyperlink{arm__linear__interp__data_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+data.\+c}}.
+
+\Hypertarget{arm__linear__interp__example__f32_8c_ad492c21cf2dd4e9199ae46c77f812cbc}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!snr1@{snr1}}
+\index{snr1@{snr1}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{snr1}{snr1}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_ad492c21cf2dd4e9199ae46c77f812cbc} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} snr1}
+
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source_l00144}{144}} of file \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__linear__interp__example__f32_8c_a269948ab25f230d33e3f22eab85aa1cf}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!snr2@{snr2}}
+\index{snr2@{snr2}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{snr2}{snr2}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_a269948ab25f230d33e3f22eab85aa1cf} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} snr2}
+
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source_l00145}{145}} of file \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__linear__interp__example__f32_8c_a4be0c4d25e63ce04b8cc8ad070805287}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!testInputSin\_f32@{testInputSin\_f32}}
+\index{testInputSin\_f32@{testInputSin\_f32}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{testInputSin\_f32}{testInputSin\_f32}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_a4be0c4d25e63ce04b8cc8ad070805287} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} test\+Input\+Sin\+\_\+f32\mbox{[}\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\+\_\+\+LENGTH\+\_\+\+SAMPLES}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ -\/0.649716504673081170,\ -\/2.501723745497831200,}
+\DoxyCodeLine{\ \ \ \ 0.188250329003310100,\ \ 0.432092748487532540,}
+\DoxyCodeLine{\ \ \ -\/1.722010988459680800,\ \ 1.788766476323060600,}
+\DoxyCodeLine{\ \ \ \ 1.786136060975809500,\ -\/0.056525543169408797,}
+\DoxyCodeLine{\ \ \ \ 0.491596272728153760,\ \ 0.262309671126153390}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source_l00104}{104}} of file \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__linear__interp__example__f32_8c_a8ca7d0ad6e04efed464bcaacedacf925}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!testLinIntOutput@{testLinIntOutput}}
+\index{testLinIntOutput@{testLinIntOutput}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{testLinIntOutput}{testLinIntOutput}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_a8ca7d0ad6e04efed464bcaacedacf925} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} test\+Lin\+Int\+Output\mbox{[}\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\+\_\+\+LENGTH\+\_\+\+SAMPLES}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source_l00134}{134}} of file \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__linear__interp__example__f32_8c_afd4d61aad5f35a4e42d580004e2f9a1d}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!testOutput@{testOutput}}
+\index{testOutput@{testOutput}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{testOutput}{testOutput}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_afd4d61aad5f35a4e42d580004e2f9a1d} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} test\+Output\mbox{[}\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\+\_\+\+LENGTH\+\_\+\+SAMPLES}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source_l00129}{129}} of file \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__linear__interp__example__f32_8c_a5a33218d422603f3e5267b6984bdddd1}\index{arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}!testRefSinOutput32\_f32@{testRefSinOutput32\_f32}}
+\index{testRefSinOutput32\_f32@{testRefSinOutput32\_f32}!arm\_linear\_interp\_example\_f32.c@{arm\_linear\_interp\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{testRefSinOutput32\_f32}{testRefSinOutput32\_f32}}
+{\footnotesize\ttfamily \label{arm__linear__interp__example__f32_8c_a5a33218d422603f3e5267b6984bdddd1} 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} test\+Ref\+Sin\+Output32\+\_\+f32\mbox{[}\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\+\_\+\+LENGTH\+\_\+\+SAMPLES}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ -\/0.604960695383043530,\ -\/0.597090287967934840,}
+\DoxyCodeLine{\ \ \ \ 0.187140422442966500,\ \ 0.418772124875992690,}
+\DoxyCodeLine{\ \ \ -\/0.988588831792106880,\ \ 0.976338412038794010,}
+\DoxyCodeLine{\ \ \ \ 0.976903856413481100,\ -\/0.056495446835214236,}
+\DoxyCodeLine{\ \ \ \ 0.472033731854734240,\ \ 0.259311907228582830}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source_l00117}{117}} of file \mbox{\hyperlink{arm__linear__interp__example__f32_8c_source}{arm\+\_\+linear\+\_\+interp\+\_\+example\+\_\+f32.\+c}}.
+

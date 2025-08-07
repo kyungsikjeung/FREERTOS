@@ -1,0 +1,53 @@
+<map id="clip_q63_to_q31" name="clip_q63_to_q31">
+<area shape="rect" id="Node000001" title="Clips Q63 to Q31 values." alt="" coords="569,360,685,387"/>
+<area shape="rect" id="Node000002" href="$none_8h.html#a3cfcec82d3ff1b8570010b771052cb96" title=" " alt="" coords="397,5,471,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="622,345,617,283,602,202,588,160,571,118,548,80,520,46,497,32,471,24,472,19,499,27,523,42,552,77,576,116,593,158,607,201,622,282,628,344"/>
+<area shape="rect" id="Node000003" href="$none_8h.html#a98e0174c04cb34aec3ce57d5a370953d" title=" " alt="" coords="398,56,471,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="621,345,612,292,595,225,565,156,544,124,520,97,497,83,471,75,472,70,499,78,523,93,549,121,570,153,600,223,617,290,626,344"/>
+<area shape="rect" id="Node000004" href="$arm__atan2__q31_8c.html#aae64d41dbe094c78433acaa601b9bf84" title=" " alt="" coords="360,107,508,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="618,346,607,302,588,248,559,194,541,169,520,147,502,136,505,132,523,143,545,166,564,191,593,246,612,300,623,344"/>
+<area shape="rect" id="Node000007" href="$group___cmplx_by_real_mult.html#ga0fe1cd71d35b4481f8ab69d502c96ace" title="Q31 complex&#45;by&#45;real multiplication." alt="" coords="348,259,521,285"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="597,352,562,325,520,300,492,288,494,283,523,295,565,320,600,348"/>
+<area shape="rect" id="Node000008" href="$group__float__to__x.html#gaae21be47db707e79552f3e8221a48fb0" title="Converts the elements of the floating&#45;point vector to Q31 vector." alt="" coords="374,309,495,336"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="558,358,487,339,488,334,559,353"/>
+<area shape="rect" id="Node000010" href="$group___i_i_r___lattice.html#ga87d7df8f8787402d4331de156a82687f" title="Processing function for the Q31 IIR lattice filter." alt="" coords="369,360,499,387"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="554,376,500,376,500,371,554,371"/>
+<area shape="rect" id="Node000011" href="$group___l_m_s___n_o_r_m.html#gae12fc16232c8087345e5910fcb840be9" title="Processing function for Q31 normalized LMS filter." alt="" coords="164,436,299,463"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="604,399,568,429,522,452,465,465,405,470,349,468,299,463,300,458,349,463,405,464,464,460,520,447,565,424,601,395"/>
+<area shape="rect" id="Node000012" href="$group___l_m_s.html#ga69c9c64338c067f1fb4990dcdc8c143f" title="Processing function for Q31 LMS filter." alt="" coords="384,512,484,539"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="611,401,574,449,550,474,523,496,486,514,483,509,520,491,546,470,570,445,606,398"/>
+<area shape="rect" id="Node000013" href="$group___cmplx_matrix_mult.html#gaaf3c0b171ca8412c77bab9fa90804737" title="Q31, complex, matrix multiplication." alt="" coords="347,563,521,589"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="619,403,605,437,585,477,557,518,523,553,503,564,500,560,520,549,553,515,580,475,600,435,614,401"/>
+<area shape="rect" id="Node000014" href="$group___basic_offset.html#ga55604198ef59f391a96ec95c188fca85" title="Adds a constant offset to a Q31 vector." alt="" coords="379,157,489,184"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="614,346,600,312,580,272,553,232,520,198,489,182,491,178,523,194,557,229,585,269,605,310,619,344"/>
+<area shape="rect" id="Node000017" href="$group___p_i_d.html#gad9d88485234fa9460b1ce9e64989ac86" title="Initialization function for the Q31 PID Control." alt="" coords="374,613,494,640"/>
+<area shape="poly" id="edge16_Node000001_Node000017" title=" " alt="" coords="623,402,612,447,593,501,564,556,545,581,523,603,496,619,493,614,520,599,541,578,559,553,588,499,607,445,618,401"/>
+<area shape="rect" id="Node000018" href="$utils_8h.html#a3cedcf5a91d6c722c64330ec97e0853e" title="Function to Calculates 1/in (reciprocal) value of Q31 Data type." alt="" coords="381,411,487,437"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="559,394,488,413,487,407,558,389"/>
+<area shape="rect" id="Node000019" href="$group___r_m_s.html#ga20586bc59cabbfc38a935c2448833dd2" title="Root Mean Square of the elements of a Q31 vector." alt="" coords="384,664,484,691"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="626,403,617,456,600,524,570,593,549,626,523,654,506,666,486,673,484,668,503,661,520,650,544,622,565,591,595,522,612,455,621,402"/>
+<area shape="rect" id="Node000020" href="$group___basic_shift.html#gabc69335d1cf2eba1c469c8c8291f3589" title="Shifts the elements of a Q31 vector a specified number of bits." alt="" coords="382,208,486,235"/>
+<area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="608,348,572,297,547,271,520,249,485,233,487,228,523,244,551,267,576,294,613,345"/>
+<area shape="rect" id="Node000023" href="$group___sin_cos.html#gae9e4ddebff9d4eb5d0a093e28e0bc504" title="Q31 sin_cos function." alt="" coords="372,715,496,741"/>
+<area shape="poly" id="edge28_Node000001_Node000023" title=" " alt="" coords="628,403,622,465,607,546,593,589,576,631,552,670,523,705,498,720,495,716,520,701,548,667,571,628,588,587,602,544,617,464,622,402"/>
+<area shape="rect" id="Node000005" href="$arm__atan2__q31_8c.html#a50b4cb6a5223af5aa106b8d71395181b" title=" " alt="" coords="180,56,283,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="362,105,283,85,284,80,364,100"/>
+<area shape="rect" id="Node000006" href="$group__atan2.html#ga14e753643307e373abffa6d14ae7a3f3" title="Arc tangent in radian of y/x using sign of x and y to determine right quadrant." alt="" coords="5,56,116,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="164,72,116,72,116,67,164,67"/>
+<area shape="rect" id="Node000009" href="$arm__graphic__equalizer__example__q31_8c.html#a52d2cba30e6946c95578be946ac12a65" title=" " alt="" coords="207,360,256,387"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="364,343,257,370,256,365,363,338"/>
+<area shape="rect" id="Node000015" href="$group___m_f_c_c.html#ga1ec288fa9eb7e85c8196c32dfe8f3f9b" title="MFCC Q15." alt="" coords="178,157,285,184"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="364,173,285,173,285,168,364,168"/>
+<area shape="rect" id="Node000016" href="$group___m_f_c_c.html#ga7ab98731e9e4a7705be0b3ca0c5bd94c" title="MFCC Q31." alt="" coords="7,208,114,235"/>
+<area shape="poly" id="edge15_Node000014_Node000016" title=" " alt="" coords="363,158,299,148,230,139,201,139,165,148,138,160,113,177,76,210,72,206,110,172,135,155,163,143,200,134,230,133,299,143,364,152"/>
+<area shape="poly" id="edge18_Node000018_Node000011" title=" " alt="" coords="366,435,300,444,299,438,365,430"/>
+<area shape="poly" id="edge21_Node000020_Node000005" title=" " alt="" coords="367,209,345,198,243,85,247,82,349,194,369,204"/>
+<area shape="poly" id="edge23_Node000020_Node000015" title=" " alt="" coords="367,207,285,187,286,181,368,202"/>
+<area shape="poly" id="edge24_Node000020_Node000016" title=" " alt="" coords="367,224,114,224,114,219,367,219"/>
+<area shape="rect" id="Node000021" href="$group___d_c_t4___i_d_c_t4.html#gad04d0baab6ed081d8e8afe02538eb80b" title="Processing function for the Q31 DCT4/IDCT4." alt="" coords="9,284,112,311"/>
+<area shape="poly" id="edge22_Node000020_Node000021" title=" " alt="" coords="369,239,348,249,334,261,326,275,317,288,300,300,252,314,202,318,154,317,112,311,113,306,155,311,202,313,251,309,298,295,313,285,322,272,330,258,346,244,367,234"/>
+<area shape="rect" id="Node000022" href="$group___real_f_f_t.html#gabaeab5646aeea9844e6d42ca8c73fe3a" title="Processing function for the Q31 RFFT/RIFFT." alt="" coords="185,259,278,285"/>
+<area shape="poly" id="edge25_Node000020_Node000022" title=" " alt="" coords="368,240,279,263,278,258,367,235"/>
+<area shape="poly" id="edge27_Node000022_Node000016" title=" " alt="" coords="169,256,107,238,108,233,170,251"/>
+<area shape="poly" id="edge26_Node000022_Node000021" title=" " alt="" coords="169,284,113,292,112,287,169,279"/>
+</map>

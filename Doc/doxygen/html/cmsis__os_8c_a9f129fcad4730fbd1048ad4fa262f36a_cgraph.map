@@ -1,0 +1,14 @@
+<map id="osPoolCAlloc" name="osPoolCAlloc">
+<area shape="rect" id="Node000001" title="Allocate a memory block from a memory pool and set memory block to zero." alt="" coords="5,43,106,69"/>
+<area shape="rect" id="Node000002" href="$cmsis__os2_8h.html#a8ead54e99ccb8f112356c88f99d38fbe" title=" " alt="" coords="390,5,527,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,39,153,28,269,17,374,14,374,20,269,22,154,33,102,45"/>
+<area shape="rect" id="Node000003" href="$cmsis__os2_8h.html#ab2bf059b7fa7679c3cccdaeec60b6c0e" title=" " alt="" coords="154,43,342,69"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="106,53,138,53,138,59,106,59"/>
+<area shape="rect" id="Node000004" href="$cmsis__os_8c.html#aa0b2994f1a866c19e0d11e6e0d44f543" title="Allocate a memory block from a memory pool." alt="" coords="203,93,293,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="107,67,188,88,187,94,105,72"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="292,94,341,79,417,38,420,42,343,84,294,99"/>
+<area shape="rect" id="Node000005" href="$port_8c.html#a2ed3554a3de09a3bd09d396ee081ab69" title=" " alt="" coords="396,68,521,95"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="293,99,380,88,381,93,294,104"/>
+<area shape="rect" id="Node000006" href="$port_8c.html#aed20ada05b957181a0de042802a82a5b" title=" " alt="" coords="400,119,517,145"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="294,109,385,121,385,126,293,115"/>
+</map>

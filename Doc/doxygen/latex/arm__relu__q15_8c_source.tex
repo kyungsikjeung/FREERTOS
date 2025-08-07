@@ -1,0 +1,90 @@
+\doxysection{arm\+\_\+relu\+\_\+q15.\+c}
+\hypertarget{arm__relu__q15_8c_source}{}\label{arm__relu__q15_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ActivationFunctions/arm\_relu\_q15.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ActivationFunctions/arm\_relu\_q15.c}}
+\mbox{\hyperlink{arm__relu__q15_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2010-\/2021\ Arm\ Limited\ or\ its\ affiliates.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00004}00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00006}00006\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00007}00007\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00008}00008\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00010}00010\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00013}00013\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00014}00014\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00015}00015\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00016}00016\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00019}00019\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00020}00020\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS\ NN\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00021}00021\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ arm\_relu\_q15.c}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00022}00022\ \textcolor{comment}{\ *\ Description:\ \ Q15\ version\ of\ ReLU}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00023}00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00024}00024\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 20.\ July\ 2021}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00025}00025\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V.1.0.2}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00026}00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00027}00027\ \textcolor{comment}{\ *\ Target\ Processor:\ \ Cortex-\/M\ cores}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00028}00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00029}00029\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nnfunctions_8h}{arm\_nnfunctions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nnsupportfunctions_8h}{arm\_nnsupportfunctions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00054}\mbox{\hyperlink{group___acti_ga53bcc00e54b802919bb3c89c143ee5ba}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___acti_ga53bcc00e54b802919bb3c89c143ee5ba}{arm\_relu\_q15}}(\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *data,\ uint16\_t\ size)}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00057}00057\ \textcolor{preprocessor}{\#if\ defined(ARM\_MATH\_DSP)\ \&\&\ !defined(ARM\_MATH\_MVEI)}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00058}00058\ \ \ \ \ \textcolor{comment}{/*\ Run\ the\ following\ code\ for\ M\ cores\ with\ DSP\ extension\ */}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00060}00060\ \ \ \ \ uint16\_t\ i\ =\ size\ >>\ 1;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *input\ =\ data;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *output\ =\ data;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ in;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ buf;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00065}00065\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ mask;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{while}\ (i)}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00068}00068\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ in\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_afdda94a339b76615d3161e9fc63f4d21}{arm\_nn\_read\_q15x2\_ia}}((\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ **)\&input);}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ extract\ the\ first\ bit\ */}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ buf\ =\ \mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga95b9bd281ddeda378b85afdb8f2ced86}{\_\_ROR}}(in\ \&\ 0x80008000,\ 15);}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ if\ MSB=1,\ mask\ will\ be\ 0xFF,\ 0x0\ otherwise\ */}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ mask\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0f31a63b10db31a9d5a9f768a3c8f386}{\_\_QSUB16}}(0x00000000,\ buf);}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a9477fb2f82284ac4fe20b2efb721f5f5}{arm\_nn\_write\_q15x2\_ia}}(\&output,\ in\ \&\ (\string~mask));}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ i-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00079}00079\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ \&\ 0x1)}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00082}00082\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*input\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ *input\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ input++;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00089}00089\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00090}00090\ \ \ \ \ \textcolor{comment}{/*\ Run\ the\ following\ code\ as\ reference\ implementation\ for\ M\ cores\ without\ DSP\ extension\ */}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00091}00091\ \ \ \ \ uint16\_t\ i;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00094}00094\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (data[i]\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ data[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00099}00099\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ARM\_MATH\_DSP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{arm__relu__q15_8c_source_l00101}00101\ }
+
+\end{DoxyCode}

@@ -1,0 +1,7 @@
+<map id="arm_park_q31" name="arm_park_q31">
+<area shape="rect" id="Node000001" title="Park transform for Q31 version." alt="" coords="5,31,109,57"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#ad92ce801e7aab7ef1bd2698cb523c1de" title=" " alt="" coords="157,5,231,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,32,141,26,142,31,110,37"/>
+<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#a11e5ff95c57c57fe6ec151d7efc42a28" title=" " alt="" coords="157,56,230,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,51,142,57,141,62,109,56"/>
+</map>

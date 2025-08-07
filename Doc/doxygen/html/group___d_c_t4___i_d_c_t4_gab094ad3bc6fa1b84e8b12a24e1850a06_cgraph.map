@@ -1,0 +1,7 @@
+<map id="arm_dct4_init_f32" name="arm_dct4_init_f32">
+<area shape="rect" id="Node000001" title="Initialization function for the floating&#45;point DCT4/IDCT4." alt="" coords="5,5,130,32"/>
+<area shape="rect" id="Node000002" href="$group___real_f_f_t.html#ga10717ee326bf50832ef1c25b85a23068" title="Initialization function for the floating&#45;point RFFT/RIFFT." alt="" coords="178,5,292,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,16,162,16,162,21,130,21"/>
+<area shape="rect" id="Node000003" href="$group___complex_f_f_t.html#gaf336459f684f0b17bfae539ef1b1b78a" title="Initialization function for the floating&#45;point CFFT/CIFFT." alt="" coords="340,5,499,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="292,16,325,16,325,21,292,21"/>
+</map>

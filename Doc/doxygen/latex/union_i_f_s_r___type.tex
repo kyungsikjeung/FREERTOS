@@ -1,0 +1,168 @@
+\doxysection{IFSR\+\_\+\+Type Union Reference}
+\hypertarget{union_i_f_s_r___type}{}\label{union_i_f_s_r___type}\index{IFSR\_Type@{IFSR\_Type}}
+
+
+{\ttfamily \#include $<$core\+\_\+ca.\+h$>$}
+
+
+
+Collaboration diagram for IFSR\+\_\+\+Type\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=138pt]{union_i_f_s_r___type__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint32\_t \mbox{\hyperlink{union_i_f_s_r___type_a760e3d9522b8d6836ca256c993c6b1ea}{FS0}}:4\\
+\>\>{\em bit: 0.. 3 Fault Status bits bit 0-\/3 }\\
+\>uint32\_t \mbox{\hyperlink{union_i_f_s_r___type_a167e3c44fae03dc3a46581fc5c99de2d}{LPAE}}:1\\
+\>\>{\em bit: 9 Large Physical Address Extension }\\
+\>uint32\_t \mbox{\hyperlink{union_i_f_s_r___type_a97afa40cd4be1f544188fbd4945f9e6a}{FS1}}:1\\
+\>\>{\em bit: 10 Fault Status bits bit 4 }\\
+\>uint32\_t \mbox{\hyperlink{union_i_f_s_r___type_ade861770e4725e5d429c0e7dadb57da8}{ExT}}:1\\
+\>\>{\em bit: 12 External abort type }\\
+\} \mbox{\hyperlink{union_i_f_s_r___type_ad5e3731e4c2117e05d88a563fc258cdb}{s}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em Structure used for bit access in short format. \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint32\_t \mbox{\hyperlink{union_i_f_s_r___type_a3f9158fbf21c247984a9c169ebe43143}{STATUS}}:6\\
+\>\>{\em bit: 0.. 5 Fault Status bits }\\
+\>uint32\_t \mbox{\hyperlink{union_i_f_s_r___type_a167e3c44fae03dc3a46581fc5c99de2d}{LPAE}}:1\\
+\>\>{\em bit: 9 Large Physical Address Extension }\\
+\>uint32\_t \mbox{\hyperlink{union_i_f_s_r___type_ade861770e4725e5d429c0e7dadb57da8}{ExT}}:1\\
+\>\>{\em bit: 12 External abort type }\\
+\} \mbox{\hyperlink{union_i_f_s_r___type_a7a2220fe28de8db5ea2fd3e49196f2c6}{l}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em Structure used for bit access in long format. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{union_i_f_s_r___type_ad0fb62e7a08e70fc5e0a76b67809f84b}{w}}
+\begin{DoxyCompactList}\small\item\em Type used for word access. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00589}{589}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{union_i_f_s_r___type_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{union_i_f_s_r___type_ade861770e4725e5d429c0e7dadb57da8}\index{IFSR\_Type@{IFSR\_Type}!ExT@{ExT}}
+\index{ExT@{ExT}!IFSR\_Type@{IFSR\_Type}}
+\doxysubsubsection{\texorpdfstring{ExT}{ExT}}
+{\footnotesize\ttfamily \label{union_i_f_s_r___type_ade861770e4725e5d429c0e7dadb57da8} 
+uint32\+\_\+t ExT}
+
+
+
+bit\+: 12 External abort type 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00598}{598}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_i_f_s_r___type_a760e3d9522b8d6836ca256c993c6b1ea}\index{IFSR\_Type@{IFSR\_Type}!FS0@{FS0}}
+\index{FS0@{FS0}!IFSR\_Type@{IFSR\_Type}}
+\doxysubsubsection{\texorpdfstring{FS0}{FS0}}
+{\footnotesize\ttfamily \label{union_i_f_s_r___type_a760e3d9522b8d6836ca256c993c6b1ea} 
+uint32\+\_\+t FS0}
+
+
+
+bit\+: 0.. 3 Fault Status bits bit 0-\/3 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00593}{593}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_i_f_s_r___type_a97afa40cd4be1f544188fbd4945f9e6a}\index{IFSR\_Type@{IFSR\_Type}!FS1@{FS1}}
+\index{FS1@{FS1}!IFSR\_Type@{IFSR\_Type}}
+\doxysubsubsection{\texorpdfstring{FS1}{FS1}}
+{\footnotesize\ttfamily \label{union_i_f_s_r___type_a97afa40cd4be1f544188fbd4945f9e6a} 
+uint32\+\_\+t FS1}
+
+
+
+bit\+: 10 Fault Status bits bit 4 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00596}{596}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_i_f_s_r___type_a7a2220fe28de8db5ea2fd3e49196f2c6}\index{IFSR\_Type@{IFSR\_Type}!l@{l}}
+\index{l@{l}!IFSR\_Type@{IFSR\_Type}}
+\doxysubsubsection{\texorpdfstring{[struct]}{[struct]}}
+{\footnotesize\ttfamily \label{union_i_f_s_r___type_a7a2220fe28de8db5ea2fd3e49196f2c6} 
+struct  \{ ... \}  l}
+
+
+
+Structure used for bit access in long format. 
+
+\Hypertarget{union_i_f_s_r___type_a167e3c44fae03dc3a46581fc5c99de2d}\index{IFSR\_Type@{IFSR\_Type}!LPAE@{LPAE}}
+\index{LPAE@{LPAE}!IFSR\_Type@{IFSR\_Type}}
+\doxysubsubsection{\texorpdfstring{LPAE}{LPAE}}
+{\footnotesize\ttfamily \label{union_i_f_s_r___type_a167e3c44fae03dc3a46581fc5c99de2d} 
+uint32\+\_\+t LPAE}
+
+
+
+bit\+: 9 Large Physical Address Extension 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00595}{595}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_i_f_s_r___type_ad5e3731e4c2117e05d88a563fc258cdb}\index{IFSR\_Type@{IFSR\_Type}!s@{s}}
+\index{s@{s}!IFSR\_Type@{IFSR\_Type}}
+\doxysubsubsection{\texorpdfstring{[struct]}{[struct]}}
+{\footnotesize\ttfamily \label{union_i_f_s_r___type_ad5e3731e4c2117e05d88a563fc258cdb} 
+struct  \{ ... \}  s}
+
+
+
+Structure used for bit access in short format. 
+
+\Hypertarget{union_i_f_s_r___type_a3f9158fbf21c247984a9c169ebe43143}\index{IFSR\_Type@{IFSR\_Type}!STATUS@{STATUS}}
+\index{STATUS@{STATUS}!IFSR\_Type@{IFSR\_Type}}
+\doxysubsubsection{\texorpdfstring{STATUS}{STATUS}}
+{\footnotesize\ttfamily \label{union_i_f_s_r___type_a3f9158fbf21c247984a9c169ebe43143} 
+uint32\+\_\+t STATUS}
+
+
+
+bit\+: 0.. 5 Fault Status bits 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00603}{603}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+\Hypertarget{union_i_f_s_r___type_ad0fb62e7a08e70fc5e0a76b67809f84b}\index{IFSR\_Type@{IFSR\_Type}!w@{w}}
+\index{w@{w}!IFSR\_Type@{IFSR\_Type}}
+\doxysubsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily \label{union_i_f_s_r___type_ad0fb62e7a08e70fc5e0a76b67809f84b} 
+uint32\+\_\+t w}
+
+
+
+Type used for word access. 
+
+
+
+Definition at line \mbox{\hyperlink{core__ca_8h_source_l00610}{610}} of file \mbox{\hyperlink{core__ca_8h_source}{core\+\_\+ca.\+h}}.
+
+
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+Core\+\_\+\+A/\+Include/\mbox{\hyperlink{core__ca_8h}{core\+\_\+ca.\+h}}\end{DoxyCompactItemize}

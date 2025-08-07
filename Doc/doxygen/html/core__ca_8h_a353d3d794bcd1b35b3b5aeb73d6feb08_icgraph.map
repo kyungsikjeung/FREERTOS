@@ -1,0 +1,9 @@
+<map id="MMU_MemorySection" name="MMU_MemorySection">
+<area shape="rect" id="Node000001" title="Set Section memory attributes." alt="" coords="458,31,609,57"/>
+<area shape="rect" id="Node000002" href="$core__ca_8h.html#a4f21eee79309cf8cde694d0d7e1205bd" title="Create a L1 section descriptor." alt="" coords="225,5,410,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="442,36,410,32,411,27,443,31"/>
+<area shape="rect" id="Node000003" href="$core__ca_8h.html#a9a2946f7c93bcb05cdd20be691a54b8c" title="Set 4k/64k page memory attributes." alt="" coords="249,56,386,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="443,57,387,64,386,59,442,52"/>
+<area shape="rect" id="Node000004" href="$core__ca_8h.html#aa2fcfb63c7019665b8a352d54f55d740" title="Create a L1 and L2 4k/64k page descriptor." alt="" coords="5,56,177,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="233,72,177,72,177,67,233,67"/>
+</map>

@@ -1,0 +1,147 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Examples/\+ARM/arm\+\_\+svm\+\_\+example/arm\+\_\+svm\+\_\+example\+\_\+f32.c File Reference}
+\hypertarget{arm__svm__example__f32_8c}{}\label{arm__svm__example__f32_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_svm\_example/arm\_svm\_example\_f32.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_svm\_example/arm\_svm\_example\_f32.c}}
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}arm\+\_\+math.\+h"{}}\newline
+Include dependency graph for arm\+\_\+svm\+\_\+example\+\_\+f32.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__svm__example__f32_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arm__svm__example__f32_8c_a991d9a139527d1a747541de078ca21c7}{NB\+\_\+\+SUPPORT\+\_\+\+VECTORS}}~11
+\item 
+\#define \mbox{\hyperlink{arm__svm__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7}{VECTOR\+\_\+\+DIMENSION}}~2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{arm__svm__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structarm__svm__polynomial__instance__f32}{arm\+\_\+svm\+\_\+polynomial\+\_\+instance\+\_\+f32}} \mbox{\hyperlink{arm__svm__example__f32_8c_a1510c63c4febec3a2a58a2397e2b738d}{params}}
+\item 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__svm__example__f32_8c_a6bee216b9b7e7b8d18687cd692e26a8a}{dual\+Coefficients}} \mbox{[}\mbox{\hyperlink{arm__svm__example__f32_8c_a991d9a139527d1a747541de078ca21c7}{NB\+\_\+\+SUPPORT\+\_\+\+VECTORS}}\mbox{]}
+\item 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__svm__example__f32_8c_ac636d66272348052cde1083e5a0c3c60}{support\+Vectors}} \mbox{[}\mbox{\hyperlink{arm__svm__example__f32_8c_a991d9a139527d1a747541de078ca21c7}{NB\+\_\+\+SUPPORT\+\_\+\+VECTORS}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7}{VECTOR\+\_\+\+DIMENSION}}\mbox{]}
+\item 
+const int32\+\_\+t \mbox{\hyperlink{arm__svm__example__f32_8c_ae76f66a144055c576e6895e411417b63}{classes}} \mbox{[}2\mbox{]} =\{0,1\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{arm__svm__example__f32_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm__svm__example__f32_8c_a991d9a139527d1a747541de078ca21c7}\index{arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}!NB\_SUPPORT\_VECTORS@{NB\_SUPPORT\_VECTORS}}
+\index{NB\_SUPPORT\_VECTORS@{NB\_SUPPORT\_VECTORS}!arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{NB\_SUPPORT\_VECTORS}{NB\_SUPPORT\_VECTORS}}
+{\footnotesize\ttfamily \label{arm__svm__example__f32_8c_a991d9a139527d1a747541de078ca21c7} 
+\#define NB\+\_\+\+SUPPORT\+\_\+\+VECTORS~11}
+
+
+
+Definition at line \mbox{\hyperlink{arm__svm__example__f32_8c_source_l00074}{74}} of file \mbox{\hyperlink{arm__svm__example__f32_8c_source}{arm\+\_\+svm\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__svm__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7}\index{arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}!VECTOR\_DIMENSION@{VECTOR\_DIMENSION}}
+\index{VECTOR\_DIMENSION@{VECTOR\_DIMENSION}!arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{VECTOR\_DIMENSION}{VECTOR\_DIMENSION}}
+{\footnotesize\ttfamily \label{arm__svm__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7} 
+\#define VECTOR\+\_\+\+DIMENSION~2}
+
+
+
+Definition at line \mbox{\hyperlink{arm__svm__example__f32_8c_source_l00080}{80}} of file \mbox{\hyperlink{arm__svm__example__f32_8c_source}{arm\+\_\+svm\+\_\+example\+\_\+f32.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{arm__svm__example__f32_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm__svm__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}\index{arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}!main@{main}}
+\index{main@{main}!arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{arm__svm__example__f32_8c_a52d2cba30e6946c95578be946ac12a65} 
+int32\+\_\+t main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{arm__svm__example__f32_8c_source_l00104}{104}} of file \mbox{\hyperlink{arm__svm__example__f32_8c_source}{arm\+\_\+svm\+\_\+example\+\_\+f32.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__svm__example__f32_8c_a52d2cba30e6946c95578be946ac12a65_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{arm__svm__example__f32_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{arm__svm__example__f32_8c_ae76f66a144055c576e6895e411417b63}\index{arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}!classes@{classes}}
+\index{classes@{classes}!arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{classes}{classes}}
+{\footnotesize\ttfamily \label{arm__svm__example__f32_8c_ae76f66a144055c576e6895e411417b63} 
+const int32\+\_\+t classes\mbox{[}2\mbox{]} =\{0,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{arm__svm__example__f32_8c_source_l00101}{101}} of file \mbox{\hyperlink{arm__svm__example__f32_8c_source}{arm\+\_\+svm\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__svm__example__f32_8c_a6bee216b9b7e7b8d18687cd692e26a8a}\index{arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}!dualCoefficients@{dualCoefficients}}
+\index{dualCoefficients@{dualCoefficients}!arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{dualCoefficients}{dualCoefficients}}
+{\footnotesize\ttfamily \label{arm__svm__example__f32_8c_a6bee216b9b7e7b8d18687cd692e26a8a} 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} dual\+Coefficients\mbox{[}\mbox{\hyperlink{arm__svm__example__f32_8c_a991d9a139527d1a747541de078ca21c7}{NB\+\_\+\+SUPPORT\+\_\+\+VECTORS}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\{-\/0.01628988f,\ -\/0.0971605f,}
+\DoxyCodeLine{\ \ -\/0.02707579f,\ \ 0.0249406f,\ \ \ 0.00223095f,\ \ 0.04117345f,}
+\DoxyCodeLine{\ \ 0.0262687f,\ \ \ 0.00800358f,\ \ 0.00581823f,\ \ 0.02346904f,\ \ 0.00862162f\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{arm__svm__example__f32_8c_source_l00082}{82}} of file \mbox{\hyperlink{arm__svm__example__f32_8c_source}{arm\+\_\+svm\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__svm__example__f32_8c_a1510c63c4febec3a2a58a2397e2b738d}\index{arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}!params@{params}}
+\index{params@{params}!arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{params}{params}}
+{\footnotesize\ttfamily \label{arm__svm__example__f32_8c_a1510c63c4febec3a2a58a2397e2b738d} 
+\mbox{\hyperlink{structarm__svm__polynomial__instance__f32}{arm\+\_\+svm\+\_\+polynomial\+\_\+instance\+\_\+f32}} params}
+
+
+
+Definition at line \mbox{\hyperlink{arm__svm__example__f32_8c_source_l00068}{68}} of file \mbox{\hyperlink{arm__svm__example__f32_8c_source}{arm\+\_\+svm\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__svm__example__f32_8c_ac636d66272348052cde1083e5a0c3c60}\index{arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}!supportVectors@{supportVectors}}
+\index{supportVectors@{supportVectors}!arm\_svm\_example\_f32.c@{arm\_svm\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{supportVectors}{supportVectors}}
+{\footnotesize\ttfamily \label{arm__svm__example__f32_8c_ac636d66272348052cde1083e5a0c3c60} 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} support\+Vectors\mbox{[}\mbox{\hyperlink{arm__svm__example__f32_8c_a991d9a139527d1a747541de078ca21c7}{NB\+\_\+\+SUPPORT\+\_\+\+VECTORS}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7}{VECTOR\+\_\+\+DIMENSION}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\{\ 1.2510991f,\ \ \ 0.47782799f,}
+\DoxyCodeLine{\ -\/0.32711859f,\ -\/1.49880648f,\ -\/0.08905047f,\ \ 1.31907242f,}
+\DoxyCodeLine{\ \ 1.14059333f,\ \ 2.63443767f,\ -\/2.62561524f,\ \ 1.02120701f,}
+\DoxyCodeLine{\ -\/1.2361353f,\ \ -\/2.53145187f,}
+\DoxyCodeLine{\ \ 2.28308122f,\ -\/1.58185875f,\ \ 2.73955981f,\ \ 0.35759327f,}
+\DoxyCodeLine{\ \ 0.56662986f,\ \ 2.79702016f,}
+\DoxyCodeLine{\ -\/2.51380816f,\ \ 1.29295364f,\ -\/0.56658669f,\ -\/2.81944734f\}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{arm__svm__example__f32_8c_source_l00086}{86}} of file \mbox{\hyperlink{arm__svm__example__f32_8c_source}{arm\+\_\+svm\+\_\+example\+\_\+f32.\+c}}.
+

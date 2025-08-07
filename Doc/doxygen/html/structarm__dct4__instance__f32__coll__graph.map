@@ -1,0 +1,8 @@
+<map id="arm_dct4_instance_f32" name="arm_dct4_instance_f32">
+<area shape="rect" id="Node000001" title="Instance structure for the floating&#45;point DCT4/IDCT4 function." alt="" coords="46,565,191,720"/>
+<area shape="rect" id="Node000002" href="$structarm__rfft__instance__f32.html" title="Instance structure for the floating&#45;point RFFT/RIFFT function." alt="" coords="142,296,278,493"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,494,155,551,150,549,171,492"/>
+<area shape="rect" id="Node000003" href="$structarm__cfft__radix4__instance__f32.html" title="Instance structure for the floating&#45;point CFFT/CIFFT function." alt="" coords="5,5,186,224"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="88,224,83,353,84,424,89,493,98,548,93,549,84,494,79,424,78,353,83,224"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="143,223,166,280,161,282,138,225"/>
+</map>

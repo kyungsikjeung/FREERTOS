@@ -1,0 +1,70 @@
+\doxysection{arm\+\_\+nn\+\_\+activations\+\_\+q7.\+c}
+\hypertarget{arm__nn__activations__q7_8c_source}{}\label{arm__nn__activations__q7_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ActivationFunctions/arm\_nn\_activations\_q7.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ActivationFunctions/arm\_nn\_activations\_q7.c}}
+\mbox{\hyperlink{arm__nn__activations__q7_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2010-\/2020\ Arm\ Limited\ or\ its\ affiliates.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00004}00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00006}00006\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00007}00007\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00008}00008\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00010}00010\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00013}00013\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00014}00014\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00015}00015\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00016}00016\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00019}00019\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00020}00020\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS\ NN\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00021}00021\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ arm\_nn\_activations\_q7.c}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00022}00022\ \textcolor{comment}{\ *\ Description:\ \ Q7\ neural\ network\ activation\ function\ using\ direct\ table\ look-\/up}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00023}00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00024}00024\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 09.\ October\ 2020}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00025}00025\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V.1.0.1}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00026}00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00027}00027\ \textcolor{comment}{\ *\ Target\ Processor:\ \ Cortex-\/M\ cores}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00028}00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00029}00029\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nn__tables_8h}{arm\_nn\_tables.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nnfunctions_8h}{arm\_nnfunctions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00059}\mbox{\hyperlink{group___acti_ga79f11131ae6767d60e03b1f6506b1af8}{00059}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___acti_ga79f11131ae6767d60e03b1f6506b1af8}{arm\_nn\_activations\_direct\_q7}}(\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *data,\ uint16\_t\ size,\ uint16\_t\ int\_width,\ \mbox{\hyperlink{arm__nnfunctions_8h_a7f41aa78cd9a0552fae9b348ee4831a0}{arm\_nn\_activation\_type}}\ type)}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00061}00061\ \ \ \ \ uint16\_t\ i\ =\ size;}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *pIn\ =\ data;}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *pOut\ =\ data;}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ in;}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00065}00065\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ out;}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00066}00066\ \ \ \ \ uint16\_t\ shift\_size\ =\ 3\ -\/\ int\_width;}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00067}00067\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *lookup\_table;}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{switch}\ (type)}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00069}00069\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{arm__nnfunctions_8h_a7f41aa78cd9a0552fae9b348ee4831a0a49b307e029715fbaa6f3101c806b8c54}{ARM\_SIGMOID}}:}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ lookup\_table\ =\ \mbox{\hyperlink{arm__nn__tables_8h_ae2ff3f4e7014f535358167150bdd544f}{sigmoidTable\_q7}};}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{arm__nnfunctions_8h_a7f41aa78cd9a0552fae9b348ee4831a0ac24e4db95c986f16c10dca71a4b4e1c5}{ARM\_TANH}}:}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ lookup\_table\ =\ \mbox{\hyperlink{arm__nn__tables_8h_a4f854bdf13f630ec21b3ad074491e32f}{tanhTable\_q7}};}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{while}\ (i)}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00079}00079\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ in\ =\ *pIn++;}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ out\ =\ lookup\_table[(uint8\_t)(in\ >>\ shift\_size)];}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ *pOut++\ =\ out;}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ i-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nn__activations__q7_8c_source_l00086}00086\ }
+
+\end{DoxyCode}

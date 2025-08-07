@@ -1,0 +1,70 @@
+<map id="arm_nn_read_q15x2_ia" name="arm_nn_read_q15x2_ia">
+<area shape="rect" id="Node000001" title="Read 2 q15 elements and post increment pointer." alt="" coords="956,684,1111,711"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#ga110adcfdaab356c750c6270aa5e05f29" title="Fast Q7 version of 1x1 convolution (non&#45;sqaure shape)" alt="" coords="476,11,646,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1028,669,1020,538,999,353,983,260,963,175,937,107,922,81,906,62,878,42,847,27,814,17,779,11,710,9,647,16,646,10,710,4,780,6,815,12,849,22,881,37,909,58,926,78,942,104,968,173,989,259,1005,353,1025,537,1033,669"/>
+<area shape="rect" id="Node000003" href="$group___n_n_conv.html#gadda1e5325d511d56716111548c787a1c" title="Optimized s16 convolution function." alt="" coords="481,260,640,287"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1029,669,1025,597,1007,502,992,452,970,404,942,360,906,322,887,311,861,302,793,289,715,281,641,277,641,272,715,276,793,284,863,297,890,306,909,318,946,356,975,401,997,450,1013,500,1030,596,1035,668"/>
+<area shape="rect" id="Node000005" href="$group___n_n_conv.html#ga55701f213b198084b52eab53097f1f58" title="Basic Q15 convolution function." alt="" coords="723,332,893,375"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1026,669,1015,611,994,536,978,496,958,457,934,421,906,389,891,377,894,373,909,385,939,417,963,454,983,494,999,534,1020,610,1031,668"/>
+<area shape="rect" id="Node000006" href="$group___n_n_conv.html#ga4efb1ccbbaa7dd936961989dcb443f50" title="Fast Q15 convolution function." alt="" coords="708,399,908,425"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1024,669,1011,619,988,557,954,493,932,465,906,440,888,428,890,424,909,435,936,461,958,490,993,555,1016,618,1029,668"/>
+<area shape="rect" id="Node000007" href="$group___n_n_conv.html#ga614ec3b71eb96e29952ec3f09e7b9c3c" title="Fast Q15 convolution function (non&#45;sqaure shape)" alt="" coords="723,449,893,492"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="1018,671,975,594,944,551,906,513,877,495,880,490,909,509,948,547,980,591,1023,669"/>
+<area shape="rect" id="Node000008" href="$group___n_n_conv.html#ga210ae8d8fc1d12ee15b41f1fa6947681" title="Basic Q7 convolution function." alt="" coords="479,529,642,572"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1012,673,968,623,939,599,907,580,840,558,771,546,703,543,643,545,643,539,703,538,771,541,842,553,909,575,942,595,972,619,1016,669"/>
+<area shape="rect" id="Node000009" href="$group___n_n_conv.html#ga4501fa22c0836002aa47ccc313dce252" title="Basic Q7 convolution function (non&#45;square shape)" alt="" coords="479,601,642,644"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1007,675,963,638,936,621,907,608,839,594,769,591,702,596,643,605,642,600,702,590,769,585,840,588,908,603,938,616,966,634,1011,671"/>
+<area shape="rect" id="Node000010" href="$group___n_n_conv.html#gae00d3c1285907d59657369fc98bcc83f" title="Fast Q7 convolution function." alt="" coords="464,84,657,111"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="1028,669,1019,545,998,372,982,285,961,207,936,144,922,120,906,103,871,81,832,68,791,61,749,60,668,70,603,86,601,81,667,64,748,55,791,56,833,62,873,77,909,99,926,117,941,141,966,205,987,284,1003,371,1024,544,1033,668"/>
+<area shape="rect" id="Node000011" href="$group___n_n_conv.html#gabc6d6b991024e9e5c5cdbd7489de88ef" title="Fast Q7 convolution function (non&#45;sqaure shape)" alt="" coords="479,147,642,189"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="1026,669,1012,568,987,432,971,364,951,303,930,253,906,221,888,209,862,200,794,186,716,177,642,173,643,167,717,172,795,180,864,195,890,205,909,217,934,251,956,301,976,363,992,431,1017,567,1031,668"/>
+<area shape="rect" id="Node000012" href="$group___n_n_conv.html#ga98f2ead67d7cbdf558b0cd8a3b8fc148" title="Q7 version of convolution for RGB image." alt="" coords="461,679,660,705"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="940,699,661,696,661,691,940,694"/>
+<area shape="rect" id="Node000013" href="$group___n_n_conv.html#ga34bb5c05805ca7d5ea9681fcad8a711d" title="Basic s8 convolution function." alt="" coords="499,772,622,799"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1011,724,966,761,938,779,908,792,833,808,756,812,683,808,622,800,623,795,684,803,756,807,832,803,907,787,936,774,963,757,1007,720"/>
+<area shape="rect" id="Node000016" href="$group___f_c.html#ga4a1521e7532a1e62d71f3b12762016e2" title="Mixed Q15&#45;Q7 fully&#45;connected layer function." alt="" coords="737,852,879,895"/>
+<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="1016,725,971,780,942,809,909,836,876,854,874,849,906,831,938,806,967,776,1012,722"/>
+<area shape="rect" id="Node000017" href="$group___f_c.html#gae3857bb6375692e81dde8cbd70adec08" title="Mixed Q15&#45;Q7 opt fully&#45;connected layer function." alt="" coords="732,919,884,961"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="1025,726,1009,767,984,816,951,866,909,909,886,923,883,919,906,905,947,862,980,813,1004,764,1020,724"/>
+<area shape="rect" id="Node000018" href="$group___f_c.html#gaac666c212b209e636c2369dd5c75d0dc" title="Q15 basic fully&#45;connected layer function." alt="" coords="723,985,893,1012"/>
+<area shape="poly" id="edge18_Node000001_Node000018" title=" " alt="" coords="1030,727,1018,780,995,847,960,916,937,948,909,976,891,987,888,983,906,971,933,944,956,914,990,845,1013,779,1025,726"/>
+<area shape="rect" id="Node000019" href="$group___f_c.html#ga062912078da113f5dd2004fd919a0ff2" title="Q15 opt fully&#45;connected layer function." alt="" coords="737,1036,879,1079"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="1032,727,1022,788,1001,868,985,911,965,952,940,991,909,1026,881,1045,878,1040,906,1022,935,988,960,950,980,908,996,866,1017,787,1027,726"/>
+<area shape="rect" id="Node000020" href="$group___f_c.html#ga8b7e0c2e989e8c75f0dc789f3115323d" title="Q7 basic fully&#45;connected layer function." alt="" coords="727,1103,889,1129"/>
+<area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="1035,727,1029,800,1011,899,996,951,974,1003,946,1051,909,1093,891,1105,888,1101,906,1089,941,1048,969,1000,991,949,1006,897,1024,799,1029,726"/>
+<area shape="rect" id="Node000021" href="$group___f_c.html#gaf82b71ef472a38f8fc9ac414d9d07e67" title="Q7 opt fully&#45;connected layer function." alt="" coords="737,1153,879,1196"/>
+<area shape="poly" id="edge21_Node000001_Node000021" title=" " alt="" coords="1035,727,1032,807,1026,861,1016,919,1000,979,978,1038,948,1094,909,1143,880,1163,877,1159,906,1139,944,1091,973,1036,995,977,1010,917,1021,860,1026,807,1030,726"/>
+<area shape="rect" id="Node000022" href="$arm__nn__mat__mult__kernel__q7__q15_8c.html#adfe422e2514ff0fc5d757fc9c7265cd3" title="Matrix&#45;Multiplication Kernels for Convolution." alt="" coords="724,617,892,660"/>
+<area shape="poly" id="edge22_Node000001_Node000022" title=" " alt="" coords="964,682,892,663,893,658,965,677"/>
+<area shape="rect" id="Node000023" href="$arm__nn__mat__mult__kernel__q7__q15__reordered_8c.html#ab5f83b3cde0b227506aefa0cf8cd1aa6" title="Matrix&#45;multiplication function for convolution with reordered columns." alt="" coords="724,113,892,156"/>
+<area shape="poly" id="edge26_Node000001_Node000023" title=" " alt="" coords="1026,669,1011,561,986,414,969,339,950,271,929,215,906,177,884,159,887,155,910,173,934,213,955,270,974,338,991,413,1017,561,1031,668"/>
+<area shape="rect" id="Node000024" href="$arm__nn__mat__mul__kernel__s16_8c.html#a45ec7e9cd96398ac06c51a3ed658bb2a" title="Matrix&#45;multiplication function for convolution with per&#45;channel requantization for 16 bits convolutio..." alt="" coords="710,231,906,257"/>
+<area shape="poly" id="edge30_Node000001_Node000024" title=" " alt="" coords="1029,668,1025,591,1008,487,992,431,971,375,942,324,906,278,879,260,882,256,909,274,947,321,976,373,997,429,1013,486,1030,591,1035,668"/>
+<area shape="rect" id="Node000025" href="$arm__nn__mat__mult__kernel__s8__s16_8c.html#ab2040b03e85717f57f8fcaf83db838e4" title="Matrix&#45;multiplication function for convolution with per&#45;channel requantization." alt="" coords="724,735,892,777"/>
+<area shape="poly" id="edge32_Node000001_Node000025" title=" " alt="" coords="965,718,893,737,892,732,964,713"/>
+<area shape="rect" id="Node000026" href="$arm__nn__mat__mult__kernel__s8__s16__reordered_8c.html#aacb9f12c6b1df4ac3116e837b62ab431" title=" " alt="" coords="724,1220,892,1263"/>
+<area shape="poly" id="edge34_Node000001_Node000026" title=" " alt="" coords="1031,727,1017,833,991,977,975,1050,955,1117,934,1172,910,1210,894,1223,891,1219,906,1206,929,1169,950,1115,969,1049,986,976,1011,832,1026,726"/>
+<area shape="rect" id="Node000027" href="$group___n_n_basic_math.html#ga721f565a0b8015a3d6d46535cadf63d3" title="s16 Vector by Matrix (transposed) multiplication" alt="" coords="731,1287,885,1329"/>
+<area shape="poly" id="edge35_Node000001_Node000027" title=" " alt="" coords="1032,727,1019,845,995,1009,979,1093,959,1170,936,1233,910,1277,887,1294,884,1290,906,1273,931,1230,954,1168,974,1092,990,1008,1014,845,1027,726"/>
+<area shape="rect" id="Node000029" href="$group___acti.html#ga53bcc00e54b802919bb3c89c143ee5ba" title="Q15 RELU function." alt="" coords="758,1353,858,1380"/>
+<area shape="poly" id="edge37_Node000001_Node000029" title=" " alt="" coords="1033,727,1023,858,1001,1042,985,1137,965,1223,940,1294,925,1322,910,1343,886,1359,859,1367,857,1362,884,1355,906,1340,921,1319,935,1292,960,1222,980,1136,996,1042,1018,857,1028,726"/>
+<area shape="rect" id="Node000030" href="$group___s_v_d_f.html#ga3dc1b94f56e80e5b80b353ce8d9650b3" title="s8 SVDF function with 16 bit state tensor and 16 bit time weights" alt="" coords="728,1404,888,1431"/>
+<area shape="poly" id="edge38_Node000001_Node000030" title=" " alt="" coords="1034,726,1025,867,1005,1067,988,1169,968,1263,942,1341,926,1371,910,1394,890,1408,887,1404,906,1390,922,1368,937,1339,963,1262,983,1168,999,1066,1020,866,1028,726"/>
+<area shape="rect" id="Node000004" href="$group___n_n_conv.html#gaf1b719fadc837ba10c065fa0aa1d31fc" title="s16 convolution layer wrapper function with the main purpose to call the optimal kernel available in ..." alt="" coords="230,260,413,287"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="466,276,413,276,413,271,466,271"/>
+<area shape="rect" id="Node000014" href="$group___n_n_conv.html#ga5b85b56e06e563c05b08ad6ba7423e1d" title="1xn convolution" alt="" coords="239,797,404,824"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="483,796,405,805,404,799,483,791"/>
+<area shape="rect" id="Node000015" href="$group___n_n_conv.html#ga5ac772a94937e1efdab145a2ab4c0927" title="s8 convolution layer wrapper function with the main purpose to call the optimal kernel available in c..." alt="" coords="5,772,182,799"/>
+<area shape="poly" id="edge15_Node000013_Node000015" title=" " alt="" coords="483,788,182,788,182,783,483,783"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="223,802,182,798,182,793,223,797"/>
+<area shape="poly" id="edge23_Node000022_Node000008" title=" " alt="" coords="731,614,622,575,624,570,732,609"/>
+<area shape="poly" id="edge24_Node000022_Node000009" title=" " alt="" coords="709,635,643,631,643,625,709,630"/>
+<area shape="poly" id="edge25_Node000022_Node000012" title=" " alt="" coords="710,663,627,681,626,675,708,657"/>
+<area shape="poly" id="edge27_Node000023_Node000002" title=" " alt="" coords="741,109,659,75,615,56,617,51,661,70,743,104"/>
+<area shape="poly" id="edge28_Node000023_Node000010" title=" " alt="" coords="708,122,653,114,654,109,709,117"/>
+<area shape="poly" id="edge29_Node000023_Node000011" title=" " alt="" coords="709,151,643,160,642,154,708,145"/>
+<area shape="poly" id="edge31_Node000024_Node000003" title=" " alt="" coords="695,260,641,267,640,261,694,255"/>
+<area shape="poly" id="edge33_Node000025_Node000013" title=" " alt="" coords="709,770,623,781,622,776,709,765"/>
+<area shape="rect" id="Node000028" href="$group___f_c.html#ga22aa22fe80e323429e8ac6aaeef878e8" title="Basic s16 Fully Connected function." alt="" coords="476,1295,645,1321"/>
+<area shape="poly" id="edge36_Node000027_Node000028" title=" " alt="" coords="716,1311,646,1311,646,1305,716,1305"/>
+</map>

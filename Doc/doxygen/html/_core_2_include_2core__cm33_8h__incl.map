@@ -1,0 +1,10 @@
+<map id="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/Core/Include/core_cm33.h" name="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/Core/Include/core_cm33.h">
+<area shape="rect" id="Node000001" title="CMSIS Cortex&#45;M33 Core Peripheral Access Layer Header File." alt="" coords="5,5,184,64"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="86,187,151,213"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,67,40,83,27,101,22,119,26,137,47,161,74,179,71,183,43,165,21,140,17,119,23,98,36,79,52,63"/>
+<area shape="rect" id="Node000003" href="$_core_2_include_2cmsis__version_8h.html" title="CMSIS Core(M) Version definitions." alt="" coords="36,112,153,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="97,64,97,96,92,96,92,64"/>
+<area shape="rect" id="Node000004" href="$_core_2_include_2cmsis__compiler_8h.html" title="CMSIS compiler generic header file." alt="" coords="177,112,300,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="143,62,207,101,204,106,140,67"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="219,141,154,181,151,176,216,137"/>
+</map>

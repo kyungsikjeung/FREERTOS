@@ -1,0 +1,33 @@
+<map id="osMailGet" name="osMailGet">
+<area shape="rect" id="Node000001" title="Get a mail from a queue." alt="" coords="5,233,86,260"/>
+<area shape="rect" id="Node000002" href="$queue_8c.html#ad0a166f3b1219a5e37e31f8090d4800d" title=" " alt="" coords="160,183,274,209"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,232,154,212,156,217,87,237"/>
+<area shape="rect" id="Node000014" href="$queue_8c.html#ac61ec62828e70ed35d18559a35550462" title=" " alt="" coords="134,259,301,285"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="86,250,119,255,118,260,86,255"/>
+<area shape="rect" id="Node000003" href="$tasks_8c.html#a91fbc7c4b65e32fae51b7d43ebdcb131" title=" " alt="" coords="587,144,788,171"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="245,180,292,159,348,143,408,135,468,133,580,139,580,144,468,138,408,140,350,148,294,164,247,184"/>
+<area shape="rect" id="Node000004" href="$tasks_8c.html#adc9eb47ceecf7dd7ee325bebff9eafc5" title=" " alt="" coords="364,56,525,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="233,180,282,141,348,99,378,86,380,91,350,104,285,145,236,184"/>
+<area shape="rect" id="Node000006" href="$tasks_8c.html#a084d232640bd1d04bcac0b8784417015" title=" " alt="" coords="383,157,505,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="274,187,367,177,368,182,275,192"/>
+<area shape="rect" id="Node000007" href="$tasks_8c.html#acfc8de487c86355713d0e8546506d9e4" title=" " alt="" coords="362,208,526,235"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="275,200,347,208,347,213,274,205"/>
+<area shape="rect" id="Node000008" href="$task_8h.html#a0241000e08a261372186d34825a35979" title=" " alt="" coords="361,259,527,285"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="252,207,350,244,374,251,372,257,348,249,251,212"/>
+<area shape="rect" id="Node000009" href="$tasks_8c.html#a6d21c9054b62d8bc1bfb2724e11578d9" title=" " alt="" coords="349,309,539,336"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="247,208,303,245,317,259,326,272,336,284,350,295,361,301,359,305,348,300,332,287,322,275,313,262,299,249,244,212"/>
+<area shape="rect" id="Node000012" href="$tasks_8c.html#adf830ea0f150fcdfdaa944667137f080" title=" " alt="" coords="384,5,504,32"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="224,181,270,114,306,75,348,42,368,31,371,36,350,46,309,79,275,117,229,184"/>
+<area shape="rect" id="Node000005" href="$list_8c.html#a28faa70d3ec4b4f39e53b0fc52d62ecf" title=" " alt="" coords="646,81,729,108"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="526,75,631,86,630,91,525,80"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="497,205,618,173,620,178,498,210"/>
+<area shape="rect" id="Node000010" href="$list_8c.html#a274fdced76bbdd9d8a4c4840ded2920c" title=" " alt="" coords="836,31,941,57"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="509,306,572,288,644,262,718,226,786,181,813,154,836,125,871,69,876,72,841,128,817,158,789,185,721,231,646,267,573,293,510,311"/>
+<area shape="rect" id="Node000011" href="$list_8c.html#a3240bc0f43fcf755be02bfc6de7dc6ef" title=" " alt="" coords="635,309,740,336"/>
+<area shape="poly" id="edge11_Node000009_Node000011" title=" " alt="" coords="540,320,619,320,619,325,540,325"/>
+<area shape="poly" id="edge13_Node000012_Node000010" title=" " alt="" coords="504,12,635,8,712,10,788,16,828,24,827,29,787,21,711,15,635,13,505,17"/>
+<area shape="rect" id="Node000013" href="$tasks_8c.html#a54f31e9aef0eb7b87e48c7d68ecc84c1" title=" " alt="" coords="618,31,757,57"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="505,22,603,33,602,38,505,28"/>
+<area shape="poly" id="edge15_Node000013_Node000010" title=" " alt="" coords="758,41,820,41,820,47,758,47"/>
+<area shape="poly" id="edge17_Node000014_Node000009" title=" " alt="" coords="281,283,367,303,366,308,280,289"/>
+</map>

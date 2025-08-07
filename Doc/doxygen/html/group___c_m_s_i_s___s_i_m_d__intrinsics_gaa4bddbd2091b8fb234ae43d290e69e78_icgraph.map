@@ -1,0 +1,5 @@
+<map id="__get_CPSR" name="__get_CPSR">
+<area shape="rect" id="Node000001" title="Get CPSR Register." alt="" coords="146,5,244,32"/>
+<area shape="rect" id="Node000002" href="$group___c_m_s_i_s___s_i_m_d__intrinsics.html#ga4cf62691d82a3f3a0d844ae94718a5a9" title="Get Mode." alt="" coords="5,5,98,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,21,98,21,98,16,130,16"/>
+</map>

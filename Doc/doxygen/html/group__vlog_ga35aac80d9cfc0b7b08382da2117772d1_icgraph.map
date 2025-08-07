@@ -1,0 +1,7 @@
+<map id="arm_vlog_q31" name="arm_vlog_q31">
+<area shape="rect" id="Node000001" title="q31 vector of log values." alt="" coords="161,31,263,57"/>
+<area shape="rect" id="Node000002" href="$group___m_f_c_c.html#ga1ec288fa9eb7e85c8196c32dfe8f3f9b" title="MFCC Q15." alt="" coords="5,5,113,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,36,112,30,113,25,146,30"/>
+<area shape="rect" id="Node000003" href="$group___m_f_c_c.html#ga7ab98731e9e4a7705be0b3ca0c5bd94c" title="MFCC Q31." alt="" coords="5,56,113,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="146,58,113,63,112,58,145,52"/>
+</map>

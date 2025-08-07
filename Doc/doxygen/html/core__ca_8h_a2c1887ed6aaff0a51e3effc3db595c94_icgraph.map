@@ -1,0 +1,5 @@
+<map id="MMU_SecurePage" name="MMU_SecurePage">
+<area shape="rect" id="Node000001" title="Set 4k/64k page Security attribute." alt="" coords="225,5,356,32"/>
+<area shape="rect" id="Node000002" href="$core__ca_8h.html#aa2fcfb63c7019665b8a352d54f55d740" title="Create a L1 and L2 4k/64k page descriptor." alt="" coords="5,5,177,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,21,177,21,177,16,209,16"/>
+</map>

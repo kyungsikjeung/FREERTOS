@@ -1,0 +1,121 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Core/\+Src/\+Main\+Program/3\+\_\+4\+\_\+queue\+\_\+mailbox.c File Reference}
+\hypertarget{3__4__queue__mailbox_8c}{}\label{3__4__queue__mailbox_8c}\index{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/3\_4\_queue\_mailbox.c@{C:/Users/TOVIS/test/TestRtos/Core/Src/MainProgram/3\_4\_queue\_mailbox.c}}
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include "{}driver\+\_\+init.\+h"{}}\newline
+Include dependency graph for 3\+\_\+4\+\_\+queue\+\_\+mailbox.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{3__4__queue__mailbox_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_example__t}{Example\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{3__4__queue__mailbox_8c_adc3237b8851be3f6243354ccc181b7ee}{v\+Updater\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Params)
+\item 
+void \mbox{\hyperlink{3__4__queue__mailbox_8c_a2fdd18477f6c617ff2d5ce5d27c799a6}{v\+Reader\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Params)
+\item 
+int \mbox{\hyperlink{3__4__queue__mailbox_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} \mbox{\hyperlink{3__4__queue__mailbox_8c_a451a58463b254064be02f685f8adf6c0}{x\+Mailbox}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{3__4__queue__mailbox_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{3__4__queue__mailbox_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{3\_4\_queue\_mailbox.c@{3\_4\_queue\_mailbox.c}!main@{main}}
+\index{main@{main}!3\_4\_queue\_mailbox.c@{3\_4\_queue\_mailbox.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{3__4__queue__mailbox_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{3__4__queue__mailbox_8c_source_l00055}{55}} of file \mbox{\hyperlink{3__4__queue__mailbox_8c_source}{3\+\_\+4\+\_\+queue\+\_\+mailbox.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{3__4__queue__mailbox_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{3__4__queue__mailbox_8c_a2fdd18477f6c617ff2d5ce5d27c799a6}\index{3\_4\_queue\_mailbox.c@{3\_4\_queue\_mailbox.c}!vReaderTask@{vReaderTask}}
+\index{vReaderTask@{vReaderTask}!3\_4\_queue\_mailbox.c@{3\_4\_queue\_mailbox.c}}
+\doxysubsubsection{\texorpdfstring{vReaderTask()}{vReaderTask()}}
+{\footnotesize\ttfamily \label{3__4__queue__mailbox_8c_a2fdd18477f6c617ff2d5ce5d27c799a6} 
+void v\+Reader\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Params}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{3__4__queue__mailbox_8c_source_l00037}{37}} of file \mbox{\hyperlink{3__4__queue__mailbox_8c_source}{3\+\_\+4\+\_\+queue\+\_\+mailbox.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{3__4__queue__mailbox_8c_a2fdd18477f6c617ff2d5ce5d27c799a6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{3__4__queue__mailbox_8c_a2fdd18477f6c617ff2d5ce5d27c799a6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{3__4__queue__mailbox_8c_adc3237b8851be3f6243354ccc181b7ee}\index{3\_4\_queue\_mailbox.c@{3\_4\_queue\_mailbox.c}!vUpdaterTask@{vUpdaterTask}}
+\index{vUpdaterTask@{vUpdaterTask}!3\_4\_queue\_mailbox.c@{3\_4\_queue\_mailbox.c}}
+\doxysubsubsection{\texorpdfstring{vUpdaterTask()}{vUpdaterTask()}}
+{\footnotesize\ttfamily \label{3__4__queue__mailbox_8c_adc3237b8851be3f6243354ccc181b7ee} 
+void v\+Updater\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Params}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{3__4__queue__mailbox_8c_source_l00024}{24}} of file \mbox{\hyperlink{3__4__queue__mailbox_8c_source}{3\+\_\+4\+\_\+queue\+\_\+mailbox.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{3__4__queue__mailbox_8c_adc3237b8851be3f6243354ccc181b7ee_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{3__4__queue__mailbox_8c_adc3237b8851be3f6243354ccc181b7ee_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{3__4__queue__mailbox_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{3__4__queue__mailbox_8c_a451a58463b254064be02f685f8adf6c0}\index{3\_4\_queue\_mailbox.c@{3\_4\_queue\_mailbox.c}!xMailbox@{xMailbox}}
+\index{xMailbox@{xMailbox}!3\_4\_queue\_mailbox.c@{3\_4\_queue\_mailbox.c}}
+\doxysubsubsection{\texorpdfstring{xMailbox}{xMailbox}}
+{\footnotesize\ttfamily \label{3__4__queue__mailbox_8c_a451a58463b254064be02f685f8adf6c0} 
+\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} x\+Mailbox}
+
+
+
+Definition at line \mbox{\hyperlink{3__4__queue__mailbox_8c_source_l00022}{22}} of file \mbox{\hyperlink{3__4__queue__mailbox_8c_source}{3\+\_\+4\+\_\+queue\+\_\+mailbox.\+c}}.
+

@@ -1,0 +1,5 @@
+<map id="arm_atan_q15" name="arm_atan_q15">
+<area shape="rect" id="Node000001" title=" " alt="" coords="164,5,267,32"/>
+<area shape="rect" id="Node000002" href="$group__atan2.html#ga9d424b6eaf16bfc41be3e88335cfb801" title="Arc tangent in radian of y/x using sign of x and y to determine right quadrant." alt="" coords="5,5,116,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,21,116,21,116,16,148,16"/>
+</map>

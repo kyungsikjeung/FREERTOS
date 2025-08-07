@@ -1,0 +1,36 @@
+\doxysection{stm32\+\_\+assert\+\_\+template.\+h}
+\hypertarget{stm32__assert__template_8h_source}{}\label{stm32__assert__template_8h_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32\_assert\_template.h@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32\_assert\_template.h}}
+\mbox{\hyperlink{stm32__assert__template_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00021}00021\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00022}00022\ \textcolor{preprocessor}{\#ifndef\ \_\_STM32\_ASSERT\_H}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00023}00023\ \textcolor{preprocessor}{\#define\ \_\_STM32\_ASSERT\_H}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00025}00025\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00026}00026\ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00027}00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00029}00029\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00030}00030\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00031}00031\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00032}00032\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00033}00033\ \textcolor{preprocessor}{\#ifdef\ \ USE\_FULL\_ASSERT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00042}00042\ \textcolor{preprocessor}{\ \ \#define\ assert\_param(expr)\ ((expr)\ ?\ (void)0U\ :\ assert\_failed((uint8\_t\ *)\_\_FILE\_\_,\ \_\_LINE\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00043}00043\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00044}00044\ \ \ \textcolor{keywordtype}{void}\ assert\_failed(uint8\_t*\ file,\ uint32\_t\ line);}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00045}00045\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00046}\mbox{\hyperlink{stm32__assert__template_8h_a631dea7b230e600555f979c62af1de21}{00046}}\ \textcolor{preprocessor}{\ \ \#define\ assert\_param(expr)\ ((void)0U)}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00047}00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_FULL\_ASSERT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00049}00049\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00051}00051\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00053}00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_STM32\_ASSERT\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{stm32__assert__template_8h_source_l00056}00056\ }
+
+\end{DoxyCode}

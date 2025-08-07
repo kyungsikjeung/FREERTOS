@@ -1,0 +1,7 @@
+<map id="arm_nn_mat_mult_kernel_s16" name="arm_nn_mat_mult_kernel_s16">
+<area shape="rect" id="Node000001" title="Matrix&#45;multiplication function for convolution with per&#45;channel requantization for 16 bits convolutio..." alt="" coords="444,5,639,32"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#gadda1e5325d511d56716111548c787a1c" title="Optimized s16 convolution function." alt="" coords="237,5,396,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="429,21,396,21,396,16,429,16"/>
+<area shape="rect" id="Node000003" href="$group___n_n_conv.html#gaf1b719fadc837ba10c065fa0aa1d31fc" title="s16 convolution layer wrapper function with the main purpose to call the optimal kernel available in ..." alt="" coords="5,5,189,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,21,189,21,189,16,221,16"/>
+</map>

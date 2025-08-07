@@ -1,0 +1,14 @@
+<map id="arm_nn_mat_mul_core_4x_s8" name="arm_nn_mat_mul_core_4x_s8">
+<area shape="rect" id="Node000001" title="Matrix&#45;multiplication with requantization &amp; activation function for four rows and one column." alt="" coords="629,48,783,91"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#ga5b85b56e06e563c05b08ad6ba7423e1d" title="1xn convolution" alt="" coords="237,56,402,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="614,72,403,72,403,67,614,67"/>
+<area shape="rect" id="Node000004" href="$group___n_n_conv.html#ga53608c814d9b8a458f4d87f8f40051b7" title="Fast s8 version for 1x1 convolution (non&#45;square shape)" alt="" coords="230,5,410,32"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="614,58,581,53,410,32,411,26,582,48,614,53"/>
+<area shape="rect" id="Node000005" href="$group___n_n_conv.html#ga34bb5c05805ca7d5ea9681fcad8a711d" title="Basic s8 convolution function." alt="" coords="458,107,581,133"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="615,97,572,109,571,104,614,92"/>
+<area shape="rect" id="Node000003" href="$group___n_n_conv.html#ga5ac772a94937e1efdab145a2ab4c0927" title="s8 convolution layer wrapper function with the main purpose to call the optimal kernel available in c..." alt="" coords="5,56,182,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,72,182,72,182,67,222,67"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="243,39,157,58,156,53,241,33"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="449,105,375,86,376,81,450,100"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="443,118,341,110,229,97,162,86,163,81,230,92,342,105,443,113"/>
+</map>

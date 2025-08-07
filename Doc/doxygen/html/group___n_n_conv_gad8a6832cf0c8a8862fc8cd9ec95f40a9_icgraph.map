@@ -1,0 +1,8 @@
+<map id="arm_depthwise_conv_s8" name="arm_depthwise_conv_s8">
+<area shape="rect" id="Node000001" title="Basic s8 depthwise convolution function that doesn&#39;t have any constraints on the input dimensions." alt="" coords="390,43,555,69"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#gab9dc832c407c0fe0f4d6fbb063e85e97" title="Optimized s8 depthwise convolution function with constraint that in_channel equals out_channel...." alt="" coords="198,5,342,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,44,342,40,343,34,375,39"/>
+<area shape="rect" id="Node000003" href="$group___n_n_conv.html#gabca128df92f9486ebdac7eee3178c0fd" title="Wrapper function to pick the right optimized s8 depthwise convolution function." alt="" coords="5,35,150,77"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="374,62,342,63,198,63,150,61,150,56,198,57,342,57,374,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="183,43,150,48,149,42,182,37"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Source/os_tick_gtim.c" name="C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Source/os_tick_gtim.c">
+<area shape="rect" id="Node000001" title="CMSIS OS Tick implementation for Generic Timer." alt="" coords="39,5,241,64"/>
+<area shape="rect" id="Node000002" href="$os__tick_8h.html" title="CMSIS OS Tick header file." alt="" coords="5,112,80,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,66,70,103,66,99,107,62"/>
+<area shape="rect" id="Node000004" href="$irq__ctrl_8h.html" title="Interrupt Controller API header file." alt="" coords="104,112,176,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="142,64,142,96,137,96,137,64"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="200,112,339,139"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="183,62,240,101,237,105,180,67"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="58,187,123,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="53,138,76,172,72,175,49,141"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="133,141,110,175,105,172,129,138"/>
+</map>

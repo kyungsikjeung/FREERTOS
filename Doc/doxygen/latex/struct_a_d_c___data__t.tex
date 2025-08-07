@@ -1,0 +1,77 @@
+\doxysection{ADC\+\_\+\+Data\+\_\+t Struct Reference}
+\hypertarget{struct_a_d_c___data__t}{}\label{struct_a_d_c___data__t}\index{ADC\_Data\_t@{ADC\_Data\_t}}
+
+
+ADC로 측정된 데이터를 담는 구조체  
+
+
+
+
+{\ttfamily \#include $<$adc\+\_\+driver.\+h$>$}
+
+
+
+Collaboration diagram for ADC\+\_\+\+Data\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{struct_a_d_c___data__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_a_d_c___data__t_ac65b05fe0002c84ee601dcbde61d38fe}{channel\+\_\+values}} \mbox{[}\mbox{\hyperlink{adc__driver_8h_a18b5b8600b67ba3c5efd48f11c9692d8}{ADC\+\_\+\+CHANNEL\+\_\+\+COUNT}}\mbox{]}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_a_d_c___data__t_ab20b0c7772544cf5d318507f34231fbe}{timestamp}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_a_d_c___data__t_ae4b152efee34a1e1b521f650a59ca04e}{channel\+\_\+count}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+ADC로 측정된 데이터를 담는 구조체 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00034}{34}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_a_d_c___data__t_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_a_d_c___data__t_ae4b152efee34a1e1b521f650a59ca04e}\index{ADC\_Data\_t@{ADC\_Data\_t}!channel\_count@{channel\_count}}
+\index{channel\_count@{channel\_count}!ADC\_Data\_t@{ADC\_Data\_t}}
+\doxysubsubsection{\texorpdfstring{channel\_count}{channel\_count}}
+{\footnotesize\ttfamily \label{struct_a_d_c___data__t_ae4b152efee34a1e1b521f650a59ca04e} 
+uint8\+\_\+t channel\+\_\+count}
+
+사용 중인 채널 수 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00037}{37}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+\Hypertarget{struct_a_d_c___data__t_ac65b05fe0002c84ee601dcbde61d38fe}\index{ADC\_Data\_t@{ADC\_Data\_t}!channel\_values@{channel\_values}}
+\index{channel\_values@{channel\_values}!ADC\_Data\_t@{ADC\_Data\_t}}
+\doxysubsubsection{\texorpdfstring{channel\_values}{channel\_values}}
+{\footnotesize\ttfamily \label{struct_a_d_c___data__t_ac65b05fe0002c84ee601dcbde61d38fe} 
+uint16\+\_\+t channel\+\_\+values\mbox{[}\mbox{\hyperlink{adc__driver_8h_a18b5b8600b67ba3c5efd48f11c9692d8}{ADC\+\_\+\+CHANNEL\+\_\+\+COUNT}}\mbox{]}}
+
+각 채널의 ADC 값 배열 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00035}{35}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+\Hypertarget{struct_a_d_c___data__t_ab20b0c7772544cf5d318507f34231fbe}\index{ADC\_Data\_t@{ADC\_Data\_t}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!ADC\_Data\_t@{ADC\_Data\_t}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily \label{struct_a_d_c___data__t_ab20b0c7772544cf5d318507f34231fbe} 
+uint32\+\_\+t timestamp}
+
+타임스탬프 (ms 기준) 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00036}{36}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Core/\+Inc/\mbox{\hyperlink{adc__driver_8h}{adc\+\_\+driver.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,149 @@
+\doxysection{ADC\+\_\+\+Driver\+\_\+t Struct Reference}
+\hypertarget{struct_a_d_c___driver__t}{}\label{struct_a_d_c___driver__t}\index{ADC\_Driver\_t@{ADC\_Driver\_t}}
+
+
+ADC 드라이버 관리 구조체  
+
+
+
+
+{\ttfamily \#include $<$adc\+\_\+driver.\+h$>$}
+
+
+
+Collaboration diagram for ADC\+\_\+\+Driver\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_a_d_c___driver__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{struct_a_d_c___driver__t_a62fcafba91cf315db7e0e0c8f22c656f}{hadc}}
+\item 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{struct_a_d_c___driver__t_a1f70327a2d36fe619cf1120e4aac229c}{hdma}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_a_d_c___driver__t_a47c3b23084c9a5fe6e4f82f67de833bd}{raw\+\_\+buffer}} \mbox{[}\mbox{\hyperlink{adc__driver_8h_a18b5b8600b67ba3c5efd48f11c9692d8}{ADC\+\_\+\+CHANNEL\+\_\+\+COUNT}}\mbox{]}
+\item 
+\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} \mbox{\hyperlink{struct_a_d_c___driver__t_affab3d919f8f41543b6336ccbd8cf439}{sampling\+\_\+timer}}
+\item 
+\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} \mbox{\hyperlink{struct_a_d_c___driver__t_aa08c6d308b06544cac3ff54749fe0acd}{data\+\_\+queue}}
+\item 
+\mbox{\hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t}} \mbox{\hyperlink{struct_a_d_c___driver__t_aebe38e60e228c39f982af172c626e920}{data\+\_\+mutex}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{struct_a_d_c___driver__t_a302c347bf3b6da4fa1ac89fdee54aa6c}{conversion\+\_\+complete}}
+\item 
+\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} \mbox{\hyperlink{struct_a_d_c___driver__t_a235b66a2ef6a561e57b09f3391e4a692}{adc\+\_\+task\+\_\+handle}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_a_d_c___driver__t_ae4b152efee34a1e1b521f650a59ca04e}{channel\+\_\+count}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+ADC 드라이버 관리 구조체 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00043}{43}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_a_d_c___driver__t_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_a_d_c___driver__t_a235b66a2ef6a561e57b09f3391e4a692}\index{ADC\_Driver\_t@{ADC\_Driver\_t}!adc\_task\_handle@{adc\_task\_handle}}
+\index{adc\_task\_handle@{adc\_task\_handle}!ADC\_Driver\_t@{ADC\_Driver\_t}}
+\doxysubsubsection{\texorpdfstring{adc\_task\_handle}{adc\_task\_handle}}
+{\footnotesize\ttfamily \label{struct_a_d_c___driver__t_a235b66a2ef6a561e57b09f3391e4a692} 
+\mbox{\hyperlink{task_8h_a25b35e6e19ecf894173e7ff95edb96ef}{Task\+Handle\+\_\+t}} adc\+\_\+task\+\_\+handle}
+
+ADC 처리용 태스크 핸들 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00051}{51}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+\Hypertarget{struct_a_d_c___driver__t_ae4b152efee34a1e1b521f650a59ca04e}\index{ADC\_Driver\_t@{ADC\_Driver\_t}!channel\_count@{channel\_count}}
+\index{channel\_count@{channel\_count}!ADC\_Driver\_t@{ADC\_Driver\_t}}
+\doxysubsubsection{\texorpdfstring{channel\_count}{channel\_count}}
+{\footnotesize\ttfamily \label{struct_a_d_c___driver__t_ae4b152efee34a1e1b521f650a59ca04e} 
+uint8\+\_\+t channel\+\_\+count}
+
+사용 중인 ADC 채널 수 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00052}{52}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+\Hypertarget{struct_a_d_c___driver__t_a302c347bf3b6da4fa1ac89fdee54aa6c}\index{ADC\_Driver\_t@{ADC\_Driver\_t}!conversion\_complete@{conversion\_complete}}
+\index{conversion\_complete@{conversion\_complete}!ADC\_Driver\_t@{ADC\_Driver\_t}}
+\doxysubsubsection{\texorpdfstring{conversion\_complete}{conversion\_complete}}
+{\footnotesize\ttfamily \label{struct_a_d_c___driver__t_a302c347bf3b6da4fa1ac89fdee54aa6c} 
+volatile uint8\+\_\+t conversion\+\_\+complete}
+
+변환 완료 플래그 (ISR에서 사용) 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00050}{50}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+\Hypertarget{struct_a_d_c___driver__t_aebe38e60e228c39f982af172c626e920}\index{ADC\_Driver\_t@{ADC\_Driver\_t}!data\_mutex@{data\_mutex}}
+\index{data\_mutex@{data\_mutex}!ADC\_Driver\_t@{ADC\_Driver\_t}}
+\doxysubsubsection{\texorpdfstring{data\_mutex}{data\_mutex}}
+{\footnotesize\ttfamily \label{struct_a_d_c___driver__t_aebe38e60e228c39f982af172c626e920} 
+\mbox{\hyperlink{semphr_8h_ad88c6df4a04beedeac782918c8a332f5}{Semaphore\+Handle\+\_\+t}} data\+\_\+mutex}
+
+데이터 보호용 뮤텍스 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00049}{49}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+\Hypertarget{struct_a_d_c___driver__t_aa08c6d308b06544cac3ff54749fe0acd}\index{ADC\_Driver\_t@{ADC\_Driver\_t}!data\_queue@{data\_queue}}
+\index{data\_queue@{data\_queue}!ADC\_Driver\_t@{ADC\_Driver\_t}}
+\doxysubsubsection{\texorpdfstring{data\_queue}{data\_queue}}
+{\footnotesize\ttfamily \label{struct_a_d_c___driver__t_aa08c6d308b06544cac3ff54749fe0acd} 
+\mbox{\hyperlink{queue_8h_a57349603001f8ddf51c888c49e2804d7}{Queue\+Handle\+\_\+t}} data\+\_\+queue}
+
+ADC 결과 전송용 큐 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00048}{48}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+\Hypertarget{struct_a_d_c___driver__t_a62fcafba91cf315db7e0e0c8f22c656f}\index{ADC\_Driver\_t@{ADC\_Driver\_t}!hadc@{hadc}}
+\index{hadc@{hadc}!ADC\_Driver\_t@{ADC\_Driver\_t}}
+\doxysubsubsection{\texorpdfstring{hadc}{hadc}}
+{\footnotesize\ttfamily \label{struct_a_d_c___driver__t_a62fcafba91cf315db7e0e0c8f22c656f} 
+\mbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} hadc}
+
+HAL ADC 핸들 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00044}{44}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+\Hypertarget{struct_a_d_c___driver__t_a1f70327a2d36fe619cf1120e4aac229c}\index{ADC\_Driver\_t@{ADC\_Driver\_t}!hdma@{hdma}}
+\index{hdma@{hdma}!ADC\_Driver\_t@{ADC\_Driver\_t}}
+\doxysubsubsection{\texorpdfstring{hdma}{hdma}}
+{\footnotesize\ttfamily \label{struct_a_d_c___driver__t_a1f70327a2d36fe619cf1120e4aac229c} 
+\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} hdma}
+
+HAL DMA 핸들 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00045}{45}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+\Hypertarget{struct_a_d_c___driver__t_a47c3b23084c9a5fe6e4f82f67de833bd}\index{ADC\_Driver\_t@{ADC\_Driver\_t}!raw\_buffer@{raw\_buffer}}
+\index{raw\_buffer@{raw\_buffer}!ADC\_Driver\_t@{ADC\_Driver\_t}}
+\doxysubsubsection{\texorpdfstring{raw\_buffer}{raw\_buffer}}
+{\footnotesize\ttfamily \label{struct_a_d_c___driver__t_a47c3b23084c9a5fe6e4f82f67de833bd} 
+uint16\+\_\+t raw\+\_\+buffer\mbox{[}\mbox{\hyperlink{adc__driver_8h_a18b5b8600b67ba3c5efd48f11c9692d8}{ADC\+\_\+\+CHANNEL\+\_\+\+COUNT}}\mbox{]}}
+
+DMA 수신용 버퍼 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00046}{46}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+\Hypertarget{struct_a_d_c___driver__t_affab3d919f8f41543b6336ccbd8cf439}\index{ADC\_Driver\_t@{ADC\_Driver\_t}!sampling\_timer@{sampling\_timer}}
+\index{sampling\_timer@{sampling\_timer}!ADC\_Driver\_t@{ADC\_Driver\_t}}
+\doxysubsubsection{\texorpdfstring{sampling\_timer}{sampling\_timer}}
+{\footnotesize\ttfamily \label{struct_a_d_c___driver__t_affab3d919f8f41543b6336ccbd8cf439} 
+\mbox{\hyperlink{timers_8h_ae2aa96927b4806e5dcfd264ba7bc8bf6}{Timer\+Handle\+\_\+t}} sampling\+\_\+timer}
+
+주기적 샘플링용 Free\+RTOS 타이머 
+
+Definition at line \mbox{\hyperlink{adc__driver_8h_source_l00047}{47}} of file \mbox{\hyperlink{adc__driver_8h_source}{adc\+\_\+driver.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Core/\+Inc/\mbox{\hyperlink{adc__driver_8h}{adc\+\_\+driver.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,9 @@
+<map id="arm_nn_mat_mult_kernel_q7_q15" name="arm_nn_mat_mult_kernel_q7_q15">
+<area shape="rect" id="Node000001" title="Matrix&#45;Multiplication Kernels for Convolution." alt="" coords="253,72,420,115"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#ga210ae8d8fc1d12ee15b41f1fa6947681" title="Basic Q7 convolution function." alt="" coords="23,5,187,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,70,181,51,183,46,246,65"/>
+<area shape="rect" id="Node000003" href="$group___n_n_conv.html#ga4501fa22c0836002aa47ccc313dce252" title="Basic Q7 convolution function (non&#45;square shape)" alt="" coords="23,72,187,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,96,187,96,187,91,237,91"/>
+<area shape="rect" id="Node000004" href="$group___n_n_conv.html#ga98f2ead67d7cbdf558b0cd8a3b8fc148" title="Q7 version of convolution for RGB image." alt="" coords="5,139,205,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="239,121,161,141,160,135,237,116"/>
+</map>

@@ -1,0 +1,554 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+rng.\+c}
+\hypertarget{stm32f4xx__hal__rng_8c_source}{}\label{stm32f4xx__hal__rng_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_rng.c@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_rng.c}}
+\mbox{\hyperlink{stm32f4xx__hal__rng_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00095}00095\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00096}00096\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal_8h}{stm32f4xx\_hal.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00102}00102\ \textcolor{preprocessor}{\#if\ defined\ (RNG)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00109}00109\ \textcolor{preprocessor}{\#ifdef\ HAL\_RNG\_MODULE\_ENABLED}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00111}00111\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00112}00112\ \textcolor{comment}{/*\ Private\ defines\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00113}00113\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00114}00114\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00118}00118\ \textcolor{preprocessor}{\#define\ RNG\_TIMEOUT\_VALUE\ \ \ \ \ 2U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00122}00122\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00123}00123\ \textcolor{comment}{/*\ Private\ functions\ prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00124}00124\ \textcolor{comment}{/*\ Private\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00125}00125\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00155}00155\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_RNG\_Init(RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00156}00156\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00157}00157\ \ \ \textcolor{comment}{/*\ Check\ the\ RNG\ handle\ allocation\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00158}00158\ \ \ \textcolor{keywordflow}{if}\ (hrng\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00159}00159\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00160}00160\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00161}00161\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00162}00162\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00163}00163\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_ga7369db258c1b8931b427262d0673751f}{IS\_RNG\_ALL\_INSTANCE}}(hrng-\/>Instance));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00165}00165\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_RNG\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00166}00166\ \ \ \textcolor{keywordflow}{if}\ (hrng-\/>State\ ==\ HAL\_RNG\_STATE\_RESET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00167}00167\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00168}00168\ \ \ \ \ \textcolor{comment}{/*\ Allocate\ lock\ resource\ and\ initialize\ it\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00169}00169\ \ \ \ \ hrng-\/>Lock\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ab367482e943333a1299294eadaad284ba9bd487430440139444e6e7ff226005c0}{HAL\_UNLOCKED}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00171}00171\ \ \ \ \ hrng-\/>ReadyDataCallback\ \ =\ HAL\_RNG\_ReadyDataCallback;\ \ \textcolor{comment}{/*\ Legacy\ weak\ ReadyDataCallback\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00172}00172\ \ \ \ \ hrng-\/>ErrorCallback\ \ \ \ \ \ =\ HAL\_RNG\_ErrorCallback;\ \ \ \ \ \ \textcolor{comment}{/*\ Legacy\ weak\ ErrorCallback\ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00174}00174\ \ \ \ \ \textcolor{keywordflow}{if}\ (hrng-\/>MspInitCallback\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00175}00175\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00176}00176\ \ \ \ \ \ \ hrng-\/>MspInitCallback\ =\ HAL\_RNG\_MspInit;\ \textcolor{comment}{/*\ Legacy\ weak\ MspInit\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00177}00177\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00179}00179\ \ \ \ \ \textcolor{comment}{/*\ Init\ the\ low\ level\ hardware\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00180}00180\ \ \ \ \ hrng-\/>MspInitCallback(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00181}00181\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00182}00182\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00183}00183\ \ \ \textcolor{keywordflow}{if}\ (hrng-\/>State\ ==\ HAL\_RNG\_STATE\_RESET)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00184}00184\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00185}00185\ \ \ \ \ \textcolor{comment}{/*\ Allocate\ lock\ resource\ and\ initialize\ it\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00186}00186\ \ \ \ \ hrng-\/>Lock\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ab367482e943333a1299294eadaad284ba9bd487430440139444e6e7ff226005c0}{HAL\_UNLOCKED}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00188}00188\ \ \ \ \ \textcolor{comment}{/*\ Init\ the\ low\ level\ hardware\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00189}00189\ \ \ \ \ HAL\_RNG\_MspInit(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00190}00190\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00191}00191\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_RNG\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00193}00193\ \ \ \textcolor{comment}{/*\ Change\ RNG\ peripheral\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00194}00194\ \ \ hrng-\/>State\ =\ HAL\_RNG\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00197}00197\ \ \ \textcolor{comment}{/*\ Enable\ the\ RNG\ Peripheral\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00198}00198\ \ \ \_\_HAL\_RNG\_ENABLE(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00200}00200\ \ \ \textcolor{comment}{/*\ Initialize\ the\ RNG\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00201}00201\ \ \ hrng-\/>State\ =\ HAL\_RNG\_STATE\_READY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00203}00203\ \ \ \textcolor{comment}{/*\ Initialise\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00204}00204\ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_NONE;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00206}00206\ \ \ \textcolor{comment}{/*\ Return\ function\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00207}00207\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00208}00208\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00216}00216\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_RNG\_DeInit(RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00217}00217\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00218}00218\ \ \ \textcolor{comment}{/*\ Check\ the\ RNG\ handle\ allocation\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00219}00219\ \ \ \textcolor{keywordflow}{if}\ (hrng\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00220}00220\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00222}00222\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00224}00224\ \ \ \textcolor{comment}{/*\ Disable\ the\ RNG\ Peripheral\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00225}00225\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(hrng-\/>Instance-\/>CR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga27424b682bcee7fff22f92a2dbcea57a}{RNG\_CR\_IE}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6ee81827bb1d78e84e78a74449c8d56a}{RNG\_CR\_RNGEN}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00227}00227\ \ \ \textcolor{comment}{/*\ Clear\ RNG\ interrupt\ status\ flags\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00228}00228\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(hrng-\/>Instance-\/>SR,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3b89a08bcc8a7a6078bd9f5f2f34bb53}{RNG\_SR\_CEIS}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaa6b0e11930f20484f0d0aca79959d9b2}{RNG\_SR\_SEIS}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00230}00230\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_RNG\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00231}00231\ \ \ \textcolor{keywordflow}{if}\ (hrng-\/>MspDeInitCallback\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00232}00232\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00233}00233\ \ \ \ \ hrng-\/>MspDeInitCallback\ =\ HAL\_RNG\_MspDeInit;\ \textcolor{comment}{/*\ Legacy\ weak\ MspDeInit\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00234}00234\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00236}00236\ \ \ \textcolor{comment}{/*\ DeInit\ the\ low\ level\ hardware\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00237}00237\ \ \ hrng-\/>MspDeInitCallback(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00238}00238\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00239}00239\ \ \ \textcolor{comment}{/*\ DeInit\ the\ low\ level\ hardware\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00240}00240\ \ \ HAL\_RNG\_MspDeInit(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00241}00241\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_RNG\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00243}00243\ \ \ \textcolor{comment}{/*\ Update\ the\ RNG\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00244}00244\ \ \ hrng-\/>State\ =\ HAL\_RNG\_STATE\_RESET;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00246}00246\ \ \ \textcolor{comment}{/*\ Initialise\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00247}00247\ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_NONE;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00249}00249\ \ \ \textcolor{comment}{/*\ Release\ Lock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00250}00250\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00252}00252\ \ \ \textcolor{comment}{/*\ Return\ the\ function\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00253}00253\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00254}00254\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00262}00262\ \_\_weak\ \textcolor{keywordtype}{void}\ HAL\_RNG\_MspInit(RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00263}00263\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00264}00264\ \ \ \textcolor{comment}{/*\ Prevent\ unused\ argument(s)\ compilation\ warning\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00265}00265\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00266}00266\ \ \ \textcolor{comment}{/*\ NOTE\ :\ This\ function\ should\ not\ be\ modified.\ When\ the\ callback\ is\ needed,}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00267}00267\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ function\ HAL\_RNG\_MspInit\ must\ be\ implemented\ in\ the\ user\ file.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00268}00268\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00269}00269\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00277}00277\ \_\_weak\ \textcolor{keywordtype}{void}\ HAL\_RNG\_MspDeInit(RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00278}00278\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00279}00279\ \ \ \textcolor{comment}{/*\ Prevent\ unused\ argument(s)\ compilation\ warning\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00280}00280\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00281}00281\ \ \ \textcolor{comment}{/*\ NOTE\ :\ This\ function\ should\ not\ be\ modified.\ When\ the\ callback\ is\ needed,}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00282}00282\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ function\ HAL\_RNG\_MspDeInit\ must\ be\ implemented\ in\ the\ user\ file.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00283}00283\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00284}00284\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00286}00286\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_RNG\_REGISTER\_CALLBACKS\ ==\ 1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00299}00299\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_RNG\_RegisterCallback(RNG\_HandleTypeDef\ *hrng,\ HAL\_RNG\_CallbackIDTypeDef\ CallbackID,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pRNG\_CallbackTypeDef\ pCallback)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00301}00301\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00302}00302\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00303}00303\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00304}00304\ \ \ \textcolor{keywordflow}{if}\ (pCallback\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00305}00305\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00306}00306\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00307}00307\ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_INVALID\_CALLBACK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00308}00308\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00309}00309\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00311}00311\ \ \ \textcolor{keywordflow}{if}\ (HAL\_RNG\_STATE\_READY\ ==\ hrng-\/>State)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00312}00312\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00313}00313\ \ \ \ \ \textcolor{keywordflow}{switch}\ (CallbackID)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00314}00314\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00315}00315\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_RNG\_ERROR\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00316}00316\ \ \ \ \ \ \ \ \ hrng-\/>ErrorCallback\ =\ pCallback;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00317}00317\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00319}00319\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_RNG\_MSPINIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00320}00320\ \ \ \ \ \ \ \ \ hrng-\/>MspInitCallback\ =\ pCallback;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00321}00321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00323}00323\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_RNG\_MSPDEINIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00324}00324\ \ \ \ \ \ \ \ \ hrng-\/>MspDeInitCallback\ =\ pCallback;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00325}00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00327}00327\ \ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00328}00328\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00329}00329\ \ \ \ \ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_INVALID\_CALLBACK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00330}00330\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Return\ error\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00331}00331\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00332}00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00333}00333\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00334}00334\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00335}00335\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (HAL\_RNG\_STATE\_RESET\ ==\ hrng-\/>State)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00336}00336\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00337}00337\ \ \ \ \ \textcolor{keywordflow}{switch}\ (CallbackID)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00338}00338\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00339}00339\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_RNG\_MSPINIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00340}00340\ \ \ \ \ \ \ \ \ hrng-\/>MspInitCallback\ =\ pCallback;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00341}00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00343}00343\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_RNG\_MSPDEINIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00344}00344\ \ \ \ \ \ \ \ \ hrng-\/>MspDeInitCallback\ =\ pCallback;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00345}00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00347}00347\ \ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00348}00348\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00349}00349\ \ \ \ \ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_INVALID\_CALLBACK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00350}00350\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Return\ error\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00351}00351\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00352}00352\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00353}00353\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00354}00354\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00355}00355\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00356}00356\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00357}00357\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00358}00358\ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_INVALID\_CALLBACK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00359}00359\ \ \ \ \ \textcolor{comment}{/*\ Return\ error\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00360}00360\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00361}00361\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00363}00363\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00364}00364\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00377}00377\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_RNG\_UnRegisterCallback(RNG\_HandleTypeDef\ *hrng,\ HAL\_RNG\_CallbackIDTypeDef\ CallbackID)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00378}00378\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00379}00379\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00380}00380\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00381}00381\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00382}00382\ \ \ \textcolor{keywordflow}{if}\ (HAL\_RNG\_STATE\_READY\ ==\ hrng-\/>State)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00383}00383\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00384}00384\ \ \ \ \ \textcolor{keywordflow}{switch}\ (CallbackID)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00385}00385\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00386}00386\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_RNG\_ERROR\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00387}00387\ \ \ \ \ \ \ \ \ hrng-\/>ErrorCallback\ =\ HAL\_RNG\_ErrorCallback;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Legacy\ weak\ ErrorCallback\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00388}00388\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00390}00390\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_RNG\_MSPINIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00391}00391\ \ \ \ \ \ \ \ \ hrng-\/>MspInitCallback\ =\ HAL\_RNG\_MspInit;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Legacy\ weak\ MspInit\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00392}00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00394}00394\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_RNG\_MSPDEINIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00395}00395\ \ \ \ \ \ \ \ \ hrng-\/>MspDeInitCallback\ =\ HAL\_RNG\_MspDeInit;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Legacy\ weak\ MspDeInit\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00396}00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00398}00398\ \ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00399}00399\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00400}00400\ \ \ \ \ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_INVALID\_CALLBACK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00401}00401\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Return\ error\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00402}00402\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00403}00403\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00404}00404\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00405}00405\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00406}00406\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (HAL\_RNG\_STATE\_RESET\ ==\ hrng-\/>State)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00407}00407\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00408}00408\ \ \ \ \ \textcolor{keywordflow}{switch}\ (CallbackID)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00409}00409\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00410}00410\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_RNG\_MSPINIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00411}00411\ \ \ \ \ \ \ \ \ hrng-\/>MspInitCallback\ =\ HAL\_RNG\_MspInit;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Legacy\ weak\ MspInit\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00412}00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00414}00414\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ HAL\_RNG\_MSPDEINIT\_CB\_ID\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00415}00415\ \ \ \ \ \ \ \ \ hrng-\/>MspDeInitCallback\ =\ HAL\_RNG\_MspDeInit;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Legacy\ weak\ MspInit\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00416}00416\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00417}00417\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00418}00418\ \ \ \ \ \ \ default\ :}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00419}00419\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00420}00420\ \ \ \ \ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_INVALID\_CALLBACK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00421}00421\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Return\ error\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00422}00422\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00423}00423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00424}00424\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00425}00425\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00426}00426\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00427}00427\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00428}00428\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00429}00429\ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_INVALID\_CALLBACK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00430}00430\ \ \ \ \ \textcolor{comment}{/*\ Return\ error\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00431}00431\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00432}00432\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00433}00433\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00434}00434\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00435}00435\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00436}00436\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00444}00444\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_RNG\_RegisterReadyDataCallback(RNG\_HandleTypeDef\ *hrng,\ pRNG\_ReadyDataCallbackTypeDef\ pCallback)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00445}00445\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00446}00446\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00447}00447\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00448}00448\ \ \ \textcolor{keywordflow}{if}\ (pCallback\ ==\ NULL)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00449}00449\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00450}00450\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00451}00451\ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_INVALID\_CALLBACK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00452}00452\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00453}00453\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00454}00454\ \ \ \textcolor{comment}{/*\ Process\ locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00455}00455\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00456}00456\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00457}00457\ \ \ \textcolor{keywordflow}{if}\ (HAL\_RNG\_STATE\_READY\ ==\ hrng-\/>State)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00458}00458\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00459}00459\ \ \ \ \ hrng-\/>ReadyDataCallback\ =\ pCallback;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00460}00460\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00461}00461\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00462}00462\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00463}00463\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00464}00464\ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_INVALID\_CALLBACK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00465}00465\ \ \ \ \ \textcolor{comment}{/*\ Return\ error\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00466}00466\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00467}00467\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00468}00468\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00469}00469\ \ \ \textcolor{comment}{/*\ Release\ Lock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00470}00470\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00471}00471\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00472}00472\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00473}00473\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00480}00480\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_RNG\_UnRegisterReadyDataCallback(RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00481}00481\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00482}00482\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00483}00483\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00484}00484\ \ \ \textcolor{comment}{/*\ Process\ locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00485}00485\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00486}00486\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00487}00487\ \ \ \textcolor{keywordflow}{if}\ (HAL\_RNG\_STATE\_READY\ ==\ hrng-\/>State)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00488}00488\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00489}00489\ \ \ \ \ hrng-\/>ReadyDataCallback\ =\ HAL\_RNG\_ReadyDataCallback;\ \textcolor{comment}{/*\ Legacy\ weak\ ReadyDataCallback\ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00490}00490\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00491}00491\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00492}00492\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00493}00493\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00494}00494\ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_INVALID\_CALLBACK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00495}00495\ \ \ \ \ \textcolor{comment}{/*\ Return\ error\ status\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00496}00496\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00497}00497\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00499}00499\ \ \ \textcolor{comment}{/*\ Release\ Lock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00500}00500\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00501}00501\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00502}00502\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00503}00503\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00504}00504\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_RNG\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00505}00505\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00509}00509\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00525}00525\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00535}00535\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00536}00536\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_RNG\_GenerateRandomNumber(RNG\_HandleTypeDef\ *hrng,\ uint32\_t\ *random32bit)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00537}00537\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00538}00538\ \ \ uint32\_t\ tickstart;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00539}00539\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00540}00540\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00541}00541\ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00542}00542\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00543}00543\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00544}00544\ \ \ \textcolor{comment}{/*\ Check\ RNG\ peripheral\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00545}00545\ \ \ \textcolor{keywordflow}{if}\ (hrng-\/>State\ ==\ HAL\_RNG\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00546}00546\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00547}00547\ \ \ \ \ \textcolor{comment}{/*\ Change\ RNG\ peripheral\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00548}00548\ \ \ \ \ hrng-\/>State\ =\ HAL\_RNG\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00549}00549\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00550}00550\ \ \ \ \ \textcolor{comment}{/*\ Get\ tick\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00551}00551\ \ \ \ \ tickstart\ =\ \mbox{\hyperlink{group___h_a_l___exported___functions___group2_gac9b3a85a73735ac840d0dcb59bc0fdd6}{HAL\_GetTick}}();}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00552}00552\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00553}00553\ \ \ \ \ \textcolor{comment}{/*\ Check\ if\ data\ register\ contains\ valid\ random\ data\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00554}00554\ \ \ \ \ \textcolor{keywordflow}{while}\ (\_\_HAL\_RNG\_GET\_FLAG(hrng,\ RNG\_FLAG\_DRDY)\ ==\ \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{RESET}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00555}00555\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00556}00556\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{group___h_a_l___exported___functions___group2_gac9b3a85a73735ac840d0dcb59bc0fdd6}{HAL\_GetTick}}()\ -\/\ tickstart)\ >\ RNG\_TIMEOUT\_VALUE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00557}00557\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00558}00558\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ New\ check\ to\ avoid\ false\ timeout\ detection\ in\ case\ of\ preemption\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00559}00559\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_\_HAL\_RNG\_GET\_FLAG(hrng,\ RNG\_FLAG\_DRDY)\ ==\ \mbox{\hyperlink{group___exported__types_gga89136caac2e14c55151f527ac02daaffa589b7d94a3d91d145720e2fed0eb3a05}{RESET}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00560}00560\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00561}00561\ \ \ \ \ \ \ \ \ \ \ hrng-\/>State\ =\ HAL\_RNG\_STATE\_READY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00562}00562\ \ \ \ \ \ \ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_TIMEOUT;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00563}00563\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Process\ Unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00564}00564\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00565}00565\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00566}00566\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00567}00567\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00568}00568\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00569}00569\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00570}00570\ \ \ \ \ \textcolor{comment}{/*\ Get\ a\ 32bit\ Random\ number\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00571}00571\ \ \ \ \ hrng-\/>RandomNumber\ =\ hrng-\/>Instance-\/>DR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00572}00572\ \ \ \ \ *random32bit\ =\ hrng-\/>RandomNumber;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00573}00573\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00574}00574\ \ \ \ \ hrng-\/>State\ =\ HAL\_RNG\_STATE\_READY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00575}00575\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00576}00576\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00577}00577\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00578}00578\ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00579}00579\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00580}00580\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00581}00581\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00582}00582\ \ \ \textcolor{comment}{/*\ Process\ Unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00583}00583\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00584}00584\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00585}00585\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00586}00586\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00587}00587\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00594}00594\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_RNG\_GenerateRandomNumber\_IT(RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00595}00595\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00596}00596\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00597}00597\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00598}00598\ \ \ \textcolor{comment}{/*\ Process\ Locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00599}00599\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00600}00600\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00601}00601\ \ \ \textcolor{comment}{/*\ Check\ RNG\ peripheral\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00602}00602\ \ \ \textcolor{keywordflow}{if}\ (hrng-\/>State\ ==\ HAL\_RNG\_STATE\_READY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00603}00603\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00604}00604\ \ \ \ \ \textcolor{comment}{/*\ Change\ RNG\ peripheral\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00605}00605\ \ \ \ \ hrng-\/>State\ =\ HAL\_RNG\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00606}00606\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00607}00607\ \ \ \ \ \textcolor{comment}{/*\ Enable\ the\ RNG\ Interrupts:\ Data\ Ready,\ Clock\ error,\ Seed\ error\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00608}00608\ \ \ \ \ \_\_HAL\_RNG\_ENABLE\_IT(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00609}00609\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00610}00610\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00611}00611\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00612}00612\ \ \ \ \ \textcolor{comment}{/*\ Process\ Unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00613}00613\ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00614}00614\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00615}00615\ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00616}00616\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa5a04e395e501e4e400172c610478c4a4}{HAL\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00617}00617\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00618}00618\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00619}00619\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00620}00620\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00621}00621\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00629}00629\ uint32\_t\ HAL\_RNG\_GetRandomNumber(RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00630}00630\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00631}00631\ \ \ \textcolor{keywordflow}{if}\ (HAL\_RNG\_GenerateRandomNumber(hrng,\ \&(hrng-\/>RandomNumber))\ ==\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00632}00632\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00633}00633\ \ \ \ \ \textcolor{keywordflow}{return}\ hrng-\/>RandomNumber;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00634}00634\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00635}00635\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00636}00636\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00637}00637\ \ \ \ \ \textcolor{keywordflow}{return}\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00638}00638\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00639}00639\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00640}00640\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00648}00648\ uint32\_t\ HAL\_RNG\_GetRandomNumber\_IT(RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00649}00649\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00650}00650\ \ \ uint32\_t\ random32bit\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00651}00651\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00652}00652\ \ \ \textcolor{comment}{/*\ Process\ locked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00653}00653\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ad3d96e1b9022ba76b69eeda91027b36c}{\_\_HAL\_LOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00654}00654\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00655}00655\ \ \ \textcolor{comment}{/*\ Change\ RNG\ peripheral\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00656}00656\ \ \ hrng-\/>State\ =\ HAL\_RNG\_STATE\_BUSY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00657}00657\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00658}00658\ \ \ \textcolor{comment}{/*\ Get\ a\ 32bit\ Random\ number\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00659}00659\ \ \ random32bit\ =\ hrng-\/>Instance-\/>DR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00660}00660\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00661}00661\ \ \ \textcolor{comment}{/*\ Enable\ the\ RNG\ Interrupts:\ Data\ Ready,\ Clock\ error,\ Seed\ error\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00662}00662\ \ \ \_\_HAL\_RNG\_ENABLE\_IT(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00663}00663\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00664}00664\ \ \ \textcolor{comment}{/*\ Return\ the\ 32\ bit\ random\ number\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00665}00665\ \ \ \textcolor{keywordflow}{return}\ random32bit;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00666}00666\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00667}00667\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00689}00689\ \textcolor{keywordtype}{void}\ HAL\_RNG\_IRQHandler(RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00690}00690\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00691}00691\ \ \ uint32\_t\ rngclockerror\ =\ 0U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00692}00692\ \ \ uint32\_t\ itflag\ \ \ =\ hrng-\/>Instance-\/>SR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00693}00693\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00694}00694\ \ \ \textcolor{comment}{/*\ RNG\ clock\ error\ interrupt\ occurred\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00695}00695\ \ \ \textcolor{keywordflow}{if}\ ((itflag\ \&\ RNG\_IT\_CEI)\ ==\ RNG\_IT\_CEI)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00696}00696\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00697}00697\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00698}00698\ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_CLOCK;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00699}00699\ \ \ \ \ rngclockerror\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00700}00700\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00701}00701\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((itflag\ \&\ RNG\_IT\_SEI)\ ==\ RNG\_IT\_SEI)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00702}00702\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00703}00703\ \ \ \ \ \textcolor{comment}{/*\ Update\ the\ error\ code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00704}00704\ \ \ \ \ hrng-\/>ErrorCode\ =\ HAL\_RNG\_ERROR\_SEED;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00705}00705\ \ \ \ \ rngclockerror\ =\ 1U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00706}00706\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00707}00707\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00708}00708\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00709}00709\ \ \ \ \ \textcolor{comment}{/*\ Nothing\ to\ do\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00710}00710\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00711}00711\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00712}00712\ \ \ \textcolor{keywordflow}{if}\ (rngclockerror\ ==\ 1U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00713}00713\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00714}00714\ \ \ \ \ \textcolor{comment}{/*\ Change\ RNG\ peripheral\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00715}00715\ \ \ \ \ hrng-\/>State\ =\ HAL\_RNG\_STATE\_ERROR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00716}00716\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00717}00717\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_RNG\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00718}00718\ \ \ \ \ \textcolor{comment}{/*\ Call\ registered\ Error\ callback\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00719}00719\ \ \ \ \ hrng-\/>ErrorCallback(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00720}00720\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00721}00721\ \ \ \ \ \textcolor{comment}{/*\ Call\ legacy\ weak\ Error\ callback\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00722}00722\ \ \ \ \ HAL\_RNG\_ErrorCallback(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00723}00723\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_RNG\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00724}00724\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00725}00725\ \ \ \ \ \textcolor{comment}{/*\ Clear\ the\ clock\ error\ flag\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00726}00726\ \ \ \ \ \_\_HAL\_RNG\_CLEAR\_IT(hrng,\ RNG\_IT\_CEI\ |\ RNG\_IT\_SEI);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00727}00727\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00728}00728\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00729}00729\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00730}00730\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00731}00731\ \ \ \textcolor{comment}{/*\ Check\ RNG\ data\ ready\ interrupt\ occurred\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00732}00732\ \ \ \textcolor{keywordflow}{if}\ ((itflag\ \&\ RNG\_IT\_DRDY)\ ==\ RNG\_IT\_DRDY)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00733}00733\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00734}00734\ \ \ \ \ \textcolor{comment}{/*\ Generate\ random\ number\ once,\ so\ disable\ the\ IT\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00735}00735\ \ \ \ \ \_\_HAL\_RNG\_DISABLE\_IT(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00736}00736\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00737}00737\ \ \ \ \ \textcolor{comment}{/*\ Get\ the\ 32bit\ Random\ number\ (DRDY\ flag\ automatically\ cleared)\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00738}00738\ \ \ \ \ hrng-\/>RandomNumber\ =\ hrng-\/>Instance-\/>DR;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00739}00739\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00740}00740\ \ \ \ \ \textcolor{keywordflow}{if}\ (hrng-\/>State\ !=\ HAL\_RNG\_STATE\_ERROR)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00741}00741\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00742}00742\ \ \ \ \ \ \ \textcolor{comment}{/*\ Change\ RNG\ peripheral\ state\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00743}00743\ \ \ \ \ \ \ hrng-\/>State\ =\ HAL\_RNG\_STATE\_READY;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00744}00744\ \ \ \ \ \ \ \textcolor{comment}{/*\ Process\ Unlocked\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00745}00745\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a7c2c23627aed2bb71d8c1ad071cda004}{\_\_HAL\_UNLOCK}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00746}00746\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00747}00747\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_RNG\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00748}00748\ \ \ \ \ \ \ \textcolor{comment}{/*\ Call\ registered\ Data\ Ready\ callback\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00749}00749\ \ \ \ \ \ \ hrng-\/>ReadyDataCallback(hrng,\ hrng-\/>RandomNumber);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00750}00750\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00751}00751\ \ \ \ \ \ \ \textcolor{comment}{/*\ Call\ legacy\ weak\ Data\ Ready\ callback\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00752}00752\ \ \ \ \ \ \ HAL\_RNG\_ReadyDataCallback(hrng,\ hrng-\/>RandomNumber);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00753}00753\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_RNG\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00754}00754\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00755}00755\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00756}00756\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00757}00757\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00764}00764\ uint32\_t\ HAL\_RNG\_ReadLastRandomNumber(\textcolor{keyword}{const}\ RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00765}00765\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00766}00766\ \ \ \textcolor{keywordflow}{return}\ (hrng-\/>RandomNumber);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00767}00767\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00768}00768\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00776}00776\ \_\_weak\ \textcolor{keywordtype}{void}\ HAL\_RNG\_ReadyDataCallback(RNG\_HandleTypeDef\ *hrng,\ uint32\_t\ random32bit)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00777}00777\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00778}00778\ \ \ \textcolor{comment}{/*\ Prevent\ unused\ argument(s)\ compilation\ warning\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00779}00779\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00780}00780\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(random32bit);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00781}00781\ \ \ \textcolor{comment}{/*\ NOTE\ :\ This\ function\ should\ not\ be\ modified.\ When\ the\ callback\ is\ needed,}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00782}00782\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ function\ HAL\_RNG\_ReadyDataCallback\ must\ be\ implemented\ in\ the\ user\ file.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00783}00783\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00784}00784\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00785}00785\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00792}00792\ \_\_weak\ \textcolor{keywordtype}{void}\ HAL\_RNG\_ErrorCallback(RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00793}00793\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00794}00794\ \ \ \textcolor{comment}{/*\ Prevent\ unused\ argument(s)\ compilation\ warning\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00795}00795\ \ \ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a6bc306171da085f4c7df2c66d2ff8e47}{UNUSED}}(hrng);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00796}00796\ \ \ \textcolor{comment}{/*\ NOTE\ :\ This\ function\ should\ not\ be\ modified.\ When\ the\ callback\ is\ needed,}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00797}00797\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ function\ HAL\_RNG\_ErrorCallback\ must\ be\ implemented\ in\ the\ user\ file.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00798}00798\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00799}00799\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00803}00803\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00804}00804\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00819}00819\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00826}00826\ HAL\_RNG\_StateTypeDef\ HAL\_RNG\_GetState(\textcolor{keyword}{const}\ RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00827}00827\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00828}00828\ \ \ \textcolor{keywordflow}{return}\ hrng-\/>State;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00829}00829\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00830}00830\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00836}00836\ uint32\_t\ HAL\_RNG\_GetError(\textcolor{keyword}{const}\ RNG\_HandleTypeDef\ *hrng)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00837}00837\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00838}00838\ \ \ \textcolor{comment}{/*\ Return\ RNG\ Error\ Code\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00839}00839\ \ \ \textcolor{keywordflow}{return}\ hrng-\/>ErrorCode;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00840}00840\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00844}00844\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00848}00848\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00849}00849\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00850}00850\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_RNG\_MODULE\_ENABLED\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00854}00854\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00855}00855\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RNG\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00856}00856\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__rng_8c_source_l00860}00860\ }
+
+\end{DoxyCode}

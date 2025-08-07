@@ -1,0 +1,461 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+qspi.\+h}
+\hypertarget{stm32f4xx__hal__qspi_8h_source}{}\label{stm32f4xx__hal__qspi_8h_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_qspi.h@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_qspi.h}}
+\mbox{\hyperlink{stm32f4xx__hal__qspi_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00019}00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00020}00020\ \textcolor{preprocessor}{\#ifndef\ STM32F4xx\_HAL\_QSPI\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ STM32F4xx\_HAL\_QSPI\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00023}00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00024}00024\ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00027}00027\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal__def_8h}{stm32f4xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00030}00030\ \textcolor{preprocessor}{\#if\ defined(QUADSPI)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00040}00040\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00048}00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00050}00050\ \ \ uint32\_t\ ClockPrescaler;\ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ prescaler\ factor\ for\ generating\ clock\ based\ on\ the\ AHB\ clock.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00051}00051\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ number\ between\ 0\ and\ 255\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00052}00052\ \ \ uint32\_t\ FifoThreshold;\ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ threshold\ number\ of\ bytes\ in\ the\ FIFO\ (used\ only\ in\ indirect\ mode)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00053}00053\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ between\ 1\ and\ 32\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00054}00054\ \ \ uint32\_t\ SampleShifting;\ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Sample\ Shift.\ The\ data\ is\ sampled\ 1/2\ clock\ cycle\ delay\ later\ to}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00055}00055\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ take\ in\ account\ external\ signal\ delays.\ (It\ should\ be\ QSPI\_SAMPLE\_SHIFTING\_NONE\ in\ DDR\ mode)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00056}00056\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_SampleShifting\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00057}00057\ \ \ uint32\_t\ FlashSize;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Flash\ Size.\ FlashSize+1\ is\ effectively\ the\ number\ of\ address\ bits}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ required\ to\ address\ the\ flash\ memory.\ The\ flash\ capacity\ can\ be\ up\ to\ 4GB}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00059}00059\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (addressed\ using\ 32\ bits)\ in\ indirect\ mode,\ but\ the\ addressable\ space\ in}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00060}00060\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memory-\/mapped\ mode\ is\ limited\ to\ 256MB}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00061}00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ number\ between\ 0\ and\ 31\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00062}00062\ \ \ uint32\_t\ ChipSelectHighTime;\ \textcolor{comment}{/*\ Specifies\ the\ Chip\ Select\ High\ Time.\ ChipSelectHighTime+1\ defines\ the\ minimum\ number}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00063}00063\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ of\ clock\ cycles\ which\ the\ chip\ select\ must\ remain\ high\ between\ commands.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00064}00064\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_ChipSelectHighTime\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00065}00065\ \ \ uint32\_t\ ClockMode;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Clock\ Mode.\ It\ indicates\ the\ level\ that\ clock\ takes\ between\ commands.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00066}00066\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_ClockMode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00067}00067\ \ \ uint32\_t\ FlashID;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Flash\ which\ will\ be\ used,}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00068}00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_Flash\_Select\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00069}00069\ \ \ uint32\_t\ DualFlash;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Dual\ Flash\ Mode\ State}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00070}00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_DualFlash\_Mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00071}00071\ \}QSPI\_InitTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00076}00076\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00077}00077\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00078}00078\ \ \ HAL\_QSPI\_STATE\_RESET\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x00U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00079}00079\ \ \ HAL\_QSPI\_STATE\_READY\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x01U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00080}00080\ \ \ HAL\_QSPI\_STATE\_BUSY\ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x02U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00081}00081\ \ \ HAL\_QSPI\_STATE\_BUSY\_INDIRECT\_TX\ \ =\ 0x12U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00082}00082\ \ \ HAL\_QSPI\_STATE\_BUSY\_INDIRECT\_RX\ \ =\ 0x22U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00083}00083\ \ \ HAL\_QSPI\_STATE\_BUSY\_AUTO\_POLLING\ =\ 0x42U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00084}00084\ \ \ HAL\_QSPI\_STATE\_BUSY\_MEM\_MAPPED\ \ \ =\ 0x82U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00085}00085\ \ \ HAL\_QSPI\_STATE\_ABORT\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x08U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00086}00086\ \ \ HAL\_QSPI\_STATE\_ERROR\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x04U\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00087}00087\ \}HAL\_QSPI\_StateTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00092}00092\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_QSPI\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00093}00093\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00094}00094\ \#else}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00095}00095\ typedef\ struct}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00096}00096\ \#endif}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00097}00097\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00098}00098\ \ \ QUADSPI\_TypeDef\ \ \ \ \ \ \ \ \ \ \ \ *Instance;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ QSPI\ registers\ base\ address\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00099}00099\ \ \ QSPI\_InitTypeDef\ \ \ \ \ \ \ \ \ \ \ Init;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ QSPI\ communication\ parameters\ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00100}00100\ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pTxBuffPtr;\ \ \ \ \ \ \textcolor{comment}{/*\ Pointer\ to\ QSPI\ Tx\ transfer\ Buffer\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00101}00101\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ TxXferSize;\ \ \ \ \ \ \ \textcolor{comment}{/*\ QSPI\ Tx\ Transfer\ size\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00102}00102\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ TxXferCount;\ \ \ \ \ \ \textcolor{comment}{/*\ QSPI\ Tx\ Transfer\ Counter\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00103}00103\ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pRxBuffPtr;\ \ \ \ \ \ \textcolor{comment}{/*\ Pointer\ to\ QSPI\ Rx\ transfer\ Buffer\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00104}00104\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ RxXferSize;\ \ \ \ \ \ \ \textcolor{comment}{/*\ QSPI\ Rx\ Transfer\ size\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00105}00105\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ RxXferCount;\ \ \ \ \ \ \textcolor{comment}{/*\ QSPI\ Rx\ Transfer\ Counter\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00106}00106\ \ \ \mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ \ \ \ \ \ \ \ \ \ *hdma;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ QSPI\ Rx/Tx\ DMA\ Handle\ parameters\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00107}00107\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\_LockTypeDef}}\ \ \ \ \ \ \ Lock;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Locking\ object\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00108}00108\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ HAL\_QSPI\_StateTypeDef\ State;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ QSPI\ communication\ state\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00109}00109\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ ErrorCode;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ QSPI\ Error\ code\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00110}00110\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Timeout;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Timeout\ for\ the\ QSPI\ memory\ access\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00111}00111\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_QSPI\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00112}00112\ \ \ void\ (*\ ErrorCallback)\ \ \ \ \ \ \ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00113}00113\ \ \ void\ (*\ AbortCpltCallback)\ \ \ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00114}00114\ \ \ void\ (*\ FifoThresholdCallback)(\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00115}00115\ \ \ void\ (*\ CmdCpltCallback)\ \ \ \ \ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00116}00116\ \ \ void\ (*\ RxCpltCallback)\ \ \ \ \ \ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00117}00117\ \ \ void\ (*\ TxCpltCallback)\ \ \ \ \ \ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00118}00118\ \ \ void\ (*\ RxHalfCpltCallback)\ \ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00119}00119\ \ \ void\ (*\ TxHalfCpltCallback)\ \ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00120}00120\ \ \ void\ (*\ StatusMatchCallback)\ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00121}00121\ \ \ void\ (*\ TimeOutCallback)\ \ \ \ \ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00123}00123\ \ \ void\ (*\ MspInitCallback)\ \ \ \ \ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00124}00124\ \ \ void\ (*\ MspDeInitCallback)\ \ \ \ (\textcolor{keyword}{struct\ }\_\_QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00125}00125\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00126}00126\ \}QSPI\_HandleTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00131}00131\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00132}00132\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00133}00133\ \ \ uint32\_t\ Instruction;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Instruction\ to\ be\ sent}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00134}00134\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ (8-\/bit)\ between\ 0x00\ and\ 0xFF\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00135}00135\ \ \ uint32\_t\ Address;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Address\ to\ be\ sent\ (Size\ from\ 1\ to\ 4\ bytes\ according\ AddressSize)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00136}00136\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ (32-\/bits)\ between\ 0x0\ and\ 0xFFFFFFFF\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00137}00137\ \ \ uint32\_t\ AlternateBytes;\ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Alternate\ Bytes\ to\ be\ sent\ (Size\ from\ 1\ to\ 4\ bytes\ according\ AlternateBytesSize)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00138}00138\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ (32-\/bits)\ between\ 0x0\ and\ 0xFFFFFFFF\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00139}00139\ \ \ uint32\_t\ AddressSize;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Address\ Size}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00140}00140\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_AddressSize\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00141}00141\ \ \ uint32\_t\ AlternateBytesSize;\ \textcolor{comment}{/*\ Specifies\ the\ Alternate\ Bytes\ Size}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00142}00142\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_AlternateBytesSize\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00143}00143\ \ \ uint32\_t\ DummyCycles;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Number\ of\ Dummy\ Cycles.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00144}00144\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ number\ between\ 0\ and\ 31\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00145}00145\ \ \ uint32\_t\ InstructionMode;\ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Instruction\ Mode}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00146}00146\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_InstructionMode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00147}00147\ \ \ uint32\_t\ AddressMode;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Address\ Mode}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00148}00148\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_AddressMode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00149}00149\ \ \ uint32\_t\ AlternateByteMode;\ \ \textcolor{comment}{/*\ Specifies\ the\ Alternate\ Bytes\ Mode}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00150}00150\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_AlternateBytesMode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00151}00151\ \ \ uint32\_t\ DataMode;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ Data\ Mode\ (used\ for\ dummy\ cycles\ and\ data\ phases)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00152}00152\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_DataMode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00153}00153\ \ \ uint32\_t\ NbData;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ number\ of\ data\ to\ transfer.\ (This\ is\ the\ number\ of\ bytes)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00154}00154\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ any\ value\ between\ 0\ and\ 0xFFFFFFFF\ (0\ means\ undefined\ length}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00155}00155\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ until\ end\ of\ memory)*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00156}00156\ \ \ uint32\_t\ DdrMode;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ double\ data\ rate\ mode\ for\ address,\ alternate\ byte\ and\ data\ phase}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00157}00157\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_DdrMode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00158}00158\ \ \ uint32\_t\ DdrHoldHalfCycle;\ \ \ \textcolor{comment}{/*\ Specifies\ if\ the\ DDR\ hold\ is\ enabled.\ When\ enabled\ it\ delays\ the\ data}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00159}00159\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ output\ by\ one\ half\ of\ system\ clock\ in\ DDR\ mode.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00160}00160\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_DdrHoldHalfCycle\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00161}00161\ \ \ uint32\_t\ SIOOMode;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ send\ instruction\ only\ once\ mode}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00162}00162\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_SIOOMode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00163}00163\ \}QSPI\_CommandTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00168}00168\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00169}00169\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00170}00170\ \ \ uint32\_t\ Match;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ value\ to\ be\ compared\ with\ the\ masked\ status\ register\ to\ get\ a\ match.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00171}00171\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ any\ value\ between\ 0\ and\ 0xFFFFFFFF\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00172}00172\ \ \ uint32\_t\ Mask;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ mask\ to\ be\ applied\ to\ the\ status\ bytes\ received.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00173}00173\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ any\ value\ between\ 0\ and\ 0xFFFFFFFF\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00174}00174\ \ \ uint32\_t\ Interval;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ number\ of\ clock\ cycles\ between\ two\ read\ during\ automatic\ polling\ phases.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00175}00175\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ any\ value\ between\ 0\ and\ 0xFFFF\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00176}00176\ \ \ uint32\_t\ StatusBytesSize;\ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ size\ of\ the\ status\ bytes\ received.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00177}00177\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ any\ value\ between\ 1\ and\ 4\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00178}00178\ \ \ uint32\_t\ MatchMode;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ method\ used\ for\ determining\ a\ match.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00179}00179\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_MatchMode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00180}00180\ \ \ uint32\_t\ AutomaticStop;\ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ if\ automatic\ polling\ is\ stopped\ after\ a\ match.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00181}00181\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_AutomaticStop\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00182}00182\ \}QSPI\_AutoPollingTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00187}00187\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00188}00188\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00189}00189\ \ \ uint32\_t\ TimeOutPeriod;\ \ \ \ \ \ \textcolor{comment}{/*\ Specifies\ the\ number\ of\ clock\ to\ wait\ when\ the\ FIFO\ is\ full\ before\ to\ release\ the\ chip\ select.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00190}00190\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ any\ value\ between\ 0\ and\ 0xFFFF\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00191}00191\ \ \ uint32\_t\ TimeOutActivation;\ \ \textcolor{comment}{/*\ Specifies\ if\ the\ timeout\ counter\ is\ enabled\ to\ release\ the\ chip\ select.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00192}00192\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ parameter\ can\ be\ a\ value\ of\ @ref\ QSPI\_TimeOutActivation\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00193}00193\ \}QSPI\_MemoryMappedTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00195}00195\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_QSPI\_REGISTER\_CALLBACKS\ ==\ 1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00199}00199\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00200}00200\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00201}00201\ \ \ HAL\_QSPI\_ERROR\_CB\_ID\ \ \ \ \ \ \ \ \ \ =\ 0x00U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00202}00202\ \ \ HAL\_QSPI\_ABORT\_CB\_ID\ \ \ \ \ \ \ \ \ \ =\ 0x01U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00203}00203\ \ \ HAL\_QSPI\_FIFO\_THRESHOLD\_CB\_ID\ =\ 0x02U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00204}00204\ \ \ HAL\_QSPI\_CMD\_CPLT\_CB\_ID\ \ \ \ \ \ \ =\ 0x03U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00205}00205\ \ \ HAL\_QSPI\_RX\_CPLT\_CB\_ID\ \ \ \ \ \ \ \ =\ 0x04U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00206}00206\ \ \ HAL\_QSPI\_TX\_CPLT\_CB\_ID\ \ \ \ \ \ \ \ =\ 0x05U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00207}00207\ \ \ HAL\_QSPI\_RX\_HALF\_CPLT\_CB\_ID\ \ \ =\ 0x06U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00208}00208\ \ \ HAL\_QSPI\_TX\_HALF\_CPLT\_CB\_ID\ \ \ =\ 0x07U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00209}00209\ \ \ HAL\_QSPI\_STATUS\_MATCH\_CB\_ID\ \ \ =\ 0x08U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00210}00210\ \ \ HAL\_QSPI\_TIMEOUT\_CB\_ID\ \ \ \ \ \ \ \ =\ 0x09U,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00212}00212\ \ \ HAL\_QSPI\_MSP\_INIT\_CB\_ID\ \ \ \ \ \ \ =\ 0x0AU,\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00213}00213\ \ \ HAL\_QSPI\_MSP\_DEINIT\_CB\_ID\ \ \ \ \ =\ 0x0B0\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00214}00214\ \}HAL\_QSPI\_CallbackIDTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00219}00219\ \textcolor{keyword}{typedef}\ void\ (*pQSPI\_CallbackTypeDef)(QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00220}00220\ \textcolor{preprocessor}{\#endif}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00225}00225\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00233}00233\ \textcolor{preprocessor}{\#define\ HAL\_QSPI\_ERROR\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00234}00234\ \textcolor{preprocessor}{\#define\ HAL\_QSPI\_ERROR\_TIMEOUT\ \ \ \ \ \ \ \ \ \ 0x00000001U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00235}00235\ \textcolor{preprocessor}{\#define\ HAL\_QSPI\_ERROR\_TRANSFER\ \ \ \ \ \ \ \ \ 0x00000002U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00236}00236\ \textcolor{preprocessor}{\#define\ HAL\_QSPI\_ERROR\_DMA\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000004U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00237}00237\ \textcolor{preprocessor}{\#define\ HAL\_QSPI\_ERROR\_INVALID\_PARAM\ \ \ \ 0x00000008U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00238}00238\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_QSPI\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00239}00239\ \textcolor{preprocessor}{\#define\ HAL\_QSPI\_ERROR\_INVALID\_CALLBACK\ 0x00000010U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00240}00240\ \textcolor{preprocessor}{\#endif}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00248}00248\ \textcolor{preprocessor}{\#define\ QSPI\_SAMPLE\_SHIFTING\_NONE\ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00249}00249\ \textcolor{preprocessor}{\#define\ QSPI\_SAMPLE\_SHIFTING\_HALFCYCLE\ ((uint32\_t)QUADSPI\_CR\_SSHIFT)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00257}00257\ \textcolor{preprocessor}{\#define\ QSPI\_CS\_HIGH\_TIME\_1\_CYCLE\ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00258}00258\ \textcolor{preprocessor}{\#define\ QSPI\_CS\_HIGH\_TIME\_2\_CYCLE\ \ \ \ \ \ ((uint32\_t)QUADSPI\_DCR\_CSHT\_0)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00259}00259\ \textcolor{preprocessor}{\#define\ QSPI\_CS\_HIGH\_TIME\_3\_CYCLE\ \ \ \ \ \ ((uint32\_t)QUADSPI\_DCR\_CSHT\_1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00260}00260\ \textcolor{preprocessor}{\#define\ QSPI\_CS\_HIGH\_TIME\_4\_CYCLE\ \ \ \ \ \ ((uint32\_t)QUADSPI\_DCR\_CSHT\_0\ |\ QUADSPI\_DCR\_CSHT\_1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00261}00261\ \textcolor{preprocessor}{\#define\ QSPI\_CS\_HIGH\_TIME\_5\_CYCLE\ \ \ \ \ \ ((uint32\_t)QUADSPI\_DCR\_CSHT\_2)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00262}00262\ \textcolor{preprocessor}{\#define\ QSPI\_CS\_HIGH\_TIME\_6\_CYCLE\ \ \ \ \ \ ((uint32\_t)QUADSPI\_DCR\_CSHT\_2\ |\ QUADSPI\_DCR\_CSHT\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00263}00263\ \textcolor{preprocessor}{\#define\ QSPI\_CS\_HIGH\_TIME\_7\_CYCLE\ \ \ \ \ \ ((uint32\_t)QUADSPI\_DCR\_CSHT\_2\ |\ QUADSPI\_DCR\_CSHT\_1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00264}00264\ \textcolor{preprocessor}{\#define\ QSPI\_CS\_HIGH\_TIME\_8\_CYCLE\ \ \ \ \ \ ((uint32\_t)QUADSPI\_DCR\_CSHT)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00272}00272\ \textcolor{preprocessor}{\#define\ QSPI\_CLOCK\_MODE\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00273}00273\ \textcolor{preprocessor}{\#define\ QSPI\_CLOCK\_MODE\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_DCR\_CKMODE)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00281}00281\ \textcolor{preprocessor}{\#define\ QSPI\_FLASH\_ID\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00282}00282\ \textcolor{preprocessor}{\#define\ QSPI\_FLASH\_ID\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CR\_FSEL)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00290}00290\ \textcolor{preprocessor}{\#define\ QSPI\_DUALFLASH\_ENABLE\ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CR\_DFM)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00291}00291\ \textcolor{preprocessor}{\#define\ QSPI\_DUALFLASH\_DISABLE\ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00299}00299\ \textcolor{preprocessor}{\#define\ QSPI\_ADDRESS\_8\_BITS\ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00300}00300\ \textcolor{preprocessor}{\#define\ QSPI\_ADDRESS\_16\_BITS\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_ADSIZE\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00301}00301\ \textcolor{preprocessor}{\#define\ QSPI\_ADDRESS\_24\_BITS\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_ADSIZE\_1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00302}00302\ \textcolor{preprocessor}{\#define\ QSPI\_ADDRESS\_32\_BITS\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_ADSIZE)\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00310}00310\ \textcolor{preprocessor}{\#define\ QSPI\_ALTERNATE\_BYTES\_8\_BITS\ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00311}00311\ \textcolor{preprocessor}{\#define\ QSPI\_ALTERNATE\_BYTES\_16\_BITS\ \ \ ((uint32\_t)QUADSPI\_CCR\_ABSIZE\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00312}00312\ \textcolor{preprocessor}{\#define\ QSPI\_ALTERNATE\_BYTES\_24\_BITS\ \ \ ((uint32\_t)QUADSPI\_CCR\_ABSIZE\_1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00313}00313\ \textcolor{preprocessor}{\#define\ QSPI\_ALTERNATE\_BYTES\_32\_BITS\ \ \ ((uint32\_t)QUADSPI\_CCR\_ABSIZE)\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00321}00321\ \textcolor{preprocessor}{\#define\ QSPI\_INSTRUCTION\_NONE\ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00322}00322\ \textcolor{preprocessor}{\#define\ QSPI\_INSTRUCTION\_1\_LINE\ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_IMODE\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00323}00323\ \textcolor{preprocessor}{\#define\ QSPI\_INSTRUCTION\_2\_LINES\ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_IMODE\_1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00324}00324\ \textcolor{preprocessor}{\#define\ QSPI\_INSTRUCTION\_4\_LINES\ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_IMODE)\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00332}00332\ \textcolor{preprocessor}{\#define\ QSPI\_ADDRESS\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00333}00333\ \textcolor{preprocessor}{\#define\ QSPI\_ADDRESS\_1\_LINE\ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_ADMODE\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00334}00334\ \textcolor{preprocessor}{\#define\ QSPI\_ADDRESS\_2\_LINES\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_ADMODE\_1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00335}00335\ \textcolor{preprocessor}{\#define\ QSPI\_ADDRESS\_4\_LINES\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_ADMODE)\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00339}00339\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00343}00343\ \textcolor{preprocessor}{\#define\ QSPI\_ALTERNATE\_BYTES\_NONE\ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00344}00344\ \textcolor{preprocessor}{\#define\ QSPI\_ALTERNATE\_BYTES\_1\_LINE\ \ \ \ ((uint32\_t)QUADSPI\_CCR\_ABMODE\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00345}00345\ \textcolor{preprocessor}{\#define\ QSPI\_ALTERNATE\_BYTES\_2\_LINES\ \ \ ((uint32\_t)QUADSPI\_CCR\_ABMODE\_1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00346}00346\ \textcolor{preprocessor}{\#define\ QSPI\_ALTERNATE\_BYTES\_4\_LINES\ \ \ ((uint32\_t)QUADSPI\_CCR\_ABMODE)\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00354}00354\ \textcolor{preprocessor}{\#define\ QSPI\_DATA\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00355}00355\ \textcolor{preprocessor}{\#define\ QSPI\_DATA\_1\_LINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_DMODE\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00356}00356\ \textcolor{preprocessor}{\#define\ QSPI\_DATA\_2\_LINES\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_DMODE\_1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00357}00357\ \textcolor{preprocessor}{\#define\ QSPI\_DATA\_4\_LINES\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_DMODE)\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00361}00361\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00365}00365\ \textcolor{preprocessor}{\#define\ QSPI\_DDR\_MODE\_DISABLE\ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00366}00366\ \textcolor{preprocessor}{\#define\ QSPI\_DDR\_MODE\_ENABLE\ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CCR\_DDRM)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00370}00370\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00374}00374\ \textcolor{preprocessor}{\#define\ QSPI\_DDR\_HHC\_ANALOG\_DELAY\ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00375}00375\ \textcolor{preprocessor}{\#define\ QSPI\_DDR\_HHC\_HALF\_CLK\_DELAY\ \ \ \ ((uint32\_t)QUADSPI\_CCR\_DHHC)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00379}00379\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00383}00383\ \textcolor{preprocessor}{\#define\ QSPI\_SIOO\_INST\_EVERY\_CMD\ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00384}00384\ \textcolor{preprocessor}{\#define\ QSPI\_SIOO\_INST\_ONLY\_FIRST\_CMD\ \ ((uint32\_t)QUADSPI\_CCR\_SIOO)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00388}00388\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00392}00392\ \textcolor{preprocessor}{\#define\ QSPI\_MATCH\_MODE\_AND\ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00393}00393\ \textcolor{preprocessor}{\#define\ QSPI\_MATCH\_MODE\_OR\ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)QUADSPI\_CR\_PMM)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00401}00401\ \textcolor{preprocessor}{\#define\ QSPI\_AUTOMATIC\_STOP\_DISABLE\ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00402}00402\ \textcolor{preprocessor}{\#define\ QSPI\_AUTOMATIC\_STOP\_ENABLE\ \ \ \ \ ((uint32\_t)QUADSPI\_CR\_APMS)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00410}00410\ \textcolor{preprocessor}{\#define\ QSPI\_TIMEOUT\_COUNTER\_DISABLE\ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00411}00411\ \textcolor{preprocessor}{\#define\ QSPI\_TIMEOUT\_COUNTER\_ENABLE\ \ \ \ ((uint32\_t)QUADSPI\_CR\_TCEN)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00419}00419\ \textcolor{preprocessor}{\#define\ QSPI\_FLAG\_BUSY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_SR\_BUSY\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00420}00420\ \textcolor{preprocessor}{\#define\ QSPI\_FLAG\_TO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_SR\_TOF\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00421}00421\ \textcolor{preprocessor}{\#define\ QSPI\_FLAG\_SM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_SR\_SMF\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00422}00422\ \textcolor{preprocessor}{\#define\ QSPI\_FLAG\_FT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_SR\_FTF\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00423}00423\ \textcolor{preprocessor}{\#define\ QSPI\_FLAG\_TC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_SR\_TCF\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00424}00424\ \textcolor{preprocessor}{\#define\ QSPI\_FLAG\_TE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_SR\_TEF\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00432}00432\ \textcolor{preprocessor}{\#define\ QSPI\_IT\_TO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_CR\_TOIE\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00433}00433\ \textcolor{preprocessor}{\#define\ QSPI\_IT\_SM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_CR\_SMIE\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00434}00434\ \textcolor{preprocessor}{\#define\ QSPI\_IT\_FT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_CR\_FTIE\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00435}00435\ \textcolor{preprocessor}{\#define\ QSPI\_IT\_TC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_CR\_TCIE\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00436}00436\ \textcolor{preprocessor}{\#define\ QSPI\_IT\_TE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QUADSPI\_CR\_TEIE\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00440}00440\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00445}00445\ \textcolor{preprocessor}{\#define\ HAL\_QSPI\_TIMEOUT\_DEFAULT\_VALUE\ 5000U\ }\textcolor{comment}{/*\ 5\ s\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00449}00449\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00453}00453\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00454}00454\ \textcolor{comment}{/*\ Exported\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00462}00462\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_QSPI\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00463}00463\ \textcolor{preprocessor}{\#define\ \_\_HAL\_QSPI\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00464}00464\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>State\ =\ HAL\_QSPI\_STATE\_RESET;\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00465}00465\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>MspInitCallback\ =\ NULL;\ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00466}00466\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>MspDeInitCallback\ =\ NULL;\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00467}00467\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ while(0)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00468}00468\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00469}00469\ \textcolor{preprocessor}{\#define\ \_\_HAL\_QSPI\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>State\ =\ HAL\_QSPI\_STATE\_RESET)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00470}00470\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00471}00471\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00476}00476\ \textcolor{preprocessor}{\#define\ \_\_HAL\_QSPI\_ENABLE(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SET\_BIT((\_\_HANDLE\_\_)-\/>Instance-\/>CR,\ QUADSPI\_CR\_EN)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00482}00482\ \textcolor{preprocessor}{\#define\ \_\_HAL\_QSPI\_DISABLE(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CLEAR\_BIT((\_\_HANDLE\_\_)-\/>Instance-\/>CR,\ QUADSPI\_CR\_EN)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00483}00483\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00495}00495\ \textcolor{preprocessor}{\#define\ \_\_HAL\_QSPI\_ENABLE\_IT(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ \ SET\_BIT((\_\_HANDLE\_\_)-\/>Instance-\/>CR,\ (\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00496}00496\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00497}00497\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00509}00509\ \textcolor{preprocessor}{\#define\ \_\_HAL\_QSPI\_DISABLE\_IT(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ CLEAR\_BIT((\_\_HANDLE\_\_)-\/>Instance-\/>CR,\ (\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00510}00510\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00522}00522\ \textcolor{preprocessor}{\#define\ \_\_HAL\_QSPI\_GET\_IT\_SOURCE(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ (READ\_BIT((\_\_HANDLE\_\_)-\/>Instance-\/>CR,\ (\_\_INTERRUPT\_\_))\ ==\ (\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00523}00523\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00537}00537\ \textcolor{preprocessor}{\#define\ \_\_HAL\_QSPI\_GET\_FLAG(\_\_HANDLE\_\_,\ \_\_FLAG\_\_)\ \ \ \ \ \ \ \ \ \ \ ((READ\_BIT((\_\_HANDLE\_\_)-\/>Instance-\/>SR,\ (\_\_FLAG\_\_))\ !=\ 0U)\ ?\ SET\ :\ RESET)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00538}00538\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00549}00549\ \textcolor{preprocessor}{\#define\ \_\_HAL\_QSPI\_CLEAR\_FLAG(\_\_HANDLE\_\_,\ \_\_FLAG\_\_)\ \ \ \ \ \ \ \ \ WRITE\_REG((\_\_HANDLE\_\_)-\/>Instance-\/>FCR,\ (\_\_FLAG\_\_))}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00553}00553\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00554}00554\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00558}00558\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00562}00562\ \textcolor{comment}{/*\ Initialization/de-\/initialization\ functions\ \ ********************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00563}00563\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Init\ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00564}00564\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_DeInit\ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00565}00565\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_MspInit\ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00566}00566\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_MspDeInit(QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00570}00570\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00574}00574\ \textcolor{comment}{/*\ IO\ operation\ functions\ *****************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00575}00575\ \textcolor{comment}{/*\ QSPI\ IRQ\ handler\ method\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00576}00576\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_IRQHandler(QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00577}00577\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00578}00578\ \textcolor{comment}{/*\ QSPI\ indirect\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00579}00579\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Command\ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi,\ QSPI\_CommandTypeDef\ *cmd,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00580}00580\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Transmit\ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi,\ uint8\_t\ *pData,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00581}00581\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Receive\ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi,\ uint8\_t\ *pData,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00582}00582\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Command\_IT\ \ \ (QSPI\_HandleTypeDef\ *hqspi,\ QSPI\_CommandTypeDef\ *cmd);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00583}00583\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Transmit\_IT\ \ (QSPI\_HandleTypeDef\ *hqspi,\ uint8\_t\ *pData);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00584}00584\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Receive\_IT\ \ \ (QSPI\_HandleTypeDef\ *hqspi,\ uint8\_t\ *pData);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00585}00585\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Transmit\_DMA\ (QSPI\_HandleTypeDef\ *hqspi,\ uint8\_t\ *pData);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00586}00586\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Receive\_DMA\ \ (QSPI\_HandleTypeDef\ *hqspi,\ uint8\_t\ *pData);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00587}00587\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00588}00588\ \textcolor{comment}{/*\ QSPI\ status\ flag\ polling\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00589}00589\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_AutoPolling\ \ \ (QSPI\_HandleTypeDef\ *hqspi,\ QSPI\_CommandTypeDef\ *cmd,\ QSPI\_AutoPollingTypeDef\ *cfg,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00590}00590\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_AutoPolling\_IT(QSPI\_HandleTypeDef\ *hqspi,\ QSPI\_CommandTypeDef\ *cmd,\ QSPI\_AutoPollingTypeDef\ *cfg);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00591}00591\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00592}00592\ \textcolor{comment}{/*\ QSPI\ memory-\/mapped\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00593}00593\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_MemoryMapped(QSPI\_HandleTypeDef\ *hqspi,\ QSPI\_CommandTypeDef\ *cmd,\ QSPI\_MemoryMappedTypeDef\ *cfg);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00594}00594\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00595}00595\ \textcolor{comment}{/*\ Callback\ functions\ in\ non-\/blocking\ modes\ ***********************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00596}00596\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_ErrorCallback\ \ \ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00597}00597\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_AbortCpltCallback\ \ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00598}00598\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_FifoThresholdCallback(QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00599}00599\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00600}00600\ \textcolor{comment}{/*\ QSPI\ indirect\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00601}00601\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_CmdCpltCallback\ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00602}00602\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_RxCpltCallback\ \ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00603}00603\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_TxCpltCallback\ \ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00604}00604\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_RxHalfCpltCallback\ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00605}00605\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_TxHalfCpltCallback\ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00606}00606\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00607}00607\ \textcolor{comment}{/*\ QSPI\ status\ flag\ polling\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00608}00608\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_StatusMatchCallback\ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00609}00609\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00610}00610\ \textcolor{comment}{/*\ QSPI\ memory-\/mapped\ mode\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00611}00611\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_TimeOutCallback\ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00612}00612\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00613}00613\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_QSPI\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00614}00614\ \textcolor{comment}{/*\ QSPI\ callback\ registering/unregistering\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00615}00615\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_RegisterCallback\ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi,\ HAL\_QSPI\_CallbackIDTypeDef\ CallbackId,\ pQSPI\_CallbackTypeDef\ pCallback);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00616}00616\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_UnRegisterCallback\ \ \ (QSPI\_HandleTypeDef\ *hqspi,\ HAL\_QSPI\_CallbackIDTypeDef\ CallbackId);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00617}00617\ \textcolor{preprocessor}{\#endif}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00621}00621\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00625}00625\ \textcolor{comment}{/*\ Peripheral\ Control\ and\ State\ functions\ \ ************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00626}00626\ HAL\_QSPI\_StateTypeDef\ HAL\_QSPI\_GetState\ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00627}00627\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_GetError\ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00628}00628\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Abort\ \ \ \ \ \ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00629}00629\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_Abort\_IT\ \ \ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00630}00630\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_SetTimeout\ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00631}00631\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_SetFifoThreshold(QSPI\_HandleTypeDef\ *hqspi,\ uint32\_t\ Threshold);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00632}00632\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_QSPI\_GetFifoThreshold(\textcolor{keyword}{const}\ QSPI\_HandleTypeDef\ *hqspi);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00633}00633\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ \ \ \ HAL\_QSPI\_SetFlashID\ \ \ \ \ \ (QSPI\_HandleTypeDef\ *hqspi,\ uint32\_t\ FlashID);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00637}00637\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00641}00641\ \textcolor{comment}{/*\ End\ of\ exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00642}00642\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00643}00643\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00647}00647\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_CLOCK\_PRESCALER(PRESCALER)\ ((PRESCALER)\ <=\ 0xFFU)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00648}00648\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00649}00649\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_FIFO\_THRESHOLD(THR)\ \ \ \ \ \ \ \ (((THR)\ >\ 0U)\ \&\&\ ((THR)\ <=\ 32U))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00650}00650\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00651}00651\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_SSHIFT(SSHIFT)\ \ \ \ \ \ \ \ \ \ \ \ \ (((SSHIFT)\ ==\ QSPI\_SAMPLE\_SHIFTING\_NONE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00652}00652\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SSHIFT)\ ==\ QSPI\_SAMPLE\_SHIFTING\_HALFCYCLE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00653}00653\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00654}00654\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_FLASH\_SIZE(FSIZE)\ \ \ \ \ \ \ \ \ \ (((FSIZE)\ <=\ 31U))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00655}00655\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00656}00656\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_CS\_HIGH\_TIME(CSHTIME)\ \ \ \ \ \ (((CSHTIME)\ ==\ QSPI\_CS\_HIGH\_TIME\_1\_CYCLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00657}00657\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((CSHTIME)\ ==\ QSPI\_CS\_HIGH\_TIME\_2\_CYCLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00658}00658\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((CSHTIME)\ ==\ QSPI\_CS\_HIGH\_TIME\_3\_CYCLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00659}00659\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((CSHTIME)\ ==\ QSPI\_CS\_HIGH\_TIME\_4\_CYCLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00660}00660\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((CSHTIME)\ ==\ QSPI\_CS\_HIGH\_TIME\_5\_CYCLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00661}00661\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((CSHTIME)\ ==\ QSPI\_CS\_HIGH\_TIME\_6\_CYCLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00662}00662\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((CSHTIME)\ ==\ QSPI\_CS\_HIGH\_TIME\_7\_CYCLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00663}00663\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((CSHTIME)\ ==\ QSPI\_CS\_HIGH\_TIME\_8\_CYCLE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00664}00664\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00665}00665\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_CLOCK\_MODE(CLKMODE)\ \ \ \ \ \ \ \ (((CLKMODE)\ ==\ QSPI\_CLOCK\_MODE\_0)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00666}00666\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((CLKMODE)\ ==\ QSPI\_CLOCK\_MODE\_3))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00667}00667\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00668}00668\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_FLASH\_ID(FLASH\_ID)\ \ \ \ \ \ \ \ \ (((FLASH\_ID)\ ==\ QSPI\_FLASH\_ID\_1)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00669}00669\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((FLASH\_ID)\ ==\ QSPI\_FLASH\_ID\_2))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00670}00670\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00671}00671\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_DUAL\_FLASH\_MODE(MODE)\ \ \ \ \ \ (((MODE)\ ==\ QSPI\_DUALFLASH\_ENABLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00672}00672\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_DUALFLASH\_DISABLE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00673}00673\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00674}00674\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_INSTRUCTION(INSTRUCTION)\ \ \ ((INSTRUCTION)\ <=\ 0xFFU)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00675}00675\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00676}00676\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_ADDRESS\_SIZE(ADDR\_SIZE)\ \ \ \ (((ADDR\_SIZE)\ ==\ QSPI\_ADDRESS\_8\_BITS)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00677}00677\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((ADDR\_SIZE)\ ==\ QSPI\_ADDRESS\_16\_BITS)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00678}00678\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((ADDR\_SIZE)\ ==\ QSPI\_ADDRESS\_24\_BITS)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00679}00679\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((ADDR\_SIZE)\ ==\ QSPI\_ADDRESS\_32\_BITS))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00680}00680\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00681}00681\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_ALTERNATE\_BYTES\_SIZE(SIZE)\ (((SIZE)\ ==\ QSPI\_ALTERNATE\_BYTES\_8\_BITS)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00682}00682\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SIZE)\ ==\ QSPI\_ALTERNATE\_BYTES\_16\_BITS)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00683}00683\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SIZE)\ ==\ QSPI\_ALTERNATE\_BYTES\_24\_BITS)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00684}00684\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SIZE)\ ==\ QSPI\_ALTERNATE\_BYTES\_32\_BITS))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00685}00685\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00686}00686\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_DUMMY\_CYCLES(DCY)\ \ \ \ \ \ \ \ \ \ ((DCY)\ <=\ 31U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00687}00687\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00688}00688\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_INSTRUCTION\_MODE(MODE)\ \ \ \ \ (((MODE)\ ==\ QSPI\_INSTRUCTION\_NONE)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00689}00689\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_INSTRUCTION\_1\_LINE)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00690}00690\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_INSTRUCTION\_2\_LINES)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00691}00691\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_INSTRUCTION\_4\_LINES))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00692}00692\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00693}00693\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_ADDRESS\_MODE(MODE)\ \ \ \ \ \ \ \ \ (((MODE)\ ==\ QSPI\_ADDRESS\_NONE)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00694}00694\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_ADDRESS\_1\_LINE)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00695}00695\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_ADDRESS\_2\_LINES)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00696}00696\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_ADDRESS\_4\_LINES))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00697}00697\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00698}00698\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_ALTERNATE\_BYTES\_MODE(MODE)\ (((MODE)\ ==\ QSPI\_ALTERNATE\_BYTES\_NONE)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00699}00699\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_ALTERNATE\_BYTES\_1\_LINE)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00700}00700\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_ALTERNATE\_BYTES\_2\_LINES)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00701}00701\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_ALTERNATE\_BYTES\_4\_LINES))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00702}00702\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00703}00703\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_DATA\_MODE(MODE)\ \ \ \ \ \ \ \ \ \ \ \ (((MODE)\ ==\ QSPI\_DATA\_NONE)\ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00704}00704\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_DATA\_1\_LINE)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00705}00705\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_DATA\_2\_LINES)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00706}00706\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_DATA\_4\_LINES))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00707}00707\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00708}00708\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_DDR\_MODE(DDR\_MODE)\ \ \ \ \ \ \ \ \ (((DDR\_MODE)\ ==\ QSPI\_DDR\_MODE\_DISABLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00709}00709\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((DDR\_MODE)\ ==\ QSPI\_DDR\_MODE\_ENABLE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00710}00710\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00711}00711\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_DDR\_HHC(DDR\_HHC)\ \ \ \ \ \ \ \ \ \ \ (((DDR\_HHC)\ ==\ QSPI\_DDR\_HHC\_ANALOG\_DELAY)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00712}00712\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((DDR\_HHC)\ ==\ QSPI\_DDR\_HHC\_HALF\_CLK\_DELAY))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00713}00713\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00714}00714\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_SIOO\_MODE(SIOO\_MODE)\ \ \ \ \ \ \ (((SIOO\_MODE)\ ==\ QSPI\_SIOO\_INST\_EVERY\_CMD)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00715}00715\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SIOO\_MODE)\ ==\ QSPI\_SIOO\_INST\_ONLY\_FIRST\_CMD))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00716}00716\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00717}00717\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_INTERVAL(INTERVAL)\ \ \ \ \ \ \ \ \ ((INTERVAL)\ <=\ QUADSPI\_PIR\_INTERVAL)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00718}00718\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00719}00719\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_STATUS\_BYTES\_SIZE(SIZE)\ \ \ \ (((SIZE)\ >=\ 1U)\ \&\&\ ((SIZE)\ <=\ 4U))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00720}00720\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00721}00721\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_MATCH\_MODE(MODE)\ \ \ \ \ \ \ \ \ \ \ (((MODE)\ ==\ QSPI\_MATCH\_MODE\_AND)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00722}00722\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((MODE)\ ==\ QSPI\_MATCH\_MODE\_OR))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00723}00723\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00724}00724\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_AUTOMATIC\_STOP(APMS)\ \ \ \ \ \ \ (((APMS)\ ==\ QSPI\_AUTOMATIC\_STOP\_DISABLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00725}00725\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((APMS)\ ==\ QSPI\_AUTOMATIC\_STOP\_ENABLE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00726}00726\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00727}00727\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_TIMEOUT\_ACTIVATION(TCEN)\ \ \ (((TCEN)\ ==\ QSPI\_TIMEOUT\_COUNTER\_DISABLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00728}00728\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((TCEN)\ ==\ QSPI\_TIMEOUT\_COUNTER\_ENABLE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00729}00729\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00730}00730\ \textcolor{preprocessor}{\#define\ IS\_QSPI\_TIMEOUT\_PERIOD(PERIOD)\ \ \ \ \ ((PERIOD)\ <=\ 0xFFFFU)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00734}00734\ \textcolor{comment}{/*\ End\ of\ private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00735}00735\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00739}00739\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00743}00743\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00744}00744\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ defined(QUADSPI)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00745}00745\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00746}00746\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00747}00747\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00748}00748\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00749}00749\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__qspi_8h_source_l00750}00750\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F4xx\_HAL\_QSPI\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

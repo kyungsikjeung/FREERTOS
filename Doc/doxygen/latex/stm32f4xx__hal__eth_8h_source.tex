@@ -1,0 +1,1195 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+eth.\+h}
+\hypertarget{stm32f4xx__hal__eth_8h_source}{}\label{stm32f4xx__hal__eth_8h_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_eth.h@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_eth.h}}
+\mbox{\hyperlink{stm32f4xx__hal__eth_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00019}00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00020}00020\ \textcolor{preprocessor}{\#ifndef\ STM32F4xx\_HAL\_ETH\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ STM32F4xx\_HAL\_ETH\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00023}00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00024}00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00027}00027\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal__def_8h}{stm32f4xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00030}00030\ \textcolor{preprocessor}{\#if\ defined(ETH)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00040}00040\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00041}00041\ \textcolor{preprocessor}{\#ifndef\ ETH\_TX\_DESC\_CNT}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00042}00042\ \textcolor{preprocessor}{\#define\ ETH\_TX\_DESC\_CNT\ \ \ \ \ \ \ \ \ 4U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00043}00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ETH\_TX\_DESC\_CNT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00045}00045\ \textcolor{preprocessor}{\#ifndef\ ETH\_RX\_DESC\_CNT}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00046}00046\ \textcolor{preprocessor}{\#define\ ETH\_RX\_DESC\_CNT\ \ \ \ \ \ \ \ \ 4U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00047}00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ETH\_RX\_DESC\_CNT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00050}00050\ \textcolor{comment}{/***********************\ Descriptors\ struct\ def\ section\ ************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00058}00058\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00060}00060\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ DESC0;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00061}00061\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ DESC1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00062}00062\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ DESC2;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00063}00063\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ DESC3;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00064}00064\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ DESC4;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00065}00065\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ DESC5;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00066}00066\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ DESC6;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00067}00067\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ DESC7;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00068}00068\ \ \ uint32\_t\ BackupAddr0;\ \textcolor{comment}{/*\ used\ to\ store\ rx\ buffer\ 1\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00069}00069\ \ \ uint32\_t\ BackupAddr1;\ \textcolor{comment}{/*\ used\ to\ store\ rx\ buffer\ 2\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00070}00070\ \}\ ETH\_DMADescTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00078}00078\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_\_ETH\_BufferTypeDef}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00080}00080\ \ \ uint8\_t\ *buffer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ buffer\ address\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00082}00082\ \ \ uint32\_t\ len;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ buffer\ length\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00084}00084\ \ \ \textcolor{keyword}{struct\ }\_\_ETH\_BufferTypeDef\ *next;\ \textcolor{comment}{/*<!\ Pointer\ to\ the\ next\ buffer\ in\ the\ list\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00085}00085\ \}\ ETH\_BufferTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00093}00093\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00094}00094\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00095}00095\ \ \ uint32\_t\ \ TxDesc[ETH\_TX\_DESC\_CNT];\ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Tx\ DMA\ descriptors\ addresses\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00097}00097\ \ \ uint32\_t\ \ CurTxDesc;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Current\ Tx\ descriptor\ index\ for\ packet\ transmission\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00099}00099\ \ \ uint32\_t\ *PacketAddress[ETH\_TX\_DESC\_CNT];\ \ \textcolor{comment}{/*<!\ Ethernet\ packet\ addresses\ array\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00101}00101\ \ \ uint32\_t\ *CurrentPacketAddress;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Current\ transmit\ packet\ addresses\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00103}00103\ \ \ uint32\_t\ BuffersInUse;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Buffers\ in\ Use\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00105}00105\ \ \ uint32\_t\ releaseIndex;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Release\ index\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00106}00106\ \}\ ETH\_TxDescListTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00114}00114\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00115}00115\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00116}00116\ \ \ uint32\_t\ Attributes;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00119}00119\ \ \ uint32\_t\ Length;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00121}00121\ \ \ ETH\_BufferTypeDef\ *TxBuffer;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00123}00123\ \ \ uint32\_t\ SrcAddrCtrl;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00126}00126\ \ \ uint32\_t\ CRCPadCtrl;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00129}00129\ \ \ uint32\_t\ ChecksumCtrl;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00132}00132\ \ \ uint32\_t\ MaxSegmentSize;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00135}00135\ \ \ uint32\_t\ PayloadLen;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00138}00138\ \ \ uint32\_t\ TCPHeaderLen;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00141}00141\ \ \ uint32\_t\ VlanTag;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00144}00144\ \ \ uint32\_t\ VlanCtrl;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00147}00147\ \ \ uint32\_t\ InnerVlanTag;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00150}00150\ \ \ uint32\_t\ InnerVlanCtrl;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00153}00153\ \ \ \textcolor{keywordtype}{void}\ *pData;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00155}00155\ \}\ ETH\_TxPacketConfigTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00163}00163\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00164}00164\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00165}00165\ \ \ uint32\_t\ TimeStampLow;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00166}00166\ \ \ uint32\_t\ TimeStampHigh;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00168}00168\ \}\ ETH\_TimeStampTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00173}00173\ \textcolor{preprocessor}{\#ifdef\ HAL\_ETH\_USE\_PTP}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00177}00177\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00178}00178\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00179}00179\ \ \ uint32\_t\ Seconds;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00180}00180\ \ \ uint32\_t\ NanoSeconds;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00181}00181\ \}\ ETH\_TimeTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00185}00185\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ HAL\_ETH\_USE\_PTP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00190}00190\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00191}00191\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00192}00192\ \ \ uint32\_t\ RxDesc[ETH\_RX\_DESC\_CNT];\ \ \ \ \ \textcolor{comment}{/*<!\ Rx\ DMA\ descriptors\ addresses.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00194}00194\ \ \ uint32\_t\ ItMode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ If\ 1,\ DMA\ will\ generate\ the\ Rx\ complete\ interrupt.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00195}00195\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ 0,\ DMA\ will\ not\ generate\ the\ Rx\ complete\ interrupt.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00197}00197\ \ \ uint32\_t\ RxDescIdx;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Current\ Rx\ descriptor.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00199}00199\ \ \ uint32\_t\ RxDescCnt;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Number\ of\ descriptors\ .\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00201}00201\ \ \ uint32\_t\ RxDataLength;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Received\ Data\ Length.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00203}00203\ \ \ uint32\_t\ RxBuildDescIdx;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Current\ Rx\ Descriptor\ for\ building\ descriptors.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00205}00205\ \ \ uint32\_t\ RxBuildDescCnt;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Number\ of\ Rx\ Descriptors\ awaiting\ building.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00207}00207\ \ \ uint32\_t\ pRxLastRxDesc;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Last\ received\ descriptor.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00209}00209\ \ \ ETH\_TimeStampTypeDef\ TimeStamp;\ \ \ \ \ \textcolor{comment}{/*<!\ Time\ Stamp\ Low\ value\ for\ receive.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00211}00211\ \ \ \textcolor{keywordtype}{void}\ *pRxStart;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Pointer\ to\ the\ first\ buff.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00213}00213\ \ \ \textcolor{keywordtype}{void}\ *pRxEnd;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<!\ Pointer\ to\ the\ last\ buff.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00215}00215\ \}\ ETH\_RxDescListTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00223}00223\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00224}00224\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00225}00225\ \ \ uint32\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00226}00226\ \ \ SourceAddrControl;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00229}00229\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00230}00230\ \ \ ChecksumOffload;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00232}00232\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ InterPacketGapVal;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00235}00235\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ GiantPacketSizeLimitControl;\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00237}00237\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ Support2KPacket;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00239}00239\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ CRCStripTypePacket;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00241}00241\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ AutomaticPadCRCStrip;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00243}00243\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ Watchdog;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00245}00245\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ Jabber;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00247}00247\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ JumboPacket;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00251}00251\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ Speed;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00254}00254\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ DuplexMode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00257}00257\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ LoopbackMode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00259}00259\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00260}00260\ \ \ CarrierSenseBeforeTransmit;\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00262}00262\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ ReceiveOwn;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00264}00264\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00265}00265\ \ \ CarrierSenseDuringTransmit;\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00267}00267\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00268}00268\ \ \ RetryTransmission;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00270}00270\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ BackOffLimit;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00273}00273\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00274}00274\ \ \ DeferralCheck;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00276}00276\ \ \ uint32\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00277}00277\ \ \ PreambleLength;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00280}00280\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ SlowProtocolDetect;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00282}00282\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ CRCCheckingRxPackets;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00284}00284\ \ \ uint32\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00285}00285\ \ \ GiantPacketSizeLimit;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00290}00290\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ ExtendedInterPacketGap;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00292}00292\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ ExtendedInterPacketGapVal;\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00295}00295\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ ProgrammableWatchdog;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00297}00297\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ WatchdogTimeout;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00300}00300\ \ \ uint32\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00301}00301\ \ \ PauseTime;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00305}00305\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00306}00306\ \ \ ZeroQuantaPause;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00308}00308\ \ \ uint32\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00309}00309\ \ \ PauseLowThreshold;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00312}00312\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00313}00313\ \ \ TransmitFlowControl;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00316}00316\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00317}00317\ \ \ UnicastPausePacketDetect;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00319}00319\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ ReceiveFlowControl;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00322}00322\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ TransmitQueueMode;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00325}00325\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ ReceiveQueueMode;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00328}00328\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ DropTCPIPChecksumErrorPacket;\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00330}00330\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ ForwardRxErrorPacket;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00332}00332\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ ForwardRxUndersizedGoodPacket;\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00333}00333\ \}\ ETH\_MACConfigTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00341}00341\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00342}00342\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00343}00343\ \ \ uint32\_t\ \ \ \ \ \ \ \ DMAArbitration;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00346}00346\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ AddressAlignedBeats;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00349}00349\ \ \ uint32\_t\ \ \ \ \ \ \ \ BurstMode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00351}00351\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ \ \ \ \ DropTCPIPChecksumErrorFrame;\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00353}00353\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ \ \ \ \ ReceiveStoreForward;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00355}00355\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ \ \ \ \ TransmitStoreForward;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00358}00358\ \ \ uint32\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00359}00359\ \ \ TxDMABurstLength;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00361}00361\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00362}00362\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ TransmitThresholdControl;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00366}00366\ \ \ uint32\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00367}00367\ \ \ RxDMABurstLength;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00370}00370\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ \ \ \ \ ForwardErrorFrames;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00371}00371\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ FlushRxPacket;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00373}00373\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00374}00374\ \ \ ForwardUndersizedGoodFrames;\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00378}00378\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ ReceiveThresholdControl;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00381}00381\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00382}00382\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00383}00383\ \ \ SecondFrameOperate;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00386}00386\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00387}00387\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ \ \ \ \ \ EnhancedDescriptorFormat;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00388}00388\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00389}00389\ \ \ uint32\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00390}00390\ \ \ DescriptorSkipLength;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00393}00393\ \}\ ETH\_DMAConfigTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00401}00401\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00402}00402\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00403}00403\ \ \ HAL\_ETH\_MII\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x00U,\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00404}00404\ \ \ HAL\_ETH\_RMII\_MODE\ \ \ \ \ \ \ \ \ \ \ \ =\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae9d8ca35cdab213cb2400c49434de326}{SYSCFG\_PMC\_MII\_RMII\_SEL}}\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00405}00405\ \}\ ETH\_MediaInterfaceTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00410}00410\ \textcolor{preprocessor}{\#ifdef\ HAL\_ETH\_USE\_PTP}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00414}00414\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00415}00415\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00416}00416\ \ \ HAL\_ETH\_PTP\_POSITIVE\_UPDATE\ \ \ =\ 0x00000000U,\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00417}00417\ \ \ HAL\_ETH\_PTP\_NEGATIVE\_UPDATE\ \ \ =\ 0x00000001U\ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00418}00418\ \}\ ETH\_PtpUpdateTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00422}00422\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ HAL\_ETH\_USE\_PTP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00423}00423\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00427}00427\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00428}00428\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00429}00429\ \ \ uint8\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00430}00430\ \ \ *MACAddr;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00431}00431\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00432}00432\ \ \ ETH\_MediaInterfaceTypeDef\ \ \ MediaInterface;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00433}00433\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00434}00434\ \ \ ETH\_DMADescTypeDef}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00435}00435\ \ \ *TxDesc;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00436}00436\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00437}00437\ \ \ ETH\_DMADescTypeDef}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00438}00438\ \ \ *RxDesc;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00439}00439\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00440}00440\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RxBuffLen;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00441}00441\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00442}00442\ \}\ ETH\_InitTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00446}00446\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00447}00447\ \textcolor{preprocessor}{\#ifdef\ HAL\_ETH\_USE\_PTP}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00451}00451\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00452}00452\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00453}00453\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Timestamp;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00454}00454\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampUpdateMode;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00455}00455\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampInitialize;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00456}00456\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampUpdate;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00457}00457\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampAddendUpdate;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00458}00458\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampAll;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00459}00459\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampRolloverMode;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00460}00460\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampV2;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00461}00461\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampEthernet;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00462}00462\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampIPv6;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00463}00463\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampIPv4;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00464}00464\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampEvent;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00465}00465\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampMaster;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00466}00466\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampFilter;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00467}00467\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampClockType;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00468}00468\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampAddend;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00469}00469\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TimestampSubsecondInc;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00470}00470\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00471}00471\ \}\ ETH\_PTP\_ConfigTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00475}00475\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ HAL\_ETH\_USE\_PTP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00476}00476\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00480}00480\ \textcolor{keyword}{typedef}\ uint32\_t\ HAL\_ETH\_StateTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00484}00484\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00488}00488\ \textcolor{keyword}{typedef}\ \ void\ (*pETH\_rxAllocateCallbackTypeDef)(uint8\_t\ **buffer);\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00492}00492\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00496}00496\ \textcolor{keyword}{typedef}\ \ void\ (*pETH\_rxLinkCallbackTypeDef)(\textcolor{keywordtype}{void}\ **pStart,\ \textcolor{keywordtype}{void}\ **pEnd,\ uint8\_t\ *buff,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00497}00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Length);\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00501}00501\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00505}00505\ \textcolor{keyword}{typedef}\ \ void\ (*pETH\_txFreeCallbackTypeDef)(uint32\_t\ *buffer);\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00509}00509\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00513}00513\ \textcolor{keyword}{typedef}\ \ void\ (*pETH\_txPtpCallbackTypeDef)(uint32\_t\ *buffer,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00514}00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_TimeStampTypeDef\ *timestamp);\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00518}00518\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00522}00522\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00523}00523\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_\_ETH\_HandleTypeDef}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00524}00524\ \#else}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00525}00525\ typedef\ struct}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00526}00526\ \#endif\ \textcolor{comment}{/*\ USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00527}00527\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00528}00528\ \ \ ETH\_TypeDef\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *Instance;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00529}00529\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00530}00530\ \ \ ETH\_InitTypeDef\ \ \ \ \ \ \ \ \ \ \ \ Init;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00531}00531\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00532}00532\ \ \ ETH\_TxDescListTypeDef\ \ \ \ \ \ TxDescList;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00534}00534\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00535}00535\ \ \ ETH\_RxDescListTypeDef\ \ \ \ \ \ RxDescList;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00537}00537\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00538}00538\ \textcolor{preprocessor}{\#ifdef\ HAL\_ETH\_USE\_PTP}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00539}00539\ \ \ ETH\_TimeStampTypeDef\ \ \ \ \ \ \ TxTimestamp;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00540}00540\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_ETH\_USE\_PTP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00541}00541\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00542}00542\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ HAL\_ETH\_StateTypeDef\ \ gState;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00545}00545\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00546}00546\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ ErrorCode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00548}00548\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00549}00549\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00550}00550\ \ \ DMAErrorCode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00553}00553\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00554}00554\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00555}00555\ \ \ MACErrorCode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00558}00558\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00559}00559\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ MACWakeUpEvent;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00562}00562\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00563}00563\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ MACLPIEvent;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00565}00565\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00566}00566\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ IsPtpConfigured;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00569}00569\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00570}00570\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00571}00571\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00572}00572\ \ \ void\ (*\ TxCpltCallback)(\textcolor{keyword}{struct\ }\_\_ETH\_HandleTypeDef\ *heth);\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00573}00573\ \ \ void\ (*\ RxCpltCallback)(\textcolor{keyword}{struct\ }\_\_ETH\_HandleTypeDef\ *heth);\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00574}00574\ \ \ void\ (*\ ErrorCallback)(\textcolor{keyword}{struct\ }\_\_ETH\_HandleTypeDef\ *heth);\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00575}00575\ \ \ void\ (*\ PMTCallback)(\textcolor{keyword}{struct\ }\_\_ETH\_HandleTypeDef\ *heth);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00576}00576\ \ \ void\ (*\ WakeUpCallback)(\textcolor{keyword}{struct\ }\_\_ETH\_HandleTypeDef\ *heth);\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00577}00577\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00578}00578\ \ \ void\ (*\ MspInitCallback)(\textcolor{keyword}{struct\ }\_\_ETH\_HandleTypeDef\ *heth);\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00579}00579\ \ \ void\ (*\ MspDeInitCallback)(\textcolor{keyword}{struct\ }\_\_ETH\_HandleTypeDef\ *heth);\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00580}00580\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00581}00581\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00582}00582\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00583}00583\ \ \ pETH\_rxAllocateCallbackTypeDef\ \ rxAllocateCallback;\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00584}00584\ \ \ pETH\_rxLinkCallbackTypeDef\ \ \ \ \ \ rxLinkCallback;\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00585}00585\ \ \ pETH\_txFreeCallbackTypeDef\ \ \ \ \ \ txFreeCallback;\ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00586}00586\ \ \ pETH\_txPtpCallbackTypeDef\ \ \ \ \ \ \ txPtpCallback;\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00587}00587\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00588}00588\ \}\ ETH\_HandleTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00592}00592\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00593}00593\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ ==\ 1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00597}00597\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00598}00598\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00599}00599\ \ \ HAL\_ETH\_MSPINIT\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ \ =\ 0x00U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00600}00600\ \ \ HAL\_ETH\_MSPDEINIT\_CB\_ID\ \ \ \ \ \ \ \ \ \ =\ 0x01U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00601}00601\ \ \ HAL\_ETH\_TX\_COMPLETE\_CB\_ID\ \ \ \ \ \ \ \ =\ 0x02U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00602}00602\ \ \ HAL\_ETH\_RX\_COMPLETE\_CB\_ID\ \ \ \ \ \ \ \ =\ 0x03U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00603}00603\ \ \ HAL\_ETH\_ERROR\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x04U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00604}00604\ \ \ HAL\_ETH\_PMT\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x06U,\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00605}00605\ \ \ HAL\_ETH\_WAKEUP\_CB\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 0x08U\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00606}00606\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00607}00607\ \}\ HAL\_ETH\_CallbackIDTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00608}00608\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00612}00612\ \textcolor{keyword}{typedef}\ \ void\ (*pETH\_CallbackTypeDef)(ETH\_HandleTypeDef\ *heth);\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00613}00613\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00614}00614\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00615}00615\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00619}00619\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00620}00620\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00621}00621\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ PromiscuousMode;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00622}00622\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00623}00623\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ ReceiveAllMode;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00624}00624\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00625}00625\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ HachOrPerfectFilter;\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00626}00626\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00627}00627\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ HashUnicast;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00628}00628\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00629}00629\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ HashMulticast;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00630}00630\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00631}00631\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ PassAllMulticast;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00632}00632\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00633}00633\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ SrcAddrFiltering;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00634}00634\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00635}00635\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ SrcAddrInverseFiltering;\ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00636}00636\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00637}00637\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ DestAddrInverseFiltering;\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00638}00638\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00639}00639\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ BroadcastFilter;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00640}00640\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00641}00641\ \ \ uint32\_t\ \ \ \ \ \ \ \ ControlPacketsFilter;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00643}00643\ \}\ ETH\_MACFilterConfigTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00647}00647\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00651}00651\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00652}00652\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00653}00653\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ WakeUpPacket;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00654}00654\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00655}00655\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ MagicPacket;\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00656}00656\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00657}00657\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ GlobalUnicast;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00658}00658\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00659}00659\ \ \ \mbox{\hyperlink{group___exported__types_gac9a7e9a35d2513ec15c3b537aaa4fba1}{FunctionalState}}\ WakeUpForward;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00660}00660\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00661}00661\ \}\ ETH\_PowerDownConfigTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00665}00665\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00669}00669\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00670}00670\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00674}00674\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00678}00678\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00679}00679\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00680}00680\ \textcolor{comment}{\ \ \ DMA\ Tx\ Normal\ Descriptor\ Read\ Format}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00681}00681\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00682}00682\ \textcolor{comment}{\ \ TDES0\ |\ OWN(31)\ |\ CTRL[30:26]\ |\ Reserved[25:24]\ |\ CTRL[23:20]\ |\ Reserved[19:17]\ |\ Status[16:0]\ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00683}00683\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00684}00684\ \textcolor{comment}{\ \ TDES1\ |\ Reserved[31:29]\ |\ Buffer2\ ByteCount[28:16]\ |\ Reserved[15:13]\ |\ Buffer1\ ByteCount[12:0]\ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00685}00685\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00686}00686\ \textcolor{comment}{\ \ TDES2\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Buffer1\ Address\ [31:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00687}00687\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00688}00688\ \textcolor{comment}{\ \ TDES3\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Buffer2\ Address\ [31:0]\ /\ Next\ Descriptor\ Address\ [31:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00689}00689\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00690}00690\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00691}00691\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00695}00695\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_OWN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x80000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00696}00696\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_IC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x40000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00697}00697\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_LS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x20000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00698}00698\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_FS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x10000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00699}00699\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_DC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x08000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00700}00700\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_DP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x04000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00701}00701\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_TTSE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x02000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00702}00702\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_CIC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00C00000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00703}00703\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_CIC\_BYPASS\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00704}00704\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_CIC\_IPV4HEADER\ \ \ \ \ \ \ \ \ \ 0x00400000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00705}00705\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_CIC\_TCPUDPICMP\_SEGMENT\ \ 0x00800000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00706}00706\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_CIC\_TCPUDPICMP\_FULL\ \ \ \ \ 0x00C00000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00707}00707\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_TER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00200000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00708}00708\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_TCH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00100000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00709}00709\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_TTSS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00020000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00710}00710\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_IHE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00010000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00711}00711\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_ES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00008000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00712}00712\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_JT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00004000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00713}00713\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_FF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00002000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00714}00714\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_PCE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00001000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00715}00715\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_LCA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000800U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00716}00716\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_NC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000400U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00717}00717\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_LCO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000200U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00718}00718\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_EC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000100U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00719}00719\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_VF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000080U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00720}00720\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_CC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000078U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00721}00721\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_ED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000004U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00722}00722\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_UF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00723}00723\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_DB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00724}00724\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00728}00728\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_TBS2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1FFF0000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00729}00729\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_TBS1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00001FFFU\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00730}00730\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00734}00734\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_B1AP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xFFFFFFFFU\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00735}00735\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00739}00739\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_B2AP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xFFFFFFFFU\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00740}00740\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00741}00741\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00742}00742\ \textcolor{comment}{TDES6\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Transmit\ Time\ Stamp\ Low\ [31:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00743}00743\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00744}00744\ \textcolor{comment}{TDES7\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Transmit\ Time\ Stamp\ High\ [31:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00745}00745\ \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00746}00746\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00747}00747\ \textcolor{comment}{/*\ Bit\ definition\ of\ TDES6\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00748}00748\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPTXDESC\_TTSL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xFFFFFFFFU\ \ }\textcolor{comment}{/*\ Transmit\ Time\ Stamp\ Low\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00749}00749\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00750}00750\ \textcolor{comment}{/*\ Bit\ definition\ of\ TDES7\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00751}00751\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPTXDESC\_TTSH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xFFFFFFFFU\ \ }\textcolor{comment}{/*\ Transmit\ Time\ Stamp\ High\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00752}00752\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00756}00756\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00760}00760\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00761}00761\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00762}00762\ \textcolor{comment}{\ \ DMA\ Rx\ Normal\ Descriptor\ read\ format}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00763}00763\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00764}00764\ \textcolor{comment}{\ \ RDES0\ |\ OWN(31)\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Status\ [30:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00765}00765\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00766}00766\ \textcolor{comment}{\ \ RDES1\ |\ CTRL(31)\ |\ Reserved[30:29]\ |\ Buffer2\ ByteCount[28:16]\ |\ CTRL[15:14]\ |\ Reserved(13)\ |\ Buffer1\ ByteCount[12:0]\ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00767}00767\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00768}00768\ \textcolor{comment}{\ \ RDES2\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Buffer1\ Address\ [31:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00769}00769\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00770}00770\ \textcolor{comment}{\ \ RDES3\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Buffer2\ Address\ [31:0]\ /\ Next\ Descriptor\ Address\ [31:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00771}00771\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00772}00772\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00773}00773\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00777}00777\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_OWN\ \ \ \ \ \ \ \ \ 0x80000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00778}00778\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_AFM\ \ \ \ \ \ \ \ \ 0x40000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00779}00779\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_FL\ \ \ \ \ \ \ \ \ \ 0x3FFF0000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00780}00780\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_ES\ \ \ \ \ \ \ \ \ \ 0x00008000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00781}00781\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_DE\ \ \ \ \ \ \ \ \ \ 0x00004000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00782}00782\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_SAF\ \ \ \ \ \ \ \ \ 0x00002000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00783}00783\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_LE\ \ \ \ \ \ \ \ \ \ 0x00001000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00784}00784\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_OE\ \ \ \ \ \ \ \ \ \ 0x00000800U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00785}00785\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_VLAN\ \ \ \ \ \ \ \ 0x00000400U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00786}00786\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_FS\ \ \ \ \ \ \ \ \ \ 0x00000200U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00787}00787\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_LS\ \ \ \ \ \ \ \ \ \ 0x00000100U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00788}00788\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_IPV4HCE\ \ \ \ \ 0x00000080U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00789}00789\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_LC\ \ \ \ \ \ \ \ \ \ 0x00000040U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00790}00790\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_FT\ \ \ \ \ \ \ \ \ \ 0x00000020U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00791}00791\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_RWT\ \ \ \ \ \ \ \ \ 0x00000010U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00792}00792\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_RE\ \ \ \ \ \ \ \ \ \ 0x00000008U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00793}00793\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_DBE\ \ \ \ \ \ \ \ \ 0x00000004U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00794}00794\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_CE\ \ \ \ \ \ \ \ \ \ 0x00000002U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00795}00795\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_MAMPCE\ \ \ \ \ \ 0x00000001U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00796}00796\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00800}00800\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_DIC\ \ \ \ \ \ \ \ \ 0x80000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00801}00801\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_RBS2\ \ \ \ \ \ \ \ 0x1FFF0000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00802}00802\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_RER\ \ \ \ \ \ \ \ \ 0x00008000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00803}00803\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_RCH\ \ \ \ \ \ \ \ \ 0x00004000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00804}00804\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_RBS1\ \ \ \ \ \ \ \ 0x00001FFFU\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00805}00805\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00809}00809\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_B1AP\ \ \ \ \ \ \ \ 0xFFFFFFFFU\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00810}00810\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00814}00814\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_B2AP\ \ \ \ \ \ \ \ 0xFFFFFFFFU\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00815}00815\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00816}00816\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00817}00817\ \textcolor{comment}{\ \ RDES4\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Reserved[31:15]\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ \ Extended\ Status\ [14:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00818}00818\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00819}00819\ \textcolor{comment}{\ \ RDES5\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Reserved[31:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00820}00820\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00821}00821\ \textcolor{comment}{\ \ RDES6\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Receive\ Time\ Stamp\ Low\ [31:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00822}00822\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00823}00823\ \textcolor{comment}{\ \ RDES7\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Receive\ Time\ Stamp\ High\ [31:0]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00824}00824\ \textcolor{comment}{\ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00825}00825\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00826}00826\ \textcolor{comment}{/*\ Bit\ definition\ of\ RDES4\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00827}00827\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_PTPV\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00002000U\ \ }\textcolor{comment}{/*\ PTP\ Version\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00828}00828\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_PTPFT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00001000U\ \ }\textcolor{comment}{/*\ PTP\ Frame\ Type\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00829}00829\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_PTPMT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000F00U\ \ }\textcolor{comment}{/*\ PTP\ Message\ Type\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00830}00830\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_PTPMT\_SYNC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000100U\ \ }\textcolor{comment}{/*\ SYNC\ message}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00831}00831\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (all\ clock\ types)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00832}00832\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_PTPMT\_FOLLOWUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000200U\ \ }\textcolor{comment}{/*\ FollowUp\ message}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00833}00833\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (all\ clock\ types)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00834}00834\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_PTPMT\_DELAYREQ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000300U\ \ }\textcolor{comment}{/*\ DelayReq\ message}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00835}00835\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (all\ clock\ types)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00836}00836\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_PTPMT\_DELAYRESP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000400U\ \ }\textcolor{comment}{/*\ DelayResp\ message}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00837}00837\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (all\ clock\ types)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00838}00838\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_PTPMT\_PDELAYREQ\_ANNOUNCE\ \ \ \ \ \ \ \ 0x00000500U\ \ }\textcolor{comment}{/*\ PdelayReq\ message}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00839}00839\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (peer-\/to-\/peer\ transparent\ clock)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00840}00840\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ Announce\ message\ (Ordinary}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00841}00841\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ Boundary\ clock)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00842}00842\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_PTPMT\_PDELAYRESP\_MANAG\ \ \ \ \ \ \ \ \ \ 0x00000600U\ \ }\textcolor{comment}{/*\ PdelayResp\ message}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00843}00843\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (peer-\/to-\/peer\ transparent\ clock)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00844}00844\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ Management\ message\ (Ordinary}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00845}00845\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ Boundary\ clock)\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00846}00846\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_PTPMT\_PDELAYRESPFOLLOWUP\_SIGNAL\ 0x00000700U\ \ }\textcolor{comment}{/*\ PdelayRespFollowUp\ message}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00847}00847\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (peer-\/to-\/peer\ transparent\ clock)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00848}00848\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ Signaling\ message\ (Ordinary}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00849}00849\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ or\ Boundary\ clock)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00850}00850\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_IPV6PR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000080U\ \ }\textcolor{comment}{/*\ IPv6\ Packet\ Received\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00851}00851\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_IPV4PR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000040U\ \ }\textcolor{comment}{/*\ IPv4\ Packet\ Received\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00852}00852\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_IPCB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000020U\ \ }\textcolor{comment}{/*\ IP\ Checksum\ Bypassed\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00853}00853\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_IPPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000010U\ \ }\textcolor{comment}{/*\ IP\ Payload\ Error\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00854}00854\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_IPHE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000008U\ \ }\textcolor{comment}{/*\ IP\ Header\ Error\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00855}00855\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_IPPT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000007U\ \ }\textcolor{comment}{/*\ IP\ Payload\ Type\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00856}00856\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_IPPT\_UDP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ }\textcolor{comment}{/*\ UDP\ payload\ encapsulated\ in}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00857}00857\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ IP\ datagram\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00858}00858\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_IPPT\_TCP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002U\ \ }\textcolor{comment}{/*\ TCP\ payload\ encapsulated\ in}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00859}00859\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ IP\ datagram\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00860}00860\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_IPPT\_ICMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000003U\ \ }\textcolor{comment}{/*\ ICMP\ payload\ encapsulated\ in}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00861}00861\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ IP\ datagram\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00862}00862\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00863}00863\ \textcolor{comment}{/*\ Bit\ definition\ of\ RDES6\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00864}00864\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_RTSL\ \ 0xFFFFFFFFU\ \ }\textcolor{comment}{/*\ Receive\ Time\ Stamp\ Low\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00865}00865\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00866}00866\ \textcolor{comment}{/*\ Bit\ definition\ of\ RDES7\ register\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00867}00867\ \textcolor{preprocessor}{\#define\ ETH\_DMAPTPRXDESC\_RTSH\ \ 0xFFFFFFFFU\ \ }\textcolor{comment}{/*\ Receive\ Time\ Stamp\ High\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00868}00868\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00872}00872\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00876}00876\ \textcolor{preprocessor}{\#define\ ETH\_MAX\_PACKET\_SIZE\ \ \ \ \ \ 1528U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00877}00877\ \textcolor{preprocessor}{\#define\ ETH\_HEADER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 14U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00878}00878\ \textcolor{preprocessor}{\#define\ ETH\_CRC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00879}00879\ \textcolor{preprocessor}{\#define\ ETH\_VLAN\_TAG\ \ \ \ \ \ \ \ \ \ \ \ \ 4U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00880}00880\ \textcolor{preprocessor}{\#define\ ETH\_MIN\_PAYLOAD\ \ \ \ \ \ \ \ \ \ 46U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00881}00881\ \textcolor{preprocessor}{\#define\ ETH\_MAX\_PAYLOAD\ \ \ \ \ \ \ \ \ \ 1500U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00882}00882\ \textcolor{preprocessor}{\#define\ ETH\_JUMBO\_FRAME\_PAYLOAD\ \ 9000U\ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00886}00886\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00890}00890\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_ERROR\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00891}00891\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_ERROR\_PARAM\ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00892}00892\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_ERROR\_BUSY\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00893}00893\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_ERROR\_TIMEOUT\ \ \ \ \ \ \ \ \ \ 0x00000004U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00894}00894\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_ERROR\_DMA\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000008U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00895}00895\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_ERROR\_MAC\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000010U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00896}00896\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00897}00897\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_ERROR\_INVALID\_CALLBACK\ 0x00000020U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00898}00898\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00902}00902\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00906}00906\ \textcolor{preprocessor}{\#define\ ETH\_TX\_PACKETS\_FEATURES\_CSUM\ \ \ \ \ \ \ \ \ \ 0x00000001U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00907}00907\ \textcolor{preprocessor}{\#define\ ETH\_TX\_PACKETS\_FEATURES\_SAIC\ \ \ \ \ \ \ \ \ \ 0x00000002U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00908}00908\ \textcolor{preprocessor}{\#define\ ETH\_TX\_PACKETS\_FEATURES\_VLANTAG\ \ \ \ \ \ \ 0x00000004U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00909}00909\ \textcolor{preprocessor}{\#define\ ETH\_TX\_PACKETS\_FEATURES\_INNERVLANTAG\ \ 0x00000008U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00910}00910\ \textcolor{preprocessor}{\#define\ ETH\_TX\_PACKETS\_FEATURES\_TSO\ \ \ \ \ \ \ \ \ \ \ 0x00000010U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00911}00911\ \textcolor{preprocessor}{\#define\ ETH\_TX\_PACKETS\_FEATURES\_CRCPAD\ \ \ \ \ \ \ \ 0x00000020U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00915}00915\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00916}00916\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00920}00920\ \textcolor{preprocessor}{\#define\ ETH\_CRC\_PAD\_DISABLE\ \ \ \ \ \ (uint32\_t)(ETH\_DMATXDESC\_DP\ |\ ETH\_DMATXDESC\_DC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00921}00921\ \textcolor{preprocessor}{\#define\ ETH\_CRC\_PAD\_INSERT\ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00922}00922\ \textcolor{preprocessor}{\#define\ ETH\_CRC\_INSERT\ \ \ \ \ \ \ \ \ \ \ ETH\_DMATXDESC\_DP}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00926}00926\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00930}00930\ \textcolor{preprocessor}{\#define\ ETH\_CHECKSUM\_DISABLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMATXDESC\_CIC\_BYPASS}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00931}00931\ \textcolor{preprocessor}{\#define\ ETH\_CHECKSUM\_IPHDR\_INSERT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMATXDESC\_CIC\_IPV4HEADER}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00932}00932\ \textcolor{preprocessor}{\#define\ ETH\_CHECKSUM\_IPHDR\_PAYLOAD\_INSERT\ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMATXDESC\_CIC\_TCPUDPICMP\_SEGMENT}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00933}00933\ \textcolor{preprocessor}{\#define\ ETH\_CHECKSUM\_IPHDR\_PAYLOAD\_INSERT\_PHDR\_CALC\ \ ETH\_DMATXDESC\_CIC\_TCPUDPICMP\_FULL}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00937}00937\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00938}00938\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00942}00942\ \textcolor{preprocessor}{\#define\ ETH\_VLAN\_FILTER\_PASS\ \ \ \ \ \ \ \ ETH\_DMARXDESC\_VLAN}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00943}00943\ \textcolor{preprocessor}{\#define\ ETH\_DEST\_ADDRESS\_FAIL\ \ \ \ \ \ \ ETH\_DMARXDESC\_AFM}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00944}00944\ \textcolor{preprocessor}{\#define\ ETH\_SOURCE\_ADDRESS\_FAIL\ \ \ \ \ ETH\_DMARXDESC\_SAF}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00948}00948\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00952}00952\ \textcolor{preprocessor}{\#define\ ETH\_DRIBBLE\_BIT\_ERROR\ \ \ ETH\_DMARXDESC\_DBE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00953}00953\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVE\_ERROR\ \ \ \ \ \ \ ETH\_DMARXDESC\_RE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00954}00954\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVE\_OVERFLOW\ \ \ \ ETH\_DMARXDESC\_OE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00955}00955\ \textcolor{preprocessor}{\#define\ ETH\_WATCHDOG\_TIMEOUT\ \ \ \ ETH\_DMARXDESC\_RWT}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00956}00956\ \textcolor{preprocessor}{\#define\ ETH\_GIANT\_PACKET\ \ \ \ \ \ \ \ ETH\_DMARXDESC\_IPV4HC}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00957}00957\ \textcolor{preprocessor}{\#define\ ETH\_CRC\_ERROR\ \ \ \ \ \ \ \ \ \ \ ETH\_DMARXDESC\_CE}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00961}00961\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00965}00965\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_RX\ \ \ \ \ \ \ \ ETH\_DMABMR\_DA}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00966}00966\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_RX1\_TX1\ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00967}00967\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_RX2\_TX1\ \ \ ETH\_DMABMR\_RTPR\_2\_1}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00968}00968\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_RX3\_TX1\ \ \ ETH\_DMABMR\_RTPR\_3\_1}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00969}00969\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_RX4\_TX1\ \ \ ETH\_DMABMR\_RTPR\_4\_1}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00970}00970\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_TX\ \ \ \ \ \ \ \ (ETH\_DMAMR\_TXPR\ |\ ETH\_DMAMR\_DA)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00971}00971\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_TX1\_RX1\ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00972}00972\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_TX2\_RX1\ \ \ (ETH\_DMAMR\_TXPR\ |\ ETH\_DMAMR\_PR\_2\_1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00973}00973\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_TX3\_RX1\ \ \ (ETH\_DMAMR\_TXPR\ |\ ETH\_DMAMR\_PR\_3\_1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00974}00974\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_TX4\_RX1\ \ \ (ETH\_DMAMR\_TXPR\ |\ ETH\_DMAMR\_PR\_4\_1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00975}00975\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_TX5\_RX1\ \ \ (ETH\_DMAMR\_TXPR\ |\ ETH\_DMAMR\_PR\_5\_1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00976}00976\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_TX6\_RX1\ \ \ (ETH\_DMAMR\_TXPR\ |\ ETH\_DMAMR\_PR\_6\_1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00977}00977\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_TX7\_RX1\ \ \ (ETH\_DMAMR\_TXPR\ |\ ETH\_DMAMR\_PR\_7\_1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00978}00978\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_TX8\_RX1\ \ \ (ETH\_DMAMR\_TXPR\ |\ ETH\_DMAMR\_PR\_8\_1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00982}00982\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00986}00986\ \textcolor{preprocessor}{\#define\ ETH\_BURSTLENGTH\_FIXED\ \ \ \ \ \ \ \ \ \ \ ETH\_DMABMR\_FB}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00987}00987\ \textcolor{preprocessor}{\#define\ ETH\_BURSTLENGTH\_MIXED\ \ \ \ \ \ \ \ \ \ \ ETH\_DMABMR\_MB}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00988}00988\ \textcolor{preprocessor}{\#define\ ETH\_BURSTLENGTH\_UNSPECIFIED\ \ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00992}00992\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00996}00996\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_1BEAT\ \ \ \ \ \ \ \ \ \ 0x00000100U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00997}00997\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_2BEAT\ \ \ \ \ \ \ \ \ \ 0x00000200U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00998}00998\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_4BEAT\ \ \ \ \ \ \ \ \ \ 0x00000400U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l00999}00999\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_8BEAT\ \ \ \ \ \ \ \ \ \ 0x00000800U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01000}01000\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_16BEAT\ \ \ \ \ \ \ \ \ 0x00001000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01001}01001\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_32BEAT\ \ \ \ \ \ \ \ \ 0x00002000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01002}01002\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_4XPBL\_4BEAT\ \ \ \ 0x01000100U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01003}01003\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_4XPBL\_8BEAT\ \ \ \ 0x01000200U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01004}01004\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_4XPBL\_16BEAT\ \ \ 0x01000400U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01005}01005\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_4XPBL\_32BEAT\ \ \ 0x01000800U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01006}01006\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_4XPBL\_64BEAT\ \ \ 0x01001000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01007}01007\ \textcolor{preprocessor}{\#define\ ETH\_TXDMABURSTLENGTH\_4XPBL\_128BEAT\ \ 0x01002000U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01011}01011\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01015}01015\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_1BEAT\ \ \ \ \ \ \ \ \ \ 0x00020000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01016}01016\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_2BEAT\ \ \ \ \ \ \ \ \ \ 0x00040000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01017}01017\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_4BEAT\ \ \ \ \ \ \ \ \ \ 0x00080000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01018}01018\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_8BEAT\ \ \ \ \ \ \ \ \ \ 0x00100000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01019}01019\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_16BEAT\ \ \ \ \ \ \ \ \ 0x00200000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01020}01020\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_32BEAT\ \ \ \ \ \ \ \ \ 0x00400000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01021}01021\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_4XPBL\_4BEAT\ \ \ \ 0x01020000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01022}01022\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_4XPBL\_8BEAT\ \ \ \ 0x01040000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01023}01023\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_4XPBL\_16BEAT\ \ \ 0x01080000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01024}01024\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_4XPBL\_32BEAT\ \ \ 0x01100000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01025}01025\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_4XPBL\_64BEAT\ \ \ 0x01200000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01026}01026\ \textcolor{preprocessor}{\#define\ ETH\_RXDMABURSTLENGTH\_4XPBL\_128BEAT\ \ 0x01400000U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01030}01030\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01034}01034\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_NORMAL\_IT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMAIER\_NISE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01035}01035\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_ABNORMAL\_IT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMAIER\_AISE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01036}01036\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FATAL\_BUS\_ERROR\_IT\ \ \ \ \ \ \ \ ETH\_DMAIER\_FBEIE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01037}01037\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_EARLY\_RX\_IT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMAIER\_ERIE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01038}01038\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_EARLY\_TX\_IT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMAIER\_ETIE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01039}01039\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RX\_WATCHDOG\_TIMEOUT\_IT\ \ \ \ ETH\_DMAIER\_RWTIE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01040}01040\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RX\_PROCESS\_STOPPED\_IT\ \ \ \ \ ETH\_DMAIER\_RPSIE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01041}01041\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RX\_BUFFER\_UNAVAILABLE\_IT\ \ ETH\_DMAIER\_RBUIE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01042}01042\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RX\_IT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMAIER\_RIE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01043}01043\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TX\_BUFFER\_UNAVAILABLE\_IT\ \ ETH\_DMAIER\_TBUIE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01044}01044\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TX\_PROCESS\_STOPPED\_IT\ \ \ \ \ ETH\_DMAIER\_TPSIE}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01045}01045\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TX\_IT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMAIER\_TIE}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01049}01049\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01053}01053\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_NO\_ERROR\_FLAG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01054}01054\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TX\_DATA\_TRANS\_ERROR\_FLAG\ \ \ \ \ \ \ \ \ \ ETH\_DMASR\_EBS\_DataTransfTx}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01055}01055\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RX\_DATA\_TRANS\_ERROR\_FLAG\ \ \ \ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01056}01056\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_READ\_TRANS\_ERROR\_FLAG\ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMASR\_EBS\_ReadTransf}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01057}01057\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_WRITE\_TRANS\_ERROR\_FLAG\ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01058}01058\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_DESC\_ACCESS\_ERROR\_FLAG\ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMASR\_EBS\_DescAccess}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01059}01059\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_DATA\_BUFF\_ACCESS\_ERROR\_FLAG\ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01060}01060\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FATAL\_BUS\_ERROR\_FLAG\ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMASR\_FBES}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01061}01061\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_EARLY\_TX\_IT\_FLAG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_DMASR\_ETS}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01062}01062\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RX\_WATCHDOG\_TIMEOUT\_FLAG\ \ \ \ \ \ \ \ \ \ ETH\_DMASR\_RWTS}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01063}01063\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RX\_PROCESS\_STOPPED\_FLAG\ \ \ \ \ \ \ \ \ \ \ ETH\_DMASR\_RPSS}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01064}01064\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RX\_BUFFER\_UNAVAILABLE\_FLAG\ \ \ \ \ \ \ \ ETH\_DMASR\_RBUS}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01065}01065\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TX\_PROCESS\_STOPPED\_FLAG\ \ \ \ \ \ \ \ \ \ \ ETH\_DMASR\_TPS}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01069}01069\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01073}01073\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITSTOREFORWARD\ \ \ \ \ \ \ ETH\_DMAOMR\_TSF}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01074}01074\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLD\_16\ \ \ \ \ \ \ ETH\_DMAOMR\_TTC\_16Bytes}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01075}01075\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLD\_24\ \ \ \ \ \ \ ETH\_DMAOMR\_TTC\_24Bytes}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01076}01076\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLD\_32\ \ \ \ \ \ \ ETH\_DMAOMR\_TTC\_32Bytes}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01077}01077\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLD\_40\ \ \ \ \ \ \ ETH\_DMAOMR\_TTC\_40Bytes}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01078}01078\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLD\_64\ \ \ \ \ \ \ ETH\_DMAOMR\_TTC\_64Bytes}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01079}01079\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLD\_128\ \ \ \ \ \ ETH\_DMAOMR\_TTC\_128Bytes}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01080}01080\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLD\_192\ \ \ \ \ \ ETH\_DMAOMR\_TTC\_192Bytes}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01081}01081\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLD\_256\ \ \ \ \ \ ETH\_DMAOMR\_TTC\_256Bytes}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01085}01085\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01089}01089\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVESTOREFORWARD\ \ \ \ \ \ \ \ ETH\_DMAOMR\_RSF}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01090}01090\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVETHRESHOLD8\_64\ \ \ \ \ \ \ ETH\_DMAOMR\_RTC\_64Bytes}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01091}01091\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVETHRESHOLD8\_32\ \ \ \ \ \ \ ETH\_DMAOMR\_RTC\_32Bytes}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01092}01092\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVETHRESHOLD8\_96\ \ \ \ \ \ \ ETH\_DMAOMR\_RTC\_96Bytes}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01093}01093\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVETHRESHOLD8\_128\ \ \ \ \ \ ETH\_DMAOMR\_RTC\_128Bytes}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01097}01097\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01101}01101\ \textcolor{preprocessor}{\#define\ ETH\_PAUSELOWTHRESHOLD\_MINUS\_4\ \ \ \ \ \ \ \ ETH\_MACFCR\_PLT\_Minus4}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01102}01102\ \textcolor{preprocessor}{\#define\ ETH\_PAUSELOWTHRESHOLD\_MINUS\_28\ \ \ \ \ \ \ ETH\_MACFCR\_PLT\_Minus28}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01103}01103\ \textcolor{preprocessor}{\#define\ ETH\_PAUSELOWTHRESHOLD\_MINUS\_144\ \ \ \ \ \ ETH\_MACFCR\_PLT\_Minus144}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01104}01104\ \textcolor{preprocessor}{\#define\ ETH\_PAUSELOWTHRESHOLD\_MINUS\_256\ \ \ \ \ \ ETH\_MACFCR\_PLT\_Minus256}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01108}01108\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01109}01109\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01113}01113\ \textcolor{preprocessor}{\#define\ ETH\_SPEED\_10M\ \ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01114}01114\ \textcolor{preprocessor}{\#define\ ETH\_SPEED\_100M\ \ \ \ \ \ \ 0x00004000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01118}01118\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01122}01122\ \textcolor{preprocessor}{\#define\ ETH\_FULLDUPLEX\_MODE\ \ \ \ \ \ \ ETH\_MACCR\_DM}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01123}01123\ \textcolor{preprocessor}{\#define\ ETH\_HALFDUPLEX\_MODE\ \ \ \ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01127}01127\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01131}01131\ \textcolor{preprocessor}{\#define\ ETH\_BACKOFFLIMIT\_10\ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01132}01132\ \textcolor{preprocessor}{\#define\ ETH\_BACKOFFLIMIT\_8\ \ \ 0x00000020U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01133}01133\ \textcolor{preprocessor}{\#define\ ETH\_BACKOFFLIMIT\_4\ \ \ 0x00000040U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01134}01134\ \textcolor{preprocessor}{\#define\ ETH\_BACKOFFLIMIT\_1\ \ \ 0x00000060U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01138}01138\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01139}01139\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01143}01143\ \textcolor{preprocessor}{\#define\ ETH\_SOURCEADDRESS\_DISABLE\ \ \ \ \ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01144}01144\ \textcolor{preprocessor}{\#define\ ETH\_SOURCEADDRESS\_INSERT\_ADDR0\ \ \ \ \ \ ETH\_MACCR\_SARC\_INSADDR0}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01145}01145\ \textcolor{preprocessor}{\#define\ ETH\_SOURCEADDRESS\_INSERT\_ADDR1\ \ \ \ \ \ ETH\_MACCR\_SARC\_INSADDR1}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01146}01146\ \textcolor{preprocessor}{\#define\ ETH\_SOURCEADDRESS\_REPLACE\_ADDR0\ \ \ \ \ ETH\_MACCR\_SARC\_REPADDR0}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01147}01147\ \textcolor{preprocessor}{\#define\ ETH\_SOURCEADDRESS\_REPLACE\_ADDR1\ \ \ \ \ ETH\_MACCR\_SARC\_REPADDR1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01151}01151\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01152}01152\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01156}01156\ \textcolor{preprocessor}{\#define\ ETH\_VLANTAGCOMPARISON\_12BIT\ \ \ \ 0x00010000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01157}01157\ \textcolor{preprocessor}{\#define\ ETH\_VLANTAGCOMPARISON\_16BIT\ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01161}01161\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01165}01165\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESS0\ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01166}01166\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESS1\ \ \ \ \ 0x00000008U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01167}01167\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESS2\ \ \ \ \ 0x00000010U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01168}01168\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESS3\ \ \ \ \ 0x00000018U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01172}01172\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01176}01176\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_PMT\_IT\ \ \ \ \ \ \ \ \ \ \ ETH\_MACSR\_PMTS}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01180}01180\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01184}01184\ \textcolor{preprocessor}{\#define\ ETH\_WAKEUP\_FRAME\_RECIEVED\ \ \ \ \ ETH\_MACPMTCSR\_WFR}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01185}01185\ \textcolor{preprocessor}{\#define\ ETH\_MAGIC\_PACKET\_RECIEVED\ \ \ \ \ ETH\_MACPMTCSR\_MPR}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01189}01189\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01190}01190\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01194}01194\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_STATE\_RESET\ \ \ \ \ \ \ 0x00000000U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01195}01195\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_STATE\_READY\ \ \ \ \ \ \ 0x00000010U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01196}01196\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_STATE\_BUSY\ \ \ \ \ \ \ \ 0x00000020U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01197}01197\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_STATE\_STARTED\ \ \ \ \ 0x00000040U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01198}01198\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_STATE\_ERROR\ \ \ \ \ \ \ 0x000000E0U\ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01202}01202\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01206}01206\ \textcolor{preprocessor}{\#define\ ETH\_AUTONEGOTIATION\_ENABLE\ \ \ \ \ 0x00000001U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01207}01207\ \textcolor{preprocessor}{\#define\ ETH\_AUTONEGOTIATION\_DISABLE\ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01208}01208\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01215}01215\ \textcolor{preprocessor}{\#define\ ETH\_RXPOLLING\_MODE\ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01216}01216\ \textcolor{preprocessor}{\#define\ ETH\_RXINTERRUPT\_MODE\ \ \ \ 0x00000001U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01220}01220\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01224}01224\ \textcolor{preprocessor}{\#define\ ETH\_CHECKSUM\_BY\_HARDWARE\ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01225}01225\ \textcolor{preprocessor}{\#define\ ETH\_CHECKSUM\_BY\_SOFTWARE\ \ \ \ \ \ 0x00000001U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01229}01229\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01233}01233\ \textcolor{preprocessor}{\#define\ ETH\_MEDIA\_INTERFACE\_MII\ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01234}01234\ \textcolor{preprocessor}{\#define\ ETH\_MEDIA\_INTERFACE\_RMII\ \ \ \ \ \ (SYSCFG\_PMC\_MII\_RMII\_SEL)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01238}01238\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01242}01242\ \textcolor{preprocessor}{\#define\ ETH\_WATCHDOG\_ENABLE\ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01243}01243\ \textcolor{preprocessor}{\#define\ ETH\_WATCHDOG\_DISABLE\ \ \ \ \ \ 0x00800000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01247}01247\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01251}01251\ \textcolor{preprocessor}{\#define\ ETH\_JABBER\_ENABLE\ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01252}01252\ \textcolor{preprocessor}{\#define\ ETH\_JABBER\_DISABLE\ \ \ 0x00400000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01256}01256\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01260}01260\ \textcolor{preprocessor}{\#define\ ETH\_INTERFRAMEGAP\_96BIT\ \ \ 0x00000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01261}01261\ \textcolor{preprocessor}{\#define\ ETH\_INTERFRAMEGAP\_88BIT\ \ \ 0x00020000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01262}01262\ \textcolor{preprocessor}{\#define\ ETH\_INTERFRAMEGAP\_80BIT\ \ \ 0x00040000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01263}01263\ \textcolor{preprocessor}{\#define\ ETH\_INTERFRAMEGAP\_72BIT\ \ \ 0x00060000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01264}01264\ \textcolor{preprocessor}{\#define\ ETH\_INTERFRAMEGAP\_64BIT\ \ \ 0x00080000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01265}01265\ \textcolor{preprocessor}{\#define\ ETH\_INTERFRAMEGAP\_56BIT\ \ \ 0x000A0000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01266}01266\ \textcolor{preprocessor}{\#define\ ETH\_INTERFRAMEGAP\_48BIT\ \ \ 0x000C0000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01267}01267\ \textcolor{preprocessor}{\#define\ ETH\_INTERFRAMEGAP\_40BIT\ \ \ 0x000E0000U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01271}01271\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01275}01275\ \textcolor{preprocessor}{\#define\ ETH\_CARRIERSENCE\_ENABLE\ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01276}01276\ \textcolor{preprocessor}{\#define\ ETH\_CARRIERSENCE\_DISABLE\ \ 0x00010000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01280}01280\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01284}01284\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVEOWN\_ENABLE\ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01285}01285\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVEOWN\_DISABLE\ \ \ \ 0x00002000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01289}01289\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01293}01293\ \textcolor{preprocessor}{\#define\ ETH\_LOOPBACKMODE\_ENABLE\ \ \ \ \ \ \ \ 0x00001000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01294}01294\ \textcolor{preprocessor}{\#define\ ETH\_LOOPBACKMODE\_DISABLE\ \ \ \ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01298}01298\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01302}01302\ \textcolor{preprocessor}{\#define\ ETH\_CHECKSUMOFFLAOD\_ENABLE\ \ \ \ \ 0x00000400U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01303}01303\ \textcolor{preprocessor}{\#define\ ETH\_CHECKSUMOFFLAOD\_DISABLE\ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01307}01307\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01311}01311\ \textcolor{preprocessor}{\#define\ ETH\_RETRYTRANSMISSION\_ENABLE\ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01312}01312\ \textcolor{preprocessor}{\#define\ ETH\_RETRYTRANSMISSION\_DISABLE\ \ 0x00000200U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01316}01316\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01320}01320\ \textcolor{preprocessor}{\#define\ ETH\_AUTOMATICPADCRCSTRIP\_ENABLE\ \ \ \ \ 0x00000080U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01321}01321\ \textcolor{preprocessor}{\#define\ ETH\_AUTOMATICPADCRCSTRIP\_DISABLE\ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01325}01325\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01329}01329\ \textcolor{preprocessor}{\#define\ ETH\_DEFFERRALCHECK\_ENABLE\ \ \ \ \ \ \ 0x00000010U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01330}01330\ \textcolor{preprocessor}{\#define\ ETH\_DEFFERRALCHECK\_DISABLE\ \ \ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01334}01334\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01338}01338\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVEALL\_ENABLE\ \ \ \ \ 0x80000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01339}01339\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVEALL\_DISABLE\ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01343}01343\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01347}01347\ \textcolor{preprocessor}{\#define\ ETH\_SOURCEADDRFILTER\_NORMAL\_ENABLE\ \ \ \ \ \ \ 0x00000200U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01348}01348\ \textcolor{preprocessor}{\#define\ ETH\_SOURCEADDRFILTER\_INVERSE\_ENABLE\ \ \ \ \ \ 0x00000300U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01349}01349\ \textcolor{preprocessor}{\#define\ ETH\_SOURCEADDRFILTER\_DISABLE\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01353}01353\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01357}01357\ \textcolor{preprocessor}{\#define\ ETH\_PASSCONTROLFRAMES\_BLOCKALL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000040U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01358}01358\ \textcolor{preprocessor}{\#define\ ETH\_PASSCONTROLFRAMES\_FORWARDALL\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000080U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01359}01359\ \textcolor{preprocessor}{\#define\ ETH\_PASSCONTROLFRAMES\_FORWARDPASSEDADDRFILTER\ 0x000000C0U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01363}01363\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01367}01367\ \textcolor{preprocessor}{\#define\ ETH\_BROADCASTFRAMESRECEPTION\_ENABLE\ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01368}01368\ \textcolor{preprocessor}{\#define\ ETH\_BROADCASTFRAMESRECEPTION\_DISABLE\ \ \ \ 0x00000020U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01372}01372\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01376}01376\ \textcolor{preprocessor}{\#define\ ETH\_DESTINATIONADDRFILTER\_NORMAL\ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01377}01377\ \textcolor{preprocessor}{\#define\ ETH\_DESTINATIONADDRFILTER\_INVERSE\ \ \ 0x00000008U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01381}01381\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01385}01385\ \textcolor{preprocessor}{\#define\ ETH\_PROMISCUOUS\_MODE\_ENABLE\ \ \ \ \ 0x00000001U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01386}01386\ \textcolor{preprocessor}{\#define\ ETH\_PROMISCUOUS\_MODE\_DISABLE\ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01390}01390\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01394}01394\ \textcolor{preprocessor}{\#define\ ETH\_MULTICASTFRAMESFILTER\_PERFECTHASHTABLE\ \ \ \ 0x00000404U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01395}01395\ \textcolor{preprocessor}{\#define\ ETH\_MULTICASTFRAMESFILTER\_HASHTABLE\ \ \ \ \ \ \ \ \ \ \ 0x00000004U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01396}01396\ \textcolor{preprocessor}{\#define\ ETH\_MULTICASTFRAMESFILTER\_PERFECT\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01397}01397\ \textcolor{preprocessor}{\#define\ ETH\_MULTICASTFRAMESFILTER\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000010U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01401}01401\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01405}01405\ \textcolor{preprocessor}{\#define\ ETH\_UNICASTFRAMESFILTER\_PERFECTHASHTABLE\ 0x00000402U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01406}01406\ \textcolor{preprocessor}{\#define\ ETH\_UNICASTFRAMESFILTER\_HASHTABLE\ \ \ \ \ \ \ \ 0x00000002U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01407}01407\ \textcolor{preprocessor}{\#define\ ETH\_UNICASTFRAMESFILTER\_PERFECT\ \ \ \ \ \ \ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01411}01411\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01415}01415\ \textcolor{preprocessor}{\#define\ ETH\_ZEROQUANTAPAUSE\_ENABLE\ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01416}01416\ \textcolor{preprocessor}{\#define\ ETH\_ZEROQUANTAPAUSE\_DISABLE\ \ \ \ 0x00000080U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01420}01420\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01424}01424\ \textcolor{preprocessor}{\#define\ ETH\_PAUSELOWTHRESHOLD\_MINUS4\ \ \ \ \ \ \ \ 0x00000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01425}01425\ \textcolor{preprocessor}{\#define\ ETH\_PAUSELOWTHRESHOLD\_MINUS28\ \ \ \ \ \ \ 0x00000010U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01426}01426\ \textcolor{preprocessor}{\#define\ ETH\_PAUSELOWTHRESHOLD\_MINUS144\ \ \ \ \ \ 0x00000020U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01427}01427\ \textcolor{preprocessor}{\#define\ ETH\_PAUSELOWTHRESHOLD\_MINUS256\ \ \ \ \ \ 0x00000030U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01431}01431\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01435}01435\ \textcolor{preprocessor}{\#define\ ETH\_UNICASTPAUSEFRAMEDETECT\_ENABLE\ \ 0x00000008U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01436}01436\ \textcolor{preprocessor}{\#define\ ETH\_UNICASTPAUSEFRAMEDETECT\_DISABLE\ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01440}01440\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01444}01444\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVEFLOWCONTROL\_ENABLE\ \ \ \ \ \ \ 0x00000004U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01445}01445\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVEFLOWCONTROL\_DISABLE\ \ \ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01449}01449\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01453}01453\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITFLOWCONTROL\_ENABLE\ \ \ \ \ \ 0x00000002U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01454}01454\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITFLOWCONTROL\_DISABLE\ \ \ \ \ 0x00000000U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01458}01458\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01462}01462\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESSFILTER\_SA\ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01463}01463\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESSFILTER\_DA\ \ \ \ \ \ \ 0x00000008U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01467}01467\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01471}01471\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESSMASK\_BYTE6\ \ \ \ \ \ 0x20000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01472}01472\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESSMASK\_BYTE5\ \ \ \ \ \ 0x10000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01473}01473\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESSMASK\_BYTE4\ \ \ \ \ \ 0x08000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01474}01474\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESSMASK\_BYTE3\ \ \ \ \ \ 0x04000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01475}01475\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESSMASK\_BYTE2\ \ \ \ \ \ 0x02000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01476}01476\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_ADDRESSMASK\_BYTE1\ \ \ \ \ \ 0x01000000U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01480}01480\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01484}01484\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLDCONTROL\_64BYTES\ \ \ \ \ 0x00000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01485}01485\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLDCONTROL\_128BYTES\ \ \ \ 0x00004000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01486}01486\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLDCONTROL\_192BYTES\ \ \ \ 0x00008000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01487}01487\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLDCONTROL\_256BYTES\ \ \ \ 0x0000C000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01488}01488\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLDCONTROL\_40BYTES\ \ \ \ \ 0x00010000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01489}01489\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLDCONTROL\_32BYTES\ \ \ \ \ 0x00014000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01490}01490\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLDCONTROL\_24BYTES\ \ \ \ \ 0x00018000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01491}01491\ \textcolor{preprocessor}{\#define\ ETH\_TRANSMITTHRESHOLDCONTROL\_16BYTES\ \ \ \ \ 0x0001C000U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01495}01495\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01499}01499\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVEDTHRESHOLDCONTROL\_64BYTES\ \ \ \ \ \ 0x00000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01500}01500\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVEDTHRESHOLDCONTROL\_32BYTES\ \ \ \ \ \ 0x00000008U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01501}01501\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVEDTHRESHOLDCONTROL\_96BYTES\ \ \ \ \ \ 0x00000010U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01502}01502\ \textcolor{preprocessor}{\#define\ ETH\_RECEIVEDTHRESHOLDCONTROL\_128BYTES\ \ \ \ \ 0x00000018U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01506}01506\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01510}01510\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_ROUNDROBIN\_RXTX\_1\_1\ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01511}01511\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_ROUNDROBIN\_RXTX\_2\_1\ \ \ 0x00004000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01512}01512\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_ROUNDROBIN\_RXTX\_3\_1\ \ \ 0x00008000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01513}01513\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_ROUNDROBIN\_RXTX\_4\_1\ \ \ 0x0000C000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01514}01514\ \textcolor{preprocessor}{\#define\ ETH\_DMAARBITRATION\_RXPRIORTX\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002U}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01518}01518\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01522}01522\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_LASTSEGMENTS\ \ \ \ \ \ 0x40000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01523}01523\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_FIRSTSEGMENT\ \ \ \ \ \ 0x20000000U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01527}01527\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01531}01531\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_CHECKSUMBYPASS\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01532}01532\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_CHECKSUMIPV4HEADER\ \ \ \ \ \ \ \ \ 0x00400000U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01533}01533\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_CHECKSUMTCPUDPICMPSEGMENT\ \ 0x00800000U\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01534}01534\ \textcolor{preprocessor}{\#define\ ETH\_DMATXDESC\_CHECKSUMTCPUDPICMPFULL\ \ \ \ \ 0x00C00000U\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01538}01538\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01542}01542\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_BUFFER1\ \ \ \ \ 0x00000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01543}01543\ \textcolor{preprocessor}{\#define\ ETH\_DMARXDESC\_BUFFER2\ \ \ \ \ 0x00000001U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01547}01547\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01551}01551\ \textcolor{preprocessor}{\#define\ ETH\_PMT\_FLAG\_WUFFRPR\ \ \ \ \ \ 0x80000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01552}01552\ \textcolor{preprocessor}{\#define\ ETH\_PMT\_FLAG\_WUFR\ \ \ \ \ \ \ \ \ 0x00000040U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01553}01553\ \textcolor{preprocessor}{\#define\ ETH\_PMT\_FLAG\_MPR\ \ \ \ \ \ \ \ \ \ 0x00000020U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01557}01557\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01561}01561\ \textcolor{preprocessor}{\#define\ ETH\_MMC\_IT\_TGF\ \ \ \ \ \ \ 0x00200000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01562}01562\ \textcolor{preprocessor}{\#define\ ETH\_MMC\_IT\_TGFMSC\ \ \ \ 0x00008000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01563}01563\ \textcolor{preprocessor}{\#define\ ETH\_MMC\_IT\_TGFSC\ \ \ \ \ 0x00004000U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01567}01567\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01571}01571\ \textcolor{preprocessor}{\#define\ ETH\_MMC\_IT\_RGUF\ \ \ \ \ \ 0x10020000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01572}01572\ \textcolor{preprocessor}{\#define\ ETH\_MMC\_IT\_RFAE\ \ \ \ \ \ 0x10000040U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01573}01573\ \textcolor{preprocessor}{\#define\ ETH\_MMC\_IT\_RFCE\ \ \ \ \ \ 0x10000020U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01577}01577\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01581}01581\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_FLAG\_TST\ \ \ \ \ 0x00000200U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01582}01582\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_FLAG\_MMCT\ \ \ \ 0x00000040U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01583}01583\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_FLAG\_MMCR\ \ \ \ 0x00000020U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01584}01584\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_FLAG\_MMC\ \ \ \ \ 0x00000010U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01585}01585\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_FLAG\_PMT\ \ \ \ \ 0x00000008U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01589}01589\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01593}01593\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_TST\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x20000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01594}01594\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_PMT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x10000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01595}01595\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_MMC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x08000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01596}01596\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_DATATRANSFERERROR\ 0x00800000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01597}01597\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_READWRITEERROR\ \ \ \ 0x01000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01598}01598\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_ACCESSERROR\ \ \ \ \ \ \ 0x02000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01599}01599\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_NIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00010000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01600}01600\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_AIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00008000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01601}01601\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_ER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00004000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01602}01602\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_FBE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00002000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01603}01603\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_ET\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000400U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01604}01604\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_RWT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000200U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01605}01605\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_RPS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000100U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01606}01606\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_RBU\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000080U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01607}01607\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_R\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000040U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01608}01608\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_TU\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000020U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01609}01609\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_RO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000010U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01610}01610\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_TJT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000008U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01611}01611\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_TBU\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000004U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01612}01612\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_TPS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01613}01613\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_FLAG\_T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01617}01617\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01621}01621\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_IT\_TST\ \ \ \ \ \ \ 0x00000200U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01622}01622\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_IT\_MMCT\ \ \ \ \ \ 0x00000040U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01623}01623\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_IT\_MMCR\ \ \ \ \ \ 0x00000020U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01624}01624\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_IT\_MMC\ \ \ \ \ \ \ 0x00000010U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01625}01625\ \textcolor{preprocessor}{\#define\ ETH\_MAC\_IT\_PMT\ \ \ \ \ \ \ 0x00000008U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01629}01629\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01633}01633\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_TST\ \ \ \ \ \ \ 0x20000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01634}01634\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_PMT\ \ \ \ \ \ \ 0x10000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01635}01635\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_MMC\ \ \ \ \ \ \ 0x08000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01636}01636\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_NIS\ \ \ \ \ \ \ 0x00010000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01637}01637\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_AIS\ \ \ \ \ \ \ 0x00008000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01638}01638\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_ER\ \ \ \ \ \ \ \ 0x00004000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01639}01639\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_FBE\ \ \ \ \ \ \ 0x00002000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01640}01640\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_ET\ \ \ \ \ \ \ \ 0x00000400U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01641}01641\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_RWT\ \ \ \ \ \ \ 0x00000200U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01642}01642\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_RPS\ \ \ \ \ \ \ 0x00000100U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01643}01643\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_RBU\ \ \ \ \ \ \ 0x00000080U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01644}01644\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_R\ \ \ \ \ \ \ \ \ 0x00000040U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01645}01645\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_TU\ \ \ \ \ \ \ \ 0x00000020U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01646}01646\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_RO\ \ \ \ \ \ \ \ 0x00000010U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01647}01647\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_TJT\ \ \ \ \ \ \ 0x00000008U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01648}01648\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_TBU\ \ \ \ \ \ \ 0x00000004U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01649}01649\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_TPS\ \ \ \ \ \ \ 0x00000002U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01650}01650\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_IT\_T\ \ \ \ \ \ \ \ \ 0x00000001U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01654}01654\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01658}01658\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TRANSMITPROCESS\_STOPPED\ \ \ \ \ 0x00000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01659}01659\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TRANSMITPROCESS\_FETCHING\ \ \ \ 0x00100000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01660}01660\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TRANSMITPROCESS\_WAITING\ \ \ \ \ 0x00200000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01661}01661\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TRANSMITPROCESS\_READING\ \ \ \ \ 0x00300000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01662}01662\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TRANSMITPROCESS\_SUSPENDED\ \ \ 0x00600000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01663}01663\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_TRANSMITPROCESS\_CLOSING\ \ \ \ \ 0x00700000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01664}01664\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01668}01668\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01669}01669\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01673}01673\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RECEIVEPROCESS\_STOPPED\ \ \ \ \ \ 0x00000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01674}01674\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RECEIVEPROCESS\_FETCHING\ \ \ \ \ 0x00020000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01675}01675\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RECEIVEPROCESS\_WAITING\ \ \ \ \ \ 0x00060000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01676}01676\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RECEIVEPROCESS\_SUSPENDED\ \ \ \ 0x00080000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01677}01677\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RECEIVEPROCESS\_CLOSING\ \ \ \ \ \ 0x000A0000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01678}01678\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_RECEIVEPROCESS\_QUEUING\ \ \ \ \ \ 0x000E0000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01679}01679\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01683}01683\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01687}01687\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_OVERFLOW\_RXFIFOCOUNTER\ \ \ \ \ \ 0x10000000U\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01688}01688\ \textcolor{preprocessor}{\#define\ ETH\_DMA\_OVERFLOW\_MISSEDFRAMECOUNTER\ 0x00010000U\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01695}01695\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_PTP\_NOT\_CONFIGURED\ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01696}01696\ \textcolor{preprocessor}{\#define\ HAL\_ETH\_PTP\_CONFIGURED\ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01700}01700\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01704}01704\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01705}01705\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01709}01709\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01714}01714\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01715}01715\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ \ do\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01716}01716\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>gState\ =\ HAL\_ETH\_STATE\_RESET;\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01717}01717\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>MspInitCallback\ =\ NULL;\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01718}01718\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>MspDeInitCallback\ =\ NULL;\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01719}01719\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ while(0)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01720}01720\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01721}01721\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ \ do\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01722}01722\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>gState\ =\ HAL\_ETH\_STATE\_RESET;\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01723}01723\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ while(0)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01724}01724\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01725}01725\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01733}01733\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_DMA\_ENABLE\_IT(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>DMAIER\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01734}01734\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |=\ (\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01735}01735\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01743}01743\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_DMA\_DISABLE\_IT(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>DMAIER\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01744}01744\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&=\ \string~(\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01745}01745\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01752}01752\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_DMA\_GET\_IT\_SOURCE(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ \ \ (((\_\_HANDLE\_\_)-\/>Instance-\/>DMAIER\ \&\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01753}01753\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_INTERRUPT\_\_))\ ==\ (\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01754}01754\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01761}01761\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_DMA\_GET\_IT(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ \ \ (((\_\_HANDLE\_\_)-\/>Instance-\/>DMASR\ \&\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01762}01762\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_INTERRUPT\_\_))\ ==\ (\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01763}01763\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01770}01770\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_DMA\_CLEAR\_IT(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>DMASR\ =\ (\_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01771}01771\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01778}01778\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_DMA\_GET\_FLAG(\_\_HANDLE\_\_,\ \_\_FLAG\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((\_\_HANDLE\_\_)-\/>Instance-\/>DMASR\ \&\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01779}01779\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \_\_FLAG\_\_))\ ==\ (\ \_\_FLAG\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01780}01780\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01787}01787\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_DMA\_CLEAR\_FLAG(\_\_HANDLE\_\_,\ \_\_FLAG\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>DMASR\ =\ (\ \_\_FLAG\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01788}01788\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01789}01789\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01796}01796\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_MAC\_GET\_IT(\_\_HANDLE\_\_,\ \_\_INTERRUPT\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((\_\_HANDLE\_\_)-\/>Instance-\/>MACSR\ \&\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01797}01797\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \_\_INTERRUPT\_\_))\ ==\ (\ \_\_INTERRUPT\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01798}01798\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01800}01800\ \textcolor{preprocessor}{\#define\ ETH\_WAKEUP\_EXTI\_LINE\ \ 0x00080000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01801}01801\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01808}01808\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_WAKEUP\_EXTI\_ENABLE\_IT(\_\_EXTI\_LINE\_\_)\ \ \ (EXTI-\/>IMR\ |=\ (\_\_EXTI\_LINE\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01809}01809\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01816}01816\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_WAKEUP\_EXTI\_GET\_FLAG(\_\_EXTI\_LINE\_\_)\ \ (EXTI-\/>PR\ \&\ (\_\_EXTI\_LINE\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01817}01817\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01824}01824\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_WAKEUP\_EXTI\_CLEAR\_FLAG(\_\_EXTI\_LINE\_\_)\ (EXTI-\/>PR\ =\ (\_\_EXTI\_LINE\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01825}01825\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01832}01832\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_WAKEUP\_EXTI\_ENABLE\_RISING\_EDGE(\_\_EXTI\_LINE\_\_)\ (EXTI-\/>FTSR\ \&=\ \string~(\_\_EXTI\_LINE\_\_));\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01833}01833\ \textcolor{preprocessor}{\ \ (EXTI-\/>RTSR\ |=\ (\_\_EXTI\_LINE\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01834}01834\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01841}01841\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_WAKEUP\_EXTI\_ENABLE\_FALLING\_EDGE(\_\_EXTI\_LINE\_\_)\ (EXTI-\/>RTSR\ \&=\ \string~(\_\_EXTI\_LINE\_\_));\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01842}01842\ \textcolor{preprocessor}{\ \ (EXTI-\/>FTSR\ |=\ (\_\_EXTI\_LINE\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01843}01843\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01850}01850\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_WAKEUP\_EXTI\_ENABLE\_RISING\_FALLING\_EDGE(\_\_EXTI\_LINE\_\_)\ (EXTI-\/>RTSR\ |=\ (\_\_EXTI\_LINE\_\_));\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01851}01851\ \textcolor{preprocessor}{\ \ (EXTI-\/>FTSR\ |=\ (\_\_EXTI\_LINE\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01852}01852\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01859}01859\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_WAKEUP\_EXTI\_GENERATE\_SWIT(\_\_EXTI\_LINE\_\_)\ (EXTI-\/>SWIER\ |=\ (\_\_EXTI\_LINE\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01860}01860\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01861}01861\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_GET\_PTP\_CONTROL(\_\_HANDLE\_\_,\ \_\_FLAG\_\_)\ (((((\_\_HANDLE\_\_)-\/>Instance-\/>PTPTSCR)\ \&\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01862}01862\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_FLAG\_\_))\ ==\ (\_\_FLAG\_\_))\ ?\ SET\ :\ RESET)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01863}01863\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01864}01864\ \textcolor{preprocessor}{\#define\ \_\_HAL\_ETH\_SET\_PTP\_CONTROL(\_\_HANDLE\_\_,\ \_\_FLAG\_\_)\ \ \ ((\_\_HANDLE\_\_)-\/>Instance-\/>PTPTSCR\ |=\ (\_\_FLAG\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01865}01865\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01869}01869\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01870}01870\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01871}01871\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01872}01872\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01876}01876\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01880}01880\ \textcolor{comment}{/*\ Initialization\ and\ de\ initialization\ functions\ \ **********************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01881}01881\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_Init(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01882}01882\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_DeInit(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01883}01883\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__msp_8c_a1ffa1e1337d6e52a3b175144a4505ea7}{HAL\_ETH\_MspInit}}(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01884}01884\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__msp_8c_adb9c31d86584307ca7791f3c3fbe58d9}{HAL\_ETH\_MspDeInit}}(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01885}01885\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01886}01886\ \textcolor{comment}{/*\ Callbacks\ Register/UnRegister\ functions\ \ ***********************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01887}01887\ \textcolor{preprocessor}{\#if\ (USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ ==\ 1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01888}01888\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_RegisterCallback(ETH\_HandleTypeDef\ *heth,\ HAL\_ETH\_CallbackIDTypeDef\ CallbackID,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01889}01889\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pETH\_CallbackTypeDef\ pCallback);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01890}01890\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_UnRegisterCallback(ETH\_HandleTypeDef\ *heth,\ HAL\_ETH\_CallbackIDTypeDef\ CallbackID);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01891}01891\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_HAL\_ETH\_REGISTER\_CALLBACKS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01892}01892\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01896}01896\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01900}01900\ \textcolor{comment}{/*\ IO\ operation\ functions\ *******************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01901}01901\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_Start(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01902}01902\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_Start\_IT(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01903}01903\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_Stop(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01904}01904\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_Stop\_IT(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01905}01905\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01906}01906\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_ReadData(ETH\_HandleTypeDef\ *heth,\ \textcolor{keywordtype}{void}\ **pAppBuff);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01907}01907\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_RegisterRxAllocateCallback(ETH\_HandleTypeDef\ *heth,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01908}01908\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pETH\_rxAllocateCallbackTypeDef\ rxAllocateCallback);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01909}01909\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_UnRegisterRxAllocateCallback(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01910}01910\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_RegisterRxLinkCallback(ETH\_HandleTypeDef\ *heth,\ pETH\_rxLinkCallbackTypeDef\ rxLinkCallback);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01911}01911\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_UnRegisterRxLinkCallback(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01912}01912\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_GetRxDataErrorCode(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth,\ uint32\_t\ *pErrorCode);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01913}01913\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_RegisterTxFreeCallback(ETH\_HandleTypeDef\ *heth,\ pETH\_txFreeCallbackTypeDef\ txFreeCallback);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01914}01914\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_UnRegisterTxFreeCallback(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01915}01915\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_ReleaseTxPacket(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01916}01916\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01917}01917\ \textcolor{preprocessor}{\#ifdef\ HAL\_ETH\_USE\_PTP}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01918}01918\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_PTP\_SetConfig(ETH\_HandleTypeDef\ *heth,\ ETH\_PTP\_ConfigTypeDef\ *ptpconfig);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01919}01919\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_PTP\_GetConfig(ETH\_HandleTypeDef\ *heth,\ ETH\_PTP\_ConfigTypeDef\ *ptpconfig);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01920}01920\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_PTP\_SetTime(ETH\_HandleTypeDef\ *heth,\ ETH\_TimeTypeDef\ *time);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01921}01921\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_PTP\_GetTime(ETH\_HandleTypeDef\ *heth,\ ETH\_TimeTypeDef\ *time);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01922}01922\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_PTP\_AddTimeOffset(ETH\_HandleTypeDef\ *heth,\ ETH\_PtpUpdateTypeDef\ ptpoffsettype,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01923}01923\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ETH\_TimeTypeDef\ *timeoffset);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01924}01924\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_PTP\_InsertTxTimestamp(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01925}01925\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_PTP\_GetTxTimestamp(ETH\_HandleTypeDef\ *heth,\ ETH\_TimeStampTypeDef\ *timestamp);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01926}01926\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_PTP\_GetRxTimestamp(ETH\_HandleTypeDef\ *heth,\ ETH\_TimeStampTypeDef\ *timestamp);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01927}01927\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_RegisterTxPtpCallback(ETH\_HandleTypeDef\ *heth,\ pETH\_txPtpCallbackTypeDef\ txPtpCallback);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01928}01928\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_UnRegisterTxPtpCallback(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01929}01929\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_ETH\_USE\_PTP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01930}01930\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01931}01931\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_Transmit(ETH\_HandleTypeDef\ *heth,\ ETH\_TxPacketConfigTypeDef\ *pTxConfig,\ uint32\_t\ Timeout);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01932}01932\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_Transmit\_IT(ETH\_HandleTypeDef\ *heth,\ ETH\_TxPacketConfigTypeDef\ *pTxConfig);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01933}01933\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01934}01934\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_WritePHYRegister(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth,\ uint32\_t\ PHYAddr,\ uint32\_t\ PHYReg,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01935}01935\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ RegValue);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01936}01936\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_ReadPHYRegister(ETH\_HandleTypeDef\ *heth,\ uint32\_t\ PHYAddr,\ uint32\_t\ PHYReg,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01937}01937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ *pRegValue);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01938}01938\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01939}01939\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_IRQHandler(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01940}01940\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_TxCpltCallback(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01941}01941\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_RxCpltCallback(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01942}01942\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_ErrorCallback(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01943}01943\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_PMTCallback(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01944}01944\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_WakeUpCallback(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01945}01945\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_RxAllocateCallback(uint8\_t\ **buff);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01946}01946\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_RxLinkCallback(\textcolor{keywordtype}{void}\ **pStart,\ \textcolor{keywordtype}{void}\ **pEnd,\ uint8\_t\ *buff,\ uint16\_t\ Length);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01947}01947\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_TxFreeCallback(uint32\_t\ *buff);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01948}01948\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_TxPtpCallback(uint32\_t\ *buff,\ ETH\_TimeStampTypeDef\ *timestamp);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01952}01952\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01956}01956\ \textcolor{comment}{/*\ Peripheral\ Control\ functions\ \ **********************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01957}01957\ \textcolor{comment}{/*\ MAC\ \&\ DMA\ Configuration\ APIs\ \ **********************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01958}01958\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_GetMACConfig(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth,\ ETH\_MACConfigTypeDef\ *macconf);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01959}01959\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_GetDMAConfig(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth,\ ETH\_DMAConfigTypeDef\ *dmaconf);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01960}01960\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_SetMACConfig(ETH\_HandleTypeDef\ *heth,\ ETH\_MACConfigTypeDef\ *macconf);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01961}01961\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_SetDMAConfig(ETH\_HandleTypeDef\ *heth,\ ETH\_DMAConfigTypeDef\ *dmaconf);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01962}01962\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_SetMDIOClockRange(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01963}01963\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01964}01964\ \textcolor{comment}{/*\ MAC\ VLAN\ Processing\ APIs\ \ \ \ ************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01965}01965\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_SetRxVLANIdentifier(ETH\_HandleTypeDef\ *heth,\ uint32\_t\ ComparisonBits,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01966}01966\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ VLANIdentifier);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01967}01967\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01968}01968\ \textcolor{comment}{/*\ MAC\ L2\ Packet\ Filtering\ APIs\ \ **********************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01969}01969\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_GetMACFilterConfig(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth,\ ETH\_MACFilterConfigTypeDef\ *pFilterConfig);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01970}01970\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_SetMACFilterConfig(ETH\_HandleTypeDef\ *heth,\ \textcolor{keyword}{const}\ ETH\_MACFilterConfigTypeDef\ *pFilterConfig);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01971}01971\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_SetHashTable(ETH\_HandleTypeDef\ *heth,\ uint32\_t\ *pHashTable);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01972}01972\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_SetSourceMACAddrMatch(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth,\ uint32\_t\ AddrNbr,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01973}01973\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ *pMACAddr);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01974}01974\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01975}01975\ \textcolor{comment}{/*\ MAC\ Power\ Down\ APIs\ \ \ \ *****************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01976}01976\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_EnterPowerDownMode(ETH\_HandleTypeDef\ *heth,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01977}01977\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ ETH\_PowerDownConfigTypeDef\ *pPowerDownConfig);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01978}01978\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_ExitPowerDownMode(ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01979}01979\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_ETH\_SetWakeUpFilter(ETH\_HandleTypeDef\ *heth,\ uint32\_t\ *pFilter,\ uint32\_t\ Count);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01980}01980\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01984}01984\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01988}01988\ \textcolor{comment}{/*\ Peripheral\ State\ functions\ \ **************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01989}01989\ HAL\_ETH\_StateTypeDef\ HAL\_ETH\_GetState(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01990}01990\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_GetError(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01991}01991\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_GetDMAError(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01992}01992\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_GetMACError(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01993}01993\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_GetMACWakeUpSource(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01994}01994\ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ HAL\_ETH\_GetTxBuffersNumber(\textcolor{keyword}{const}\ ETH\_HandleTypeDef\ *heth);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l01998}01998\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l02002}02002\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l02006}02006\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l02010}02010\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l02011}02011\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ETH\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l02012}02012\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l02013}02013\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l02014}02014\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l02015}02015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l02016}02016\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__eth_8h_source_l02017}02017\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F4xx\_HAL\_ETH\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

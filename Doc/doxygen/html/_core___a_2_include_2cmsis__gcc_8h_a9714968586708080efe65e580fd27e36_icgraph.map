@@ -1,0 +1,11 @@
+<map id="__QSUB8" name="__QSUB8">
+<area shape="rect" id="Node000001" title=" " alt="" coords="164,81,244,108"/>
+<area shape="rect" id="Node000002" href="$group___basic_abs.html#ga097f1938c72471930b4e5647de40c505" title="Q7 vector absolute value." alt="" coords="14,5,107,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,75,114,46,91,35,93,30,117,42,168,71"/>
+<area shape="rect" id="Node000003" href="$group___basic_negate.html#gaea178c9f486ed4704f8723a2efee271c" title="Negates the elements of a Q7 vector." alt="" coords="5,56,116,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,88,116,82,117,76,149,82"/>
+<area shape="rect" id="Node000004" href="$group___acti.html#ga638e803b4fe00426f401783a6255ca30" title="Q7 RELU function." alt="" coords="14,107,107,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,107,108,114,107,109,148,102"/>
+<area shape="rect" id="Node000005" href="$group___basic_sub.html#ga162990b82a18231c4e606ba0e6584c7e" title="Q7 vector subtraction." alt="" coords="14,157,107,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="168,119,117,148,93,159,91,155,114,143,166,114"/>
+</map>

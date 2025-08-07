@@ -1,0 +1,149 @@
+\doxysection{os\+\_\+mail\+Q\+\_\+def Struct Reference}
+\hypertarget{structos__mail_q__def}{}\label{structos__mail_q__def}\index{os\_mailQ\_def@{os\_mailQ\_def}}
+
+
+{\ttfamily \#include $<$cmsis\+\_\+os.\+h$>$}
+
+
+
+Collaboration diagram for os\+\_\+mail\+Q\+\_\+def\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structos__mail_q__def__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structos__mail_q__def_a8a83a3a8c0aa8057b13807d2a54077e0}{queue\+\_\+sz}}
+\begin{DoxyCompactList}\small\item\em number of elements in the queue \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structos__mail_q__def_a4c2a0c691de3365c00ecd22d8102811f}{item\+\_\+sz}}
+\begin{DoxyCompactList}\small\item\em size of an item \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structos__mail_q__def_a269c3935f8bc66db70bccdd02cb05e3c}{pool}}
+\begin{DoxyCompactList}\small\item\em memory array for mail \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structos__mail_q__def_aba74e7791957c123caa4200c13dccf79}{mail}}
+\begin{DoxyCompactList}\small\item\em pointer to mail \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structos_memory_pool_attr__t}{os\+Memory\+Pool\+Attr\+\_\+t}} \mbox{\hyperlink{structos__mail_q__def_ad2b017edd77ecf924b825e8db1a0795f}{mp\+\_\+attr}}
+\begin{DoxyCompactList}\small\item\em memory pool attributes \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structos_message_queue_attr__t}{os\+Message\+Queue\+Attr\+\_\+t}} \mbox{\hyperlink{structos__mail_q__def_a8db99b20d42d962750c3b2cb87fbc09a}{mq\+\_\+attr}}
+\begin{DoxyCompactList}\small\item\em message queue attributes \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structos__mail_q__cb}{os\+\_\+mail\+Q\+\_\+cb}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structos__mail_q__def_a1845aa4e1d8758da92a5017211d09394}{cb}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definition structure for mail queue. \begin{DoxyNote}{Note}
+CAN BE CHANGED\+: {\bfseries{\doxylink{structos__mail_q__def}{os\+\_\+mail\+Q\+\_\+def}}} is implementation specific in every CMSIS-\/\+RTOS. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_source_l00207}{207}} of file \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_source}{cmsis\+\_\+os.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structos__mail_q__def_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{structos__mail_q__def_a1845aa4e1d8758da92a5017211d09394}\index{os\_mailQ\_def@{os\_mailQ\_def}!cb@{cb}}
+\index{cb@{cb}!os\_mailQ\_def@{os\_mailQ\_def}}
+\doxysubsubsection{\texorpdfstring{cb}{cb}}
+{\footnotesize\ttfamily \label{structos__mail_q__def_a1845aa4e1d8758da92a5017211d09394} 
+struct \mbox{\hyperlink{structos__mail_q__cb}{os\+\_\+mail\+Q\+\_\+cb}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} cb}
+
+
+
+Definition at line \mbox{\hyperlink{_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s_2cmsis__os_8h_source_l00344}{344}} of file \mbox{\hyperlink{_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s_2cmsis__os_8h_source}{cmsis\+\_\+os.\+h}}.
+
+\Hypertarget{structos__mail_q__def_a4c2a0c691de3365c00ecd22d8102811f}\index{os\_mailQ\_def@{os\_mailQ\_def}!item\_sz@{item\_sz}}
+\index{item\_sz@{item\_sz}!os\_mailQ\_def@{os\_mailQ\_def}}
+\doxysubsubsection{\texorpdfstring{item\_sz}{item\_sz}}
+{\footnotesize\ttfamily \label{structos__mail_q__def_a4c2a0c691de3365c00ecd22d8102811f} 
+uint32\+\_\+t item\+\_\+sz}
+
+
+
+size of an item 
+
+
+
+Definition at line \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_source_l00209}{209}} of file \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_source}{cmsis\+\_\+os.\+h}}.
+
+\Hypertarget{structos__mail_q__def_aba74e7791957c123caa4200c13dccf79}\index{os\_mailQ\_def@{os\_mailQ\_def}!mail@{mail}}
+\index{mail@{mail}!os\_mailQ\_def@{os\_mailQ\_def}}
+\doxysubsubsection{\texorpdfstring{mail}{mail}}
+{\footnotesize\ttfamily \label{structos__mail_q__def_aba74e7791957c123caa4200c13dccf79} 
+void\texorpdfstring{$\ast$}{*} mail}
+
+
+
+pointer to mail 
+
+
+
+Definition at line \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_source_l00378}{378}} of file \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_source}{cmsis\+\_\+os.\+h}}.
+
+\Hypertarget{structos__mail_q__def_ad2b017edd77ecf924b825e8db1a0795f}\index{os\_mailQ\_def@{os\_mailQ\_def}!mp\_attr@{mp\_attr}}
+\index{mp\_attr@{mp\_attr}!os\_mailQ\_def@{os\_mailQ\_def}}
+\doxysubsubsection{\texorpdfstring{mp\_attr}{mp\_attr}}
+{\footnotesize\ttfamily \label{structos__mail_q__def_ad2b017edd77ecf924b825e8db1a0795f} 
+\mbox{\hyperlink{structos_memory_pool_attr__t}{os\+Memory\+Pool\+Attr\+\_\+t}} mp\+\_\+attr}
+
+
+
+memory pool attributes 
+
+
+
+Definition at line \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_source_l00379}{379}} of file \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_source}{cmsis\+\_\+os.\+h}}.
+
+\Hypertarget{structos__mail_q__def_a8db99b20d42d962750c3b2cb87fbc09a}\index{os\_mailQ\_def@{os\_mailQ\_def}!mq\_attr@{mq\_attr}}
+\index{mq\_attr@{mq\_attr}!os\_mailQ\_def@{os\_mailQ\_def}}
+\doxysubsubsection{\texorpdfstring{mq\_attr}{mq\_attr}}
+{\footnotesize\ttfamily \label{structos__mail_q__def_a8db99b20d42d962750c3b2cb87fbc09a} 
+\mbox{\hyperlink{structos_message_queue_attr__t}{os\+Message\+Queue\+Attr\+\_\+t}} mq\+\_\+attr}
+
+
+
+message queue attributes 
+
+
+
+Definition at line \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_source_l00380}{380}} of file \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_source}{cmsis\+\_\+os.\+h}}.
+
+\Hypertarget{structos__mail_q__def_a269c3935f8bc66db70bccdd02cb05e3c}\index{os\_mailQ\_def@{os\_mailQ\_def}!pool@{pool}}
+\index{pool@{pool}!os\_mailQ\_def@{os\_mailQ\_def}}
+\doxysubsubsection{\texorpdfstring{pool}{pool}}
+{\footnotesize\ttfamily \label{structos__mail_q__def_a269c3935f8bc66db70bccdd02cb05e3c} 
+void\texorpdfstring{$\ast$}{*} pool}
+
+
+
+memory array for mail 
+
+
+
+Definition at line \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_source_l00210}{210}} of file \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_source}{cmsis\+\_\+os.\+h}}.
+
+\Hypertarget{structos__mail_q__def_a8a83a3a8c0aa8057b13807d2a54077e0}\index{os\_mailQ\_def@{os\_mailQ\_def}!queue\_sz@{queue\_sz}}
+\index{queue\_sz@{queue\_sz}!os\_mailQ\_def@{os\_mailQ\_def}}
+\doxysubsubsection{\texorpdfstring{queue\_sz}{queue\_sz}}
+{\footnotesize\ttfamily \label{structos__mail_q__def_a8a83a3a8c0aa8057b13807d2a54077e0} 
+uint32\+\_\+t queue\+\_\+sz}
+
+
+
+number of elements in the queue 
+
+
+
+Definition at line \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_source_l00208}{208}} of file \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_source}{cmsis\+\_\+os.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+RTOS/\+Template/\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h}{cmsis\+\_\+os.\+h}}\item 
+C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+RTOS2/\+Template/\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h}{cmsis\+\_\+os.\+h}}\item 
+C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/\+CMSIS\+\_\+\+RTOS/\mbox{\hyperlink{_middlewares_2_third___party_2_free_r_t_o_s_2_source_2_c_m_s_i_s___r_t_o_s_2cmsis__os_8h}{cmsis\+\_\+os.\+h}}\end{DoxyCompactItemize}

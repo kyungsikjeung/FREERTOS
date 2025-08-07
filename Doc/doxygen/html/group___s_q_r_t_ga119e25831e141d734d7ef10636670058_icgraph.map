@@ -1,0 +1,15 @@
+<map id="arm_sqrt_q31" name="arm_sqrt_q31">
+<area shape="rect" id="Node000001" title="Q31 square root function." alt="" coords="354,81,454,108"/>
+<area shape="rect" id="Node000002" href="$group__cmplx__mag.html#ga0488e185f4631ac029b02f1759b287cf" title="Q15 complex magnitude." alt="" coords="161,5,306,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="364,76,305,46,276,35,278,30,307,42,367,71"/>
+<area shape="rect" id="Node000004" href="$group__cmplx__mag.html#gab69ad9237469565958cce6b4555bbb6e" title="Q31 complex magnitude." alt="" coords="161,56,306,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="338,88,306,83,307,78,339,82"/>
+<area shape="rect" id="Node000006" href="$group___r_m_s.html#ga20586bc59cabbfc38a935c2448833dd2" title="Root Mean Square of the elements of a Q31 vector." alt="" coords="183,107,284,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="339,107,285,115,284,110,338,102"/>
+<area shape="rect" id="Node000007" href="$group___s_t_d.html#gafe382f5d8f3e7d310f2e2f2b5d873797" title="Standard deviation of the elements of a Q31 vector." alt="" coords="185,157,282,184"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="367,118,307,148,278,159,276,154,305,143,364,113"/>
+<area shape="rect" id="Node000003" href="$group___m_f_c_c.html#ga1ec288fa9eb7e85c8196c32dfe8f3f9b" title="MFCC Q15." alt="" coords="5,5,113,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="145,21,113,21,113,16,145,16"/>
+<area shape="rect" id="Node000005" href="$group___m_f_c_c.html#ga7ab98731e9e4a7705be0b3ca0c5bd94c" title="MFCC Q31." alt="" coords="5,56,113,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="145,72,113,72,113,67,145,67"/>
+</map>

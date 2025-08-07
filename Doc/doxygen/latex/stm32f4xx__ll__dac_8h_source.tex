@@ -1,0 +1,571 @@
+\doxysection{stm32f4xx\+\_\+ll\+\_\+dac.\+h}
+\hypertarget{stm32f4xx__ll__dac_8h_source}{}\label{stm32f4xx__ll__dac_8h_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_ll\_dac.h@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_ll\_dac.h}}
+\mbox{\hyperlink{stm32f4xx__ll__dac_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00019}00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00020}00020\ \textcolor{preprocessor}{\#ifndef\ STM32F4xx\_LL\_DAC\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ STM32F4xx\_LL\_DAC\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00023}00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00024}00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00027}00027\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx_8h}{stm32f4xx.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00034}00034\ \textcolor{preprocessor}{\#if\ defined(DAC)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00040}00040\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00041}00041\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00043}00043\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00048}00048\ \textcolor{comment}{/*\ Internal\ masks\ for\ DAC\ channels\ definition\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00049}00049\ \textcolor{comment}{/*\ To\ select\ into\ literal\ LL\_DAC\_CHANNEL\_x\ the\ relevant\ bits\ for:\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00050}00050\ \textcolor{comment}{/*\ -\/\ channel\ bits\ position\ into\ registers\ CR,\ MCR,\ CCR,\ SHHR,\ SHRR\ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00051}00051\ \textcolor{comment}{/*\ -\/\ channel\ bits\ position\ into\ register\ SWTRIG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00052}00052\ \textcolor{comment}{/*\ -\/\ channel\ register\ offset\ of\ data\ holding\ register\ DHRx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00053}00053\ \textcolor{comment}{/*\ -\/\ channel\ register\ offset\ of\ data\ output\ register\ DORx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00054}00054\ \textcolor{preprocessor}{\#define\ DAC\_CR\_CH1\_BITOFFSET\ \ \ \ \ \ \ \ \ \ \ 0UL\ \ \ }\textcolor{comment}{/*\ Position\ of\ channel\ bits\ into\ registers}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00055}00055\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CR,\ MCR,\ CCR,\ SHHR,\ SHRR\ of\ channel\ 1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00056}00056\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00057}00057\ \textcolor{preprocessor}{\#define\ DAC\_CR\_CH2\_BITOFFSET\ \ \ \ \ \ \ \ \ \ \ 16UL\ \ }\textcolor{comment}{/*\ Position\ of\ channel\ bits\ into\ registers}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00058}00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CR,\ MCR,\ CCR,\ SHHR,\ SHRR\ of\ channel\ 2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00059}00059\ \textcolor{preprocessor}{\#define\ DAC\_CR\_CHX\_BITOFFSET\_MASK\ \ \ \ \ \ (DAC\_CR\_CH1\_BITOFFSET\ |\ DAC\_CR\_CH2\_BITOFFSET)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00060}00060\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00061}00061\ \textcolor{preprocessor}{\#define\ DAC\_CR\_CHX\_BITOFFSET\_MASK\ \ \ \ \ \ (DAC\_CR\_CH1\_BITOFFSET)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00062}00062\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00064}00064\ \textcolor{preprocessor}{\#define\ DAC\_SWTR\_CH1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_SWTRIGR\_SWTRIG1)\ }\textcolor{comment}{/*\ Channel\ bit\ into\ register\ SWTRIGR\ of\ channel\ 1.\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00065}00065\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00066}00066\ \textcolor{preprocessor}{\#define\ DAC\_SWTR\_CH2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_SWTRIGR\_SWTRIG2)\ }\textcolor{comment}{/*\ Channel\ bit\ into\ register\ SWTRIGR\ of\ channel\ 2.\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00067}00067\ \textcolor{preprocessor}{\#define\ DAC\_SWTR\_CHX\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_SWTR\_CH1\ |\ DAC\_SWTR\_CH2)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00068}00068\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00069}00069\ \textcolor{preprocessor}{\#define\ DAC\_SWTR\_CHX\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_SWTR\_CH1)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00070}00070\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00072}00072\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR12R1\_REGOFFSET\ \ \ \ \ \ 0x00000000UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Register\ DHR12Rx\ channel\ 1\ taken\ as\ reference\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00073}00073\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR12L1\_REGOFFSET\ \ \ \ \ \ 0x00100000UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Register\ offset\ of\ DHR12Lx\ channel\ 1\ versus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00074}00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DHR12Rx\ channel\ 1\ (shifted\ left\ of\ 20\ bits)\ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00075}00075\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR8R1\_REGOFFSET\ \ \ \ \ \ \ 0x02000000UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Register\ offset\ of\ DHR8Rx\ \ channel\ 1\ versus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00076}00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DHR12Rx\ channel\ 1\ (shifted\ left\ of\ 24\ bits)\ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00077}00077\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00078}00078\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR12R2\_REGOFFSET\ \ \ \ \ \ 0x00030000UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Register\ offset\ of\ DHR12Rx\ channel\ 2\ versus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DHR12Rx\ channel\ 1\ (shifted\ left\ of\ 16\ bits)\ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00080}00080\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR12L2\_REGOFFSET\ \ \ \ \ \ 0x00400000UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Register\ offset\ of\ DHR12Lx\ channel\ 2\ versus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DHR12Rx\ channel\ 1\ (shifted\ left\ of\ 20\ bits)\ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00082}00082\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR8R2\_REGOFFSET\ \ \ \ \ \ \ 0x05000000UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Register\ offset\ of\ DHR8Rx\ \ channel\ 2\ versus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00083}00083\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DHR12Rx\ channel\ 1\ (shifted\ left\ of\ 24\ bits)\ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00084}00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00085}00085\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR12RX\_REGOFFSET\_MASK\ 0x000F0000UL}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00086}00086\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR12LX\_REGOFFSET\_MASK\ 0x00F00000UL}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00087}00087\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR8RX\_REGOFFSET\_MASK\ \ 0x0F000000UL}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00088}00088\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHRX\_REGOFFSET\_MASK\ \ \ \ (DAC\_REG\_DHR12RX\_REGOFFSET\_MASK\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00089}00089\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ DAC\_REG\_DHR12LX\_REGOFFSET\_MASK\ |\ DAC\_REG\_DHR8RX\_REGOFFSET\_MASK)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00091}00091\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DOR1\_REGOFFSET\ \ \ \ \ \ \ \ \ 0x00000000UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Register\ DORx\ channel\ 1\ taken\ as\ reference\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00092}00092\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00093}00093\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DOR2\_REGOFFSET\ \ \ \ \ \ \ \ \ 0x10000000UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ Register\ offset\ of\ DORx\ channel\ 1\ versus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00094}00094\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DORx\ channel\ 2\ (shifted\ left\ of\ 28\ bits)\ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00095}00095\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DORX\_REGOFFSET\_MASK\ \ \ \ (DAC\_REG\_DOR1\_REGOFFSET\ |\ DAC\_REG\_DOR2\_REGOFFSET)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00096}00096\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00099}00099\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR\_REGOFFSET\_MASK\_POSBIT0\ \ \ \ \ \ \ \ \ 0x0000000FUL\ }\textcolor{comment}{/*\ Mask\ of\ data\ hold\ registers\ offset\ (DHR12Rx,}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00100}00100\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DHR12Lx,\ DHR8Rx,\ ...)\ when\ shifted\ to\ position\ 0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00101}00101\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DORX\_REGOFFSET\_MASK\_POSBIT0\ \ \ \ \ \ \ \ 0x00000001UL\ }\textcolor{comment}{/*\ Mask\ of\ DORx\ registers\ offset\ when\ shifted}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00102}00102\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ to\ position\ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00103}00103\ \textcolor{preprocessor}{\#define\ DAC\_REG\_SHSRX\_REGOFFSET\_MASK\_POSBIT0\ \ \ \ \ \ \ 0x00000001UL\ }\textcolor{comment}{/*\ Mask\ of\ SHSRx\ registers\ offset\ when\ shifted}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00104}00104\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ to\ position\ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00106}00106\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR12RX\_REGOFFSET\_BITOFFSET\_POS\ \ \ \ \ \ \ \ \ \ \ 16UL\ \ }\textcolor{comment}{/*\ Position\ of\ bits\ register\ offset\ of\ DHR12Rx}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00107}00107\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ channel\ 1\ or\ 2\ versus\ DHR12Rx\ channel\ 1}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00108}00108\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (shifted\ left\ of\ 16\ bits)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00109}00109\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR12LX\_REGOFFSET\_BITOFFSET\_POS\ \ \ \ \ \ \ \ \ \ \ 20UL\ \ }\textcolor{comment}{/*\ Position\ of\ bits\ register\ offset\ of\ DHR12Lx}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00110}00110\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ channel\ 1\ or\ 2\ versus\ DHR12Rx\ channel\ 1}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00111}00111\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (shifted\ left\ of\ 20\ bits)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00112}00112\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DHR8RX\_REGOFFSET\_BITOFFSET\_POS\ \ \ \ \ \ \ \ \ \ \ \ 24UL\ \ }\textcolor{comment}{/*\ Position\ of\ bits\ register\ offset\ of\ DHR8Rx}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00113}00113\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ channel\ 1\ or\ 2\ versus\ DHR12Rx\ channel\ 1}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00114}00114\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (shifted\ left\ of\ 24\ bits)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00115}00115\ \textcolor{preprocessor}{\#define\ DAC\_REG\_DORX\_REGOFFSET\_BITOFFSET\_POS\ \ \ \ \ \ \ \ \ \ \ \ \ \ 28UL\ \ }\textcolor{comment}{/*\ Position\ of\ bits\ register\ offset\ of\ DORx}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00116}00116\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ channel\ 1\ or\ 2\ versus\ DORx\ channel\ 1}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00117}00117\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (shifted\ left\ of\ 28\ bits)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00119}00119\ \textcolor{comment}{/*\ DAC\ registers\ bits\ positions\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00120}00120\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00121}00121\ \textcolor{preprocessor}{\#define\ DAC\_DHR12RD\_DACC2DHR\_BITOFFSET\_POS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_DHR12RD\_DACC2DHR\_Pos}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00122}00122\ \textcolor{preprocessor}{\#define\ DAC\_DHR12LD\_DACC2DHR\_BITOFFSET\_POS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_DHR12LD\_DACC2DHR\_Pos}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00123}00123\ \textcolor{preprocessor}{\#define\ DAC\_DHR8RD\_DACC2DHR\_BITOFFSET\_POS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_DHR8RD\_DACC2DHR\_Pos}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00124}00124\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00126}00126\ \textcolor{comment}{/*\ Miscellaneous\ data\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00127}00127\ \textcolor{preprocessor}{\#define\ DAC\_DIGITAL\_SCALE\_12BITS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4095UL\ \ \ }\textcolor{comment}{/*\ Full-\/scale\ digital\ value\ with\ a\ resolution\ of\ 12}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00128}00128\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bits\ (voltage\ range\ determined\ by\ analog\ voltage}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00129}00129\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ references\ Vref+\ and\ Vref-\/,\ refer\ to\ reference\ manual)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00136}00136\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00149}00149\ \textcolor{preprocessor}{\#define\ \_\_DAC\_PTR\_REG\_OFFSET(\_\_REG\_\_,\ \_\_REG\_OFFFSET\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00150}00150\ \textcolor{preprocessor}{\ \ ((uint32\_t\ *)((uint32\_t)\ ((uint32\_t)(\&(\_\_REG\_\_))\ +\ ((\_\_REG\_OFFFSET\_\_)\ <<\ 2UL))))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00157}00157\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00158}00158\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00166}00166\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00167}00167\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00168}00168\ \ \ uint32\_t\ TriggerSource;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00176}00176\ \ \ uint32\_t\ WaveAutoGeneration;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00182}00182\ \ \ uint32\_t\ WaveAutoGenerationConfig;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00195}00195\ \ \ uint32\_t\ OutputBuffer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00200}00200\ \}\ LL\_DAC\_InitTypeDef;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00205}00205\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_FULL\_LL\_DRIVER\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00207}00207\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00216}00216\ \textcolor{comment}{/*\ DAC\ channel\ 1\ flags\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00217}00217\ \textcolor{preprocessor}{\#define\ LL\_DAC\_FLAG\_DMAUDR1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_SR\_DMAUDR1)\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00218}00218\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00219}00219\ \textcolor{comment}{/*\ DAC\ channel\ 2\ flags\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00220}00220\ \textcolor{preprocessor}{\#define\ LL\_DAC\_FLAG\_DMAUDR2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_SR\_DMAUDR2)\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00221}00221\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00230}00230\ \textcolor{preprocessor}{\#define\ LL\_DAC\_IT\_DMAUDRIE1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_CR\_DMAUDRIE1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00231}00231\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00232}00232\ \textcolor{preprocessor}{\#define\ LL\_DAC\_IT\_DMAUDRIE2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_CR\_DMAUDRIE2)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00233}00233\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00241}00241\ \textcolor{preprocessor}{\#define\ LL\_DAC\_CHANNEL\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_REG\_DOR1\_REGOFFSET\ |\ DAC\_REG\_DHR12R1\_REGOFFSET\ |\ DAC\_REG\_DHR12L1\_REGOFFSET\ |\ DAC\_REG\_DHR8R1\_REGOFFSET\ |\ DAC\_CR\_CH1\_BITOFFSET\ |\ DAC\_SWTR\_CH1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00242}00242\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00243}00243\ \textcolor{preprocessor}{\#define\ LL\_DAC\_CHANNEL\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_REG\_DOR2\_REGOFFSET\ |\ DAC\_REG\_DHR12R2\_REGOFFSET\ |\ DAC\_REG\_DHR12L2\_REGOFFSET\ |\ DAC\_REG\_DHR8R2\_REGOFFSET\ |\ DAC\_CR\_CH2\_BITOFFSET\ |\ DAC\_SWTR\_CH2)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00244}00244\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00252}00252\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIG\_SOFTWARE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (DAC\_CR\_TSEL1\_2\ |\ DAC\_CR\_TSEL1\_1\ |\ DAC\_CR\_TSEL1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00253}00253\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIG\_EXT\_TIM2\_TRGO\ \ \ \ \ \ \ \ \ \ (DAC\_CR\_TSEL1\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00254}00254\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIG\_EXT\_TIM8\_TRGO\ \ \ \ \ \ \ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_TSEL1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00255}00255\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIG\_EXT\_TIM4\_TRGO\ \ \ \ \ \ \ \ \ \ (DAC\_CR\_TSEL1\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ DAC\_CR\_TSEL1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00256}00256\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIG\_EXT\_TIM6\_TRGO\ \ \ \ \ \ \ \ \ \ 0x00000000UL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00257}00257\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIG\_EXT\_TIM7\_TRGO\ \ \ \ \ \ \ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_TSEL1\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00258}00258\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIG\_EXT\_TIM5\_TRGO\ \ \ \ \ \ \ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_TSEL1\_1\ |\ DAC\_CR\_TSEL1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00259}00259\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIG\_EXT\_EXTI\_LINE9\ \ \ \ \ \ \ \ \ (DAC\_CR\_TSEL1\_2\ |\ DAC\_CR\_TSEL1\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00267}00267\ \textcolor{preprocessor}{\#define\ LL\_DAC\_WAVE\_AUTO\_GENERATION\_NONE\ \ \ \ \ 0x00000000UL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00268}00268\ \textcolor{preprocessor}{\#define\ LL\_DAC\_WAVE\_AUTO\_GENERATION\_NOISE\ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_WAVE1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00269}00269\ \textcolor{preprocessor}{\#define\ LL\_DAC\_WAVE\_AUTO\_GENERATION\_TRIANGLE\ (DAC\_CR\_WAVE1\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00277}00277\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BIT0\ \ \ \ \ \ 0x00000000UL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00278}00278\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS1\_0\ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00279}00279\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS2\_0\ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00280}00280\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS3\_0\ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_1\ |\ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00281}00281\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS4\_0\ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00282}00282\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS5\_0\ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00283}00283\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS6\_0\ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_2\ |\ DAC\_CR\_MAMP1\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00284}00284\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS7\_0\ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_2\ |\ DAC\_CR\_MAMP1\_1\ |\ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00285}00285\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS8\_0\ \ \ (DAC\_CR\_MAMP1\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00286}00286\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS9\_0\ \ \ (DAC\_CR\_MAMP1\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00287}00287\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS10\_0\ \ (DAC\_CR\_MAMP1\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ DAC\_CR\_MAMP1\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00288}00288\ \textcolor{preprocessor}{\#define\ LL\_DAC\_NOISE\_LFSR\_UNMASK\_BITS11\_0\ \ (DAC\_CR\_MAMP1\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ DAC\_CR\_MAMP1\_1\ |\ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00296}00296\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_1\ \ \ \ \ \ \ \ 0x00000000UL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00297}00297\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_3\ \ \ \ \ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00298}00298\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_7\ \ \ \ \ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00299}00299\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_15\ \ \ \ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_1\ |\ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00300}00300\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_31\ \ \ \ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00301}00301\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_63\ \ \ \ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00302}00302\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_127\ \ \ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_2\ |\ DAC\_CR\_MAMP1\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00303}00303\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_255\ \ \ \ \ \ (\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DAC\_CR\_MAMP1\_2\ |\ DAC\_CR\_MAMP1\_1\ |\ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00304}00304\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_511\ \ \ \ \ \ (DAC\_CR\_MAMP1\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00305}00305\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_1023\ \ \ \ \ (DAC\_CR\_MAMP1\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00306}00306\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_2047\ \ \ \ \ (DAC\_CR\_MAMP1\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ DAC\_CR\_MAMP1\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00307}00307\ \textcolor{preprocessor}{\#define\ LL\_DAC\_TRIANGLE\_AMPLITUDE\_4095\ \ \ \ \ (DAC\_CR\_MAMP1\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ DAC\_CR\_MAMP1\_1\ |\ DAC\_CR\_MAMP1\_0)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00315}00315\ \textcolor{preprocessor}{\#define\ LL\_DAC\_OUTPUT\_BUFFER\_ENABLE\ \ \ \ \ \ \ \ 0x00000000UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00316}00316\ \textcolor{preprocessor}{\#define\ LL\_DAC\_OUTPUT\_BUFFER\_DISABLE\ \ \ \ \ \ \ (DAC\_CR\_BOFF1)\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00324}00324\ \textcolor{preprocessor}{\#define\ LL\_DAC\_RESOLUTION\_12B\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00325}00325\ \textcolor{preprocessor}{\#define\ LL\_DAC\_RESOLUTION\_8B\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002UL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00333}00333\ \textcolor{comment}{/*\ List\ of\ DAC\ registers\ intended\ to\ be\ used\ (most\ commonly)\ with\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00334}00334\ \textcolor{comment}{/*\ DMA\ transfer.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00335}00335\ \textcolor{comment}{/*\ Refer\ to\ function\ @ref\ LL\_DAC\_DMA\_GetRegAddr().\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00336}00336\ \textcolor{preprocessor}{\#define\ LL\_DAC\_DMA\_REG\_DATA\_12BITS\_RIGHT\_ALIGNED\ \ DAC\_REG\_DHR12RX\_REGOFFSET\_BITOFFSET\_POS\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00337}00337\ \textcolor{preprocessor}{\#define\ LL\_DAC\_DMA\_REG\_DATA\_12BITS\_LEFT\_ALIGNED\ \ \ DAC\_REG\_DHR12LX\_REGOFFSET\_BITOFFSET\_POS\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00338}00338\ \textcolor{preprocessor}{\#define\ LL\_DAC\_DMA\_REG\_DATA\_8BITS\_RIGHT\_ALIGNED\ \ \ DAC\_REG\_DHR8RX\_REGOFFSET\_BITOFFSET\_POS\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00351}00351\ \textcolor{comment}{/*\ Delay\ for\ DAC\ channel\ voltage\ settling\ time\ from\ DAC\ channel\ startup\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00352}00352\ \textcolor{comment}{/*\ (transition\ from\ disable\ to\ enable).\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00353}00353\ \textcolor{comment}{/*\ Note:\ DAC\ channel\ startup\ time\ depends\ on\ board\ application\ environment:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00354}00354\ \textcolor{comment}{/*\ \ \ \ \ \ \ impedance\ connected\ to\ DAC\ channel\ output.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00355}00355\ \textcolor{comment}{/*\ \ \ \ \ \ \ The\ delay\ below\ is\ specified\ under\ conditions:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00356}00356\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ -\/\ voltage\ maximum\ transition\ (lowest\ to\ highest\ value)\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00357}00357\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ -\/\ until\ voltage\ reaches\ final\ value\ +-\/1LSB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00358}00358\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ -\/\ DAC\ channel\ output\ buffer\ enabled\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00359}00359\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ -\/\ load\ impedance\ of\ 5kOhm\ (min),\ 50pF\ (max)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00360}00360\ \textcolor{comment}{/*\ Literal\ set\ to\ maximum\ value\ (refer\ to\ device\ datasheet,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00361}00361\ \textcolor{comment}{/*\ parameter\ "{}tWAKEUP"{}).\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00362}00362\ \textcolor{comment}{/*\ Unit:\ us\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00363}00363\ \textcolor{preprocessor}{\#define\ LL\_DAC\_DELAY\_STARTUP\_VOLTAGE\_SETTLING\_US\ \ \ \ \ \ \ \ \ \ \ \ \ 15UL\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00364}00364\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00365}00365\ \textcolor{comment}{/*\ Delay\ for\ DAC\ channel\ voltage\ settling\ time.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00366}00366\ \textcolor{comment}{/*\ Note:\ DAC\ channel\ startup\ time\ depends\ on\ board\ application\ environment:\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00367}00367\ \textcolor{comment}{/*\ \ \ \ \ \ \ impedance\ connected\ to\ DAC\ channel\ output.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00368}00368\ \textcolor{comment}{/*\ \ \ \ \ \ \ The\ delay\ below\ is\ specified\ under\ conditions:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00369}00369\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ -\/\ voltage\ maximum\ transition\ (lowest\ to\ highest\ value)\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00370}00370\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ -\/\ until\ voltage\ reaches\ final\ value\ +-\/1LSB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00371}00371\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ -\/\ DAC\ channel\ output\ buffer\ enabled\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00372}00372\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ -\/\ load\ impedance\ of\ 5kOhm\ min,\ 50pF\ max\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00373}00373\ \textcolor{comment}{/*\ Literal\ set\ to\ maximum\ value\ (refer\ to\ device\ datasheet,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00374}00374\ \textcolor{comment}{/*\ parameter\ "{}tSETTLING"{}).\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00375}00375\ \textcolor{comment}{/*\ Unit:\ us\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00376}00376\ \textcolor{preprocessor}{\#define\ LL\_DAC\_DELAY\_VOLTAGE\_SETTLING\_US\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 12UL\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00381}00381\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00386}00386\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00402}00402\ \textcolor{preprocessor}{\#define\ LL\_DAC\_WriteReg(\_\_INSTANCE\_\_,\ \_\_REG\_\_,\ \_\_VALUE\_\_)\ WRITE\_REG(\_\_INSTANCE\_\_-\/>\_\_REG\_\_,\ (\_\_VALUE\_\_))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00403}00403\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00410}00410\ \textcolor{preprocessor}{\#define\ LL\_DAC\_ReadReg(\_\_INSTANCE\_\_,\ \_\_REG\_\_)\ READ\_REG(\_\_INSTANCE\_\_-\/>\_\_REG\_\_)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00436}00436\ \textcolor{preprocessor}{\#define\ \_\_LL\_DAC\_CHANNEL\_TO\_DECIMAL\_NB(\_\_CHANNEL\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00437}00437\ \textcolor{preprocessor}{\ \ ((\_\_CHANNEL\_\_)\ \&\ DAC\_SWTR\_CHX\_MASK)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00455}00455\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00456}00456\ \textcolor{preprocessor}{\#define\ \_\_LL\_DAC\_DECIMAL\_NB\_TO\_CHANNEL(\_\_DECIMAL\_NB\_\_)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00457}00457\ \textcolor{preprocessor}{\ \ (((\_\_DECIMAL\_NB\_\_)\ ==\ 1UL)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00458}00458\ \textcolor{preprocessor}{\ \ \ ?\ (LL\_DAC\_CHANNEL\_1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00459}00459\ \textcolor{preprocessor}{\ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00460}00460\ \textcolor{preprocessor}{\ \ \ (((\_\_DECIMAL\_NB\_\_)\ ==\ 2UL)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00461}00461\ \textcolor{preprocessor}{\ \ \ \ ?\ (LL\_DAC\_CHANNEL\_2)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00462}00462\ \textcolor{preprocessor}{\ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00463}00463\ \textcolor{preprocessor}{\ \ \ \ (0UL)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00464}00464\ \textcolor{preprocessor}{\ \ \ )\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00465}00465\ \textcolor{preprocessor}{\ \ )}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00466}00466\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00467}00467\ \textcolor{preprocessor}{\#define\ \_\_LL\_DAC\_DECIMAL\_NB\_TO\_CHANNEL(\_\_DECIMAL\_NB\_\_)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00468}00468\ \textcolor{preprocessor}{\ \ (((\_\_DECIMAL\_NB\_\_)\ ==\ 1UL)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00469}00469\ \textcolor{preprocessor}{\ \ \ ?\ (LL\_DAC\_CHANNEL\_1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00470}00470\ \textcolor{preprocessor}{\ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00471}00471\ \textcolor{preprocessor}{\ \ \ (0UL)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00472}00472\ \textcolor{preprocessor}{\ \ )}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00473}00473\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00486}00486\ \textcolor{preprocessor}{\#define\ \_\_LL\_DAC\_DIGITAL\_SCALE(\_\_DAC\_RESOLUTION\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00487}00487\ \textcolor{preprocessor}{\ \ ((0x00000FFFUL)\ >>\ ((\_\_DAC\_RESOLUTION\_\_)\ <<\ 1UL))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00488}00488\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00507}00507\ \textcolor{preprocessor}{\#define\ \_\_LL\_DAC\_CALC\_VOLTAGE\_TO\_DATA(\_\_VREFANALOG\_VOLTAGE\_\_,\ \_\_DAC\_VOLTAGE\_\_,\ \_\_DAC\_RESOLUTION\_\_)\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00508}00508\ \textcolor{preprocessor}{\ \ ((\_\_DAC\_VOLTAGE\_\_)\ *\ \_\_LL\_DAC\_DIGITAL\_SCALE(\_\_DAC\_RESOLUTION\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00509}00509\ \textcolor{preprocessor}{\ \ \ /\ (\_\_VREFANALOG\_VOLTAGE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00510}00510\ \textcolor{preprocessor}{\ \ )}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00511}00511\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00515}00515\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00519}00519\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00520}00520\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00521}00521\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00525}00525\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00554}00554\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_SetTriggerSource(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel,\ uint32\_t\ TriggerSource)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00555}00555\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00556}00556\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00557}00557\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf951c1a57a1a19e356df57d908f09c6c}{DAC\_CR\_TSEL1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00558}00558\ \ \ \ \ \ \ \ \ \ \ \ \ \ TriggerSource\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00559}00559\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00560}00560\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00586}00586\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_GetTriggerSource(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00587}00587\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00588}00588\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf951c1a57a1a19e356df57d908f09c6c}{DAC\_CR\_TSEL1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00589}00589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ >>\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00590}00590\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00591}00591\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00592}00592\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00611}00611\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_SetWaveAutoGeneration(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel,\ uint32\_t\ WaveAutoGeneration)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00612}00612\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00613}00613\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00614}00614\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga90491f31219d07175629eecdcdc9271e}{DAC\_CR\_WAVE1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00615}00615\ \ \ \ \ \ \ \ \ \ \ \ \ \ WaveAutoGeneration\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00616}00616\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00617}00617\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00635}00635\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_GetWaveAutoGeneration(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00636}00636\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00637}00637\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga90491f31219d07175629eecdcdc9271e}{DAC\_CR\_WAVE1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00638}00638\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ >>\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00639}00639\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00640}00640\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00641}00641\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00674}00674\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_SetWaveNoiseLFSR(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel,\ uint32\_t\ NoiseLFSRMask)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00675}00675\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00676}00676\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00677}00677\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3bcf611b2f0b975513325895bf16e085}{DAC\_CR\_MAMP1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00678}00678\ \ \ \ \ \ \ \ \ \ \ \ \ \ NoiseLFSRMask\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00679}00679\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00680}00680\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00707}00707\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_GetWaveNoiseLFSR(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00708}00708\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00709}00709\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3bcf611b2f0b975513325895bf16e085}{DAC\_CR\_MAMP1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00710}00710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ >>\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00711}00711\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00712}00712\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00713}00713\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00746}00746\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_SetWaveTriangleAmplitude(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00747}00747\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ TriangleAmplitude)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00748}00748\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00749}00749\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00750}00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3bcf611b2f0b975513325895bf16e085}{DAC\_CR\_MAMP1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00751}00751\ \ \ \ \ \ \ \ \ \ \ \ \ \ TriangleAmplitude\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00752}00752\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00753}00753\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00780}00780\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_GetWaveTriangleAmplitude(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00781}00781\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00782}00782\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3bcf611b2f0b975513325895bf16e085}{DAC\_CR\_MAMP1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00783}00783\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ >>\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00784}00784\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00785}00785\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00786}00786\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00803}00803\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_SetOutputBuffer(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel,\ uint32\_t\ OutputBuffer)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00804}00804\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00805}00805\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00806}00806\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0b1e2b83ae1ab889cb1e34a99746c9d8}{DAC\_CR\_BOFF1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00807}00807\ \ \ \ \ \ \ \ \ \ \ \ \ \ OutputBuffer\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00808}00808\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00809}00809\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00825}00825\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_GetOutputBuffer(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00826}00826\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00827}00827\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0b1e2b83ae1ab889cb1e34a99746c9d8}{DAC\_CR\_BOFF1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00828}00828\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ >>\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00829}00829\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00830}00830\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00831}00831\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00835}00835\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00839}00839\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00855}00855\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_EnableDMAReq(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00856}00856\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00857}00857\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00858}00858\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga995c19d8c8de9ee09057ec6151154e17}{DAC\_CR\_DMAEN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00859}00859\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00860}00860\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00876}00876\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_DisableDMAReq(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00877}00877\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00878}00878\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00879}00879\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga995c19d8c8de9ee09057ec6151154e17}{DAC\_CR\_DMAEN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00880}00880\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00881}00881\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00896}00896\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_IsDMAReqEnabled(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00897}00897\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00898}00898\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00899}00899\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga995c19d8c8de9ee09057ec6151154e17}{DAC\_CR\_DMAEN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00900}00900\ \ \ \ \ \ \ \ \ \ \ \ ==\ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga995c19d8c8de9ee09057ec6151154e17}{DAC\_CR\_DMAEN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK)))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00901}00901\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00902}00902\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00938}00938\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_DMA\_GetRegAddr(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel,\ uint32\_t\ Register)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00939}00939\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00940}00940\ \ \ \textcolor{comment}{/*\ Retrieve\ address\ of\ register\ DHR12Rx,\ DHR12Lx\ or\ DHR8Rx\ depending\ on\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00941}00941\ \ \ \textcolor{comment}{/*\ DAC\ channel\ selected.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00942}00942\ \ \ \textcolor{keywordflow}{return}\ ((uint32\_t)(\_\_DAC\_PTR\_REG\_OFFSET((DACx)-\/>DHR12R1,\ ((DAC\_Channel\ >>\ (Register\ \&\ 0x1FUL))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00943}00943\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\ DAC\_REG\_DHR\_REGOFFSET\_MASK\_POSBIT0))));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00944}00944\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00948}00948\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00952}00952\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00969}00969\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_Enable(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00970}00970\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00971}00971\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00972}00972\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabd8cedbb3dda03d56ac0ba92d2d9cefd}{DAC\_CR\_EN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00973}00973\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00974}00974\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00988}00988\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_Disable(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00989}00989\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00990}00990\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00991}00991\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabd8cedbb3dda03d56ac0ba92d2d9cefd}{DAC\_CR\_EN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00992}00992\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l00993}00993\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01008}01008\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_IsEnabled(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01009}01009\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01010}01010\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01011}01011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabd8cedbb3dda03d56ac0ba92d2d9cefd}{DAC\_CR\_EN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01012}01012\ \ \ \ \ \ \ \ \ \ \ \ ==\ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabd8cedbb3dda03d56ac0ba92d2d9cefd}{DAC\_CR\_EN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK)))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01013}01013\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01014}01014\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01036}01036\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_EnableTrigger(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01037}01037\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01038}01038\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01039}01039\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga998aa4fd791ea2f4626df6ddc8fc7109}{DAC\_CR\_TEN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01040}01040\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01041}01041\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01055}01055\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_DisableTrigger(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01056}01056\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01057}01057\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01058}01058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga998aa4fd791ea2f4626df6ddc8fc7109}{DAC\_CR\_TEN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01059}01059\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01060}01060\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01075}01075\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_IsTriggerEnabled(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01076}01076\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01077}01077\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01078}01078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga998aa4fd791ea2f4626df6ddc8fc7109}{DAC\_CR\_TEN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01079}01079\ \ \ \ \ \ \ \ \ \ \ \ ==\ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga998aa4fd791ea2f4626df6ddc8fc7109}{DAC\_CR\_TEN1}}\ <<\ (DAC\_Channel\ \&\ DAC\_CR\_CHX\_BITOFFSET\_MASK)))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01080}01080\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01081}01081\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01106}01106\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_TrigSWConversion(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01107}01107\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01108}01108\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_a896bbb7153af0b67ad772360feaceeb4}{SWTRIGR}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01109}01109\ \ \ \ \ \ \ \ \ \ \ (DAC\_Channel\ \&\ DAC\_SWTR\_CHX\_MASK));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01110}01110\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01111}01111\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01128}01128\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_ConvertData12RightAligned(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel,\ uint32\_t\ Data)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01129}01129\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01130}01130\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ *preg\ =\ \_\_DAC\_PTR\_REG\_OFFSET(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ac2bb55b037b800a25852736afdd7a258}{DHR12R1}},\ (DAC\_Channel\ >>\ DAC\_REG\_DHR12RX\_REGOFFSET\_BITOFFSET\_POS)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01131}01131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\ DAC\_REG\_DHR\_REGOFFSET\_MASK\_POSBIT0);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01132}01132\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01133}01133\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(*preg,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5295b5cb7f5d71ed2e8a310deb00013d}{DAC\_DHR12R1\_DACC1DHR}},\ Data);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01134}01134\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01135}01135\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01152}01152\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_ConvertData12LeftAligned(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel,\ uint32\_t\ Data)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01153}01153\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01154}01154\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ *preg\ =\ \_\_DAC\_PTR\_REG\_OFFSET(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ac2bb55b037b800a25852736afdd7a258}{DHR12R1}},\ (DAC\_Channel\ >>\ DAC\_REG\_DHR12LX\_REGOFFSET\_BITOFFSET\_POS)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01155}01155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\ DAC\_REG\_DHR\_REGOFFSET\_MASK\_POSBIT0);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01156}01156\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01157}01157\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(*preg,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0d34667f8f4b753689c8c936c28471c5}{DAC\_DHR12L1\_DACC1DHR}},\ Data);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01158}01158\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01159}01159\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01176}01176\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_ConvertData8RightAligned(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel,\ uint32\_t\ Data)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01177}01177\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01178}01178\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ *preg\ =\ \_\_DAC\_PTR\_REG\_OFFSET(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ac2bb55b037b800a25852736afdd7a258}{DHR12R1}},\ (DAC\_Channel\ >>\ DAC\_REG\_DHR8RX\_REGOFFSET\_BITOFFSET\_POS)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01179}01179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\ DAC\_REG\_DHR\_REGOFFSET\_MASK\_POSBIT0);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01180}01180\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01181}01181\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(*preg,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae1fc9f022fe4a08f67c51646177b26cb}{DAC\_DHR8R1\_DACC1DHR}},\ Data);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01182}01182\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01183}01183\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01184}01184\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01196}01196\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_ConvertDualData12RightAligned(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DataChannel1,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01197}01197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ DataChannel2)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01198}01198\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01199}01199\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_a1590b77e57f17e75193da259da72095e}{DHR12RD}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01200}01200\ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3edd68db1697af93027e05f6b764c540}{DAC\_DHR12RD\_DACC2DHR}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaca45719f3d365c9495bdcf6364ae59f8}{DAC\_DHR12RD\_DACC1DHR}}),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01201}01201\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((DataChannel2\ <<\ DAC\_DHR12RD\_DACC2DHR\_BITOFFSET\_POS)\ |\ DataChannel1));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01202}01202\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01203}01203\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01215}01215\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_ConvertDualData12LeftAligned(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DataChannel1,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01216}01216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ DataChannel2)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01217}01217\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01218}01218\ \ \ \textcolor{comment}{/*\ Note:\ Data\ of\ DAC\ channel\ 2\ shift\ value\ subtracted\ of\ 4\ because\ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01219}01219\ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ data\ on\ 16\ bits\ and\ DAC\ channel\ 2\ bits\ field\ is\ on\ the\ 12\ MSB,\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01220}01220\ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ the\ 4\ LSB\ must\ be\ taken\ into\ account\ for\ the\ shift\ value.\ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01221}01221\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_acc269320aff0a6482730224a4b641a59}{DHR12LD}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01222}01222\ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8421d613b182aab8d6c58592bcda6c17}{DAC\_DHR12LD\_DACC2DHR}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga203db656bfef6fedee17b99fb77b1bdd}{DAC\_DHR12LD\_DACC1DHR}}),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01223}01223\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((DataChannel2\ <<\ (DAC\_DHR12LD\_DACC2DHR\_BITOFFSET\_POS\ -\/\ 4U))\ |\ DataChannel1));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01224}01224\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01225}01225\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01237}01237\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_ConvertDualData8RightAligned(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DataChannel1,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01238}01238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ DataChannel2)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01239}01239\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01240}01240\ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_a9590269cba8412f1be96b0ddb846ef44}{DHR8RD}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01241}01241\ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gae31631eaac76ebecb059918c351ef3c9}{DAC\_DHR8RD\_DACC2DHR}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9aee01ad181fa5b541864ed62907d70d}{DAC\_DHR8RD\_DACC1DHR}}),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01242}01242\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((DataChannel2\ <<\ DAC\_DHR8RD\_DACC2DHR\_BITOFFSET\_POS)\ |\ DataChannel1));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01243}01243\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01244}01244\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01245}01245\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01263}01263\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_RetrieveOutputData(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01264}01264\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01265}01265\ \ \ \mbox{\hyperlink{_core_2_include_2core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ \textcolor{keyword}{const}\ *preg\ =\ \_\_DAC\_PTR\_REG\_OFFSET(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_aa710505be03a41981c35bacc7ce20746}{DOR1}},\ (DAC\_Channel\ >>\ DAC\_REG\_DORX\_REGOFFSET\_BITOFFSET\_POS)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01266}01266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\ DAC\_REG\_DORX\_REGOFFSET\_MASK\_POSBIT0);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01267}01267\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01268}01268\ \ \ \textcolor{keywordflow}{return}\ (uint16\_t)\ \mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(*preg,\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga5b4192938e039dc25a7df8fcc5f3932a}{DAC\_DOR1\_DACC1DOR}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01269}01269\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01270}01270\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01274}01274\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01278}01278\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01285}01285\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_IsActiveFlag\_DMAUDR1(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01286}01286\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01287}01287\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_af6aca2bbd40c0fb6df7c3aebe224a360}{SR}},\ LL\_DAC\_FLAG\_DMAUDR1)\ ==\ (LL\_DAC\_FLAG\_DMAUDR1))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01288}01288\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01289}01289\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01290}01290\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01297}01297\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_IsActiveFlag\_DMAUDR2(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01298}01298\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01299}01299\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_af6aca2bbd40c0fb6df7c3aebe224a360}{SR}},\ LL\_DAC\_FLAG\_DMAUDR2)\ ==\ (LL\_DAC\_FLAG\_DMAUDR2))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01300}01300\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01301}01301\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01302}01302\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01309}01309\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_ClearFlag\_DMAUDR1(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01310}01310\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01311}01311\ \ \ \mbox{\hyperlink{group___exported__macro_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_af6aca2bbd40c0fb6df7c3aebe224a360}{SR}},\ LL\_DAC\_FLAG\_DMAUDR1);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01312}01312\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01313}01313\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01314}01314\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01321}01321\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_ClearFlag\_DMAUDR2(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01322}01322\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01323}01323\ \ \ \mbox{\hyperlink{group___exported__macro_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_af6aca2bbd40c0fb6df7c3aebe224a360}{SR}},\ LL\_DAC\_FLAG\_DMAUDR2);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01324}01324\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01325}01325\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01326}01326\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01330}01330\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01334}01334\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01341}01341\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_EnableIT\_DMAUDR1(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01342}01342\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01343}01343\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ LL\_DAC\_IT\_DMAUDRIE1);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01344}01344\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01345}01345\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01346}01346\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01353}01353\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_EnableIT\_DMAUDR2(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01354}01354\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01355}01355\ \ \ \mbox{\hyperlink{group___exported__macro_ga26474f43799fbade9cf300e21dd3a91a}{SET\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ LL\_DAC\_IT\_DMAUDRIE2);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01356}01356\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01357}01357\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01358}01358\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01365}01365\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_DisableIT\_DMAUDR1(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01366}01366\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01367}01367\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ LL\_DAC\_IT\_DMAUDRIE1);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01368}01368\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01369}01369\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01370}01370\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01377}01377\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ \textcolor{keywordtype}{void}\ LL\_DAC\_DisableIT\_DMAUDR2(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01378}01378\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01379}01379\ \ \ \mbox{\hyperlink{group___exported__macro_ga133aae6fc0d41bffab39ab223a7001de}{CLEAR\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ LL\_DAC\_IT\_DMAUDRIE2);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01380}01380\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01381}01381\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01382}01382\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01389}01389\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_IsEnabledIT\_DMAUDR1(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01390}01390\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01391}01391\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ LL\_DAC\_IT\_DMAUDRIE1)\ ==\ (LL\_DAC\_IT\_DMAUDRIE1))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01392}01392\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01393}01393\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01394}01394\ \textcolor{preprocessor}{\#if\ defined(DAC\_CHANNEL2\_SUPPORT)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01401}01401\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ uint32\_t\ LL\_DAC\_IsEnabledIT\_DMAUDR2(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01402}01402\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01403}01403\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{group___exported__macro_ga822bb1bb9710d5f2fa6396b84e583c33}{READ\_BIT}}(DACx-\/>\mbox{\hyperlink{struct_d_a_c___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}},\ LL\_DAC\_IT\_DMAUDRIE2)\ ==\ (LL\_DAC\_IT\_DMAUDRIE2))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01404}01404\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01405}01405\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\_CHANNEL2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01406}01406\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01410}01410\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01411}01411\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01415}01415\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01416}01416\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_DAC\_DeInit(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01417}01417\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_DAC\_Init(\mbox{\hyperlink{struct_d_a_c___type_def}{DAC\_TypeDef}}\ *DACx,\ uint32\_t\ DAC\_Channel,\ \textcolor{keyword}{const}\ LL\_DAC\_InitTypeDef\ *DAC\_InitStruct);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01418}01418\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ LL\_DAC\_StructInit(LL\_DAC\_InitTypeDef\ *DAC\_InitStruct);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01419}01419\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01423}01423\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_FULL\_LL\_DRIVER\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01424}01424\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01428}01428\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01432}01432\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01433}01433\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DAC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01434}01434\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01438}01438\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01439}01439\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01440}01440\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01441}01441\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01442}01442\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__dac_8h_source_l01443}01443\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F4xx\_LL\_DAC\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

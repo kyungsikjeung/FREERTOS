@@ -1,0 +1,9 @@
+<map id="arm_nn_vec_mat_mult_t_s16" name="arm_nn_vec_mat_mult_t_s16">
+<area shape="rect" id="Node000001" title="s16 Vector by Matrix (transposed) multiplication" alt="" coords="5,48,159,91"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a61b23642ffa771bbe7da998f98e3f75e" title=" " alt="" coords="246,5,327,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,48,230,30,231,35,160,53"/>
+<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#afdda94a339b76615d3161e9fc63f4d21" title="Read 2 q15 elements and post increment pointer." alt="" coords="209,56,364,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,67,193,67,193,72,159,72"/>
+<area shape="rect" id="Node000004" href="$arm__nnsupportfunctions_8h.html#aa03e369b608572b80a4e56e8298a21c0" title="Requantize a given 64 bit value." alt="" coords="207,107,366,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,86,216,100,214,105,158,91"/>
+</map>

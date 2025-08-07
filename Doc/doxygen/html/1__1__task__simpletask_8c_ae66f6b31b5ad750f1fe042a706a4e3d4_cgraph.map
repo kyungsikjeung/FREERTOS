@@ -1,0 +1,60 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,385,55,412"/>
+<area shape="rect" id="Node000002" href="$driver_8init_8c.html#aab7f079e70f08c868bbb3fdd41b86f82" title="Custom driver initialization entry point." alt="" coords="133,259,214,285"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="45,383,144,294,148,298,48,387"/>
+<area shape="rect" id="Node000019" href="$1__1__task__simpletask_8c.html#ae031f9522193b635e247546783e425b1" title=" " alt="" coords="143,360,205,387"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="55,392,127,379,128,384,56,397"/>
+<area shape="rect" id="Node000022" href="$1__1__task__simpletask_8c.html#a53b9022dc1224da2008cfcd96d57b134" title=" " alt="" coords="143,411,205,437"/>
+<area shape="poly" id="edge22_Node000001_Node000022" title=" " alt="" coords="56,400,128,413,127,418,55,406"/>
+<area shape="rect" id="Node000023" href="$tasks_8c.html#a598661cdd2a6af95a077245d11e3d142" title=" " alt="" coords="103,487,245,513"/>
+<area shape="poly" id="edge25_Node000001_Node000023" title=" " alt="" coords="52,410,143,475,140,480,49,414"/>
+<area shape="rect" id="Node000003" href="$group___h_a_l___exported___functions___group2.html#gab1dc1e6b438daacfe38a312a90221330" title="This function provides minimum delay (in milliseconds) based on variable incremented." alt="" coords="354,145,442,172"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="201,256,355,177,357,182,204,260"/>
+<area shape="rect" id="Node000005" href="$group___h_a_l___exported___functions___group1.html#gaecac54d350c3730e6831eb404e557dc4" title="This function is used to initialize the HAL Library; it must be the first instruction to be executed ..." alt="" coords="362,233,434,260"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="214,265,346,250,346,255,215,270"/>
+<area shape="rect" id="Node000015" href="$driver_8init_8c.html#a70af21c671abfcc773614a9a4f63d920" title="시스템 클럭 설정" alt="" coords="325,309,470,336"/>
+<area shape="poly" id="edge15_Node000002_Node000015" title=" " alt="" coords="215,278,321,303,320,308,214,284"/>
+<area shape="rect" id="Node000004" href="$group___h_a_l___exported___functions___group2.html#gac9b3a85a73735ac840d0dcb59bc0fdd6" title="Provides a tick value in millisecond." alt="" coords="604,107,704,133"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="442,149,588,127,589,132,442,155"/>
+<area shape="rect" id="Node000006" href="$stm32f4xx__hal__timebase__tim_8c.html#ga879cdb21ef051eb81ec51c18147397d5" title="This function configures the TIM1 as a time base source. The time source is configured to have 1ms ti..." alt="" coords="605,157,703,184"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="433,231,550,193,590,183,591,188,551,199,435,237"/>
+<area shape="rect" id="Node000013" href="$stm32f4xx__hal__msp_8c.html#gae4fb8e66865c87d0ebab74a726a6891f" title="Initialize the MSP." alt="" coords="605,259,703,285"/>
+<area shape="poly" id="edge12_Node000005_Node000013" title=" " alt="" coords="435,248,590,263,589,268,434,253"/>
+<area shape="rect" id="Node000014" href="$group___c_o_r_t_e_x___exported___functions___group1.html#gad9be53e08b1498adea006e5e037f238f" title=" " alt="" coords="550,208,758,235"/>
+<area shape="poly" id="edge14_Node000005_Node000014" title=" " alt="" coords="434,240,535,230,535,236,435,246"/>
+<area shape="rect" id="Node000007" href="$group___c_o_r_t_e_x___exported___functions___group1.html#gaaad4492c1b25e006d69948a15790352a" title=" " alt="" coords="819,157,977,184"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="703,168,803,168,803,173,703,173"/>
+<area shape="rect" id="Node000008" href="$group___c_o_r_t_e_x___exported___functions___group1.html#ga8581a82025a4780efd00876a66e3e91b" title=" " alt="" coords="820,259,976,285"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="704,174,732,182,759,194,775,206,784,220,793,232,807,244,818,250,815,255,804,249,789,236,780,223,771,210,756,198,730,187,703,179"/>
+<area shape="rect" id="Node000009" href="$group___r_c_c___exported___functions___group2.html#gabc95375dfca279d88b9ded9d063d2323" title=" " alt="" coords="806,208,990,235"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="704,178,816,202,815,207,702,183"/>
+<area shape="rect" id="Node000010" href="$group___r_c_c___exported___functions___group2.html#gabbd5f8933a5ee05e4b3384e33026aca1" title=" " alt="" coords="808,5,988,32"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="702,165,731,157,756,143,767,132,774,120,779,94,785,68,792,55,804,42,809,38,813,42,807,46,796,58,790,70,784,95,779,122,771,135,759,147,733,162,704,170"/>
+<area shape="rect" id="Node000011" href="$group___t_i_m___exported___functions___group1.html#ga1b288eb68eb52c97b8d187cdd6e9088f" title=" " alt="" coords="828,56,968,83"/>
+<area shape="poly" id="edge10_Node000006_Node000011" title=" " alt="" coords="703,162,730,155,756,143,771,131,780,119,789,105,804,92,815,87,818,91,807,97,793,109,784,122,775,135,759,148,732,160,704,167"/>
+<area shape="rect" id="Node000012" href="$group___t_i_m___exported___functions___group1.html#gae517d80e2ac713069767df8e8915971e" title=" " alt="" coords="814,107,982,133"/>
+<area shape="poly" id="edge11_Node000006_Node000012" title=" " alt="" coords="702,158,815,134,816,140,704,163"/>
+<area shape="poly" id="edge13_Node000013_Node000008" title=" " alt="" coords="703,269,804,269,804,275,703,275"/>
+<area shape="rect" id="Node000016" href="$driver_8init_8c.html#a1730ffe1e560465665eb47d9264826f9" title=" " alt="" coords="603,411,705,437"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="472,332,504,346,519,358,529,372,537,385,552,396,589,412,587,417,549,401,533,388,524,375,515,362,501,350,470,337"/>
+<area shape="rect" id="Node000017" href="$group___r_c_c___exported___functions___group1.html#gadb770505476995fc13c2ca7290d9c484" title=" " alt="" coords="572,309,736,336"/>
+<area shape="poly" id="edge17_Node000015_Node000017" title=" " alt="" coords="471,320,557,320,557,325,471,325"/>
+<area shape="rect" id="Node000018" href="$group___r_c_c___exported___functions___group1.html#gaaf070da42c717e9d2d79e858b647b782" title=" " alt="" coords="577,360,731,387"/>
+<area shape="poly" id="edge18_Node000015_Node000018" title=" " alt="" coords="470,334,569,354,567,359,468,339"/>
+<area shape="rect" id="Node000020" href="$group___g_p_i_o___exported___functions___group2.html#gaf5e0c89f752de5cdedcc30db068133f6" title=" " alt="" coords="322,360,473,387"/>
+<area shape="poly" id="edge20_Node000019_Node000020" title=" " alt="" coords="205,371,307,371,307,376,205,376"/>
+<area shape="rect" id="Node000021" href="$task_8h.html#aa154068cecd7f31446a7a84af44ab1a3" title=" " alt="" coords="352,411,443,437"/>
+<area shape="poly" id="edge21_Node000019_Node000021" title=" " alt="" coords="206,378,338,408,337,413,205,383"/>
+<area shape="poly" id="edge23_Node000022_Node000020" title=" " alt="" coords="205,414,320,388,321,393,206,420"/>
+<area shape="poly" id="edge24_Node000022_Node000021" title=" " alt="" coords="205,421,337,421,337,427,205,427"/>
+<area shape="rect" id="Node000024" href="$freertos_8c.html#a1988aa923b19fa6f31c93afa7773f793" title=" " alt="" coords="293,461,502,488"/>
+<area shape="poly" id="edge26_Node000023_Node000024" title=" " alt="" coords="245,489,277,486,278,491,245,495"/>
+<area shape="rect" id="Node000025" href="$port_8c.html#ade5a8c6666e7413a0355cc252029c5c6" title=" " alt="" coords="328,512,467,539"/>
+<area shape="poly" id="edge27_Node000023_Node000025" title=" " alt="" coords="245,505,313,513,312,518,245,511"/>
+<area shape="rect" id="Node000028" href="$timers_8h.html#af777ab3e9ac04abd5dd21be739fa1321" title=" " alt="" coords="317,563,478,589"/>
+<area shape="poly" id="edge30_Node000023_Node000028" title=" " alt="" coords="205,511,294,548,319,556,317,561,292,553,203,516"/>
+<area shape="rect" id="Node000026" href="$port_8c.html#a4649001ea4d29b80759e6eca4bba58eb" title=" " alt="" coords="570,537,738,564"/>
+<area shape="poly" id="edge28_Node000025_Node000026" title=" " alt="" coords="468,530,555,538,554,544,467,535"/>
+<area shape="rect" id="Node000027" href="$tasks_8c.html#a9c86137bc3c1cbffc39fff22627cb885" title=" " alt="" coords="583,487,725,513"/>
+<area shape="poly" id="edge29_Node000025_Node000027" title=" " alt="" coords="467,516,567,506,568,511,468,521"/>
+</map>

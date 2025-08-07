@@ -1,0 +1,144 @@
+\doxysubsubsection{RTC Private Constants }
+\hypertarget{group___r_t_c___private___constants}{}\label{group___r_t_c___private___constants}\index{RTC Private Constants@{RTC Private Constants}}
+Collaboration diagram for RTC Private Constants\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{group___r_t_c___private___constants}
+\end{center}
+\end{figure}
+\doxysubsubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___r_t_c___private___constants_gacc08d7d212e235f4b04bb88f5567fa54}{RTC\+\_\+\+TR\+\_\+\+RESERVED\+\_\+\+MASK}}
+\item 
+\#define \mbox{\hyperlink{group___r_t_c___private___constants_ga16855eaae542f992c93170492822d058}{RTC\+\_\+\+DR\+\_\+\+RESERVED\+\_\+\+MASK}}
+\item 
+\#define \mbox{\hyperlink{group___r_t_c___private___constants_ga4002e7c9ac606add39898d9146ff6fa8}{RTC\+\_\+\+ISR\+\_\+\+RESERVED\+\_\+\+MASK}}~((uint32\+\_\+t)(\mbox{\hyperlink{group___r_t_c___private___constants_ga0c7513e50528d7b5a52e88340a4e7b25}{RTC\+\_\+\+FLAGS\+\_\+\+MASK}} \texorpdfstring{$\vert$}{|} \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae0eb2f998cd3e7325974347cb2a3d25a}{RTC\+\_\+\+ISR\+\_\+\+INIT}}))
+\item 
+\#define \mbox{\hyperlink{group___r_t_c___private___constants_ga0dbaf639bc171f2055c9055d538f13df}{RTC\+\_\+\+INIT\+\_\+\+MASK}}~0x\+FFFFFFFFU
+\item 
+\#define \mbox{\hyperlink{group___r_t_c___private___constants_ga3a1033490aaf8304e1522d551bd1a7b9}{RTC\+\_\+\+RSF\+\_\+\+MASK}}~((uint32\+\_\+t)\texorpdfstring{$\sim$}{\string~}(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gae0eb2f998cd3e7325974347cb2a3d25a}{RTC\+\_\+\+ISR\+\_\+\+INIT}} \texorpdfstring{$\vert$}{|} \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9bd683e789841f7d3f138709ffdbfbf8}{RTC\+\_\+\+ISR\+\_\+\+RSF}}))
+\item 
+\#define \mbox{\hyperlink{group___r_t_c___private___constants_ga0c7513e50528d7b5a52e88340a4e7b25}{RTC\+\_\+\+FLAGS\+\_\+\+MASK}}
+\item 
+\#define \mbox{\hyperlink{group___r_t_c___private___constants_gaca17c243759056a49a411f6324dd6123}{RTC\+\_\+\+TIMEOUT\+\_\+\+VALUE}}~1000U
+\item 
+\#define \mbox{\hyperlink{group___r_t_c___private___constants_gaeffe9b89372b06df1c0eff2f4346682b}{RTC\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+ALARM\+\_\+\+EVENT}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4489fa85d1552b8f40faed93483a5d35}{EXTI\+\_\+\+IMR\+\_\+\+MR17}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Detailed Description}
+
+
+\label{doc-define-members}
+\Hypertarget{group___r_t_c___private___constants_doc-define-members}
+\doxysubsubsubsection{Macro Definition Documentation}
+\Hypertarget{group___r_t_c___private___constants_ga16855eaae542f992c93170492822d058}\index{RTC Private Constants@{RTC Private Constants}!RTC\_DR\_RESERVED\_MASK@{RTC\_DR\_RESERVED\_MASK}}
+\index{RTC\_DR\_RESERVED\_MASK@{RTC\_DR\_RESERVED\_MASK}!RTC Private Constants@{RTC Private Constants}}
+\doxysubsubsubsubsection{\texorpdfstring{RTC\_DR\_RESERVED\_MASK}{RTC\_DR\_RESERVED\_MASK}}
+{\footnotesize\ttfamily \label{group___r_t_c___private___constants_ga16855eaae542f992c93170492822d058} 
+\#define RTC\+\_\+\+DR\+\_\+\+RESERVED\+\_\+\+MASK}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga14d55b6d841825ec65736e08c09b1d83}{RTC\_DR\_YT}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gafd1bdc8fad3fdeb14058c9158f39ae9e}{RTC\_DR\_YU}}\ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga26f0d3ce1c6c6785bd8fbae556f68b31}{RTC\_DR\_MT}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac9221f60ccf3581f3c543fdedddf4372}{RTC\_DR\_MU}}\ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga52e40cec8161ee20176d92d547fef350}{RTC\_DR\_DT}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaba04cbc99cf442c7e6155bef625c5663}{RTC\_DR\_DU}}\ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6f46c349f75a31973e094729fe96543f}{RTC\_DR\_WDU}}))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00777}{777}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{group___r_t_c___private___constants_gaeffe9b89372b06df1c0eff2f4346682b}\index{RTC Private Constants@{RTC Private Constants}!RTC\_EXTI\_LINE\_ALARM\_EVENT@{RTC\_EXTI\_LINE\_ALARM\_EVENT}}
+\index{RTC\_EXTI\_LINE\_ALARM\_EVENT@{RTC\_EXTI\_LINE\_ALARM\_EVENT}!RTC Private Constants@{RTC Private Constants}}
+\doxysubsubsubsubsection{\texorpdfstring{RTC\_EXTI\_LINE\_ALARM\_EVENT}{RTC\_EXTI\_LINE\_ALARM\_EVENT}}
+{\footnotesize\ttfamily \label{group___r_t_c___private___constants_gaeffe9b89372b06df1c0eff2f4346682b} 
+\#define RTC\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+ALARM\+\_\+\+EVENT~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4489fa85d1552b8f40faed93483a5d35}{EXTI\+\_\+\+IMR\+\_\+\+MR17}}}
+
+External interrupt line 17 connected to the RTC Alarm event 
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00794}{794}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{group___r_t_c___private___constants_ga0c7513e50528d7b5a52e88340a4e7b25}\index{RTC Private Constants@{RTC Private Constants}!RTC\_FLAGS\_MASK@{RTC\_FLAGS\_MASK}}
+\index{RTC\_FLAGS\_MASK@{RTC\_FLAGS\_MASK}!RTC Private Constants@{RTC Private Constants}}
+\doxysubsubsubsubsection{\texorpdfstring{RTC\_FLAGS\_MASK}{RTC\_FLAGS\_MASK}}
+{\footnotesize\ttfamily \label{group___r_t_c___private___constants_ga0c7513e50528d7b5a52e88340a4e7b25} 
+\#define RTC\+\_\+\+FLAGS\+\_\+\+MASK}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\mbox{\hyperlink{group___r_t_c___flags___definitions_ga8d973d7f6b07e80743e05d6822ff2147}{RTC\_FLAG\_INITF}}\ \ \ |\ \mbox{\hyperlink{group___r_t_c___flags___definitions_gae6a2d26d4b10670f6506b14971f52fd2}{RTC\_FLAG\_INITS}}\ \ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___r_t_c___flags___definitions_gaf9e1a4b5eedd674d7b35ae334877ba12}{RTC\_FLAG\_ALRAF}}\ \ \ |\ \mbox{\hyperlink{group___r_t_c___flags___definitions_gaf4913efa96d03ded991b1cdddd6b7823}{RTC\_FLAG\_ALRAWF}}\ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___r_t_c___flags___definitions_gabb7bd65e83b346f42e28091ef1e643f5}{RTC\_FLAG\_ALRBF}}\ \ \ |\ \mbox{\hyperlink{group___r_t_c___flags___definitions_gae9dd4b5b8059937c3422bc1e3eae3ced}{RTC\_FLAG\_ALRBWF}}\ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___r_t_c___flags___definitions_gafcadab331b0193e82c7f6b037044f194}{RTC\_FLAG\_WUTF}}\ \ \ \ |\ \mbox{\hyperlink{group___r_t_c___flags___definitions_ga24648116b32442d30da74c497e2e88ae}{RTC\_FLAG\_WUTWF}}\ \ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___r_t_c___flags___definitions_ga01cba90a7ca51a928f72d28b6fe0d2ac}{RTC\_FLAG\_RECALPF}}\ |\ \mbox{\hyperlink{group___r_t_c___flags___definitions_ga8fd11878d6285ab5d35966d598d5e6f9}{RTC\_FLAG\_SHPF}}\ \ \ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___r_t_c___flags___definitions_ga9b9ac7de7718bfe0ff77e1fd1193744b}{RTC\_FLAG\_TSF}}\ \ \ \ \ |\ \mbox{\hyperlink{group___r_t_c___flags___definitions_ga74656ea8ff41be61a3734dc27367e039}{RTC\_FLAG\_TSOVF}}\ \ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___r_t_c___flags___definitions_ga78c4245996bef8d5f39226b6e37ed9c0}{RTC\_FLAG\_RSF}}\ \ \ \ \ |\ \mbox{\hyperlink{group___r_t_c_ex___private___constants_ga2456340b3ee0ad3fae07075530742960}{RTC\_TAMPER\_FLAGS\_MASK}}))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00784}{784}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{group___r_t_c___private___constants_ga0dbaf639bc171f2055c9055d538f13df}\index{RTC Private Constants@{RTC Private Constants}!RTC\_INIT\_MASK@{RTC\_INIT\_MASK}}
+\index{RTC\_INIT\_MASK@{RTC\_INIT\_MASK}!RTC Private Constants@{RTC Private Constants}}
+\doxysubsubsubsubsection{\texorpdfstring{RTC\_INIT\_MASK}{RTC\_INIT\_MASK}}
+{\footnotesize\ttfamily \label{group___r_t_c___private___constants_ga0dbaf639bc171f2055c9055d538f13df} 
+\#define RTC\+\_\+\+INIT\+\_\+\+MASK~0x\+FFFFFFFFU}
+
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00782}{782}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{group___r_t_c___private___constants_ga4002e7c9ac606add39898d9146ff6fa8}\index{RTC Private Constants@{RTC Private Constants}!RTC\_ISR\_RESERVED\_MASK@{RTC\_ISR\_RESERVED\_MASK}}
+\index{RTC\_ISR\_RESERVED\_MASK@{RTC\_ISR\_RESERVED\_MASK}!RTC Private Constants@{RTC Private Constants}}
+\doxysubsubsubsubsection{\texorpdfstring{RTC\_ISR\_RESERVED\_MASK}{RTC\_ISR\_RESERVED\_MASK}}
+{\footnotesize\ttfamily \label{group___r_t_c___private___constants_ga4002e7c9ac606add39898d9146ff6fa8} 
+\#define RTC\+\_\+\+ISR\+\_\+\+RESERVED\+\_\+\+MASK~((uint32\+\_\+t)(\mbox{\hyperlink{group___r_t_c___private___constants_ga0c7513e50528d7b5a52e88340a4e7b25}{RTC\+\_\+\+FLAGS\+\_\+\+MASK}} \texorpdfstring{$\vert$}{|} \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae0eb2f998cd3e7325974347cb2a3d25a}{RTC\+\_\+\+ISR\+\_\+\+INIT}}))}
+
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00781}{781}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{group___r_t_c___private___constants_ga3a1033490aaf8304e1522d551bd1a7b9}\index{RTC Private Constants@{RTC Private Constants}!RTC\_RSF\_MASK@{RTC\_RSF\_MASK}}
+\index{RTC\_RSF\_MASK@{RTC\_RSF\_MASK}!RTC Private Constants@{RTC Private Constants}}
+\doxysubsubsubsubsection{\texorpdfstring{RTC\_RSF\_MASK}{RTC\_RSF\_MASK}}
+{\footnotesize\ttfamily \label{group___r_t_c___private___constants_ga3a1033490aaf8304e1522d551bd1a7b9} 
+\#define RTC\+\_\+\+RSF\+\_\+\+MASK~((uint32\+\_\+t)\texorpdfstring{$\sim$}{\string~}(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gae0eb2f998cd3e7325974347cb2a3d25a}{RTC\+\_\+\+ISR\+\_\+\+INIT}} \texorpdfstring{$\vert$}{|} \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9bd683e789841f7d3f138709ffdbfbf8}{RTC\+\_\+\+ISR\+\_\+\+RSF}}))}
+
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00783}{783}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{group___r_t_c___private___constants_gaca17c243759056a49a411f6324dd6123}\index{RTC Private Constants@{RTC Private Constants}!RTC\_TIMEOUT\_VALUE@{RTC\_TIMEOUT\_VALUE}}
+\index{RTC\_TIMEOUT\_VALUE@{RTC\_TIMEOUT\_VALUE}!RTC Private Constants@{RTC Private Constants}}
+\doxysubsubsubsubsection{\texorpdfstring{RTC\_TIMEOUT\_VALUE}{RTC\_TIMEOUT\_VALUE}}
+{\footnotesize\ttfamily \label{group___r_t_c___private___constants_gaca17c243759056a49a411f6324dd6123} 
+\#define RTC\+\_\+\+TIMEOUT\+\_\+\+VALUE~1000U}
+
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00792}{792}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+
+\Hypertarget{group___r_t_c___private___constants_gacc08d7d212e235f4b04bb88f5567fa54}\index{RTC Private Constants@{RTC Private Constants}!RTC\_TR\_RESERVED\_MASK@{RTC\_TR\_RESERVED\_MASK}}
+\index{RTC\_TR\_RESERVED\_MASK@{RTC\_TR\_RESERVED\_MASK}!RTC Private Constants@{RTC Private Constants}}
+\doxysubsubsubsubsection{\texorpdfstring{RTC\_TR\_RESERVED\_MASK}{RTC\_TR\_RESERVED\_MASK}}
+{\footnotesize\ttfamily \label{group___r_t_c___private___constants_gacc08d7d212e235f4b04bb88f5567fa54} 
+\#define RTC\+\_\+\+TR\+\_\+\+RESERVED\+\_\+\+MASK}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint32\_t)(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad42435e015e9f5052245c366ae08d655}{RTC\_TR\_HT}}\ \ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8211df481853649722383e0d8fb06d5}{RTC\_TR\_HU}}\ \ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga64cf91576871a8108d6ee2f48970bb4a}{RTC\_TR\_MNT}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga84e86f4fc04232fd0294966434708e06}{RTC\_TR\_MNU}}\ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaae39b22025a36d1e4e185e4be2bf326f}{RTC\_TR\_ST}}\ \ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga747711823db36121b78c0eebb6140ca1}{RTC\_TR\_SU}}\ \ |\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3152952ac385ee1ce8dd868978d3fce9}{RTC\_TR\_PM}}))}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source_l00773}{773}} of file \mbox{\hyperlink{stm32f4xx__hal__rtc_8h_source}{stm32f4xx\+\_\+hal\+\_\+rtc.\+h}}.
+

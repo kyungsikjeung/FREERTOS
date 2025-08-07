@@ -1,0 +1,19 @@
+<map id="arm_convolve_HWC_q7_fast_nonsquare" name="arm_convolve_HWC_q7_fast_nonsquare">
+<area shape="rect" id="Node000001" title="Fast Q7 convolution function (non&#45;sqaure shape)" alt="" coords="5,77,169,120"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a61b23642ffa771bbe7da998f98e3f75e" title=" " alt="" coords="473,5,554,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,74,166,52,216,33,280,21,345,14,457,13,457,18,345,20,281,26,217,39,168,57,125,79"/>
+<area shape="rect" id="Node000003" href="$arm__nn__mat__mult__kernel__q7__q15__reordered_8c.html#ab5f83b3cde0b227506aefa0cf8cd1aa6" title="Matrix&#45;multiplication function for convolution with reordered columns." alt="" coords="219,48,386,91"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="168,85,203,80,203,85,169,90"/>
+<area shape="rect" id="Node000004" href="$arm__nnsupportfunctions_8h.html#afdda94a339b76615d3161e9fc63f4d21" title="Read 2 q15 elements and post increment pointer." alt="" coords="436,64,591,91"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="169,102,274,105,388,100,441,92,442,97,388,105,274,110,169,107"/>
+<area shape="rect" id="Node000005" href="$group__nndata__convert.html#gaba8fd446d5f54760b406ee63b25d1aee" title="Converts the elements of the q7 vector to reordered q15 vector without left&#45;shift." alt="" coords="217,165,388,208"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="142,118,235,157,233,162,140,123"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="386,47,458,29,459,34,387,52"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="386,70,420,71,420,76,386,75"/>
+<area shape="rect" id="Node000006" href="$_core___a_2_include_2cmsis__gcc_8h.html#a0eeab076e5b40fce9536bdc30e85864f" title=" " alt="" coords="472,123,556,149"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="388,163,456,147,457,152,389,169"/>
+<area shape="rect" id="Node000007" href="$arm__nnsupportfunctions_8h.html#ac9f7be20432a6926ac07c1f44b1b02fe" title="Read 4 q7 from q7 pointer and post increment pointer." alt="" coords="440,173,588,200"/>
+<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="389,184,424,184,424,189,389,189"/>
+<area shape="rect" id="Node000008" href="$arm__nnsupportfunctions_8h.html#a17553765eecd852dc2f9663575f2a91d" title="Write four q7 to q7 pointer and increment pointer afterwards." alt="" coords="438,224,589,251"/>
+<area shape="poly" id="edge9_Node000005_Node000008" title=" " alt="" coords="389,205,441,217,439,222,388,210"/>
+</map>

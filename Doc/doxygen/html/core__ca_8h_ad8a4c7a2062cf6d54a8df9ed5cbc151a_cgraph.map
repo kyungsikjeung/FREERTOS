@@ -1,0 +1,21 @@
+<map id="L1C_CleanInvalidateDCacheAll" name="L1C_CleanInvalidateDCacheAll">
+<area shape="rect" id="Node000001" title="Clean and invalidate the whole data cache." alt="" coords="5,107,211,133"/>
+<area shape="rect" id="Node000002" href="$core__ca_8h.html#a2ec275f3c88f170b776f6595af090f64" title="Clean and Invalidate the entire data or unified cache Generic mechanism for cleaning/invalidating the..." alt="" coords="259,107,439,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,117,243,117,243,123,211,123"/>
+<area shape="rect" id="Node000003" href="$cmsis__cp15_8h.html#abad99510b8a79835d5c9769c6e0a177b" title="Get CLIDR." alt="" coords="541,81,642,108"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="439,108,525,99,526,104,440,113"/>
+<area shape="rect" id="Node000004" href="$core__ca_8h.html#a5ace5c651cf18aaa7659e1fbe6e77988" title="Apply cache maintenance to given cache level." alt="" coords="487,132,696,159"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="440,127,472,130,471,135,439,132"/>
+<area shape="rect" id="Node000005" href="$cmsis__cp15_8h.html#ace5e469919d7708bf00391a7bf425869" title="Get CCSIDR." alt="" coords="746,5,859,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="674,129,695,118,711,101,719,82,726,62,742,42,747,38,751,42,746,46,731,65,724,84,716,103,698,122,676,134"/>
+<area shape="rect" id="Node000006" href="$core__ca_8h.html#a35988a42567ca868bffd0b6171021ecb" title="Calculate log2 rounded up." alt="" coords="762,56,843,83"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="660,129,695,118,719,106,743,92,754,87,757,92,746,97,722,110,697,122,661,134"/>
+<area shape="rect" id="Node000007" href="$cmsis__cp15_8h.html#a14db4d16b3fc39943a94ef9fce2e4f16" title="Set CSSELR." alt="" coords="745,107,860,133"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="696,130,730,126,730,131,697,135"/>
+<area shape="rect" id="Node000008" href="$cmsis__cp15_8h.html#a40f09b50f1a4565adcae6825ad989f10" title="Set DCCISW." alt="" coords="744,157,861,184"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="697,155,729,159,729,165,696,161"/>
+<area shape="rect" id="Node000009" href="$cmsis__cp15_8h.html#a6c4b49c4e9366c823f6ee909cf446483" title="Set DCCSW." alt="" coords="746,208,859,235"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="632,157,749,200,748,205,630,162"/>
+<area shape="rect" id="Node000010" href="$cmsis__cp15_8h.html#ab1f9c335fd63529d9385f83b8d6cb43e" title="Set DCISW." alt="" coords="749,259,856,285"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="613,157,671,198,746,244,755,249,753,254,743,249,668,203,610,161"/>
+</map>

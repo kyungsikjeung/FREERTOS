@@ -1,0 +1,134 @@
+\chapter{🧵 Free\+RTOS 태스크 우선순위 변경 예제 (changepriority.\+c) }
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y}{}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y}\index{🧵 FreeRTOS 태스크 우선순위 변경 예제 (changepriority.c)@{🧵 FreeRTOS 태스크 우선순위 변경 예제 (changepriority.c)}}
+\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md25}%
+\Hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md25}%
+
+
+이 예제는 Free\+RTOS 환경에서 두 개의 태스크 간 우선순위를 동적으로 변경하며 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}컨텍스트 스위칭\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}이 어떻게 발생하는지를 보여줍니다.
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md27}{}\doxysection{\texorpdfstring{1.목적 (Objective)}{1.목적 (Objective)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md27}
+
+\begin{DoxyItemize}
+\item 태스크의 우선순위를 {\bfseries{동적으로 변경\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}하는 방법을 이해한다.}}
+\item {\bfseries{우선순위 변경에 따라 발생하는 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}선점(Context Switching)}} 동작을 확인한다.
+\item {\ttfamily \doxylink{task_8h_a1ee31be76e326e0644dbd6ac40a787b6}{v\+Task\+Priority\+Set()}}과 {\ttfamily \doxylink{task_8h_a18d1148c845f5c4bff3b9e5b2077e058}{ux\+Task\+Priority\+Get()}}의 사용법을 실습한다.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md29}{}\doxysection{\texorpdfstring{2.시스템 구성}{2.시스템 구성}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md29}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 항목  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 항목  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endhead
+{\bfseries{Task1}}  &Task2의 우선순위를 높임  \\\cline{1-2}
+{\bfseries{Task2}}  &자신의 우선순위를 낮춤  \\\cline{1-2}
+{\bfseries{UART 로그}}  &한글로 우선순위 변경 내역 출력  \\\cline{1-2}
+{\bfseries{우선순위}}  &초기\+: Task1(2), Task2(1)  \\\cline{1-2}
+\end{longtabu}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md31}{}\doxysection{\texorpdfstring{3.동작 시나리오}{3.동작 시나리오}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md31}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Task1\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}이 실행되고, Task2의 우선순위를 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Task1 + 1\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}로 올림}}
+\item {\bfseries{Task2가 선점되어 실행됨}}
+\item {\bfseries{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Task2\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}는 자신의 우선순위를 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}-\/2}} 하여 다시 Task1보다 낮춤
+\item 다시 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Task1\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}이 실행됨 → 반복
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md33}{}\doxysection{\texorpdfstring{4.주요 함수}{4.주요 함수}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md33}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 함수  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 함수  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endhead
+{\ttfamily ux\+Task\+Priority\+Get(\+NULL)}  &현재 태스크의 우선순위 반환  \\\cline{1-2}
+{\ttfamily \doxylink{task_8h_a1ee31be76e326e0644dbd6ac40a787b6}{v\+Task\+Priority\+Set()}}  &태스크 우선순위를 동적으로 설정  \\\cline{1-2}
+{\ttfamily x\+Task\+Create()}  &태스크 생성  \\\cline{1-2}
+{\ttfamily \doxylink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{v\+Task\+Start\+Scheduler()}}  &Free\+RTOS 스케줄러 시작  \\\cline{1-2}
+\end{longtabu}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md35}{}\doxysection{\texorpdfstring{5.\+UART 출력 예시}{5.\+UART 출력 예시}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md35}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Task2\ 생성\ 성공}
+\DoxyCodeLine{Task1:\ Task2의\ 우선순위를\ 높입니다.}
+\DoxyCodeLine{Task2:\ 자신의\ 우선순위를\ 다시\ 낮춥니다.}
+\DoxyCodeLine{Task1:\ Task2의\ 우선순위를\ 높입니다.}
+\DoxyCodeLine{Task2:\ 자신의\ 우선순위를\ 다시\ 낮춥니다.}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md36}{}\doxysection{\texorpdfstring{6.코드 요약}{6.코드 요약}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md36}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{1__2__task__roundrobin_8c_a902a64ca782182bd7360b69639f74063}{Task1}}(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}}\ uxPriority\ =\ \mbox{\hyperlink{task_8h_a18d1148c845f5c4bff3b9e5b2077e058}{uxTaskPriorityGet}}(NULL);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (;;)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\_UART\_Transmit}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}},\ (uint8\_t\ *)\textcolor{stringliteral}{"{}Task1:\ Task2의\ 우선순위를\ 높입니다.\(\backslash\)r\(\backslash\)n"{}},\ ...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{task_8h_a1ee31be76e326e0644dbd6ac40a787b6}{vTaskPrioritySet}}(\mbox{\hyperlink{1__3__task__changepriority_8c_ac0e3c886f6822ea1c9b4adede92c98e8}{xTask2Handle}},\ uxPriority\ +\ 1);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{1__2__task__roundrobin_8c_af01c7f41ef35453d7c0e896db918be88}{Task2}}(\textcolor{keywordtype}{void}\ *pvParameters)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{portmacro_8h_a646f89d4298e4f5afd522202b11cb2e6}{UBaseType\_t}}\ uxPriority\ =\ \mbox{\hyperlink{task_8h_a18d1148c845f5c4bff3b9e5b2077e058}{uxTaskPriorityGet}}(NULL);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (;;)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\_UART\_Transmit}}(\&\mbox{\hyperlink{driver__init_8h_ab7c63c1b0f65db92b6a4ea19edf957e1}{huart3}},\ (uint8\_t\ *)\textcolor{stringliteral}{"{}Task2:\ 자신의\ 우선순위를\ 다시\ 낮춥니다.\(\backslash\)r\(\backslash\)n"{}},\ ...);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{task_8h_a1ee31be76e326e0644dbd6ac40a787b6}{vTaskPrioritySet}}(NULL,\ uxPriority\ -\/\ 2);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md37}{}\doxysection{\texorpdfstring{7. 시퀀스 다이어그램}{7. 시퀀스 다이어그램}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md37}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@startuml}
+\DoxyCodeLine{autonumber}
+\DoxyCodeLine{}
+\DoxyCodeLine{actor\ Scheduler}
+\DoxyCodeLine{participant\ "{}Task1"{}\ as\ T1}
+\DoxyCodeLine{participant\ "{}Task2"{}\ as\ T2}
+\DoxyCodeLine{}
+\DoxyCodeLine{==\ 초기\ 실행\ ==}
+\DoxyCodeLine{Scheduler\ -\/>\ T1:\ 실행\ 시작\ (우선순위\ 2)}
+\DoxyCodeLine{T1\ -\/>\ T2:\ vTaskPrioritySet(Task2,\ 3)}
+\DoxyCodeLine{}
+\DoxyCodeLine{==\ 컨텍스트\ 스위칭\ ==}
+\DoxyCodeLine{Scheduler\ -\/>\ T2:\ 선점\ (우선순위\ 3)}
+\DoxyCodeLine{T2\ -\/>\ T2:\ vTaskPrioritySet(Task2,\ 1)}
+\DoxyCodeLine{}
+\DoxyCodeLine{==\ 다시\ 전환\ ==}
+\DoxyCodeLine{Scheduler\ -\/>\ T1:\ 우선순위\ 높아\ 다시\ 실행}
+\DoxyCodeLine{T1\ -\/>\ T2:\ vTaskPrioritySet(Task2,\ 3)}
+\DoxyCodeLine{}
+\DoxyCodeLine{loop\ 반복}
+\DoxyCodeLine{\ \ \ \ Scheduler\ -\/>\ T2:\ 선점}
+\DoxyCodeLine{\ \ \ \ T2\ -\/>\ T2:\ 우선순위\ 낮춤}
+\DoxyCodeLine{\ \ \ \ Scheduler\ -\/>\ T1:\ 전환}
+\DoxyCodeLine{\ \ \ \ T1\ -\/>\ T2:\ 우선순위\ 높임}
+\DoxyCodeLine{end}
+\DoxyCodeLine{}
+\DoxyCodeLine{@enduml}
+
+\end{DoxyCode}
+ 💡 위 다이어그램은 Plant\+UML 뷰어나 VS Code 플러그인 등을 통해 시각화할 수 있습니다.\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md38}{}\doxysection{\texorpdfstring{8.결론}{8.결론}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_21__3___t_a_s_k___c_h_a_n_g_e_p_r_i_o_r_i_t_y_autotoc_md38}
+우선순위가 높은 태스크는 낮은 태스크를 즉시 선점한다.
+
+우선순위를 동적으로 설정하면 실시간 제어 흐름을 유연하게 조절할 수 있다.
+
+\doxylink{task_8h_a1ee31be76e326e0644dbd6ac40a787b6}{v\+Task\+Priority\+Set()}은 타 태스크 또는 자신에게도 적용할 수 있다 (NULL 사용 시 자기 자신). 

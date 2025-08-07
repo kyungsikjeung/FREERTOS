@@ -1,0 +1,19 @@
+<map id="ADC Exported Constants" name="ADC Exported Constants">
+<area shape="rect" id="Node000002" href="$group___a_d_c.html" title="ADC driver modules." alt="" coords="5,392,56,419"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="104,392,274,419"/>
+<area shape="rect" id="Node000004" href="$group___a_d_c___clock_prescaler.html" title=" " alt="" coords="332,5,480,32"/>
+<area shape="rect" id="Node000009" href="$group___a_d_c___data__align.html" title=" " alt="" coords="349,56,463,83"/>
+<area shape="rect" id="Node000012" href="$group___a_d_c___e_o_c_selection.html" title=" " alt="" coords="336,107,477,133"/>
+<area shape="rect" id="Node000003" href="$group___a_d_c___error___code.html" title=" " alt="" coords="348,157,465,184"/>
+<area shape="rect" id="Node000013" href="$group___a_d_c___event__type.html" title=" " alt="" coords="346,208,466,235"/>
+<area shape="rect" id="Node000008" href="$group___a_d_c___external__trigger___source___regular.html" title=" " alt="" coords="334,259,479,301"/>
+<area shape="rect" id="Node000007" href="$group___a_d_c___external__trigger__edge___regular.html" title=" " alt="" coords="334,325,479,368"/>
+<area shape="rect" id="Node000006" href="$group___a_d_c___resolution.html" title=" " alt="" coords="348,392,464,419"/>
+<area shape="rect" id="Node000014" href="$group___a_d_c__analog__watchdog__selection.html" title=" " alt="" coords="328,443,484,485"/>
+<area shape="rect" id="Node000010" href="$group___a_d_c__channels.html" title=" " alt="" coords="323,509,489,536"/>
+<area shape="rect" id="Node000017" href="$group___a_d_c__channels__type.html" title=" " alt="" coords="336,560,476,587"/>
+<area shape="rect" id="Node000005" href="$group___a_d_c__delay__between__2__sampling__phases.html" title=" " alt="" coords="329,611,483,653"/>
+<area shape="rect" id="Node000016" href="$group___a_d_c__flags__definition.html" title=" " alt="" coords="334,677,479,704"/>
+<area shape="rect" id="Node000015" href="$group___a_d_c__interrupts__definition.html" title=" " alt="" coords="322,728,490,755"/>
+<area shape="rect" id="Node000011" href="$group___a_d_c__sampling__times.html" title=" " alt="" coords="332,779,480,805"/>
+</map>

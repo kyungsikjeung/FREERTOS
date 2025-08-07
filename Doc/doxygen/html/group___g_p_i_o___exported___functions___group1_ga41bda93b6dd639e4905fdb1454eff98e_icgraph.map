@@ -1,0 +1,9 @@
+<map id="HAL_GPIO_Init" name="HAL_GPIO_Init">
+<area shape="rect" id="Node000001" title=" " alt="" coords="194,56,306,83"/>
+<area shape="rect" id="Node000002" href="$stm32f4xx__hal__msp_8c.html#a1ffa1e1337d6e52a3b175144a4505ea7" title="ETH MSP Initialization This function configures the hardware resources used in this example." alt="" coords="10,5,141,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="186,54,123,35,125,30,187,48"/>
+<area shape="rect" id="Node000003" href="$stm32f4xx__hal__msp_8c.html#a73af972b44ba2890202363cd8b197dad" title="PCD MSP Initialization This function configures the hardware resources used in this example." alt="" coords="9,56,142,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,72,143,72,143,67,178,67"/>
+<area shape="rect" id="Node000004" href="$group___u_a_r_t___exported___functions___group1.html#ga0e553b32211877322f949b14801bbfa7" title="UART MSP Initialization This function configures the hardware resources used in this example." alt="" coords="5,107,146,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="187,90,125,109,123,104,186,85"/>
+</map>

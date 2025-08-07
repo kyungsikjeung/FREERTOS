@@ -1,0 +1,194 @@
+\doxysection{arm\+\_\+matrix\+\_\+example\+\_\+f32.\+c}
+\hypertarget{arm__matrix__example__f32_8c_source}{}\label{arm__matrix__example__f32_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_matrix\_example/arm\_matrix\_example\_f32.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_matrix\_example/arm\_matrix\_example\_f32.c}}
+\mbox{\hyperlink{arm__matrix__example__f32_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00001}00001\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00002}00002\ \textcolor{comment}{*\ Copyright\ (C)\ 2010-\/2012\ ARM\ Limited.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00003}00003\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00004}00004\ \textcolor{comment}{*\ \$Date:\ \ \ \ \ \ \ \ \ 17.\ January\ 2013}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00005}00005\ \textcolor{comment}{*\ \$Revision:\ \ \ \ \ V1.4.0}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00006}00006\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00007}00007\ \textcolor{comment}{*\ Project:\ \ \ \ \ \ \ CMSIS\ DSP\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00008}00008\ \textcolor{comment}{*\ Title:\ \ \ \ \ \ \ \ \ arm\_matrix\_example\_f32.c}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00009}00009\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00010}00010\ \textcolor{comment}{*\ Description:\ \ \ Example\ code\ demonstrating\ least\ square\ fit\ to\ data}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00011}00011\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ using\ matrix\ functions}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00012}00012\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00013}00013\ \textcolor{comment}{*\ Target\ Processor:\ Cortex-\/M4/Cortex-\/M3}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00014}00014\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00015}00015\ \textcolor{comment}{*\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00016}00016\ \textcolor{comment}{*\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00017}00017\ \textcolor{comment}{*\ are\ met:}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00018}00018\ \textcolor{comment}{*\ \ \ -\/\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00019}00019\ \textcolor{comment}{*\ \ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00020}00020\ \textcolor{comment}{*\ \ \ -\/\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00021}00021\ \textcolor{comment}{*\ \ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00022}00022\ \textcolor{comment}{*\ \ \ \ \ the\ documentation\ and/or\ other\ materials\ provided\ with\ the}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00023}00023\ \textcolor{comment}{*\ \ \ \ \ distribution.}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00024}00024\ \textcolor{comment}{*\ \ \ -\/\ Neither\ the\ name\ of\ ARM\ LIMITED\ nor\ the\ names\ of\ its\ contributors}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00025}00025\ \textcolor{comment}{*\ \ \ \ \ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived\ from\ this}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00026}00026\ \textcolor{comment}{*\ \ \ \ \ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00029}00029\ \textcolor{comment}{*\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00030}00030\ \textcolor{comment}{*\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00031}00031\ \textcolor{comment}{*\ FOR\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00032}00032\ \textcolor{comment}{*\ COPYRIGHT\ OWNER\ OR\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00033}00033\ \textcolor{comment}{*\ INCIDENTAL,\ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00034}00034\ \textcolor{comment}{*\ BUT\ NOT\ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00035}00035\ \textcolor{comment}{*\ LOSS\ OF\ USE,\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00036}00036\ \textcolor{comment}{*\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00037}00037\ \textcolor{comment}{*\ LIABILITY,\ OR\ TORT\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00039}00039\ \textcolor{comment}{*\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00040}00040\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00092}00092\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__math_8h}{arm\_math.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00093}00093\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__matrix__example_2math__helper_8h}{math\_helper.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00095}00095\ \textcolor{preprocessor}{\#if\ defined(SEMIHOSTING)}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00096}00096\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00097}00097\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00099}\mbox{\hyperlink{arm__matrix__example__f32_8c_af08ec3fef897d77c6817638bf0e0c5c6}{00099}}\ \textcolor{preprocessor}{\#define\ SNR\_THRESHOLD\ \ \ 90}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00101}00101\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00102}00102\ \textcolor{comment}{*\ Test\ input\ data(Cycles)\ taken\ from\ FIR\ Q15\ module\ for\ differant\ cases\ of\ blockSize}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00103}00103\ \textcolor{comment}{*\ and\ tapSize}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00104}00104\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00106}\mbox{\hyperlink{arm__matrix__example__f32_8c_a974d5f0aace6a99e29ca767907fb3b9f}{00106}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a974d5f0aace6a99e29ca767907fb3b9f}{B\_f32}}[4]\ =}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00107}00107\ \{}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00108}00108\ \ \ 782.0,\ 7577.0,\ 470.0,\ 4505.0}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00109}00109\ \};}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00111}00111\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00112}00112\ \textcolor{comment}{*\ Formula\ to\ fit\ is\ \ C1\ +\ C2\ *\ numTaps\ +\ C3\ *\ blockSize\ +\ C4\ *\ numTaps\ *\ blockSize}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00113}00113\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00115}\mbox{\hyperlink{arm__matrix__example__f32_8c_aed27b92d9847194d9dcce40cecf2b48a}{00115}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__matrix__example__f32_8c_aed27b92d9847194d9dcce40cecf2b48a}{A\_f32}}[16]\ =}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00116}00116\ \{}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00117}00117\ \ \ \textcolor{comment}{/*\ Const,\ \ \ numTaps,\ \ \ blockSize,\ \ \ numTaps*blockSize\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00118}00118\ \ \ 1.0,\ \ \ \ \ 32.0,\ \ \ \ \ \ 4.0,\ \ \ \ \ 128.0,}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00119}00119\ \ \ 1.0,\ \ \ \ \ 32.0,\ \ \ \ \ 64.0,\ \ \ \ 2048.0,}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00120}00120\ \ \ 1.0,\ \ \ \ \ 16.0,\ \ \ \ \ \ 4.0,\ \ \ \ \ \ 64.0,}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00121}00121\ \ \ 1.0,\ \ \ \ \ 16.0,\ \ \ \ \ 64.0,\ \ \ \ 1024.0,}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00122}00122\ \};}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00125}00125\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00126}00126\ \textcolor{comment}{*\ Temporary\ buffers\ \ for\ storing\ intermediate\ values}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00127}00127\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00128}00128\ \textcolor{comment}{/*\ Transpose\ of\ A\ Buffer\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00129}\mbox{\hyperlink{arm__matrix__example__f32_8c_a46dc2aa6dfc692af7b4a1379d7329ccd}{00129}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a46dc2aa6dfc692af7b4a1379d7329ccd}{AT\_f32}}[16];}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00130}00130\ \textcolor{comment}{/*\ (Transpose\ of\ A\ *\ A)\ Buffer\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00131}\mbox{\hyperlink{arm__matrix__example__f32_8c_a867497c6bf86014513bf2ad3551aa896}{00131}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a867497c6bf86014513bf2ad3551aa896}{ATMA\_f32}}[16];}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00132}00132\ \textcolor{comment}{/*\ Inverse(Transpose\ of\ A\ *\ A)\ \ Buffer\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00133}\mbox{\hyperlink{arm__matrix__example__f32_8c_a44425c149c52b326a3b7a77676686f00}{00133}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a44425c149c52b326a3b7a77676686f00}{ATMAI\_f32}}[16];}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00134}00134\ \textcolor{comment}{/*\ Test\ Output\ Buffer\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00135}\mbox{\hyperlink{arm__matrix__example__f32_8c_a98c67c0fc0cb5f2df51b21482d31d21c}{00135}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a98c67c0fc0cb5f2df51b21482d31d21c}{X\_f32}}[4];}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00137}00137\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00138}00138\ \textcolor{comment}{*\ Reference\ ouput\ buffer\ C1,\ C2,\ C3\ and\ C4\ taken\ from\ MATLAB}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00139}00139\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00140}\mbox{\hyperlink{arm__matrix__example__f32_8c_a6184758419722fa16bb883097c2f596b}{00140}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a6184758419722fa16bb883097c2f596b}{xRef\_f32}}[4]\ =\ \{73.0,\ 8.0,\ 21.25,\ 2.875\};}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00142}\mbox{\hyperlink{arm__matrix__example__f32_8c_af06013f588a7003278de222913c9d819}{00142}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__convolution__example__f32_8c_af06013f588a7003278de222913c9d819}{snr}};}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00145}00145\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00146}00146\ \textcolor{comment}{*\ Max\ magnitude\ FFT\ Bin\ test}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00147}00147\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00149}\mbox{\hyperlink{arm__matrix__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}{00149}}\ int32\_t\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00150}00150\ \{}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00152}00152\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ A;\ \ \ \ \ \ \textcolor{comment}{/*\ Matrix\ A\ Instance\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00153}00153\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ AT;\ \ \ \ \ \textcolor{comment}{/*\ Matrix\ AT(A\ transpose)\ instance\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00154}00154\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ ATMA;\ \ \ \textcolor{comment}{/*\ Matrix\ ATMA(\ AT\ multiply\ with\ A)\ instance\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00155}00155\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ ATMAI;\ \ \textcolor{comment}{/*\ Matrix\ ATMAI(Inverse\ of\ ATMA)\ instance\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00156}00156\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ B;\ \ \ \ \ \ \textcolor{comment}{/*\ Matrix\ B\ instance\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00157}00157\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ X;\ \ \ \ \ \ \textcolor{comment}{/*\ Matrix\ X(Unknown\ Matrix)\ instance\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00159}00159\ \ \ uint32\_t\ srcRows,\ srcColumns;\ \ \textcolor{comment}{/*\ Temporary\ variables\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00160}00160\ \ \ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00162}00162\ \ \ \textcolor{comment}{/*\ Initialise\ A\ Matrix\ Instance\ with\ numRows,\ numCols\ and\ data\ array(A\_f32)\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00163}00163\ \ \ srcRows\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00164}00164\ \ \ srcColumns\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00165}00165\ \ \ \mbox{\hyperlink{group___matrix_init_ga11e3dc41592a6401c13182fef9416a27}{arm\_mat\_init\_f32}}(\&A,\ srcRows,\ srcColumns,\ (\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ *)\mbox{\hyperlink{arm__matrix__example__f32_8c_aed27b92d9847194d9dcce40cecf2b48a}{A\_f32}});}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00167}00167\ \ \ \textcolor{comment}{/*\ Initialise\ Matrix\ Instance\ AT\ with\ numRows,\ numCols\ and\ data\ array(AT\_f32)\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00168}00168\ \ \ srcRows\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00169}00169\ \ \ srcColumns\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00170}00170\ \ \ \mbox{\hyperlink{group___matrix_init_ga11e3dc41592a6401c13182fef9416a27}{arm\_mat\_init\_f32}}(\&AT,\ srcRows,\ srcColumns,\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a46dc2aa6dfc692af7b4a1379d7329ccd}{AT\_f32}});}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00172}00172\ \ \ \textcolor{comment}{/*\ calculation\ of\ A\ transpose\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00173}00173\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___matrix_trans_gad7dd9f108429da13d3864696ceeec789}{arm\_mat\_trans\_f32}}(\&A,\ \&AT);}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00176}00176\ \ \ \textcolor{comment}{/*\ Initialise\ ATMA\ Matrix\ Instance\ with\ numRows,\ numCols\ and\ data\ array(ATMA\_f32)\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00177}00177\ \ \ srcRows\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00178}00178\ \ \ srcColumns\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00179}00179\ \ \ \mbox{\hyperlink{group___matrix_init_ga11e3dc41592a6401c13182fef9416a27}{arm\_mat\_init\_f32}}(\&ATMA,\ srcRows,\ srcColumns,\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a867497c6bf86014513bf2ad3551aa896}{ATMA\_f32}});}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00181}00181\ \ \ \textcolor{comment}{/*\ calculation\ of\ AT\ Multiply\ with\ A\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00182}00182\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___matrix_mult_ga917bf0270310c1d3f0eda1fc7c0026a0}{arm\_mat\_mult\_f32}}(\&AT,\ \&A,\ \&ATMA);}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00184}00184\ \ \ \textcolor{comment}{/*\ Initialise\ ATMAI\ Matrix\ Instance\ with\ numRows,\ numCols\ and\ data\ array(ATMAI\_f32)\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00185}00185\ \ \ srcRows\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00186}00186\ \ \ srcColumns\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00187}00187\ \ \ \mbox{\hyperlink{group___matrix_init_ga11e3dc41592a6401c13182fef9416a27}{arm\_mat\_init\_f32}}(\&ATMAI,\ srcRows,\ srcColumns,\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a44425c149c52b326a3b7a77676686f00}{ATMAI\_f32}});}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00189}00189\ \ \ \textcolor{comment}{/*\ calculation\ of\ Inverse((Transpose(A)\ *\ A)\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00190}00190\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___matrix_inv_ga542be7aabbf7a2297a4b62cf212910e3}{arm\_mat\_inverse\_f32}}(\&ATMA,\ \&ATMAI);}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00192}00192\ \ \ \textcolor{comment}{/*\ calculation\ of\ (Inverse((Transpose(A)\ *\ A))\ *\ \ Transpose(A))\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00193}00193\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___matrix_mult_ga917bf0270310c1d3f0eda1fc7c0026a0}{arm\_mat\_mult\_f32}}(\&ATMAI,\ \&AT,\ \&ATMA);}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00195}00195\ \ \ \textcolor{comment}{/*\ Initialise\ B\ Matrix\ Instance\ with\ numRows,\ numCols\ and\ data\ array(B\_f32)\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00196}00196\ \ \ srcRows\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00197}00197\ \ \ srcColumns\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00198}00198\ \ \ \mbox{\hyperlink{group___matrix_init_ga11e3dc41592a6401c13182fef9416a27}{arm\_mat\_init\_f32}}(\&B,\ srcRows,\ srcColumns,\ (\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ *)\mbox{\hyperlink{arm__matrix__example__f32_8c_a974d5f0aace6a99e29ca767907fb3b9f}{B\_f32}});}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00200}00200\ \ \ \textcolor{comment}{/*\ Initialise\ X\ Matrix\ Instance\ with\ numRows,\ numCols\ and\ data\ array(X\_f32)\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00201}00201\ \ \ srcRows\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00202}00202\ \ \ srcColumns\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00203}00203\ \ \ \mbox{\hyperlink{group___matrix_init_ga11e3dc41592a6401c13182fef9416a27}{arm\_mat\_init\_f32}}(\&X,\ srcRows,\ srcColumns,\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a98c67c0fc0cb5f2df51b21482d31d21c}{X\_f32}});}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00205}00205\ \ \ \textcolor{comment}{/*\ calculation\ ((Inverse((Transpose(A)\ *\ A))\ *\ \ Transpose(A))\ *\ B)\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00206}00206\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___matrix_mult_ga917bf0270310c1d3f0eda1fc7c0026a0}{arm\_mat\_mult\_f32}}(\&ATMA,\ \&B,\ \&X);}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00208}00208\ \ \ \textcolor{comment}{/*\ Comparison\ of\ reference\ with\ test\ output\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00209}00209\ \ \ \mbox{\hyperlink{arm__convolution__example__f32_8c_af06013f588a7003278de222913c9d819}{snr}}\ =\ \mbox{\hyperlink{arm__convolution__example_2math__helper_8c_aeea2952e70a1040a6efa555564bbeeab}{arm\_snr\_f32}}((\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ *)\mbox{\hyperlink{arm__matrix__example__f32_8c_a6184758419722fa16bb883097c2f596b}{xRef\_f32}},\ \mbox{\hyperlink{arm__matrix__example__f32_8c_a98c67c0fc0cb5f2df51b21482d31d21c}{X\_f32}},\ 4);}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00211}00211\ \ \ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00212}00212\ \textcolor{comment}{\ \ *\ \ \ \ \ \ \ \ \ \ \ \ Initialise\ status\ depending\ on\ SNR\ calculations}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00213}00213\ \textcolor{comment}{\ \ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00214}00214\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ (\mbox{\hyperlink{arm__convolution__example__f32_8c_af06013f588a7003278de222913c9d819}{snr}}\ <\ \mbox{\hyperlink{arm__convolution__example__f32_8c_af08ec3fef897d77c6817638bf0e0c5c6}{SNR\_THRESHOLD}})\ ?\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a09457f2be656b35015fd6d36202fa376}{ARM\_MATH\_TEST\_FAILURE}}\ :\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a9f8b2a10bd827fb4600e77d455902eb0}{ARM\_MATH\_SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00215}00215\ \ \ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00216}00216\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ !=\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a9f8b2a10bd827fb4600e77d455902eb0}{ARM\_MATH\_SUCCESS}})}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00217}00217\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00218}00218\ \textcolor{preprocessor}{\#if\ defined\ (SEMIHOSTING)}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00219}00219\ \ \ \ \ printf(\textcolor{stringliteral}{"{}FAILURE\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00220}00220\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{while}\ (1);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ main\ function\ does\ not\ return\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00222}00222\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00223}00223\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00224}00224\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00225}00225\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00226}00226\ \textcolor{preprocessor}{\#if\ defined\ (SEMIHOSTING)}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00227}00227\ \ \ \ \ printf(\textcolor{stringliteral}{"{}SUCCESS\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00228}00228\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00229}00229\ \ \ \ \ \textcolor{keywordflow}{while}\ (1);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ main\ function\ does\ not\ return\ */}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00230}00230\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00231}00231\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00233}00233\ \}}
+\DoxyCodeLine{\Hypertarget{arm__matrix__example__f32_8c_source_l00234}00234\ }
+
+\end{DoxyCode}

@@ -1,0 +1,5 @@
+<map id="HAL_RCC_GetPCLK1Freq" name="HAL_RCC_GetPCLK1Freq">
+<area shape="rect" id="Node000001" title=" " alt="" coords="151,5,331,32"/>
+<area shape="rect" id="Node000002" href="$group___h_a_l___time_base___t_i_m.html#ga879cdb21ef051eb81ec51c18147397d5" title="This function configures the TIM6 as a time base source. The time source is configured to have 1ms ti..." alt="" coords="5,5,103,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,21,103,21,103,16,135,16"/>
+</map>

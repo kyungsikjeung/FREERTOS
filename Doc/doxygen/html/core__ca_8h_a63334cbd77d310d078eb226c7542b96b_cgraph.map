@@ -1,0 +1,7 @@
+<map id="MMU_Enable" name="MMU_Enable">
+<area shape="rect" id="Node000001" title="Enable MMU." alt="" coords="5,31,106,57"/>
+<area shape="rect" id="Node000002" href="$cmsis__cp15_8h.html#aac39aa8fb2af1b18e51b391e87f30f30" title="Get SCTLR." alt="" coords="154,5,258,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,33,138,27,138,33,106,38"/>
+<area shape="rect" id="Node000003" href="$cmsis__cp15_8h.html#a0db9cfa3b54a4d28d3d3a4e6cfd564c9" title="Set SCTLR." alt="" coords="154,56,258,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="106,50,138,55,138,61,106,55"/>
+</map>

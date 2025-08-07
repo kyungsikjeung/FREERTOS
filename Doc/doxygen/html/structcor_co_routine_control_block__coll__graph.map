@@ -1,0 +1,12 @@
+<map id="corCoRoutineControlBlock" name="corCoRoutineControlBlock">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,189,171,323"/>
+<area shape="rect" id="Node000002" href="$structx_l_i_s_t___i_t_e_m.html" title=" " alt="" coords="226,5,315,96"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,58,192,64,154,75,119,94,91,122,80,146,76,173,71,172,75,144,87,118,116,90,152,70,190,59,226,52"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="316,31,334,36,340,42,342,51,339,60,333,66,330,62,335,57,337,51,335,45,331,40,314,36"/>
+<area shape="rect" id="Node000003" href="$structx_l_i_s_t.html" title=" " alt="" coords="304,395,435,464"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="253,97,236,145,224,203,222,264,228,293,238,321,262,355,293,383,290,387,258,359,233,324,222,295,217,264,219,202,231,143,248,95"/>
+<area shape="rect" id="Node000004" href="$structx_m_i_n_i___l_i_s_t___i_t_e_m.html" title=" " alt="" coords="309,221,430,291"/>
+<area shape="poly" id="edge6_Node000004_Node000002" title=" " alt="" coords="295,95,348,205,343,207,290,97"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="421,393,439,369,456,322,458,282,451,241,439,190,429,152,421,138,408,122,371,94,330,73,332,69,374,89,411,118,426,135,434,150,444,189,456,240,464,282,461,323,444,372,425,396"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="372,291,372,377,367,377,367,291"/>
+</map>

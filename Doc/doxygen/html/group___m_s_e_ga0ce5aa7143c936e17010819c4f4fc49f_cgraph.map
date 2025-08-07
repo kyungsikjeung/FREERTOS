@@ -1,0 +1,5 @@
+<map id="arm_mse_q31" name="arm_mse_q31">
+<area shape="rect" id="Node000001" title="Mean square error between two Q31 vectors." alt="" coords="5,5,109,32"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a11e5ff95c57c57fe6ec151d7efc42a28" title=" " alt="" coords="157,5,230,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,16,141,16,141,21,109,21"/>
+</map>

@@ -1,0 +1,132 @@
+\chapter{🧵 Free\+RTOS -\/ Binary Semaphore를 이용한 인터럽트 연동 예제 }
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e}{}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e}\index{🧵 FreeRTOS -\/ Binary Semaphore를 이용한 인터럽트 연동 예제@{🧵 FreeRTOS -\/ Binary Semaphore를 이용한 인터럽트 연동 예제}}
+\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md115}%
+\Hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md115}%
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md116}{}\doxysection{\texorpdfstring{1. 목적 (Objective)}{1. 목적 (Objective)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md116}
+{\ttfamily 외부 인터럽트(\+EXTI)} 발생한 이벤트를 ~\newline
+ {\ttfamily Free\+RTOS의 Binary Semaphore}를 사용하여 Task에서 안전하게 처리하는 구조 테스트
+
+
+\begin{DoxyItemize}
+\item ISR(인터럽트 서비스 루틴)은 빠르게 끝내고, ~\newline
+ 
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md117}{}\doxysection{\texorpdfstring{-\/ 실제 처리는 Task에서 하도록 분리하여 {\bfseries{실시간성과 안정성}} 확보}{-\/ 실제 처리는 Task에서 하도록 분리하여 {\bfseries{실시간성과 안정성}} 확보}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md117}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md118}{}\doxysection{\texorpdfstring{2. 시스템 구성}{2. 시스템 구성}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md118}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 구성 요소  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 구성 요소  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endhead
+{\ttfamily EXTI15\+\_\+10\+\_\+\+IRQHandler}  &USER 버튼 눌림 감지 시 Binary Semaphore를 Give  \\\cline{1-2}
+{\ttfamily Event\+Process\+Task}  &세마포어를 Take하고 버튼 이벤트에 대응 ({\ttfamily printf})  \\\cline{1-2}
+{\ttfamily bin\+Sem}  &Binary Semaphore 핸들 (최대 1, 초기 0)  \\\cline{1-2}
+\end{longtabu}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md120}{}\doxysection{\texorpdfstring{3. 동작 시나리오}{3. 동작 시나리오}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md120}
+
+\begin{DoxyItemize}
+\item {\bfseries{사용자 버튼 누름}} → {\ttfamily \doxylink{4__1__semaphore__binarysemaphore_8c_a738473a5b43f6c92b80ce1d3d6f77ed9}{EXTI15\+\_\+10\+\_\+\+IRQHandler()}} 인터럽트 발생 ~\newline
+
+\item ISR은 {\ttfamily \doxylink{semphr_8h_a68aa43df8b2a0dbe17d05fad74670ef0}{x\+Semaphore\+Give\+From\+ISR()}}를 통해 시그널만 전달 ~\newline
+
+\item Task는 {\ttfamily \doxylink{semphr_8h_af116e436d2a5ae5bd72dbade2b5ea930}{x\+Semaphore\+Take()}}로 이벤트를 감지하고 {\bfseries{비동기 처리}} ~\newline
+
+\item UART 출력 등 느린 작업은 Task에서 실행하여 시스템 응답성 확보
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md122}{}\doxysection{\texorpdfstring{4. 왜 인터럽트 안에서 오래 처리하면 안 될까?}{4. 왜 인터럽트 안에서 오래 처리하면 안 될까?}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md122}
+🛑 위험한 상황들
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 문제 항목  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 문제 항목  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 설명  }\\\cline{1-2}
+\endhead
+{\bfseries{다른 인터럽트 지연}}  &현재 ISR이 실행 중이면 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}우선순위가 낮은 다른 인터럽트가 BLOCK\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}됨  \\\cline{1-2}
+{\bfseries{컨텍스트 전환 방해}}  &Free\+RTOS 스케줄러가 Task로 빠르게 전환 못함 → {\bfseries{Task 응답성 저하}}  \\\cline{1-2}
+{\bfseries{버그와 예외 위험}}  &ISR에서 {\ttfamily printf}, {\ttfamily malloc}, {\ttfamily HAL\+\_\+\+Delay} 등 사용 시 {\bfseries{예측 불가 동작}} 발생  \\\cline{1-2}
+{\bfseries{우선순위 역전 악화}}  &빠르게 끝내야 할 ISR이 오래 머물면 전체 시스템 응답 시간이 증가  \\\cline{1-2}
+\end{longtabu}
+
+
+✅ 따라서 {\bfseries{ISR에서는 오직 “시그널 전달만”}}, 실 처리는 Task로 미루는 것이 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}가장 안정적이고 확장 가능한 설계 패턴\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}입니다. \texorpdfstring{$>$}{>}여기서 세마포어는… \hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md123}{}\doxysection{\texorpdfstring{\texorpdfstring{$>$}{>}ISR과 Task 사이에서 안전하게 이벤트를 전달하는 매개체입니다.}{\texorpdfstring{$>$}{>}ISR과 Task 사이에서 안전하게 이벤트를 전달하는 매개체입니다.}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md123}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md124}{}\doxysection{\texorpdfstring{6. 주요 API 설명}{6. 주요 API 설명}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md124}
+
+\begin{DoxyItemize}
+\item {\ttfamily x\+Semaphore\+Create\+Binary()} \+: Binary 세마포어 생성
+\item {\ttfamily \doxylink{semphr_8h_a68aa43df8b2a0dbe17d05fad74670ef0}{x\+Semaphore\+Give\+From\+ISR()}} \+: ISR 내에서 시그널 발생
+\item {\ttfamily \doxylink{semphr_8h_af116e436d2a5ae5bd72dbade2b5ea930}{x\+Semaphore\+Take()}} \+: Task 내에서 시그널 수신
+\item {\ttfamily \doxylink{portmacro_8h_aac6850c66595efdc02a8bbb95fb4648e}{port\+YIELD\+\_\+\+FROM\+\_\+\+ISR(pd\+TRUE)}} \+: 우선순위 높은 Task로 빠른 전환 요청
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md126}{}\doxysection{\texorpdfstring{7. 출력 예시 (UART 로그)}{7. 출력 예시 (UART 로그)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md126}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Button\ Pressed!}
+
+\end{DoxyCode}
+ 버튼을 누를 때마다 로그 출력\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md127}{}\doxysection{\texorpdfstring{8. 시퀀스 다이어그램}{8. 시퀀스 다이어그램}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_24__1___s_e_m_a_p_h_o_r_e___b_i_n_a_r_y_s_e_m_a_p_h_o_r_e_autotoc_md127}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@startuml}
+\DoxyCodeLine{title\ 인터럽트\ -\/\ Binary\ Semaphore\ -\/\ Task\ 동기화\ 흐름}
+\DoxyCodeLine{}
+\DoxyCodeLine{participant\ "{}Button"{}\ as\ BTN}
+\DoxyCodeLine{participant\ "{}EXTI\ IRQ\ (ISR)"{}\ as\ ISR}
+\DoxyCodeLine{participant\ "{}Binary\ Semaphore"{}\ as\ SEM}
+\DoxyCodeLine{participant\ "{}EventProcessTask"{}\ as\ TASK}
+\DoxyCodeLine{}
+\DoxyCodeLine{BTN\ -\/>\ ISR\ :\ 버튼\ 누름\ (INT\ 발생)}
+\DoxyCodeLine{activate\ ISR}
+\DoxyCodeLine{ISR\ -\/>\ SEM\ :\ xSemaphoreGiveFromISR()}
+\DoxyCodeLine{note\ right\ of\ ISR\ :\ ISR는\ 빠르게\ 종료되어야\ 함}
+\DoxyCodeLine{ISR\ -\/>\ Scheduler\ :\ portYIELD\_FROM\_ISR(pdTRUE)}
+\DoxyCodeLine{deactivate\ ISR}
+\DoxyCodeLine{}
+\DoxyCodeLine{loop\ Task\ 반복}
+\DoxyCodeLine{\ \ \ \ TASK\ -\/>\ SEM\ :\ xSemaphoreTake()}
+\DoxyCodeLine{\ \ \ \ SEM\ -\/-\/>\ TASK\ :\ 이벤트\ 수신}
+\DoxyCodeLine{\ \ \ \ TASK\ -\/>\ UART\ :\ printf("{}Button\ Pressed!"{})}
+\DoxyCodeLine{end}
+\DoxyCodeLine{}
+\DoxyCodeLine{@enduml}
+
+\end{DoxyCode}
+
+
+💡 확장 아이디어
+\begin{DoxyItemize}
+\item Counting Semaphore로 확장 → 여러 이벤트 누적 수신 가능
+\item \doxylink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{v\+Task\+Delay()} 제거 → Task는 완전한 Blocking 대기로 빠른 응답
+\item GPIO 외에도 타이머, 센서 인터럽트 등 다양한 소스에 사용 가능
+\end{DoxyItemize}
+
+📎 관련 개념 요약
+\begin{DoxyItemize}
+\item {\ttfamily Binary Semaphore} 단일 신호 주고받기. ISR-\/\+Task 간 간단한 이벤트 전달
+\item {\ttfamily Counting Semaphore} 여러 이벤트 누적 처리. Buffer처럼 작동
+\item {\ttfamily Defer Interrupt Handling} ISR에서 짧게 끝내고 Task에서 본 처리 담당
+\item {\ttfamily Context Switch} 현재 Task → 우선순위 높은 Task 전환 과정
+\end{DoxyItemize}
+
+🛠️ 실수 방지 체크리스트
+\begin{DoxyItemize}
+\item ISR 내부에서 printf, \doxylink{group___h_a_l___exported___functions___group2_gab1dc1e6b438daacfe38a312a90221330}{HAL\+\_\+\+Delay()} 사용 ❌
+\item ISR 종료 직후 \doxylink{portmacro_8h_aac6850c66595efdc02a8bbb95fb4648e}{port\+YIELD\+\_\+\+FROM\+\_\+\+ISR()} 호출 ✅
+\item 세마포어 생성 후 NULL 체크 ✅
+\item EXTI\+\_\+\+Clear\+Flag 또는 \doxylink{group___g_p_i_o___exported___macros_ga2a086506eec826f49b200fba64beb9f1}{\+\_\+\+\_\+\+HAL\+\_\+\+GPIO\+\_\+\+EXTI\+\_\+\+CLEAR\+\_\+\+IT()} 호출 ✅ 
+\end{DoxyItemize}

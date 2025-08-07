@@ -1,0 +1,57 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+i2c\+\_\+ex.\+h}
+\hypertarget{stm32f4xx__hal__i2c__ex_8h_source}{}\label{stm32f4xx__hal__i2c__ex_8h_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_i2c\_ex.h@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_i2c\_ex.h}}
+\mbox{\hyperlink{stm32f4xx__hal__i2c__ex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00019}00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00020}00020\ \textcolor{preprocessor}{\#ifndef\ \_\_STM32F4xx\_HAL\_I2C\_EX\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ \_\_STM32F4xx\_HAL\_I2C\_EX\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00023}00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00024}00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00027}00027\ \textcolor{preprocessor}{\#if\ \ defined(I2C\_FLTR\_ANOFF)\&\&defined(I2C\_FLTR\_DNF)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00028}00028\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal__def_8h}{stm32f4xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00039}00039\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00040}00040\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00048}00048\ \textcolor{preprocessor}{\#define\ I2C\_ANALOGFILTER\_ENABLE\ \ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00049}00049\ \textcolor{preprocessor}{\#define\ I2C\_ANALOGFILTER\_DISABLE\ \ \ \ \ \ \ I2C\_FLTR\_ANOFF}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00058}00058\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00059}00059\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00067}00067\ \textcolor{comment}{/*\ Peripheral\ Control\ functions\ \ ************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00068}00068\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_I2CEx\_ConfigAnalogFilter(\mbox{\hyperlink{struct_i2_c___handle_type_def}{I2C\_HandleTypeDef}}\ *hi2c,\ uint32\_t\ AnalogFilter);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00069}00069\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_I2CEx\_ConfigDigitalFilter(\mbox{\hyperlink{struct_i2_c___handle_type_def}{I2C\_HandleTypeDef}}\ *hi2c,\ uint32\_t\ DigitalFilter);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00077}00077\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00078}00078\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00079}00079\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00088}00088\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00092}00092\ \textcolor{preprocessor}{\#define\ IS\_I2C\_ANALOG\_FILTER(FILTER)\ (((FILTER)\ ==\ I2C\_ANALOGFILTER\_ENABLE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00093}00093\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((FILTER)\ ==\ I2C\_ANALOGFILTER\_DISABLE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00094}00094\ \textcolor{preprocessor}{\#define\ IS\_I2C\_DIGITAL\_FILTER(FILTER)\ \ \ ((FILTER)\ <=\ 0x0000000FU)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00107}00107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00109}00109\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00111}00111\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00113}00113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_STM32F4xx\_HAL\_I2C\_EX\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__i2c__ex_8h_source_l00115}00115\ }
+
+\end{DoxyCode}

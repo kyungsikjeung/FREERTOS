@@ -1,0 +1,352 @@
+\doxysection{arm\+\_\+svm\+\_\+polynomial\+\_\+predict\+\_\+f16.\+c}
+\hypertarget{arm__svm__polynomial__predict__f16_8c_source}{}\label{arm__svm__polynomial__predict__f16_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/SVMFunctions/arm\_svm\_polynomial\_predict\_f16.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/SVMFunctions/arm\_svm\_polynomial\_predict\_f16.c}}
+\mbox{\hyperlink{arm__svm__polynomial__predict__f16_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00001}00001\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS\ DSP\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00003}00003\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ arm\_svm\_polynomial\_predict\_f16.c}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Description:\ \ SVM\ Polynomial\ Classifier}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00006}00006\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 23\ April\ 2021}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00007}00007\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V1.9.0}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00009}00009\ \textcolor{comment}{\ *\ Target\ Processor:\ Cortex-\/M\ and\ Cortex-\/A\ cores}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00010}00010\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00011}00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2010-\/2021\ ARM\ Limited\ or\ its\ affiliates.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00014}00014\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00015}00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00016}00016\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00017}00017\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00018}00018\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00019}00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00020}00020\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00022}00022\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00023}00023\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00024}00024\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00025}00025\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00026}00026\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00027}00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{svm__functions__f16_8h}{dsp/svm\_functions\_f16.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00031}00031\ \textcolor{preprocessor}{\#if\ defined(ARM\_FLOAT16\_SUPPORTED)}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00033}00033\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00034}00034\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00036}00036\ \textcolor{preprocessor}{\#if\ !defined(ARM\_MATH\_MVE\_FLOAT16)\ ||\ defined(ARM\_MATH\_AUTOVECTORIZE)}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00038}00038\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00039}00039\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00040}00040\ \textcolor{comment}{\_Float16\ is\ not\ supported\ in\ g++\ so\ we\ avoid\ putting\ \_Float16\ definitions}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00041}00041\ \textcolor{comment}{in\ the\ public\ headers.}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00042}00042\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00043}00043\ \textcolor{comment}{This\ function\ should\ at\ some\ point\ be\ moved\ in\ FastMath.}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00044}00044\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00045}00045\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00046}00046\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\_\_STATIC\_INLINE}}\ float16\_t\ arm\_exponent\_f16(float16\_t\ x,\ int32\_t\ nb)}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00047}00047\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00048}00048\ \ \ \ \ float16\_t\ r\ =\ x;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00049}00049\ \ \ \ \ nb\ -\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{while}(nb\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ r\ =\ (\_Float16)r\ *\ (\_Float16)x;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ nb-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}(r);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00057}00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00067}00067\ \textcolor{preprocessor}{\#if\ defined(ARM\_MATH\_MVE\_FLOAT16)\ \&\&\ !defined(ARM\_MATH\_AUTOVECTORIZE)}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00069}00069\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__helium__utils_8h}{arm\_helium\_utils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00070}00070\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__vec__math__f16_8h}{arm\_vec\_math\_f16.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00080}00080\ \textcolor{keywordtype}{void}\ arm\_svm\_polynomial\_predict\_f16(}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{const}\ arm\_svm\_polynomial\_instance\_f16\ *\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}},}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00082}00082\ \ \ \ \ \textcolor{keyword}{const}\ float16\_t\ *\ in,}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00083}00083\ \ \ \ \ int32\_t\ *\ pResult)}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ inlined\ Matrix\ x\ Vector\ function\ interleaved\ with\ dot\ prod\ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00086}00086\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ numRows\ =\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>nbOfSupportVectors;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00087}00087\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ numCols\ =\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>vectorDimension;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00088}00088\ \ \ \ \ \textcolor{keyword}{const}\ float16\_t\ *pSupport\ =\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>supportVectors;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00089}00089\ \ \ \ \ \textcolor{keyword}{const}\ float16\_t\ *pSrcA\ =\ pSupport;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00090}00090\ \ \ \ \ \textcolor{keyword}{const}\ float16\_t\ *pInA0;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00091}00091\ \ \ \ \ \textcolor{keyword}{const}\ float16\_t\ *pInA1;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00092}00092\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ row;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00093}00093\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ blkCnt;\ \ \ \ \ \textcolor{comment}{/*\ loop\ counters\ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00094}00094\ \ \ \ \ \textcolor{keyword}{const}\ float16\_t\ *pDualCoef\ =\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>dualCoefficients;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00095}00095\ \ \ \ \ \_Float16\ \ \ \ \ \ \ sum\ =\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>intercept;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00096}00096\ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vSum\ =\ vdupq\_n\_f16(0.0f);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00098}00098\ \ \ \ \ row\ =\ numRows;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00100}00100\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00101}00101\ \textcolor{comment}{\ \ \ \ \ *\ compute\ 4\ rows\ in\ parrallel}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00102}00102\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{while}\ (row\ >=\ 4)\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ float16\_t\ *pInA2,\ *pInA3;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ float16\_t\ \textcolor{keyword}{const}\ *pSrcA0Vec,\ *pSrcA1Vec,\ *pSrcA2Vec,\ *pSrcA3Vec,\ *pInVec;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vecIn,\ acc0,\ acc1,\ acc2,\ acc3;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ float16\_t\ \textcolor{keyword}{const}\ *pSrcVecPtr\ =\ in;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00110}00110\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Initialize\ the\ pointers\ to\ 4\ consecutive\ MatrixA\ rows}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00111}00111\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ pInA0\ =\ pSrcA;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ pInA1\ =\ pInA0\ +\ numCols;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ pInA2\ =\ pInA1\ +\ numCols;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ pInA3\ =\ pInA2\ +\ numCols;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00117}00117\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Initialize\ the\ vector\ pointer}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00118}00118\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ pInVec\ =\ pSrcVecPtr;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00121}00121\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ reset\ accumulators}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00122}00122\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ acc0\ =\ vdupq\_n\_f16(0.0f);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ acc1\ =\ vdupq\_n\_f16(0.0f);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ acc2\ =\ vdupq\_n\_f16(0.0f);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ acc3\ =\ vdupq\_n\_f16(0.0f);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ pSrcA0Vec\ =\ pInA0;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ pSrcA1Vec\ =\ pInA1;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ pSrcA2Vec\ =\ pInA2;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ pSrcA3Vec\ =\ pInA3;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ blkCnt\ =\ numCols\ >>\ 3;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (blkCnt\ >\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vecA;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ vecIn\ =\ vld1q(pInVec);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ pInVec\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vld1q(pSrcA0Vec);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ pSrcA0Vec\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ acc0\ =\ vfmaq(acc0,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vld1q(pSrcA1Vec);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ pSrcA1Vec\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ acc1\ =\ vfmaq(acc1,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vld1q(pSrcA2Vec);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ pSrcA2Vec\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ acc2\ =\ vfmaq(acc2,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vld1q(pSrcA3Vec);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ pSrcA3Vec\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ acc3\ =\ vfmaq(acc3,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ blkCnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00155}00155\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ tail}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00156}00156\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ (will\ be\ merged\ thru\ tail\ predication)}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00157}00157\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ blkCnt\ =\ numCols\ \&\ 7;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (blkCnt\ >\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ mve\_pred16\_t\ \ \ \ p0\ =\ vctp16q(blkCnt);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vecA;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ vecIn\ =\ vldrhq\_z\_f16(pInVec,\ p0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vldrhq\_z\_f16(pSrcA0Vec,\ p0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ acc0\ =\ vfmaq(acc0,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vldrhq\_z\_f16(pSrcA1Vec,\ p0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ acc1\ =\ vfmaq(acc1,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vldrhq\_z\_f16(pSrcA2Vec,\ p0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ acc2\ =\ vfmaq(acc2,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vldrhq\_z\_f16(pSrcA3Vec,\ p0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ acc3\ =\ vfmaq(acc3,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00174}00174\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Sum\ the\ partial\ parts}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00175}00175\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vtmp\ =\ vuninitializedq\_f16();}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ vtmp\ =\ vsetq\_lane(vecAddAcrossF16Mve(acc0),\ vtmp,\ 0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ vtmp\ =\ vsetq\_lane(vecAddAcrossF16Mve(acc1),\ vtmp,\ 1);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ vtmp\ =\ vsetq\_lane(vecAddAcrossF16Mve(acc2),\ vtmp,\ 2);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ vtmp\ =\ vsetq\_lane(vecAddAcrossF16Mve(acc3),\ vtmp,\ 3);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ vSum\ =\ vfmaq\_m\_f16(vSum,\ vld1q(pDualCoef),}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arm\_vec\_exponent\_f16}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (vaddq\_n\_f16(vmulq\_n\_f16(vtmp,\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>gamma),\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>coef0),\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>degree),vctp16q(4));}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ pDualCoef\ +=\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ pSrcA\ +=\ numCols\ *\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00191}00191\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Decrement\ the\ row\ loop\ counter}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00192}00192\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ row\ -\/=\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00194}00194\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00196}00196\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00197}00197\ \textcolor{comment}{\ \ \ \ \ *\ compute\ 2\ rows\ in\ parrallel}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00198}00198\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00199}00199\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ >=\ 2)\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ float16\_t\ \textcolor{keyword}{const}\ *pSrcA0Vec,\ *pSrcA1Vec,\ *pInVec;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vecIn,\ acc0,\ acc1;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ float16\_t\ \textcolor{keyword}{const}\ *pSrcVecPtr\ =\ in;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00205}00205\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Initialize\ the\ pointers\ to\ 2\ consecutive\ MatrixA\ rows}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00206}00206\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ pInA0\ =\ pSrcA;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ pInA1\ =\ pInA0\ +\ numCols;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00210}00210\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Initialize\ the\ vector\ pointer}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00211}00211\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ pInVec\ =\ pSrcVecPtr;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00214}00214\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ reset\ accumulators}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00215}00215\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ acc0\ =\ vdupq\_n\_f16(0.0f);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ acc1\ =\ vdupq\_n\_f16(0.0f);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ pSrcA0Vec\ =\ pInA0;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ pSrcA1Vec\ =\ pInA1;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ blkCnt\ =\ numCols\ >>\ 3;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (blkCnt\ >\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vecA;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ vecIn\ =\ vld1q(pInVec);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ pInVec\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vld1q(pSrcA0Vec);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ pSrcA0Vec\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ acc0\ =\ vfmaq(acc0,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vld1q(pSrcA1Vec);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ pSrcA1Vec\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ acc1\ =\ vfmaq(acc1,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ blkCnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00237}00237\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ tail}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00238}00238\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ (will\ be\ merged\ thru\ tail\ predication)}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00239}00239\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ blkCnt\ =\ numCols\ \&\ 7;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (blkCnt\ >\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ mve\_pred16\_t\ \ \ \ p0\ =\ vctp16q(blkCnt);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vecA;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ vecIn\ =\ vldrhq\_z\_f16(pInVec,\ p0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vldrhq\_z\_f16(pSrcA0Vec,\ p0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ acc0\ =\ vfmaq(acc0,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vldrhq\_z\_f16(pSrcA1Vec,\ p0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ acc1\ =\ vfmaq(acc1,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00252}00252\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Sum\ the\ partial\ parts}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00253}00253\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vtmp\ =\ vuninitializedq\_f16();}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ vtmp\ =\ vsetq\_lane(vecAddAcrossF16Mve(acc0),\ vtmp,\ 0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ vtmp\ =\ vsetq\_lane(vecAddAcrossF16Mve(acc1),\ vtmp,\ 1);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ vSum\ =\ vfmaq\_m\_f16(vSum,\ vld1q(pDualCoef),}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arm\_vec\_exponent\_f16}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (vaddq\_n\_f16(vmulq\_n\_f16(vtmp,\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>gamma),\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>coef0),\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>degree),\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vctp16q(2));}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00262}00262\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ pDualCoef\ +=\ 2;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00264}00264\ \ \ \ \ \ \ \ \ pSrcA\ +=\ numCols\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ row\ -\/=\ 2;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00266}00266\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00268}00268\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ >=\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00269}00269\ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vecIn,\ acc0;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ float16\_t\ \textcolor{keyword}{const}\ *pSrcA0Vec,\ *pInVec;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ float16\_t\ \textcolor{keyword}{const}\ *pSrcVecPtr\ =\ in;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00273}00273\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Initialize\ the\ pointers\ to\ last\ MatrixA\ row}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00274}00274\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ pInA0\ =\ pSrcA;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00277}00277\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Initialize\ the\ vector\ pointer}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00278}00278\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ pInVec\ =\ pSrcVecPtr;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00281}00281\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ reset\ accumulators}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00282}00282\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00283}00283\ \ \ \ \ \ \ \ \ acc0\ =\ vdupq\_n\_f16(0.0f);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00285}00285\ \ \ \ \ \ \ \ \ pSrcA0Vec\ =\ pInA0;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00287}00287\ \ \ \ \ \ \ \ \ blkCnt\ =\ numCols\ >>\ 3;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00288}00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (blkCnt\ >\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vecA;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ vecIn\ =\ vld1q(pInVec);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ pInVec\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vld1q(pSrcA0Vec);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ pSrcA0Vec\ +=\ 8;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ acc0\ =\ vfmaq(acc0,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ blkCnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00298}00298\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00299}00299\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00300}00300\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ tail}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00301}00301\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ (will\ be\ merged\ thru\ tail\ predication)}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00302}00302\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00303}00303\ \ \ \ \ \ \ \ \ blkCnt\ =\ numCols\ \&\ 7;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00304}00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (blkCnt\ >\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ mve\_pred16\_t\ \ \ \ p0\ =\ vctp16q(blkCnt);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vecA;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ vecIn\ =\ vldrhq\_z\_f16(pInVec,\ p0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ vecA\ =\ vldrhq\_z\_f16(pSrcA0Vec,\ p0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ acc0\ =\ vfmaq(acc0,\ vecIn,\ vecA);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00311}00311\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00312}00312\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00313}00313\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ *\ Sum\ the\ partial\ parts}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00314}00314\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00315}00315\ \ \ \ \ \ \ \ \ f16x8\_t\ \ \ \ \ \ \ \ \ vtmp\ =\ vuninitializedq\_f16();}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00316}00316\ \ \ \ \ \ \ \ \ vtmp\ =\ vsetq\_lane(vecAddAcrossF16Mve(acc0),\ vtmp,\ 0);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00317}00317\ \ \ \ \ \ \ \ \ vSum\ =\ vfmaq\_m\_f16(vSum,\ vld1q(pDualCoef),}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arm\_vec\_exponent\_f16}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (vaddq\_n\_f16(vmulq\_n\_f16(vtmp,\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>gamma),\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>coef0),\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>degree),\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vctp16q(1));}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00321}00321\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00322}00322\ \ \ \ \ sum\ +=\ (\_Float16)vecAddAcrossF16Mve(vSum);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00323}00323\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00324}00324\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00325}00325\ \ \ \ \ *pResult\ =\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>classes[\mbox{\hyperlink{svm__functions_8h_a41600e7828c196ee086489538ba6d25e}{STEP}}(sum)];}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00326}00326\ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00328}00328\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00330}00330\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00339}00339\ \textcolor{keywordtype}{void}\ arm\_svm\_polynomial\_predict\_f16(}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00340}00340\ \ \ \ \ \textcolor{keyword}{const}\ arm\_svm\_polynomial\_instance\_f16\ *\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}},}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00341}00341\ \ \ \ \ \textcolor{keyword}{const}\ float16\_t\ *\ in,}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00342}00342\ \ \ \ \ int32\_t\ *\ pResult)}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00343}00343\ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00344}00344\ \ \ \ \ \_Float16\ sum=\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>intercept;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00345}00345\ \ \ \ \ \_Float16\ dot=0;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00346}00346\ \ \ \ \ uint32\_t\ i,j;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00347}00347\ \ \ \ \ \textcolor{keyword}{const}\ float16\_t\ *pSupport\ =\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>supportVectors;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00349}00349\ \ \ \ \ \textcolor{keywordflow}{for}(i=0;\ i\ <\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>nbOfSupportVectors;\ i++)}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00350}00350\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00351}00351\ \ \ \ \ \ \ \ \ dot=0;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00352}00352\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(j=0;\ j\ <\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>vectorDimension;\ j++)}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00353}00353\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ dot\ =\ (\_Float16)dot\ +\ (\_Float16)in[j]*\ (\_Float16)*pSupport++;}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00355}00355\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00356}00356\ \ \ \ \ \ \ \ \ sum\ +=\ (\_Float16)\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>dualCoefficients[i]\ *\ (\_Float16)arm\_exponent\_f16((\_Float16)\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>gamma\ *\ (\_Float16)dot\ +\ (\_Float16)\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>coef0,\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>degree);}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00357}00357\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00359}00359\ \ \ \ \ *pResult=\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>classes[\mbox{\hyperlink{svm__functions_8h_a41600e7828c196ee086489538ba6d25e}{STEP}}(sum)];}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00360}00360\ \}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00361}00361\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ defined(ARM\_MATH\_MVEF)\ \&\&\ !defined(ARM\_MATH\_AUTOVECTORIZE)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00367}00367\ }
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00368}00368\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \#if\ defined(ARM\_FLOAT16\_SUPPORTED)\ */}\textcolor{preprocessor}{\ }}
+\DoxyCodeLine{\Hypertarget{arm__svm__polynomial__predict__f16_8c_source_l00369}00369\ }
+
+\end{DoxyCode}

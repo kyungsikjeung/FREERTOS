@@ -1,0 +1,64 @@
+\doxysection{freertos.\+c}
+\hypertarget{freertos_8c_source}{}\label{freertos_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Core/Src/freertos.c@{C:/Users/TOVIS/test/TestRtos/Core/Src/freertos.c}}
+\mbox{\hyperlink{freertos_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00001}00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00018}00018\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00020}00020\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_free_r_t_o_s_8h}{FreeRTOS.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{task_8h}{task.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00025}00025\ \textcolor{comment}{/*\ Private\ includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00026}00026\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Includes\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00028}00028\ \textcolor{comment}{/*\ USER\ CODE\ END\ Includes\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00030}00030\ \textcolor{comment}{/*\ Private\ typedef\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00031}00031\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ PTD\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00033}00033\ \textcolor{comment}{/*\ USER\ CODE\ END\ PTD\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00035}00035\ \textcolor{comment}{/*\ Private\ define\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00036}00036\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ PD\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00038}00038\ \textcolor{comment}{/*\ USER\ CODE\ END\ PD\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00040}00040\ \textcolor{comment}{/*\ Private\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00041}00041\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ PM\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00043}00043\ \textcolor{comment}{/*\ USER\ CODE\ END\ PM\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00045}00045\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00046}00046\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Variables\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00048}00048\ \textcolor{comment}{/*\ USER\ CODE\ END\ Variables\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00050}00050\ \textcolor{comment}{/*\ Private\ function\ prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00051}00051\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ FunctionPrototypes\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00053}00053\ \textcolor{comment}{/*\ USER\ CODE\ END\ FunctionPrototypes\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00055}00055\ \textcolor{comment}{/*\ GetIdleTaskMemory\ prototype\ (linked\ to\ static\ allocation\ support)\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00056}00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{freertos_8c_a1988aa923b19fa6f31c93afa7773f793}{vApplicationGetIdleTaskMemory}}(\ \mbox{\hyperlink{_free_r_t_o_s_8h_af0002e4ad72220b34b95fcdf43bcd82d}{StaticTask\_t}}\ **ppxIdleTaskTCBBuffer,\ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ **ppxIdleTaskStackBuffer,\ uint32\_t\ *pulIdleTaskStackSize\ );}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00058}00058\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ GET\_IDLE\_TASK\_MEMORY\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00059}00059\ \textcolor{keyword}{static}\ \mbox{\hyperlink{_free_r_t_o_s_8h_af0002e4ad72220b34b95fcdf43bcd82d}{StaticTask\_t}}\ xIdleTaskTCBBuffer;}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00060}00060\ \textcolor{keyword}{static}\ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ xIdleStack[\mbox{\hyperlink{_free_r_t_o_s_config_8h_a6c534a6cf8a00528fe0be42083484f9a}{configMINIMAL\_STACK\_SIZE}}];}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00062}\mbox{\hyperlink{freertos_8c_a1988aa923b19fa6f31c93afa7773f793}{00062}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{freertos_8c_a1988aa923b19fa6f31c93afa7773f793}{vApplicationGetIdleTaskMemory}}(\ \mbox{\hyperlink{_free_r_t_o_s_8h_af0002e4ad72220b34b95fcdf43bcd82d}{StaticTask\_t}}\ **ppxIdleTaskTCBBuffer,\ \mbox{\hyperlink{portmacro_8h_a84e9a8ba132feed0b2401c1f4e2ac63c}{StackType\_t}}\ **ppxIdleTaskStackBuffer,\ uint32\_t\ *pulIdleTaskStackSize\ )}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00063}00063\ \{}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00064}00064\ \ \ *ppxIdleTaskTCBBuffer\ =\ \&xIdleTaskTCBBuffer;}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00065}00065\ \ \ *ppxIdleTaskStackBuffer\ =\ \&xIdleStack[0];}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00066}00066\ \ \ *pulIdleTaskStackSize\ =\ \mbox{\hyperlink{_free_r_t_o_s_config_8h_a6c534a6cf8a00528fe0be42083484f9a}{configMINIMAL\_STACK\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00067}00067\ \ \ \textcolor{comment}{/*\ place\ for\ user\ code\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00069}00069\ \textcolor{comment}{/*\ USER\ CODE\ END\ GET\_IDLE\_TASK\_MEMORY\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00071}00071\ \textcolor{comment}{/*\ Private\ application\ code\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00072}00072\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Application\ */}}
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{freertos_8c_source_l00074}00074\ \textcolor{comment}{/*\ USER\ CODE\ END\ Application\ */}}
+
+\end{DoxyCode}

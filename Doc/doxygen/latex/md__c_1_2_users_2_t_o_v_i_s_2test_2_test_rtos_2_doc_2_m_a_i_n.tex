@@ -1,0 +1,69 @@
+\chapter{{\ttfamily main.\+c} 튜토리얼 }
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n}{}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n}\index{$<$tt$>$main.c$<$/tt$>$ 튜토리얼@{$<$tt$>$main.c$<$/tt$>$ 튜토리얼}}
+\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md175}%
+\Hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md175}%
+
+
+이 문서는 {\ttfamily main.\+c} 예제 코드의 목적, 동작 방식 및 예상 결과에 대해 설명합니다.\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md176}{}\doxysection{\texorpdfstring{1. Objective (목표)}{1. Objective (목표)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md176}
+이 예제의 주요 목표는 Free\+RTOS를 사용하여 두 개의 독립적인 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}태스크(Task)\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}를 생성하고, 각 태스크가 주기적으로 특정 동작을 수행하도록 하는 기본적인 멀티태스킹 환경을 구축하는 것입니다. 이를 통해 Free\+RTOS의 태스크 생성 및 스케줄링의 기본 개념을 이해합니다.\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md177}{}\doxysection{\texorpdfstring{2. Code Description (코드 설명)}{2. Code Description (코드 설명)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md177}
+
+\begin{DoxyItemize}
+\item {\bfseries{{\ttfamily \doxylink{1__2__task__roundrobin_8c_a902a64ca782182bd7360b69639f74063}{Task1(void \texorpdfstring{$\ast$}{*}pv\+Parameters)}}}}
+\begin{DoxyItemize}
+\item {\ttfamily pv\+Parameters}로 전달받은 문자열({\ttfamily "{}\+Task1 Msg !\textbackslash{}r\textbackslash{}n"{}})을 {\ttfamily msg} 포인터에 저장합니다.
+\item {\ttfamily while(1)} 무한 루프 안에서 다음 동작을 반복합니다.
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\+\_\+\+UART\+\_\+\+Transmit()}}\+: UART3를 통해 {\ttfamily msg} 문자열을 전송합니다.
+\item {\ttfamily \doxylink{group___g_p_i_o___exported___functions___group2_gaf5e0c89f752de5cdedcc30db068133f6}{HAL\+\_\+\+GPIO\+\_\+\+Toggle\+Pin()}}\+: LD1 LED(녹색)의 상태를 토글(ON/\+OFF)합니다.
+\item {\ttfamily \doxylink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{v\+Task\+Delay()}}\+: 1000ms (1초) 동안 태스크를 대기 상태로 만듭니다. 이 시간 동안 다른 태스크가 실행될 수 있습니다.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item {\bfseries{{\ttfamily \doxylink{1__2__task__roundrobin_8c_af01c7f41ef35453d7c0e896db918be88}{Task2(void \texorpdfstring{$\ast$}{*}pv\+Parameters)}}}}
+\begin{DoxyItemize}
+\item {\ttfamily pv\+Parameters}로 전달받은 문자열({\ttfamily "{}\+Task2 Msg !\textbackslash{}r\textbackslash{}n"{}})을 {\ttfamily msg} 포인터에 저장합니다.
+\item {\ttfamily while(1)} 무한 루프 안에서 다음 동작을 반복합니다.
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{group___u_a_r_t___exported___functions___group2_ga01a7a7ac3cf0a262814ba44ee7580ddb}{HAL\+\_\+\+UART\+\_\+\+Transmit()}}\+: UART3를 통해 {\ttfamily msg} 문자열을 전송합니다.
+\item {\ttfamily \doxylink{group___g_p_i_o___exported___functions___group2_gaf5e0c89f752de5cdedcc30db068133f6}{HAL\+\_\+\+GPIO\+\_\+\+Toggle\+Pin()}}\+: LD2 LED(파란색)의 상태를 토글(ON/\+OFF)합니다.
+\item {\ttfamily \doxylink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{v\+Task\+Delay()}}\+: 1000ms (1초) 동안 태스크를 대기 상태로 만듭니다.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item {\bfseries{{\ttfamily \doxylink{1__1__task__simpletask_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main(void)}}}}
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{driver__init_8h_aab7f079e70f08c868bbb3fdd41b86f82}{Driver\+\_\+\+Init()}}\+: MCU의 하드웨어(클럭, GPIO, UART 등)를 초기화합니다.
+\item {\ttfamily x\+Task\+Create()}\+: 두 개의 태스크를 생성합니다.
+\begin{DoxyItemize}
+\item {\bfseries{{\ttfamily Task1}}}\+: {\ttfamily Task1} 함수를 실행하며, 스택 크기는 256, 우선순위는 1로 설정하고, {\ttfamily task1\+\_\+msg} 문자열을 파라미터로 전달합니다.
+\item {\bfseries{{\ttfamily Task2}}}\+: {\ttfamily Task2} 함수를 실행하며, 스택 크기는 256, 우선순위는 1로 설정하고, {\ttfamily task2\+\_\+msg} 문자열을 파라미터로 전달합니다.
+\end{DoxyItemize}
+\item {\ttfamily \doxylink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{v\+Task\+Start\+Scheduler()}}\+: Free\+RTOS 스케줄러를 시작합니다. 이 함수가 호출되면, Free\+RTOS가 CPU의 제어권을 가져가 생성된 태스크들을 스케줄링 정책에 따라 실행합니다. 이 함수 호출 이후의 코드는 실행되지 않습니다.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md178}{}\doxysection{\texorpdfstring{3. Expected Output (예상 결과)}{3. Expected Output (예상 결과)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md178}
+코드가 실행되면, {\ttfamily Task1}과 {\ttfamily Task2}가 번갈아 가며 실행됩니다. 두 태스크의 우선순위가 같기 때문에, Free\+RTOS의 라운드 로빈(Round-\/\+Robin) 스케줄링 방식에 따라 타임 슬라이스(\+Time Slice)를 나누어 사용하거나, 한 태스크가 {\ttfamily \doxylink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{v\+Task\+Delay()}}로 대기 상태에 들어가면 다른 태스크가 실행되는 방식으로 동작합니다.\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md179}{}\doxysubsection{\texorpdfstring{3.\+1. 시리얼 출력 (Serial Output)}{3.\+1. 시리얼 출력 (Serial Output)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md179}
+시리얼 터미널에는 1초마다 {\ttfamily Task1}과 {\ttfamily Task2}의 메시지가 번갈아 출력됩니다.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Task1\ Msg\ \ !}
+\DoxyCodeLine{Task2\ Msg\ \ !}
+\DoxyCodeLine{Task1\ Msg\ \ !}
+\DoxyCodeLine{Task2\ Msg\ \ !}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md180}{}\doxysubsection{\texorpdfstring{3.\+2. LED 동작}{3.\+2. LED 동작}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md180}
+
+\begin{DoxyItemize}
+\item {\bfseries{LD1 (녹색 LED)}}\+: 1초 주기로 깜빡입니다 ({\ttfamily Task1}에 의해 제어).
+\item {\bfseries{LD2 (파란색 LED)}}\+: 1초 주기로 깜빡입니다 ({\ttfamily Task2}에 의해 제어).
+\end{DoxyItemize}
+
+두 LED가 동시에 깜빡이는 것처럼 보일 수 있으며, 이는 두 태스크가 거의 동시에 실행되기 때문입니다.\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md181}{}\doxysection{\texorpdfstring{4. Task 동작 방식}{4. Task 동작 방식}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_2_m_a_i_n_autotoc_md181}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{태스크 생성}}\+: {\ttfamily main} 함수에서 {\ttfamily Task1}과 {\ttfamily Task2}가 동일한 우선순위로 생성됩니다.
+\item {\bfseries{스케줄러 시작}}\+: {\ttfamily \doxylink{task_8h_aaf9dca1065c60abdeb309d56ab7293cb}{v\+Task\+Start\+Scheduler()}}가 호출되면, 스케줄러는 준비(\+Ready) 상태에 있는 태스크 중 가장 우선순위가 높은 태스크를 실행합니다. 여기서는 두 태스크의 우선순위가 같으므로, 먼저 생성된 {\ttfamily Task1}부터 실행될 수 있습니다.
+\item {\bfseries{태스크 실행 및 대기}}\+: {\ttfamily Task1}이 실행되어 메시지를 출력하고 LED를 토글한 후, {\ttfamily v\+Task\+Delay(1000)}를 만나 1초 동안 대기(\+Blocked) 상태가 됩니다.
+\item {\bfseries{컨텍스트 스위칭(\+Context Switching)}}\+: {\ttfamily Task1}이 대기 상태에 들어가면, 스케줄러는 다른 준비 상태의 태스크인 {\ttfamily Task2}를 실행합니다. {\ttfamily Task2}도 마찬가지로 작업을 수행한 후 1초 대기 상태가 됩니다.
+\item {\bfseries{반복}}\+: 이 과정이 계속 반복되면서, 두 태스크는 1초마다 번갈아 실행되는 것처럼 보입니다. 이것이 Free\+RTOS의 기본적인 협력적 멀티태스킹 동작 방식입니다. 
+\end{DoxyEnumerate}

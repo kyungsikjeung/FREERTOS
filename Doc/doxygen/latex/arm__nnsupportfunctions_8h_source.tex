@@ -1,0 +1,643 @@
+\doxysection{arm\+\_\+nnsupportfunctions.\+h}
+\hypertarget{arm__nnsupportfunctions_8h_source}{}\label{arm__nnsupportfunctions_8h_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Include/arm\_nnsupportfunctions.h@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Include/arm\_nnsupportfunctions.h}}
+\mbox{\hyperlink{arm__nnsupportfunctions_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2010-\/2022\ Arm\ Limited\ or\ its\ affiliates.}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00004}00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00006}00006\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00007}00007\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00008}00008\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00010}00010\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00012}00012\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00013}00013\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00014}00014\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00015}00015\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00016}00016\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00019}00019\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00020}00020\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS\ NN\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00021}00021\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ arm\_nnsupportfunctions.h}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00022}00022\ \textcolor{comment}{\ *\ Description:\ \ Public\ header\ file\ of\ support\ functions\ for\ CMSIS\ NN\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00023}00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00024}00024\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 19.\ April\ 2022}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00025}00025\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V.7.0.1}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00026}00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00027}00027\ \textcolor{comment}{\ *\ Target\ Processor:\ \ Cortex-\/M\ CPUs}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00028}00028\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00030}00030\ \textcolor{preprocessor}{\#ifndef\ \_ARM\_NNSUPPORTFUNCTIONS\_H\_}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00031}00031\ \textcolor{preprocessor}{\#define\ \_ARM\_NNSUPPORTFUNCTIONS\_H\_}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nn__math__types_8h}{arm\_nn\_math\_types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00034}00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nn__types_8h}{arm\_nn\_types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00036}00036\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00038}00038\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00039}00039\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00040}00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00042}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a2953f124ae444ebdd2b2a0873ac36b7e}{00042}}\ \textcolor{preprocessor}{\#define\ LEFT\_SHIFT(\_shift)\ (\_shift\ >\ 0\ ?\ \_shift\ :\ 0)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00043}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a26af54489c1401b91595bf0c92ef87c4}{00043}}\ \textcolor{preprocessor}{\#define\ RIGHT\_SHIFT(\_shift)\ (\_shift\ >\ 0\ ?\ 0\ :\ -\/\_shift)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00044}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a76b700415a2c22cea484103b7123739b}{00044}}\ \textcolor{preprocessor}{\#define\ MASK\_IF\_ZERO(x)\ (x)\ ==\ 0\ ?\ \string~0\ :\ 0}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00045}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a0bc8558b22558613ed3ad3eb624ec7a5}{00045}}\ \textcolor{preprocessor}{\#define\ MASK\_IF\_NON\_ZERO(x)\ (x)\ !=\ 0\ ?\ \string~0\ :\ 0}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00046}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a6f69b7e95b80e10a5f5d2ddbbfbc301f}{00046}}\ \textcolor{preprocessor}{\#define\ SELECT\_USING\_MASK(mask,\ a,\ b)\ ((mask)\ \&\ (a))\ \string^\ (\string~(mask)\ \&\ (b))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00048}\mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{00048}}\ \textcolor{preprocessor}{\#define\ MAX(A,\ B)\ ((A)\ >\ (B)\ ?\ (A)\ :\ (B))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00049}\mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{00049}}\ \textcolor{preprocessor}{\#define\ MIN(A,\ B)\ ((A)\ <\ (B)\ ?\ (A)\ :\ (B))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00050}\mbox{\hyperlink{arm__nnsupportfunctions_8h_abe05f0e80d965ae31dec16ba4063f48a}{00050}}\ \textcolor{preprocessor}{\#define\ CLAMP(x,\ h,\ l)\ MAX(MIN((x),\ (h)),\ (l))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00051}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a19343832dbe881d527496171f69dc0c3}{00051}}\ \textcolor{preprocessor}{\#define\ REDUCE\_MULTIPLIER(\_mult)\ ((\_mult\ <\ 0x7FFF0000)\ ?\ ((\_mult\ +\ (1\ <<\ 15))\ >>\ 16)\ :\ 0x7FFF)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00056}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a7f8d7623a6fd3492efd9b38f45da38a6}{00056}}\ \textcolor{preprocessor}{\#define\ PACK\_Q7x4\_32x1(v0,\ v1,\ v2,\ v3)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00057}00057\ \textcolor{preprocessor}{\ \ \ \ ((((int32\_t)(v0)\ <<\ 0)\ \&\ (int32\_t)0x000000FF)\ |\ (((int32\_t)(v1)\ <<\ 8)\ \&\ (int32\_t)0x0000FF00)\ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00058}00058\ \textcolor{preprocessor}{\ \ \ \ \ (((int32\_t)(v2)\ <<\ 16)\ \&\ (int32\_t)0x00FF0000)\ |\ (((int32\_t)(v3)\ <<\ 24)\ \&\ (int32\_t)0xFF000000))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00063}\mbox{\hyperlink{unionarm__nnword}{00063}}\ \textcolor{keyword}{union\ }\mbox{\hyperlink{unionarm__nnword}{arm\_nnword}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00064}00064\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00065}\mbox{\hyperlink{unionarm__nnword_a28bd9dbf5f26312fb6f1ae07496df471}{00065}}\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{unionarm__nnword_a28bd9dbf5f26312fb6f1ae07496df471}{word}};}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00067}\mbox{\hyperlink{unionarm__nnword_a01e9cb2a6cc9199a6ea12a089a7ed057}{00067}}\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ \mbox{\hyperlink{unionarm__nnword_a01e9cb2a6cc9199a6ea12a089a7ed057}{half\_words}}[2];}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00069}\mbox{\hyperlink{unionarm__nnword_a060f42b14466bd0dadfaf89581f3ef1a}{00069}}\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ \mbox{\hyperlink{unionarm__nnword_a060f42b14466bd0dadfaf89581f3ef1a}{bytes}}[4];}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00071}00071\ \};}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00076}\mbox{\hyperlink{structarm__nn__double}{00076}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structarm__nn__double}{arm\_nn\_double}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00077}00077\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00078}\mbox{\hyperlink{structarm__nn__double_a864f755b7008df85b29726891bdd4fbd}{00078}}\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structarm__nn__double_a864f755b7008df85b29726891bdd4fbd}{low}};}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00079}\mbox{\hyperlink{structarm__nn__double_a7e65ea59ece55b5ce83cf47cd4a05b8c}{00079}}\ \ \ \ \ int32\_t\ \mbox{\hyperlink{structarm__nn__double_a7e65ea59ece55b5ce83cf47cd4a05b8c}{high}};}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00080}00080\ \};}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00082}\mbox{\hyperlink{unionarm__nn__long__long}{00082}}\ \textcolor{keyword}{union\ }\mbox{\hyperlink{unionarm__nn__long__long}{arm\_nn\_long\_long}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00083}00083\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00084}\mbox{\hyperlink{unionarm__nn__long__long_a01ad5de26c5e1392702d48a6f1f31aff}{00084}}\ \ \ \ \ int64\_t\ \mbox{\hyperlink{unionarm__nn__long__long_a01ad5de26c5e1392702d48a6f1f31aff}{long\_long}};}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00085}\mbox{\hyperlink{unionarm__nn__long__long_a9cefd3ba306754dbe064a6123a4d51bc}{00085}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structarm__nn__double}{arm\_nn\_double}}\ \mbox{\hyperlink{unionarm__nn__long__long_a9cefd3ba306754dbe064a6123a4d51bc}{word}};}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00086}00086\ \};}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00102}00102\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__nndata__convert_gae349de4dba8d253c89d45794ccf05680}{arm\_q7\_to\_q15\_no\_shift}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *pSrc,\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pDst,\ uint32\_t\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}});}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00120}00120\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___n_n_basic_math_gae65bde3218210820d789659179e14ce3}{arm\_nn\_add\_q7}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *input,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ *output,\ uint32\_t\ block\_size);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00130}00130\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__nndata__convert_gaba8fd446d5f54760b406ee63b25d1aee}{arm\_q7\_to\_q15\_reordered\_no\_shift}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *pSrc,\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pDst,\ uint32\_t\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}});}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00148}00148\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__nndata__convert_gab2d48529ae05b350a015f8f1e6596a31}{arm\_q7\_to\_q15\_with\_offset}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *src,\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *dst,\ uint32\_t\ block\_size,\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ offset);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00163}00163\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__nndata__convert_ga18e161730cf13bb5ed73de2d3a7cb224}{arm\_q7\_to\_q15\_reordered\_with\_offset}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *src,\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *dst,\ uint32\_t\ block\_size,\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ offset);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00180}00180\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___n_n_basic_math_ga379c39e614f1468e1fdb524f51fb6061}{arm\_nn\_accumulate\_q7\_to\_q15}}(\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *dst,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *src,\ uint32\_t\ block\_size);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00201}00201\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *\mbox{\hyperlink{arm__nnsupportfunctions_8h_a5b8cf6bccf4fe71f59aa30bf8d460e12}{arm\_nn\_depthwise\_conv\_s8\_core}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *row,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *col,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ num\_ch,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *out\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *out\_mult,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ out\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_max,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ kernel\_size,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *\textcolor{keyword}{const}\ output\_bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *out);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00235}00235\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *\mbox{\hyperlink{arm__nnsupportfunctions_8h_ac565ebd47c1e10d160cdbc6186841a35}{arm\_nn\_mat\_mult\_s8}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *input\_row,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *input\_col,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ output\_ch,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ col\_batches,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *output\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *output\_mult,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ out\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ col\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ row\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ out\_activation\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ out\_activation\_max,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ row\_len,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *\textcolor{keyword}{const}\ bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *out);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00270}00270\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *\mbox{\hyperlink{arm__nnsupportfunctions_8h_a45ec7e9cd96398ac06c51a3ed658bb2a}{arm\_nn\_mat\_mult\_kernel\_s16}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *input\_a,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *input\_b,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ output\_ch,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *out\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *out\_mult,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ activation\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ activation\_max,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ num\_col\_a,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ *\textcolor{keyword}{const}\ output\_bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *out\_0);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00297}00297\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{group___n_n_basic_math_ga5224f2f155a59498c97f4d62ae726ea5}{arm\_nn\_mat\_mul\_core\_1x\_s8}}(int32\_t\ row\_elements,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ *row\_base,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ *col\_base,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ *\textcolor{keyword}{const}\ sum\_col,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ *\textcolor{keyword}{const}\ output);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00320}00320\ int8\_t\ *\mbox{\hyperlink{group___n_n_basic_math_gae2308fbfe9d11a742a712a0fe01643ae}{arm\_nn\_mat\_mul\_core\_4x\_s8}}(\textcolor{keyword}{const}\ int32\_t\ row\_elements,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ *row\_base,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ *col\_base,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ out\_ch,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__conv__params}{cmsis\_nn\_conv\_params}}\ *conv\_params,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__per__channel__quant__params}{cmsis\_nn\_per\_channel\_quant\_params}}\ *quant\_params,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int8\_t\ *output);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00359}00359\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{group___n_n_basic_math_ga360cdaa16c399e3bfbeaaa7296c326e1}{arm\_nn\_mat\_mult\_nt\_t\_s8}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *lhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *rhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ *bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *dst,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *dst\_multipliers,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *dst\_shifts,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ lhs\_rows,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ rhs\_rows,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ rhs\_cols,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ lhs\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ dst\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_max);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00396}00396\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{group___n_n_basic_math_ga140e5a1a4c146c8e90491792ed104d70}{arm\_nn\_vec\_mat\_mult\_t\_s8}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *lhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *rhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ *bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *dst,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ lhs\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ rhs\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ dst\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ dst\_multiplier,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ dst\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ rhs\_cols,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ rhs\_rows,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_max,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ address\_offset);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00410}00410\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00428}00428\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{group___n_n_basic_math_ga721f565a0b8015a3d6d46535cadf63d3}{arm\_nn\_vec\_mat\_mult\_t\_s16}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *lhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00429}00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *rhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a5aea1cb12fc02d9d44c8abf217eaa5c6}{q63\_t}}\ *bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00431}00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *dst,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ dst\_multiplier,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ dst\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ rhs\_cols,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ rhs\_rows,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00437}00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_max);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00460}00460\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{group___n_n_basic_math_gac0675e8069a303ce2e8f8ed2a9320859}{arm\_nn\_vec\_mat\_mult\_t\_svdf\_s8}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *lhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00461}00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *rhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00462}00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *dst,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00463}00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ lhs\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00464}00464\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ rhs\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00465}00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ scatter\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00466}00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ dst\_multiplier,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00467}00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ dst\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00468}00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ rhs\_cols,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00469}00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ rhs\_rows,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00470}00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_max);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00472}00472\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00501}00501\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *\mbox{\hyperlink{group___n_n_basic_math_gafa5fa746360453b6dc358f15e6961716}{arm\_nn\_depthwise\_conv\_nt\_t\_padded\_s8}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *lhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00502}00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *rhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00503}00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ lhs\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00504}00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ num\_ch,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *out\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *out\_mult,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ out\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00508}00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00509}00509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_max,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00510}00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ row\_x\_col,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00511}00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *\textcolor{keyword}{const}\ output\_bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00512}00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *out);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00513}00513\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00542}00542\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *\mbox{\hyperlink{group___n_n_basic_math_ga3c272bd9893e815bda0dbef80d06d5af}{arm\_nn\_depthwise\_conv\_nt\_t\_s8}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *lhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00543}00543\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *rhs,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00544}00544\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ lhs\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00545}00545\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ num\_ch,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00546}00546\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *out\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00547}00547\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *out\_mult,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00548}00548\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ out\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00549}00549\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00550}00550\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ activation\_max,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00551}00551\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ row\_x\_col,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00552}00552\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *\textcolor{keyword}{const}\ output\_bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00553}00553\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *out);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00554}00554\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00569}00569\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *\mbox{\hyperlink{arm__nnsupportfunctions_8h_ab5f83b3cde0b227506aefa0cf8cd1aa6}{arm\_nn\_mat\_mult\_kernel\_q7\_q15\_reordered}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *pA,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00570}00570\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pInBuffer,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00571}00571\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ ch\_im\_out,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00572}00572\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ numCol\_A,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00573}00573\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ bias\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00574}00574\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ out\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00575}00575\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00576}00576\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *pOut);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00577}00577\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00583}\mbox{\hyperlink{arm__nnsupportfunctions_8h_afdda94a339b76615d3161e9fc63f4d21}{00583}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_afdda94a339b76615d3161e9fc63f4d21}{arm\_nn\_read\_q15x2\_ia}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ **in\_q15)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00584}00584\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00585}00585\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ val;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00586}00586\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00587}00587\ \ \ \ \ memcpy(\&val,\ *in\_q15,\ 4);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00588}00588\ \ \ \ \ *in\_q15\ +=\ 2;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00589}00589\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00590}00590\ \ \ \ \ \textcolor{keywordflow}{return}\ (val);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00591}00591\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00592}00592\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00598}\mbox{\hyperlink{arm__nnsupportfunctions_8h_ac9f7be20432a6926ac07c1f44b1b02fe}{00598}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ac9f7be20432a6926ac07c1f44b1b02fe}{arm\_nn\_read\_q7x4\_ia}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ **in\_q7)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00599}00599\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00600}00600\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ val;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00601}00601\ \ \ \ \ memcpy(\&val,\ *in\_q7,\ 4);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00602}00602\ \ \ \ \ *in\_q7\ +=\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00603}00603\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00604}00604\ \ \ \ \ \textcolor{keywordflow}{return}\ (val);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00605}00605\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00606}00606\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00612}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a9d505dfe68f4486c2327df8a857a89ad}{00612}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a9d505dfe68f4486c2327df8a857a89ad}{arm\_nn\_read\_q15x2}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *in\_q15)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00613}00613\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00614}00614\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ val;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00615}00615\ \ \ \ \ memcpy(\&val,\ in\_q15,\ 4);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00616}00616\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00617}00617\ \ \ \ \ \textcolor{keywordflow}{return}\ (val);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00618}00618\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00619}00619\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00625}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a31fa46f17212fbcb65d2cdae06fc08f5}{00625}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a31fa46f17212fbcb65d2cdae06fc08f5}{arm\_nn\_read\_q7x4}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *in\_q7)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00626}00626\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00627}00627\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ val;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00628}00628\ \ \ \ \ memcpy(\&val,\ in\_q7,\ 4);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00629}00629\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00630}00630\ \ \ \ \ \textcolor{keywordflow}{return}\ (val);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00631}00631\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00632}00632\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00638}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a17553765eecd852dc2f9663575f2a91d}{00638}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a17553765eecd852dc2f9663575f2a91d}{arm\_nn\_write\_q7x4\_ia}}(\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ **in,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ value)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00639}00639\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00640}00640\ \ \ \ \ memcpy(*in,\ \&value,\ 4);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00641}00641\ \ \ \ \ *in\ +=\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00642}00642\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00643}00643\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00651}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a7018797f0abd9595cc0dc0aedbb5f17e}{00651}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a7018797f0abd9595cc0dc0aedbb5f17e}{arm\_memset\_q7}}(\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *dst,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ val,\ uint32\_t\ block\_size)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00652}00652\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00653}00653\ \textcolor{preprocessor}{\#if\ defined(ARM\_MATH\_MVEI)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00654}00654\ \ \ \ \ \_\_asm\ \textcolor{keyword}{volatile}(\textcolor{stringliteral}{"{}\ \ \ vdup.8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q0,\ \%[set\_val]\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00655}00655\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ wlstp.8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lr,\ \%[cnt],\ 1f\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00656}00656\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}2:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00657}00657\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ vstrb.8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q0,\ [\%[in]],\ \#16\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00658}00658\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ letp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lr,\ 2b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00659}00659\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00660}00660\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ [\ in\ ]\ \textcolor{stringliteral}{"{}+r"{}}(dst)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00661}00661\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ [\ cnt\ ]\ \textcolor{stringliteral}{"{}r"{}}(block\_size),\ [\ set\_val\ ]\ \textcolor{stringliteral}{"{}r"{}}(val)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00662}00662\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}q0"{}},\ \textcolor{stringliteral}{"{}memory"{}},\ \textcolor{stringliteral}{"{}r14"{}});}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00663}00663\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00664}00664\ \ \ \ \ memset(dst,\ val,\ block\_size);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00665}00665\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00666}00666\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00667}00667\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00668}00668\ \textcolor{preprocessor}{\#if\ defined(ARM\_MATH\_DSP)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00669}00669\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00673}00673\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00674}00674\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *read\_and\_pad(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *source,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ *out1,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ *out2)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00675}00675\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00676}00676\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ inA\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ac9f7be20432a6926ac07c1f44b1b02fe}{arm\_nn\_read\_q7x4\_ia}}(\&source);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00677}00677\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ inAbuf1\ =\ \mbox{\hyperlink{_core_2_include_2cmsis__iccarm_8h_a6cfc7fe62ef04578af6a1f360dc38245}{\_\_SXTB16\_RORn}}((uint32\_t)inA,\ 8);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00678}00678\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ inAbuf2\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0eeab076e5b40fce9536bdc30e85864f}{\_\_SXTB16}}(inA);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00679}00679\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00680}00680\ \textcolor{preprocessor}{\#ifndef\ ARM\_MATH\_BIG\_ENDIAN}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00681}00681\ \ \ \ \ *out2\ =\ (int32\_t)(\mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_ac4be483b8d98e977a69baf4a292a76fe}{\_\_PKHTB}}(inAbuf1,\ inAbuf2,\ 16));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00682}00682\ \ \ \ \ *out1\ =\ (int32\_t)(\mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_aa505179349146cf6186640b4c8b47714}{\_\_PKHBT}}(inAbuf2,\ inAbuf1,\ 16));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00683}00683\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00684}00684\ \ \ \ \ *out1\ =\ (int32\_t)(\mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_ac4be483b8d98e977a69baf4a292a76fe}{\_\_PKHTB}}(inAbuf1,\ inAbuf2,\ 16));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00685}00685\ \ \ \ \ *out2\ =\ (int32\_t)(\mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_aa505179349146cf6186640b4c8b47714}{\_\_PKHBT}}(inAbuf2,\ inAbuf1,\ 16));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00686}00686\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00687}00687\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00688}00688\ \ \ \ \ \textcolor{keywordflow}{return}\ source;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00689}00689\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00690}00690\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00694}00694\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00695}00695\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *read\_and\_pad\_reordered(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *source,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ *out1,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ *out2)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00696}00696\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00697}00697\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ inA\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ac9f7be20432a6926ac07c1f44b1b02fe}{arm\_nn\_read\_q7x4\_ia}}(\&source);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00698}00698\ \textcolor{preprocessor}{\#ifndef\ ARM\_MATH\_BIG\_ENDIAN}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00699}00699\ \ \ \ \ *out2\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0eeab076e5b40fce9536bdc30e85864f}{\_\_SXTB16}}(\mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga95b9bd281ddeda378b85afdb8f2ced86}{\_\_ROR}}((uint32\_t)inA,\ 8));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00700}00700\ \ \ \ \ *out1\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0eeab076e5b40fce9536bdc30e85864f}{\_\_SXTB16}}(inA);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00701}00701\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00702}00702\ \ \ \ \ *out1\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0eeab076e5b40fce9536bdc30e85864f}{\_\_SXTB16}}(\mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga95b9bd281ddeda378b85afdb8f2ced86}{\_\_ROR}}((uint32\_t)inA,\ 8));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00703}00703\ \ \ \ \ *out2\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0eeab076e5b40fce9536bdc30e85864f}{\_\_SXTB16}}(inA);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00704}00704\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00705}00705\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00706}00706\ \ \ \ \ \textcolor{keywordflow}{return}\ source;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00707}00707\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00708}00708\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00712}00712\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00713}00713\ read\_and\_pad\_reordered\_with\_offset(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *source,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ *out1,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ *out2,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ offset)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00714}00714\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00715}00715\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ inA\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ac9f7be20432a6926ac07c1f44b1b02fe}{arm\_nn\_read\_q7x4\_ia}}(\&source);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00716}00716\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00717}00717\ \textcolor{preprocessor}{\#ifndef\ ARM\_MATH\_BIG\_ENDIAN}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00718}00718\ \ \ \ \ *out2\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0eeab076e5b40fce9536bdc30e85864f}{\_\_SXTB16}}(\mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga95b9bd281ddeda378b85afdb8f2ced86}{\_\_ROR}}((uint32\_t)inA,\ 8));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00719}00719\ \ \ \ \ *out1\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0eeab076e5b40fce9536bdc30e85864f}{\_\_SXTB16}}(inA);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00720}00720\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00721}00721\ \ \ \ \ *out1\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0eeab076e5b40fce9536bdc30e85864f}{\_\_SXTB16}}(\mbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga95b9bd281ddeda378b85afdb8f2ced86}{\_\_ROR}}((uint32\_t)inA,\ 8));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00722}00722\ \ \ \ \ *out2\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_a0eeab076e5b40fce9536bdc30e85864f}{\_\_SXTB16}}(inA);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00723}00723\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00724}00724\ \ \ \ \ *out1\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_aeb158a67f3998b5ac8d0c9f174d424fb}{\_\_QADD16}}(*out1,\ offset);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00725}00725\ \ \ \ \ *out2\ =\ \mbox{\hyperlink{_core___a_2_include_2cmsis__gcc_8h_aeb158a67f3998b5ac8d0c9f174d424fb}{\_\_QADD16}}(*out2,\ offset);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00726}00726\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00727}00727\ \ \ \ \ \textcolor{keywordflow}{return}\ source;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00728}00728\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00729}00729\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00730}00730\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00731}00731\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00738}00738\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00753}00753\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00754}00754\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___n_n_basic_math_ga08f8340aa6533271b3aa6d211614fe22}{arm\_nn\_mult\_q15}}(\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pSrcA,\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pSrcB,\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *pDst,\ \textcolor{keyword}{const}\ uint16\_t\ out\_shift,\ uint32\_t\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}});}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00755}00755\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00770}00770\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00771}00771\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___n_n_basic_math_gad46c9ab012cceda8ce6681c687a58c70}{arm\_nn\_mult\_q7}}(\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *pSrcA,\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *pSrcB,\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *pDst,\ \textcolor{keyword}{const}\ uint16\_t\ out\_shift,\ uint32\_t\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}});}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00772}00772\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00795}00795\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *\mbox{\hyperlink{arm__nnsupportfunctions_8h_ab2040b03e85717f57f8fcaf83db838e4}{arm\_nn\_mat\_mult\_kernel\_s8\_s16}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *input\_a,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00796}00796\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ *input\_b,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00797}00797\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ output\_ch,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00798}00798\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *out\_shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00799}00799\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *out\_mult,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00800}00800\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ out\_offset,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00801}00801\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ activation\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00802}00802\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int16\_t\ activation\_max,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00803}00803\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ num\_col\_a,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00804}00804\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *\textcolor{keyword}{const}\ output\_bias,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00805}00805\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *out\_0);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00806}00806\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00822}00822\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group___softmax_gaa5632ba67b623b5dff0c4a2d8e2a9a3a}{arm\_nn\_softmax\_common\_s8}}(\textcolor{keyword}{const}\ int8\_t\ *input,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00823}00823\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ num\_rows,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00824}00824\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ row\_size,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00825}00825\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ mult,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00826}00826\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ shift,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00827}00827\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ diff\_min,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00828}00828\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ int16\_output,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00829}00829\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *output);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00830}00830\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00834}00834\ \textcolor{preprocessor}{\#ifndef\ ARM\_NN\_TRUNCATE}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00835}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a4cbd428a2b4a4f6b2a6e4219520c7ce0}{00835}}\ \textcolor{preprocessor}{\#define\ NN\_ROUND(out\_shift)\ ((0x1\ <<\ out\_shift)\ >>\ 1)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00836}00836\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00837}00837\ \textcolor{preprocessor}{\#define\ NN\_ROUND(out\_shift)\ 0}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00838}00838\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00839}00839\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00840}00840\ \textcolor{comment}{//\ Macros\ for\ shortening\ quantization\ functions'\ names\ and\ avoid\ long\ lines}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00841}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{00841}}\ \textcolor{preprocessor}{\#define\ MUL\_SAT(a,\ b)\ arm\_nn\_doubling\_high\_mult((a),\ (b))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00842}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a6349818fec8167dff87c3fb7ca81fc1c}{00842}}\ \textcolor{preprocessor}{\#define\ MUL\_SAT\_MVE(a,\ b)\ arm\_doubling\_high\_mult\_mve\_32x4((a),\ (b))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00843}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a9d7332bc4331d55ada7ea19407e2a8c3}{00843}}\ \textcolor{preprocessor}{\#define\ MUL\_POW2(a,\ b)\ arm\_nn\_mult\_by\_power\_of\_two((a),\ (b))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00844}00844\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00845}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a7ce5ee6d8839bf541fb4bbdf4ef80eb1}{00845}}\ \textcolor{preprocessor}{\#define\ DIV\_POW2(a,\ b)\ arm\_nn\_divide\_by\_power\_of\_two((a),\ (b))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00846}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a0e4379e9eef514ce88d02b5dfbff256d}{00846}}\ \textcolor{preprocessor}{\#define\ DIV\_POW2\_MVE(a,\ b)\ arm\_divide\_by\_power\_of\_two\_mve((a),\ (b))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00847}00847\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00848}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a97055bb1e8a21ead129caecdfb24cfb1}{00848}}\ \textcolor{preprocessor}{\#define\ EXP\_ON\_NEG(x)\ arm\_nn\_exp\_on\_negative\_values((x))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00849}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a82ac477c930f5b05e8f71f6f61e405a8}{00849}}\ \textcolor{preprocessor}{\#define\ ONE\_OVER1(x)\ arm\_nn\_one\_over\_one\_plus\_x\_for\_x\_in\_0\_1((x))}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00850}00850\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00859}\mbox{\hyperlink{arm__nnsupportfunctions_8h_aa052ac441bc3ea52f51de9c2831b02d7}{00859}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_aa052ac441bc3ea52f51de9c2831b02d7}{arm\_nn\_doubling\_high\_mult}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ m1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ m2)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00860}00860\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00861}00861\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00862}00862\ \ \ \ \ \textcolor{comment}{//\ Rounding\ offset\ to\ add\ for\ a\ right\ shift\ of\ 31}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00863}00863\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_a5aea1cb12fc02d9d44c8abf217eaa5c6}{q63\_t}}\ mult\ =\ 1\ <<\ 30;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00864}00864\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00865}00865\ \ \ \ \ \textcolor{keywordflow}{if}\ ((m1\ <\ 0)\ \string^\ (m2\ <\ 0))}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00866}00866\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00867}00867\ \ \ \ \ \ \ \ \ mult\ =\ 1\ -\/\ mult;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00868}00868\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00869}00869\ \ \ \ \ \textcolor{comment}{//\ Gets\ resolved\ as\ a\ SMLAL\ instruction}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00870}00870\ \ \ \ \ mult\ =\ mult\ +\ (\mbox{\hyperlink{arm__math__types_8h_a5aea1cb12fc02d9d44c8abf217eaa5c6}{q63\_t}})m1\ *\ m2;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00871}00871\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00872}00872\ \ \ \ \ \textcolor{comment}{//\ Utilize\ all\ of\ the\ upper\ 32\ bits.\ This\ is\ the\ doubling\ step}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00873}00873\ \ \ \ \ \textcolor{comment}{//\ as\ well.}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00874}00874\ \ \ \ \ result\ =\ (int32\_t)(mult\ /\ (1ll\ <<\ 31));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00875}00875\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00876}00876\ \ \ \ \ \textcolor{keywordflow}{if}\ ((m1\ ==\ m2)\ \&\&\ (m1\ ==\ (int32\_t)\mbox{\hyperlink{arm__nn__math__types_8h_aa10494e03ee6bdf5d573079ca559f073}{NN\_Q31\_MIN}}))}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00877}00877\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00878}00878\ \ \ \ \ \ \ \ \ result\ =\ \mbox{\hyperlink{arm__nn__math__types_8h_a602e8d32c870d50039bbd651fd9b4544}{NN\_Q31\_MAX}};}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00879}00879\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00880}00880\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00881}00881\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00882}00882\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00897}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a4e5183e2400227aafc91fb796fe99a6d}{00897}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4e5183e2400227aafc91fb796fe99a6d}{arm\_nn\_doubling\_high\_mult\_no\_sat}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ m1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ m2)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00898}00898\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00899}00899\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00900}00900\ \ \ \ \ \textcolor{keyword}{union\ }\mbox{\hyperlink{unionarm__nn__long__long}{arm\_nn\_long\_long}}\ mult;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00901}00901\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00902}00902\ \ \ \ \ \textcolor{comment}{//\ Rounding\ offset\ to\ add\ for\ a\ right\ shift\ of\ 31}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00903}00903\ \ \ \ \ mult.\mbox{\hyperlink{unionarm__nn__long__long_a9cefd3ba306754dbe064a6123a4d51bc}{word}}.\mbox{\hyperlink{structarm__nn__double_a864f755b7008df85b29726891bdd4fbd}{low}}\ =\ 1\ <<\ 30;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00904}00904\ \ \ \ \ mult.\mbox{\hyperlink{unionarm__nn__long__long_a9cefd3ba306754dbe064a6123a4d51bc}{word}}.\mbox{\hyperlink{structarm__nn__double_a7e65ea59ece55b5ce83cf47cd4a05b8c}{high}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00905}00905\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00906}00906\ \ \ \ \ \textcolor{comment}{//\ Gets\ resolved\ as\ a\ SMLAL\ instruction}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00907}00907\ \ \ \ \ mult.\mbox{\hyperlink{unionarm__nn__long__long_a01ad5de26c5e1392702d48a6f1f31aff}{long\_long}}\ =\ mult.\mbox{\hyperlink{unionarm__nn__long__long_a01ad5de26c5e1392702d48a6f1f31aff}{long\_long}}\ +\ (\mbox{\hyperlink{arm__math__types_8h_a5aea1cb12fc02d9d44c8abf217eaa5c6}{q63\_t}})m1\ *\ m2;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00908}00908\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00909}00909\ \ \ \ \ \textcolor{comment}{//\ Utilize\ all\ of\ the\ upper\ 32\ bits.\ This\ is\ the\ doubling\ step}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00910}00910\ \ \ \ \ \textcolor{comment}{//\ as\ well.}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00911}00911\ \ \ \ \ result\ =\ (int32\_t)(mult.\mbox{\hyperlink{unionarm__nn__long__long_a01ad5de26c5e1392702d48a6f1f31aff}{long\_long}}\ >>\ 31);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00912}00912\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00913}00913\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00914}00914\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00915}00915\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00924}\mbox{\hyperlink{arm__nnsupportfunctions_8h_ab6dbc2fd53fae3ccdd1d0d70c8d3b491}{00924}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ab6dbc2fd53fae3ccdd1d0d70c8d3b491}{arm\_nn\_divide\_by\_power\_of\_two}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ dividend,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ exponent)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00925}00925\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00926}00926\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00927}00927\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ remainder\_mask\ =\ (1\ <<\ exponent)\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00928}00928\ \ \ \ \ int32\_t\ remainder\ =\ remainder\_mask\ \&\ dividend;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00929}00929\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00930}00930\ \ \ \ \ \textcolor{comment}{//\ Basic\ division}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00931}00931\ \ \ \ \ result\ =\ dividend\ >>\ exponent;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00932}00932\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00933}00933\ \ \ \ \ \textcolor{comment}{//\ Adjust\ 'result'\ for\ rounding\ (mid\ point\ away\ from\ zero)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00934}00934\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ threshold\ =\ remainder\_mask\ >>\ 1;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00935}00935\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00936}00936\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00937}00937\ \ \ \ \ \ \ \ \ threshold++;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00938}00938\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00939}00939\ \ \ \ \ \textcolor{keywordflow}{if}\ (remainder\ >\ threshold)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00940}00940\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00941}00941\ \ \ \ \ \ \ \ \ result++;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00942}00942\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00943}00943\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00944}00944\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00945}00945\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00946}00946\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00956}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a6a13b7a567485da5fc7f0d311318886d}{00956}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a6a13b7a567485da5fc7f0d311318886d}{arm\_nn\_requantize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ val,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ multiplier,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ shift)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00957}00957\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00958}00958\ \textcolor{preprocessor}{\#ifdef\ CMSIS\_NN\_USE\_SINGLE\_ROUNDING}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00959}00959\ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ total\_shift\ =\ 31\ -\/\ shift;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00960}00960\ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ new\_val\ =\ val\ *\ (int64\_t)multiplier;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00961}00961\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00962}00962\ \ \ \ \ int32\_t\ result\ =\ new\_val\ >>\ (total\_shift\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00963}00963\ \ \ \ \ result\ =\ (result\ +\ 1)\ >>\ 1;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00964}00964\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00965}00965\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00966}00966\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00967}00967\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ab6dbc2fd53fae3ccdd1d0d70c8d3b491}{arm\_nn\_divide\_by\_power\_of\_two}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_a4e5183e2400227aafc91fb796fe99a6d}{arm\_nn\_doubling\_high\_mult\_no\_sat}}(val\ *\ (1\ <<\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a2953f124ae444ebdd2b2a0873ac36b7e}{LEFT\_SHIFT}}(shift)),\ multiplier),}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00968}00968\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a26af54489c1401b91595bf0c92ef87c4}{RIGHT\_SHIFT}}(shift));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00969}00969\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00970}00970\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00971}00971\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00982}\mbox{\hyperlink{arm__nnsupportfunctions_8h_aa03e369b608572b80a4e56e8298a21c0}{00982}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_aa03e369b608572b80a4e56e8298a21c0}{arm\_nn\_requantize\_s64}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a5aea1cb12fc02d9d44c8abf217eaa5c6}{q63\_t}}\ val,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ reduced\_multiplier,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ shift)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00983}00983\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00984}00984\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a5aea1cb12fc02d9d44c8abf217eaa5c6}{q63\_t}}\ new\_val\ =\ val\ *\ reduced\_multiplier;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00985}00985\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00986}00986\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ result\ =\ new\_val\ >>\ (14\ -\/\ shift);\ \textcolor{comment}{//\ 64-\/>32\ bit\ reduction}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00987}00987\ \ \ \ \ result\ =\ (result\ +\ 1)\ >>\ 1;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Last\ shift\ position\ and\ insert\ round}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00988}00988\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00989}00989\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00990}00990\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00991}00991\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l00999}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a085459f6280c8f586ddd64998dece532}{00999}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a085459f6280c8f586ddd64998dece532}{arm\_memcpy\_q7}}(\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_a378ac21329d33f561f90265eef89f564}{\_\_RESTRICT}}\ dst,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_a378ac21329d33f561f90265eef89f564}{\_\_RESTRICT}}\ src,\ uint32\_t\ block\_size)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01000}01000\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01001}01001\ \textcolor{preprocessor}{\#if\ defined(ARM\_MATH\_MVEI)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01002}01002\ \ \ \ \ \_\_asm\ \textcolor{keyword}{volatile}(\textcolor{stringliteral}{"{}\ \ \ wlstp.8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lr,\ \%[cnt],\ 1f\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01003}01003\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}2:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01004}01004\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ vldrb.8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q0,\ [\%[in]],\ \#16\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01005}01005\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ vstrb.8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ q0,\ [\%[out]],\ \#16\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01006}01006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ letp\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lr,\ 2b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01007}01007\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}1:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01008}01008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ [\ in\ ]\ \textcolor{stringliteral}{"{}+r"{}}(src),\ [\ out\ ]\ \textcolor{stringliteral}{"{}+r"{}}(dst)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01009}01009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ [\ cnt\ ]\ \textcolor{stringliteral}{"{}r"{}}(block\_size)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01010}01010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{stringliteral}{"{}q0"{}},\ \textcolor{stringliteral}{"{}memory"{}},\ \textcolor{stringliteral}{"{}r14"{}});}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01011}01011\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01012}01012\ \ \ \ \ memcpy(dst,\ src,\ block\_size);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01013}01013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01014}01014\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01015}01015\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01016}01016\ \textcolor{preprocessor}{\#if\ defined(ARM\_MATH\_MVEI)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01024}01024\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ int32x4\_t\ arm\_doubling\_high\_mult\_mve(\textcolor{keyword}{const}\ int32x4\_t\ m1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ m2)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01025}01025\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01026}01026\ \ \ \ \ \textcolor{keywordflow}{return}\ vqrdmulhq\_n\_s32(m1,\ m2);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01027}01027\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01028}01028\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01037}01037\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ int32x4\_t\ arm\_divide\_by\_power\_of\_two\_mve(\textcolor{keyword}{const}\ int32x4\_t\ dividend,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ exponent)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01038}01038\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01039}01039\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ shift\ =\ vdupq\_n\_s32(-\/exponent);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01040}01040\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ fixup\ =\ vshrq\_n\_s32(vandq\_s32(dividend,\ shift),\ 31);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01041}01041\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ fixed\_up\_dividend\ =\ vqaddq\_s32(dividend,\ fixup);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01042}01042\ \ \ \ \ \textcolor{keywordflow}{return}\ vrshlq\_s32(fixed\_up\_dividend,\ shift);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01043}01043\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01044}01044\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01054}01054\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ int32x4\_t\ arm\_requantize\_mve(\textcolor{keyword}{const}\ int32x4\_t\ val,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ multiplier,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ shift)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01055}01055\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01056}01056\ \textcolor{preprocessor}{\#ifdef\ CMSIS\_NN\_USE\_SINGLE\_ROUNDING}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01057}01057\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ right\_shift\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(-\/1,\ shift);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01058}01058\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ left\_shift\ =\ shift\ -\/\ right\_shift;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01059}01059\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01060}01060\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ left\_shift\_dup\ =\ vdupq\_n\_s32(left\_shift);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01061}01061\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ right\_shift\_dup\ =\ vdupq\_n\_s32(right\_shift);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01062}01062\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01063}01063\ \ \ \ \ int32x4\_t\ result\ =\ vqdmulhq\_n\_s32(vshlq\_s32(val,\ left\_shift\_dup),\ multiplier);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01064}01064\ \ \ \ \ result\ =\ vrshlq\_s32(result,\ right\_shift\_dup);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01065}01065\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01066}01066\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01067}01067\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01068}01068\ \ \ \ \ \textcolor{keywordflow}{return}\ arm\_divide\_by\_power\_of\_two\_mve(}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01069}01069\ \ \ \ \ \ \ \ \ arm\_doubling\_high\_mult\_mve(vshlq\_s32(val,\ vdupq\_n\_s32(\mbox{\hyperlink{arm__nnsupportfunctions_8h_a2953f124ae444ebdd2b2a0873ac36b7e}{LEFT\_SHIFT}}(shift))),\ multiplier),\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a26af54489c1401b91595bf0c92ef87c4}{RIGHT\_SHIFT}}(shift));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01070}01070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01071}01071\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01072}01072\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01073}01073\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ int32x4\_t\ arm\_doubling\_high\_mult\_mve\_32x4(\textcolor{keyword}{const}\ int32x4\_t\ m1,\ \textcolor{keyword}{const}\ int32x4\_t\ m2)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01074}01074\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01075}01075\ \ \ \ \ \textcolor{keywordflow}{return}\ vqrdmulhq\_s32(m1,\ m2);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01076}01076\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01077}01077\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01078}01078\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ int32x4\_t\ arm\_divide\_by\_power\_of\_two\_mve\_32x4(\textcolor{keyword}{const}\ int32x4\_t\ dividend,\ \textcolor{keyword}{const}\ int32x4\_t\ exponent)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01079}01079\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01080}01080\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ shift\ =\ -\/exponent;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01081}01081\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ fixup\ =\ vshrq\_n\_s32(vandq\_s32(dividend,\ shift),\ 31);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01082}01082\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ fixed\_up\_dividend\ =\ vqaddq\_s32(dividend,\ fixup);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01083}01083\ \ \ \ \ \textcolor{keywordflow}{return}\ vrshlq\_s32(fixed\_up\_dividend,\ shift);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01084}01084\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01085}01085\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01086}01086\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ int32x4\_t\ arm\_requantize\_mve\_32x4(\textcolor{keyword}{const}\ int32x4\_t\ val,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01087}01087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ multiplier,}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01088}01088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ shift)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01089}01089\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01090}01090\ \textcolor{preprocessor}{\#ifdef\ CMSIS\_NN\_USE\_SINGLE\_ROUNDING}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01091}01091\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ right\_shift\ =\ vminq\_s32(vdupq\_n\_s32(-\/1),\ shift);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01092}01092\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ left\_shift\ =\ vqsubq\_s32(shift,\ right\_shift);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01093}01093\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01094}01094\ \ \ \ \ int32x4\_t\ result\ =\ vqdmulhq\_s32(vshlq\_s32(val,\ left\_shift),\ multiplier);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01095}01095\ \ \ \ \ result\ =\ vrshlq\_s32(result,\ right\_shift);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01096}01096\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01097}01097\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01098}01098\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01099}01099\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ zz\ =\ vdupq\_n\_s32(0);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01100}01100\ \ \ \ \ \textcolor{keyword}{const}\ mve\_pred16\_t\ p\ =\ vcmpgtq\_n\_s32(shift,\ 0);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01101}01101\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01102}01102\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ left\_shift\ =\ vpselq\_s32(shift,\ zz,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01103}01103\ \ \ \ \ \textcolor{keyword}{const}\ int32x4\_t\ right\_shift\ =\ -\/vpselq\_s32(zz,\ shift,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01104}01104\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01105}01105\ \ \ \ \ \textcolor{keywordflow}{return}\ arm\_divide\_by\_power\_of\_two\_mve\_32x4(arm\_doubling\_high\_mult\_mve\_32x4(vshlq\_s32(val,\ left\_shift),\ multiplier),}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01106}01106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ right\_shift);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01107}01107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01108}01108\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01109}01109\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01110}01110\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01111}01111\ \textcolor{comment}{//\ @note\ The\ following\ functions\ are\ used\ only\ for\ softmax\ layer,\ scaled\ bits\ =\ 5\ assumed}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01112}01112\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01113}\mbox{\hyperlink{arm__nnsupportfunctions_8h_aa278c8c2ac1e8bd47fb377fa7cb77553}{01113}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ int32\_t\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_aa278c8c2ac1e8bd47fb377fa7cb77553}{arm\_nn\_exp\_on\_negative\_values}}(int32\_t\ val)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01114}01114\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01115}01115\ \ \ \ \ int32\_t\ mask\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01116}01116\ \ \ \ \ int32\_t\ shift\ =\ 24;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01117}01117\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01118}01118\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ val\_mod\_minus\_quarter\ =\ (val\ \&\ ((1\ <<\ shift)\ -\/\ 1))\ -\/\ (1\ <<\ shift);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01119}01119\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ remainder\ =\ val\_mod\_minus\_quarter\ -\/\ val;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01120}01120\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ x\ =\ (val\_mod\_minus\_quarter\ <<\ 5)\ +\ (1\ <<\ 28);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01121}01121\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ x2\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(x,\ x);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01122}01122\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01123}01123\ \ \ \ \ int32\_t\ result\ =\ 1895147668\ +}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01124}01124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(1895147668,\ x\ +\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a7ce5ee6d8839bf541fb4bbdf4ef80eb1}{DIV\_POW2}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_a7ce5ee6d8839bf541fb4bbdf4ef80eb1}{DIV\_POW2}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(x2,\ x2),\ 2)\ +\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(x2,\ x),\ 715827883)\ +\ x2,\ 1));}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01125}01125\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01126}01126\ \textcolor{preprocessor}{\#define\ SELECT\_IF\_NON\_ZERO(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01127}01127\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01128}01128\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ mask\ =\ MASK\_IF\_NON\_ZERO(remainder\ \&\ (1\ <<\ shift++));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01129}01129\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ result\ =\ SELECT\_USING\_MASK(mask,\ MUL\_SAT(result,\ x),\ result);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01130}01130\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01131}01131\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01132}01132\ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4b3b6a6ed8cb224c5bcabd9ad1c94fde}{SELECT\_IF\_NON\_ZERO}}(1672461947)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01133}01133\ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4b3b6a6ed8cb224c5bcabd9ad1c94fde}{SELECT\_IF\_NON\_ZERO}}(1302514674)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01134}01134\ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4b3b6a6ed8cb224c5bcabd9ad1c94fde}{SELECT\_IF\_NON\_ZERO}}(790015084)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01135}01135\ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4b3b6a6ed8cb224c5bcabd9ad1c94fde}{SELECT\_IF\_NON\_ZERO}}(290630308)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01136}01136\ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4b3b6a6ed8cb224c5bcabd9ad1c94fde}{SELECT\_IF\_NON\_ZERO}}(39332535)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01137}01137\ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4b3b6a6ed8cb224c5bcabd9ad1c94fde}{SELECT\_IF\_NON\_ZERO}}(720401)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01138}01138\ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a4b3b6a6ed8cb224c5bcabd9ad1c94fde}{SELECT\_IF\_NON\_ZERO}}(242)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01139}01139\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01140}01140\ \textcolor{preprocessor}{\#undef\ SELECT\_IF\_NON\_ZERO}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01141}01141\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01142}01142\ \ \ \ \ mask\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a76b700415a2c22cea484103b7123739b}{MASK\_IF\_ZERO}}(val);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01143}01143\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a6f69b7e95b80e10a5f5d2ddbbfbc301f}{SELECT\_USING\_MASK}}(mask,\ \mbox{\hyperlink{arm__nn__math__types_8h_a602e8d32c870d50039bbd651fd9b4544}{NN\_Q31\_MAX}},\ result);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01144}01144\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01145}01145\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01146}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a6caa6da5a6df5ebedf5efc49a56a42dd}{01146}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a6caa6da5a6df5ebedf5efc49a56a42dd}{arm\_nn\_mult\_by\_power\_of\_two}}(\textcolor{keyword}{const}\ int32\_t\ val,\ \textcolor{keyword}{const}\ int32\_t\ exp)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01147}01147\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01148}01148\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ thresh\ =\ ((1\ <<\ (31\ -\/\ exp))\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01149}01149\ \ \ \ \ int32\_t\ result\ =\ val\ <<\ exp;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01150}01150\ \ \ \ \ result\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a6f69b7e95b80e10a5f5d2ddbbfbc301f}{SELECT\_USING\_MASK}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_a0bc8558b22558613ed3ad3eb624ec7a5}{MASK\_IF\_NON\_ZERO}}(val\ >\ thresh),\ \mbox{\hyperlink{arm__nn__math__types_8h_a602e8d32c870d50039bbd651fd9b4544}{NN\_Q31\_MAX}},\ result);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01151}01151\ \ \ \ \ result\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a6f69b7e95b80e10a5f5d2ddbbfbc301f}{SELECT\_USING\_MASK}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_a0bc8558b22558613ed3ad3eb624ec7a5}{MASK\_IF\_NON\_ZERO}}(val\ <\ -\/thresh),\ \mbox{\hyperlink{arm__nn__math__types_8h_aa10494e03ee6bdf5d573079ca559f073}{NN\_Q31\_MIN}},\ result);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01152}01152\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01153}01153\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01154}01154\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01155}\mbox{\hyperlink{arm__nnsupportfunctions_8h_ad48fdafd9bff64093b2105c0224994e4}{01155}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ int32\_t\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ad48fdafd9bff64093b2105c0224994e4}{arm\_nn\_one\_over\_one\_plus\_x\_for\_x\_in\_0\_1}}(int32\_t\ val)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01156}01156\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01157}01157\ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ sum\ =\ (int64\_t)val\ +\ (int64\_t)\mbox{\hyperlink{arm__nn__math__types_8h_a602e8d32c870d50039bbd651fd9b4544}{NN\_Q31\_MAX}};}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01158}01158\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ half\_denominator\ =\ (int32\_t)((sum\ +\ (sum\ >=\ 0\ ?\ 1\ :\ -\/1))\ /\ 2L);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01159}01159\ \ \ \ \ int32\_t\ x\ =\ 1515870810\ +\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(half\_denominator,\ -\/1010580540);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01160}01160\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01161}01161\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ shift\ =\ (1\ <<\ 29);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01162}01162\ \ \ \ \ x\ +=\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a9d7332bc4331d55ada7ea19407e2a8c3}{MUL\_POW2}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(x,\ shift\ -\/\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(half\_denominator,\ x)),\ 2);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01163}01163\ \ \ \ \ x\ +=\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a9d7332bc4331d55ada7ea19407e2a8c3}{MUL\_POW2}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(x,\ shift\ -\/\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(half\_denominator,\ x)),\ 2);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01164}01164\ \ \ \ \ x\ +=\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a9d7332bc4331d55ada7ea19407e2a8c3}{MUL\_POW2}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(x,\ shift\ -\/\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a518f7e0db18bea6b61a2b88f266aef20}{MUL\_SAT}}(half\_denominator,\ x)),\ 2);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01165}01165\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01166}01166\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a9d7332bc4331d55ada7ea19407e2a8c3}{MUL\_POW2}}(x,\ 1);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01167}01167\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01168}01168\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01174}\mbox{\hyperlink{arm__nnsupportfunctions_8h_a9477fb2f82284ac4fe20b2efb721f5f5}{01174}}\ \mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\_\_STATIC\_FORCEINLINE}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a9477fb2f82284ac4fe20b2efb721f5f5}{arm\_nn\_write\_q15x2\_ia}}(\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}}\ **dest\_q15,\ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ src\_q31)}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01175}01175\ \{}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01176}01176\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\_t}}\ val\ =\ src\_q31;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01177}01177\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01178}01178\ \ \ \ \ memcpy(*dest\_q15,\ \&val,\ 4);}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01179}01179\ \ \ \ \ *dest\_q15\ +=\ 2;}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01180}01180\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01181}01181\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01182}01182\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01183}01183\ \}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01184}01184\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01185}01185\ }
+\DoxyCodeLine{\Hypertarget{arm__nnsupportfunctions_8h_source_l01186}01186\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

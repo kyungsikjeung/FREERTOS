@@ -1,0 +1,178 @@
+\doxysubsection{Mean }
+\hypertarget{group__mean}{}\label{group__mean}\index{Mean@{Mean}}
+Collaboration diagram for Mean\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{group__mean}
+\end{center}
+\end{figure}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__mean_gae4fb7698771d7c24f536ed24347c1488}{arm\+\_\+mean\+\_\+f32}} (const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}}, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Result)
+\begin{DoxyCompactList}\small\item\em Mean value of a floating-\/point vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mean_ga239755cadcf3eebddfb287f6c920f96d}{arm\+\_\+mean\+\_\+f64}} (const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}}, \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Result)
+\begin{DoxyCompactList}\small\item\em Mean value of a floating-\/point vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mean_ga55fc43607651123ffe3b967e30305734}{arm\+\_\+mean\+\_\+q15}} (const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}}, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Result)
+\begin{DoxyCompactList}\small\item\em Mean value of a Q15 vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mean_gab86ec60eba14c4bc4e2bd9b54ac4b487}{arm\+\_\+mean\+\_\+q31}} (const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}}, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Result)
+\begin{DoxyCompactList}\small\item\em Mean value of a Q31 vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__mean_gaa907ace253a82be0741a3203ac04601c}{arm\+\_\+mean\+\_\+q7}} (const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}}, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Result)
+\begin{DoxyCompactList}\small\item\em Mean value of a Q7 vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group__mean_doc-func-members}
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group__mean_gae4fb7698771d7c24f536ed24347c1488}\index{Mean@{Mean}!arm\_mean\_f32@{arm\_mean\_f32}}
+\index{arm\_mean\_f32@{arm\_mean\_f32}!Mean@{Mean}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mean\_f32()}{arm\_mean\_f32()}}
+{\footnotesize\ttfamily \label{group__mean_gae4fb7698771d7c24f536ed24347c1488} 
+void arm\+\_\+mean\+\_\+f32 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{uint32\+\_\+t}]{block\+Size}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Result}{}\end{DoxyParamCaption})}
+
+
+
+Mean value of a floating-\/point vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector. \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in input vector. \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Result} & mean value returned here. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__mean__f32_8c_source_l00142}{142}} of file \mbox{\hyperlink{arm__mean__f32_8c_source}{arm\+\_\+mean\+\_\+f32.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{group__mean_gae4fb7698771d7c24f536ed24347c1488_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group__mean_ga239755cadcf3eebddfb287f6c920f96d}\index{Mean@{Mean}!arm\_mean\_f64@{arm\_mean\_f64}}
+\index{arm\_mean\_f64@{arm\_mean\_f64}!Mean@{Mean}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mean\_f64()}{arm\_mean\_f64()}}
+{\footnotesize\ttfamily \label{group__mean_ga239755cadcf3eebddfb287f6c920f96d} 
+void arm\+\_\+mean\+\_\+f64 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{uint32\+\_\+t}]{block\+Size}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Result}{}\end{DoxyParamCaption})}
+
+
+
+Mean value of a floating-\/point vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector. \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in input vector. \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Result} & mean value returned here. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__mean__f64_8c_source_l00048}{48}} of file \mbox{\hyperlink{arm__mean__f64_8c_source}{arm\+\_\+mean\+\_\+f64.\+c}}.
+
+\Hypertarget{group__mean_ga55fc43607651123ffe3b967e30305734}\index{Mean@{Mean}!arm\_mean\_q15@{arm\_mean\_q15}}
+\index{arm\_mean\_q15@{arm\_mean\_q15}!Mean@{Mean}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mean\_q15()}{arm\_mean\_q15()}}
+{\footnotesize\ttfamily \label{group__mean_ga55fc43607651123ffe3b967e30305734} 
+void arm\+\_\+mean\+\_\+q15 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{uint32\+\_\+t}]{block\+Size}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Result}{}\end{DoxyParamCaption})}
+
+
+
+Mean value of a Q15 vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in input vector \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Result} & mean value returned here \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Scaling and Overflow Behavior}
+The function is implemented using a 32-\/bit internal accumulator. The input is represented in 1.\+15 format and is accumulated in a 32-\/bit accumulator in 17.\+15 format. There is no risk of internal overflow with this approach, and the full precision of intermediate result is preserved. Finally, the accumulator is truncated to yield a result of 1.\+15 format. 
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{arm__mean__q15_8c_source_l00097}{97}} of file \mbox{\hyperlink{arm__mean__q15_8c_source}{arm\+\_\+mean\+\_\+q15.\+c}}.
+
+\Hypertarget{group__mean_gab86ec60eba14c4bc4e2bd9b54ac4b487}\index{Mean@{Mean}!arm\_mean\_q31@{arm\_mean\_q31}}
+\index{arm\_mean\_q31@{arm\_mean\_q31}!Mean@{Mean}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mean\_q31()}{arm\_mean\_q31()}}
+{\footnotesize\ttfamily \label{group__mean_gab86ec60eba14c4bc4e2bd9b54ac4b487} 
+void arm\+\_\+mean\+\_\+q31 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{uint32\+\_\+t}]{block\+Size}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Result}{}\end{DoxyParamCaption})}
+
+
+
+Mean value of a Q31 vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in input vector \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Result} & mean value returned here \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Scaling and Overflow Behavior}
+The function is implemented using a 64-\/bit internal accumulator. The input is represented in 1.\+31 format and is accumulated in a 64-\/bit accumulator in 33.\+31 format. There is no risk of internal overflow with this approach, and the full precision of intermediate result is preserved. Finally, the accumulator is truncated to yield a result of 1.\+31 format. 
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{arm__mean__q31_8c_source_l00094}{94}} of file \mbox{\hyperlink{arm__mean__q31_8c_source}{arm\+\_\+mean\+\_\+q31.\+c}}.
+
+\Hypertarget{group__mean_gaa907ace253a82be0741a3203ac04601c}\index{Mean@{Mean}!arm\_mean\_q7@{arm\_mean\_q7}}
+\index{arm\_mean\_q7@{arm\_mean\_q7}!Mean@{Mean}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mean\_q7()}{arm\_mean\_q7()}}
+{\footnotesize\ttfamily \label{group__mean_gaa907ace253a82be0741a3203ac04601c} 
+void arm\+\_\+mean\+\_\+q7 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{uint32\+\_\+t}]{block\+Size}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Result}{}\end{DoxyParamCaption})}
+
+
+
+Mean value of a Q7 vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in input vector \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Result} & mean value returned here \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Scaling and Overflow Behavior}
+The function is implemented using a 32-\/bit internal accumulator. The input is represented in 1.\+7 format and is accumulated in a 32-\/bit accumulator in 25.\+7 format. There is no risk of internal overflow with this approach, and the full precision of intermediate result is preserved. Finally, the accumulator is truncated to yield a result of 1.\+7 format. 
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{arm__mean__q7_8c_source_l00096}{96}} of file \mbox{\hyperlink{arm__mean__q7_8c_source}{arm\+\_\+mean\+\_\+q7.\+c}}.
+

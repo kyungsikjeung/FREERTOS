@@ -1,0 +1,228 @@
+\doxysubsection{Vector Offset }
+\hypertarget{group___basic_offset}{}\label{group___basic_offset}\index{Vector Offset@{Vector Offset}}
+Collaboration diagram for Vector Offset\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{group___basic_offset}
+\end{center}
+\end{figure}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___basic_offset_ga4ea8c9e1829e3b4d297f87e4a40478ad}{arm\+\_\+offset\+\_\+f32}} (const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} offset, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Adds a constant offset to a floating-\/point vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___basic_offset_gadba534be134467772c62e7ac5c1fcf2a}{arm\+\_\+offset\+\_\+f64}} (const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} offset, \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Adds a constant offset to a floating-\/point vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___basic_offset_gaffc78c4cda3e39b518d79cef293532b7}{arm\+\_\+offset\+\_\+q15}} (const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} offset, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Adds a constant offset to a Q15 vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___basic_offset_ga55604198ef59f391a96ec95c188fca85}{arm\+\_\+offset\+\_\+q31}} (const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} offset, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Adds a constant offset to a Q31 vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___basic_offset_ga26adad00c10390145b02080a53e782b4}{arm\+\_\+offset\+\_\+q7}} (const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} offset, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Adds a constant offset to a Q7 vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Adds a constant offset to each element of a vector.
+
+
+\begin{DoxyPre}
+    pDst[n] = pSrc[n] + offset,   0 <= n < blockSize.
+\end{DoxyPre}
+
+
+The functions support in-\/place computation allowing the source and destination pointers to reference the same memory buffer. There are separate functions for floating-\/point, Q7, Q15, and Q31 data types.
+
+\label{doc-func-members}
+\Hypertarget{group___basic_offset_doc-func-members}
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group___basic_offset_ga4ea8c9e1829e3b4d297f87e4a40478ad}\index{Vector Offset@{Vector Offset}!arm\_offset\_f32@{arm\_offset\_f32}}
+\index{arm\_offset\_f32@{arm\_offset\_f32}!Vector Offset@{Vector Offset}}
+\doxysubsubsubsection{\texorpdfstring{arm\_offset\_f32()}{arm\_offset\_f32()}}
+{\footnotesize\ttfamily \label{group___basic_offset_ga4ea8c9e1829e3b4d297f87e4a40478ad} 
+void arm\+\_\+offset\+\_\+f32 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}}}]{offset}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Adds a constant offset to a floating-\/point vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{in}}  & {\em offset} & is the offset to be added \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in each vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__offset__f32_8c_source_l00111}{111}} of file \mbox{\hyperlink{arm__offset__f32_8c_source}{arm\+\_\+offset\+\_\+f32.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{group___basic_offset_ga4ea8c9e1829e3b4d297f87e4a40478ad_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___basic_offset_gadba534be134467772c62e7ac5c1fcf2a}\index{Vector Offset@{Vector Offset}!arm\_offset\_f64@{arm\_offset\_f64}}
+\index{arm\_offset\_f64@{arm\_offset\_f64}!Vector Offset@{Vector Offset}}
+\doxysubsubsubsection{\texorpdfstring{arm\_offset\_f64()}{arm\_offset\_f64()}}
+{\footnotesize\ttfamily \label{group___basic_offset_gadba534be134467772c62e7ac5c1fcf2a} 
+void arm\+\_\+offset\+\_\+f64 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}}}]{offset}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Adds a constant offset to a floating-\/point vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{in}}  & {\em offset} & is the offset to be added \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in each vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__offset__f64_8c_source_l00049}{49}} of file \mbox{\hyperlink{arm__offset__f64_8c_source}{arm\+\_\+offset\+\_\+f64.\+c}}.
+
+\Hypertarget{group___basic_offset_gaffc78c4cda3e39b518d79cef293532b7}\index{Vector Offset@{Vector Offset}!arm\_offset\_q15@{arm\_offset\_q15}}
+\index{arm\_offset\_q15@{arm\_offset\_q15}!Vector Offset@{Vector Offset}}
+\doxysubsubsubsection{\texorpdfstring{arm\_offset\_q15()}{arm\_offset\_q15()}}
+{\footnotesize\ttfamily \label{group___basic_offset_gaffc78c4cda3e39b518d79cef293532b7} 
+void arm\+\_\+offset\+\_\+q15 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}}}]{offset}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Adds a constant offset to a Q15 vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{in}}  & {\em offset} & is the offset to be added \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in each vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Scaling and Overflow Behavior}
+The function uses saturating arithmetic. Results outside of the allowable Q15 range \mbox{[}0x8000 0x7\+FFF\mbox{]} are saturated. 
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{arm__offset__q15_8c_source_l00099}{99}} of file \mbox{\hyperlink{arm__offset__q15_8c_source}{arm\+\_\+offset\+\_\+q15.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{group___basic_offset_gaffc78c4cda3e39b518d79cef293532b7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___basic_offset_ga55604198ef59f391a96ec95c188fca85}\index{Vector Offset@{Vector Offset}!arm\_offset\_q31@{arm\_offset\_q31}}
+\index{arm\_offset\_q31@{arm\_offset\_q31}!Vector Offset@{Vector Offset}}
+\doxysubsubsubsection{\texorpdfstring{arm\_offset\_q31()}{arm\_offset\_q31()}}
+{\footnotesize\ttfamily \label{group___basic_offset_ga55604198ef59f391a96ec95c188fca85} 
+void arm\+\_\+offset\+\_\+q31 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}}}]{offset}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Adds a constant offset to a Q31 vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{in}}  & {\em offset} & is the offset to be added \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in each vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Scaling and Overflow Behavior}
+The function uses saturating arithmetic. Results outside of the allowable Q31 range \mbox{[}0x80000000 0x7\+FFFFFFF\mbox{]} are saturated. 
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{arm__offset__q31_8c_source_l00099}{99}} of file \mbox{\hyperlink{arm__offset__q31_8c_source}{arm\+\_\+offset\+\_\+q31.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{group___basic_offset_ga55604198ef59f391a96ec95c188fca85_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{group___basic_offset_ga55604198ef59f391a96ec95c188fca85_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___basic_offset_ga26adad00c10390145b02080a53e782b4}\index{Vector Offset@{Vector Offset}!arm\_offset\_q7@{arm\_offset\_q7}}
+\index{arm\_offset\_q7@{arm\_offset\_q7}!Vector Offset@{Vector Offset}}
+\doxysubsubsubsection{\texorpdfstring{arm\_offset\_q7()}{arm\_offset\_q7()}}
+{\footnotesize\ttfamily \label{group___basic_offset_ga26adad00c10390145b02080a53e782b4} 
+void arm\+\_\+offset\+\_\+q7 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}}}]{offset}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Adds a constant offset to a Q7 vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{in}}  & {\em offset} & is the offset to be added \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in each vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Scaling and Overflow Behavior}
+The function uses saturating arithmetic. Results outside of the allowable Q7 range \mbox{[}0x80 0x7F\mbox{]} are saturated. 
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{arm__offset__q7_8c_source_l00098}{98}} of file \mbox{\hyperlink{arm__offset__q7_8c_source}{arm\+\_\+offset\+\_\+q7.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{group___basic_offset_ga26adad00c10390145b02080a53e782b4_cgraph}
+\end{center}
+\end{figure}

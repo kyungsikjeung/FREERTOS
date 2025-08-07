@@ -1,0 +1,5 @@
+<map id="arm_reshape_s8" name="arm_reshape_s8">
+<area shape="rect" id="Node000001" title="Reshape a s8 vector into another with different shape." alt="" coords="5,5,123,32"/>
+<area shape="rect" id="Node000002" href="$arm__nnsupportfunctions_8h.html#a085459f6280c8f586ddd64998dece532" title="memcpy optimized for MVE" alt="" coords="171,5,292,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,16,155,16,155,21,123,21"/>
+</map>

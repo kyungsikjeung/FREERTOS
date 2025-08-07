@@ -1,0 +1,83 @@
+\doxysubsubsection{IWDG Exported Macros }
+\hypertarget{group___i_w_d_g___exported___macros}{}\label{group___i_w_d_g___exported___macros}\index{IWDG Exported Macros@{IWDG Exported Macros}}
+Collaboration diagram for IWDG Exported Macros\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{group___i_w_d_g___exported___macros}
+\end{center}
+\end{figure}
+\doxysubsubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___i_w_d_g___exported___macros_ga5914aff5b85e3151bb75377a32d83d6a}{\+\_\+\+\_\+\+HAL\+\_\+\+IWDG\+\_\+\+START}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Enable the IWDG peripheral. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___i_w_d_g___exported___macros_gac0eaf381e60a654d6b51c43f645e088f}{\+\_\+\+\_\+\+HAL\+\_\+\+IWDG\+\_\+\+RELOAD\+\_\+\+COUNTER}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Reload IWDG counter with value defined in the reload register (write access to IWDG\+\_\+\+PR and IWDG\+\_\+\+RLR registers disabled). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Detailed Description}
+
+
+\label{doc-define-members}
+\Hypertarget{group___i_w_d_g___exported___macros_doc-define-members}
+\doxysubsubsubsection{Macro Definition Documentation}
+\Hypertarget{group___i_w_d_g___exported___macros_gac0eaf381e60a654d6b51c43f645e088f}\index{IWDG Exported Macros@{IWDG Exported Macros}!\_\_HAL\_IWDG\_RELOAD\_COUNTER@{\_\_HAL\_IWDG\_RELOAD\_COUNTER}}
+\index{\_\_HAL\_IWDG\_RELOAD\_COUNTER@{\_\_HAL\_IWDG\_RELOAD\_COUNTER}!IWDG Exported Macros@{IWDG Exported Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{\_\_HAL\_IWDG\_RELOAD\_COUNTER}{\_\_HAL\_IWDG\_RELOAD\_COUNTER}}
+{\footnotesize\ttfamily \label{group___i_w_d_g___exported___macros_gac0eaf381e60a654d6b51c43f645e088f} 
+\#define \+\_\+\+\_\+\+HAL\+\_\+\+IWDG\+\_\+\+RELOAD\+\_\+\+COUNTER(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group___exported__macro_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}((\_\_HANDLE\_\_)-\/>Instance-\/>KR,\ \mbox{\hyperlink{group___i_w_d_g___private___constants_ga33abf7b7c76dfda6b6380448a1d28966}{IWDG\_KEY\_RELOAD}})}
+
+\end{DoxyCode}
+
+
+Reload IWDG counter with value defined in the reload register (write access to IWDG\+\_\+\+PR and IWDG\+\_\+\+RLR registers disabled). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & IWDG handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__iwdg_8h_source_l00112}{112}} of file \mbox{\hyperlink{stm32f4xx__hal__iwdg_8h_source}{stm32f4xx\+\_\+hal\+\_\+iwdg.\+h}}.
+
+\Hypertarget{group___i_w_d_g___exported___macros_ga5914aff5b85e3151bb75377a32d83d6a}\index{IWDG Exported Macros@{IWDG Exported Macros}!\_\_HAL\_IWDG\_START@{\_\_HAL\_IWDG\_START}}
+\index{\_\_HAL\_IWDG\_START@{\_\_HAL\_IWDG\_START}!IWDG Exported Macros@{IWDG Exported Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{\_\_HAL\_IWDG\_START}{\_\_HAL\_IWDG\_START}}
+{\footnotesize\ttfamily \label{group___i_w_d_g___exported___macros_ga5914aff5b85e3151bb75377a32d83d6a} 
+\#define \+\_\+\+\_\+\+HAL\+\_\+\+IWDG\+\_\+\+START(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group___exported__macro_ga32f78bffcaf6d13023dcd7f05e0c4d57}{WRITE\_REG}}((\_\_HANDLE\_\_)-\/>Instance-\/>KR,\ \mbox{\hyperlink{group___i_w_d_g___private___constants_ga493295d56bb62752982234755612386f}{IWDG\_KEY\_ENABLE}})}
+
+\end{DoxyCode}
+
+
+Enable the IWDG peripheral. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & IWDG handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line \mbox{\hyperlink{stm32f4xx__hal__iwdg_8h_source_l00104}{104}} of file \mbox{\hyperlink{stm32f4xx__hal__iwdg_8h_source}{stm32f4xx\+\_\+hal\+\_\+iwdg.\+h}}.
+

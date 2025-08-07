@@ -1,0 +1,7 @@
+<map id="arm_nn_mat_mult_nt_t_s8" name="arm_nn_mat_mult_nt_t_s8">
+<area shape="rect" id="Node000001" title="General Matrix&#45;multiplication function with per&#45;channel requantization. This function assumes:" alt="" coords="458,5,633,32"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#ga53608c814d9b8a458f4d87f8f40051b7" title="Fast s8 version for 1x1 convolution (non&#45;square shape)" alt="" coords="230,5,410,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="442,21,410,21,410,16,442,16"/>
+<area shape="rect" id="Node000003" href="$group___n_n_conv.html#ga5ac772a94937e1efdab145a2ab4c0927" title="s8 convolution layer wrapper function with the main purpose to call the optimal kernel available in c..." alt="" coords="5,5,182,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="214,21,182,21,182,16,214,16"/>
+</map>

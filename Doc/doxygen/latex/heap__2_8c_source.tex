@@ -1,0 +1,278 @@
+\doxysection{heap\+\_\+2.\+c}
+\hypertarget{heap__2_8c_source}{}\label{heap__2_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Middlewares/Third\_Party/FreeRTOS/Source/portable/MemMang/heap\_2.c@{C:/Users/TOVIS/test/TestRtos/Middlewares/Third\_Party/FreeRTOS/Source/portable/MemMang/heap\_2.c}}
+\mbox{\hyperlink{heap__2_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00002}00002\ \textcolor{comment}{\ *\ FreeRTOS\ Kernel\ V10.3.1}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00003}00003\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2020\ Amazon.com,\ Inc.\ or\ its\ affiliates.\ \ All\ Rights\ Reserved.}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00004}00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00005}00005\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00006}00006\ \textcolor{comment}{\ *\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal\ in}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00007}00007\ \textcolor{comment}{\ *\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights\ to}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00008}00008\ \textcolor{comment}{\ *\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell\ copies\ of}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00009}00009\ \textcolor{comment}{\ *\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is\ furnished\ to\ do\ so,}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00010}00010\ \textcolor{comment}{\ *\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00012}00012\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00013}00013\ \textcolor{comment}{\ *\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00014}00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00015}00015\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00016}00016\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,\ FITNESS}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00017}00017\ \textcolor{comment}{\ *\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00018}00018\ \textcolor{comment}{\ *\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00019}00019\ \textcolor{comment}{\ *\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00020}00020\ \textcolor{comment}{\ *\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00022}00022\ \textcolor{comment}{\ *\ http://www.FreeRTOS.org}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00023}00023\ \textcolor{comment}{\ *\ http://aws.amazon.com/freertos}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00024}00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00025}00025\ \textcolor{comment}{\ *\ 1\ tab\ ==\ 4\ spaces!}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00026}00026\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00028}00028\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00029}00029\ \textcolor{comment}{\ *\ A\ sample\ implementation\ of\ pvPortMalloc()\ and\ vPortFree()\ that\ permits}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00030}00030\ \textcolor{comment}{\ *\ allocated\ blocks\ to\ be\ freed,\ but\ does\ not\ combine\ adjacent\ free\ blocks}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00031}00031\ \textcolor{comment}{\ *\ into\ a\ single\ larger\ block\ (and\ so\ will\ fragment\ memory).\ \ See\ heap\_4.c\ for}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00032}00032\ \textcolor{comment}{\ *\ an\ equivalent\ that\ does\ combine\ adjacent\ blocks\ into\ single\ larger\ blocks.}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00033}00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00034}00034\ \textcolor{comment}{\ *\ See\ heap\_1.c,\ heap\_3.c\ and\ heap\_4.c\ for\ alternative\ implementations,\ and\ the}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00035}00035\ \textcolor{comment}{\ *\ memory\ management\ pages\ of\ http://www.FreeRTOS.org\ for\ more\ information.}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00036}00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00037}00037\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00039}00039\ \textcolor{comment}{/*\ Defining\ MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE\ prevents\ task.h\ from\ redefining}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00040}00040\ \textcolor{comment}{all\ the\ API\ functions\ to\ use\ the\ MPU\ wrappers.\ \ That\ should\ only\ be\ done\ when}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00041}00041\ \textcolor{comment}{task.h\ is\ included\ from\ an\ application\ file.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00042}\mbox{\hyperlink{heap__2_8c_ab622d8c674f2a417a666a7ed89109e79}{00042}}\ \textcolor{preprocessor}{\#define\ MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00044}00044\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_free_r_t_o_s_8h}{FreeRTOS.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00045}00045\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{task_8h}{task.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00047}00047\ \textcolor{preprocessor}{\#undef\ MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00049}00049\ \textcolor{preprocessor}{\#if(\ configSUPPORT\_DYNAMIC\_ALLOCATION\ ==\ 0\ )}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00050}00050\ \textcolor{preprocessor}{\ \ \ \ \#error\ This\ file\ must\ not\ be\ used\ if\ configSUPPORT\_DYNAMIC\_ALLOCATION\ is\ 0}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00051}00051\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00053}00053\ \textcolor{comment}{/*\ A\ few\ bytes\ might\ be\ lost\ to\ byte\ aligning\ the\ heap\ start\ address.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00054}\mbox{\hyperlink{heap__2_8c_a3e68bebe7509a99550e1358cbca8e23f}{00054}}\ \textcolor{preprocessor}{\#define\ configADJUSTED\_HEAP\_SIZE\ \ \ \ (\ configTOTAL\_HEAP\_SIZE\ -\/\ portBYTE\_ALIGNMENT\ )}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00056}00056\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00057}00057\ \textcolor{comment}{\ *\ Initialises\ the\ heap\ structures\ before\ their\ first\ use.}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00058}00058\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00059}00059\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ prvHeapInit(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00061}00061\ \textcolor{comment}{/*\ Allocate\ the\ memory\ for\ the\ heap.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00062}00062\ \textcolor{preprocessor}{\#if(\ configAPPLICATION\_ALLOCATED\_HEAP\ ==\ 1\ )}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00063}00063\ \ \ \ \ \textcolor{comment}{/*\ The\ application\ writer\ has\ already\ defined\ the\ array\ used\ for\ the\ RTOS}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00064}00064\ \textcolor{comment}{\ \ \ \ heap\ -\/\ probably\ so\ it\ can\ be\ placed\ in\ a\ special\ segment\ or\ address.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{extern}\ uint8\_t\ ucHeap[\ \mbox{\hyperlink{_free_r_t_o_s_config_8h_a9f213227674effff0122a75d94d87938}{configTOTAL\_HEAP\_SIZE}}\ ];}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00066}00066\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00067}00067\ \ \ \ \ \textcolor{keyword}{static}\ uint8\_t\ ucHeap[\ \mbox{\hyperlink{_free_r_t_o_s_config_8h_a9f213227674effff0122a75d94d87938}{configTOTAL\_HEAP\_SIZE}}\ ];}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00068}00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ configAPPLICATION\_ALLOCATED\_HEAP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00071}00071\ \textcolor{comment}{/*\ Define\ the\ linked\ list\ structure.\ \ This\ is\ used\ to\ link\ free\ blocks\ in\ order}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00072}00072\ \textcolor{comment}{of\ their\ size.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00073}\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k}{00073}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k}{A\_BLOCK\_LINK}}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00074}00074\ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00075}\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a2e3999b3790dd5fab5ed753760ba11bc}{00075}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k}{A\_BLOCK\_LINK}}\ *\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a2e3999b3790dd5fab5ed753760ba11bc}{pxNextFreeBlock}};\ \ \ \ \textcolor{comment}{/*<<\ The\ next\ free\ block\ in\ the\ list.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00076}\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a130b4f85ad4cc46ca0f3d36001769696}{00076}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a130b4f85ad4cc46ca0f3d36001769696}{xBlockSize}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*<<\ The\ size\ of\ the\ free\ block.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00077}\mbox{\hyperlink{heap__2_8c_a5867d4b64d89c6ab51e4783687f8960a}{00077}}\ \}\ \mbox{\hyperlink{heap__2_8c_a5867d4b64d89c6ab51e4783687f8960a}{BlockLink\_t}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00080}00080\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint16\_t\ heapSTRUCT\_SIZE\ \ \ =\ (\ (\ \textcolor{keyword}{sizeof}\ (\ \mbox{\hyperlink{heap__2_8c_a5867d4b64d89c6ab51e4783687f8960a}{BlockLink\_t}}\ )\ +\ (\ \mbox{\hyperlink{portmacro_8h_ab9091ce3940d8bd93ec850122a2c6a1c}{portBYTE\_ALIGNMENT}}\ -\/\ 1\ )\ )\ \&\ \string~portBYTE\_ALIGNMENT\_MASK\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00081}\mbox{\hyperlink{heap__2_8c_ab71bae5a95671265c828339d44c44b25}{00081}}\ \textcolor{preprocessor}{\#define\ heapMINIMUM\_BLOCK\_SIZE\ \ (\ (\ size\_t\ )\ (\ heapSTRUCT\_SIZE\ *\ 2\ )\ )}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00083}00083\ \textcolor{comment}{/*\ Create\ a\ couple\ of\ list\ links\ to\ mark\ the\ start\ and\ end\ of\ the\ list.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00084}00084\ \textcolor{keyword}{static}\ \mbox{\hyperlink{heap__2_8c_a5867d4b64d89c6ab51e4783687f8960a}{BlockLink\_t}}\ xStart,\ xEnd;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00086}00086\ \textcolor{comment}{/*\ Keeps\ track\ of\ the\ number\ of\ free\ bytes\ remaining,\ but\ says\ nothing\ about}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00087}00087\ \textcolor{comment}{fragmentation.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00088}00088\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ xFreeBytesRemaining\ =\ \mbox{\hyperlink{heap__1_8c_a3e68bebe7509a99550e1358cbca8e23f}{configADJUSTED\_HEAP\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00090}00090\ \textcolor{comment}{/*\ STATIC\ FUNCTIONS\ ARE\ DEFINED\ AS\ MACROS\ TO\ MINIMIZE\ THE\ FUNCTION\ CALL\ DEPTH.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00092}00092\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00093}00093\ \textcolor{comment}{\ *\ Insert\ a\ block\ into\ the\ list\ of\ free\ blocks\ -\/\ which\ is\ ordered\ by\ size\ of}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00094}00094\ \textcolor{comment}{\ *\ the\ block.\ \ Small\ blocks\ at\ the\ start\ of\ the\ list\ and\ large\ blocks\ at\ the\ end}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00095}00095\ \textcolor{comment}{\ *\ of\ the\ list.}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00096}00096\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00097}\mbox{\hyperlink{heap__2_8c_a55396870242c952746147671bf78a149}{00097}}\ \textcolor{preprocessor}{\#define\ prvInsertBlockIntoFreeList(\ pxBlockToInsert\ )\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00098}00098\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00099}00099\ \textcolor{preprocessor}{BlockLink\_t\ *pxIterator;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00100}00100\ \textcolor{preprocessor}{size\_t\ xBlockSize;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00101}00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00102}00102\ \textcolor{preprocessor}{\ \ \ \ xBlockSize\ =\ pxBlockToInsert-\/>xBlockSize;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00103}00103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00104}00104\ \textcolor{preprocessor}{\ \ \ \ }\textcolor{comment}{/*\ Iterate\ through\ the\ list\ until\ a\ block\ is\ found\ that\ has\ a\ larger\ size\ */}\textcolor{preprocessor}{\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00105}00105\ \textcolor{preprocessor}{\ \ \ \ }\textcolor{comment}{/*\ than\ the\ block\ we\ are\ inserting.\ */}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00106}00106\ \textcolor{preprocessor}{\ \ \ \ for(\ pxIterator\ =\ \&xStart;\ pxIterator-\/>pxNextFreeBlock-\/>xBlockSize\ <\ xBlockSize;\ pxIterator\ =\ pxIterator-\/>pxNextFreeBlock\ )\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00107}00107\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00108}00108\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ There\ is\ nothing\ to\ do\ here\ -\/\ just\ iterate\ to\ the\ correct\ position.\ */}\textcolor{preprocessor}{\ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00109}00109\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00110}00110\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00111}00111\ \textcolor{preprocessor}{\ \ \ \ }\textcolor{comment}{/*\ Update\ the\ list\ to\ include\ the\ block\ being\ inserted\ in\ the\ correct\ */}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00112}00112\ \textcolor{preprocessor}{\ \ \ \ }\textcolor{comment}{/*\ position.\ */}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00113}00113\ \textcolor{preprocessor}{\ \ \ \ pxBlockToInsert-\/>pxNextFreeBlock\ =\ pxIterator-\/>pxNextFreeBlock;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00114}00114\ \textcolor{preprocessor}{\ \ \ \ pxIterator-\/>pxNextFreeBlock\ =\ pxBlockToInsert;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00115}00115\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00116}00116\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00118}\mbox{\hyperlink{heap__2_8c_ac56bcb7515f081a5b3df83935499fa4a}{00118}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{heap__2_8c_ac56bcb7515f081a5b3df83935499fa4a}{pvPortMalloc}}(\ \textcolor{keywordtype}{size\_t}\ xWantedSize\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00119}00119\ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00120}00120\ \mbox{\hyperlink{heap__2_8c_a5867d4b64d89c6ab51e4783687f8960a}{BlockLink\_t}}\ *pxBlock,\ *pxPreviousBlock,\ *pxNewBlockLink;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00121}00121\ \textcolor{keyword}{static}\ \mbox{\hyperlink{portmacro_8h_a46fb21e00ae0729d7515c0fbf2269796}{BaseType\_t}}\ xHeapHasBeenInitialised\ =\ \mbox{\hyperlink{projdefs_8h_aa56260e937e7e203026707e5ba944273}{pdFALSE}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00122}00122\ \textcolor{keywordtype}{void}\ *pvReturn\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00124}00124\ \ \ \ \ \mbox{\hyperlink{task_8h_a366b302eba79d10b5ee2a3756f0fcc43}{vTaskSuspendAll}}();}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00125}00125\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ this\ is\ the\ first\ call\ to\ malloc\ then\ the\ heap\ will\ require}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00127}00127\ \textcolor{comment}{\ \ \ \ \ \ \ \ initialisation\ to\ setup\ the\ list\ of\ free\ blocks.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ xHeapHasBeenInitialised\ ==\ \mbox{\hyperlink{projdefs_8h_aa56260e937e7e203026707e5ba944273}{pdFALSE}}\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ prvHeapInit();}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ xHeapHasBeenInitialised\ =\ \mbox{\hyperlink{projdefs_8h_af268cf937960eb029256bd9c4d949fbe}{pdTRUE}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ wanted\ size\ is\ increased\ so\ it\ can\ contain\ a\ BlockLink\_t}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00135}00135\ \textcolor{comment}{\ \ \ \ \ \ \ \ structure\ in\ addition\ to\ the\ requested\ amount\ of\ bytes.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ xWantedSize\ >\ 0\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ xWantedSize\ +=\ heapSTRUCT\_SIZE;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Ensure\ that\ blocks\ are\ always\ aligned\ to\ the\ required\ number\ of\ bytes.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ (\ xWantedSize\ \&\ portBYTE\_ALIGNMENT\_MASK\ )\ !=\ 0\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Byte\ alignment\ required.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xWantedSize\ +=\ (\ \mbox{\hyperlink{portmacro_8h_ab9091ce3940d8bd93ec850122a2c6a1c}{portBYTE\_ALIGNMENT}}\ -\/\ (\ xWantedSize\ \&\ portBYTE\_ALIGNMENT\_MASK\ )\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ (\ xWantedSize\ >\ 0\ )\ \&\&\ (\ xWantedSize\ <\ \mbox{\hyperlink{heap__1_8c_a3e68bebe7509a99550e1358cbca8e23f}{configADJUSTED\_HEAP\_SIZE}}\ )\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Blocks\ are\ stored\ in\ byte\ order\ -\/\ traverse\ the\ list\ from\ the\ start}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00151}00151\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ (smallest)\ block\ until\ one\ of\ adequate\ size\ is\ found.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ pxPreviousBlock\ =\ \&xStart;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ pxBlock\ =\ xStart.\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a2e3999b3790dd5fab5ed753760ba11bc}{pxNextFreeBlock}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ (\ pxBlock-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a130b4f85ad4cc46ca0f3d36001769696}{xBlockSize}}\ <\ xWantedSize\ )\ \&\&\ (\ pxBlock-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a2e3999b3790dd5fab5ed753760ba11bc}{pxNextFreeBlock}}\ !=\ NULL\ )\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pxPreviousBlock\ =\ pxBlock;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pxBlock\ =\ pxBlock-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a2e3999b3790dd5fab5ed753760ba11bc}{pxNextFreeBlock}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ we\ found\ the\ end\ marker\ then\ a\ block\ of\ adequate\ size\ was\ not\ found.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pxBlock\ !=\ \&xEnd\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Return\ the\ memory\ space\ -\/\ jumping\ over\ the\ BlockLink\_t\ structure}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00164}00164\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ at\ its\ start.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pvReturn\ =\ (\ \textcolor{keywordtype}{void}\ *\ )\ (\ (\ (\ uint8\_t\ *\ )\ pxPreviousBlock-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a2e3999b3790dd5fab5ed753760ba11bc}{pxNextFreeBlock}}\ )\ +\ heapSTRUCT\_SIZE\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ block\ is\ being\ returned\ for\ use\ so\ must\ be\ taken\ out\ of\ the}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00168}00168\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ list\ of\ free\ blocks.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pxPreviousBlock-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a2e3999b3790dd5fab5ed753760ba11bc}{pxNextFreeBlock}}\ =\ pxBlock-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a2e3999b3790dd5fab5ed753760ba11bc}{pxNextFreeBlock}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ If\ the\ block\ is\ larger\ than\ required\ it\ can\ be\ split\ into\ two.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ (\ pxBlock-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a130b4f85ad4cc46ca0f3d36001769696}{xBlockSize}}\ -\/\ xWantedSize\ )\ >\ \mbox{\hyperlink{heap__2_8c_ab71bae5a95671265c828339d44c44b25}{heapMINIMUM\_BLOCK\_SIZE}}\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ block\ is\ to\ be\ split\ into\ two.\ \ Create\ a\ new\ block}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00175}00175\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ following\ the\ number\ of\ bytes\ requested.\ The\ void\ cast\ is}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00176}00176\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ used\ to\ prevent\ byte\ alignment\ warnings\ from\ the\ compiler.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pxNewBlockLink\ =\ (\ \textcolor{keywordtype}{void}\ *\ )\ (\ (\ (\ uint8\_t\ *\ )\ pxBlock\ )\ +\ xWantedSize\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Calculate\ the\ sizes\ of\ two\ blocks\ split\ from\ the\ single}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00180}00180\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ block.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pxNewBlockLink-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a130b4f85ad4cc46ca0f3d36001769696}{xBlockSize}}\ =\ pxBlock-\/>xBlockSize\ -\/\ xWantedSize;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pxBlock-\/>xBlockSize\ =\ xWantedSize;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Insert\ the\ new\ block\ into\ the\ list\ of\ free\ blocks.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{heap__2_8c_a55396870242c952746147671bf78a149}{prvInsertBlockIntoFreeList}}(\ (\ pxNewBlockLink\ )\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xFreeBytesRemaining\ -\/=\ pxBlock-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a130b4f85ad4cc46ca0f3d36001769696}{xBlockSize}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_free_r_t_o_s_8h_af326afe922ffa6da245c98dc227a3293}{traceMALLOC}}(\ pvReturn,\ xWantedSize\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00193}00193\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00194}00194\ \ \ \ \ (\ void\ )\ \mbox{\hyperlink{task_8h_a003f8ae6d649225abd030cc76e1c7d0e}{xTaskResumeAll}}();}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00196}00196\ \textcolor{preprocessor}{\ \ \ \ \#if(\ configUSE\_MALLOC\_FAILED\_HOOK\ ==\ 1\ )}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00197}00197\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pvReturn\ ==\ NULL\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ vApplicationMallocFailedHook(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ vApplicationMallocFailedHook();}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00203}00203\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00204}00204\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00206}00206\ \ \ \ \ \textcolor{keywordflow}{return}\ pvReturn;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00207}00207\ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00208}00208\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00210}\mbox{\hyperlink{heap__2_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b}{00210}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heap__2_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b}{vPortFree}}(\ \textcolor{keywordtype}{void}\ *pv\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00211}00211\ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00212}00212\ uint8\_t\ *puc\ =\ (\ uint8\_t\ *\ )\ pv;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00213}00213\ \mbox{\hyperlink{heap__2_8c_a5867d4b64d89c6ab51e4783687f8960a}{BlockLink\_t}}\ *pxLink;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00215}00215\ \ \ \ \ \textcolor{keywordflow}{if}(\ pv\ !=\ NULL\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00216}00216\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ memory\ being\ freed\ will\ have\ an\ BlockLink\_t\ structure\ immediately}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00218}00218\ \textcolor{comment}{\ \ \ \ \ \ \ \ before\ it.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ puc\ -\/=\ heapSTRUCT\_SIZE;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ unexpected\ casting\ is\ to\ keep\ some\ compilers\ from\ issuing}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00222}00222\ \textcolor{comment}{\ \ \ \ \ \ \ \ byte\ alignment\ warnings.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ pxLink\ =\ (\ \textcolor{keywordtype}{void}\ *\ )\ puc;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{task_8h_a366b302eba79d10b5ee2a3756f0fcc43}{vTaskSuspendAll}}();}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Add\ this\ block\ to\ the\ list\ of\ free\ blocks.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{heap__2_8c_a55396870242c952746147671bf78a149}{prvInsertBlockIntoFreeList}}(\ (\ (\ \mbox{\hyperlink{heap__2_8c_a5867d4b64d89c6ab51e4783687f8960a}{BlockLink\_t}}\ *\ )\ pxLink\ )\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ xFreeBytesRemaining\ +=\ pxLink-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a130b4f85ad4cc46ca0f3d36001769696}{xBlockSize}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_free_r_t_o_s_8h_a941bb09090b5788f0c27d9690118eed2}{traceFREE}}(\ pv,\ pxLink-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a130b4f85ad4cc46ca0f3d36001769696}{xBlockSize}}\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ (\ void\ )\ \mbox{\hyperlink{task_8h_a003f8ae6d649225abd030cc76e1c7d0e}{xTaskResumeAll}}();}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00233}00233\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00234}00234\ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00235}00235\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00237}\mbox{\hyperlink{heap__2_8c_a0c28a12b313bc248be0cb7a37ed81bb7}{00237}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{heap__2_8c_a0c28a12b313bc248be0cb7a37ed81bb7}{xPortGetFreeHeapSize}}(\ \textcolor{keywordtype}{void}\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00238}00238\ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00239}00239\ \ \ \ \ \textcolor{keywordflow}{return}\ xFreeBytesRemaining;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00240}00240\ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00241}00241\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00243}\mbox{\hyperlink{heap__2_8c_a8bf103ce32ce8473574e9920af8b4eec}{00243}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{heap__2_8c_a8bf103ce32ce8473574e9920af8b4eec}{vPortInitialiseBlocks}}(\ \textcolor{keywordtype}{void}\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00244}00244\ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00245}00245\ \ \ \ \ \textcolor{comment}{/*\ This\ just\ exists\ to\ keep\ the\ linker\ quiet.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00246}00246\ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00247}00247\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00249}00249\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ prvHeapInit(\ \textcolor{keywordtype}{void}\ )}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00250}00250\ \{}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00251}00251\ \mbox{\hyperlink{heap__2_8c_a5867d4b64d89c6ab51e4783687f8960a}{BlockLink\_t}}\ *pxFirstFreeBlock;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00252}00252\ uint8\_t\ *pucAlignedHeap;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00254}00254\ \ \ \ \ \textcolor{comment}{/*\ Ensure\ the\ heap\ starts\ on\ a\ correctly\ aligned\ boundary.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00255}00255\ \ \ \ \ pucAlignedHeap\ =\ (\ uint8\_t\ *\ )\ (\ (\ (\ \mbox{\hyperlink{_free_r_t_o_s_8h_a53bae25f223b7156dce0fc6e6b1b2295}{portPOINTER\_SIZE\_TYPE}}\ )\ \&ucHeap[\ \mbox{\hyperlink{portmacro_8h_ab9091ce3940d8bd93ec850122a2c6a1c}{portBYTE\_ALIGNMENT}}\ ]\ )\ \&\ (\ \string~(\ (\ \mbox{\hyperlink{_free_r_t_o_s_8h_a53bae25f223b7156dce0fc6e6b1b2295}{portPOINTER\_SIZE\_TYPE}}\ )\ portBYTE\_ALIGNMENT\_MASK\ )\ )\ );}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00257}00257\ \ \ \ \ \textcolor{comment}{/*\ xStart\ is\ used\ to\ hold\ a\ pointer\ to\ the\ first\ item\ in\ the\ list\ of\ free}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00258}00258\ \textcolor{comment}{\ \ \ \ blocks.\ \ The\ void\ cast\ is\ used\ to\ prevent\ compiler\ warnings.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00259}00259\ \ \ \ \ xStart.pxNextFreeBlock\ =\ (\ \textcolor{keywordtype}{void}\ *\ )\ pucAlignedHeap;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00260}00260\ \ \ \ \ xStart.xBlockSize\ =\ (\ size\_t\ )\ 0;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00262}00262\ \ \ \ \ \textcolor{comment}{/*\ xEnd\ is\ used\ to\ mark\ the\ end\ of\ the\ list\ of\ free\ blocks.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00263}00263\ \ \ \ \ xEnd.xBlockSize\ =\ \mbox{\hyperlink{heap__1_8c_a3e68bebe7509a99550e1358cbca8e23f}{configADJUSTED\_HEAP\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00264}00264\ \ \ \ \ xEnd.pxNextFreeBlock\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00266}00266\ \ \ \ \ \textcolor{comment}{/*\ To\ start\ with\ there\ is\ a\ single\ free\ block\ that\ is\ sized\ to\ take\ up\ the}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00267}00267\ \textcolor{comment}{\ \ \ \ entire\ heap\ space.\ */}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00268}00268\ \ \ \ \ pxFirstFreeBlock\ =\ (\ \textcolor{keywordtype}{void}\ *\ )\ pucAlignedHeap;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00269}00269\ \ \ \ \ pxFirstFreeBlock-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a130b4f85ad4cc46ca0f3d36001769696}{xBlockSize}}\ =\ \mbox{\hyperlink{heap__1_8c_a3e68bebe7509a99550e1358cbca8e23f}{configADJUSTED\_HEAP\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00270}00270\ \ \ \ \ pxFirstFreeBlock-\/>\mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k_a2e3999b3790dd5fab5ed753760ba11bc}{pxNextFreeBlock}}\ =\ \&xEnd;}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00271}00271\ \}}
+\DoxyCodeLine{\Hypertarget{heap__2_8c_source_l00272}00272\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+
+\end{DoxyCode}

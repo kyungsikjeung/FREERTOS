@@ -1,0 +1,209 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Include/dsp/fast\+\_\+math\+\_\+functions.h File Reference}
+\hypertarget{fast__math__functions_8h}{}\label{fast__math__functions_8h}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Include/dsp/fast\_math\_functions.h@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Include/dsp/fast\_math\_functions.h}}
+{\ttfamily \#include "{}arm\+\_\+math\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}arm\+\_\+math\+\_\+memory.\+h"{}}\newline
+{\ttfamily \#include "{}dsp/none.\+h"{}}\newline
+{\ttfamily \#include "{}dsp/utils.\+h"{}}\newline
+{\ttfamily \#include "{}dsp/basic\+\_\+math\+\_\+functions.\+h"{}}\newline
+Include dependency graph for fast\+\_\+math\+\_\+functions.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fast__math__functions_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fast__math__functions_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fast__math__functions_8h_afcb9147c96853bea484cfc2dde07463d}{FAST\+\_\+\+MATH\+\_\+\+TABLE\+\_\+\+SIZE}}~512
+\begin{DoxyCompactList}\small\item\em Macros required for SINE and COSINE Fast math approximations. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{fast__math__functions_8h_a4268f77b1811a0c7fc2532a0bf6108b0}{FAST\+\_\+\+MATH\+\_\+\+Q31\+\_\+\+SHIFT}}~(32 -\/ 10)
+\item 
+\#define \mbox{\hyperlink{fast__math__functions_8h_a34716b73c631e65e8dd855e08384ecb2}{FAST\+\_\+\+MATH\+\_\+\+Q15\+\_\+\+SHIFT}}~(16 -\/ 10)
+\item 
+\#define \mbox{\hyperlink{fast__math__functions_8h_a598a3330b3c21701223ee0ca14316eca}{PI}}~3.\+14159265358979f
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{group__sin_gae164899c4a3fc0e946dc5d55555fe541}{arm\+\_\+sin\+\_\+f32}} (\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} x)
+\begin{DoxyCompactList}\small\item\em Fast approximation to the trigonometric sine function for floating-\/point data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \mbox{\hyperlink{group__sin_ga57aade7d8892585992cdc6375bd82f9c}{arm\+\_\+sin\+\_\+q31}} (\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} x)
+\begin{DoxyCompactList}\small\item\em Fast approximation to the trigonometric sine function for Q31 data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \mbox{\hyperlink{group__sin_ga1fc6d6640be6cfa688a8bea0a48397ee}{arm\+\_\+sin\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} x)
+\begin{DoxyCompactList}\small\item\em Fast approximation to the trigonometric sine function for Q15 data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{group__cos_gace15287f9c64b9b4084d1c797d4c49d8}{arm\+\_\+cos\+\_\+f32}} (\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} x)
+\begin{DoxyCompactList}\small\item\em Fast approximation to the trigonometric cosine function for floating-\/point data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \mbox{\hyperlink{group__cos_gad80f121949ef885a77d83ab36e002567}{arm\+\_\+cos\+\_\+q31}} (\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} x)
+\begin{DoxyCompactList}\small\item\em Fast approximation to the trigonometric cosine function for Q31 data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \mbox{\hyperlink{group__cos_gadfd60c24def501638c0d5db20f4c869b}{arm\+\_\+cos\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} x)
+\begin{DoxyCompactList}\small\item\em Fast approximation to the trigonometric cosine function for Q15 data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__vlog_ga1a97d95af11d143b26334c8ff278443e}{arm\+\_\+vlog\+\_\+f32}} (const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Floating-\/point vector of log values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fast__math__functions_8h_ab6ba4e6a3d382ac68744e4726a220fad}{arm\+\_\+vlog\+\_\+f64}} (const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Floating-\/point vector of log values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__vlog_ga35aac80d9cfc0b7b08382da2117772d1}{arm\+\_\+vlog\+\_\+q31}} (const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em q31 vector of log values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__vlog_ga6773e6b0b5448e0e409931b4119271dc}{arm\+\_\+vlog\+\_\+q15}} (const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em q15 vector of log values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fast__math__functions_8h_aa2b569a40e82e69917f9560774f75a91}{arm\+\_\+vexp\+\_\+f32}} (const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Floating-\/point vector of exp values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fast__math__functions_8h_ac5c79a10b36e8a1f2fcaf23b9497e1b2}{arm\+\_\+vexp\+\_\+f64}} (const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Floating-\/point vector of exp values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___s_q_r_t_gaa37d8b017ef0c8d356dc98fd78e2d96b}{arm\+\_\+sqrt\+\_\+f32}} (const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} in, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Out)
+\begin{DoxyCompactList}\small\item\em Floating-\/point square root function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___s_q_r_t_ga119e25831e141d734d7ef10636670058}{arm\+\_\+sqrt\+\_\+q31}} (\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} in, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Out)
+\begin{DoxyCompactList}\small\item\em Q31 square root function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___s_q_r_t_ga5abe5ca724f3e15849662b03752c1238}{arm\+\_\+sqrt\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} in, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Out)
+\begin{DoxyCompactList}\small\item\em Q15 square root function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group__divide_ga3d5bc8179cdfb12288d58d99d635e4cb}{arm\+\_\+divide\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} numerator, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} denominator, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}quotient, int16\+\_\+t \texorpdfstring{$\ast$}{*}shift)
+\begin{DoxyCompactList}\small\item\em Fixed point division. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group__divide_ga250c0a49bd2e42282f3296d51138a5cb}{arm\+\_\+divide\+\_\+q31}} (\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} numerator, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} denominator, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}quotient, int16\+\_\+t \texorpdfstring{$\ast$}{*}shift)
+\begin{DoxyCompactList}\small\item\em Fixed point division. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group__atan2_gaa7fbd2bb45df78860dd3a0293391096f}{arm\+\_\+atan2\+\_\+f32}} (\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} y, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} x, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}result)
+\begin{DoxyCompactList}\small\item\em Arc tangent in radian of y/x using sign of x and y to determine right quadrant. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group__atan2_ga14e753643307e373abffa6d14ae7a3f3}{arm\+\_\+atan2\+\_\+q31}} (\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} y, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} x, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}result)
+\begin{DoxyCompactList}\small\item\em Arc tangent in radian of y/x using sign of x and y to determine right quadrant. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group__atan2_ga9d424b6eaf16bfc41be3e88335cfb801}{arm\+\_\+atan2\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} y, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} x, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}result)
+\begin{DoxyCompactList}\small\item\em Arc tangent in radian of y/x using sign of x and y to determine right quadrant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{fast__math__functions_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fast__math__functions_8h_a34716b73c631e65e8dd855e08384ecb2}\index{fast\_math\_functions.h@{fast\_math\_functions.h}!FAST\_MATH\_Q15\_SHIFT@{FAST\_MATH\_Q15\_SHIFT}}
+\index{FAST\_MATH\_Q15\_SHIFT@{FAST\_MATH\_Q15\_SHIFT}!fast\_math\_functions.h@{fast\_math\_functions.h}}
+\doxysubsubsection{\texorpdfstring{FAST\_MATH\_Q15\_SHIFT}{FAST\_MATH\_Q15\_SHIFT}}
+{\footnotesize\ttfamily \label{fast__math__functions_8h_a34716b73c631e65e8dd855e08384ecb2} 
+\#define FAST\+\_\+\+MATH\+\_\+\+Q15\+\_\+\+SHIFT~(16 -\/ 10)}
+
+
+
+Definition at line \mbox{\hyperlink{fast__math__functions_8h_source_l00050}{50}} of file \mbox{\hyperlink{fast__math__functions_8h_source}{fast\+\_\+math\+\_\+functions.\+h}}.
+
+\Hypertarget{fast__math__functions_8h_a4268f77b1811a0c7fc2532a0bf6108b0}\index{fast\_math\_functions.h@{fast\_math\_functions.h}!FAST\_MATH\_Q31\_SHIFT@{FAST\_MATH\_Q31\_SHIFT}}
+\index{FAST\_MATH\_Q31\_SHIFT@{FAST\_MATH\_Q31\_SHIFT}!fast\_math\_functions.h@{fast\_math\_functions.h}}
+\doxysubsubsection{\texorpdfstring{FAST\_MATH\_Q31\_SHIFT}{FAST\_MATH\_Q31\_SHIFT}}
+{\footnotesize\ttfamily \label{fast__math__functions_8h_a4268f77b1811a0c7fc2532a0bf6108b0} 
+\#define FAST\+\_\+\+MATH\+\_\+\+Q31\+\_\+\+SHIFT~(32 -\/ 10)}
+
+
+
+Definition at line \mbox{\hyperlink{fast__math__functions_8h_source_l00049}{49}} of file \mbox{\hyperlink{fast__math__functions_8h_source}{fast\+\_\+math\+\_\+functions.\+h}}.
+
+\Hypertarget{fast__math__functions_8h_afcb9147c96853bea484cfc2dde07463d}\index{fast\_math\_functions.h@{fast\_math\_functions.h}!FAST\_MATH\_TABLE\_SIZE@{FAST\_MATH\_TABLE\_SIZE}}
+\index{FAST\_MATH\_TABLE\_SIZE@{FAST\_MATH\_TABLE\_SIZE}!fast\_math\_functions.h@{fast\_math\_functions.h}}
+\doxysubsubsection{\texorpdfstring{FAST\_MATH\_TABLE\_SIZE}{FAST\_MATH\_TABLE\_SIZE}}
+{\footnotesize\ttfamily \label{fast__math__functions_8h_afcb9147c96853bea484cfc2dde07463d} 
+\#define FAST\+\_\+\+MATH\+\_\+\+TABLE\+\_\+\+SIZE~512}
+
+
+
+Macros required for SINE and COSINE Fast math approximations. 
+
+
+
+Definition at line \mbox{\hyperlink{fast__math__functions_8h_source_l00048}{48}} of file \mbox{\hyperlink{fast__math__functions_8h_source}{fast\+\_\+math\+\_\+functions.\+h}}.
+
+\Hypertarget{fast__math__functions_8h_a598a3330b3c21701223ee0ca14316eca}\index{fast\_math\_functions.h@{fast\_math\_functions.h}!PI@{PI}}
+\index{PI@{PI}!fast\_math\_functions.h@{fast\_math\_functions.h}}
+\doxysubsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily \label{fast__math__functions_8h_a598a3330b3c21701223ee0ca14316eca} 
+\#define PI~3.\+14159265358979f}
+
+
+
+Definition at line \mbox{\hyperlink{fast__math__functions_8h_source_l00053}{53}} of file \mbox{\hyperlink{fast__math__functions_8h_source}{fast\+\_\+math\+\_\+functions.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{fast__math__functions_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{fast__math__functions_8h_aa2b569a40e82e69917f9560774f75a91}\index{fast\_math\_functions.h@{fast\_math\_functions.h}!arm\_vexp\_f32@{arm\_vexp\_f32}}
+\index{arm\_vexp\_f32@{arm\_vexp\_f32}!fast\_math\_functions.h@{fast\_math\_functions.h}}
+\doxysubsubsection{\texorpdfstring{arm\_vexp\_f32()}{arm\_vexp\_f32()}}
+{\footnotesize\ttfamily \label{fast__math__functions_8h_aa2b569a40e82e69917f9560774f75a91} 
+void arm\+\_\+vexp\+\_\+f32 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Floating-\/point vector of exp values. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in each vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__vexp__f32_8c_source_l00036}{36}} of file \mbox{\hyperlink{arm__vexp__f32_8c_source}{arm\+\_\+vexp\+\_\+f32.\+c}}.
+
+\Hypertarget{fast__math__functions_8h_ac5c79a10b36e8a1f2fcaf23b9497e1b2}\index{fast\_math\_functions.h@{fast\_math\_functions.h}!arm\_vexp\_f64@{arm\_vexp\_f64}}
+\index{arm\_vexp\_f64@{arm\_vexp\_f64}!fast\_math\_functions.h@{fast\_math\_functions.h}}
+\doxysubsubsection{\texorpdfstring{arm\_vexp\_f64()}{arm\_vexp\_f64()}}
+{\footnotesize\ttfamily \label{fast__math__functions_8h_ac5c79a10b36e8a1f2fcaf23b9497e1b2} 
+void arm\+\_\+vexp\+\_\+f64 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Floating-\/point vector of exp values. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in each vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__vexp__f64_8c_source_l00032}{32}} of file \mbox{\hyperlink{arm__vexp__f64_8c_source}{arm\+\_\+vexp\+\_\+f64.\+c}}.
+
+\Hypertarget{fast__math__functions_8h_ab6ba4e6a3d382ac68744e4726a220fad}\index{fast\_math\_functions.h@{fast\_math\_functions.h}!arm\_vlog\_f64@{arm\_vlog\_f64}}
+\index{arm\_vlog\_f64@{arm\_vlog\_f64}!fast\_math\_functions.h@{fast\_math\_functions.h}}
+\doxysubsubsection{\texorpdfstring{arm\_vlog\_f64()}{arm\_vlog\_f64()}}
+{\footnotesize\ttfamily \label{fast__math__functions_8h_ab6ba4e6a3d382ac68744e4726a220fad} 
+void arm\+\_\+vlog\+\_\+f64 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Floating-\/point vector of log values. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input vector \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in each vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__vlog__f64_8c_source_l00032}{32}} of file \mbox{\hyperlink{arm__vlog__f64_8c_source}{arm\+\_\+vlog\+\_\+f64.\+c}}.
+

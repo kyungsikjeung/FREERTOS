@@ -1,0 +1,225 @@
+\doxysection{arm\+\_\+max\+\_\+pool\+\_\+s8.\+c}
+\hypertarget{arm__max__pool__s8_8c_source}{}\label{arm__max__pool__s8_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/PoolingFunctions/arm\_max\_pool\_s8.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/PoolingFunctions/arm\_max\_pool\_s8.c}}
+\mbox{\hyperlink{arm__max__pool__s8_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2010-\/2021\ Arm\ Limited\ or\ its\ affiliates.}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00004}00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00006}00006\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00007}00007\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00008}00008\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00010}00010\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00013}00013\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00014}00014\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00015}00015\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00016}00016\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00019}00019\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00020}00020\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS\ NN\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00021}00021\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ arm\_max\_pool\_s8.c}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00022}00022\ \textcolor{comment}{\ *\ Description:\ \ Pooling\ function\ implementations}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00023}00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00024}00024\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 20.\ July\ 2021}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00025}00025\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V.2.0.3}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00026}00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00027}00027\ \textcolor{comment}{\ *\ Target\ Processor:\ \ Cortex-\/M\ CPUs}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00028}00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00029}00029\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00031}00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nnfunctions_8h}{arm\_nnfunctions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nnsupportfunctions_8h}{arm\_nnsupportfunctions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00034}00034\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ compare\_and\_replace\_if\_larger\_q7(\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *base,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *target,\ int32\_t\ length)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00036}00036\ \textcolor{preprocessor}{\#if\ defined(ARM\_MATH\_MVEI)}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00037}00037\ \ \ \ \ int32\_t\ loop\_count\ =\ (length\ +\ 15)\ /\ 16;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ loop\_count;\ i++)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00039}00039\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ mve\_pred16\_t\ p\ =\ vctp8q((uint32\_t)length);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8x16\_t\ op\_1\ =\ vldrbq\_z\_s8(base,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8x16\_t\ op\_2\ =\ vldrbq\_z\_s8(target,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8x16\_t\ max\ =\ vmaxq\_m\_s8(vuninitializedq\_s8(),\ op\_1,\ op\_2,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ vstrbq\_p\_s8(base,\ max,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ base\ +=\ 16;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ target\ +=\ 16;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ length\ -\/=\ 16;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00049}00049\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *dst\ =\ base;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *src\ =\ target;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{union\ }\mbox{\hyperlink{unionarm__nnword}{arm\_nnword}}\ ref\_max;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{union\ }\mbox{\hyperlink{unionarm__nnword}{arm\_nnword}}\ comp\_max;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00054}00054\ \ \ \ \ int32\_t\ cnt\ =\ length\ >>\ 2;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{while}\ (cnt\ >\ 0l)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00057}00057\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ ref\_max.word\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a31fa46f17212fbcb65d2cdae06fc08f5}{arm\_nn\_read\_q7x4}}(dst);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ comp\_max.word\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ac9f7be20432a6926ac07c1f44b1b02fe}{arm\_nn\_read\_q7x4\_ia}}(\&src);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (comp\_max.bytes[0]\ >\ ref\_max.bytes[0])}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ ref\_max.bytes[0]\ =\ comp\_max.bytes[0];}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (comp\_max.bytes[1]\ >\ ref\_max.bytes[1])}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ ref\_max.bytes[1]\ =\ comp\_max.bytes[1];}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (comp\_max.bytes[2]\ >\ ref\_max.bytes[2])}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ ref\_max.bytes[2]\ =\ comp\_max.bytes[2];}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (comp\_max.bytes[3]\ >\ ref\_max.bytes[3])}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ ref\_max.bytes[3]\ =\ comp\_max.bytes[3];}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a17553765eecd852dc2f9663575f2a91d}{arm\_nn\_write\_q7x4\_ia}}(\&dst,\ ref\_max.word);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ cnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00083}00083\ \ \ \ \ cnt\ =\ length\ \&\ 0x3;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{while}\ (cnt\ >\ 0l)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00085}00085\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*src\ >\ *dst)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ *dst\ =\ *src;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ dst++;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ src++;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ cnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00094}00094\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00097}00097\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ clamp\_output(\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *source,\ int32\_t\ length,\ \textcolor{keyword}{const}\ int32\_t\ act\_min,\ \textcolor{keyword}{const}\ int32\_t\ act\_max)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00098}00098\ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00099}00099\ \textcolor{preprocessor}{\#if\ defined(ARM\_MATH\_MVEI)}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00100}00100\ \ \ \ \ int32\_t\ loop\_count\ =\ (length\ +\ 15)\ /\ 16;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ loop\_count;\ i++)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00102}00102\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ mve\_pred16\_t\ p\ =\ vctp8q((uint32\_t)length);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ length\ -\/=\ 16;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8x16\_t\ src\ =\ vldrbq\_z\_s8(source,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8x16\_t\ predicated\_min\ =\ vdupq\_m\_n\_s8(vuninitializedq\_s8(),\ (int8\_t)act\_min,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8x16\_t\ predicated\_max\ =\ vdupq\_m\_n\_s8(vuninitializedq\_s8(),\ (int8\_t)act\_max,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ int8x16\_t\ res\ =\ vmaxq\_m\_s8(vuninitializedq\_s8(),\ src,\ predicated\_min,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ res\ =\ vminq\_m\_s8(vuninitializedq\_s8(),\ res,\ predicated\_max,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ vstrbq\_p\_s8(source,\ res,\ p);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ source\ +=\ 16;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00113}00113\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00114}00114\ \ \ \ \ \textcolor{keyword}{union\ }\mbox{\hyperlink{unionarm__nnword}{arm\_nnword}}\ in;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00115}00115\ \ \ \ \ int32\_t\ cnt\ =\ length\ >>\ 2;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{while}\ (cnt\ >\ 0l)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00118}00118\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ in.word\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a31fa46f17212fbcb65d2cdae06fc08f5}{arm\_nn\_read\_q7x4}}(source);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ in.bytes[0]\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(in.bytes[0],\ act\_min);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ in.bytes[0]\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(in.bytes[0],\ act\_max);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ in.bytes[1]\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(in.bytes[1],\ act\_min);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ in.bytes[1]\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(in.bytes[1],\ act\_max);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ in.bytes[2]\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(in.bytes[2],\ act\_min);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ in.bytes[2]\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(in.bytes[2],\ act\_max);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ in.bytes[3]\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(in.bytes[3],\ act\_min);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ in.bytes[3]\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(in.bytes[3],\ act\_max);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a17553765eecd852dc2f9663575f2a91d}{arm\_nn\_write\_q7x4\_ia}}(\&source,\ in.word);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ cnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00132}00132\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00134}00134\ \ \ \ \ cnt\ =\ length\ \&\ 0x3;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{while}\ (cnt\ >\ 0l)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00136}00136\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ int32\_t\ comp\ =\ *source;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ comp\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(comp,\ act\_min);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ comp\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(comp,\ act\_max);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ *source++\ =\ (int8\_t)comp;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ cnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00142}00142\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00143}00143\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00144}00144\ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00155}00155\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00156}00156\ \textcolor{comment}{\ *\ Optimized\ s8\ max\ pooling\ function}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00157}00157\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00158}00158\ \textcolor{comment}{\ *\ Refer\ to\ header\ file\ for\ details.}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00159}00159\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00160}00160\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00162}\mbox{\hyperlink{group___pooling_ga3628978b2ab0b43d8f8723118c12acc4}{00162}}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{group___pooling_ga3628978b2ab0b43d8f8723118c12acc4}{arm\_max\_pool\_s8}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__context}{cmsis\_nn\_context}}\ *ctx,}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__pool__params}{cmsis\_nn\_pool\_params}}\ *pool\_params,}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\_nn\_dims}}\ *input\_dims,}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *src,}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\_nn\_dims}}\ *filter\_dims,}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\_nn\_dims}}\ *output\_dims,}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *dst)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00169}00169\ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00170}00170\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ input\_y\ =\ input\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a749034ae387fecbeeffedfb1d9b8aa51}{h}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00171}00171\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ input\_x\ =\ input\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00172}00172\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ output\_y\ =\ output\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a749034ae387fecbeeffedfb1d9b8aa51}{h}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00173}00173\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ output\_x\ =\ output\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00174}00174\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ stride\_y\ =\ pool\_params-\/>\mbox{\hyperlink{structcmsis__nn__pool__params_a6f5c217856d767bd50556d1d4763d18f}{stride}}.\mbox{\hyperlink{structcmsis__nn__tile_a749034ae387fecbeeffedfb1d9b8aa51}{h}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00175}00175\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ stride\_x\ =\ pool\_params-\/>\mbox{\hyperlink{structcmsis__nn__pool__params_a6f5c217856d767bd50556d1d4763d18f}{stride}}.\mbox{\hyperlink{structcmsis__nn__tile_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00176}00176\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ kernel\_y\ =\ filter\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a749034ae387fecbeeffedfb1d9b8aa51}{h}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00177}00177\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ kernel\_x\ =\ filter\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00178}00178\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ pad\_y\ =\ pool\_params-\/>\mbox{\hyperlink{structcmsis__nn__pool__params_afc7f24c6d2ffbb0d512256b3d4e19630}{padding}}.\mbox{\hyperlink{structcmsis__nn__tile_a749034ae387fecbeeffedfb1d9b8aa51}{h}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00179}00179\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ pad\_x\ =\ pool\_params-\/>\mbox{\hyperlink{structcmsis__nn__pool__params_afc7f24c6d2ffbb0d512256b3d4e19630}{padding}}.\mbox{\hyperlink{structcmsis__nn__tile_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00180}00180\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ act\_min\ =\ pool\_params-\/>\mbox{\hyperlink{structcmsis__nn__pool__params_a8b46c29d03673efd66c440c67f3cbe08}{activation}}.\mbox{\hyperlink{structcmsis__nn__activation_a0022b5ad7e496a802c64e3f6e0c2d8e1}{min}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00181}00181\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ act\_max\ =\ pool\_params-\/>\mbox{\hyperlink{structcmsis__nn__pool__params_a8b46c29d03673efd66c440c67f3cbe08}{activation}}.\mbox{\hyperlink{structcmsis__nn__activation_accad1cdcd73e714badc388c3471bf33b}{max}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00182}00182\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ channel\_in\ =\ input\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a3c6f6f6780d5503e1bc87fc432c3af69}{c}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00183}00183\ \ \ \ \ (void)ctx;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00184}00184\ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *dst\_base\ =\ dst;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00186}00186\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_y\ =\ 0,\ base\_idx\_y\ =\ -\/pad\_y;\ i\_y\ <\ output\_y;\ base\_idx\_y\ +=\ stride\_y,\ i\_y++)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00187}00187\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_x\ =\ 0,\ base\_idx\_x\ =\ -\/pad\_x;\ i\_x\ <\ output\_x;\ base\_idx\_x\ +=\ stride\_x,\ i\_x++)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Condition\ for\ kernel\ start\ dimension:\ (base\_idx\_<x,y>\ +\ kernel\_<x,y>\_start)\ >=\ 0\ */}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ ker\_y\_start\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(0,\ -\/base\_idx\_y);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ ker\_x\_start\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(0,\ -\/base\_idx\_x);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Condition\ for\ kernel\ end\ dimension:\ (base\_idx\_<x,y>\ +\ kernel\_<x,y>\_end)\ <\ dim\_src\_<width,height>\ */}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ kernel\_y\_end\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(kernel\_y,\ input\_y\ -\/\ base\_idx\_y);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ kernel\_x\_end\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(kernel\_x,\ input\_x\ -\/\ base\_idx\_x);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\_y\ =\ ker\_y\_start;\ k\_y\ <\ kernel\_y\_end;\ k\_y++)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\_x\ =\ ker\_x\_start;\ k\_x\ <\ kernel\_x\_end;\ k\_x++)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *start\ =\ src\ +\ channel\_in\ *\ (k\_x\ +\ base\_idx\_x\ +\ (k\_y\ +\ base\_idx\_y)\ *\ input\_x);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a085459f6280c8f586ddd64998dece532}{arm\_memcpy\_q7}}(dst,\ start,\ channel\_in);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ compare\_and\_replace\_if\_larger\_q7(dst,\ start,\ channel\_in);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ 'count'\ is\ expected\ to\ be\ non-\/zero\ here.\ */}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ dst\ +=\ channel\_in;}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00220}00220\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00222}00222\ \ \ \ \ clamp\_output(dst\_base,\ output\_x\ *\ output\_y\ *\ channel\_in,\ act\_min,\ act\_max);}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00224}00224\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a9f8b2a10bd827fb4600e77d455902eb0}{ARM\_MATH\_SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00225}00225\ \}}
+\DoxyCodeLine{\Hypertarget{arm__max__pool__s8_8c_source_l00226}00226\ }
+
+\end{DoxyCode}

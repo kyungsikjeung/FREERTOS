@@ -1,0 +1,89 @@
+\doxysection{arm\+\_\+var\+\_\+f64.\+c}
+\hypertarget{arm__var__f64_8c_source}{}\label{arm__var__f64_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm\_var\_f64.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/StatisticsFunctions/arm\_var\_f64.c}}
+\mbox{\hyperlink{arm__var__f64_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00001}00001\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS\ DSP\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00003}00003\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ arm\_var\_f64.c}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Description:\ \ Variance\ of\ the\ elements\ of\ a\ floating-\/point\ vector}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00006}00006\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 13\ September\ 2021}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00007}00007\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V1.10.0}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00009}00009\ \textcolor{comment}{\ *\ Target\ Processor:\ Cortex-\/M\ and\ Cortex-\/A\ cores}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00010}00010\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00011}00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2010-\/2021\ ARM\ Limited\ or\ its\ affiliates.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00014}00014\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00015}00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00016}00016\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00017}00017\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00018}00018\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00019}00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00020}00020\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00022}00022\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00023}00023\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00024}00024\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00025}00025\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00026}00026\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00027}00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{statistics__functions_8h}{dsp/statistics\_functions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00047}\mbox{\hyperlink{group__variance_gaf6a59a8ac297499b1e6e5f439369ddf0}{00047}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{group__variance_gaf6a59a8ac297499b1e6e5f439369ddf0}{arm\_var\_f64}}(}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00048}00048\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\_t}}\ *\ pSrc,}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}},}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\_t}}\ *\ pResult)}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00051}00051\ \{}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ uint32\_t\ blkCnt;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Loop\ counter\ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\_t}}\ sum\ =\ 0.;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Temporary\ result\ storage\ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\_t}}\ fSum\ =\ 0.;}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\_t}}\ fMean,\ fValue;}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00056}00056\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\_t}}\ *\ pInput\ =\ pSrc;}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00058}00058\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}}\ <=\ 1U)}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00059}00059\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00060}00060\ \ \ \ \ *pResult\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00062}00062\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00064}00064\ \ \ \textcolor{comment}{/*\ Initialize\ blkCnt\ with\ number\ of\ samples\ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00065}00065\ \ \ blkCnt\ =\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}};}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00067}00067\ \ \ \textcolor{keywordflow}{while}\ (blkCnt\ >\ 0U)}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00068}00068\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00069}00069\ \ \ \ \ \textcolor{comment}{/*\ C\ =\ (A[0]\ +\ A[1]\ +\ A[2]\ +\ ...\ +\ A[blockSize-\/1])\ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00071}00071\ \ \ \ \ sum\ +=\ *pInput++;}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00073}00073\ \ \ \ \ \textcolor{comment}{/*\ Decrement\ loop\ counter\ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00074}00074\ \ \ \ \ blkCnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00075}00075\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00077}00077\ \ \ \textcolor{comment}{/*\ C\ =\ (A[0]\ +\ A[1]\ +\ A[2]\ +\ ...\ +\ A[blockSize-\/1])\ /\ blockSize\ \ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00078}00078\ \ \ fMean\ =\ sum\ /\ (\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\_t}})\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}};}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00080}00080\ \ \ pInput\ =\ pSrc;}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00082}00082\ \ \ \textcolor{comment}{/*\ Initialize\ blkCnt\ with\ number\ of\ samples\ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00083}00083\ \ \ blkCnt\ =\ \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}};}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00085}00085\ \ \ \textcolor{keywordflow}{while}\ (blkCnt\ >\ 0U)}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00086}00086\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00087}00087\ \ \ \ \ fValue\ =\ *pInput++\ -\/\ fMean;}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00088}00088\ \ \ \ \ fSum\ +=\ fValue\ *\ fValue;}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00090}00090\ \ \ \ \ \textcolor{comment}{/*\ Decrement\ loop\ counter\ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00091}00091\ \ \ \ \ blkCnt-\/-\/;}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00092}00092\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00094}00094\ \ \ \textcolor{comment}{/*\ Variance\ */}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00095}00095\ \ \ *pResult\ =\ fSum\ /\ (\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\_t}})(\mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{blockSize}}\ -\/\ 1.);}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{arm__var__f64_8c_source_l00097}00097\ }
+
+\end{DoxyCode}

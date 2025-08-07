@@ -1,0 +1,47 @@
+<map id="__QSUB" name="__QSUB">
+<area shape="rect" id="Node000001" title=" " alt="" coords="698,284,771,311"/>
+<area shape="rect" id="Node000002" href="$group___basic_abs.html#ga494bd5db5e2686d96f5548e80ba8ca89" title="Q31 vector absolute value." alt="" coords="528,5,627,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="728,269,721,223,707,166,683,106,667,78,648,53,623,35,626,30,652,49,672,75,688,103,712,164,726,222,733,269"/>
+<area shape="rect" id="Node000007" href="$arm__cfft__q15_8c.html#abe669acc8db57d1fb9b1e2bba30f2224" title=" " alt="" coords="512,411,643,453"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="718,325,690,363,651,401,634,412,631,408,648,397,686,360,714,322"/>
+<area shape="rect" id="Node000012" href="$group__cmplx__conj.html#ga652edf2688aae9b2f53c5da73f6cc2bc" title="Q31 complex conjugate." alt="" coords="505,107,650,133"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="722,270,695,208,674,176,648,147,630,136,633,132,651,143,678,172,700,206,727,268"/>
+<area shape="rect" id="Node000013" href="$group___i_i_r___lattice.html#ga87d7df8f8787402d4331de156a82687f" title="Processing function for the Q31 IIR lattice filter." alt="" coords="512,157,643,184"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="715,272,686,234,648,198,627,187,630,182,651,194,690,231,719,269"/>
+<area shape="rect" id="Node000014" href="$group__inv__clarke.html#ga3bab178431f22d13332a0dfae4390172" title="Inverse Clarke transform for Q31 version." alt="" coords="509,208,646,235"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="699,277,648,249,621,238,623,233,651,244,701,273"/>
+<area shape="rect" id="Node000015" href="$group__inv__park.html#gae7165779ef72e1f797d0c601d6d619b2" title="Inverse Park transform for Q31 version." alt="" coords="514,259,641,285"/>
+<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="682,292,641,285,642,280,683,286"/>
+<area shape="rect" id="Node000016" href="$group___matrix_sub.html#ga39f42e0e3b7f115fbb909d6ff4e1329d" title="Q31 matrix subtraction." alt="" coords="513,309,642,336"/>
+<area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="683,308,643,315,642,310,682,303"/>
+<area shape="rect" id="Node000017" href="$group___m_s_e.html#ga0ce5aa7143c936e17010819c4f4fc49f" title="Mean square error between two Q31 vectors." alt="" coords="526,360,629,387"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="701,322,651,350,623,362,621,357,648,346,699,317"/>
+<area shape="rect" id="Node000018" href="$group___basic_negate.html#gad5054d19c205eebab5f2c6e42d8cbb3c" title="Negates the elements of a Q31 vector." alt="" coords="330,56,447,83"/>
+<area shape="poly" id="edge18_Node000001_Node000018" title=" " alt="" coords="728,269,721,229,706,181,683,135,667,114,648,97,625,83,601,72,548,61,495,58,447,62,447,56,495,53,548,55,602,67,628,78,651,93,671,110,687,132,711,179,726,228,733,268"/>
+<area shape="rect" id="Node000019" href="$group__park.html#ga69be76685149b18f345f705aa8efaad0" title="Park transform for Q31 version." alt="" coords="526,477,629,504"/>
+<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="729,327,718,359,702,396,680,434,651,467,631,480,628,476,648,463,676,431,698,394,713,357,724,325"/>
+<area shape="rect" id="Node000020" href="$arm__cfft__radix2__q15_8c.html#a972f4e810203402dcf4cafdba7554a36" title=" " alt="" coords="508,528,647,571"/>
+<area shape="poly" id="edge21_Node000001_Node000020" title=" " alt="" coords="732,326,723,367,708,418,685,471,652,518,638,529,634,525,648,514,680,468,703,416,718,366,727,325"/>
+<area shape="rect" id="Node000022" href="$group___basic_sub.html#ga913159f71589b56dbfb03ddc1210a59c" title="Q31 vector subtraction." alt="" coords="528,595,627,621"/>
+<area shape="poly" id="edge23_Node000001_Node000022" title=" " alt="" coords="735,326,731,380,719,449,708,485,694,521,675,554,651,585,629,600,626,595,648,581,671,551,689,518,703,483,714,447,726,379,730,326"/>
+<area shape="rect" id="Node000003" href="$group__divide.html#ga250c0a49bd2e42282f3296d51138a5cb" title="Fixed point division." alt="" coords="332,5,444,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="513,21,445,21,445,16,513,16"/>
+<area shape="rect" id="Node000004" href="$arm__atan2__q31_8c.html#a50b4cb6a5223af5aa106b8d71395181b" title=" " alt="" coords="166,56,269,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="327,40,266,58,264,53,325,34"/>
+<area shape="rect" id="Node000006" href="$group___m_f_c_c.html#ga7ab98731e9e4a7705be0b3ca0c5bd94c" title="MFCC Q31." alt="" coords="164,5,271,32"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="316,21,272,21,272,16,316,16"/>
+<area shape="rect" id="Node000005" href="$group__atan2.html#ga14e753643307e373abffa6d14ae7a3f3" title="Arc tangent in radian of y/x using sign of x and y to determine right quadrant." alt="" coords="5,56,116,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="150,72,116,72,116,67,150,67"/>
+<area shape="rect" id="Node000008" href="$group___complex_f_f_t.html#ga68cdacd2267a2967955e40e6b7ec1229" title="Processing function for Q15 complex FFT." alt="" coords="340,419,436,445"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="496,435,436,435,436,429,496,429"/>
+<area shape="rect" id="Node000009" href="$group___m_f_c_c.html#ga1ec288fa9eb7e85c8196c32dfe8f3f9b" title="MFCC Q15." alt="" coords="7,444,114,471"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="325,440,115,456,114,451,324,434"/>
+<area shape="rect" id="Node000010" href="$group___real_f_f_t.html#ga00e615f5db21736ad5b27fb6146f3fc5" title="Processing function for the Q15 RFFT/RIFFT." alt="" coords="171,393,264,420"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="324,425,264,416,265,411,325,420"/>
+<area shape="poly" id="edge11_Node000010_Node000009" title=" " alt="" coords="160,428,105,446,103,441,158,423"/>
+<area shape="rect" id="Node000011" href="$group___d_c_t4___i_d_c_t4.html#ga114cb9635059f678df291fcc887aaf2b" title="Processing function for the Q15 DCT4/IDCT4." alt="" coords="9,393,112,420"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="155,409,113,409,113,404,155,404"/>
+<area shape="poly" id="edge19_Node000018_Node000004" title=" " alt="" coords="314,72,269,72,269,67,314,67"/>
+<area shape="rect" id="Node000021" href="$group___complex_f_f_t.html#ga55b424341dc3efd3fa0bcaaff4bdbf40" title="Processing function for the fixed&#45;point CFFT/CIFFT." alt="" coords="319,536,457,563"/>
+<area shape="poly" id="edge22_Node000020_Node000021" title=" " alt="" coords="492,552,458,552,458,547,492,547"/>
+</map>

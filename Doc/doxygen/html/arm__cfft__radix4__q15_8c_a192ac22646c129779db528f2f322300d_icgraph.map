@@ -1,0 +1,5 @@
+<map id="arm_bitreversal_q15" name="arm_bitreversal_q15">
+<area shape="rect" id="Node000001" title="In&#45;place Q15 bit reversal function." alt="" coords="192,5,330,32"/>
+<area shape="rect" id="Node000002" href="$group___complex_f_f_t.html#ga8d66cdac41b8bf6cefdb895456eee84a" title="Processing function for the Q15 CFFT/CIFFT." alt="" coords="5,5,144,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,21,144,21,144,16,176,16"/>
+</map>

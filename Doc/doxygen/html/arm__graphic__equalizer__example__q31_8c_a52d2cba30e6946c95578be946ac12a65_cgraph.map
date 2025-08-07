@@ -1,0 +1,25 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,272,55,299"/>
+<area shape="rect" id="Node000002" href="$group___biquad_cascade_d_f1__32x64.html#ga426cd78591a717e87d66d1eaa9a3d074" title="Initialization function for the Q31 Biquad cascade 32x64 filter." alt="" coords="104,5,246,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="29,272,33,231,44,175,66,114,81,85,101,58,102,57,106,60,105,62,86,87,71,116,50,177,39,232,35,272"/>
+<area shape="rect" id="Node000003" href="$group___biquad_cascade_d_f1__32x64.html#gae71a3095b94939418618ddf83caf739a" title="Processing function for the Q31 Biquad cascade 32x64 filter." alt="" coords="104,72,246,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="32,271,53,203,73,162,101,125,103,122,107,126,105,128,77,165,58,205,37,272"/>
+<area shape="rect" id="Node000005" href="$group___biquad_cascade_d_f1.html#ga5563b156af44d1be2a7548626988bf4e" title="Initialization function for the Q31 Biquad cascade filter." alt="" coords="103,139,247,181"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="37,270,62,232,101,191,106,188,109,192,104,195,67,235,41,273"/>
+<area shape="rect" id="Node000006" href="$group___biquad_cascade_d_f1.html#ga4e7dad0ee6949005909fd4fcf1249b79" title="Processing function for the Q31 Biquad cascade filter." alt="" coords="103,205,247,248"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="54,273,105,252,107,257,56,278"/>
+<area shape="rect" id="Node000007" href="$group__float__to__x.html#gaae21be47db707e79552f3e8221a48fb0" title="Converts the elements of the floating&#45;point vector to Q31 vector." alt="" coords="114,272,236,299"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="55,283,99,283,99,288,55,288"/>
+<area shape="rect" id="Node000009" href="$group__q31__to__x.html#ga19a9d023aca1f99abd5da6f13a42b6cf" title="Converts the elements of the Q31 vector to floating&#45;point vector." alt="" coords="114,323,236,349"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="56,291,121,314,119,319,54,296"/>
+<area shape="rect" id="Node000010" href="$group___basic_scale.html#ga5e769c8e22da173674c6abca7291e713" title="Multiplies a floating&#45;point vector by a scalar." alt="" coords="122,373,228,400"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="43,297,69,328,104,359,112,364,110,369,101,363,65,332,39,301"/>
+<area shape="rect" id="Node000011" href="$group___basic_scale.html#ga8b2b6ea2e39ca464e8f2cfdd937c022b" title="Multiplies a Q31 vector by a scalar." alt="" coords="120,424,230,451"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="38,298,61,352,80,383,104,410,110,414,106,418,101,414,76,386,56,355,33,300"/>
+<area shape="rect" id="Node000012" href="$arm__convolution__example_2math__helper_8c.html#aeea2952e70a1040a6efa555564bbeeab" title="Caluclation of SNR." alt="" coords="128,475,222,501"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="36,299,42,331,54,375,74,421,105,461,116,469,112,473,101,465,70,423,49,377,36,332,30,299"/>
+<area shape="rect" id="Node000004" href="$none_8h.html#a1922856352479a1443dad21208351d35" title="Multiplies 32 X 64 and returns 32 bit result in 2.30 format." alt="" coords="312,80,393,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="246,91,296,91,296,96,246,96"/>
+<area shape="rect" id="Node000008" href="$none_8h.html#ad3a8d07983196592f6edca8f84aec7c7" title="Clips Q63 to Q31 values." alt="" coords="295,272,410,299"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="236,283,280,283,280,288,236,288"/>
+</map>

@@ -1,0 +1,134 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Source/\+Fast\+Math\+Functions/arm\+\_\+atan2\+\_\+q15.c File Reference}
+\hypertarget{arm__atan2__q15_8c}{}\label{arm__atan2__q15_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/FastMathFunctions/arm\_atan2\_q15.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/FastMathFunctions/arm\_atan2\_q15.c}}
+{\ttfamily \#include "{}dsp/fast\+\_\+math\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include "{}dsp/utils.\+h"{}}\newline
+Include dependency graph for arm\+\_\+atan2\+\_\+q15.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__atan2__q15_8c__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{arm__atan2__q15_8c__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arm__atan2__q15_8c_a0f78ec06f69fe7429027b887f7ea1817}{ATANHALFQ13}}~0xed6
+\item 
+\#define \mbox{\hyperlink{arm__atan2__q15_8c_a9847f1a245e847bf838880f093934e51}{PIHALFQ13}}~0x3244
+\item 
+\#define \mbox{\hyperlink{arm__atan2__q15_8c_a93c45d34ee41699a66f2ad7c1be96f3e}{PIQ13}}~0x6488
+\item 
+\#define \mbox{\hyperlink{arm__atan2__q15_8c_a3f95d63d7bcf23647ab4c673474597d8}{ATAN2\+\_\+\+NB\+\_\+\+COEFS\+\_\+\+Q15}}~10
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \mbox{\hyperlink{arm__atan2__q15_8c_ae4b833d575f943fd4e827066b049f84f}{arm\+\_\+atan\+\_\+limited\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} x)
+\item 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \mbox{\hyperlink{arm__atan2__q15_8c_a10801ffb94cd8481398f5d9826ad5e86}{arm\+\_\+atan\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} y, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} x)
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group__atan2_ga9d424b6eaf16bfc41be3e88335cfb801}{arm\+\_\+atan2\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} y, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} x, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}result)
+\begin{DoxyCompactList}\small\item\em Arc Tangent of y/x using sign of y and x to get right quadrant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{arm__atan2__q15_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm__atan2__q15_8c_a3f95d63d7bcf23647ab4c673474597d8}\index{arm\_atan2\_q15.c@{arm\_atan2\_q15.c}!ATAN2\_NB\_COEFS\_Q15@{ATAN2\_NB\_COEFS\_Q15}}
+\index{ATAN2\_NB\_COEFS\_Q15@{ATAN2\_NB\_COEFS\_Q15}!arm\_atan2\_q15.c@{arm\_atan2\_q15.c}}
+\doxysubsubsection{\texorpdfstring{ATAN2\_NB\_COEFS\_Q15}{ATAN2\_NB\_COEFS\_Q15}}
+{\footnotesize\ttfamily \label{arm__atan2__q15_8c_a3f95d63d7bcf23647ab4c673474597d8} 
+\#define ATAN2\+\_\+\+NB\+\_\+\+COEFS\+\_\+\+Q15~10}
+
+
+
+Definition at line \mbox{\hyperlink{arm__atan2__q15_8c_source_l00044}{44}} of file \mbox{\hyperlink{arm__atan2__q15_8c_source}{arm\+\_\+atan2\+\_\+q15.\+c}}.
+
+\Hypertarget{arm__atan2__q15_8c_a0f78ec06f69fe7429027b887f7ea1817}\index{arm\_atan2\_q15.c@{arm\_atan2\_q15.c}!ATANHALFQ13@{ATANHALFQ13}}
+\index{ATANHALFQ13@{ATANHALFQ13}!arm\_atan2\_q15.c@{arm\_atan2\_q15.c}}
+\doxysubsubsection{\texorpdfstring{ATANHALFQ13}{ATANHALFQ13}}
+{\footnotesize\ttfamily \label{arm__atan2__q15_8c_a0f78ec06f69fe7429027b887f7ea1817} 
+\#define ATANHALFQ13~0xed6}
+
+
+
+Definition at line \mbox{\hyperlink{arm__atan2__q15_8c_source_l00040}{40}} of file \mbox{\hyperlink{arm__atan2__q15_8c_source}{arm\+\_\+atan2\+\_\+q15.\+c}}.
+
+\Hypertarget{arm__atan2__q15_8c_a9847f1a245e847bf838880f093934e51}\index{arm\_atan2\_q15.c@{arm\_atan2\_q15.c}!PIHALFQ13@{PIHALFQ13}}
+\index{PIHALFQ13@{PIHALFQ13}!arm\_atan2\_q15.c@{arm\_atan2\_q15.c}}
+\doxysubsubsection{\texorpdfstring{PIHALFQ13}{PIHALFQ13}}
+{\footnotesize\ttfamily \label{arm__atan2__q15_8c_a9847f1a245e847bf838880f093934e51} 
+\#define PIHALFQ13~0x3244}
+
+
+
+Definition at line \mbox{\hyperlink{arm__atan2__q15_8c_source_l00041}{41}} of file \mbox{\hyperlink{arm__atan2__q15_8c_source}{arm\+\_\+atan2\+\_\+q15.\+c}}.
+
+\Hypertarget{arm__atan2__q15_8c_a93c45d34ee41699a66f2ad7c1be96f3e}\index{arm\_atan2\_q15.c@{arm\_atan2\_q15.c}!PIQ13@{PIQ13}}
+\index{PIQ13@{PIQ13}!arm\_atan2\_q15.c@{arm\_atan2\_q15.c}}
+\doxysubsubsection{\texorpdfstring{PIQ13}{PIQ13}}
+{\footnotesize\ttfamily \label{arm__atan2__q15_8c_a93c45d34ee41699a66f2ad7c1be96f3e} 
+\#define PIQ13~0x6488}
+
+
+
+Definition at line \mbox{\hyperlink{arm__atan2__q15_8c_source_l00042}{42}} of file \mbox{\hyperlink{arm__atan2__q15_8c_source}{arm\+\_\+atan2\+\_\+q15.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{arm__atan2__q15_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm__atan2__q15_8c_ae4b833d575f943fd4e827066b049f84f}\index{arm\_atan2\_q15.c@{arm\_atan2\_q15.c}!arm\_atan\_limited\_q15@{arm\_atan\_limited\_q15}}
+\index{arm\_atan\_limited\_q15@{arm\_atan\_limited\_q15}!arm\_atan2\_q15.c@{arm\_atan2\_q15.c}}
+\doxysubsubsection{\texorpdfstring{arm\_atan\_limited\_q15()}{arm\_atan\_limited\_q15()}}
+{\footnotesize\ttfamily \label{arm__atan2__q15_8c_ae4b833d575f943fd4e827066b049f84f} 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} arm\+\_\+atan\+\_\+limited\+\_\+q15 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}}}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{arm__atan2__q15_8c_source_l00058}{58}} of file \mbox{\hyperlink{arm__atan2__q15_8c_source}{arm\+\_\+atan2\+\_\+q15.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__atan2__q15_8c_ae4b833d575f943fd4e827066b049f84f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{arm__atan2__q15_8c_a10801ffb94cd8481398f5d9826ad5e86}\index{arm\_atan2\_q15.c@{arm\_atan2\_q15.c}!arm\_atan\_q15@{arm\_atan\_q15}}
+\index{arm\_atan\_q15@{arm\_atan\_q15}!arm\_atan2\_q15.c@{arm\_atan2\_q15.c}}
+\doxysubsubsection{\texorpdfstring{arm\_atan\_q15()}{arm\_atan\_q15()}}
+{\footnotesize\ttfamily \label{arm__atan2__q15_8c_a10801ffb94cd8481398f5d9826ad5e86} 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_ab904513442afdf77d4f8c74f23cbb040}{\+\_\+\+\_\+\+STATIC\+\_\+\+FORCEINLINE}} \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} arm\+\_\+atan\+\_\+q15 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}}}]{y}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}}}]{x}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{arm__atan2__q15_8c_source_l00075}{75}} of file \mbox{\hyperlink{arm__atan2__q15_8c_source}{arm\+\_\+atan2\+\_\+q15.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__atan2__q15_8c_a10801ffb94cd8481398f5d9826ad5e86_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{arm__atan2__q15_8c_a10801ffb94cd8481398f5d9826ad5e86_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,7 @@
+<map id="L1C_EnableCaches" name="L1C_EnableCaches">
+<area shape="rect" id="Node000001" title="Union type to access the L2C_310 Cache Controller." alt="" coords="5,31,143,57"/>
+<area shape="rect" id="Node000002" href="$cmsis__cp15_8h.html#aac39aa8fb2af1b18e51b391e87f30f30" title="Get SCTLR." alt="" coords="191,5,295,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,31,175,26,176,31,143,36"/>
+<area shape="rect" id="Node000003" href="$cmsis__cp15_8h.html#a0db9cfa3b54a4d28d3d3a4e6cfd564c9" title="Set SCTLR." alt="" coords="191,56,295,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,52,176,57,175,62,143,57"/>
+</map>

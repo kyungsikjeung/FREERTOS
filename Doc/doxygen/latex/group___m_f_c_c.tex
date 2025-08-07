@@ -1,0 +1,323 @@
+\doxysubsection{MFCC }
+\hypertarget{group___m_f_c_c}{}\label{group___m_f_c_c}\index{MFCC@{MFCC}}
+Collaboration diagram for MFCC\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{group___m_f_c_c}
+\end{center}
+\end{figure}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___m_f_c_c_gada3ab681711c96cc8b39394a42614678}{arm\+\_\+mfcc\+\_\+f32}} (const \mbox{\hyperlink{structarm__mfcc__instance__f32}{arm\+\_\+mfcc\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Tmp)
+\begin{DoxyCompactList}\small\item\em MFCC F32. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___m_f_c_c_ga0e411f0503b1187c69adee7bc949fd1f}{arm\+\_\+mfcc\+\_\+init\+\_\+f32}} (\mbox{\hyperlink{structarm__mfcc__instance__f32}{arm\+\_\+mfcc\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, uint32\+\_\+t fft\+Len, uint32\+\_\+t nb\+Mel\+Filters, uint32\+\_\+t nb\+Dct\+Outputs, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}dct\+Coefs, const uint32\+\_\+t \texorpdfstring{$\ast$}{*}filter\+Pos, const uint32\+\_\+t \texorpdfstring{$\ast$}{*}filter\+Lengths, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}filter\+Coefs, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}window\+Coefs)
+\begin{DoxyCompactList}\small\item\em Initialization of the MFCC F32 instance structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___m_f_c_c_ga7e55fc08a473af73055021aedae27c32}{arm\+\_\+mfcc\+\_\+init\+\_\+q15}} (\mbox{\hyperlink{structarm__mfcc__instance__q15}{arm\+\_\+mfcc\+\_\+instance\+\_\+q15}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, uint32\+\_\+t fft\+Len, uint32\+\_\+t nb\+Mel\+Filters, uint32\+\_\+t nb\+Dct\+Outputs, const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}dct\+Coefs, const uint32\+\_\+t \texorpdfstring{$\ast$}{*}filter\+Pos, const uint32\+\_\+t \texorpdfstring{$\ast$}{*}filter\+Lengths, const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}filter\+Coefs, const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}window\+Coefs)
+\begin{DoxyCompactList}\small\item\em Initialization of the MFCC F32 instance structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___m_f_c_c_ga758406a367635b2878ea1f59107087db}{arm\+\_\+mfcc\+\_\+init\+\_\+q31}} (\mbox{\hyperlink{structarm__mfcc__instance__q31}{arm\+\_\+mfcc\+\_\+instance\+\_\+q31}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, uint32\+\_\+t fft\+Len, uint32\+\_\+t nb\+Mel\+Filters, uint32\+\_\+t nb\+Dct\+Outputs, const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}dct\+Coefs, const uint32\+\_\+t \texorpdfstring{$\ast$}{*}filter\+Pos, const uint32\+\_\+t \texorpdfstring{$\ast$}{*}filter\+Lengths, const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}filter\+Coefs, const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}window\+Coefs)
+\begin{DoxyCompactList}\small\item\em Initialization of the MFCC F32 instance structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___m_f_c_c_ga1ec288fa9eb7e85c8196c32dfe8f3f9b}{arm\+\_\+mfcc\+\_\+q15}} (const \mbox{\hyperlink{structarm__mfcc__instance__q15}{arm\+\_\+mfcc\+\_\+instance\+\_\+q15}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Tmp)
+\begin{DoxyCompactList}\small\item\em MFCC Q15. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___m_f_c_c_ga7ab98731e9e4a7705be0b3ca0c5bd94c}{arm\+\_\+mfcc\+\_\+q31}} (const \mbox{\hyperlink{structarm__mfcc__instance__q31}{arm\+\_\+mfcc\+\_\+instance\+\_\+q31}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Tmp)
+\begin{DoxyCompactList}\small\item\em MFCC Q31. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+MFCC Transform
+
+There are separate functions for floating-\/point, Q15, and Q31 data types.
+
+MFCC Transform
+
+There are separate functions for floating-\/point, Q15, and Q15 data types.
+
+MFCC Transform
+
+There are separate functions for floating-\/point, Q31, and Q31 data types.
+
+\label{doc-func-members}
+\Hypertarget{group___m_f_c_c_doc-func-members}
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group___m_f_c_c_gada3ab681711c96cc8b39394a42614678}\index{MFCC@{MFCC}!arm\_mfcc\_f32@{arm\_mfcc\_f32}}
+\index{arm\_mfcc\_f32@{arm\_mfcc\_f32}!MFCC@{MFCC}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mfcc\_f32()}{arm\_mfcc\_f32()}}
+{\footnotesize\ttfamily \label{group___m_f_c_c_gada3ab681711c96cc8b39394a42614678} 
+void arm\+\_\+mfcc\+\_\+f32 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structarm__mfcc__instance__f32}{arm\+\_\+mfcc\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}}]{S}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Tmp}{}\end{DoxyParamCaption})}
+
+
+
+MFCC F32. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em S} & points to the mfcc instance structure \\
+\hline
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input samples \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output MFCC values \\
+\hline
+\mbox{\texttt{in,out}}  & {\em p\+Tmp} & points to a temporary buffer of complex\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Description}
+The number of input samples if the FFT length used when initializing the instance data structure.
+\end{DoxyParagraph}
+The temporary buffer has a 2\texorpdfstring{$\ast$}{*}fft length size when MFCC is implemented with CFFT. It has length FFT Length + 2 when implemented with RFFT (default implementation).
+
+The source buffer is modified by this function. 
+
+Definition at line \mbox{\hyperlink{arm__mfcc__f32_8c_source_l00079}{79}} of file \mbox{\hyperlink{arm__mfcc__f32_8c_source}{arm\+\_\+mfcc\+\_\+f32.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___m_f_c_c_gada3ab681711c96cc8b39394a42614678_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___m_f_c_c_ga0e411f0503b1187c69adee7bc949fd1f}\index{MFCC@{MFCC}!arm\_mfcc\_init\_f32@{arm\_mfcc\_init\_f32}}
+\index{arm\_mfcc\_init\_f32@{arm\_mfcc\_init\_f32}!MFCC@{MFCC}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mfcc\_init\_f32()}{arm\_mfcc\_init\_f32()}}
+{\footnotesize\ttfamily \label{group___m_f_c_c_ga0e411f0503b1187c69adee7bc949fd1f} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+mfcc\+\_\+init\+\_\+f32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structarm__mfcc__instance__f32}{arm\+\_\+mfcc\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}}]{S}{, }\item[{uint32\+\_\+t}]{fft\+Len}{, }\item[{uint32\+\_\+t}]{nb\+Mel\+Filters}{, }\item[{uint32\+\_\+t}]{nb\+Dct\+Outputs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dct\+Coefs}{, }\item[{const uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{filter\+Pos}{, }\item[{const uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{filter\+Lengths}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{filter\+Coefs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{window\+Coefs}{}\end{DoxyParamCaption})}
+
+
+
+Initialization of the MFCC F32 instance structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{out}}  & {\em S} & points to the mfcc instance structure \\
+\hline
+\mbox{\texttt{in}}  & {\em fft\+Len} & fft length \\
+\hline
+\mbox{\texttt{in}}  & {\em nb\+Mel\+Filters} & number of Mel filters \\
+\hline
+\mbox{\texttt{in}}  & {\em nb\+Dct\+Outputs} & number of Dct outputs \\
+\hline
+\mbox{\texttt{in}}  & {\em dct\+Coefs} & points to an array of DCT coefficients \\
+\hline
+\mbox{\texttt{in}}  & {\em filter\+Pos} & points of the array of filter positions \\
+\hline
+\mbox{\texttt{in}}  & {\em filter\+Lengths} & points to the array of filter lengths \\
+\hline
+\mbox{\texttt{in}}  & {\em filter\+Coefs} & points to the array of filter coefficients \\
+\hline
+\mbox{\texttt{in}}  & {\em window\+Coefs} & points to the array of window coefficients\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error status
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Description}
+The matrix of Mel filter coefficients is sparse. Most of the coefficients are zero. To avoid multiplying the spectrogram by those zeros, the filter is applied only to a given position in the spectrogram and on a given number of FFT bins (the filter length). It is the reason for the arrays filter\+Pos and filter\+Lengths.
+\end{DoxyParagraph}
+window coefficients can describe (for instance) a Hamming window. The array has the same size as the FFT length.
+
+The folder Scripts is containing a Python script which can be used to generate the filter, dct and window arrays. 
+
+Definition at line \mbox{\hyperlink{arm__mfcc__init__f32_8c_source_l00073}{73}} of file \mbox{\hyperlink{arm__mfcc__init__f32_8c_source}{arm\+\_\+mfcc\+\_\+init\+\_\+f32.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{group___m_f_c_c_ga0e411f0503b1187c69adee7bc949fd1f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___m_f_c_c_ga7e55fc08a473af73055021aedae27c32}\index{MFCC@{MFCC}!arm\_mfcc\_init\_q15@{arm\_mfcc\_init\_q15}}
+\index{arm\_mfcc\_init\_q15@{arm\_mfcc\_init\_q15}!MFCC@{MFCC}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mfcc\_init\_q15()}{arm\_mfcc\_init\_q15()}}
+{\footnotesize\ttfamily \label{group___m_f_c_c_ga7e55fc08a473af73055021aedae27c32} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+mfcc\+\_\+init\+\_\+q15 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structarm__mfcc__instance__q15}{arm\+\_\+mfcc\+\_\+instance\+\_\+q15}} \texorpdfstring{$\ast$}{*}}]{S}{, }\item[{uint32\+\_\+t}]{fft\+Len}{, }\item[{uint32\+\_\+t}]{nb\+Mel\+Filters}{, }\item[{uint32\+\_\+t}]{nb\+Dct\+Outputs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dct\+Coefs}{, }\item[{const uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{filter\+Pos}{, }\item[{const uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{filter\+Lengths}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{filter\+Coefs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{window\+Coefs}{}\end{DoxyParamCaption})}
+
+
+
+Initialization of the MFCC F32 instance structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{out}}  & {\em S} & points to the mfcc instance structure \\
+\hline
+\mbox{\texttt{in}}  & {\em fft\+Len} & fft length \\
+\hline
+\mbox{\texttt{in}}  & {\em nb\+Mel\+Filters} & number of Mel filters \\
+\hline
+\mbox{\texttt{in}}  & {\em nb\+Dct\+Outputs} & number of Dct outputs \\
+\hline
+\mbox{\texttt{in}}  & {\em dct\+Coefs} & points to an array of DCT coefficients \\
+\hline
+\mbox{\texttt{in}}  & {\em filter\+Pos} & points of the array of filter positions \\
+\hline
+\mbox{\texttt{in}}  & {\em filter\+Lengths} & points to the array of filter lengths \\
+\hline
+\mbox{\texttt{in}}  & {\em filter\+Coefs} & points to the array of filter coefficients \\
+\hline
+\mbox{\texttt{in}}  & {\em window\+Coefs} & points to the array of window coefficients\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error status
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Description}
+The matrix of Mel filter coefficients is sparse. Most of the coefficients are zero. To avoid multiplying the spectrogram by those zeros, the filter is applied only to a given position in the spectrogram and on a given number of FFT bins (the filter length). It is the reason for the arrays filter\+Pos and filter\+Lengths.
+\end{DoxyParagraph}
+window coefficients can describe (for instance) a Hamming window. The array has the same size as the FFT length.
+
+The folder Scripts is containing a Python script which can be used to generate the filter, dct and window arrays. 
+
+Definition at line \mbox{\hyperlink{arm__mfcc__init__q15_8c_source_l00073}{73}} of file \mbox{\hyperlink{arm__mfcc__init__q15_8c_source}{arm\+\_\+mfcc\+\_\+init\+\_\+q15.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___m_f_c_c_ga7e55fc08a473af73055021aedae27c32_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___m_f_c_c_ga758406a367635b2878ea1f59107087db}\index{MFCC@{MFCC}!arm\_mfcc\_init\_q31@{arm\_mfcc\_init\_q31}}
+\index{arm\_mfcc\_init\_q31@{arm\_mfcc\_init\_q31}!MFCC@{MFCC}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mfcc\_init\_q31()}{arm\_mfcc\_init\_q31()}}
+{\footnotesize\ttfamily \label{group___m_f_c_c_ga758406a367635b2878ea1f59107087db} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+mfcc\+\_\+init\+\_\+q31 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structarm__mfcc__instance__q31}{arm\+\_\+mfcc\+\_\+instance\+\_\+q31}} \texorpdfstring{$\ast$}{*}}]{S}{, }\item[{uint32\+\_\+t}]{fft\+Len}{, }\item[{uint32\+\_\+t}]{nb\+Mel\+Filters}{, }\item[{uint32\+\_\+t}]{nb\+Dct\+Outputs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dct\+Coefs}{, }\item[{const uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{filter\+Pos}{, }\item[{const uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{filter\+Lengths}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{filter\+Coefs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{window\+Coefs}{}\end{DoxyParamCaption})}
+
+
+
+Initialization of the MFCC F32 instance structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{out}}  & {\em S} & points to the mfcc instance structure \\
+\hline
+\mbox{\texttt{in}}  & {\em fft\+Len} & fft length \\
+\hline
+\mbox{\texttt{in}}  & {\em nb\+Mel\+Filters} & number of Mel filters \\
+\hline
+\mbox{\texttt{in}}  & {\em nb\+Dct\+Outputs} & number of Dct outputs \\
+\hline
+\mbox{\texttt{in}}  & {\em dct\+Coefs} & points to an array of DCT coefficients \\
+\hline
+\mbox{\texttt{in}}  & {\em filter\+Pos} & points of the array of filter positions \\
+\hline
+\mbox{\texttt{in}}  & {\em filter\+Lengths} & points to the array of filter lengths \\
+\hline
+\mbox{\texttt{in}}  & {\em filter\+Coefs} & points to the array of filter coefficients \\
+\hline
+\mbox{\texttt{in}}  & {\em window\+Coefs} & points to the array of window coefficients\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error status
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Description}
+The matrix of Mel filter coefficients is sparse. Most of the coefficients are zero. To avoid multiplying the spectrogram by those zeros, the filter is applied only to a given position in the spectrogram and on a given number of FFT bins (the filter length). It is the reason for the arrays filter\+Pos and filter\+Lengths.
+\end{DoxyParagraph}
+window coefficients can describe (for instance) a Hamming window. The array has the same size as the FFT length.
+
+The folder Scripts is containing a Python script which can be used to generate the filter, dct and window arrays. 
+
+Definition at line \mbox{\hyperlink{arm__mfcc__init__q31_8c_source_l00073}{73}} of file \mbox{\hyperlink{arm__mfcc__init__q31_8c_source}{arm\+\_\+mfcc\+\_\+init\+\_\+q31.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___m_f_c_c_ga758406a367635b2878ea1f59107087db_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___m_f_c_c_ga1ec288fa9eb7e85c8196c32dfe8f3f9b}\index{MFCC@{MFCC}!arm\_mfcc\_q15@{arm\_mfcc\_q15}}
+\index{arm\_mfcc\_q15@{arm\_mfcc\_q15}!MFCC@{MFCC}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mfcc\_q15()}{arm\_mfcc\_q15()}}
+{\footnotesize\ttfamily \label{group___m_f_c_c_ga1ec288fa9eb7e85c8196c32dfe8f3f9b} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+mfcc\+\_\+q15 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structarm__mfcc__instance__q15}{arm\+\_\+mfcc\+\_\+instance\+\_\+q15}} \texorpdfstring{$\ast$}{*}}]{S}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Tmp}{}\end{DoxyParamCaption})}
+
+
+
+MFCC Q15. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em S} & points to the mfcc instance structure \\
+\hline
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input samples in Q15 \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output MFCC values in q8.\+7 format \\
+\hline
+\mbox{\texttt{in,out}}  & {\em p\+Tmp} & points to a temporary buffer of complex\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Description}
+The number of input samples is the FFT length used when initializing the instance data structure.
+\end{DoxyParagraph}
+The temporary buffer has a 2\texorpdfstring{$\ast$}{*}fft length.
+
+The source buffer is modified by this function.
+
+The function may saturate. If the FFT length is too big and the number of MEL filters too small then the fixed point computations may saturate. 
+
+Definition at line \mbox{\hyperlink{arm__mfcc__q15_8c_source_l00085}{85}} of file \mbox{\hyperlink{arm__mfcc__q15_8c_source}{arm\+\_\+mfcc\+\_\+q15.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___m_f_c_c_ga1ec288fa9eb7e85c8196c32dfe8f3f9b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___m_f_c_c_ga7ab98731e9e4a7705be0b3ca0c5bd94c}\index{MFCC@{MFCC}!arm\_mfcc\_q31@{arm\_mfcc\_q31}}
+\index{arm\_mfcc\_q31@{arm\_mfcc\_q31}!MFCC@{MFCC}}
+\doxysubsubsubsection{\texorpdfstring{arm\_mfcc\_q31()}{arm\_mfcc\_q31()}}
+{\footnotesize\ttfamily \label{group___m_f_c_c_ga7ab98731e9e4a7705be0b3ca0c5bd94c} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+mfcc\+\_\+q31 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structarm__mfcc__instance__q31}{arm\+\_\+mfcc\+\_\+instance\+\_\+q31}} \texorpdfstring{$\ast$}{*}}]{S}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Tmp}{}\end{DoxyParamCaption})}
+
+
+
+MFCC Q31. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em S} & points to the mfcc instance structure \\
+\hline
+\mbox{\texttt{in}}  & {\em p\+Src} & points to the input samples in Q31 \\
+\hline
+\mbox{\texttt{out}}  & {\em p\+Dst} & points to the output MFCC values in q8.\+23 format \\
+\hline
+\mbox{\texttt{in,out}}  & {\em p\+Tmp} & points to a temporary buffer of complex\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyParagraph}{Description}
+The number of input samples is the FFT length used when initializing the instance data structure.
+\end{DoxyParagraph}
+The temporary buffer has a 2\texorpdfstring{$\ast$}{*}fft length.
+
+The source buffer is modified by this function.
+
+The function may saturate. If the FFT length is too big and the number of MEL filters too small then the fixed point computations may saturate. 
+
+Definition at line \mbox{\hyperlink{arm__mfcc__q31_8c_source_l00086}{86}} of file \mbox{\hyperlink{arm__mfcc__q31_8c_source}{arm\+\_\+mfcc\+\_\+q31.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___m_f_c_c_ga7ab98731e9e4a7705be0b3ca0c5bd94c_cgraph}
+\end{center}
+\end{figure}

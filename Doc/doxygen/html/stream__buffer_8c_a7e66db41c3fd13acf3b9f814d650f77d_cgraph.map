@@ -1,0 +1,14 @@
+<map id="vStreamBufferDelete" name="vStreamBufferDelete">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,148,57"/>
+<area shape="rect" id="Node000002" href="$heap__5_8c.html#a1e7cea2fd1bc894ea3b5f5e8179d259b" title=" " alt="" coords="196,31,274,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,41,180,41,180,47,148,47"/>
+<area shape="rect" id="Node000003" href="$tasks_8c.html#a084d232640bd1d04bcac0b8784417015" title=" " alt="" coords="322,5,444,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="274,35,307,29,308,34,275,40"/>
+<area shape="rect" id="Node000004" href="$tasks_8c.html#adf830ea0f150fcdfdaa944667137f080" title=" " alt="" coords="323,56,443,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="275,48,308,54,307,59,274,53"/>
+<area shape="rect" id="Node000005" href="$list_8c.html#a274fdced76bbdd9d8a4c4840ded2920c" title=" " alt="" coords="680,56,785,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="444,67,664,67,664,72,444,72"/>
+<area shape="rect" id="Node000006" href="$tasks_8c.html#a54f31e9aef0eb7b87e48c7d68ecc84c1" title=" " alt="" coords="492,81,632,108"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="444,75,478,80,477,85,443,80"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="632,82,664,77,664,82,632,87"/>
+</map>

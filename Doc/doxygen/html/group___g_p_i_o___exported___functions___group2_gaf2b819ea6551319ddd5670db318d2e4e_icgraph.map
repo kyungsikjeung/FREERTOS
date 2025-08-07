@@ -1,0 +1,7 @@
+<map id="HAL_GPIO_ReadPin" name="HAL_GPIO_ReadPin">
+<area shape="rect" id="Node000001" title=" " alt="" coords="260,5,404,32"/>
+<area shape="rect" id="Node000002" href="$2__2__timer__timerreset_8c.html#acb5de967469f72e032d5f26cb16986ac" title=" " alt="" coords="103,5,212,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,21,212,21,212,16,245,16"/>
+<area shape="rect" id="Node000003" href="$2__2__timer__timerreset_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>

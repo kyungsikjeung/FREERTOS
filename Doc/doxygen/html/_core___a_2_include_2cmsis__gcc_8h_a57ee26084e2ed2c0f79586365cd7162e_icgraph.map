@@ -1,0 +1,17 @@
+<map id="__SMLALDX" name="__SMLALDX">
+<area shape="rect" id="Node000001" title=" " alt="" coords="227,157,324,184"/>
+<area shape="rect" id="Node000002" href="$group___conv.html#ga0d60c7a8349c6235d88bf87b04172252" title="Convolution of Q15 sequences." alt="" coords="26,5,158,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,145,225,94,203,68,177,46,156,35,158,30,180,42,207,64,230,91,263,142"/>
+<area shape="rect" id="Node000003" href="$group___partial_conv.html#gaa82f8213533529e9b9252b37fd3b39e4" title="Partial convolution of Q15 sequences." alt="" coords="5,56,179,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="248,149,216,122,177,97,150,86,152,81,180,92,219,118,251,145"/>
+<area shape="rect" id="Node000004" href="$group___partial_conv.html#ga09b1f207980df75c2dcf01b1d3c2006f" title="Partial convolution of Q15 sequences." alt="" coords="18,107,166,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="211,156,142,136,143,131,212,151"/>
+<area shape="rect" id="Node000005" href="$group___conv.html#ga372d3fd79b107dc6b12163a00c22da18" title="Convolution of Q15 sequences." alt="" coords="39,157,145,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="211,173,145,173,145,168,211,168"/>
+<area shape="rect" id="Node000006" href="$group___corr.html#ga3cfae563b16fa3be577cab5acf63aeea" title="Correlation of Q15 sequences." alt="" coords="15,208,169,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="212,191,143,210,142,205,211,186"/>
+<area shape="rect" id="Node000007" href="$group___corr.html#ga8fc4e632ab08b28435ff62e7eb65f508" title="Correlation of Q15 sequences." alt="" coords="28,259,156,285"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="251,197,219,224,180,249,152,260,150,256,177,244,216,220,248,192"/>
+<area shape="rect" id="Node000008" href="$group___f_i_r.html#gad9f84fdadbb59292592c7fac81adb09c" title="Processing function for the Q15 FIR filter." alt="" coords="47,309,137,336"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="263,199,230,250,207,277,180,300,160,311,138,318,136,313,157,306,177,295,203,273,225,247,258,196"/>
+</map>

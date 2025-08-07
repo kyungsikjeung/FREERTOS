@@ -1,0 +1,208 @@
+\doxysection{arm\+\_\+depthwise\+\_\+conv\+\_\+3x3\+\_\+s8.\+c}
+\hypertarget{arm__depthwise__conv__3x3__s8_8c_source}{}\label{arm__depthwise__conv__3x3__s8_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ConvolutionFunctions/arm\_depthwise\_conv\_3x3\_s8.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/NN/Source/ConvolutionFunctions/arm\_depthwise\_conv\_3x3\_s8.c}}
+\mbox{\hyperlink{arm__depthwise__conv__3x3__s8_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2010-\/2020\ Arm\ Limited\ or\ its\ affiliates.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00004}00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00006}00006\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00007}00007\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00008}00008\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00010}00010\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00013}00013\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00014}00014\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00015}00015\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00016}00016\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00019}00019\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00020}00020\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS\ NN\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00021}00021\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ arm\_depthwise\_conv\_3x3\_s8.c}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00022}00022\ \textcolor{comment}{\ *\ Description:\ \ Optimized\ s8\ depthwise\ convolution\ function\ for\ channel}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00023}00023\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ multiplier\ of\ 1\ and\ 3x3\ kernel\ size.}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00024}00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00025}00025\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 09.\ October\ 2020}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00026}00026\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V.2.0.1}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00027}00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00028}00028\ \textcolor{comment}{\ *\ Target\ Processor:\ \ Cortex-\/M\ CPUs}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00029}00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00030}00030\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nnfunctions_8h}{arm\_nnfunctions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__nnsupportfunctions_8h}{arm\_nnsupportfunctions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00044}00044\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00045}00045\ \textcolor{comment}{\ *\ Optimized\ s8\ depthwise\ convolution\ function\ with\ constraint\ that}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00046}00046\ \textcolor{comment}{\ *\ in\_channel\ ==\ out\_channel\ and\ kernel\_x\ ==\ kernel\_y\ ==\ 3\ with\ pads\ at\ most\ 1}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00047}00047\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00048}00048\ \textcolor{comment}{\ *\ \ Refer\ prototype\ header\ file\ for\ details.}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00049}00049\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00050}00050\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00052}\mbox{\hyperlink{group___n_n_conv_ga558337f134d84dac2c312c5175bd67de}{00052}}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{group___n_n_conv_ga558337f134d84dac2c312c5175bd67de}{arm\_depthwise\_conv\_3x3\_s8}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__context}{cmsis\_nn\_context}}\ *ctx,}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__dw__conv__params}{cmsis\_nn\_dw\_conv\_params}}\ *dw\_conv\_params,}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__per__channel__quant__params}{cmsis\_nn\_per\_channel\_quant\_params}}\ *quant\_params,}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\_nn\_dims}}\ *input\_dims,}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *input,}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\_nn\_dims}}\ *filter\_dims,}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *kernel,}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\_nn\_dims}}\ *bias\_dims,}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *bias,}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structcmsis__nn__dims}{cmsis\_nn\_dims}}\ *output\_dims,}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\_t}}\ *output)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00063}00063\ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00064}00064\ \ \ \ \ (void)ctx;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00065}00065\ \ \ \ \ (void)bias\_dims;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00067}00067\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ input\_x\ =\ input\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00068}00068\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ input\_y\ =\ input\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a749034ae387fecbeeffedfb1d9b8aa51}{h}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00069}00069\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ input\_ch\ =\ input\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a3c6f6f6780d5503e1bc87fc432c3af69}{c}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00070}00070\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ output\_ch\ =\ output\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a3c6f6f6780d5503e1bc87fc432c3af69}{c}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00071}00071\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ pad\_x\ =\ dw\_conv\_params-\/>\mbox{\hyperlink{structcmsis__nn__dw__conv__params_afc7f24c6d2ffbb0d512256b3d4e19630}{padding}}.\mbox{\hyperlink{structcmsis__nn__tile_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00072}00072\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ pad\_y\ =\ dw\_conv\_params-\/>\mbox{\hyperlink{structcmsis__nn__dw__conv__params_afc7f24c6d2ffbb0d512256b3d4e19630}{padding}}.\mbox{\hyperlink{structcmsis__nn__tile_a749034ae387fecbeeffedfb1d9b8aa51}{h}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00073}00073\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ stride\_x\ =\ dw\_conv\_params-\/>\mbox{\hyperlink{structcmsis__nn__dw__conv__params_a6f5c217856d767bd50556d1d4763d18f}{stride}}.\mbox{\hyperlink{structcmsis__nn__tile_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00074}00074\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ stride\_y\ =\ dw\_conv\_params-\/>\mbox{\hyperlink{structcmsis__nn__dw__conv__params_a6f5c217856d767bd50556d1d4763d18f}{stride}}.\mbox{\hyperlink{structcmsis__nn__tile_a749034ae387fecbeeffedfb1d9b8aa51}{h}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00075}00075\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *output\_shift\ =\ quant\_params-\/>\mbox{\hyperlink{structcmsis__nn__per__channel__quant__params_a37330ddd659e21d8a4cf88f31164efb8}{shift}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00076}00076\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ *output\_mult\ =\ quant\_params-\/>\mbox{\hyperlink{structcmsis__nn__per__channel__quant__params_ad2d7bcdc66772400d073f101bd6a0ca9}{multiplier}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ output\_x\ =\ output\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00078}00078\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ output\_y\ =\ output\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a749034ae387fecbeeffedfb1d9b8aa51}{h}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00079}00079\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ output\_offset\ =\ dw\_conv\_params-\/>\mbox{\hyperlink{structcmsis__nn__dw__conv__params_ab1dde269b1116cc98371e23a97740a58}{output\_offset}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00080}00080\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ input\_offset\ =\ dw\_conv\_params-\/>\mbox{\hyperlink{structcmsis__nn__dw__conv__params_ad4670fdc658d0517928e6b2c10b2259d}{input\_offset}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ output\_activation\_min\ =\ dw\_conv\_params-\/>\mbox{\hyperlink{structcmsis__nn__dw__conv__params_a8b46c29d03673efd66c440c67f3cbe08}{activation}}.\mbox{\hyperlink{structcmsis__nn__activation_a0022b5ad7e496a802c64e3f6e0c2d8e1}{min}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00082}00082\ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ output\_activation\_max\ =\ dw\_conv\_params-\/>\mbox{\hyperlink{structcmsis__nn__dw__conv__params_a8b46c29d03673efd66c440c67f3cbe08}{activation}}.\mbox{\hyperlink{structcmsis__nn__activation_accad1cdcd73e714badc388c3471bf33b}{max}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00084}00084\ \ \ \ \ \textcolor{comment}{/*\ Check\ input\ constraints\ input\_ch\ ==\ output\_ch\ */}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (input\_ch\ !=\ output\_ch)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00086}00086\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a7071b92f1f6bc3c5c312a237ea91105b}{ARM\_MATH\_SIZE\_MISMATCH}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00089}00089\ \ \ \ \ \textcolor{comment}{/*\ Check\ input\ constraints\ pad\_x\ <=\ 1\ */}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (pad\_x\ >\ 1\ ||\ filter\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a10eaf5bb734b696e5bcb6fd5b7033b60}{w}}\ !=\ 3\ ||\ filter\_dims-\/>\mbox{\hyperlink{structcmsis__nn__dims_a749034ae387fecbeeffedfb1d9b8aa51}{h}}\ !=\ 3)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00091}00091\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a74897e18d4b8f62b12a7d8a01dd2bb35}{ARM\_MATH\_ARGUMENT\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{for}\ (int32\_t\ in\_h\ =\ -\/pad\_y,\ out\_h\ =\ 0,\ out\_idx\ =\ 0;\ out\_h\ <\ output\_y;\ in\_h\ +=\ stride\_y,\ ++out\_h)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00096}00096\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int32\_t\ in\_w\ =\ -\/pad\_x,\ out\_w\ =\ 0,\ ker\_h\_start\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(0,\ -\/in\_h);\ out\_w\ <\ output\_x;\ in\_w\ +=\ stride\_x,\ ++out\_w)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ in\_ch\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ ker\_w\_start\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(0,\ -\/in\_w);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ in\_ch\ <=\ (input\_ch\ -\/\ 4);\ in\_ch\ +=\ 4)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ out\_buff0\ =\ bias[in\_ch\ +\ 0];}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ out\_buff1\ =\ bias[in\_ch\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ out\_buff2\ =\ bias[in\_ch\ +\ 2];}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ out\_buff3\ =\ bias[in\_ch\ +\ 3];}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ *input\_ptr\ =\ input\ +\ (in\_h\ +\ ker\_h\_start)\ *\ (input\_ch\ *\ input\_x)\ +\ in\_w\ *\ input\_ch\ +\ in\_ch;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ *kernel\_ptr\ =\ kernel\ +\ ker\_h\_start\ *\ (input\_ch\ *\ 3)\ +\ in\_ch;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int32\_t\ ker\_h\ =\ ker\_h\_start;\ ker\_h\ <\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(3,\ input\_y\ -\/\ in\_h);\ ++ker\_h)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ in\_val\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ ker\_val\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ker\_w\_start\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\_val\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a31fa46f17212fbcb65d2cdae06fc08f5}{arm\_nn\_read\_q7x4}}(input\_ptr);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ker\_val\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a31fa46f17212fbcb65d2cdae06fc08f5}{arm\_nn\_read\_q7x4}}(kernel\_ptr);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff0\ +=\ ((int8\_t)in\_val\ +\ input\_offset)\ *\ (int8\_t)ker\_val;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff1\ +=\ ((int8\_t)(in\_val\ >>\ 8)\ +\ input\_offset)\ *\ (int8\_t)(ker\_val\ >>\ 8);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff2\ +=\ ((int8\_t)(in\_val\ >>\ 16)\ +\ input\_offset)\ *\ (int8\_t)(ker\_val\ >>\ 16);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff3\ +=\ ((int8\_t)(in\_val\ >>\ 24)\ +\ input\_offset)\ *\ (int8\_t)(ker\_val\ >>\ 24);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\_val\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a31fa46f17212fbcb65d2cdae06fc08f5}{arm\_nn\_read\_q7x4}}(input\_ptr\ +\ input\_ch);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ker\_val\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a31fa46f17212fbcb65d2cdae06fc08f5}{arm\_nn\_read\_q7x4}}(kernel\_ptr\ +\ input\_ch);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff0\ +=\ ((int8\_t)in\_val\ +\ input\_offset)\ *\ (int8\_t)ker\_val;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff1\ +=\ ((int8\_t)(in\_val\ >>\ 8)\ +\ input\_offset)\ *\ (int8\_t)(ker\_val\ >>\ 8);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff2\ +=\ ((int8\_t)(in\_val\ >>\ 16)\ +\ input\_offset)\ *\ (int8\_t)(ker\_val\ >>\ 16);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff3\ +=\ ((int8\_t)(in\_val\ >>\ 24)\ +\ input\_offset)\ *\ (int8\_t)(ker\_val\ >>\ 24);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((input\_x\ -\/\ in\_w)\ >=\ 3)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\_val\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a31fa46f17212fbcb65d2cdae06fc08f5}{arm\_nn\_read\_q7x4}}(input\_ptr\ +\ (input\_ch\ <<\ 1));}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ker\_val\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a31fa46f17212fbcb65d2cdae06fc08f5}{arm\_nn\_read\_q7x4}}(kernel\_ptr\ +\ (input\_ch\ <<\ 1));}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff0\ +=\ ((int8\_t)in\_val\ +\ input\_offset)\ *\ (int8\_t)ker\_val;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff1\ +=\ ((int8\_t)(in\_val\ >>\ 8)\ +\ input\_offset)\ *\ (int8\_t)(ker\_val\ >>\ 8);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff2\ +=\ ((int8\_t)(in\_val\ >>\ 16)\ +\ input\_offset)\ *\ (int8\_t)(ker\_val\ >>\ 16);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff3\ +=\ ((int8\_t)(in\_val\ >>\ 24)\ +\ input\_offset)\ *\ (int8\_t)(ker\_val\ >>\ 24);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ input\_ptr\ +=\ (input\_ch\ *\ input\_x);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ kernel\_ptr\ +=\ (input\_ch\ *\ 3);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff0\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a6a13b7a567485da5fc7f0d311318886d}{arm\_nn\_requantize}}(out\_buff0,\ output\_mult[in\_ch\ +\ 0],\ output\_shift[in\_ch\ +\ 0]);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff1\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a6a13b7a567485da5fc7f0d311318886d}{arm\_nn\_requantize}}(out\_buff1,\ output\_mult[in\_ch\ +\ 1],\ output\_shift[in\_ch\ +\ 1]);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff2\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a6a13b7a567485da5fc7f0d311318886d}{arm\_nn\_requantize}}(out\_buff2,\ output\_mult[in\_ch\ +\ 2],\ output\_shift[in\_ch\ +\ 2]);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff3\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a6a13b7a567485da5fc7f0d311318886d}{arm\_nn\_requantize}}(out\_buff3,\ output\_mult[in\_ch\ +\ 3],\ output\_shift[in\_ch\ +\ 3]);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff0\ +=\ output\_offset;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff1\ +=\ output\_offset;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff2\ +=\ output\_offset;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff3\ +=\ output\_offset;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff0\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(out\_buff0,\ output\_activation\_min),\ output\_activation\_max);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff1\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(out\_buff1,\ output\_activation\_min),\ output\_activation\_max);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff2\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(out\_buff2,\ output\_activation\_min),\ output\_activation\_max);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff3\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(out\_buff3,\ output\_activation\_min),\ output\_activation\_max);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ output[out\_idx++]\ =\ (int8\_t)out\_buff0;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ output[out\_idx++]\ =\ (int8\_t)out\_buff1;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ output[out\_idx++]\ =\ (int8\_t)out\_buff2;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ output[out\_idx++]\ =\ (int8\_t)out\_buff3;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Leftover}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ in\_ch\ <\ input\_ch;\ ++in\_ch)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ out\_buff\ =\ bias[in\_ch];}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ *input\_ptr\ =\ input\ +\ (in\_h\ +\ ker\_h\_start)\ *\ (input\_ch\ *\ input\_x)\ +\ in\_w\ *\ input\_ch\ +\ in\_ch;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ *kernel\_ptr\ =\ kernel\ +\ ker\_h\_start\ *\ (input\_ch\ *\ 3)\ +\ in\_ch;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int32\_t\ ker\_h\ =\ ker\_h\_start;\ ker\_h\ <\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(3,\ input\_y\ -\/\ in\_h);\ ++ker\_h)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ker\_w\_start\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff\ +=\ (*(input\_ptr)\ +\ input\_offset)\ *\ *(kernel\_ptr);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff\ +=\ (*(input\_ptr\ +\ input\_ch)\ +\ input\_offset)\ *\ *(kernel\_ptr\ +\ input\_ch);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((input\_x\ -\/\ in\_w)\ >=\ 3)}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff\ +=\ (*(input\_ptr\ +\ (input\_ch\ <<\ 1))\ +\ input\_offset)\ *\ *(kernel\_ptr\ +\ (input\_ch\ <<\ 1));}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ input\_ptr\ +=\ (input\_ch\ *\ input\_x);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ kernel\_ptr\ +=\ (input\_ch\ *\ 3);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_a6a13b7a567485da5fc7f0d311318886d}{arm\_nn\_requantize}}(out\_buff,\ output\_mult[in\_ch],\ output\_shift[in\_ch]);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff\ +=\ output\_offset;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_buff\ =\ \mbox{\hyperlink{arm__nnsupportfunctions_8h_adcd021ac91d43a62b2cdecf9a5b971a7}{MIN}}(\mbox{\hyperlink{arm__nnsupportfunctions_8h_ad935f1ff1a50822e317bdb321ce991ad}{MAX}}(out\_buff,\ output\_activation\_min),\ output\_activation\_max);}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ output[out\_idx++]\ =\ (int8\_t)out\_buff;}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00204}00204\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00206}00206\ \ \ \ \ \textcolor{comment}{/*\ Return\ to\ application\ */}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00207}00207\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6a9f8b2a10bd827fb4600e77d455902eb0}{ARM\_MATH\_SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00208}00208\ \}}
+\DoxyCodeLine{\Hypertarget{arm__depthwise__conv__3x3__s8_8c_source_l00209}00209\ }
+
+\end{DoxyCode}

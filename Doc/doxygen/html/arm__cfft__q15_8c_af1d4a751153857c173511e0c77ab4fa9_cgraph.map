@@ -1,0 +1,37 @@
+<map id="arm_cfft_radix4by2_q15" name="arm_cfft_radix4by2_q15">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,157,165,184"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a0f31a63b10db31a9d5a9f768a3c8f386" title=" " alt="" coords="438,5,526,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,155,149,119,212,83,266,62,322,46,423,24,424,30,324,51,268,67,214,88,152,123,104,159"/>
+<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#a06c04c8a20c38af8d138d0087eb12cc0" title=" " alt="" coords="434,56,531,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="118,154,212,120,320,94,418,76,419,81,321,99,213,125,119,159"/>
+<area shape="rect" id="Node000004" href="$_core___a_2_include_2cmsis__gcc_8h.html#a34006e1bab27a1c800b06adce25b6699" title=" " alt="" coords="440,107,524,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,156,212,149,424,124,425,129,213,155,166,161"/>
+<area shape="rect" id="Node000005" href="$_core___a_2_include_2cmsis__gcc_8h.html#a7cdd9a219a4ceb8f988697a612503e92" title=" " alt="" coords="436,157,529,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="165,168,420,168,420,173,165,173"/>
+<area shape="rect" id="Node000006" href="$arm__cfft__radix4__q15_8c.html#af337f7275e22af2196f61c94a0ca079a" title="Core function for the Q15 CFFT butterfly process." alt="" coords="213,284,380,311"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="110,182,261,273,258,278,108,187"/>
+<area shape="rect" id="Node000013" href="$arm__math__memory_8h.html#ae084f8384b189a05eca804768a5f6bc0" title="Read 2 Q15 from Q15 pointer." alt="" coords="438,563,526,589"/>
+<area shape="poly" id="edge19_Node000001_Node000013" title=" " alt="" coords="98,183,143,247,218,343,317,451,372,502,430,549,436,553,433,557,426,553,368,506,313,454,214,347,139,250,93,186"/>
+<area shape="rect" id="Node000015" href="$arm__math__memory_8h.html#a576a0e2a4667277b42c478dfda753dc6" title="Write 2 Q15 to Q15 pointer and increment pointer afterwards." alt="" coords="428,613,536,640"/>
+<area shape="poly" id="edge20_Node000001_Node000015" title=" " alt="" coords="90,184,98,243,119,330,135,378,156,426,182,471,215,511,260,549,312,577,365,597,414,611,412,617,363,603,309,582,257,553,211,515,178,474,151,428,130,380,114,331,93,244,85,185"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="299,283,313,238,339,174,376,105,399,72,426,42,430,39,433,43,430,46,404,75,381,108,343,176,318,240,304,284"/>
+<area shape="poly" id="edge10_Node000006_Node000003" title=" " alt="" coords="301,283,318,246,345,196,381,142,426,93,431,89,434,93,430,97,385,145,349,199,322,248,306,285"/>
+<area shape="poly" id="edge14_Node000006_Node000004" title=" " alt="" coords="304,282,352,218,387,179,426,143,432,139,435,144,430,147,391,182,356,221,309,285"/>
+<area shape="poly" id="edge15_Node000006_Node000005" title=" " alt="" coords="312,281,361,240,427,194,434,189,437,194,429,198,365,244,315,285"/>
+<area shape="rect" id="Node000007" href="$_core___a_2_include_2cmsis__gcc_8h.html#aeb158a67f3998b5ac8d0c9f174d424fb" title=" " alt="" coords="438,411,526,437"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="315,309,365,350,429,396,437,401,434,405,427,401,361,355,312,313"/>
+<area shape="rect" id="Node000008" href="$_core___a_2_include_2cmsis__gcc_8h.html#a5a49acb3560a599e656350b88f8a132b" title=" " alt="" coords="446,461,518,488"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="309,310,356,374,391,412,430,447,435,451,432,455,426,451,387,416,352,377,304,313"/>
+<area shape="rect" id="Node000009" href="$_core___a_2_include_2cmsis__gcc_8h.html#ae6035ea5dde709a518dfa694c19956f9" title=" " alt="" coords="446,512,518,539"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="306,310,322,346,349,396,385,450,430,498,434,502,431,506,426,502,381,453,345,399,318,349,301,312"/>
+<area shape="rect" id="Node000010" href="$_core___a_2_include_2cmsis__gcc_8h.html#a0a860b66b605067940881c6dd2f33f10" title=" " alt="" coords="442,208,523,235"/>
+<area shape="poly" id="edge11_Node000006_Node000010" title=" " alt="" coords="330,281,432,239,435,243,332,286"/>
+<area shape="rect" id="Node000011" href="$_core___a_2_include_2cmsis__gcc_8h.html#aab2e7c62ed7a78da656e2b48491ce0b2" title=" " alt="" coords="442,259,523,285"/>
+<area shape="poly" id="edge12_Node000006_Node000011" title=" " alt="" coords="380,283,426,277,427,282,381,289"/>
+<area shape="rect" id="Node000012" href="$_core___a_2_include_2cmsis__gcc_8h.html#af9fed923e65e7e0ff931f3fc4716943a" title=" " alt="" coords="434,309,530,336"/>
+<area shape="poly" id="edge13_Node000006_Node000012" title=" " alt="" coords="381,306,419,311,418,317,380,311"/>
+<area shape="poly" id="edge16_Node000006_Node000013" title=" " alt="" coords="307,310,382,455,402,506,412,526,430,549,433,551,429,555,426,553,407,529,397,508,378,457,303,313"/>
+<area shape="rect" id="Node000014" href="$arm__math__memory_8h.html#a1c6d46f43d41c6ca1b7d6a0d8ed95036" title="Write 2 Q15 to Q15 pointer." alt="" coords="436,360,528,387"/>
+<area shape="poly" id="edge17_Node000006_Node000014" title=" " alt="" coords="332,309,435,351,432,356,330,314"/>
+<area shape="poly" id="edge18_Node000006_Node000015" title=" " alt="" coords="303,310,314,362,337,439,375,523,400,563,430,600,433,602,429,606,426,603,396,567,371,526,332,441,309,364,297,311"/>
+</map>

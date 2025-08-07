@@ -1,0 +1,74 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+sai\+\_\+ex.\+h}
+\hypertarget{stm32f4xx__hal__sai__ex_8h_source}{}\label{stm32f4xx__hal__sai__ex_8h_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_sai\_ex.h@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_sai\_ex.h}}
+\mbox{\hyperlink{stm32f4xx__hal__sai__ex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00019}00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00020}00020\ \textcolor{preprocessor}{\#ifndef\ \_\_STM32F4xx\_HAL\_SAI\_EX\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ \_\_STM32F4xx\_HAL\_SAI\_EX\_H}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00023}00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00024}00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00025}00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00027}00027\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal__def_8h}{stm32f4xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00038}00038\ \textcolor{preprocessor}{\#if\ defined(STM32F427xx)\ ||\ defined(STM32F437xx)\ ||\ defined(STM32F429xx)\ ||\ defined(STM32F439xx)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00039}00039\ \textcolor{preprocessor}{\ \ \ \ defined(STM32F446xx)\ ||\ defined(STM32F469xx)\ ||\ defined(STM32F479xx)\ ||\ defined(STM32F413xx)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00040}00040\ \textcolor{preprocessor}{\ \ \ \ defined(STM32F423xx)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00042}00042\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00043}00043\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00047}00047\ \textcolor{preprocessor}{\#if\ defined(STM32F413xx)\ ||\ defined(STM32F423xx)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00048}00048\ \textcolor{preprocessor}{\#define\ SAI\_CLKSOURCE\_PLLI2S\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00049}00049\ \textcolor{preprocessor}{\#define\ SAI\_CLKSOURCE\_EXT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00100000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00050}00050\ \textcolor{preprocessor}{\#define\ SAI\_CLKSOURCE\_PLLR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00200000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00051}00051\ \textcolor{preprocessor}{\#define\ SAI\_CLKSOURCE\_HS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00300000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00052}00052\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00053}00053\ \textcolor{preprocessor}{\#define\ SAI\_CLKSOURCE\_PLLSAI\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00054}00054\ \textcolor{preprocessor}{\#define\ SAI\_CLKSOURCE\_PLLI2S\ \ \ \ \ \ \ \ \ \ \ \ \ 0x00100000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00055}00055\ \textcolor{preprocessor}{\#define\ SAI\_CLKSOURCE\_EXT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00200000U}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00056}00056\ \textcolor{preprocessor}{\#define\ SAI\_CLKSOURCE\_NA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00400000U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00057}00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00064}00064\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00073}00073\ \textcolor{comment}{/*\ Extended\ features\ functions\ ************************************************/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00074}00074\ \textcolor{keywordtype}{void}\ SAI\_BlockSynchroConfig(\textcolor{keyword}{const}\ SAI\_HandleTypeDef\ *hsai);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00075}00075\ uint32\_t\ SAI\_GetInputClock(\textcolor{keyword}{const}\ SAI\_HandleTypeDef\ *hsai);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00083}00083\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00084}00084\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00085}00085\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00086}00086\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00087}00087\ \textcolor{preprocessor}{\#if\ defined(STM32F413xx)\ ||\ defined(STM32F423xx)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00088}00088\ \textcolor{preprocessor}{\#define\ IS\_SAI\_CLK\_SOURCE(SOURCE)\ (((SOURCE)\ ==\ SAI\_CLKSOURCE\_PLLI2S)\ ||\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00089}00089\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SOURCE)\ ==\ SAI\_CLKSOURCE\_EXT)||\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00090}00090\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SOURCE)\ ==\ SAI\_CLKSOURCE\_PLLR)||\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00091}00091\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SOURCE)\ ==\ SAI\_CLKSOURCE\_HS))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00092}00092\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00093}00093\ \textcolor{preprocessor}{\#define\ IS\_SAI\_CLK\_SOURCE(SOURCE)\ (((SOURCE)\ ==\ SAI\_CLKSOURCE\_PLLSAI)\ ||\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00094}00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SOURCE)\ ==\ SAI\_CLKSOURCE\_EXT)||\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00095}00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SOURCE)\ ==\ SAI\_CLKSOURCE\_PLLI2S)||\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00096}00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((SOURCE)\ ==\ SAI\_CLKSOURCE\_NA))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00097}00097\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00098}00098\ \textcolor{comment}{/*\ Private\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00100}00100\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32F427xx\ ||\ STM32F437xx\ ||\ STM32F429xx\ ||\ STM32F439xx\ ||\ STM32F446xx\ ||\ STM32F469xx\ ||\ STM32F479xx\ ||\ STM32F413xx\ ||\ STM32F423xx\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00109}00109\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00111}00111\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00113}00113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_STM32F4xx\_HAL\_SAI\_EX\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__sai__ex_8h_source_l00114}00114\ }
+
+\end{DoxyCode}

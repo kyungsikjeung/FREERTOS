@@ -1,0 +1,60 @@
+\doxysubsection{Variance Example }
+\hypertarget{group___variance_example}{}\label{group___variance_example}\index{Variance Example@{Variance Example}}
+Collaboration diagram for Variance Example\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{group___variance_example}
+\end{center}
+\end{figure}
+\begin{DoxyParagraph}{Description\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+Demonstrates the use of Basic Math and Support Functions to calculate the variance of an input sequence with N samples. Uniformly distributed white noise is taken as input.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Algorithm\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+The variance of a sequence is the mean of the squared deviation of the sequence from its mean. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+This is denoted by the following equation\+: 
+\begin{DoxyPre} variance = ((x[0] -\/ x') * (x[0] -\/ x') + (x[1] -\/ x') * (x[1] -\/ x') + ... + * (x[n-\/1] -\/ x') * (x[n-\/1] -\/ x')) / (N-\/1)\end{DoxyPre}
+ where, {\ttfamily x\mbox{[}n\mbox{]}} is the input sequence, {\ttfamily N} is the number of input samples, and {\ttfamily x\textquotesingle{}} is the mean value of the input sequence, {\ttfamily x\mbox{[}n\mbox{]}}. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+The mean value {\ttfamily x\textquotesingle{}} is defined as\+: 
+\begin{DoxyPre} x' = (x[0] + x[1] + ... + x[n-\/1]) / N\end{DoxyPre}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Block Diagram\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Variables Description\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\begin{DoxyItemize}
+\item {\ttfamily test\+Input\+\_\+f32} points to the input data \item {\ttfamily wire1}, {\ttfamily wir2}, {\ttfamily wire3} temporary buffers \item {\ttfamily block\+Size} number of samples processed at a time \item {\ttfamily ref\+Variance\+Out} reference variance value\end{DoxyItemize}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{CMSIS DSP Software Library Functions Used\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+
+\begin{DoxyItemize}
+\item \doxylink{group___basic_dot_prod_gadf26f6bc62d6416528663ad3e46fbf67}{arm\+\_\+dot\+\_\+prod\+\_\+f32()}
+\item \doxylink{group___basic_mult_gacf950935141cad927bea886e88fd9e9b}{arm\+\_\+mult\+\_\+f32()}
+\item \doxylink{group___basic_sub_ga76b8b2aec34269c6de0b090cab00fb33}{arm\+\_\+sub\+\_\+f32()}
+\item \doxylink{group___fill_ga2248e8d3901b4afb7827163132baad94}{arm\+\_\+fill\+\_\+f32()}
+\item \doxylink{group__copy_gaa6dfe9554ca61eb3d1eee498396bce88}{arm\+\_\+copy\+\_\+f32()}
+\end{DoxyItemize}
+\end{DoxyParagraph}
+{\bfseries{ Refer }} \doxylink{arm_variance_example_f32_8c-example}{arm\+\_\+variance\+\_\+example\+\_\+f32.\+c} 

@@ -1,0 +1,7 @@
+<map id="arm_divide_q15" name="arm_divide_q15">
+<area shape="rect" id="Node000001" title="Fixed point division." alt="" coords="5,5,118,32"/>
+<area shape="rect" id="Node000002" href="$group___basic_abs.html#ga5cd90f9490ba8711c86e6f4bd7154359" title="Q15 vector absolute value." alt="" coords="166,5,265,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,16,150,16,150,21,118,21"/>
+<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#a0f31a63b10db31a9d5a9f768a3c8f386" title=" " alt="" coords="313,5,400,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="266,16,297,16,297,21,266,21"/>
+</map>

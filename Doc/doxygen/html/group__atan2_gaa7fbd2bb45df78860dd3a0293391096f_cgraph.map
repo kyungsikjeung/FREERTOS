@@ -1,0 +1,7 @@
+<map id="arm_atan2_f32" name="arm_atan2_f32">
+<area shape="rect" id="Node000001" title="Arc Tangent of y/x using sign of y and x to get right quadrant." alt="" coords="5,5,113,32"/>
+<area shape="rect" id="Node000002" href="$arm__atan2__f32_8c.html#a9ec1846617f78a3d1285a23bb1d1cb64" title=" " alt="" coords="161,5,261,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,16,145,16,145,21,113,21"/>
+<area shape="rect" id="Node000003" href="$arm__atan2__f32_8c.html#ac27cef442fb0f8b5861f624a874152b0" title=" " alt="" coords="309,5,454,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="261,16,293,16,293,21,261,21"/>
+</map>

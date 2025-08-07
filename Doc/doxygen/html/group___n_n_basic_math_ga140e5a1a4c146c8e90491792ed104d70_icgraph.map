@@ -1,0 +1,7 @@
+<map id="arm_nn_vec_mat_mult_t_s8" name="arm_nn_vec_mat_mult_t_s8">
+<area shape="rect" id="Node000001" title="s8 Vector by Matrix (transposed) multiplication" alt="" coords="216,31,401,57"/>
+<area shape="rect" id="Node000002" href="$group___f_c.html#ga30d44fed122f2e159a417f9c12181ded" title="Basic s8 Fully Connected function." alt="" coords="5,5,168,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,34,168,31,168,25,200,29"/>
+<area shape="rect" id="Node000003" href="$group___s_v_d_f.html#gafbf5ad3c931103dff943fc39f8f9d519" title="s8 SVDF function with 8 bit state tensor and 8 bit time weights" alt="" coords="38,56,135,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="201,59,135,67,135,61,200,54"/>
+</map>

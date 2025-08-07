@@ -1,0 +1,96 @@
+\chapter{Free\+RTOS Queue 통신 예제\+: Blocking Queue }
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e}{}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e}\index{FreeRTOS Queue 통신 예제: Blocking Queue@{FreeRTOS Queue 통신 예제: Blocking Queue}}
+\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md68}%
+\Hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md68}%
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md69}{}\doxysection{\texorpdfstring{1.목적 (Objective)}{1.목적 (Objective)}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md69}
+두 개의 송신 Task가 각각 고유 데이터를 주기적으로 전송하고, ~\newline
+ 수신 Task가 큐로부터 데이터를 수신하여 처리하는 {\bfseries{동기화된 Queue 통신}} 구조를 학습한다.\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md70}{}\doxysection{\texorpdfstring{2.시스템 구성}{2.시스템 구성}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md70}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Task 이름  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 우선순위  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 기능 설명  }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Task 이름  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 우선순위  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 기능 설명  }\\\cline{1-3}
+\endhead
+Sender1  &1  &값 {\ttfamily 100}을 200ms마다 큐로 전송  \\\cline{1-3}
+Sender2  &2  &값 {\ttfamily 200}을 200ms마다 큐로 전송  \\\cline{1-3}
+Receiver  &3  &큐로부터 데이터를 대기(block)하며 즉시 처리  \\\cline{1-3}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item 큐 크기\+: {\ttfamily 5}
+\item 큐 타입\+: {\ttfamily int32\+\_\+t}
+\item 대기 조건\+: ~\newline
+
+\begin{DoxyItemize}
+\item 송신자는 큐가 가득 차면 {\ttfamily 0 tick} 대기 후 실패 처리 ~\newline
+
+\item 수신자는 데이터가 들어올 때까지 {\ttfamily port\+MAX\+\_\+\+DELAY}로 무한 대기
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md71}{}\doxysection{\texorpdfstring{3.동작 시나리오}{3.동작 시나리오}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md71}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[Sender1]\ \ -\/-\/>\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/>\ [xQueue]\ -\/-\/>\ [Receiver]\ -\/-\/>\ UART\ 출력}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /}
+\DoxyCodeLine{[Sender2]\ \ -\/-\/>/}
+
+\end{DoxyCode}
+ Sender1, Sender2는 데이터를 주기적으로 큐에 \doxylink{queue_8h_a81d24a2c1199d58efb76fbee15853112}{x\+Queue\+Send\+To\+Back()} 함수를 사용하여 전송 Receiver는 \doxylink{queue_8h_ae8364d988c6f9b63c771cc2b3dfe5df9}{x\+Queue\+Receive()}로 블로킹 대기 상태이며, 수신 즉시 UART 출력 \doxylink{queue_8h_add7ee0701ba35904d190811b9e5a4eda}{ux\+Queue\+Messages\+Waiting()}을 통해 데이터 수신 직전 큐의 비정상 상태 감지 (디버깅용)\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md72}{}\doxysubsection{\texorpdfstring{주요 함수 설명}{주요 함수 설명}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md72}
+함수 설명
+\begin{DoxyItemize}
+\item {\bfseries{x\+Queue\+Create(5, sizeof(int))}} 크기 5, int형 큐 생성
+\item {\bfseries{\doxylink{queue_8h_a81d24a2c1199d58efb76fbee15853112}{x\+Queue\+Send\+To\+Back()}}} 송신 Task가 데이터를 큐 뒤로 전송
+\item {\bfseries{\doxylink{queue_8h_ae8364d988c6f9b63c771cc2b3dfe5df9}{x\+Queue\+Receive()}}} 수신 Task가 큐에서 데이터 수신
+\item {\bfseries{\doxylink{queue_8h_add7ee0701ba35904d190811b9e5a4eda}{ux\+Queue\+Messages\+Waiting()}}} 큐 내 메시지 수 확인
+\end{DoxyItemize}\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md73}{}\doxysubsection{\texorpdfstring{주요 Task 동작 코드 요약}{주요 Task 동작 코드 요약}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md73}
+Sender Task 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int32\_t\ valueToSend\ =\ (int32\_t\ )pvParams;}
+\DoxyCodeLine{\mbox{\hyperlink{queue_8h_a81d24a2c1199d58efb76fbee15853112}{xQueueSendToBack}}(\mbox{\hyperlink{3__1__queue_8c_aa78b6121b7586233293fb6cba5e19206}{xQueue}},\ \&valueToSend,\ 0);}
+\DoxyCodeLine{\mbox{\hyperlink{task_8h_aa154068cecd7f31446a7a84af44ab1a3}{vTaskDelay}}(\mbox{\hyperlink{projdefs_8h_a353d0f62b82a402cb3db63706c81ec3f}{pdMS\_TO\_TICKS}}(200));}
+
+\end{DoxyCode}
+ Receiver Task 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{queue_8h_add7ee0701ba35904d190811b9e5a4eda}{uxQueueMessagesWaiting}}(\mbox{\hyperlink{3__1__queue_8c_aa78b6121b7586233293fb6cba5e19206}{xQueue}})\ !=\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}Queue\ should\ have\ been\ empty!\(\backslash\)r\(\backslash\)n"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{queue_8h_ae8364d988c6f9b63c771cc2b3dfe5df9}{xQueueReceive}}(\mbox{\hyperlink{3__1__queue_8c_aa78b6121b7586233293fb6cba5e19206}{xQueue}},\ \&lReceivedValue,\ \mbox{\hyperlink{portmacro_8h_a72723ba1e4a85ca14f25c2b9e066613d}{portMAX\_DELAY}});}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}Received\ value:\ \%ld\(\backslash\)r\(\backslash\)n"{}},\ (\textcolor{keywordtype}{long})lReceivedValue);}
+
+\end{DoxyCode}
+ \hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md74}{}\doxysection{\texorpdfstring{4.\+UART 출력 예시}{4.\+UART 출력 예시}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md74}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Received\ value:\ 100}
+\DoxyCodeLine{Received\ value:\ 200}
+\DoxyCodeLine{Received\ value:\ 100}
+
+\end{DoxyCode}
+\hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md75}{}\doxysubsection{\texorpdfstring{5.시퀀스 다이어그램}{5.시퀀스 다이어그램}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md75}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{@startuml}
+\DoxyCodeLine{actor\ Sender1}
+\DoxyCodeLine{actor\ Sender2}
+\DoxyCodeLine{participant\ Queue}
+\DoxyCodeLine{participant\ Receiver}
+\DoxyCodeLine{}
+\DoxyCodeLine{Sender1\ -\/>\ Queue:\ Send\ 100}
+\DoxyCodeLine{Sender2\ -\/>\ Queue:\ Send\ 200}
+\DoxyCodeLine{Receiver\ -\/>\ Queue:\ xQueueReceive()}
+\DoxyCodeLine{Queue\ -\/-\/>\ Receiver:\ 100\ or\ 200}
+\DoxyCodeLine{Receiver\ -\/>\ UART:\ Print\ value}
+\DoxyCodeLine{@enduml}
+
+\end{DoxyCode}
+ \hypertarget{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md76}{}\doxysection{\texorpdfstring{6.기대 결과}{6.기대 결과}}\label{md__c_1_2_users_2_t_o_v_i_s_2test_2_test_rtos_2_doc_23__1___q_u_e_u_e_autotoc_md76}
+수신자는 모든 값을 큐에 데이터가 많아지지 않도록 수신자가 빠르게 처리(우선 순위 높음, x\+Queue\+Receive 함수를 통해 수신 TASK 블락상태로 변경됨.) 큐가 가득 차면 송신자는 전송 실패 로그 출력 Note\+: 수신자의 우선순위가 가장 높기 때문에, 거의 항상 큐는 비워진 상태가 유지됩니다. 

@@ -1,0 +1,17 @@
+<map id="arm_nn_requantize_s64" name="arm_nn_requantize_s64">
+<area shape="rect" id="Node000001" title="Requantize a given 64 bit value." alt="" coords="697,51,857,78"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#gadda1e5325d511d56716111548c787a1c" title="Optimized s16 convolution function." alt="" coords="242,26,401,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="735,46,694,29,649,16,578,9,506,10,439,18,382,28,381,23,438,13,505,5,578,3,650,11,696,24,737,41"/>
+<area shape="rect" id="Node000004" href="$group___n_n_conv.html#gaf3e58798b12fa230d6a6487887aa13bf" title="Basic s16 convolution function." alt="" coords="256,76,386,103"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="682,72,387,89,387,84,682,67"/>
+<area shape="rect" id="Node000005" href="$arm__nn__mat__mul__kernel__s16_8c.html#a45ec7e9cd96398ac06c51a3ed658bb2a" title="Matrix&#45;multiplication function for convolution with per&#45;channel requantization for 16 bits convolutio..." alt="" coords="454,26,649,52"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="682,56,650,53,650,47,683,51"/>
+<area shape="rect" id="Node000006" href="$group___n_n_basic_math.html#ga721f565a0b8015a3d6d46535cadf63d3" title="s16 Vector by Matrix (transposed) multiplication" alt="" coords="475,127,628,170"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="726,86,612,129,610,124,724,81"/>
+<area shape="rect" id="Node000003" href="$group___n_n_conv.html#gaf1b719fadc837ba10c065fa0aa1d31fc" title="s16 convolution layer wrapper function with the main purpose to call the optimal kernel available in ..." alt="" coords="5,51,189,78"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="227,52,189,57,189,51,226,47"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="241,83,189,77,189,72,241,78"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="439,42,401,42,401,36,439,36"/>
+<area shape="rect" id="Node000007" href="$group___f_c.html#ga22aa22fe80e323429e8ac6aaeef878e8" title="Basic s16 Fully Connected function." alt="" coords="237,135,406,162"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="459,151,406,151,406,146,459,146"/>
+</map>

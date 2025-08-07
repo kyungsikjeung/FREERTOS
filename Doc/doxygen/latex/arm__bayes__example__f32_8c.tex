@@ -1,0 +1,154 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Examples/\+ARM/arm\+\_\+bayes\+\_\+example/arm\+\_\+bayes\+\_\+example\+\_\+f32.c File Reference}
+\hypertarget{arm__bayes__example__f32_8c}{}\label{arm__bayes__example__f32_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_bayes\_example/arm\_bayes\_example\_f32.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_bayes\_example/arm\_bayes\_example\_f32.c}}
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}arm\+\_\+math.\+h"{}}\newline
+Include dependency graph for arm\+\_\+bayes\+\_\+example\+\_\+f32.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__bayes__example__f32_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arm__bayes__example__f32_8c_a29d34219689e613d2e2cf860c62b3061}{NB\+\_\+\+OF\+\_\+\+CLASSES}}~3
+\item 
+\#define \mbox{\hyperlink{arm__bayes__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7}{VECTOR\+\_\+\+DIMENSION}}~2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{arm__bayes__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structarm__gaussian__naive__bayes__instance__f32}{arm\+\_\+gaussian\+\_\+naive\+\_\+bayes\+\_\+instance\+\_\+f32}} \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}
+\item 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__bayes__example__f32_8c_af0f893acc3866ec103f68776dc5abed8}{theta}} \mbox{[}\mbox{\hyperlink{arm__bayes__example__f32_8c_a29d34219689e613d2e2cf860c62b3061}{NB\+\_\+\+OF\+\_\+\+CLASSES}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7}{VECTOR\+\_\+\+DIMENSION}}\mbox{]}
+\item 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__bayes__example__f32_8c_aab1dfd777fcd14533f591c799743cf52}{sigma}} \mbox{[}\mbox{\hyperlink{arm__bayes__example__f32_8c_a29d34219689e613d2e2cf860c62b3061}{NB\+\_\+\+OF\+\_\+\+CLASSES}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7}{VECTOR\+\_\+\+DIMENSION}}\mbox{]}
+\item 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{arm__bayes__example__f32_8c_a39439215586c0acf10a04ed9eda06414}{class\+Priors}} \mbox{[}\mbox{\hyperlink{arm__bayes__example__f32_8c_a29d34219689e613d2e2cf860c62b3061}{NB\+\_\+\+OF\+\_\+\+CLASSES}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{arm__bayes__example__f32_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm__bayes__example__f32_8c_a29d34219689e613d2e2cf860c62b3061}\index{arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}!NB\_OF\_CLASSES@{NB\_OF\_CLASSES}}
+\index{NB\_OF\_CLASSES@{NB\_OF\_CLASSES}!arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{NB\_OF\_CLASSES}{NB\_OF\_CLASSES}}
+{\footnotesize\ttfamily \label{arm__bayes__example__f32_8c_a29d34219689e613d2e2cf860c62b3061} 
+\#define NB\+\_\+\+OF\+\_\+\+CLASSES~3}
+
+
+
+Definition at line \mbox{\hyperlink{arm__bayes__example__f32_8c_source_l00069}{69}} of file \mbox{\hyperlink{arm__bayes__example__f32_8c_source}{arm\+\_\+bayes\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__bayes__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7}\index{arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}!VECTOR\_DIMENSION@{VECTOR\_DIMENSION}}
+\index{VECTOR\_DIMENSION@{VECTOR\_DIMENSION}!arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{VECTOR\_DIMENSION}{VECTOR\_DIMENSION}}
+{\footnotesize\ttfamily \label{arm__bayes__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7} 
+\#define VECTOR\+\_\+\+DIMENSION~2}
+
+
+
+Definition at line \mbox{\hyperlink{arm__bayes__example__f32_8c_source_l00070}{70}} of file \mbox{\hyperlink{arm__bayes__example__f32_8c_source}{arm\+\_\+bayes\+\_\+example\+\_\+f32.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{arm__bayes__example__f32_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm__bayes__example__f32_8c_a52d2cba30e6946c95578be946ac12a65}\index{arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}!main@{main}}
+\index{main@{main}!arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{arm__bayes__example__f32_8c_a52d2cba30e6946c95578be946ac12a65} 
+int32\+\_\+t main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{arm__bayes__example__f32_8c_source_l00088}{88}} of file \mbox{\hyperlink{arm__bayes__example__f32_8c_source}{arm\+\_\+bayes\+\_\+example\+\_\+f32.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__bayes__example__f32_8c_a52d2cba30e6946c95578be946ac12a65_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{doc-var-members}
+\Hypertarget{arm__bayes__example__f32_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{arm__bayes__example__f32_8c_a39439215586c0acf10a04ed9eda06414}\index{arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}!classPriors@{classPriors}}
+\index{classPriors@{classPriors}!arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{classPriors}{classPriors}}
+{\footnotesize\ttfamily \label{arm__bayes__example__f32_8c_a39439215586c0acf10a04ed9eda06414} 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} class\+Priors\mbox{[}\mbox{\hyperlink{arm__bayes__example__f32_8c_a29d34219689e613d2e2cf860c62b3061}{NB\+\_\+\+OF\+\_\+\+CLASSES}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ 0.3333333333333333f,\ 0.3333333333333333f,\ 0.3333333333333333f}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Class prior probabilities 
+
+Definition at line \mbox{\hyperlink{arm__bayes__example__f32_8c_source_l00084}{84}} of file \mbox{\hyperlink{arm__bayes__example__f32_8c_source}{arm\+\_\+bayes\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}\index{arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}!S@{S}}
+\index{S@{S}!arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{S}{S}}
+{\footnotesize\ttfamily \label{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7} 
+\mbox{\hyperlink{structarm__gaussian__naive__bayes__instance__f32}{arm\+\_\+gaussian\+\_\+naive\+\_\+bayes\+\_\+instance\+\_\+f32}} S}
+
+
+
+Definition at line \mbox{\hyperlink{arm__bayes__example__f32_8c_source_l00067}{67}} of file \mbox{\hyperlink{arm__bayes__example__f32_8c_source}{arm\+\_\+bayes\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__bayes__example__f32_8c_aab1dfd777fcd14533f591c799743cf52}\index{arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}!sigma@{sigma}}
+\index{sigma@{sigma}!arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{sigma}{sigma}}
+{\footnotesize\ttfamily \label{arm__bayes__example__f32_8c_aab1dfd777fcd14533f591c799743cf52} 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} sigma\mbox{[}\mbox{\hyperlink{arm__bayes__example__f32_8c_a29d34219689e613d2e2cf860c62b3061}{NB\+\_\+\+OF\+\_\+\+CLASSES}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7}{VECTOR\+\_\+\+DIMENSION}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ 1.0063470889514925f,\ 0.9038018246524426f,\ }
+\DoxyCodeLine{\ \ 1.0224479953244736f,\ 0.7768764290432544f,\ }
+\DoxyCodeLine{\ \ 1.1217662403241206f,\ 1.2303890106020325f}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Variances for the Gaussians 
+
+Definition at line \mbox{\hyperlink{arm__bayes__example__f32_8c_source_l00078}{78}} of file \mbox{\hyperlink{arm__bayes__example__f32_8c_source}{arm\+\_\+bayes\+\_\+example\+\_\+f32.\+c}}.
+
+\Hypertarget{arm__bayes__example__f32_8c_af0f893acc3866ec103f68776dc5abed8}\index{arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}!theta@{theta}}
+\index{theta@{theta}!arm\_bayes\_example\_f32.c@{arm\_bayes\_example\_f32.c}}
+\doxysubsubsection{\texorpdfstring{theta}{theta}}
+{\footnotesize\ttfamily \label{arm__bayes__example__f32_8c_af0f893acc3866ec103f68776dc5abed8} 
+const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} theta\mbox{[}\mbox{\hyperlink{arm__bayes__example__f32_8c_a29d34219689e613d2e2cf860c62b3061}{NB\+\_\+\+OF\+\_\+\+CLASSES}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_a98d2e2076140b796ee1cb5f3e77248a7}{VECTOR\+\_\+\+DIMENSION}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ 1.4539529436590528f,\ 0.8722776016801852f,\ }
+\DoxyCodeLine{\ \ -\/1.5267934452462473f,\ 0.903204577814203f,\ }
+\DoxyCodeLine{\ \ -\/0.15338006360932258f,\ -\/2.9997913665803964f}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Mean values for the Gaussians 
+
+Definition at line \mbox{\hyperlink{arm__bayes__example__f32_8c_source_l00072}{72}} of file \mbox{\hyperlink{arm__bayes__example__f32_8c_source}{arm\+\_\+bayes\+\_\+example\+\_\+f32.\+c}}.
+

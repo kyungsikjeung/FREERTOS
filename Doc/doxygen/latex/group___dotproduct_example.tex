@@ -1,0 +1,52 @@
+\doxysubsection{Dot Product Example }
+\hypertarget{group___dotproduct_example}{}\label{group___dotproduct_example}\index{Dot Product Example@{Dot Product Example}}
+Collaboration diagram for Dot Product Example\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{group___dotproduct_example}
+\end{center}
+\end{figure}
+\begin{DoxyParagraph}{Description\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+Demonstrates the use of the Multiply and Add functions to perform the dot product. The dot product of two vectors is obtained by multiplying corresponding elements and summing the products.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Algorithm\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+The two input vectors {\ttfamily A} and {\ttfamily B} with length {\ttfamily n}, are multiplied element-\/by-\/element and then added to obtain dot product. 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+This is denoted by the following equation\+: 
+\begin{DoxyPre}  dotProduct = A[0] * B[0] + A[1] * B[1] + ... + A[n-\/1] * B[n-\/1]\end{DoxyPre}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Block Diagram\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Variables Description\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+\begin{DoxyItemize}
+\item {\ttfamily src\+A\+\_\+buf\+\_\+f32} points to first input vector \item {\ttfamily src\+B\+\_\+buf\+\_\+f32} points to second input vector \item {\ttfamily test\+Output} stores dot product of the two input vectors.\end{DoxyItemize}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{CMSIS DSP Software Library Functions Used\+:}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{}
+
+\begin{DoxyItemize}
+\item \doxylink{group___basic_mult_gacf950935141cad927bea886e88fd9e9b}{arm\+\_\+mult\+\_\+f32()}
+\item \doxylink{group___basic_add_gabfef1e86e458314a61f4baa441d9765e}{arm\+\_\+add\+\_\+f32()}
+\end{DoxyItemize}
+\end{DoxyParagraph}
+{\bfseries{ Refer }} \doxylink{arm_dotproduct_example_f32_8c-example}{arm\+\_\+dotproduct\+\_\+example\+\_\+f32.\+c} 

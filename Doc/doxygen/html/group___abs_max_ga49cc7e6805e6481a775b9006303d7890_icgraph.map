@@ -1,0 +1,5 @@
+<map id="arm_absmax_f32" name="arm_absmax_f32">
+<area shape="rect" id="Node000001" title="Maximum value of absolute values of a floating&#45;point vector." alt="" coords="158,5,279,32"/>
+<area shape="rect" id="Node000002" href="$group___m_f_c_c.html#gada3ab681711c96cc8b39394a42614678" title="MFCC F32." alt="" coords="5,5,110,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,21,110,21,110,16,142,16"/>
+</map>

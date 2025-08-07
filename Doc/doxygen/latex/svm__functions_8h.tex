@@ -1,0 +1,117 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Include/dsp/svm\+\_\+functions.h File Reference}
+\hypertarget{svm__functions_8h}{}\label{svm__functions_8h}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Include/dsp/svm\_functions.h@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Include/dsp/svm\_functions.h}}
+{\ttfamily \#include "{}arm\+\_\+math\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}arm\+\_\+math\+\_\+memory.\+h"{}}\newline
+{\ttfamily \#include "{}dsp/none.\+h"{}}\newline
+{\ttfamily \#include "{}dsp/utils.\+h"{}}\newline
+{\ttfamily \#include "{}dsp/svm\+\_\+defines.\+h"{}}\newline
+Include dependency graph for svm\+\_\+functions.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{svm__functions_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{svm__functions_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structarm__svm__linear__instance__f32}{arm\+\_\+svm\+\_\+linear\+\_\+instance\+\_\+f32}}
+\begin{DoxyCompactList}\small\item\em Instance structure for linear SVM prediction function. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structarm__svm__polynomial__instance__f32}{arm\+\_\+svm\+\_\+polynomial\+\_\+instance\+\_\+f32}}
+\begin{DoxyCompactList}\small\item\em Instance structure for polynomial SVM prediction function. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structarm__svm__rbf__instance__f32}{arm\+\_\+svm\+\_\+rbf\+\_\+instance\+\_\+f32}}
+\begin{DoxyCompactList}\small\item\em Instance structure for rbf SVM prediction function. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structarm__svm__sigmoid__instance__f32}{arm\+\_\+svm\+\_\+sigmoid\+\_\+instance\+\_\+f32}}
+\begin{DoxyCompactList}\small\item\em Instance structure for sigmoid SVM prediction function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{svm__functions_8h_a41600e7828c196ee086489538ba6d25e}{STEP}}(x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \mbox{\hyperlink{svm__functions_8h_a653ddea4ad545ab8c755c3649078ad59}{arm\+\_\+exponent\+\_\+f32}} (\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} x, int32\+\_\+t nb)
+\begin{DoxyCompactList}\small\item\em Integer exponentiation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__linearsvm_ga25b5fd8b0e0dc95bd31cdd287e30d2cf}{arm\+\_\+svm\+\_\+linear\+\_\+init\+\_\+f32}} (\mbox{\hyperlink{structarm__svm__linear__instance__f32}{arm\+\_\+svm\+\_\+linear\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, uint32\+\_\+t nb\+Of\+Support\+Vectors, uint32\+\_\+t vector\+Dimension, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} intercept, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_a6bee216b9b7e7b8d18687cd692e26a8a}{dual\+Coefficients}}, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_ac636d66272348052cde1083e5a0c3c60}{support\+Vectors}}, const int32\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_ae76f66a144055c576e6895e411417b63}{classes}})
+\begin{DoxyCompactList}\small\item\em SVM linear instance init function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__linearsvm_gae6a74ebedc47b59915c308fa88fe339b}{arm\+\_\+svm\+\_\+linear\+\_\+predict\+\_\+f32}} (const \mbox{\hyperlink{structarm__svm__linear__instance__f32}{arm\+\_\+svm\+\_\+linear\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}in, int32\+\_\+t \texorpdfstring{$\ast$}{*}p\+Result)
+\begin{DoxyCompactList}\small\item\em SVM linear prediction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__polysvm_gad004464aae8fdecfc985a02a0de6b0af}{arm\+\_\+svm\+\_\+polynomial\+\_\+init\+\_\+f32}} (\mbox{\hyperlink{structarm__svm__polynomial__instance__f32}{arm\+\_\+svm\+\_\+polynomial\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, uint32\+\_\+t nb\+Of\+Support\+Vectors, uint32\+\_\+t vector\+Dimension, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} intercept, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_a6bee216b9b7e7b8d18687cd692e26a8a}{dual\+Coefficients}}, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_ac636d66272348052cde1083e5a0c3c60}{support\+Vectors}}, const int32\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_ae76f66a144055c576e6895e411417b63}{classes}}, int32\+\_\+t degree, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} coef0, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} gamma)
+\begin{DoxyCompactList}\small\item\em SVM polynomial instance init function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__polysvm_ga5719f32544ecc1b568aaba7f5d237df8}{arm\+\_\+svm\+\_\+polynomial\+\_\+predict\+\_\+f32}} (const \mbox{\hyperlink{structarm__svm__polynomial__instance__f32}{arm\+\_\+svm\+\_\+polynomial\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}in, int32\+\_\+t \texorpdfstring{$\ast$}{*}p\+Result)
+\begin{DoxyCompactList}\small\item\em SVM polynomial prediction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__rbfsvm_ga1ea7dd56e7f1b57c8fa8fdc35e7c25d4}{arm\+\_\+svm\+\_\+rbf\+\_\+init\+\_\+f32}} (\mbox{\hyperlink{structarm__svm__rbf__instance__f32}{arm\+\_\+svm\+\_\+rbf\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, uint32\+\_\+t nb\+Of\+Support\+Vectors, uint32\+\_\+t vector\+Dimension, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} intercept, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_a6bee216b9b7e7b8d18687cd692e26a8a}{dual\+Coefficients}}, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_ac636d66272348052cde1083e5a0c3c60}{support\+Vectors}}, const int32\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_ae76f66a144055c576e6895e411417b63}{classes}}, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} gamma)
+\begin{DoxyCompactList}\small\item\em SVM radial basis function instance init function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__rbfsvm_gaf49fb51cf4d4d1194145171d9a461e10}{arm\+\_\+svm\+\_\+rbf\+\_\+predict\+\_\+f32}} (const \mbox{\hyperlink{structarm__svm__rbf__instance__f32}{arm\+\_\+svm\+\_\+rbf\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}in, int32\+\_\+t \texorpdfstring{$\ast$}{*}p\+Result)
+\begin{DoxyCompactList}\small\item\em SVM rbf prediction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__sigmoidsvm_ga1ecc44b7665915ab4e9dff99de9a3b20}{arm\+\_\+svm\+\_\+sigmoid\+\_\+init\+\_\+f32}} (\mbox{\hyperlink{structarm__svm__sigmoid__instance__f32}{arm\+\_\+svm\+\_\+sigmoid\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, uint32\+\_\+t nb\+Of\+Support\+Vectors, uint32\+\_\+t vector\+Dimension, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} intercept, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_a6bee216b9b7e7b8d18687cd692e26a8a}{dual\+Coefficients}}, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_ac636d66272348052cde1083e5a0c3c60}{support\+Vectors}}, const int32\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__svm__example__f32_8c_ae76f66a144055c576e6895e411417b63}{classes}}, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} coef0, \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} gamma)
+\begin{DoxyCompactList}\small\item\em SVM sigmoid instance init function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__sigmoidsvm_ga36896050dfceb0c54e509f8ef918811a}{arm\+\_\+svm\+\_\+sigmoid\+\_\+predict\+\_\+f32}} (const \mbox{\hyperlink{structarm__svm__sigmoid__instance__f32}{arm\+\_\+svm\+\_\+sigmoid\+\_\+instance\+\_\+f32}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, const \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} \texorpdfstring{$\ast$}{*}in, int32\+\_\+t \texorpdfstring{$\ast$}{*}p\+Result)
+\begin{DoxyCompactList}\small\item\em SVM sigmoid prediction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{svm__functions_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{svm__functions_8h_a41600e7828c196ee086489538ba6d25e}\index{svm\_functions.h@{svm\_functions.h}!STEP@{STEP}}
+\index{STEP@{STEP}!svm\_functions.h@{svm\_functions.h}}
+\doxysubsubsection{\texorpdfstring{STEP}{STEP}}
+{\footnotesize\ttfamily \label{svm__functions_8h_a41600e7828c196ee086489538ba6d25e} 
+\#define STEP(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(x)\ <=\ 0\ ?\ 0\ :\ 1}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{svm__functions_8h_source_l00042}{42}} of file \mbox{\hyperlink{svm__functions_8h_source}{svm\+\_\+functions.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{svm__functions_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{svm__functions_8h_a653ddea4ad545ab8c755c3649078ad59}\index{svm\_functions.h@{svm\_functions.h}!arm\_exponent\_f32@{arm\_exponent\_f32}}
+\index{arm\_exponent\_f32@{arm\_exponent\_f32}!svm\_functions.h@{svm\_functions.h}}
+\doxysubsubsection{\texorpdfstring{arm\_exponent\_f32()}{arm\_exponent\_f32()}}
+{\footnotesize\ttfamily \label{svm__functions_8h_a653ddea4ad545ab8c755c3649078ad59} 
+\mbox{\hyperlink{_core_2_include_2cmsis__armcc_8h_aba87361bfad2ae52cfe2f40c1a1dbf9c}{\+\_\+\+\_\+\+STATIC\+\_\+\+INLINE}} \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}} arm\+\_\+exponent\+\_\+f32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\+\_\+t}}}]{x}{, }\item[{int32\+\_\+t}]{nb}{}\end{DoxyParamCaption})}
+
+
+
+Integer exponentiation. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em x} & value \\
+\hline
+\mbox{\texttt{in}}  & {\em nb} & integer exponent \texorpdfstring{$>$}{>}= 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+x\texorpdfstring{$^\wedge$}{\string^}nb 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{svm__functions_8h_source_l00065}{65}} of file \mbox{\hyperlink{svm__functions_8h_source}{svm\+\_\+functions.\+h}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{svm__functions_8h_a653ddea4ad545ab8c755c3649078ad59_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,9 @@
+<map id="arm_relu_q15" name="arm_relu_q15">
+<area shape="rect" id="Node000001" title="Q15 RELU function." alt="" coords="5,56,105,83"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a0f31a63b10db31a9d5a9f768a3c8f386" title=" " alt="" coords="188,5,276,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,53,173,33,174,38,105,58"/>
+<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#afdda94a339b76615d3161e9fc63f4d21" title="Read 2 q15 elements and post increment pointer." alt="" coords="154,56,310,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="105,67,139,67,139,72,105,72"/>
+<area shape="rect" id="Node000004" href="$arm__nnsupportfunctions_8h.html#a9477fb2f82284ac4fe20b2efb721f5f5" title="Write 2 q15 elements and post increment pointer." alt="" coords="153,107,311,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="105,81,169,99,168,105,104,86"/>
+</map>

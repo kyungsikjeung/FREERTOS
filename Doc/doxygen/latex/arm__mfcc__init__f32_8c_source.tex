@@ -1,0 +1,75 @@
+\doxysection{arm\+\_\+mfcc\+\_\+init\+\_\+f32.\+c}
+\hypertarget{arm__mfcc__init__f32_8c_source}{}\label{arm__mfcc__init__f32_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/TransformFunctions/arm\_mfcc\_init\_f32.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/TransformFunctions/arm\_mfcc\_init\_f32.c}}
+\mbox{\hyperlink{arm__mfcc__init__f32_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00001}00001\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS\ DSP\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00003}00003\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ arm\_mfcc\_init\_f32.c}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Description:\ \ MFCC\ initialization\ function\ for\ the\ f32\ version}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00006}00006\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 07\ September\ 2021}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00007}00007\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V1.10.0}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00008}00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00009}00009\ \textcolor{comment}{\ *\ Target\ Processor:\ Cortex-\/M\ and\ Cortex-\/A\ cores}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00010}00010\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00011}00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2010-\/2021\ ARM\ Limited\ or\ its\ affiliates.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00014}00014\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00015}00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00016}00016\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00017}00017\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00018}00018\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00019}00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00020}00020\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00022}00022\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00023}00023\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00024}00024\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00025}00025\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00026}00026\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00027}00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00040}00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{transform__functions_8h}{dsp/transform\_functions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00073}\mbox{\hyperlink{group___m_f_c_c_ga0e411f0503b1187c69adee7bc949fd1f}{00073}}\ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{group___m_f_c_c_ga0e411f0503b1187c69adee7bc949fd1f}{arm\_mfcc\_init\_f32}}(}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00074}00074\ \ \ \mbox{\hyperlink{structarm__mfcc__instance__f32}{arm\_mfcc\_instance\_f32}}\ *\ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}},}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00075}00075\ \ \ uint32\_t\ fftLen,}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00076}00076\ \ \ uint32\_t\ nbMelFilters,}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00077}00077\ \ \ uint32\_t\ nbDctOutputs,}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00078}00078\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ *dctCoefs,}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00079}00079\ \ \ \textcolor{keyword}{const}\ uint32\_t\ *filterPos,}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00080}00080\ \ \ \textcolor{keyword}{const}\ uint32\_t\ *filterLengths,}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00081}00081\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ *filterCoefs,}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00082}00082\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ *windowCoefs}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00083}00083\ \ \ )}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00085}00085\ \ \mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\_status}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00087}00087\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>fftLen=fftLen;}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00088}00088\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>nbMelFilters=nbMelFilters;}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00089}00089\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>nbDctOutputs=nbDctOutputs;}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00090}00090\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>dctCoefs=dctCoefs;}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00091}00091\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>filterPos=filterPos;}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00092}00092\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>filterLengths=filterLengths;}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00093}00093\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>filterCoefs=filterCoefs;}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00094}00094\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>windowCoefs=windowCoefs;}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00096}00096\ \textcolor{preprocessor}{\ \#if\ defined(ARM\_MFCC\_CFFT\_BASED)}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00097}00097\ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}=\mbox{\hyperlink{group___complex_f_f_t_gae945cbeefda447a2f4b303a4ae6fa579}{arm\_cfft\_init\_f32}}(\&(\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>cfft),fftLen);}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00098}00098\ \textcolor{preprocessor}{\ \#else}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00099}00099\ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}=\mbox{\hyperlink{group___real_f_f_t_gac5fceb172551e7c11eb4d0e17ef15aa3}{arm\_rfft\_fast\_init\_f32}}(\&(\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>rfft),fftLen);}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00100}00100\ \textcolor{preprocessor}{\ \#endif}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00101}00101\ \ }
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00102}00102\ \ \textcolor{keywordflow}{return}(\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}});}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{arm__mfcc__init__f32_8c_source_l00104}00104\ }
+
+\end{DoxyCode}

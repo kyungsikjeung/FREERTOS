@@ -1,0 +1,11 @@
+<map id="osSystickHandler" name="osSystickHandler">
+<area shape="rect" id="Node000001" title="Handles the tick increment." alt="" coords="5,31,130,57"/>
+<area shape="rect" id="Node000002" href="$port_8c.html#a78100b2d36913d0b45565be8975e5de8" title=" " alt="" coords="188,5,334,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,33,172,28,173,33,131,38"/>
+<area shape="rect" id="Node000005" href="$task_8h.html#a0241000e08a261372186d34825a35979" title=" " alt="" coords="178,56,344,83"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="131,50,162,54,161,59,130,55"/>
+<area shape="rect" id="Node000003" href="$tasks_8c.html#a54f31e9aef0eb7b87e48c7d68ecc84c1" title=" " alt="" coords="392,5,531,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="334,16,376,16,376,21,334,21"/>
+<area shape="rect" id="Node000004" href="$list_8c.html#a274fdced76bbdd9d8a4c4840ded2920c" title=" " alt="" coords="579,5,685,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="532,16,564,16,564,21,532,21"/>
+</map>

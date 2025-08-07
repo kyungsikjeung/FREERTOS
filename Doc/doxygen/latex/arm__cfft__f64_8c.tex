@@ -1,0 +1,114 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Source/\+Transform\+Functions/arm\+\_\+cfft\+\_\+f64.c File Reference}
+\hypertarget{arm__cfft__f64_8c}{}\label{arm__cfft__f64_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/TransformFunctions/arm\_cfft\_f64.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/TransformFunctions/arm\_cfft\_f64.c}}
+{\ttfamily \#include "{}dsp/transform\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include "{}arm\+\_\+common\+\_\+tables.\+h"{}}\newline
+Include dependency graph for arm\+\_\+cfft\+\_\+f64.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__cfft__f64_8c__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{arm__cfft__f64_8c__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{arm__cfft__f64_8c_a4be5ba27c195eb0dc5150625346e9f63}{arm\+\_\+radix4\+\_\+butterfly\+\_\+f64}} (\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint16\+\_\+t fft\+Len, const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Coef, uint16\+\_\+t twid\+Coef\+Modifier)
+\item 
+void \mbox{\hyperlink{arm__cfft__f64_8c_af9d273c9f4f7bce6938a96372600c88c}{arm\+\_\+bitreversal\+\_\+64}} (uint64\+\_\+t \texorpdfstring{$\ast$}{*}p\+Src, const uint16\+\_\+t bit\+Rev\+Len, const uint16\+\_\+t \texorpdfstring{$\ast$}{*}p\+Bit\+Rev\+Table)
+\begin{DoxyCompactList}\small\item\em In-\/place 64 bit reversal function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{arm__cfft__f64_8c_a4734c3937db6805f5610165a967f9cdc}{arm\+\_\+cfft\+\_\+radix4by2\+\_\+f64}} (\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint32\+\_\+t fft\+Len, const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Coef)
+\item 
+void \mbox{\hyperlink{group___complex_f_f_t_gaff5f3b030cbd330f7014ba67d5df47ac}{arm\+\_\+cfft\+\_\+f64}} (const \mbox{\hyperlink{structarm__cfft__instance__f64}{arm\+\_\+cfft\+\_\+instance\+\_\+f64}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}p1, uint8\+\_\+t \mbox{\hyperlink{arm__fft__bin__example__f32_8c_a379ccb99013d369a41b49619083c16ef}{ifft\+Flag}}, uint8\+\_\+t bit\+Reverse\+Flag)
+\begin{DoxyCompactList}\small\item\em Processing function for the Double Precision floating-\/point complex FFT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{arm__cfft__f64_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm__cfft__f64_8c_af9d273c9f4f7bce6938a96372600c88c}\index{arm\_cfft\_f64.c@{arm\_cfft\_f64.c}!arm\_bitreversal\_64@{arm\_bitreversal\_64}}
+\index{arm\_bitreversal\_64@{arm\_bitreversal\_64}!arm\_cfft\_f64.c@{arm\_cfft\_f64.c}}
+\doxysubsubsection{\texorpdfstring{arm\_bitreversal\_64()}{arm\_bitreversal\_64()}}
+{\footnotesize\ttfamily \label{arm__cfft__f64_8c_af9d273c9f4f7bce6938a96372600c88c} 
+void arm\+\_\+bitreversal\+\_\+64 (\begin{DoxyParamCaption}\item[{uint64\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{const uint16\+\_\+t}]{bit\+Rev\+Len}{, }\item[{const uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Bit\+Rev\+Tab}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+In-\/place 64 bit reversal function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em p\+Src} & points to in-\/place buffer of unknown 64-\/bit data type \\
+\hline
+\mbox{\texttt{in}}  & {\em bit\+Rev\+Len} & bit reversal table length \\
+\hline
+\mbox{\texttt{in}}  & {\em p\+Bit\+Rev\+Tab} & points to bit reversal table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__bitreversal2_8c_source_l00041}{41}} of file \mbox{\hyperlink{arm__bitreversal2_8c_source}{arm\+\_\+bitreversal2.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__cfft__f64_8c_af9d273c9f4f7bce6938a96372600c88c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{arm__cfft__f64_8c_a4734c3937db6805f5610165a967f9cdc}\index{arm\_cfft\_f64.c@{arm\_cfft\_f64.c}!arm\_cfft\_radix4by2\_f64@{arm\_cfft\_radix4by2\_f64}}
+\index{arm\_cfft\_radix4by2\_f64@{arm\_cfft\_radix4by2\_f64}!arm\_cfft\_f64.c@{arm\_cfft\_f64.c}}
+\doxysubsubsection{\texorpdfstring{arm\_cfft\_radix4by2\_f64()}{arm\_cfft\_radix4by2\_f64()}}
+{\footnotesize\ttfamily \label{arm__cfft__f64_8c_a4734c3937db6805f5610165a967f9cdc} 
+void arm\+\_\+cfft\+\_\+radix4by2\+\_\+f64 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{uint32\+\_\+t}]{fft\+Len}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Coef}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{arm__cfft__f64_8c_source_l00195}{195}} of file \mbox{\hyperlink{arm__cfft__f64_8c_source}{arm\+\_\+cfft\+\_\+f64.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__cfft__f64_8c_a4734c3937db6805f5610165a967f9cdc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__cfft__f64_8c_a4734c3937db6805f5610165a967f9cdc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{arm__cfft__f64_8c_a4be5ba27c195eb0dc5150625346e9f63}\index{arm\_cfft\_f64.c@{arm\_cfft\_f64.c}!arm\_radix4\_butterfly\_f64@{arm\_radix4\_butterfly\_f64}}
+\index{arm\_radix4\_butterfly\_f64@{arm\_radix4\_butterfly\_f64}!arm\_cfft\_f64.c@{arm\_cfft\_f64.c}}
+\doxysubsubsection{\texorpdfstring{arm\_radix4\_butterfly\_f64()}{arm\_radix4\_butterfly\_f64()}}
+{\footnotesize\ttfamily \label{arm__cfft__f64_8c_a4be5ba27c195eb0dc5150625346e9f63} 
+void arm\+\_\+radix4\+\_\+butterfly\+\_\+f64 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{uint16\+\_\+t}]{fft\+Len}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ac55f3ae81b5bc9053760baacf57e47f4}{float64\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Coef}{, }\item[{uint16\+\_\+t}]{twid\+Coef\+Modifier}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+end of Complex\+FFT group 
+
+Definition at line \mbox{\hyperlink{arm__cfft__f64_8c_source_l00061}{61}} of file \mbox{\hyperlink{arm__cfft__f64_8c_source}{arm\+\_\+cfft\+\_\+f64.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__cfft__f64_8c_a4be5ba27c195eb0dc5150625346e9f63_icgraph}
+\end{center}
+\end{figure}

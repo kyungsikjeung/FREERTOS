@@ -1,0 +1,36 @@
+<map id="Driver_Init" name="Driver_Init">
+<area shape="rect" id="Node000001" title="Custom driver initialization entry point." alt="" coords="5,107,87,133"/>
+<area shape="rect" id="Node000002" href="$group___h_a_l___exported___functions___group2.html#gab1dc1e6b438daacfe38a312a90221330" title="This function provides minimum delay (in milliseconds) based on variable incremented." alt="" coords="163,31,252,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,104,162,62,165,67,78,108"/>
+<area shape="rect" id="Node000004" href="$group___h_a_l___exported___functions___group1.html#gaecac54d350c3730e6831eb404e557dc4" title="This function is used to initialize the HAL Library; it must be the first instruction to be executed ..." alt="" coords="171,107,244,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="87,117,156,117,156,123,87,123"/>
+<area shape="rect" id="Node000014" href="$driver_8init_8c.html#a70af21c671abfcc773614a9a4f63d920" title="시스템 클럭 설정" alt="" coords="135,233,280,260"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="66,131,179,222,175,226,63,136"/>
+<area shape="rect" id="Node000003" href="$group___h_a_l___exported___functions___group2.html#gac9b3a85a73735ac840d0dcb59bc0fdd6" title="Provides a tick value in millisecond." alt="" coords="382,5,482,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="252,36,366,23,366,29,252,42"/>
+<area shape="rect" id="Node000005" href="$stm32f4xx__hal__timebase__tim_8c.html#ga879cdb21ef051eb81ec51c18147397d5" title="This function configures the TIM1 as a time base source. The time source is configured to have 1ms ti..." alt="" coords="383,107,480,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="244,117,367,117,367,123,244,123"/>
+<area shape="rect" id="Node000012" href="$stm32f4xx__hal__msp_8c.html#gae4fb8e66865c87d0ebab74a726a6891f" title="Initialize the MSP." alt="" coords="383,56,480,83"/>
+<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="243,109,367,81,368,86,244,115"/>
+<area shape="rect" id="Node000013" href="$group___c_o_r_t_e_x___exported___functions___group1.html#gad9be53e08b1498adea006e5e037f238f" title=" " alt="" coords="328,157,535,184"/>
+<area shape="poly" id="edge13_Node000004_Node000013" title=" " alt="" coords="244,125,355,151,354,156,243,131"/>
+<area shape="rect" id="Node000006" href="$group___c_o_r_t_e_x___exported___functions___group1.html#gaaad4492c1b25e006d69948a15790352a" title=" " alt="" coords="596,56,755,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="480,107,593,84,594,89,481,113"/>
+<area shape="rect" id="Node000007" href="$group___c_o_r_t_e_x___exported___functions___group1.html#ga8581a82025a4780efd00876a66e3e91b" title=" " alt="" coords="598,5,753,32"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="480,111,508,104,534,92,548,81,557,68,566,55,582,42,593,36,595,41,585,46,570,58,562,71,552,84,537,97,510,109,482,117"/>
+<area shape="rect" id="Node000008" href="$group___r_c_c___exported___functions___group2.html#gabc95375dfca279d88b9ded9d063d2323" title=" " alt="" coords="583,107,768,133"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="481,117,567,117,567,123,481,123"/>
+<area shape="rect" id="Node000009" href="$group___r_c_c___exported___functions___group2.html#gabbd5f8933a5ee05e4b3384e33026aca1" title=" " alt="" coords="585,157,766,184"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="481,127,594,151,593,156,480,133"/>
+<area shape="rect" id="Node000010" href="$group___t_i_m___exported___functions___group1.html#ga1b288eb68eb52c97b8d187cdd6e9088f" title=" " alt="" coords="606,208,745,235"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="482,123,510,131,537,143,552,156,562,169,570,182,585,194,595,199,593,204,582,198,566,185,557,172,548,159,534,148,508,136,480,129"/>
+<area shape="rect" id="Node000011" href="$group___t_i_m___exported___functions___group1.html#gae517d80e2ac713069767df8e8915971e" title=" " alt="" coords="591,259,760,285"/>
+<area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="481,120,510,128,537,143,549,156,556,169,562,195,568,221,574,233,585,245,590,249,587,253,582,249,570,236,563,223,557,196,551,171,545,159,534,147,508,133,480,126"/>
+<area shape="poly" id="edge12_Node000012_Node000007" title=" " alt="" coords="480,57,593,33,594,38,481,62"/>
+<area shape="rect" id="Node000015" href="$driver_8init_8c.html#a1730ffe1e560465665eb47d9264826f9" title=" " alt="" coords="381,208,482,235"/>
+<area shape="poly" id="edge15_Node000014_Node000015" title=" " alt="" coords="280,236,365,226,366,231,281,241"/>
+<area shape="rect" id="Node000016" href="$group___r_c_c___exported___functions___group1.html#gadb770505476995fc13c2ca7290d9c484" title=" " alt="" coords="350,259,513,285"/>
+<area shape="poly" id="edge16_Node000014_Node000016" title=" " alt="" coords="281,252,335,258,334,264,280,258"/>
+<area shape="rect" id="Node000017" href="$group___r_c_c___exported___functions___group1.html#gaaf070da42c717e9d2d79e858b647b782" title=" " alt="" coords="355,309,508,336"/>
+<area shape="poly" id="edge17_Node000014_Node000017" title=" " alt="" coords="239,258,329,295,353,302,352,307,327,300,237,263"/>
+</map>

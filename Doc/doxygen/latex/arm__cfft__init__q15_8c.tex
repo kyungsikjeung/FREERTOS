@@ -1,0 +1,53 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+CMSIS/\+DSP/\+Source/\+Transform\+Functions/arm\+\_\+cfft\+\_\+init\+\_\+q15.c File Reference}
+\hypertarget{arm__cfft__init__q15_8c}{}\label{arm__cfft__init__q15_8c}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/TransformFunctions/arm\_cfft\_init\_q15.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Source/TransformFunctions/arm\_cfft\_init\_q15.c}}
+{\ttfamily \#include "{}dsp/transform\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include "{}arm\+\_\+common\+\_\+tables.\+h"{}}\newline
+{\ttfamily \#include "{}arm\+\_\+const\+\_\+structs.\+h"{}}\newline
+Include dependency graph for arm\+\_\+cfft\+\_\+init\+\_\+q15.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arm__cfft__init__q15_8c__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{arm__cfft__init__q15_8c__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arm__cfft__init__q15_8c_a683e50ab6ad88d46aa763d21bf48ee96}{FFTINIT}}(\mbox{\hyperlink{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}{EXT}},  SIZE)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___complex_f_f_t_ga0b394cad029d226d10fdef55629679af}{arm\+\_\+cfft\+\_\+init\+\_\+q15}} (\mbox{\hyperlink{structarm__cfft__instance__q15}{arm\+\_\+cfft\+\_\+instance\+\_\+q15}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}, uint16\+\_\+t fft\+Len)
+\begin{DoxyCompactList}\small\item\em Initialization function for the cfft q15 function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{arm__cfft__init__q15_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm__cfft__init__q15_8c_a683e50ab6ad88d46aa763d21bf48ee96}\index{arm\_cfft\_init\_q15.c@{arm\_cfft\_init\_q15.c}!FFTINIT@{FFTINIT}}
+\index{FFTINIT@{FFTINIT}!arm\_cfft\_init\_q15.c@{arm\_cfft\_init\_q15.c}}
+\doxysubsubsection{\texorpdfstring{FFTINIT}{FFTINIT}}
+{\footnotesize\ttfamily \label{arm__cfft__init__q15_8c_a683e50ab6ad88d46aa763d21bf48ee96} 
+\#define FFTINIT(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}{EXT}}}{, }\item[{}]{SIZE}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>bitRevLength\ =\ arm\_cfft\_sR\_\#\#\mbox{\hyperlink{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}{EXT}}\#\#\_len\#\#SIZE.bitRevLength;\ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>pBitRevTable\ =\ arm\_cfft\_sR\_\#\#\mbox{\hyperlink{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}{EXT}}\#\#\_len\#\#SIZE.pBitRevTable;\ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{arm__bayes__example__f32_8c_ad5af783c9e1eb1514dec0a59dac35eb7}{S}}-\/>pTwiddle\ =\ arm\_cfft\_sR\_\#\#\mbox{\hyperlink{arm__boolean__distance_8c_a0aac6c68a5a4eb4d5dbf7f94919de21c}{EXT}}\#\#\_len\#\#SIZE.pTwiddle;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{arm__cfft__init__q15_8c_source_l00029}{29}} of file \mbox{\hyperlink{arm__cfft__init__q15_8c_source}{arm\+\_\+cfft\+\_\+init\+\_\+q15.\+c}}.
+

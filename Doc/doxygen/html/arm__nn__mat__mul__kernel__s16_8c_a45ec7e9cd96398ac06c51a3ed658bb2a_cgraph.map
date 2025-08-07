@@ -1,0 +1,15 @@
+<map id="arm_nn_mat_mult_kernel_s16" name="arm_nn_mat_mult_kernel_s16">
+<area shape="rect" id="Node000001" title="Matrix&#45;multiplication function for convolution with per&#45;channel requantization for 16 bits convolutio..." alt="" coords="5,81,201,108"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#a61b23642ffa771bbe7da998f98e3f75e" title=" " alt="" coords="288,5,369,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,78,248,41,272,33,274,39,250,47,144,83"/>
+<area shape="rect" id="Node000003" href="$arm__nnsupportfunctions_8h.html#afdda94a339b76615d3161e9fc63f4d21" title="Read 2 q15 elements and post increment pointer." alt="" coords="251,56,406,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,81,235,77,235,82,201,86"/>
+<area shape="rect" id="Node000004" href="$arm__nnsupportfunctions_8h.html#a6a13b7a567485da5fc7f0d311318886d" title="Requantize a given value." alt="" coords="263,107,394,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="201,103,248,108,247,114,200,108"/>
+<area shape="rect" id="Node000007" href="$arm__nnsupportfunctions_8h.html#aa03e369b608572b80a4e56e8298a21c0" title="Requantize a given 64 bit value." alt="" coords="249,157,408,184"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="144,106,250,143,270,150,268,155,248,148,142,111"/>
+<area shape="rect" id="Node000005" href="$arm__nnsupportfunctions_8h.html#ab6dbc2fd53fae3ccdd1d0d70c8d3b491" title="Rounding divide by power of two." alt="" coords="456,65,624,108"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="394,107,440,100,441,105,395,112"/>
+<area shape="rect" id="Node000006" href="$arm__nnsupportfunctions_8h.html#a4e5183e2400227aafc91fb796fe99a6d" title="Doubling high multiply without saturation. This is intended for requantization where the scale is a p..." alt="" coords="465,132,615,175"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="395,128,450,137,449,142,394,133"/>
+</map>

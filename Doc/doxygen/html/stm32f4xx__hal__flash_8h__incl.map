@@ -1,0 +1,16 @@
+<map id="C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h" name="C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h">
+<area shape="rect" id="Node000001" title="Header file of FLASH HAL module." alt="" coords="176,5,376,80"/>
+<area shape="rect" id="Node000002" href="$stm32f4xx__hal__def_8h.html" title="This file contains HAL common defines, enumeration, macros and structures definitions." alt="" coords="142,219,284,245"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,82,196,104,180,129,176,148,179,168,196,205,192,207,173,170,170,148,175,127,192,100,215,79"/>
+<area shape="rect" id="Node000006" href="$stm32f4xx__hal__flash__ex_8h.html" title="Header file of FLASH HAL Extension module." alt="" coords="189,136,363,163"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="279,80,279,121,273,121,273,80"/>
+<area shape="rect" id="Node000007" href="$stm32f4xx__hal__flash__ramfunc_8h.html" title="Header file of FLASH RAMFUNC driver." alt="" coords="387,128,528,171"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="341,78,410,117,407,122,339,83"/>
+<area shape="rect" id="Node000003" href="$stm32f4xx_8h.html" title="CMSIS STM32F4xx Device Peripheral Access Layer Header File." alt="" coords="5,293,99,320"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="186,248,95,289,93,284,184,243"/>
+<area shape="rect" id="Node000004" href="$stm32__hal__legacy_8h.html" title="This file contains aliases definition for the STM32Cube HAL constants macros and functions maintained..." alt="" coords="122,293,304,320"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="216,246,216,278,211,278,211,246"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="328,293,397,320"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="241,243,324,284,321,288,238,248"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="268,165,234,208,230,205,264,162"/>
+</map>

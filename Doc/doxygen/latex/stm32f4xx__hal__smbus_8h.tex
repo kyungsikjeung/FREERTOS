@@ -1,0 +1,311 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Drivers/\+STM32\+F4xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/stm32f4xx\+\_\+hal\+\_\+smbus.h File Reference}
+\hypertarget{stm32f4xx__hal__smbus_8h}{}\label{stm32f4xx__hal__smbus_8h}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_smbus.h@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_smbus.h}}
+
+
+Header file of SMBUS HAL module.  
+
+
+{\ttfamily \#include "{}stm32f4xx\+\_\+hal\+\_\+def.\+h"{}}\newline
+Include dependency graph for stm32f4xx\+\_\+hal\+\_\+smbus.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm32f4xx__hal__smbus_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{stm32f4xx__hal__smbus_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_s_m_b_u_s___init_type_def}{SMBUS\+\_\+\+Init\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em SMBUS Configuration Structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_____s_m_b_u_s___handle_type_def}{\+\_\+\+\_\+\+SMBUS\+\_\+\+Handle\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em SMBUS handle Structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___error___code__definition_gaf1347759443510417c693350bea020dd}{HAL\+\_\+\+SMBUS\+\_\+\+ERROR\+\_\+\+NONE}}~0x00000000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___error___code__definition_ga748dcfd7bf82832e4be95ef863023caf}{HAL\+\_\+\+SMBUS\+\_\+\+ERROR\+\_\+\+BERR}}~0x00000001U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___error___code__definition_ga031e3e9ed49b890fee48da9a2c1f5429}{HAL\+\_\+\+SMBUS\+\_\+\+ERROR\+\_\+\+ARLO}}~0x00000002U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___error___code__definition_ga0c91d04983ea5051eebab85906bf7f2c}{HAL\+\_\+\+SMBUS\+\_\+\+ERROR\+\_\+\+AF}}~0x00000004U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___error___code__definition_gabed68de5f752d9a033db72f18fead376}{HAL\+\_\+\+SMBUS\+\_\+\+ERROR\+\_\+\+OVR}}~0x00000008U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___error___code__definition_ga795224989345d6eecce4592c7e60f48f}{HAL\+\_\+\+SMBUS\+\_\+\+ERROR\+\_\+\+TIMEOUT}}~0x00000010U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___error___code__definition_gaea85c97e9cba0fe6f039a2426503812a}{HAL\+\_\+\+SMBUS\+\_\+\+ERROR\+\_\+\+ALERT}}~0x00000020U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___error___code__definition_ga96a2ce406544e21aa2df2f5d16ec6eda}{HAL\+\_\+\+SMBUS\+\_\+\+ERROR\+\_\+\+PECERR}}~0x00000040U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___analog___filter_ga4bff3657ddc77b456826db72d25ec893}{SMBUS\+\_\+\+ANALOGFILTER\+\_\+\+ENABLE}}~0x00000000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___analog___filter_gaa473e6db00a3ba7817373c2ccf5f9945}{SMBUS\+\_\+\+ANALOGFILTER\+\_\+\+DISABLE}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7f312cebb37d3e5d0a690dc6fda86f32}{I2\+C\+\_\+\+FLTR\+\_\+\+ANOFF}}
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__addressing__mode_ga630665bc86be7b93ace8777b26b092b9}{SMBUS\+\_\+\+ADDRESSINGMODE\+\_\+7\+BIT}}~0x00004000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__addressing__mode_gac7037d3b88aa724853034de3701700bd}{SMBUS\+\_\+\+ADDRESSINGMODE\+\_\+10\+BIT}}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7d8df80cd27313c896e887aae81fa639}{I2\+C\+\_\+\+OAR1\+\_\+\+ADDMODE}} \texorpdfstring{$\vert$}{|} 0x00004000U)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__dual__addressing__mode_gaf65eef4d4adc4ef07922f87e79c262ce}{SMBUS\+\_\+\+DUALADDRESS\+\_\+\+DISABLE}}~0x00000000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__dual__addressing__mode_gada602d6b8322f768b80b130108642dbf}{SMBUS\+\_\+\+DUALADDRESS\+\_\+\+ENABLE}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gab83ed1ee64439cb2734a708445f37e94}{I2\+C\+\_\+\+OAR2\+\_\+\+ENDUAL}}
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__general__call__addressing__mode_gacf546a6d09ae3e6305165bdb19cccf13}{SMBUS\+\_\+\+GENERALCALL\+\_\+\+DISABLE}}~0x00000000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__general__call__addressing__mode_gae5ff222f461e5341f341844e6ece7d88}{SMBUS\+\_\+\+GENERALCALL\+\_\+\+ENABLE}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1d8c219193b11f8507d7b85831d14912}{I2\+C\+\_\+\+CR1\+\_\+\+ENGC}}
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__nostretch__mode_ga0e0dcf7850d415b1578c0a0f61d01f8c}{SMBUS\+\_\+\+NOSTRETCH\+\_\+\+DISABLE}}~0x00000000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__nostretch__mode_ga1ebf79e0d6ee7245ab3b0bced65c4dee}{SMBUS\+\_\+\+NOSTRETCH\+\_\+\+ENABLE}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga197aaca79f64e832af3a0a0864c2a08c}{I2\+C\+\_\+\+CR1\+\_\+\+NOSTRETCH}}
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__packet__error__check__mode_ga48763a687d52af10216b13d8308d97f6}{SMBUS\+\_\+\+PEC\+\_\+\+DISABLE}}~0x00000000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__packet__error__check__mode_ga524481f0ca813a49fed450c5210154b1}{SMBUS\+\_\+\+PEC\+\_\+\+ENABLE}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga40d2eb849f9d55e6298035b61e84ca42}{I2\+C\+\_\+\+CR1\+\_\+\+ENPEC}}
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__peripheral__mode_ga219f1a9519ebb3c12bc21045fb5fbacc}{SMBUS\+\_\+\+PERIPHERAL\+\_\+\+MODE\+\_\+\+SMBUS\+\_\+\+HOST}}~(uint32\+\_\+t)(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4cfee7b020a49bd037fa7cf27c796abc}{I2\+C\+\_\+\+CR1\+\_\+\+SMBUS}} \texorpdfstring{$\vert$}{|} \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga001198ff898802888edf58f56d5371c9}{I2\+C\+\_\+\+CR1\+\_\+\+SMBTYPE}} \texorpdfstring{$\vert$}{|} \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4598185d9092edfbf943464bcbb342ac}{I2\+C\+\_\+\+CR1\+\_\+\+ENARP}})
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__peripheral__mode_ga58135a2226dc75d5627434bcc72d69d5}{SMBUS\+\_\+\+PERIPHERAL\+\_\+\+MODE\+\_\+\+SMBUS\+\_\+\+SLAVE}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4cfee7b020a49bd037fa7cf27c796abc}{I2\+C\+\_\+\+CR1\+\_\+\+SMBUS}}
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s__peripheral__mode_gacbcd4481e0cf3e1b58b43604b78f5645}{SMBUS\+\_\+\+PERIPHERAL\+\_\+\+MODE\+\_\+\+SMBUS\+\_\+\+SLAVE\+\_\+\+ARP}}~(uint32\+\_\+t)(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4cfee7b020a49bd037fa7cf27c796abc}{I2\+C\+\_\+\+CR1\+\_\+\+SMBUS}} \texorpdfstring{$\vert$}{|} \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4598185d9092edfbf943464bcbb342ac}{I2\+C\+\_\+\+CR1\+\_\+\+ENARP}})
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___xfer_direction__definition_ga27ee91b82505ce08c6af1b8e1650565f}{SMBUS\+\_\+\+DIRECTION\+\_\+\+RECEIVE}}~0x00000000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___xfer_direction__definition_gadd448f2cfa054611ca6f875e9e25ac48}{SMBUS\+\_\+\+DIRECTION\+\_\+\+TRANSMIT}}~0x00000001U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___xfer_options__definition_ga0b757f14a97efcaf407555576ee2f606}{SMBUS\+\_\+\+FIRST\+\_\+\+FRAME}}~0x00000001U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___xfer_options__definition_ga7a7fc60fe48eb76dcb93e1fca63ae3dd}{SMBUS\+\_\+\+NEXT\+\_\+\+FRAME}}~0x00000002U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___xfer_options__definition_ga37fb621818e1d90dee3a3ed4588a21b2}{SMBUS\+\_\+\+FIRST\+\_\+\+AND\+\_\+\+LAST\+\_\+\+FRAME\+\_\+\+NO\+\_\+\+PEC}}~0x00000003U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___xfer_options__definition_ga319828e7fb8ee16869530b9df245525c}{SMBUS\+\_\+\+LAST\+\_\+\+FRAME\+\_\+\+NO\+\_\+\+PEC}}~0x00000004U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___xfer_options__definition_ga06e14f6df3d4d51a98816d8ab40ffd22}{SMBUS\+\_\+\+FIRST\+\_\+\+AND\+\_\+\+LAST\+\_\+\+FRAME\+\_\+\+WITH\+\_\+\+PEC}}~0x00000005U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___xfer_options__definition_gac6141ae3264f6372f6bfe4427110c85c}{SMBUS\+\_\+\+LAST\+\_\+\+FRAME\+\_\+\+WITH\+\_\+\+PEC}}~0x00000006U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___interrupt__configuration__definition_ga9ef190694c2670d6365950eedb27d39b}{SMBUS\+\_\+\+IT\+\_\+\+BUF}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2efbe5d96ed0ce447a45a62e8317a68a}{I2\+C\+\_\+\+CR2\+\_\+\+ITBUFEN}}
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___interrupt__configuration__definition_ga813c8b7140d79ba4ccda3b03e01e6c96}{SMBUS\+\_\+\+IT\+\_\+\+EVT}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3b1ebaf8173090ec469b055b98e585d2}{I2\+C\+\_\+\+CR2\+\_\+\+ITEVTEN}}
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___interrupt__configuration__definition_ga98d070530f0389de8e45694ebb3ddee3}{SMBUS\+\_\+\+IT\+\_\+\+ERR}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6f14ae48e4609c2b3645211234cba974}{I2\+C\+\_\+\+CR2\+\_\+\+ITERREN}}
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga26d33d390ddb455aab183bb574839d23}{SMBUS\+\_\+\+FLAG\+\_\+\+SMBALERT}}~0x00018000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_gad660216f7833e6a152131b9665a67a2c}{SMBUS\+\_\+\+FLAG\+\_\+\+TIMEOUT}}~0x00014000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga20d03a26be9838faa6f543194873e3c6}{SMBUS\+\_\+\+FLAG\+\_\+\+PECERR}}~0x00011000U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_gacb6d2207524a59140d65c725cf5b354d}{SMBUS\+\_\+\+FLAG\+\_\+\+OVR}}~0x00010800U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga20a20a983bba9f5a470e3add6c93dd5d}{SMBUS\+\_\+\+FLAG\+\_\+\+AF}}~0x00010400U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga4a9e5f0eba90a523abb187e5f72c088e}{SMBUS\+\_\+\+FLAG\+\_\+\+ARLO}}~0x00010200U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga3fe00364b2e5b66053ddf395244ac02d}{SMBUS\+\_\+\+FLAG\+\_\+\+BERR}}~0x00010100U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga0c1a8cdceea7aec32cc0ba24894e0f1c}{SMBUS\+\_\+\+FLAG\+\_\+\+TXE}}~0x00010080U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_gab4dc38eb1d6c122e3e497e330cc57b12}{SMBUS\+\_\+\+FLAG\+\_\+\+RXNE}}~0x00010040U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga4adeb004eee3c726678cae37cf23d5ef}{SMBUS\+\_\+\+FLAG\+\_\+\+STOPF}}~0x00010010U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_gac381bdbd6bcde016038b115794036678}{SMBUS\+\_\+\+FLAG\+\_\+\+ADD10}}~0x00010008U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga3dc001d242fe03783a372519057b550a}{SMBUS\+\_\+\+FLAG\+\_\+\+BTF}}~0x00010004U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_gab8815718b8c301f67386c8820ebfad9e}{SMBUS\+\_\+\+FLAG\+\_\+\+ADDR}}~0x00010002U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga7980cf7eadcacc40d21026c020a84bf3}{SMBUS\+\_\+\+FLAG\+\_\+\+SB}}~0x00010001U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_gadbff9d01c91c3b0bd424421351756297}{SMBUS\+\_\+\+FLAG\+\_\+\+DUALF}}~0x00100080U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga05916e997bcd6979edb71bf1aca0c6d8}{SMBUS\+\_\+\+FLAG\+\_\+\+SMBHOST}}~0x00100040U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga0437455ce205b91dcf4aa96d3d8807a1}{SMBUS\+\_\+\+FLAG\+\_\+\+SMBDEFAULT}}~0x00100020U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga5e2266f7feb37caa79fa066772b7a40f}{SMBUS\+\_\+\+FLAG\+\_\+\+GENCALL}}~0x00100010U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga38df5544c077e79f0aa22b239af49fbd}{SMBUS\+\_\+\+FLAG\+\_\+\+TRA}}~0x00100004U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga2378691063c5e3f1f71a9075455f52a4}{SMBUS\+\_\+\+FLAG\+\_\+\+BUSY}}~0x00100002U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___flag__definition_ga3fc1991745847696f37095e3faf35987}{SMBUS\+\_\+\+FLAG\+\_\+\+MSL}}~0x00100001U
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_gaf61fb602592d45225b4c7a4f4ac95127}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+RESET\+\_\+\+HANDLE\+\_\+\+STATE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Reset SMBUS handle state. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_ga5c97c2d61aea9155e23c86106e6d29fc}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+ENABLE\+\_\+\+IT}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Enable or disable the specified SMBUS interrupts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_gab7b90ad17b325c2e5a8c50736f148892}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+DISABLE\+\_\+\+IT}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_gae0997d3a0cda636c87cab9d2e2362dcf}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+GET\+\_\+\+IT\+\_\+\+SOURCE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Checks if the specified SMBUS interrupt source is enabled or disabled. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_ga2beb26cbf2f721fb3f50234121f5362e}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+GET\+\_\+\+FLAG}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+FLAG\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Checks whether the specified SMBUS flag is set or not. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_gab4d14f4ae53d4e51b5fb90f3dedfe71e}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+CLEAR\+\_\+\+FLAG}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+FLAG\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Clears the SMBUS pending flags which are cleared by writing 0 in a specific bit. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_ga01b6d07a3ea06470bf9ff4b276364050}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+CLEAR\+\_\+\+ADDRFLAG}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Clears the SMBUS ADDR pending flag. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_gab3f2dbc8aa43fb7d0e81eb2c5e0f8863}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+CLEAR\+\_\+\+STOPFLAG}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Clears the SMBUS STOPF pending flag. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_gab33be047be5d261b7a54dc7b11dd49ae}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+ENABLE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Enable the SMBUS peripheral. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_gaca1962f9b658f16afb11a888c9bddd8e}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+DISABLE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Disable the SMBUS peripheral. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___exported___macros_ga0897cee11905248ab6ad938fe376101f}{\+\_\+\+\_\+\+HAL\+\_\+\+SMBUS\+\_\+\+GENERATE\+\_\+\+NACK}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Generate a Non-\/\+Acknowledge SMBUS peripheral in Slave mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___constants_gabcc8df77313f2c6eb892d197da66a79e}{SMBUS\+\_\+\+FLAG\+\_\+\+MASK}}~0x0000\+FFFFU
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga08a4690d68204ec828f3780b6848e748}{SMBUS\+\_\+\+FREQRANGE}}(\+\_\+\+\_\+\+PCLK\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga0aea2017e09cdab211f44a9c4ced684d}{SMBUS\+\_\+\+RISE\+\_\+\+TIME}}(\+\_\+\+\_\+\+FREQRANGE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_gaaff436911fc74bd78a9fef8202b7b2cf}{SMBUS\+\_\+\+SPEED\+\_\+\+STANDARD}}(\+\_\+\+\_\+\+PCLK\+\_\+\+\_\+,  \+\_\+\+\_\+\+SPEED\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga82996a92637730a5501c8492acff681f}{SMBUS\+\_\+7\+BIT\+\_\+\+ADD\+\_\+\+WRITE}}(\+\_\+\+\_\+\+ADDRESS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_gab1a106bdaa258a05e47ce3493b954c7b}{SMBUS\+\_\+7\+BIT\+\_\+\+ADD\+\_\+\+READ}}(\+\_\+\+\_\+\+ADDRESS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga7d2dd1f1e2e6c444bb4f2de999c7fc13}{SMBUS\+\_\+10\+BIT\+\_\+\+ADDRESS}}(\+\_\+\+\_\+\+ADDRESS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga206be31d5e2f6f233ad077574a577aa3}{SMBUS\+\_\+10\+BIT\+\_\+\+HEADER\+\_\+\+WRITE}}(\+\_\+\+\_\+\+ADDRESS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga3dcaf1e74ae70ef9f031463b97088693}{SMBUS\+\_\+10\+BIT\+\_\+\+HEADER\+\_\+\+READ}}(\+\_\+\+\_\+\+ADDRESS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga588cb2d814790d4a375f9dbcfff22647}{SMBUS\+\_\+\+GET\+\_\+\+PEC\+\_\+\+MODE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_gaa3e3b9f94a51561811e6a7010ec83f93}{SMBUS\+\_\+\+GET\+\_\+\+PEC\+\_\+\+VALUE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_gaef35843081bc3d3aac2312084367090e}{IS\+\_\+\+SMBUS\+\_\+\+ADDRESSING\+\_\+\+MODE}}(ADDRESS)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga528d258bd78d1611f8dc0bfd0f2bb101}{IS\+\_\+\+SMBUS\+\_\+\+DUAL\+\_\+\+ADDRESS}}(ADDRESS)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_gaff5ae33b521f066e20f1eb17d221f7b8}{IS\+\_\+\+SMBUS\+\_\+\+GENERAL\+\_\+\+CALL}}(CALL)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga9e77fe3d030deebdb78e3b85e317d5fc}{IS\+\_\+\+SMBUS\+\_\+\+NO\+\_\+\+STRETCH}}(STRETCH)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga0e2e9199406f853bc0cc5894e7acefae}{IS\+\_\+\+SMBUS\+\_\+\+PEC}}(PEC)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga162341992c94027465de5b1bd0d18a9a}{IS\+\_\+\+SMBUS\+\_\+\+PERIPHERAL\+\_\+\+MODE}}(MODE)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga714089ee38748adbda076217662f7457}{IS\+\_\+\+SMBUS\+\_\+\+CLOCK\+\_\+\+SPEED}}(SPEED)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_gab1fbff33c918c2407b3769b628a161c9}{IS\+\_\+\+SMBUS\+\_\+\+OWN\+\_\+\+ADDRESS1}}(ADDRESS1)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_ga266f3c09ab35cd751c0f62ee05d63026}{IS\+\_\+\+SMBUS\+\_\+\+OWN\+\_\+\+ADDRESS2}}(ADDRESS2)
+\item 
+\#define \mbox{\hyperlink{group___s_m_b_u_s___private___macros_gabb6675e795c2cfefae3145eb55d02b19}{IS\+\_\+\+SMBUS\+\_\+\+TRANSFER\+\_\+\+OPTIONS\+\_\+\+REQUEST}}(REQUEST)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_____s_m_b_u_s___handle_type_def}{\+\_\+\+\_\+\+SMBUS\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em SMBUS handle Structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga566b6739a68408dafa25ad013868e7b1}{HAL\+\_\+\+SMBUS\+\_\+\+State\+Type\+Def}} \{ \newline
+\mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1a5304ea53d67f09fd73371f42f2d510fb}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+RESET}} = 0x00U
+, \mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1ab8d285d80ead80f6511d2b5661294020}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+READY}} = 0x20U
+, \mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1a7d688e385ed51d3cc933b531e2481dce}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+BUSY}} = 0x24U
+, \mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1af272c00743045eb8f94b2122caa7661d}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+BUSY\+\_\+\+TX}} = 0x21U
+, \newline
+\mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1a322c3481fc9e20f4229868909d19d8c2}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+BUSY\+\_\+\+RX}} = 0x22U
+, \mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1a42b4013979319322978d2005e11f4f12}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+LISTEN}} = 0x28U
+, \mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1aca8b74f80bce09d25bc4f1c580982869}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+BUSY\+\_\+\+TX\+\_\+\+LISTEN}} = 0x29U
+, \mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1aa450344d78c2844d15e8e5250df04e98}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+BUSY\+\_\+\+RX\+\_\+\+LISTEN}} = 0x2\+AU
+, \newline
+\mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1a5a32475d7caa3f541b24861730c34b96}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+ABORT}} = 0x60U
+, \mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1a0735ed6025e10dff220008904a5d2015}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+TIMEOUT}} = 0x\+A0U
+, \mbox{\hyperlink{group___s_m_b_u_s___exported___types_gga566b6739a68408dafa25ad013868e7b1abda12af31f2e2fb30d724c29b713e339}{HAL\+\_\+\+SMBUS\+\_\+\+STATE\+\_\+\+ERROR}} = 0x\+E0U
+ \}
+\begin{DoxyCompactList}\small\item\em HAL State structure definition. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___s_m_b_u_s___exported___types_gaf3eb99bb66f3e388777f3d123a242f13}{HAL\+\_\+\+SMBUS\+\_\+\+Mode\+Type\+Def}} \{ \mbox{\hyperlink{group___s_m_b_u_s___exported___types_ggaf3eb99bb66f3e388777f3d123a242f13ad562e6e5129b86642e371116981bdfc5}{HAL\+\_\+\+SMBUS\+\_\+\+MODE\+\_\+\+NONE}} = 0x00U
+, \mbox{\hyperlink{group___s_m_b_u_s___exported___types_ggaf3eb99bb66f3e388777f3d123a242f13a228afe793c65842ae87e3bdfed9d0271}{HAL\+\_\+\+SMBUS\+\_\+\+MODE\+\_\+\+MASTER}} = 0x10U
+, \mbox{\hyperlink{group___s_m_b_u_s___exported___types_ggaf3eb99bb66f3e388777f3d123a242f13affb3fb914f2c8cf1adb72b9ffd5c0915}{HAL\+\_\+\+SMBUS\+\_\+\+MODE\+\_\+\+SLAVE}} = 0x20U
+ \}
+\begin{DoxyCompactList}\small\item\em HAL Mode structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___s_m_b_u_s___exported___functions___group1_ga94cf51c24051d626d26663f5d34141d4}{HAL\+\_\+\+SMBUS\+\_\+\+Init}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___s_m_b_u_s___exported___functions___group1_ga31b2584cdae5c90cfdd49a0bfdc67e8b}{HAL\+\_\+\+SMBUS\+\_\+\+De\+Init}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___exported___functions___group1_ga6d165f7f7953da1cccd983d66df5879b}{HAL\+\_\+\+SMBUS\+\_\+\+Msp\+Init}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___exported___functions___group1_ga9dd1f62881dd6d5063492ca9b688fcbb}{HAL\+\_\+\+SMBUS\+\_\+\+Msp\+De\+Init}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___blocking__mode___polling_gad1abc80d85c0e0fd9fa0ea66cc700321}{HAL\+\_\+\+SMBUS\+\_\+\+Is\+Device\+Ready}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus, uint16\+\_\+t Dev\+Address, uint32\+\_\+t Trials, uint32\+\_\+t Timeout)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___non-_blocking__mode___interrupt_gacbf8f48c6a407d0c7c82fb5d37eb2b8f}{HAL\+\_\+\+SMBUS\+\_\+\+Master\+\_\+\+Transmit\+\_\+\+IT}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus, uint16\+\_\+t Dev\+Address, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Data, uint16\+\_\+t Size, uint32\+\_\+t Xfer\+Options)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___non-_blocking__mode___interrupt_gab9d8d52f797123b8d61ed44adf2b392e}{HAL\+\_\+\+SMBUS\+\_\+\+Master\+\_\+\+Receive\+\_\+\+IT}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus, uint16\+\_\+t Dev\+Address, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Data, uint16\+\_\+t Size, uint32\+\_\+t Xfer\+Options)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___non-_blocking__mode___interrupt_ga753f06add5574ae7a77f1e03796097d5}{HAL\+\_\+\+SMBUS\+\_\+\+Master\+\_\+\+Abort\+\_\+\+IT}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus, uint16\+\_\+t Dev\+Address)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___non-_blocking__mode___interrupt_gaed5ff89636397bfbc0d418b9044c1837}{HAL\+\_\+\+SMBUS\+\_\+\+Slave\+\_\+\+Transmit\+\_\+\+IT}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Data, uint16\+\_\+t Size, uint32\+\_\+t Xfer\+Options)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___non-_blocking__mode___interrupt_ga989041d1840009faf569878c082b5a86}{HAL\+\_\+\+SMBUS\+\_\+\+Slave\+\_\+\+Receive\+\_\+\+IT}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Data, uint16\+\_\+t Size, uint32\+\_\+t Xfer\+Options)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___non-_blocking__mode___interrupt_ga4e4e15f73f1a4b95e51ffe205cd832d8}{HAL\+\_\+\+SMBUS\+\_\+\+Enable\+Alert\+\_\+\+IT}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___non-_blocking__mode___interrupt_ga41168a506bce0b3d905c2c3c3d27db55}{HAL\+\_\+\+SMBUS\+\_\+\+Disable\+Alert\+\_\+\+IT}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___non-_blocking__mode___interrupt_ga5be3f13c71b8bfcd3443b50d013c0766}{HAL\+\_\+\+SMBUS\+\_\+\+Enable\+Listen\+\_\+\+IT}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+\mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___non-_blocking__mode___interrupt_ga1551c1e20a89997d55b9cb17ba256ea5}{HAL\+\_\+\+SMBUS\+\_\+\+Disable\+Listen\+\_\+\+IT}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___i_r_q___handler__and___callbacks_ga359d538b1f467d7b562ca9ccf3d07c31}{HAL\+\_\+\+SMBUS\+\_\+\+EV\+\_\+\+IRQHandler}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___i_r_q___handler__and___callbacks_gabcdffc8b0a2f9df905f7c7c38cfb5cab}{HAL\+\_\+\+SMBUS\+\_\+\+ER\+\_\+\+IRQHandler}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___i_r_q___handler__and___callbacks_ga5b0c11c8ceb53ac2f7c0f78309fe4362}{HAL\+\_\+\+SMBUS\+\_\+\+Master\+Tx\+Cplt\+Callback}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___i_r_q___handler__and___callbacks_ga4d01fedd1d3ebf6605a2aca56e0f38af}{HAL\+\_\+\+SMBUS\+\_\+\+Master\+Rx\+Cplt\+Callback}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___i_r_q___handler__and___callbacks_gaa19d5a6fceb7ef7bc213ce7e677ef056}{HAL\+\_\+\+SMBUS\+\_\+\+Slave\+Tx\+Cplt\+Callback}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___i_r_q___handler__and___callbacks_gabd6235177a6ab889bbf5792a0d03cda1}{HAL\+\_\+\+SMBUS\+\_\+\+Slave\+Rx\+Cplt\+Callback}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___i_r_q___handler__and___callbacks_ga6901a2dce77b77f0566565162963b8ad}{HAL\+\_\+\+SMBUS\+\_\+\+Addr\+Callback}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus, uint8\+\_\+t Transfer\+Direction, uint16\+\_\+t Addr\+Match\+Code)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___i_r_q___handler__and___callbacks_gac31d20bd9b7bfd1cbb23075ddbb46f25}{HAL\+\_\+\+SMBUS\+\_\+\+Listen\+Cplt\+Callback}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___i_r_q___handler__and___callbacks_ga0712f11a6832a4007f96e7b91b29293c}{HAL\+\_\+\+SMBUS\+\_\+\+Error\+Callback}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+void \mbox{\hyperlink{group___s_m_b_u_s___i_r_q___handler__and___callbacks_ga0486f6382fa58708bb759c1f9e20a421}{HAL\+\_\+\+SMBUS\+\_\+\+Abort\+Cplt\+Callback}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga566b6739a68408dafa25ad013868e7b1}{HAL\+\_\+\+SMBUS\+\_\+\+State\+Type\+Def}} \mbox{\hyperlink{group___s_m_b_u_s___exported___functions___group3_ga3ab4650f9b47d0af499e9029ea304a4e}{HAL\+\_\+\+SMBUS\+\_\+\+Get\+State}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+\mbox{\hyperlink{group___s_m_b_u_s___exported___types_gaf3eb99bb66f3e388777f3d123a242f13}{HAL\+\_\+\+SMBUS\+\_\+\+Mode\+Type\+Def}} \mbox{\hyperlink{group___s_m_b_u_s___exported___functions___group3_ga9bf4171e106129c433cd3a33110fdad6}{HAL\+\_\+\+SMBUS\+\_\+\+Get\+Mode}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___s_m_b_u_s___exported___functions___group3_ga293b7c153c287b5fabed224d1856326d}{HAL\+\_\+\+SMBUS\+\_\+\+Get\+Error}} (\mbox{\hyperlink{group___s_m_b_u_s___exported___types_ga297c39b0e8c36a57fe7d9ec98da79123}{SMBUS\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hsmbus)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of SMBUS HAL module. 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2016 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+Definition in file \mbox{\hyperlink{stm32f4xx__hal__smbus_8h_source}{stm32f4xx\+\_\+hal\+\_\+smbus.\+h}}.
+

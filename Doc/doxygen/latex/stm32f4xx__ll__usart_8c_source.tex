@@ -1,0 +1,410 @@
+\doxysection{stm32f4xx\+\_\+ll\+\_\+usart.\+c}
+\hypertarget{stm32f4xx__ll__usart_8c_source}{}\label{stm32f4xx__ll__usart_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_ll\_usart.c@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_ll\_usart.c}}
+\mbox{\hyperlink{stm32f4xx__ll__usart_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00019}00019\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00021}00021\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__ll__usart_8h}{stm32f4xx\_ll\_usart.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__ll__rcc_8h}{stm32f4xx\_ll\_rcc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__ll__bus_8h}{stm32f4xx\_ll\_bus.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00025}00025\ \textcolor{preprocessor}{\#ifdef\ \ USE\_FULL\_ASSERT}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}stm32\_assert.h"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00027}00027\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00028}00028\ \textcolor{preprocessor}{\#define\ assert\_param(expr)\ ((void)0U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00029}00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00035}00035\ \textcolor{preprocessor}{\#if\ defined\ (USART1)\ ||\ defined\ (USART2)\ ||\ defined\ (USART3)\ ||\ defined\ (USART6)\ ||\ defined\ (UART4)\ ||\ defined\ (UART5)\ ||\ defined\ (UART7)\ ||\ defined\ (UART8)\ ||\ defined\ (UART9)\ ||\ defined\ (UART10)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00041}00041\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00042}00042\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00043}00043\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00053}00053\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00058}00058\ \textcolor{comment}{/*\ \_\_BAUDRATE\_\_\ The\ maximum\ Baud\ Rate\ is\ derived\ from\ the\ maximum\ clock\ available}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00059}00059\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ divided\ by\ the\ smallest\ oversampling\ used\ on\ the\ USART\ (i.e.\ 8)\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00060}00060\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_BAUDRATE(\_\_BAUDRATE\_\_)\ ((\_\_BAUDRATE\_\_)\ <=\ 12500000U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00062}00062\ \textcolor{comment}{/*\ \_\_VALUE\_\_\ In\ case\ of\ oversampling\ by\ 16\ and\ 8,\ BRR\ content\ must\ be\ greater\ than\ or\ equal\ to\ 16d.\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00063}00063\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_BRR\_MIN(\_\_VALUE\_\_)\ ((\_\_VALUE\_\_)\ >=\ 16U)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00065}00065\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_DIRECTION(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_USART\_DIRECTION\_NONE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00066}00066\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_DIRECTION\_RX)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00067}00067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_DIRECTION\_TX)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00068}00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_DIRECTION\_TX\_RX))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00070}00070\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_PARITY(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_USART\_PARITY\_NONE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00071}00071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_PARITY\_EVEN)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00072}00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_PARITY\_ODD))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00074}00074\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_DATAWIDTH(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_USART\_DATAWIDTH\_8B)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00075}00075\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_DATAWIDTH\_9B))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00077}00077\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_OVERSAMPLING(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_USART\_OVERSAMPLING\_16)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00078}00078\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_OVERSAMPLING\_8))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00080}00080\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_LASTBITCLKOUTPUT(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_USART\_LASTCLKPULSE\_NO\_OUTPUT)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00081}00081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_LASTCLKPULSE\_OUTPUT))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00083}00083\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_CLOCKPHASE(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_USART\_PHASE\_1EDGE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00084}00084\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_PHASE\_2EDGE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00086}00086\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_CLOCKPOLARITY(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_USART\_POLARITY\_LOW)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00087}00087\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_POLARITY\_HIGH))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00089}00089\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_CLOCKOUTPUT(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_USART\_CLOCK\_DISABLE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00090}00090\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_CLOCK\_ENABLE))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00092}00092\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_STOPBITS(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_USART\_STOPBITS\_0\_5)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00093}00093\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_STOPBITS\_1)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00094}00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_STOPBITS\_1\_5)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00095}00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_STOPBITS\_2))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00097}00097\ \textcolor{preprocessor}{\#define\ IS\_LL\_USART\_HWCONTROL(\_\_VALUE\_\_)\ (((\_\_VALUE\_\_)\ ==\ LL\_USART\_HWCONTROL\_NONE)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00098}00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_HWCONTROL\_RTS)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00099}00099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_HWCONTROL\_CTS)\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00100}00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ((\_\_VALUE\_\_)\ ==\ LL\_USART\_HWCONTROL\_RTS\_CTS))}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00106}00106\ \textcolor{comment}{/*\ Private\ function\ prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00108}00108\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00124}00124\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_USART\_DeInit(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}\ *USARTx)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00125}00125\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00126}00126\ \ \ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00128}00128\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00129}00129\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_ga14e4b19f7c750110f6c27cf26347ba45}{IS\_UART\_INSTANCE}}(USARTx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00131}00131\ \ \ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga92871691058ff7ccffd7635930cb08da}{USART1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00132}00132\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00133}00133\ \ \ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ USART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00134}00134\ \ \ \ \ LL\_APB2\_GRP1\_ForceReset(LL\_APB2\_GRP1\_PERIPH\_USART1);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00136}00136\ \ \ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ USART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00137}00137\ \ \ \ \ LL\_APB2\_GRP1\_ReleaseReset(LL\_APB2\_GRP1\_PERIPH\_USART1);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00138}00138\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00139}00139\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_gaf114a9eab03ca08a6fb720e511595930}{USART2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00140}00140\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00141}00141\ \ \ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ USART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00142}00142\ \ \ \ \ LL\_APB1\_GRP1\_ForceReset(LL\_APB1\_GRP1\_PERIPH\_USART2);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00144}00144\ \ \ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ USART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00145}00145\ \ \ \ \ LL\_APB1\_GRP1\_ReleaseReset(LL\_APB1\_GRP1\_PERIPH\_USART2);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00146}00146\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00147}00147\ \textcolor{preprocessor}{\#if\ defined(USART3)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00148}00148\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga2350115553c1fe0a7bc14e6a7ec6a225}{USART3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00149}00149\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00150}00150\ \ \ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ USART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00151}00151\ \ \ \ \ LL\_APB1\_GRP1\_ForceReset(LL\_APB1\_GRP1\_PERIPH\_USART3);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00153}00153\ \ \ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ USART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00154}00154\ \ \ \ \ LL\_APB1\_GRP1\_ReleaseReset(LL\_APB1\_GRP1\_PERIPH\_USART3);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00155}00155\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00156}00156\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USART3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00157}00157\ \textcolor{preprocessor}{\#if\ defined(USART6)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00158}00158\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga2dab39a19ce3dd05fe360dcbb7b5dc84}{USART6}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00159}00159\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00160}00160\ \ \ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ USART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00161}00161\ \ \ \ \ LL\_APB2\_GRP1\_ForceReset(LL\_APB2\_GRP1\_PERIPH\_USART6);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00163}00163\ \ \ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ USART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00164}00164\ \ \ \ \ LL\_APB2\_GRP1\_ReleaseReset(LL\_APB2\_GRP1\_PERIPH\_USART6);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00165}00165\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00166}00166\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USART6\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00167}00167\ \textcolor{preprocessor}{\#if\ defined(UART4)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00168}00168\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga7c035f6f443c999fc043b2b7fb598800}{UART4}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00169}00169\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00170}00170\ \ \ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00171}00171\ \ \ \ \ LL\_APB1\_GRP1\_ForceReset(LL\_APB1\_GRP1\_PERIPH\_UART4);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00173}00173\ \ \ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00174}00174\ \ \ \ \ LL\_APB1\_GRP1\_ReleaseReset(LL\_APB1\_GRP1\_PERIPH\_UART4);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00175}00175\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00176}00176\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART4\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00177}00177\ \textcolor{preprocessor}{\#if\ defined(UART5)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00178}00178\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga9274e37cf5e8a174fc5dd627b98ec0fe}{UART5}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00179}00179\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00180}00180\ \ \ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00181}00181\ \ \ \ \ LL\_APB1\_GRP1\_ForceReset(LL\_APB1\_GRP1\_PERIPH\_UART5);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00183}00183\ \ \ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00184}00184\ \ \ \ \ LL\_APB1\_GRP1\_ReleaseReset(LL\_APB1\_GRP1\_PERIPH\_UART5);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00185}00185\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00186}00186\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART5\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00187}00187\ \textcolor{preprocessor}{\#if\ defined(UART7)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00188}00188\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga20bc10f5b73e8b51724b2f23c5b2e785}{UART7}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00189}00189\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00190}00190\ \ \ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00191}00191\ \ \ \ \ LL\_APB1\_GRP1\_ForceReset(LL\_APB1\_GRP1\_PERIPH\_UART7);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00193}00193\ \ \ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00194}00194\ \ \ \ \ LL\_APB1\_GRP1\_ReleaseReset(LL\_APB1\_GRP1\_PERIPH\_UART7);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00195}00195\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00196}00196\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART7\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00197}00197\ \textcolor{preprocessor}{\#if\ defined(UART8)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00198}00198\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga2fe70804956e53dcbdc82dbacbbbfabc}{UART8}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00199}00199\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00200}00200\ \ \ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00201}00201\ \ \ \ \ LL\_APB1\_GRP1\_ForceReset(LL\_APB1\_GRP1\_PERIPH\_UART8);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00203}00203\ \ \ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00204}00204\ \ \ \ \ LL\_APB1\_GRP1\_ReleaseReset(LL\_APB1\_GRP1\_PERIPH\_UART8);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00205}00205\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00206}00206\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART8\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00207}00207\ \textcolor{preprocessor}{\#if\ defined(UART9)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00208}00208\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga71a1040f1375b0c4963cb4502de1de09}{UART9}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00209}00209\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00210}00210\ \ \ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00211}00211\ \ \ \ \ LL\_APB2\_GRP1\_ForceReset(LL\_APB2\_GRP1\_PERIPH\_UART9);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00213}00213\ \ \ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00214}00214\ \ \ \ \ LL\_APB2\_GRP1\_ReleaseReset(LL\_APB2\_GRP1\_PERIPH\_UART9);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00215}00215\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00216}00216\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART9\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00217}00217\ \textcolor{preprocessor}{\#if\ defined(UART10)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00218}00218\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga0e7fc8acff8e61a31e0c93170dd81d5f}{UART10}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00219}00219\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00220}00220\ \ \ \ \ \textcolor{comment}{/*\ Force\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00221}00221\ \ \ \ \ LL\_APB2\_GRP1\_ForceReset(LL\_APB2\_GRP1\_PERIPH\_UART10);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00223}00223\ \ \ \ \ \textcolor{comment}{/*\ Release\ reset\ of\ UART\ clock\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00224}00224\ \ \ \ \ LL\_APB2\_GRP1\_ReleaseReset(LL\_APB2\_GRP1\_PERIPH\_UART10);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00225}00225\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00226}00226\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART10\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00227}00227\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00228}00228\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00229}00229\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00230}00230\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00232}00232\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00233}00233\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00248}00248\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_USART\_Init(\mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}\ *USARTx,\ \textcolor{keyword}{const}\ LL\_USART\_InitTypeDef\ *USART\_InitStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00249}00249\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00250}00250\ \ \ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00251}00251\ \ \ uint32\_t\ periphclk\ =\ LL\_RCC\_PERIPH\_FREQUENCY\_NO;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00252}00252\ \ \ LL\_RCC\_ClocksTypeDef\ rcc\_clocks;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00254}00254\ \ \ \textcolor{comment}{/*\ Check\ the\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00255}00255\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_ga14e4b19f7c750110f6c27cf26347ba45}{IS\_UART\_INSTANCE}}(USARTx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00256}00256\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_BAUDRATE(USART\_InitStruct-\/>BaudRate));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00257}00257\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_DATAWIDTH(USART\_InitStruct-\/>DataWidth));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00258}00258\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_STOPBITS(USART\_InitStruct-\/>StopBits));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00259}00259\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_PARITY(USART\_InitStruct-\/>Parity));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00260}00260\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_DIRECTION(USART\_InitStruct-\/>TransferDirection));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00261}00261\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_HWCONTROL(USART\_InitStruct-\/>HardwareFlowControl));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00262}00262\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_OVERSAMPLING(USART\_InitStruct-\/>OverSampling));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00264}00264\ \ \ \textcolor{comment}{/*\ USART\ needs\ to\ be\ in\ disabled\ state,\ in\ order\ to\ be\ able\ to\ configure\ some\ bits\ in}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00265}00265\ \textcolor{comment}{\ \ \ \ \ CRx\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00266}00266\ \ \ \textcolor{keywordflow}{if}\ (LL\_USART\_IsEnabled(USARTx)\ ==\ 0U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00267}00267\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00268}00268\ \ \ \ \ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ USART\ CR1\ Configuration\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00269}00269\ \textcolor{comment}{\ \ \ \ \ *\ Configure\ USARTx\ CR1\ (USART\ Word\ Length,\ Parity,\ Mode\ and\ Oversampling\ bits)\ with\ parameters:}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00270}00270\ \textcolor{comment}{\ \ \ \ \ *\ -\/\ DataWidth:\ \ \ \ \ \ \ \ \ \ USART\_CR1\_M\ bits\ according\ to\ USART\_InitStruct-\/>DataWidth\ value}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00271}00271\ \textcolor{comment}{\ \ \ \ \ *\ -\/\ Parity:\ \ \ \ \ \ \ \ \ \ \ \ \ USART\_CR1\_PCE,\ USART\_CR1\_PS\ bits\ according\ to\ USART\_InitStruct-\/>Parity\ value}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00272}00272\ \textcolor{comment}{\ \ \ \ \ *\ -\/\ TransferDirection:\ \ USART\_CR1\_TE,\ USART\_CR1\_RE\ bits\ according\ to\ USART\_InitStruct-\/>TransferDirection\ value}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00273}00273\ \textcolor{comment}{\ \ \ \ \ *\ -\/\ Oversampling:\ \ \ \ \ \ \ USART\_CR1\_OVER8\ bit\ according\ to\ USART\_InitStruct-\/>OverSampling\ value.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00274}00274\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00275}00275\ \ \ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(USARTx-\/>\mbox{\hyperlink{struct_u_s_a_r_t___type_def_ab0ec7102960640751d44e92ddac994f0}{CR1}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga95f0288b9c6aaeca7cb6550a2e6833e2}{USART\_CR1\_M}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga60f8fcf084f9a8514efafb617c70b074}{USART\_CR1\_PCE}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2e159d36ab2c93a2c1942df60e9eebbe}{USART\_CR1\_PS}}\ |}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gade7f090b04fd78b755b43357ecaa9622}{USART\_CR1\_TE}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gada0d5d407a22264de847bc1b40a17aeb}{USART\_CR1\_RE}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaed6caeb0cb48f1a7b34090f31a92a8e2}{USART\_CR1\_OVER8}}),}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (USART\_InitStruct-\/>DataWidth\ |\ USART\_InitStruct-\/>Parity\ |}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USART\_InitStruct-\/>TransferDirection\ |\ USART\_InitStruct-\/>OverSampling));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00281}00281\ \ \ \ \ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ USART\ CR2\ Configuration\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00282}00282\ \textcolor{comment}{\ \ \ \ \ *\ Configure\ USARTx\ CR2\ (Stop\ bits)\ with\ parameters:}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00283}00283\ \textcolor{comment}{\ \ \ \ \ *\ -\/\ Stop\ Bits:\ \ \ \ \ \ \ \ \ \ USART\_CR2\_STOP\ bits\ according\ to\ USART\_InitStruct-\/>StopBits\ value.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00284}00284\ \textcolor{comment}{\ \ \ \ \ *\ -\/\ CLKEN,\ CPOL,\ CPHA\ and\ LBCL\ bits\ are\ to\ be\ configured\ using\ LL\_USART\_ClockInit().}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00285}00285\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00286}00286\ \ \ \ \ LL\_USART\_SetStopBitsLength(USARTx,\ USART\_InitStruct-\/>StopBits);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00288}00288\ \ \ \ \ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ USART\ CR3\ Configuration\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00289}00289\ \textcolor{comment}{\ \ \ \ \ *\ Configure\ USARTx\ CR3\ (Hardware\ Flow\ Control)\ with\ parameters:}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00290}00290\ \textcolor{comment}{\ \ \ \ \ *\ -\/\ HardwareFlowControl:\ USART\_CR3\_RTSE,\ USART\_CR3\_CTSE\ bits\ according\ to\ USART\_InitStruct-\/>HardwareFlowControl\ value.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00291}00291\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00292}00292\ \ \ \ \ LL\_USART\_SetHWFlowCtrl(USARTx,\ USART\_InitStruct-\/>HardwareFlowControl);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00294}00294\ \ \ \ \ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ USART\ BRR\ Configuration\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00295}00295\ \textcolor{comment}{\ \ \ \ \ *\ Retrieve\ Clock\ frequency\ used\ for\ USART\ Peripheral}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00296}00296\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00297}00297\ \ \ \ \ LL\_RCC\_GetSystemClocksFreq(\&rcc\_clocks);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00298}00298\ \ \ \ \ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga92871691058ff7ccffd7635930cb08da}{USART1}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00299}00299\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00300}00300\ \ \ \ \ \ \ periphclk\ =\ rcc\_clocks.PCLK2\_Frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00301}00301\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00302}00302\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_gaf114a9eab03ca08a6fb720e511595930}{USART2}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00303}00303\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00304}00304\ \ \ \ \ \ \ periphclk\ =\ rcc\_clocks.PCLK1\_Frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00305}00305\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00306}00306\ \textcolor{preprocessor}{\#if\ defined(USART3)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00307}00307\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga2350115553c1fe0a7bc14e6a7ec6a225}{USART3}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00308}00308\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00309}00309\ \ \ \ \ \ \ periphclk\ =\ rcc\_clocks.PCLK1\_Frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00310}00310\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00311}00311\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USART3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00312}00312\ \textcolor{preprocessor}{\#if\ defined(USART6)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00313}00313\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga2dab39a19ce3dd05fe360dcbb7b5dc84}{USART6}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00314}00314\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00315}00315\ \ \ \ \ \ \ periphclk\ =\ rcc\_clocks.PCLK2\_Frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00316}00316\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00317}00317\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USART6\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00318}00318\ \textcolor{preprocessor}{\#if\ defined(UART4)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00319}00319\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga7c035f6f443c999fc043b2b7fb598800}{UART4}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00320}00320\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00321}00321\ \ \ \ \ \ \ periphclk\ =\ rcc\_clocks.PCLK1\_Frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00322}00322\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00323}00323\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART4\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00324}00324\ \textcolor{preprocessor}{\#if\ defined(UART5)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00325}00325\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga9274e37cf5e8a174fc5dd627b98ec0fe}{UART5}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00326}00326\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00327}00327\ \ \ \ \ \ \ periphclk\ =\ rcc\_clocks.PCLK1\_Frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00328}00328\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00329}00329\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART5\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00330}00330\ \textcolor{preprocessor}{\#if\ defined(UART7)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00331}00331\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga20bc10f5b73e8b51724b2f23c5b2e785}{UART7}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00332}00332\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00333}00333\ \ \ \ \ \ \ periphclk\ =\ rcc\_clocks.PCLK1\_Frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00334}00334\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00335}00335\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART7\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00336}00336\ \textcolor{preprocessor}{\#if\ defined(UART8)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00337}00337\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga2fe70804956e53dcbdc82dbacbbbfabc}{UART8}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00338}00338\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00339}00339\ \ \ \ \ \ \ periphclk\ =\ rcc\_clocks.PCLK1\_Frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00340}00340\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00341}00341\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART8\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00342}00342\ \textcolor{preprocessor}{\#if\ defined(UART9)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00343}00343\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga71a1040f1375b0c4963cb4502de1de09}{UART9}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00344}00344\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00345}00345\ \ \ \ \ \ \ periphclk\ =\ rcc\_clocks.PCLK2\_Frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00346}00346\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00347}00347\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART9\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00348}00348\ \textcolor{preprocessor}{\#if\ defined(UART10)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00349}00349\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (USARTx\ ==\ \mbox{\hyperlink{group___peripheral__declaration_ga0e7fc8acff8e61a31e0c93170dd81d5f}{UART10}})}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00350}00350\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00351}00351\ \ \ \ \ \ \ periphclk\ =\ rcc\_clocks.PCLK2\_Frequency;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00352}00352\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00353}00353\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UART10\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00354}00354\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00355}00355\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00356}00356\ \ \ \ \ \ \ \textcolor{comment}{/*\ Nothing\ to\ do,\ as\ error\ code\ is\ already\ assigned\ to\ ERROR\ value\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00357}00357\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00359}00359\ \ \ \ \ \textcolor{comment}{/*\ Configure\ the\ USART\ Baud\ Rate\ :}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00360}00360\ \textcolor{comment}{\ \ \ \ \ \ \ -\/\ valid\ baud\ rate\ value\ (different\ from\ 0)\ is\ required}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00361}00361\ \textcolor{comment}{\ \ \ \ \ \ \ -\/\ Peripheral\ clock\ as\ returned\ by\ RCC\ service,\ should\ be\ valid\ (different\ from\ 0).}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00362}00362\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00363}00363\ \ \ \ \ \textcolor{keywordflow}{if}\ ((periphclk\ !=\ LL\_RCC\_PERIPH\_FREQUENCY\_NO)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00364}00364\ \ \ \ \ \ \ \ \ \&\&\ (USART\_InitStruct-\/>BaudRate\ !=\ 0U))}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00365}00365\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00366}00366\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00367}00367\ \ \ \ \ \ \ LL\_USART\_SetBaudRate(USARTx,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ periphclk,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USART\_InitStruct-\/>OverSampling,}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USART\_InitStruct-\/>BaudRate);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00372}00372\ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ BRR\ is\ greater\ than\ or\ equal\ to\ 16d\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00373}00373\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_BRR\_MIN(USARTx-\/>\mbox{\hyperlink{struct_u_s_a_r_t___type_def_a092e59d908b2ca112e31047e942340cb}{BRR}}));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00374}00374\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00375}00375\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00376}00376\ \ \ \textcolor{comment}{/*\ Endif\ (=>\ USART\ not\ in\ Disabled\ state\ =>\ return\ ERROR)\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00378}00378\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00379}00379\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00380}00380\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00387}00387\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00388}00388\ \textcolor{keywordtype}{void}\ LL\_USART\_StructInit(LL\_USART\_InitTypeDef\ *USART\_InitStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00389}00389\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00390}00390\ \ \ \textcolor{comment}{/*\ Set\ USART\_InitStruct\ fields\ to\ default\ values\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00391}00391\ \ \ USART\_InitStruct-\/>BaudRate\ \ \ \ \ \ \ \ \ \ \ \ =\ 9600U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00392}00392\ \ \ USART\_InitStruct-\/>DataWidth\ \ \ \ \ \ \ \ \ \ \ =\ LL\_USART\_DATAWIDTH\_8B;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00393}00393\ \ \ USART\_InitStruct-\/>StopBits\ \ \ \ \ \ \ \ \ \ \ \ =\ LL\_USART\_STOPBITS\_1;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00394}00394\ \ \ USART\_InitStruct-\/>Parity\ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ LL\_USART\_PARITY\_NONE\ ;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00395}00395\ \ \ USART\_InitStruct-\/>TransferDirection\ \ \ =\ LL\_USART\_DIRECTION\_TX\_RX;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00396}00396\ \ \ USART\_InitStruct-\/>HardwareFlowControl\ =\ LL\_USART\_HWCONTROL\_NONE;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00397}00397\ \ \ USART\_InitStruct-\/>OverSampling\ \ \ \ \ \ \ \ =\ LL\_USART\_OVERSAMPLING\_16;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00398}00398\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00399}00399\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00412}00412\ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ LL\_USART\_ClockInit(\mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}\ *USARTx,\ \textcolor{keyword}{const}\ LL\_USART\_ClockInitTypeDef\ *USART\_ClockInitStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00413}00413\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00414}00414\ \ \ \mbox{\hyperlink{group___exported__types_ga8333b96c67f83cba354b3407fcbb6ee8}{ErrorStatus}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8ac7f69f7c9e5aea9b8f54cf02870e2bf8}{SUCCESS}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00416}00416\ \ \ \textcolor{comment}{/*\ Check\ USART\ Instance\ and\ Clock\ signal\ output\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00417}00417\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_ga14e4b19f7c750110f6c27cf26347ba45}{IS\_UART\_INSTANCE}}(USARTx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00418}00418\ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_CLOCKOUTPUT(USART\_ClockInitStruct-\/>ClockOutput));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00420}00420\ \ \ \textcolor{comment}{/*\ USART\ needs\ to\ be\ in\ disabled\ state,\ in\ order\ to\ be\ able\ to\ configure\ some\ bits\ in}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00421}00421\ \textcolor{comment}{\ \ \ \ \ CRx\ registers\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00422}00422\ \ \ \textcolor{keywordflow}{if}\ (LL\_USART\_IsEnabled(USARTx)\ ==\ 0U)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00423}00423\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00424}00424\ \ \ \ \ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ USART\ CR2\ Configuration\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00425}00425\ \ \ \ \ \textcolor{comment}{/*\ If\ Clock\ signal\ has\ to\ be\ output\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00426}00426\ \ \ \ \ \textcolor{keywordflow}{if}\ (USART\_ClockInitStruct-\/>ClockOutput\ ==\ LL\_USART\_CLOCK\_DISABLE)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00427}00427\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00428}00428\ \ \ \ \ \ \ \textcolor{comment}{/*\ Deactivate\ Clock\ signal\ delivery\ :}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00429}00429\ \textcolor{comment}{\ \ \ \ \ \ \ *\ -\/\ Disable\ Clock\ Output:\ \ \ \ \ \ \ \ USART\_CR2\_CLKEN\ cleared}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00430}00430\ \textcolor{comment}{\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00431}00431\ \ \ \ \ \ \ LL\_USART\_DisableSCLKOutput(USARTx);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00432}00432\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00433}00433\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00434}00434\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00435}00435\ \ \ \ \ \ \ \textcolor{comment}{/*\ Ensure\ USART\ instance\ is\ USART\ capable\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00436}00436\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(\mbox{\hyperlink{group___exported__macros_gafbce654f84a7c994817453695ac91cbe}{IS\_USART\_INSTANCE}}(USARTx));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00437}00437\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00438}00438\ \ \ \ \ \ \ \textcolor{comment}{/*\ Check\ clock\ related\ parameters\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00439}00439\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_CLOCKPOLARITY(USART\_ClockInitStruct-\/>ClockPolarity));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00440}00440\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_CLOCKPHASE(USART\_ClockInitStruct-\/>ClockPhase));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00441}00441\ \ \ \ \ \ \ \mbox{\hyperlink{stm32f4xx__hal__conf_8h_a631dea7b230e600555f979c62af1de21}{assert\_param}}(IS\_LL\_USART\_LASTBITCLKOUTPUT(USART\_ClockInitStruct-\/>LastBitClockPulse));}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00442}00442\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00443}00443\ \ \ \ \ \ \ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ USART\ CR2\ Configuration\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00444}00444\ \textcolor{comment}{\ \ \ \ \ \ \ *\ Configure\ USARTx\ CR2\ (Clock\ signal\ related\ bits)\ with\ parameters:}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00445}00445\ \textcolor{comment}{\ \ \ \ \ \ \ *\ -\/\ Enable\ Clock\ Output:\ \ \ \ \ \ \ \ \ USART\_CR2\_CLKEN\ set}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00446}00446\ \textcolor{comment}{\ \ \ \ \ \ \ *\ -\/\ Clock\ Polarity:\ \ \ \ \ \ \ \ \ \ \ \ \ \ USART\_CR2\_CPOL\ bit\ according\ to\ USART\_ClockInitStruct-\/>ClockPolarity\ value}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00447}00447\ \textcolor{comment}{\ \ \ \ \ \ \ *\ -\/\ Clock\ Phase:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USART\_CR2\_CPHA\ bit\ according\ to\ USART\_ClockInitStruct-\/>ClockPhase\ value}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00448}00448\ \textcolor{comment}{\ \ \ \ \ \ \ *\ -\/\ Last\ Bit\ Clock\ Pulse\ Output:\ USART\_CR2\_LBCL\ bit\ according\ to\ USART\_ClockInitStruct-\/>LastBitClockPulse\ value.}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00449}00449\ \textcolor{comment}{\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00450}00450\ \ \ \ \ \ \ \mbox{\hyperlink{group___exported__macro_ga6553c99f510c3bab8cc0a91602053247}{MODIFY\_REG}}(USARTx-\/>\mbox{\hyperlink{struct_u_s_a_r_t___type_def_afdfa307571967afb1d97943e982b6586}{CR2}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00451}00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga42a396cde02ffa0c4d3fd9817b6af853}{USART\_CR2\_CLKEN}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga362976ce813e58310399d113d2cf09cb}{USART\_CR2\_CPHA}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gafbb4336ac93d94d4e78f9fb7b3a0dc68}{USART\_CR2\_CPOL}}\ |\ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4a62e93ae7864e89622bdd92508b615e}{USART\_CR2\_LBCL}},}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00452}00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga42a396cde02ffa0c4d3fd9817b6af853}{USART\_CR2\_CLKEN}}\ |\ USART\_ClockInitStruct-\/>ClockPolarity\ |}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00453}00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USART\_ClockInitStruct-\/>ClockPhase\ |\ USART\_ClockInitStruct-\/>LastBitClockPulse);}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00454}00454\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00455}00455\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00456}00456\ \ \ \textcolor{comment}{/*\ Else\ (USART\ not\ in\ Disabled\ state\ =>\ return\ ERROR\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00457}00457\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00458}00458\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00459}00459\ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{group___exported__types_gga8333b96c67f83cba354b3407fcbb6ee8a2fd6f336d08340583bd620a7f5694c90}{ERROR}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00460}00460\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00461}00461\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00462}00462\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}});}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00463}00463\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00464}00464\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00471}00471\ \textcolor{keywordtype}{void}\ LL\_USART\_ClockStructInit(LL\_USART\_ClockInitTypeDef\ *USART\_ClockInitStruct)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00472}00472\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00473}00473\ \ \ \textcolor{comment}{/*\ Set\ LL\_USART\_ClockInitStruct\ fields\ with\ default\ values\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00474}00474\ \ \ USART\_ClockInitStruct-\/>ClockOutput\ \ \ \ \ \ \ =\ LL\_USART\_CLOCK\_DISABLE;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00475}00475\ \ \ USART\_ClockInitStruct-\/>ClockPolarity\ \ \ \ \ =\ LL\_USART\_POLARITY\_LOW;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Not\ relevant\ when\ ClockOutput\ =\ LL\_USART\_CLOCK\_DISABLE\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00476}00476\ \ \ USART\_ClockInitStruct-\/>ClockPhase\ \ \ \ \ \ \ \ =\ LL\_USART\_PHASE\_1EDGE;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Not\ relevant\ when\ ClockOutput\ =\ LL\_USART\_CLOCK\_DISABLE\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00477}00477\ \ \ USART\_ClockInitStruct-\/>LastBitClockPulse\ =\ LL\_USART\_LASTCLKPULSE\_NO\_OUTPUT;\ \ \textcolor{comment}{/*\ Not\ relevant\ when\ ClockOutput\ =\ LL\_USART\_CLOCK\_DISABLE\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00478}00478\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00479}00479\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00483}00483\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00487}00487\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00492}00492\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USART1\ ||\ USART2\ ||\ USART3\ ||\ USART6\ ||\ UART4\ ||\ UART5\ ||\ UART7\ ||\ UART8\ ||\ UART9\ ||\ UART10\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00493}00493\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00497}00497\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00498}00498\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_FULL\_LL\_DRIVER\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00499}00499\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__ll__usart_8c_source_l00500}00500\ }
+
+\end{DoxyCode}

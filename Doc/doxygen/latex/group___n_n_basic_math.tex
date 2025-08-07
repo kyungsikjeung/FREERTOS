@@ -1,0 +1,656 @@
+\doxysubsection{Basic Math Functions for Neural Network Computation }
+\hypertarget{group___n_n_basic_math}{}\label{group___n_n_basic_math}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+Collaboration diagram for Basic Math Functions for Neural Network Computation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math}
+\end{center}
+\end{figure}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___n_n_basic_math_ga379c39e614f1468e1fdb524f51fb6061}{arm\+\_\+nn\+\_\+accumulate\+\_\+q7\+\_\+to\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Src, uint32\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Converts the elements from a q7 vector and accumulate to a q15 vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___n_n_basic_math_gae65bde3218210820d789659179e14ce3}{arm\+\_\+nn\+\_\+add\+\_\+q7}} (const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}input, \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}output, uint32\+\_\+t block\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Non-\/saturating addition of elements of a q7 vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___n_n_basic_math_gafa5fa746360453b6dc358f15e6961716}{arm\+\_\+nn\+\_\+depthwise\+\_\+conv\+\_\+nt\+\_\+t\+\_\+padded\+\_\+s8}} (const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}lhs, const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}rhs, const int32\+\_\+t input\+\_\+offset, const uint16\+\_\+t num\+\_\+ch, const int32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+shift, const int32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+mult, const int32\+\_\+t out\+\_\+offset, const int32\+\_\+t activation\+\_\+min, const int32\+\_\+t activation\+\_\+max, const uint16\+\_\+t row\+\_\+x\+\_\+col, const int32\+\_\+t \texorpdfstring{$\ast$}{*}const output\+\_\+bias, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}out)
+\begin{DoxyCompactList}\small\item\em Depthwise convolution of transposed rhs matrix with 4 lhs matrices. To be used in padded cases where the padding is -\/lhs\+\_\+offset(\+Range\+: int8). Dimensions are the same for lhs and rhs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___n_n_basic_math_ga3c272bd9893e815bda0dbef80d06d5af}{arm\+\_\+nn\+\_\+depthwise\+\_\+conv\+\_\+nt\+\_\+t\+\_\+s8}} (const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}lhs, const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}rhs, const int32\+\_\+t input\+\_\+offset, const uint16\+\_\+t num\+\_\+ch, const int32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+shift, const int32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+mult, const int32\+\_\+t out\+\_\+offset, const int32\+\_\+t activation\+\_\+min, const int32\+\_\+t activation\+\_\+max, const uint16\+\_\+t row\+\_\+x\+\_\+col, const int32\+\_\+t \texorpdfstring{$\ast$}{*}const output\+\_\+bias, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}out)
+\begin{DoxyCompactList}\small\item\em Depthwise convolution of transposed rhs matrix with 4 lhs matrices. To be used in non-\/padded cases. Dimensions are the same for lhs and rhs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___n_n_basic_math_ga5224f2f155a59498c97f4d62ae726ea5}{arm\+\_\+nn\+\_\+mat\+\_\+mul\+\_\+core\+\_\+1x\+\_\+s8}} (int32\+\_\+t row\+\_\+elements, const int8\+\_\+t \texorpdfstring{$\ast$}{*}row\+\_\+base, const int8\+\_\+t \texorpdfstring{$\ast$}{*}col\+\_\+base, int32\+\_\+t \texorpdfstring{$\ast$}{*}const sum\+\_\+col, int32\+\_\+t \texorpdfstring{$\ast$}{*}const output)
+\begin{DoxyCompactList}\small\item\em General Matrix-\/multiplication without requantization for one row \& one column. \end{DoxyCompactList}\item 
+int8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group___n_n_basic_math_gae2308fbfe9d11a742a712a0fe01643ae}{arm\+\_\+nn\+\_\+mat\+\_\+mul\+\_\+core\+\_\+4x\+\_\+s8}} (const int32\+\_\+t row\+\_\+elements, const int32\+\_\+t offset, const int8\+\_\+t \texorpdfstring{$\ast$}{*}row\+\_\+base, const int8\+\_\+t \texorpdfstring{$\ast$}{*}col\+\_\+base\+\_\+ref, const int32\+\_\+t out\+\_\+ch, const \mbox{\hyperlink{structcmsis__nn__conv__params}{cmsis\+\_\+nn\+\_\+conv\+\_\+params}} \texorpdfstring{$\ast$}{*}conv\+\_\+params, const \mbox{\hyperlink{structcmsis__nn__per__channel__quant__params}{cmsis\+\_\+nn\+\_\+per\+\_\+channel\+\_\+quant\+\_\+params}} \texorpdfstring{$\ast$}{*}quant\+\_\+params, const int32\+\_\+t \texorpdfstring{$\ast$}{*}bias, int8\+\_\+t \texorpdfstring{$\ast$}{*}output)
+\begin{DoxyCompactList}\small\item\em Matrix-\/multiplication with requantization \& activation function for four rows and one column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___n_n_basic_math_ga360cdaa16c399e3bfbeaaa7296c326e1}{arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+nt\+\_\+t\+\_\+s8}} (const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}lhs, const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}rhs, const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}bias, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}dst, const int32\+\_\+t \texorpdfstring{$\ast$}{*}dst\+\_\+multipliers, const int32\+\_\+t \texorpdfstring{$\ast$}{*}dst\+\_\+shifts, const int32\+\_\+t lhs\+\_\+rows, const int32\+\_\+t rhs\+\_\+rows, const int32\+\_\+t rhs\+\_\+cols, const int32\+\_\+t lhs\+\_\+offset, const int32\+\_\+t dst\+\_\+offset, const int32\+\_\+t activation\+\_\+min, const int32\+\_\+t activation\+\_\+max)
+\begin{DoxyCompactList}\small\item\em General Matrix-\/multiplication function with per-\/channel requantization. This function assumes\+: \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___n_n_basic_math_ga08f8340aa6533271b3aa6d211614fe22}{arm\+\_\+nn\+\_\+mult\+\_\+q15}} (\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+SrcA, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+SrcB, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, const uint16\+\_\+t out\+\_\+shift, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Q7 vector multiplication with variable output shifts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___n_n_basic_math_gad46c9ab012cceda8ce6681c687a58c70}{arm\+\_\+nn\+\_\+mult\+\_\+q7}} (\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+SrcA, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+SrcB, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Dst, const uint16\+\_\+t out\+\_\+shift, uint32\+\_\+t \mbox{\hyperlink{arm__fir__example__f32_8c_ab6558f40a619c2502fbc24c880fd4fb0}{block\+Size}})
+\begin{DoxyCompactList}\small\item\em Q7 vector multiplication with variable output shifts. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___n_n_basic_math_ga721f565a0b8015a3d6d46535cadf63d3}{arm\+\_\+nn\+\_\+vec\+\_\+mat\+\_\+mult\+\_\+t\+\_\+s16}} (const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}lhs, const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}rhs, const \mbox{\hyperlink{arm__math__types_8h_a5aea1cb12fc02d9d44c8abf217eaa5c6}{q63\+\_\+t}} \texorpdfstring{$\ast$}{*}bias, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}dst, const int32\+\_\+t dst\+\_\+multiplier, const int32\+\_\+t dst\+\_\+shift, const int32\+\_\+t rhs\+\_\+cols, const int32\+\_\+t rhs\+\_\+rows, const int32\+\_\+t activation\+\_\+min, const int32\+\_\+t activation\+\_\+max)
+\begin{DoxyCompactList}\small\item\em s16 Vector by Matrix (transposed) multiplication \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___n_n_basic_math_ga140e5a1a4c146c8e90491792ed104d70}{arm\+\_\+nn\+\_\+vec\+\_\+mat\+\_\+mult\+\_\+t\+\_\+s8}} (const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}lhs, const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}rhs, const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}bias, \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}dst, const int32\+\_\+t lhs\+\_\+offset, const int32\+\_\+t rhs\+\_\+offset, const int32\+\_\+t dst\+\_\+offset, const int32\+\_\+t dst\+\_\+multiplier, const int32\+\_\+t dst\+\_\+shift, const int32\+\_\+t rhs\+\_\+cols, const int32\+\_\+t rhs\+\_\+rows, const int32\+\_\+t activation\+\_\+min, const int32\+\_\+t activation\+\_\+max, const int32\+\_\+t address\+\_\+offset)
+\begin{DoxyCompactList}\small\item\em s8 Vector by Matrix (transposed) multiplication \end{DoxyCompactList}\item 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} \mbox{\hyperlink{group___n_n_basic_math_gac0675e8069a303ce2e8f8ed2a9320859}{arm\+\_\+nn\+\_\+vec\+\_\+mat\+\_\+mult\+\_\+t\+\_\+svdf\+\_\+s8}} (const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}lhs, const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}rhs, \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}dst, const int32\+\_\+t lhs\+\_\+offset, const int32\+\_\+t rhs\+\_\+offset, const int32\+\_\+t dst\+\_\+offset, const int32\+\_\+t dst\+\_\+multiplier, const int32\+\_\+t dst\+\_\+shift, const int32\+\_\+t rhs\+\_\+cols, const int32\+\_\+t rhs\+\_\+rows, const int32\+\_\+t activation\+\_\+min, const int32\+\_\+t activation\+\_\+max)
+\begin{DoxyCompactList}\small\item\em s8 Vector by Matrix (transposed) multiplication with s16 output \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Basic Math Functions for Neural Network Computation
+
+\label{doc-func-members}
+\Hypertarget{group___n_n_basic_math_doc-func-members}
+\doxysubsubsection{Function Documentation}
+\Hypertarget{group___n_n_basic_math_ga379c39e614f1468e1fdb524f51fb6061}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_accumulate\_q7\_to\_q15@{arm\_nn\_accumulate\_q7\_to\_q15}}
+\index{arm\_nn\_accumulate\_q7\_to\_q15@{arm\_nn\_accumulate\_q7\_to\_q15}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_accumulate\_q7\_to\_q15()}{arm\_nn\_accumulate\_q7\_to\_q15()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_ga379c39e614f1468e1fdb524f51fb6061} 
+void arm\+\_\+nn\+\_\+accumulate\+\_\+q7\+\_\+to\+\_\+q15 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src}{, }\item[{uint32\+\_\+t}]{block\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Converts the elements from a q7 vector and accumulate to a q15 vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em \texorpdfstring{$\ast$}{*}src} & points to the q7 input vector \\
+\hline
+\mbox{\texttt{out}}  & {\em \texorpdfstring{$\ast$}{*}dst} & points to the q15 output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+\_\+size} & length of the input vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Description\+:}
+
+\end{DoxyParagraph}
+The equation used for the conversion process is\+:
+
+
+\begin{DoxyPre}
+ dst[n] += (\doxylink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\_t}) src[n] ;   0 <= n < block\_size.
+\end{DoxyPre}
+ 
+
+Definition at line \mbox{\hyperlink{arm__nn__accumulate__q7__to__q15_8c_source_l00043}{43}} of file \mbox{\hyperlink{arm__nn__accumulate__q7__to__q15_8c_source}{arm\+\_\+nn\+\_\+accumulate\+\_\+q7\+\_\+to\+\_\+q15.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_ga379c39e614f1468e1fdb524f51fb6061_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___n_n_basic_math_gae65bde3218210820d789659179e14ce3}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_add\_q7@{arm\_nn\_add\_q7}}
+\index{arm\_nn\_add\_q7@{arm\_nn\_add\_q7}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_add\_q7()}{arm\_nn\_add\_q7()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_gae65bde3218210820d789659179e14ce3} 
+void arm\+\_\+nn\+\_\+add\+\_\+q7 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{input}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{output}{, }\item[{uint32\+\_\+t}]{block\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Non-\/saturating addition of elements of a q7 vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em \texorpdfstring{$\ast$}{*}input} & Pointer to the q7 input vector \\
+\hline
+\mbox{\texttt{out}}  & {\em \texorpdfstring{$\ast$}{*}output} & Pointer to the q31 output variable. \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+\_\+size} & length of the input vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Description\+:}
+
+\end{DoxyParagraph}
+2\texorpdfstring{$^\wedge$}{\string^}24 samples can be added without saturating the result.
+
+The equation used for the conversion process is\+:
+
+
+\begin{DoxyPre}
+ sum = input[0] + input[1] + .. + input[block\_size -\/1]
+\end{DoxyPre}
+ 
+
+Definition at line \mbox{\hyperlink{arm__nn__add__q7_8c_source_l00043}{43}} of file \mbox{\hyperlink{arm__nn__add__q7_8c_source}{arm\+\_\+nn\+\_\+add\+\_\+q7.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{group___n_n_basic_math_gae65bde3218210820d789659179e14ce3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___n_n_basic_math_gafa5fa746360453b6dc358f15e6961716}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_depthwise\_conv\_nt\_t\_padded\_s8@{arm\_nn\_depthwise\_conv\_nt\_t\_padded\_s8}}
+\index{arm\_nn\_depthwise\_conv\_nt\_t\_padded\_s8@{arm\_nn\_depthwise\_conv\_nt\_t\_padded\_s8}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_depthwise\_conv\_nt\_t\_padded\_s8()}{arm\_nn\_depthwise\_conv\_nt\_t\_padded\_s8()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_gafa5fa746360453b6dc358f15e6961716} 
+\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*} arm\+\_\+nn\+\_\+depthwise\+\_\+conv\+\_\+nt\+\_\+t\+\_\+padded\+\_\+s8 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rhs}{, }\item[{const int32\+\_\+t}]{lhs\+\_\+offset}{, }\item[{const uint16\+\_\+t}]{num\+\_\+ch}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+shift}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+mult}{, }\item[{const int32\+\_\+t}]{out\+\_\+offset}{, }\item[{const int32\+\_\+t}]{activation\+\_\+min}{, }\item[{const int32\+\_\+t}]{activation\+\_\+max}{, }\item[{const uint16\+\_\+t}]{row\+\_\+x\+\_\+col}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}const}]{output\+\_\+bias}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+Depthwise convolution of transposed rhs matrix with 4 lhs matrices. To be used in padded cases where the padding is -\/lhs\+\_\+offset(\+Range\+: int8). Dimensions are the same for lhs and rhs. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em lhs} & Input left-\/hand side matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs} & Input right-\/hand side matrix (transposed) \\
+\hline
+\mbox{\texttt{in}}  & {\em lhs\+\_\+offset} & LHS matrix offset(input offset). Range\+: -\/127 to 128 \\
+\hline
+\mbox{\texttt{in}}  & {\em num\+\_\+ch} & Number of channels in LHS/\+RHS \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+shift} & Per channel output shift. Length of vector is equal to number of channels \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+mult} & Per channel output multiplier. Length of vector is equal to number of channels \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+offset} & Offset to be added to the output values. Range\+: -\/127 to 128 \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+min} & Minimum value to clamp the output to. Range\+: int8 \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+max} & Maximum value to clamp the output to. Range\+: int8 \\
+\hline
+\mbox{\texttt{in}}  & {\em row\+\_\+x\+\_\+col} & (row\+\_\+dimension \texorpdfstring{$\ast$}{*} col\+\_\+dimension) of LHS/\+RHS matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em output\+\_\+bias} & Per channel output bias. Length of vector is equal to number of channels \\
+\hline
+\mbox{\texttt{in}}  & {\em out} & Output pointer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns one of the two
+\begin{DoxyItemize}
+\item Updated output pointer if an implementation is available
+\item NULL if no implementation is available.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If number of channels is not a multiple of 4, upto 3 elements outside the boundary will be read out for the following.
+\begin{DoxyItemize}
+\item Output shift
+\item Output multiplier
+\item Output bias
+\item rhs 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{arm__nn__depthwise__conv__nt__t__padded__s8_8c_source_l00049}{49}} of file \mbox{\hyperlink{arm__nn__depthwise__conv__nt__t__padded__s8_8c_source}{arm\+\_\+nn\+\_\+depthwise\+\_\+conv\+\_\+nt\+\_\+t\+\_\+padded\+\_\+s8.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_gafa5fa746360453b6dc358f15e6961716_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___n_n_basic_math_ga3c272bd9893e815bda0dbef80d06d5af}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_depthwise\_conv\_nt\_t\_s8@{arm\_nn\_depthwise\_conv\_nt\_t\_s8}}
+\index{arm\_nn\_depthwise\_conv\_nt\_t\_s8@{arm\_nn\_depthwise\_conv\_nt\_t\_s8}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_depthwise\_conv\_nt\_t\_s8()}{arm\_nn\_depthwise\_conv\_nt\_t\_s8()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_ga3c272bd9893e815bda0dbef80d06d5af} 
+\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*} arm\+\_\+nn\+\_\+depthwise\+\_\+conv\+\_\+nt\+\_\+t\+\_\+s8 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rhs}{, }\item[{const int32\+\_\+t}]{lhs\+\_\+offset}{, }\item[{const uint16\+\_\+t}]{num\+\_\+ch}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+shift}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+mult}{, }\item[{const int32\+\_\+t}]{out\+\_\+offset}{, }\item[{const int32\+\_\+t}]{activation\+\_\+min}{, }\item[{const int32\+\_\+t}]{activation\+\_\+max}{, }\item[{const uint16\+\_\+t}]{row\+\_\+x\+\_\+col}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}const}]{output\+\_\+bias}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+Depthwise convolution of transposed rhs matrix with 4 lhs matrices. To be used in non-\/padded cases. Dimensions are the same for lhs and rhs. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em lhs} & Input left-\/hand side matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs} & Input right-\/hand side matrix (transposed) \\
+\hline
+\mbox{\texttt{in}}  & {\em lhs\+\_\+offset} & LHS matrix offset(input offset). Range\+: -\/127 to 128 \\
+\hline
+\mbox{\texttt{in}}  & {\em num\+\_\+ch} & Number of channels in LHS/\+RHS \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+shift} & Per channel output shift. Length of vector is equal to number of channels. \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+mult} & Per channel output multiplier. Length of vector is equal to number of channels. \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+offset} & Offset to be added to the output values. Range\+: -\/127 to 128 \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+min} & Minimum value to clamp the output to. Range\+: int8 \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+max} & Maximum value to clamp the output to. Range\+: int8 \\
+\hline
+\mbox{\texttt{in}}  & {\em row\+\_\+x\+\_\+col} & (row\+\_\+dimension \texorpdfstring{$\ast$}{*} col\+\_\+dimension) of LHS/\+RHS matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em output\+\_\+bias} & Per channel output bias. Length of vector is equal to number of channels. \\
+\hline
+\mbox{\texttt{in}}  & {\em out} & Output pointer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns one of the two
+\begin{DoxyItemize}
+\item Updated output pointer if an implementation is available
+\item NULL if no implementation is available.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If number of channels is not a multiple of 4, upto 3 elements outside the boundary will be read out for the following.
+\begin{DoxyItemize}
+\item Output shift
+\item Output multiplier
+\item Output bias
+\item rhs 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{arm__nn__depthwise__conv__nt__t__s8_8c_source_l00048}{48}} of file \mbox{\hyperlink{arm__nn__depthwise__conv__nt__t__s8_8c_source}{arm\+\_\+nn\+\_\+depthwise\+\_\+conv\+\_\+nt\+\_\+t\+\_\+s8.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_ga3c272bd9893e815bda0dbef80d06d5af_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___n_n_basic_math_ga5224f2f155a59498c97f4d62ae726ea5}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_mat\_mul\_core\_1x\_s8@{arm\_nn\_mat\_mul\_core\_1x\_s8}}
+\index{arm\_nn\_mat\_mul\_core\_1x\_s8@{arm\_nn\_mat\_mul\_core\_1x\_s8}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_mat\_mul\_core\_1x\_s8()}{arm\_nn\_mat\_mul\_core\_1x\_s8()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_ga5224f2f155a59498c97f4d62ae726ea5} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+nn\+\_\+mat\+\_\+mul\+\_\+core\+\_\+1x\+\_\+s8 (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{row\+\_\+elements}{, }\item[{const int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{row\+\_\+base}{, }\item[{const int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{col\+\_\+base}{, }\item[{int32\+\_\+t \texorpdfstring{$\ast$}{*}const}]{sum\+\_\+col}{, }\item[{int32\+\_\+t \texorpdfstring{$\ast$}{*}const}]{output}{}\end{DoxyParamCaption})}
+
+
+
+General Matrix-\/multiplication without requantization for one row \& one column. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em row\+\_\+elements} & number of row elements \\
+\hline
+\mbox{\texttt{in}}  & {\em row\+\_\+base} & pointer to row operand \\
+\hline
+\mbox{\texttt{in}}  & {\em col\+\_\+base} & pointer to col operand \\
+\hline
+\mbox{\texttt{out}}  & {\em sum\+\_\+col} & pointer to store sum of column elements \\
+\hline
+\mbox{\texttt{out}}  & {\em output} & pointer to store result of multiply-\/accumulate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns the multiply-\/accumulated result of the row by column.
+\end{DoxyReturn}
+Pseudo-\/code \texorpdfstring{$\ast$}{*}output = 0 sum\+\_\+col = 0 for (i = 0; i \texorpdfstring{$<$}{<} row\+\_\+elements; i++) \texorpdfstring{$\ast$}{*}output += row\+\_\+base\mbox{[}i\mbox{]} \texorpdfstring{$\ast$}{*} col\+\_\+base\mbox{[}i\mbox{]} sum\+\_\+col += col\+\_\+base\mbox{[}i\mbox{]} 
+
+Definition at line \mbox{\hyperlink{arm__nn__mat__mul__core__1x__s8_8c_source_l00048}{48}} of file \mbox{\hyperlink{arm__nn__mat__mul__core__1x__s8_8c_source}{arm\+\_\+nn\+\_\+mat\+\_\+mul\+\_\+core\+\_\+1x\+\_\+s8.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_ga5224f2f155a59498c97f4d62ae726ea5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___n_n_basic_math_gae2308fbfe9d11a742a712a0fe01643ae}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_mat\_mul\_core\_4x\_s8@{arm\_nn\_mat\_mul\_core\_4x\_s8}}
+\index{arm\_nn\_mat\_mul\_core\_4x\_s8@{arm\_nn\_mat\_mul\_core\_4x\_s8}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_mat\_mul\_core\_4x\_s8()}{arm\_nn\_mat\_mul\_core\_4x\_s8()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_gae2308fbfe9d11a742a712a0fe01643ae} 
+int8\+\_\+t \texorpdfstring{$\ast$}{*} arm\+\_\+nn\+\_\+mat\+\_\+mul\+\_\+core\+\_\+4x\+\_\+s8 (\begin{DoxyParamCaption}\item[{const int32\+\_\+t}]{row\+\_\+elements}{, }\item[{const int32\+\_\+t}]{offset}{, }\item[{const int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{row\+\_\+base}{, }\item[{const int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{col\+\_\+base}{, }\item[{const int32\+\_\+t}]{out\+\_\+ch}{, }\item[{const \mbox{\hyperlink{structcmsis__nn__conv__params}{cmsis\+\_\+nn\+\_\+conv\+\_\+params}} \texorpdfstring{$\ast$}{*}}]{conv\+\_\+params}{, }\item[{const \mbox{\hyperlink{structcmsis__nn__per__channel__quant__params}{cmsis\+\_\+nn\+\_\+per\+\_\+channel\+\_\+quant\+\_\+params}} \texorpdfstring{$\ast$}{*}}]{quant\+\_\+params}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{bias}{, }\item[{int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
+
+
+
+Matrix-\/multiplication with requantization \& activation function for four rows and one column. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em row\+\_\+elements} & number of row elements \\
+\hline
+\mbox{\texttt{in}}  & {\em offset} & offset between rows. Can be the same as row\+\_\+elements. For e.\+g, in a 1x1 conv scenario with stride as 1. \\
+\hline
+\mbox{\texttt{in}}  & {\em row\+\_\+base} & pointer to row operand \\
+\hline
+\mbox{\texttt{in}}  & {\em col\+\_\+base} & pointer to col operand \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+ch} & Number of output channels \\
+\hline
+\mbox{\texttt{in}}  & {\em conv\+\_\+params} & Pointer to convolution parameters like offsets and activation values \\
+\hline
+\mbox{\texttt{in}}  & {\em quant\+\_\+params} & Pointer to per-\/channel quantization parameters \\
+\hline
+\mbox{\texttt{in}}  & {\em bias} & Pointer to per-\/channel bias \\
+\hline
+\mbox{\texttt{out}}  & {\em output} & Pointer to output where int8 results are stored.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns the updated output pointer or NULL if implementation is not available.
+\end{DoxyReturn}
+Compliant to TFLM int8 specification. MVE implementation only 
+
+Definition at line \mbox{\hyperlink{arm__nn__mat__mul__core__4x__s8_8c_source_l00047}{47}} of file \mbox{\hyperlink{arm__nn__mat__mul__core__4x__s8_8c_source}{arm\+\_\+nn\+\_\+mat\+\_\+mul\+\_\+core\+\_\+4x\+\_\+s8.\+c}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_gae2308fbfe9d11a742a712a0fe01643ae_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___n_n_basic_math_ga360cdaa16c399e3bfbeaaa7296c326e1}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_mat\_mult\_nt\_t\_s8@{arm\_nn\_mat\_mult\_nt\_t\_s8}}
+\index{arm\_nn\_mat\_mult\_nt\_t\_s8@{arm\_nn\_mat\_mult\_nt\_t\_s8}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_mat\_mult\_nt\_t\_s8()}{arm\_nn\_mat\_mult\_nt\_t\_s8()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_ga360cdaa16c399e3bfbeaaa7296c326e1} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+nt\+\_\+t\+\_\+s8 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rhs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{bias}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{dst\+\_\+multipliers}{, }\item[{const int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{dst\+\_\+shifts}{, }\item[{const int32\+\_\+t}]{lhs\+\_\+rows}{, }\item[{const int32\+\_\+t}]{rhs\+\_\+rows}{, }\item[{const int32\+\_\+t}]{rhs\+\_\+cols}{, }\item[{const int32\+\_\+t}]{lhs\+\_\+offset}{, }\item[{const int32\+\_\+t}]{dst\+\_\+offset}{, }\item[{const int32\+\_\+t}]{activation\+\_\+min}{, }\item[{const int32\+\_\+t}]{activation\+\_\+max}{}\end{DoxyParamCaption})}
+
+
+
+General Matrix-\/multiplication function with per-\/channel requantization. This function assumes\+: 
+
+
+\begin{DoxyItemize}
+\item LHS input matrix NOT transposed (nt)
+\item RHS input matrix transposed (t)
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+This operation also performs the broadcast bias addition before the requantization
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em lhs} & Pointer to the LHS input matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs} & Pointer to the RHS input matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em bias} & Pointer to the bias vector. The length of this vector is equal to the number of output columns (or RHS input rows) \\
+\hline
+\mbox{\texttt{out}}  & {\em dst} & Pointer to the output matrix with "{}m"{} rows and "{}n"{} columns \\
+\hline
+\mbox{\texttt{in}}  & {\em dst\+\_\+multipliers} & Pointer to the multipliers vector needed for the per-\/channel requantization. The length of this vector is equal to the number of output columns (or RHS input rows) \\
+\hline
+\mbox{\texttt{in}}  & {\em dst\+\_\+shifts} & Pointer to the shifts vector needed for the per-\/channel requantization. The length of this vector is equal to the number of output columns (or RHS input rows) \\
+\hline
+\mbox{\texttt{in}}  & {\em lhs\+\_\+rows} & Number of LHS input rows \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs\+\_\+rows} & Number of RHS input rows \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs\+\_\+cols} & Number of LHS/\+RHS input columns \\
+\hline
+\mbox{\texttt{in}}  & {\em lhs\+\_\+offset} & Offset to be applied to the LHS input value \\
+\hline
+\mbox{\texttt{in}}  & {\em dst\+\_\+offset} & Offset to be applied the output result \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+min} & Minimum value to clamp down the output. Range \+: int8 \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+max} & Maximum value to clamp up the output. Range \+: int8\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns {\ttfamily ARM\+\_\+\+MATH\+\_\+\+SUCCESS} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__nn__mat__mult__nt__t__s8_8c_source_l00048}{48}} of file \mbox{\hyperlink{arm__nn__mat__mult__nt__t__s8_8c_source}{arm\+\_\+nn\+\_\+mat\+\_\+mult\+\_\+nt\+\_\+t\+\_\+s8.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_ga360cdaa16c399e3bfbeaaa7296c326e1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_ga360cdaa16c399e3bfbeaaa7296c326e1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___n_n_basic_math_ga08f8340aa6533271b3aa6d211614fe22}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_mult\_q15@{arm\_nn\_mult\_q15}}
+\index{arm\_nn\_mult\_q15@{arm\_nn\_mult\_q15}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_mult\_q15()}{arm\_nn\_mult\_q15()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_ga08f8340aa6533271b3aa6d211614fe22} 
+void arm\+\_\+nn\+\_\+mult\+\_\+q15 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+SrcA}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+SrcB}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{const uint16\+\_\+t}]{out\+\_\+shift}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Q7 vector multiplication with variable output shifts. 
+
+q7 vector multiplication with variable output shifts
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em \texorpdfstring{$\ast$}{*}p\+SrcA} & pointer to the first input vector \\
+\hline
+\mbox{\texttt{in}}  & {\em \texorpdfstring{$\ast$}{*}p\+SrcB} & pointer to the second input vector \\
+\hline
+\mbox{\texttt{out}}  & {\em \texorpdfstring{$\ast$}{*}p\+Dst} & pointer to the output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+shift} & amount of right-\/shift for output \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in each vector\\
+\hline
+\end{DoxyParams}
+{\bfseries{Scaling and Overflow Behavior\+:}} \begin{DoxyParagraph}{}
+The function uses saturating arithmetic. Results outside of the allowable Q15 range \mbox{[}0x8000 0x7\+FFF\mbox{]} will be saturated. 
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{arm__nn__mult__q15_8c_source_l00056}{56}} of file \mbox{\hyperlink{arm__nn__mult__q15_8c_source}{arm\+\_\+nn\+\_\+mult\+\_\+q15.\+c}}.
+
+\Hypertarget{group___n_n_basic_math_gad46c9ab012cceda8ce6681c687a58c70}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_mult\_q7@{arm\_nn\_mult\_q7}}
+\index{arm\_nn\_mult\_q7@{arm\_nn\_mult\_q7}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_mult\_q7()}{arm\_nn\_mult\_q7()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_gad46c9ab012cceda8ce6681c687a58c70} 
+void arm\+\_\+nn\+\_\+mult\+\_\+q7 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+SrcA}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+SrcB}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Dst}{, }\item[{const uint16\+\_\+t}]{out\+\_\+shift}{, }\item[{uint32\+\_\+t}]{block\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Q7 vector multiplication with variable output shifts. 
+
+q7 vector multiplication with variable output shifts
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em \texorpdfstring{$\ast$}{*}p\+SrcA} & pointer to the first input vector \\
+\hline
+\mbox{\texttt{in}}  & {\em \texorpdfstring{$\ast$}{*}p\+SrcB} & pointer to the second input vector \\
+\hline
+\mbox{\texttt{out}}  & {\em \texorpdfstring{$\ast$}{*}p\+Dst} & pointer to the output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em out\+\_\+shift} & amount of right-\/shift for output \\
+\hline
+\mbox{\texttt{in}}  & {\em block\+Size} & number of samples in each vector\\
+\hline
+\end{DoxyParams}
+{\bfseries{Scaling and Overflow Behavior\+:}} \begin{DoxyParagraph}{}
+The function uses saturating arithmetic. Results outside of the allowable Q7 range \mbox{[}0x80 0x7F\mbox{]} will be saturated. 
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{arm__nn__mult__q7_8c_source_l00056}{56}} of file \mbox{\hyperlink{arm__nn__mult__q7_8c_source}{arm\+\_\+nn\+\_\+mult\+\_\+q7.\+c}}.
+
+\Hypertarget{group___n_n_basic_math_ga721f565a0b8015a3d6d46535cadf63d3}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_vec\_mat\_mult\_t\_s16@{arm\_nn\_vec\_mat\_mult\_t\_s16}}
+\index{arm\_nn\_vec\_mat\_mult\_t\_s16@{arm\_nn\_vec\_mat\_mult\_t\_s16}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_vec\_mat\_mult\_t\_s16()}{arm\_nn\_vec\_mat\_mult\_t\_s16()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_ga721f565a0b8015a3d6d46535cadf63d3} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+nn\+\_\+vec\+\_\+mat\+\_\+mult\+\_\+t\+\_\+s16 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rhs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_a5aea1cb12fc02d9d44c8abf217eaa5c6}{q63\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{bias}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{const int32\+\_\+t}]{dst\+\_\+multiplier}{, }\item[{const int32\+\_\+t}]{dst\+\_\+shift}{, }\item[{const int32\+\_\+t}]{rhs\+\_\+cols}{, }\item[{const int32\+\_\+t}]{rhs\+\_\+rows}{, }\item[{const int32\+\_\+t}]{activation\+\_\+min}{, }\item[{const int32\+\_\+t}]{activation\+\_\+max}{}\end{DoxyParamCaption})}
+
+
+
+s16 Vector by Matrix (transposed) multiplication 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em lhs} & Input left-\/hand side vector \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs} & Input right-\/hand side matrix (transposed) \\
+\hline
+\mbox{\texttt{in}}  & {\em bias} & Input bias \\
+\hline
+\mbox{\texttt{out}}  & {\em dst} & Output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em dst\+\_\+multiplier} & Output multiplier \\
+\hline
+\mbox{\texttt{in}}  & {\em dst\+\_\+shift} & Output shift \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs\+\_\+cols} & Number of columns in the right-\/hand side input matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs\+\_\+rows} & Number of rows in the right-\/hand side input matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+min} & Minimum value to clamp the output to. Range\+: int16 \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+max} & Maximum value to clamp the output to. Range\+: int16\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns {\ttfamily ARM\+\_\+\+MATH\+\_\+\+SUCCESS} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__nn__vec__mat__mult__t__s16_8c_source_l00047}{47}} of file \mbox{\hyperlink{arm__nn__vec__mat__mult__t__s16_8c_source}{arm\+\_\+nn\+\_\+vec\+\_\+mat\+\_\+mult\+\_\+t\+\_\+s16.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_ga721f565a0b8015a3d6d46535cadf63d3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_ga721f565a0b8015a3d6d46535cadf63d3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___n_n_basic_math_ga140e5a1a4c146c8e90491792ed104d70}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_vec\_mat\_mult\_t\_s8@{arm\_nn\_vec\_mat\_mult\_t\_s8}}
+\index{arm\_nn\_vec\_mat\_mult\_t\_s8@{arm\_nn\_vec\_mat\_mult\_t\_s8}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_vec\_mat\_mult\_t\_s8()}{arm\_nn\_vec\_mat\_mult\_t\_s8()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_ga140e5a1a4c146c8e90491792ed104d70} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+nn\+\_\+vec\+\_\+mat\+\_\+mult\+\_\+t\+\_\+s8 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rhs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_adc89a3547f5324b7b3b95adec3806bc0}{q31\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{bias}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{const int32\+\_\+t}]{lhs\+\_\+offset}{, }\item[{const int32\+\_\+t}]{rhs\+\_\+offset}{, }\item[{const int32\+\_\+t}]{dst\+\_\+offset}{, }\item[{const int32\+\_\+t}]{dst\+\_\+multiplier}{, }\item[{const int32\+\_\+t}]{dst\+\_\+shift}{, }\item[{const int32\+\_\+t}]{rhs\+\_\+cols}{, }\item[{const int32\+\_\+t}]{rhs\+\_\+rows}{, }\item[{const int32\+\_\+t}]{activation\+\_\+min}{, }\item[{const int32\+\_\+t}]{activation\+\_\+max}{, }\item[{const int32\+\_\+t}]{address\+\_\+offset}{}\end{DoxyParamCaption})}
+
+
+
+s8 Vector by Matrix (transposed) multiplication 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em lhs} & Input left-\/hand side vector \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs} & Input right-\/hand side matrix (transposed) \\
+\hline
+\mbox{\texttt{in}}  & {\em bias} & Input bias \\
+\hline
+\mbox{\texttt{out}}  & {\em dst} & Output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em lhs\+\_\+offset} & Offset to be added to the input values of the left-\/hand side vector. Range\+: -\/127 to 128 \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs\+\_\+offset} & Not used \\
+\hline
+\mbox{\texttt{in}}  & {\em dst\+\_\+offset} & Offset to be added to the output values. Range\+: -\/127 to 128 \\
+\hline
+\mbox{\texttt{in}}  & {\em dst\+\_\+multiplier} & Output multiplier \\
+\hline
+\mbox{\texttt{in}}  & {\em dst\+\_\+shift} & Output shift \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs\+\_\+cols} & Number of columns in the right-\/hand side input matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs\+\_\+rows} & Number of rows in the right-\/hand side input matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+min} & Minimum value to clamp the output to. Range\+: int8 \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+max} & Maximum value to clamp the output to. Range\+: int8 \\
+\hline
+\mbox{\texttt{in}}  & {\em address\+\_\+offset} & Memory position offset for dst. First output is stored at \textquotesingle{}dst\textquotesingle{}, the second at \textquotesingle{}dst + address\+\_\+offset\textquotesingle{} and so on. Default value is typically 1.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns {\ttfamily ARM\+\_\+\+MATH\+\_\+\+SUCCESS} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__nn__vec__mat__mult__t__s8_8c_source_l00048}{48}} of file \mbox{\hyperlink{arm__nn__vec__mat__mult__t__s8_8c_source}{arm\+\_\+nn\+\_\+vec\+\_\+mat\+\_\+mult\+\_\+t\+\_\+s8.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_ga140e5a1a4c146c8e90491792ed104d70_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_ga140e5a1a4c146c8e90491792ed104d70_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___n_n_basic_math_gac0675e8069a303ce2e8f8ed2a9320859}\index{Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}!arm\_nn\_vec\_mat\_mult\_t\_svdf\_s8@{arm\_nn\_vec\_mat\_mult\_t\_svdf\_s8}}
+\index{arm\_nn\_vec\_mat\_mult\_t\_svdf\_s8@{arm\_nn\_vec\_mat\_mult\_t\_svdf\_s8}!Basic Math Functions for Neural Network Computation@{Basic Math Functions for Neural Network Computation}}
+\doxysubsubsubsection{\texorpdfstring{arm\_nn\_vec\_mat\_mult\_t\_svdf\_s8()}{arm\_nn\_vec\_mat\_mult\_t\_svdf\_s8()}}
+{\footnotesize\ttfamily \label{group___n_n_basic_math_gac0675e8069a303ce2e8f8ed2a9320859} 
+\mbox{\hyperlink{arm__math__types_8h_a5e459c6409dfcd2927bb8a57491d7cf6}{arm\+\_\+status}} arm\+\_\+nn\+\_\+vec\+\_\+mat\+\_\+mult\+\_\+t\+\_\+svdf\+\_\+s8 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const \mbox{\hyperlink{arm__math__types_8h_ae541b6f232c305361e9b416fc9eed263}{q7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rhs}{, }\item[{\mbox{\hyperlink{arm__math__types_8h_ab5a8fb21a5b3b983d5f54f31614052ea}{q15\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{const int32\+\_\+t}]{lhs\+\_\+offset}{, }\item[{const int32\+\_\+t}]{rhs\+\_\+offset}{, }\item[{const int32\+\_\+t}]{scatter\+\_\+offset}{, }\item[{const int32\+\_\+t}]{dst\+\_\+multiplier}{, }\item[{const int32\+\_\+t}]{dst\+\_\+shift}{, }\item[{const int32\+\_\+t}]{rhs\+\_\+cols}{, }\item[{const int32\+\_\+t}]{rhs\+\_\+rows}{, }\item[{const int32\+\_\+t}]{activation\+\_\+min}{, }\item[{const int32\+\_\+t}]{activation\+\_\+max}{}\end{DoxyParamCaption})}
+
+
+
+s8 Vector by Matrix (transposed) multiplication with s16 output 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em lhs} & Input left-\/hand side vector \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs} & Input right-\/hand side matrix (transposed) \\
+\hline
+\mbox{\texttt{out}}  & {\em dst} & Output vector \\
+\hline
+\mbox{\texttt{in}}  & {\em lhs\+\_\+offset} & Offset to be added to the input values of the left-\/hand side vector. Range\+: -\/127 to 128 \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs\+\_\+offset} & Not used \\
+\hline
+\mbox{\texttt{in}}  & {\em scatter\+\_\+offset} & Address offset for dst. First output is stored at \textquotesingle{}dst\textquotesingle{}, the second at \textquotesingle{}dst + scatter\+\_\+offset\textquotesingle{} and so on. \\
+\hline
+\mbox{\texttt{in}}  & {\em dst\+\_\+multiplier} & Output multiplier \\
+\hline
+\mbox{\texttt{in}}  & {\em dst\+\_\+shift} & Output shift \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs\+\_\+cols} & Number of columns in the right-\/hand side input matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em rhs\+\_\+rows} & Number of rows in the right-\/hand side input matrix \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+min} & Minimum value to clamp the output to. Range\+: int16 \\
+\hline
+\mbox{\texttt{in}}  & {\em activation\+\_\+max} & Maximum value to clamp the output to. Range\+: int16\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The function returns {\ttfamily ARM\+\_\+\+MATH\+\_\+\+SUCCESS} 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{arm__nn__vec__mat__mult__t__svdf__s8_8c_source_l00049}{49}} of file \mbox{\hyperlink{arm__nn__vec__mat__mult__t__svdf__s8_8c_source}{arm\+\_\+nn\+\_\+vec\+\_\+mat\+\_\+mult\+\_\+t\+\_\+svdf\+\_\+s8.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_gac0675e8069a303ce2e8f8ed2a9320859_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___n_n_basic_math_gac0675e8069a303ce2e8f8ed2a9320859_icgraph}
+\end{center}
+\end{figure}

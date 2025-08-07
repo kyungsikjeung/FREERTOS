@@ -1,0 +1,7 @@
+<map id="WWDG_HandleTypeDef" name="WWDG_HandleTypeDef">
+<area shape="rect" id="Node000001" title="WWDG handle Structure definition." alt="" coords="57,211,210,280"/>
+<area shape="rect" id="Node000002" href="$struct_w_w_d_g___type_def.html" title="Window WATCHDOG." alt="" coords="5,16,118,128"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,127,115,194,111,196,82,129"/>
+<area shape="rect" id="Node000003" href="$struct_w_w_d_g___init_type_def.html" title="WWDG Init structure definition." alt="" coords="142,5,272,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,139,180,188,174,198,170,195,175,186,192,138"/>
+</map>

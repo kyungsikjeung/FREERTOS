@@ -1,0 +1,33 @@
+<map id="xQueueReceive" name="xQueueReceive">
+<area shape="rect" id="Node000001" title=" " alt="" coords="487,208,602,235"/>
+<area shape="rect" id="Node000002" href="$adc__driver_8c.html#aaf61bdf222fa6f5ec9720369eff97a90" title="ADC 큐에서 데이터 수신" alt="" coords="291,56,439,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="525,196,489,146,465,119,438,97,417,86,419,81,441,92,469,116,493,142,530,193"/>
+<area shape="rect" id="Node000006" href="$adc__driver_8c.html#a4a6cf4ecc0b626f4d64358ad331d0757" title="ADC 측정을 수행하는 FreeRTOS 태스크" alt="" coords="322,107,408,133"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="514,200,479,173,438,148,407,135,409,130,441,143,482,169,518,196"/>
+<area shape="rect" id="Node000008" href="$cmsis__os_8c.html#ac6ad7e6e7d6c4a80e60da22c57a42ccd" title="Get a mail from a queue." alt="" coords="325,157,405,184"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="479,206,405,184,406,179,481,201"/>
+<area shape="rect" id="Node000009" href="$cmsis__os_8c.html#a6c6892b8f2296cca6becd57ca2d7e1ae" title="Get a Message or Wait for a Message from a Queue." alt="" coords="310,208,420,235"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="472,224,420,224,420,219,472,219"/>
+<area shape="rect" id="Node000010" href="$3__2__queue__queuingpointers_8c.html#a9d93014f8bf058a6984c15b1e4427184" title=" " alt="" coords="314,259,416,285"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="481,242,416,261,414,256,479,237"/>
+<area shape="rect" id="Node000012" href="$3__5__queue__queueset_8c.html#a365255f27e73e0893b7886f57d45844a" title=" " alt="" coords="311,309,419,336"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="518,247,482,274,441,300,414,311,412,306,438,295,479,270,514,243"/>
+<area shape="rect" id="Node000014" href="$7__2__eventhandlingqueue_8c.html#a3aad97e7d35c549438e6111b40e76e0f" title=" " alt="" coords="324,360,407,387"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="530,250,493,300,469,327,441,350,408,366,406,361,438,346,465,323,489,297,525,247"/>
+<area shape="rect" id="Node000003" href="$test_8c.html#aa7eff00fa291676a4fa13c205e93c695" title="ADC 실시간 모니터링 태스크" alt="" coords="105,5,240,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="296,54,226,35,227,30,297,49"/>
+<area shape="rect" id="Node000005" href="$test_8c.html#abc1ca7d958b0651ca5045c3c94ca9500" title="ADC 데이터 분석 및 처리 태스크" alt="" coords="103,56,243,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="275,72,244,72,244,67,275,67"/>
+<area shape="rect" id="Node000004" href="$test_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="메인 함수 &#45; 시스템 초기화 및 FreeRTOS 시작" alt="" coords="5,56,55,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="120,40,56,63,54,58,118,35"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="87,72,55,72,55,67,87,67"/>
+<area shape="rect" id="Node000007" href="$adc__driver_8c.html#a4acb6ac811c38d9fbbe486ce6fca9535" title="ADC 드라이버 초기화" alt="" coords="114,107,232,133"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="307,123,232,123,232,117,307,117"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="118,103,54,80,56,75,120,98"/>
+<area shape="rect" id="Node000011" href="$3__2__queue__queuingpointers_8c.html#abf9e6b7e6f15df4b525a2e7705ba3089" title=" " alt="" coords="148,259,198,285"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="299,275,198,275,198,269,299,269"/>
+<area shape="rect" id="Node000013" href="$3__5__queue__queueset_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="148,309,198,336"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="295,325,198,325,198,320,295,320"/>
+<area shape="rect" id="Node000015" href="$7__2__eventhandlingqueue_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="148,360,198,387"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="308,376,198,376,198,371,308,371"/>
+</map>

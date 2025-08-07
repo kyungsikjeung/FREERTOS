@@ -1,0 +1,21 @@
+<map id="arm_fill_q15" name="arm_fill_q15">
+<area shape="rect" id="Node000001" title="Fills a constant value into a Q15 vector." alt="" coords="227,224,318,251"/>
+<area shape="rect" id="Node000002" href="$group___conv.html#ga8ecd292b8e74c8f05b208e7948d05a90" title="Convolution of Q15 sequences (fast version) for Cortex&#45;M3 and Cortex&#45;M4." alt="" coords="12,5,172,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="263,210,252,173,235,128,210,84,177,46,159,35,162,30,180,42,215,81,240,126,257,171,268,208"/>
+<area shape="rect" id="Node000003" href="$group___conv.html#ga0d60c7a8349c6235d88bf87b04172252" title="Convolution of Q15 sequences." alt="" coords="26,56,158,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="258,211,227,153,204,122,177,97,157,85,159,81,180,93,208,119,231,150,263,208"/>
+<area shape="rect" id="Node000004" href="$group___conv.html#gaf23966af04840f17c26c93849986baeb" title="Convolution of Q7 sequences." alt="" coords="30,107,154,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="250,214,218,180,177,148,153,136,155,132,180,143,222,176,254,210"/>
+<area shape="rect" id="Node000005" href="$group___partial_conv.html#ga0cdb871f952b8c1305342ae499affa41" title="Partial convolution of Q15 sequences (fast version) for Cortex&#45;M3 and Cortex&#45;M4." alt="" coords="17,157,167,200"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="214,221,159,203,161,198,216,216"/>
+<area shape="rect" id="Node000006" href="$group___partial_conv.html#gaa82f8213533529e9b9252b37fd3b39e4" title="Partial convolution of Q15 sequences." alt="" coords="5,224,179,251"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="211,240,179,240,179,235,211,235"/>
+<area shape="rect" id="Node000007" href="$group___partial_conv.html#gadfc0cd0290793c790ccaa1c73eda0694" title="Partial convolution of Q7 sequences." alt="" coords="9,275,175,301"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="212,257,143,277,141,272,211,252"/>
+<area shape="rect" id="Node000008" href="$group___corr.html#ga3fc8d680844a3d24af25e45df96c82f3" title="Correlation of Q15 sequences (fast version)." alt="" coords="27,325,157,368"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="248,264,217,290,180,316,158,327,155,322,177,311,213,286,244,260"/>
+<area shape="rect" id="Node000009" href="$group___corr.html#ga3cfae563b16fa3be577cab5acf63aeea" title="Correlation of Q15 sequences." alt="" coords="15,392,169,419"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="263,266,231,325,208,356,180,382,159,394,157,389,177,378,204,352,227,322,258,264"/>
+<area shape="rect" id="Node000010" href="$group___corr.html#ga3c672e8ef8360c652d351097535f080d" title="Correlation of Q7 sequences." alt="" coords="19,443,165,469"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="268,266,257,304,240,349,215,394,180,433,162,444,159,440,177,429,210,391,235,346,252,302,263,265"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="arm_nn_vec_mat_mult_t_svdf_s8" name="arm_nn_vec_mat_mult_t_svdf_s8">
+<area shape="rect" id="Node000001" title="s8 Vector by Matrix (transposed) multiplication with s16 output" alt="" coords="5,73,159,116"/>
+<area shape="rect" id="Node000002" href="$_core___a_2_include_2cmsis__gcc_8h.html#ad92ce801e7aab7ef1bd2698cb523c1de" title=" " alt="" coords="244,5,318,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,70,206,42,228,33,230,38,208,46,136,75"/>
+<area shape="rect" id="Node000003" href="$_core___a_2_include_2cmsis__gcc_8h.html#a61b23642ffa771bbe7da998f98e3f75e" title=" " alt="" coords="240,56,322,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,82,225,74,225,79,160,88"/>
+<area shape="rect" id="Node000004" href="$arm__nnsupportfunctions_8h.html#ac9f7be20432a6926ac07c1f44b1b02fe" title="Read 4 q7 from q7 pointer and post increment pointer." alt="" coords="207,107,355,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,102,192,106,191,111,159,107"/>
+<area shape="rect" id="Node000005" href="$arm__nnsupportfunctions_8h.html#a6a13b7a567485da5fc7f0d311318886d" title="Requantize a given value." alt="" coords="215,157,346,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="136,114,208,143,225,149,223,154,206,148,134,119"/>
+<area shape="rect" id="Node000006" href="$arm__nnsupportfunctions_8h.html#ab6dbc2fd53fae3ccdd1d0d70c8d3b491" title="Rounding divide by power of two." alt="" coords="403,116,571,159"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="346,157,387,151,388,156,347,163"/>
+<area shape="rect" id="Node000007" href="$arm__nnsupportfunctions_8h.html#a4e5183e2400227aafc91fb796fe99a6d" title="Doubling high multiply without saturation. This is intended for requantization where the scale is a p..." alt="" coords="412,183,562,225"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="347,179,397,187,396,192,346,184"/>
+</map>

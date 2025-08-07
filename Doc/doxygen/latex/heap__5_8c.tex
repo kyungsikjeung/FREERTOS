@@ -1,0 +1,198 @@
+\doxysection{C\+:/\+Users/\+TOVIS/test/\+Test\+Rtos/\+Middlewares/\+Third\+\_\+\+Party/\+Free\+RTOS/\+Source/portable/\+Mem\+Mang/heap\+\_\+5.c File Reference}
+\hypertarget{heap__5_8c}{}\label{heap__5_8c}\index{C:/Users/TOVIS/test/TestRtos/Middlewares/Third\_Party/FreeRTOS/Source/portable/MemMang/heap\_5.c@{C:/Users/TOVIS/test/TestRtos/Middlewares/Third\_Party/FreeRTOS/Source/portable/MemMang/heap\_5.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}Free\+RTOS.\+h"{}}\newline
+{\ttfamily \#include "{}task.\+h"{}}\newline
+Include dependency graph for heap\+\_\+5.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{heap__5_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k}{A\+\_\+\+BLOCK\+\_\+\+LINK}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{heap__5_8c_ab622d8c674f2a417a666a7ed89109e79}{MPU\+\_\+\+WRAPPERS\+\_\+\+INCLUDED\+\_\+\+FROM\+\_\+\+API\+\_\+\+FILE}}
+\item 
+\#define \mbox{\hyperlink{heap__5_8c_ab71bae5a95671265c828339d44c44b25}{heap\+MINIMUM\+\_\+\+BLOCK\+\_\+\+SIZE}}~( ( size\+\_\+t ) ( x\+Heap\+Struct\+Size $<$$<$ 1 ) )
+\item 
+\#define \mbox{\hyperlink{heap__5_8c_adcef0c4245ebe20ca2b08a574c1caac9}{heap\+BITS\+\_\+\+PER\+\_\+\+BYTE}}~( ( size\+\_\+t ) 8 )
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k}{A\+\_\+\+BLOCK\+\_\+\+LINK}} \mbox{\hyperlink{heap__5_8c_a5867d4b64d89c6ab51e4783687f8960a}{Block\+Link\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{heap__5_8c_ac56bcb7515f081a5b3df83935499fa4a}{pv\+Port\+Malloc}} (size\+\_\+t x\+Wanted\+Size)
+\item 
+void \mbox{\hyperlink{heap__5_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b}{v\+Port\+Free}} (void \texorpdfstring{$\ast$}{*}pv)
+\item 
+size\+\_\+t \mbox{\hyperlink{heap__5_8c_a0c28a12b313bc248be0cb7a37ed81bb7}{x\+Port\+Get\+Free\+Heap\+Size}} (void)
+\item 
+size\+\_\+t \mbox{\hyperlink{heap__5_8c_ab222e4545b8ff12b62fd000fea6b34eb}{x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size}} (void)
+\item 
+void \mbox{\hyperlink{heap__5_8c_ab13f7c55a8661da7bba3ef95f1282aee}{v\+Port\+Define\+Heap\+Regions}} (const \mbox{\hyperlink{portable_8h_acce46e1bf21496c11f2b1e49ded2882b}{Heap\+Region\+\_\+t}} \texorpdfstring{$\ast$}{*}const px\+Heap\+Regions)
+\item 
+void \mbox{\hyperlink{heap__5_8c_abbecc6cff952357f60cce5014ecbe470}{v\+Port\+Get\+Heap\+Stats}} (\mbox{\hyperlink{portable_8h_aebfa6771f45f6a5ac026e91ee2fd57f4}{Heap\+Stats\+\_\+t}} \texorpdfstring{$\ast$}{*}px\+Heap\+Stats)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{heap__5_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{heap__5_8c_adcef0c4245ebe20ca2b08a574c1caac9}\index{heap\_5.c@{heap\_5.c}!heapBITS\_PER\_BYTE@{heapBITS\_PER\_BYTE}}
+\index{heapBITS\_PER\_BYTE@{heapBITS\_PER\_BYTE}!heap\_5.c@{heap\_5.c}}
+\doxysubsubsection{\texorpdfstring{heapBITS\_PER\_BYTE}{heapBITS\_PER\_BYTE}}
+{\footnotesize\ttfamily \label{heap__5_8c_adcef0c4245ebe20ca2b08a574c1caac9} 
+\#define heap\+BITS\+\_\+\+PER\+\_\+\+BYTE~( ( size\+\_\+t ) 8 )}
+
+
+
+Definition at line \mbox{\hyperlink{heap__5_8c_source_l00090}{90}} of file \mbox{\hyperlink{heap__5_8c_source}{heap\+\_\+5.\+c}}.
+
+\Hypertarget{heap__5_8c_ab71bae5a95671265c828339d44c44b25}\index{heap\_5.c@{heap\_5.c}!heapMINIMUM\_BLOCK\_SIZE@{heapMINIMUM\_BLOCK\_SIZE}}
+\index{heapMINIMUM\_BLOCK\_SIZE@{heapMINIMUM\_BLOCK\_SIZE}!heap\_5.c@{heap\_5.c}}
+\doxysubsubsection{\texorpdfstring{heapMINIMUM\_BLOCK\_SIZE}{heapMINIMUM\_BLOCK\_SIZE}}
+{\footnotesize\ttfamily \label{heap__5_8c_ab71bae5a95671265c828339d44c44b25} 
+\#define heap\+MINIMUM\+\_\+\+BLOCK\+\_\+\+SIZE~( ( size\+\_\+t ) ( x\+Heap\+Struct\+Size $<$$<$ 1 ) )}
+
+
+
+Definition at line \mbox{\hyperlink{heap__5_8c_source_l00087}{87}} of file \mbox{\hyperlink{heap__5_8c_source}{heap\+\_\+5.\+c}}.
+
+\Hypertarget{heap__5_8c_ab622d8c674f2a417a666a7ed89109e79}\index{heap\_5.c@{heap\_5.c}!MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE@{MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}}
+\index{MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE@{MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}!heap\_5.c@{heap\_5.c}}
+\doxysubsubsection{\texorpdfstring{MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}{MPU\_WRAPPERS\_INCLUDED\_FROM\_API\_FILE}}
+{\footnotesize\ttfamily \label{heap__5_8c_ab622d8c674f2a417a666a7ed89109e79} 
+\#define MPU\+\_\+\+WRAPPERS\+\_\+\+INCLUDED\+\_\+\+FROM\+\_\+\+API\+\_\+\+FILE}
+
+
+
+Definition at line \mbox{\hyperlink{heap__5_8c_source_l00075}{75}} of file \mbox{\hyperlink{heap__5_8c_source}{heap\+\_\+5.\+c}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{heap__5_8c_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{heap__5_8c_a5867d4b64d89c6ab51e4783687f8960a}\index{heap\_5.c@{heap\_5.c}!BlockLink\_t@{BlockLink\_t}}
+\index{BlockLink\_t@{BlockLink\_t}!heap\_5.c@{heap\_5.c}}
+\doxysubsubsection{\texorpdfstring{BlockLink\_t}{BlockLink\_t}}
+{\footnotesize\ttfamily \label{heap__5_8c_a5867d4b64d89c6ab51e4783687f8960a} 
+typedef struct \mbox{\hyperlink{struct_a___b_l_o_c_k___l_i_n_k}{A\+\_\+\+BLOCK\+\_\+\+LINK}} \mbox{\hyperlink{heap__2_8c_a5867d4b64d89c6ab51e4783687f8960a}{Block\+Link\+\_\+t}}}
+
+
+
+\label{doc-func-members}
+\Hypertarget{heap__5_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{heap__5_8c_ac56bcb7515f081a5b3df83935499fa4a}\index{heap\_5.c@{heap\_5.c}!pvPortMalloc@{pvPortMalloc}}
+\index{pvPortMalloc@{pvPortMalloc}!heap\_5.c@{heap\_5.c}}
+\doxysubsubsection{\texorpdfstring{pvPortMalloc()}{pvPortMalloc()}}
+{\footnotesize\ttfamily \label{heap__5_8c_ac56bcb7515f081a5b3df83935499fa4a} 
+void \texorpdfstring{$\ast$}{*} pv\+Port\+Malloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{x\+Wanted\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{heap__5_8c_source_l00134}{134}} of file \mbox{\hyperlink{heap__5_8c_source}{heap\+\_\+5.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{heap__5_8c_ac56bcb7515f081a5b3df83935499fa4a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{heap__5_8c_ac56bcb7515f081a5b3df83935499fa4a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{heap__5_8c_ab13f7c55a8661da7bba3ef95f1282aee}\index{heap\_5.c@{heap\_5.c}!vPortDefineHeapRegions@{vPortDefineHeapRegions}}
+\index{vPortDefineHeapRegions@{vPortDefineHeapRegions}!heap\_5.c@{heap\_5.c}}
+\doxysubsubsection{\texorpdfstring{vPortDefineHeapRegions()}{vPortDefineHeapRegions()}}
+{\footnotesize\ttfamily \label{heap__5_8c_ab13f7c55a8661da7bba3ef95f1282aee} 
+void v\+Port\+Define\+Heap\+Regions (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{portable_8h_acce46e1bf21496c11f2b1e49ded2882b}{Heap\+Region\+\_\+t}} \texorpdfstring{$\ast$}{*}const}]{px\+Heap\+Regions}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{heap__5_8c_source_l00397}{397}} of file \mbox{\hyperlink{heap__5_8c_source}{heap\+\_\+5.\+c}}.
+
+\Hypertarget{heap__5_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b}\index{heap\_5.c@{heap\_5.c}!vPortFree@{vPortFree}}
+\index{vPortFree@{vPortFree}!heap\_5.c@{heap\_5.c}}
+\doxysubsubsection{\texorpdfstring{vPortFree()}{vPortFree()}}
+{\footnotesize\ttfamily \label{heap__5_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b} 
+void v\+Port\+Free (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{heap__5_8c_source_l00275}{275}} of file \mbox{\hyperlink{heap__5_8c_source}{heap\+\_\+5.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{heap__5_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{heap__5_8c_a1e7cea2fd1bc894ea3b5f5e8179d259b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{heap__5_8c_abbecc6cff952357f60cce5014ecbe470}\index{heap\_5.c@{heap\_5.c}!vPortGetHeapStats@{vPortGetHeapStats}}
+\index{vPortGetHeapStats@{vPortGetHeapStats}!heap\_5.c@{heap\_5.c}}
+\doxysubsubsection{\texorpdfstring{vPortGetHeapStats()}{vPortGetHeapStats()}}
+{\footnotesize\ttfamily \label{heap__5_8c_abbecc6cff952357f60cce5014ecbe470} 
+void v\+Port\+Get\+Heap\+Stats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{portable_8h_aebfa6771f45f6a5ac026e91ee2fd57f4}{Heap\+Stats\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{px\+Heap\+Stats}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{heap__5_8c_source_l00491}{491}} of file \mbox{\hyperlink{heap__5_8c_source}{heap\+\_\+5.\+c}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{heap__5_8c_abbecc6cff952357f60cce5014ecbe470_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{heap__5_8c_a0c28a12b313bc248be0cb7a37ed81bb7}\index{heap\_5.c@{heap\_5.c}!xPortGetFreeHeapSize@{xPortGetFreeHeapSize}}
+\index{xPortGetFreeHeapSize@{xPortGetFreeHeapSize}!heap\_5.c@{heap\_5.c}}
+\doxysubsubsection{\texorpdfstring{xPortGetFreeHeapSize()}{xPortGetFreeHeapSize()}}
+{\footnotesize\ttfamily \label{heap__5_8c_a0c28a12b313bc248be0cb7a37ed81bb7} 
+size\+\_\+t x\+Port\+Get\+Free\+Heap\+Size (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{heap__5_8c_source_l00324}{324}} of file \mbox{\hyperlink{heap__5_8c_source}{heap\+\_\+5.\+c}}.
+
+\Hypertarget{heap__5_8c_ab222e4545b8ff12b62fd000fea6b34eb}\index{heap\_5.c@{heap\_5.c}!xPortGetMinimumEverFreeHeapSize@{xPortGetMinimumEverFreeHeapSize}}
+\index{xPortGetMinimumEverFreeHeapSize@{xPortGetMinimumEverFreeHeapSize}!heap\_5.c@{heap\_5.c}}
+\doxysubsubsection{\texorpdfstring{xPortGetMinimumEverFreeHeapSize()}{xPortGetMinimumEverFreeHeapSize()}}
+{\footnotesize\ttfamily \label{heap__5_8c_ab222e4545b8ff12b62fd000fea6b34eb} 
+size\+\_\+t x\+Port\+Get\+Minimum\+Ever\+Free\+Heap\+Size (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{heap__5_8c_source_l00330}{330}} of file \mbox{\hyperlink{heap__5_8c_source}{heap\+\_\+5.\+c}}.
+

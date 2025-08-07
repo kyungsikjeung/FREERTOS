@@ -1,0 +1,188 @@
+\doxysection{arm\+\_\+class\+\_\+marks\+\_\+example\+\_\+f32.\+c}
+\hypertarget{arm__class__marks__example__f32_8c_source}{}\label{arm__class__marks__example__f32_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_class\_marks\_example/arm\_class\_marks\_example\_f32.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/DSP/Examples/ARM/arm\_class\_marks\_example/arm\_class\_marks\_example\_f32.c}}
+\mbox{\hyperlink{arm__class__marks__example__f32_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00001}00001\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00002}00002\ \textcolor{comment}{*\ Copyright\ (C)\ 2010-\/2012\ ARM\ Limited.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00003}00003\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00004}00004\ \textcolor{comment}{*\ \$Date:\ \ \ \ \ \ \ \ \ 17.\ January\ 2013}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00005}00005\ \textcolor{comment}{*\ \$Revision:\ \ \ \ \ V1.4.0}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00006}00006\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00007}00007\ \textcolor{comment}{*\ Project:\ \ \ \ \ \ \ CMSIS\ DSP\ Library}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00008}00008\ \textcolor{comment}{*\ Title:\ \ \ \ \ \ \ \ \ arm\_class\_marks\_example\_f32.c}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00009}00009\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00010}00010\ \textcolor{comment}{*\ Description:\ \ \ Example\ code\ to\ calculate\ Minimum,\ Maximum}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00011}00011\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Mean,\ std\ and\ variance\ of\ marks\ obtained\ in\ a\ class}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00012}00012\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00013}00013\ \textcolor{comment}{*\ Target\ Processor:\ Cortex-\/M4/Cortex-\/M3}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00014}00014\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00015}00015\ \textcolor{comment}{*\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00016}00016\ \textcolor{comment}{*\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00017}00017\ \textcolor{comment}{*\ are\ met:}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00018}00018\ \textcolor{comment}{*\ \ \ -\/\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00019}00019\ \textcolor{comment}{*\ \ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00020}00020\ \textcolor{comment}{*\ \ \ -\/\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00021}00021\ \textcolor{comment}{*\ \ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00022}00022\ \textcolor{comment}{*\ \ \ \ \ the\ documentation\ and/or\ other\ materials\ provided\ with\ the}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00023}00023\ \textcolor{comment}{*\ \ \ \ \ distribution.}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00024}00024\ \textcolor{comment}{*\ \ \ -\/\ Neither\ the\ name\ of\ ARM\ LIMITED\ nor\ the\ names\ of\ its\ contributors}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00025}00025\ \textcolor{comment}{*\ \ \ \ \ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived\ from\ this}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00026}00026\ \textcolor{comment}{*\ \ \ \ \ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00027}00027\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00028}00028\ \textcolor{comment}{*\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00029}00029\ \textcolor{comment}{*\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00030}00030\ \textcolor{comment}{*\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00031}00031\ \textcolor{comment}{*\ FOR\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00032}00032\ \textcolor{comment}{*\ COPYRIGHT\ OWNER\ OR\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00033}00033\ \textcolor{comment}{*\ INCIDENTAL,\ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00034}00034\ \textcolor{comment}{*\ BUT\ NOT\ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00035}00035\ \textcolor{comment}{*\ LOSS\ OF\ USE,\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00036}00036\ \textcolor{comment}{*\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00037}00037\ \textcolor{comment}{*\ LIABILITY,\ OR\ TORT\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00038}00038\ \textcolor{comment}{*\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00039}00039\ \textcolor{comment}{*\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00040}00040\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00084}00084\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{arm__math_8h}{arm\_math.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00086}00086\ \textcolor{preprocessor}{\#if\ defined(SEMIHOSTING)}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00087}00087\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00088}00088\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00090}\mbox{\hyperlink{arm__class__marks__example__f32_8c_a821d6c5973940580f5a045e7cf64b7f2}{00090}}\ \textcolor{preprocessor}{\#define\ USE\_STATIC\_INIT}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00092}00092\ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00093}00093\ \textcolor{comment}{**\ Global\ defines}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00094}00094\ \textcolor{comment}{**\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00096}\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{00096}}\ \textcolor{preprocessor}{\#define\ TEST\_LENGTH\_SAMPLES\ \ \ (20*4)}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00098}00098\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00099}00099\ \textcolor{comment}{**\ List\ of\ Marks\ scored\ by\ 20\ students\ for\ 4\ subjects}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00100}00100\ \textcolor{comment}{**\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00101}\mbox{\hyperlink{arm__class__marks__example__f32_8c_a0153222efa82b7f1a0ea3835921bf921}{00101}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_a0153222efa82b7f1a0ea3835921bf921}{testMarks\_f32}}[\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\_LENGTH\_SAMPLES}}]\ =}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00102}00102\ \{}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00103}00103\ \ \ 42.000000,\ \ 37.000000,\ \ 81.000000,\ \ 28.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00104}00104\ \ \ 83.000000,\ \ 72.000000,\ \ 36.000000,\ \ 38.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00105}00105\ \ \ 32.000000,\ \ 51.000000,\ \ 63.000000,\ \ 64.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00106}00106\ \ \ 97.000000,\ \ 82.000000,\ \ 95.000000,\ \ 90.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00107}00107\ \ \ 66.000000,\ \ 51.000000,\ \ 54.000000,\ \ 42.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00108}00108\ \ \ 67.000000,\ \ 56.000000,\ \ 45.000000,\ \ 57.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00109}00109\ \ \ 67.000000,\ \ 69.000000,\ \ 35.000000,\ \ 52.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00110}00110\ \ \ 29.000000,\ \ 81.000000,\ \ 58.000000,\ \ 47.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00111}00111\ \ \ 38.000000,\ \ 76.000000,\ 100.000000,\ \ 29.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00112}00112\ \ \ 33.000000,\ \ 47.000000,\ \ 29.000000,\ \ 50.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00113}00113\ \ \ 34.000000,\ \ 41.000000,\ \ 61.000000,\ \ 46.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00114}00114\ \ \ 52.000000,\ \ 50.000000,\ \ 48.000000,\ \ 36.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00115}00115\ \ \ 47.000000,\ \ 55.000000,\ \ 44.000000,\ \ 40.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00116}00116\ \ 100.000000,\ \ 94.000000,\ \ 84.000000,\ \ 37.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00117}00117\ \ \ 32.000000,\ \ 71.000000,\ \ 47.000000,\ \ 77.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00118}00118\ \ \ 31.000000,\ \ 50.000000,\ \ 49.000000,\ \ 35.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00119}00119\ \ \ 63.000000,\ \ 67.000000,\ \ 40.000000,\ \ 31.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00120}00120\ \ \ 29.000000,\ \ 68.000000,\ \ 61.000000,\ \ 38.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00121}00121\ \ \ 31.000000,\ \ 28.000000,\ \ 28.000000,\ \ 76.000000,}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00122}00122\ \ \ 55.000000,\ \ 33.000000,\ \ 29.000000,\ \ 39.000000}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00123}00123\ \};}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00126}00126\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00127}00127\ \textcolor{comment}{*\ Number\ of\ subjects\ X\ 1}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00128}00128\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00129}\mbox{\hyperlink{arm__class__marks__example__f32_8c_a993b9b2a1faf43b319c1c6d58b26e7a1}{00129}}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_a993b9b2a1faf43b319c1c6d58b26e7a1}{testUnity\_f32}}[4]\ =}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00130}00130\ \{}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00131}00131\ \ \ 1.000,\ \ 1.000,\ \ \ 1.000,\ \ 1.000}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00132}00132\ \};}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00135}00135\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00136}00136\ \textcolor{comment}{**\ f32\ Output\ buffer}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00137}00137\ \textcolor{comment}{**\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00138}00138\ \textcolor{keyword}{static}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ testOutput[\mbox{\hyperlink{arm__class__marks__example__f32_8c_abc004a7fade488e72310fd96c0a101dc}{TEST\_LENGTH\_SAMPLES}}];}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00141}00141\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00142}00142\ \textcolor{comment}{*\ Global\ defines}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00143}00143\ \textcolor{comment}{*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00144}\mbox{\hyperlink{arm__class__marks__example__f32_8c_a9d89ac0707e7c9363544986d47a70bd3}{00144}}\ \textcolor{preprocessor}{\#define\ \ \ NUMSTUDENTS\ \ 20}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00145}\mbox{\hyperlink{arm__class__marks__example__f32_8c_a7b02f9b34bf2cd4d12633f5bf30771ec}{00145}}\ \textcolor{preprocessor}{\#define\ \ \ \ \ NUMSUBJECTS\ \ 4}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00147}00147\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00148}00148\ \textcolor{comment}{*\ Global\ variables}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00149}00149\ \textcolor{comment}{*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00151}\mbox{\hyperlink{arm__class__marks__example__f32_8c_ab3b66d06b4af1af4ea2740d0ccf4e7bd}{00151}}\ \ uint32\_t\ \ \ \ \mbox{\hyperlink{arm__class__marks__example__f32_8c_ab3b66d06b4af1af4ea2740d0ccf4e7bd}{numStudents}}\ =\ 20;}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00152}\mbox{\hyperlink{arm__class__marks__example__f32_8c_a3d01884f63bcb694226ca7c24980757a}{00152}}\ \ uint32\_t\ \ \ \ \mbox{\hyperlink{arm__class__marks__example__f32_8c_a3d01884f63bcb694226ca7c24980757a}{numSubjects}}\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00153}\mbox{\hyperlink{arm__class__marks__example__f32_8c_aad32888fa966b3d9db9c31bcbba9d9ef}{00153}}\ \mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ \ \ \ \mbox{\hyperlink{arm__class__marks__example__f32_8c_aad32888fa966b3d9db9c31bcbba9d9ef}{max\_marks}},\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_abb7687fa07ec54d8e792cfcbfe2ca809}{min\_marks}},\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_acc9290716b3c97381ce52d14b4b01681}{mean}},\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_a150b0cf729b51893379f5b5548d4f989}{std}},\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_a3bd39c4335d84be071cc1eaa9b0a8642}{var}};}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00154}\mbox{\hyperlink{arm__class__marks__example__f32_8c_a798cf43a3725d7df2fcaf3f328969f53}{00154}}\ \ uint32\_t\ \ \ \ \mbox{\hyperlink{arm__class__marks__example__f32_8c_a798cf43a3725d7df2fcaf3f328969f53}{student\_num}};}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00156}00156\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00157}00157\ \textcolor{comment}{*\ Main\ f32\ test\ function.\ \ It\ returns\ maximum\ marks\ secured\ and\ student\ number}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00158}00158\ \textcolor{comment}{*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00160}\mbox{\hyperlink{arm__class__marks__example__f32_8c_a196718f834091385d38586a0ce4009dc}{00160}}\ int32\_t\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_a196718f834091385d38586a0ce4009dc}{main}}()}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00161}00161\ \{}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00163}00163\ \textcolor{preprocessor}{\#ifndef\ \ USE\_STATIC\_INIT}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00165}00165\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ srcA;}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00166}00166\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ srcB;}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00167}00167\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ dstC;}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00169}00169\ \ \ \textcolor{comment}{/*\ Input\ and\ output\ matrices\ initializations\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00170}00170\ \ \ \mbox{\hyperlink{group___matrix_init_ga11e3dc41592a6401c13182fef9416a27}{arm\_mat\_init\_f32}}(\&srcA,\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_ab3b66d06b4af1af4ea2740d0ccf4e7bd}{numStudents}},\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_a3d01884f63bcb694226ca7c24980757a}{numSubjects}},\ (\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ *)\mbox{\hyperlink{arm__class__marks__example__f32_8c_a0153222efa82b7f1a0ea3835921bf921}{testMarks\_f32}});}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00171}00171\ \ \ \mbox{\hyperlink{group___matrix_init_ga11e3dc41592a6401c13182fef9416a27}{arm\_mat\_init\_f32}}(\&srcB,\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_a3d01884f63bcb694226ca7c24980757a}{numSubjects}},\ 1,\ (\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ *)\mbox{\hyperlink{arm__class__marks__example__f32_8c_a993b9b2a1faf43b319c1c6d58b26e7a1}{testUnity\_f32}});}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00172}00172\ \ \ \mbox{\hyperlink{group___matrix_init_ga11e3dc41592a6401c13182fef9416a27}{arm\_mat\_init\_f32}}(\&dstC,\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_ab3b66d06b4af1af4ea2740d0ccf4e7bd}{numStudents}},\ 1,\ testOutput);}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00174}00174\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00176}00176\ \ \ \textcolor{comment}{/*\ Static\ Initializations\ of\ Input\ and\ output\ matrix\ sizes\ and\ array\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00177}00177\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ srcA\ =\ \{\mbox{\hyperlink{arm__class__marks__example__f32_8c_a9d89ac0707e7c9363544986d47a70bd3}{NUMSTUDENTS}},\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_a7b02f9b34bf2cd4d12633f5bf30771ec}{NUMSUBJECTS}},\ (\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ *)\mbox{\hyperlink{arm__class__marks__example__f32_8c_a0153222efa82b7f1a0ea3835921bf921}{testMarks\_f32}}\};}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00178}00178\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ srcB\ =\ \{\mbox{\hyperlink{arm__class__marks__example__f32_8c_a7b02f9b34bf2cd4d12633f5bf30771ec}{NUMSUBJECTS}},\ 1,\ (\mbox{\hyperlink{arm__math__types_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}}\ *)\mbox{\hyperlink{arm__class__marks__example__f32_8c_a993b9b2a1faf43b319c1c6d58b26e7a1}{testUnity\_f32}}\};}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00179}00179\ \ \ \mbox{\hyperlink{structarm__matrix__instance__f32}{arm\_matrix\_instance\_f32}}\ dstC\ =\ \{\mbox{\hyperlink{arm__class__marks__example__f32_8c_a9d89ac0707e7c9363544986d47a70bd3}{NUMSTUDENTS}},\ 1,\ testOutput\};}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00181}00181\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00184}00184\ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00185}00185\ \textcolor{comment}{\ \ *Call\ the\ Matrix\ multiplication\ process\ function}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00186}00186\ \textcolor{comment}{\ \ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00187}00187\ \ \ \mbox{\hyperlink{group___matrix_mult_ga917bf0270310c1d3f0eda1fc7c0026a0}{arm\_mat\_mult\_f32}}(\&srcA,\ \&srcB,\ \&dstC);}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00189}00189\ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00190}00190\ \textcolor{comment}{\ \ **\ Call\ the\ Max\ function\ to\ calculate\ max\ marks\ among\ numStudents}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00191}00191\ \textcolor{comment}{\ \ **\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00192}00192\ \ \ \mbox{\hyperlink{group___max_gad1eabd31544fe59c414d9ce5bd0cc151}{arm\_max\_f32}}(testOutput,\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_ab3b66d06b4af1af4ea2740d0ccf4e7bd}{numStudents}},\ \&\mbox{\hyperlink{arm__class__marks__example__f32_8c_aad32888fa966b3d9db9c31bcbba9d9ef}{max\_marks}},\ \&\mbox{\hyperlink{arm__class__marks__example__f32_8c_a798cf43a3725d7df2fcaf3f328969f53}{student\_num}});}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00194}00194\ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00195}00195\ \textcolor{comment}{\ \ **\ Call\ the\ Min\ function\ to\ calculate\ min\ marks\ among\ numStudents}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00196}00196\ \textcolor{comment}{\ \ **\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00197}00197\ \ \ \mbox{\hyperlink{group___min_ga514e2c920c432e1a3df2cb03f01d2797}{arm\_min\_f32}}(testOutput,\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_ab3b66d06b4af1af4ea2740d0ccf4e7bd}{numStudents}},\ \&\mbox{\hyperlink{arm__class__marks__example__f32_8c_abb7687fa07ec54d8e792cfcbfe2ca809}{min\_marks}},\ \&\mbox{\hyperlink{arm__class__marks__example__f32_8c_a798cf43a3725d7df2fcaf3f328969f53}{student\_num}});}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00199}00199\ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00200}00200\ \textcolor{comment}{\ \ **\ Call\ the\ Mean\ function\ to\ calculate\ mean}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00201}00201\ \textcolor{comment}{\ \ **\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00202}00202\ \ \ \mbox{\hyperlink{group__mean_gae4fb7698771d7c24f536ed24347c1488}{arm\_mean\_f32}}(testOutput,\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_ab3b66d06b4af1af4ea2740d0ccf4e7bd}{numStudents}},\ \&\mbox{\hyperlink{arm__class__marks__example__f32_8c_acc9290716b3c97381ce52d14b4b01681}{mean}});}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00204}00204\ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00205}00205\ \textcolor{comment}{\ \ **\ Call\ the\ std\ function\ to\ calculate\ standard\ deviation}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00206}00206\ \textcolor{comment}{\ \ **\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00207}00207\ \ \ \mbox{\hyperlink{group___s_t_d_ga287b6ce703636c7e8cb9833b290ae4ce}{arm\_std\_f32}}(testOutput,\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_ab3b66d06b4af1af4ea2740d0ccf4e7bd}{numStudents}},\ \&\mbox{\hyperlink{arm__class__marks__example__f32_8c_a150b0cf729b51893379f5b5548d4f989}{std}});}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00209}00209\ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00210}00210\ \textcolor{comment}{\ \ **\ Call\ the\ var\ function\ to\ calculate\ variance}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00211}00211\ \textcolor{comment}{\ \ **\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00212}00212\ \ \ \mbox{\hyperlink{group__variance_gaae455544f0c8ac92469a1e25d3906515}{arm\_var\_f32}}(testOutput,\ \mbox{\hyperlink{arm__class__marks__example__f32_8c_ab3b66d06b4af1af4ea2740d0ccf4e7bd}{numStudents}},\ \&\mbox{\hyperlink{arm__class__marks__example__f32_8c_a3bd39c4335d84be071cc1eaa9b0a8642}{var}});}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00214}00214\ \textcolor{preprocessor}{\#if\ defined(SEMIHOSTING)}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00215}00215\ \ \ printf(\textcolor{stringliteral}{"{}mean\ =\ \%f,\ std\ =\ \%f\(\backslash\)n"{}},\mbox{\hyperlink{arm__class__marks__example__f32_8c_acc9290716b3c97381ce52d14b4b01681}{mean}},\mbox{\hyperlink{arm__class__marks__example__f32_8c_a150b0cf729b51893379f5b5548d4f989}{std}});}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00216}00216\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00218}00218\ \textcolor{preprocessor}{\#if\ !defined(SEMIHOSTING)}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00219}00219\ \ \ \textcolor{keywordflow}{while}\ (1);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ main\ function\ does\ not\ return\ */}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00220}00220\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{arm__class__marks__example__f32_8c_source_l00221}00221\ \}}
+
+\end{DoxyCode}

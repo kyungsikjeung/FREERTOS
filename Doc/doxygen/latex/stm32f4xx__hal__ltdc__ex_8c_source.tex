@@ -1,0 +1,89 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+ltdc\+\_\+ex.\+c}
+\hypertarget{stm32f4xx__hal__ltdc__ex_8c_source}{}\label{stm32f4xx__hal__ltdc__ex_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_ltdc\_ex.c@{C:/Users/TOVIS/test/TestRtos/Drivers/STM32F4xx\_HAL\_Driver/Src/stm32f4xx\_hal\_ltdc\_ex.c}}
+\mbox{\hyperlink{stm32f4xx__hal__ltdc__ex_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00019}00019\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stm32f4xx__hal_8h}{stm32f4xx\_hal.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00026}00026\ \textcolor{preprocessor}{\#if\ defined(HAL\_LTDC\_MODULE\_ENABLED)\ \&\&\ defined(HAL\_DSI\_MODULE\_ENABLED)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00028}00028\ \textcolor{preprocessor}{\#if\ defined\ (LTDC)\ \&\&\ defined\ (DSI)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00035}00035\ \textcolor{comment}{/*\ Private\ typedef\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00036}00036\ \textcolor{comment}{/*\ Private\ define\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00037}00037\ \textcolor{comment}{/*\ Private\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00038}00038\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00039}00039\ \textcolor{comment}{/*\ Private\ function\ prototypes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00040}00040\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00070}00070\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_LTDCEx\_StructInitFromVideoConfig(LTDC\_HandleTypeDef\ *hltdc,\ DSI\_VidCfgTypeDef\ *VidCfg)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00072}00072\ \ \ \textcolor{comment}{/*\ Retrieve\ signal\ polarities\ from\ DSI\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00074}00074\ \ \ \textcolor{comment}{/*\ The\ following\ polarity\ is\ inverted:}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00075}00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LTDC\_DEPOLARITY\_AL\ <-\/>\ LTDC\_DEPOLARITY\_AH\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00077}00077\ \textcolor{preprocessor}{\#if\ !defined(POLARITIES\_INVERSION\_UPDATED)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00078}00078\ \ \ \textcolor{comment}{/*\ Note\ 1\ :\ Code\ in\ line\ w/\ Current\ LTDC\ specification\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00079}00079\ \ \ hltdc-\/>Init.DEPolarity\ =\ (VidCfg-\/>DEPolarity\ ==\ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DSI\_DATA\_ENABLE\_ACTIVE\_HIGH)\ ?\ LTDC\_DEPOLARITY\_AL\ :\ LTDC\_DEPOLARITY\_AH;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00081}00081\ \ \ hltdc-\/>Init.VSPolarity\ =\ (VidCfg-\/>VSPolarity\ ==\ DSI\_VSYNC\_ACTIVE\_HIGH)\ ?\ LTDC\_VSPOLARITY\_AH\ :\ LTDC\_VSPOLARITY\_AL;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00082}00082\ \ \ hltdc-\/>Init.HSPolarity\ =\ (VidCfg-\/>HSPolarity\ ==\ DSI\_HSYNC\_ACTIVE\_HIGH)\ ?\ LTDC\_HSPOLARITY\_AH\ :\ LTDC\_HSPOLARITY\_AL;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00083}00083\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00084}00084\ \ \ \textcolor{comment}{/*\ Note\ 2:\ Code\ to\ be\ used\ in\ case\ LTDC\ polarities\ inversion\ updated\ in\ the\ specification\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00085}00085\ \ \ hltdc-\/>Init.DEPolarity\ =\ VidCfg-\/>DEPolarity\ <<\ 29;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00086}00086\ \ \ hltdc-\/>Init.VSPolarity\ =\ VidCfg-\/>VSPolarity\ <<\ 29;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00087}00087\ \ \ hltdc-\/>Init.HSPolarity\ =\ VidCfg-\/>HSPolarity\ <<\ 29;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00088}00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ POLARITIES\_INVERSION\_UPDATED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00090}00090\ \ \ \textcolor{comment}{/*\ Retrieve\ vertical\ timing\ parameters\ from\ DSI\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00091}00091\ \ \ hltdc-\/>Init.VerticalSync\ \ \ \ \ \ \ =\ VidCfg-\/>VerticalSyncActive\ -\/\ 1U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00092}00092\ \ \ hltdc-\/>Init.AccumulatedVBP\ \ \ \ \ =\ VidCfg-\/>VerticalSyncActive\ +\ VidCfg-\/>VerticalBackPorch\ -\/\ 1U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00093}00093\ \ \ hltdc-\/>Init.AccumulatedActiveH\ =\ VidCfg-\/>VerticalSyncActive\ +\ VidCfg-\/>VerticalBackPorch\ +\ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VidCfg-\/>VerticalActive\ -\/\ 1U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00095}00095\ \ \ hltdc-\/>Init.TotalHeigh\ \ \ \ \ \ \ \ \ =\ VidCfg-\/>VerticalSyncActive\ +\ VidCfg-\/>VerticalBackPorch\ +\ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VidCfg-\/>VerticalActive\ +\ VidCfg-\/>VerticalFrontPorch\ -\/\ 1U;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00098}00098\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00099}00099\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00111}00111\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_LTDCEx\_StructInitFromAdaptedCommandConfig(LTDC\_HandleTypeDef\ *hltdc,\ DSI\_CmdCfgTypeDef\ *CmdCfg)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00112}00112\ \{}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00113}00113\ \ \ \textcolor{comment}{/*\ Retrieve\ signal\ polarities\ from\ DSI\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00115}00115\ \ \ \textcolor{comment}{/*\ The\ following\ polarities\ are\ inverted:}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00116}00116\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LTDC\_DEPOLARITY\_AL\ <-\/>\ LTDC\_DEPOLARITY\_AH}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00117}00117\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LTDC\_VSPOLARITY\_AL\ <-\/>\ LTDC\_VSPOLARITY\_AH}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00118}00118\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LTDC\_HSPOLARITY\_AL\ <-\/>\ LTDC\_HSPOLARITY\_AH)*/}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00120}00120\ \textcolor{preprocessor}{\#if\ !defined(POLARITIES\_INVERSION\_UPDATED)}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00121}00121\ \ \ \textcolor{comment}{/*\ Note\ 1\ :\ Code\ in\ line\ w/\ Current\ LTDC\ specification\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00122}00122\ \ \ hltdc-\/>Init.DEPolarity\ =\ (CmdCfg-\/>DEPolarity\ ==\ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DSI\_DATA\_ENABLE\_ACTIVE\_HIGH)\ ?\ LTDC\_DEPOLARITY\_AL\ :\ LTDC\_DEPOLARITY\_AH;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00124}00124\ \ \ hltdc-\/>Init.VSPolarity\ =\ (CmdCfg-\/>VSPolarity\ ==\ DSI\_VSYNC\_ACTIVE\_HIGH)\ ?\ LTDC\_VSPOLARITY\_AL\ :\ LTDC\_VSPOLARITY\_AH;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00125}00125\ \ \ hltdc-\/>Init.HSPolarity\ =\ (CmdCfg-\/>HSPolarity\ ==\ DSI\_HSYNC\_ACTIVE\_HIGH)\ ?\ LTDC\_HSPOLARITY\_AL\ :\ LTDC\_HSPOLARITY\_AH;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00126}00126\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00127}00127\ \ \ \textcolor{comment}{/*\ Note\ 2:\ Code\ to\ be\ used\ in\ case\ LTDC\ polarities\ inversion\ updated\ in\ the\ specification\ */}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00128}00128\ \ \ hltdc-\/>Init.DEPolarity\ =\ CmdCfg-\/>DEPolarity\ <<\ 29;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00129}00129\ \ \ hltdc-\/>Init.VSPolarity\ =\ CmdCfg-\/>VSPolarity\ <<\ 29;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00130}00130\ \ \ hltdc-\/>Init.HSPolarity\ =\ CmdCfg-\/>HSPolarity\ <<\ 29;}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00131}00131\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ POLARITIES\_INVERSION\_UPDATED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00132}00132\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478fa6eb724a07061d89a4a2052744e5a3632}{HAL\_OK}};}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00133}00133\ \}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00147}00147\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LTDC\ \&\&\ DSI\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00149}00149\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_LTCD\_MODULE\_ENABLED\ \&\&\ HAL\_DSI\_MODULE\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{stm32f4xx__hal__ltdc__ex_8c_source_l00154}00154\ }
+
+\end{DoxyCode}

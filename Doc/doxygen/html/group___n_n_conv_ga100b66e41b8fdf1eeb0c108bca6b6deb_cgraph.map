@@ -1,0 +1,5 @@
+<map id="arm_depthwise_conv_wrapper_s8_get_buffer_size" name="arm_depthwise_conv_wrapper_s8_get_buffer_size">
+<area shape="rect" id="Node000001" title="Get size of additional buffer required by arm_depthwise_conv_wrapper_s8()" alt="" coords="5,5,196,48"/>
+<area shape="rect" id="Node000002" href="$group___n_n_conv.html#ga0ee6e4c1a521657c35477ae0daf1c842" title="Get the required buffer size for optimized s8 depthwise convolution function with constraint that in_..." alt="" coords="244,5,406,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,24,228,24,228,29,196,29"/>
+</map>

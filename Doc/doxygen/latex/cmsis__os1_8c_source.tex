@@ -1,0 +1,367 @@
+\doxysection{cmsis\+\_\+os1.\+c}
+\hypertarget{cmsis__os1_8c_source}{}\label{cmsis__os1_8c_source}\index{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Template/cmsis\_os1.c@{C:/Users/TOVIS/test/TestRtos/Drivers/CMSIS/RTOS2/Template/cmsis\_os1.c}}
+\mbox{\hyperlink{cmsis__os1_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2013-\/2017\ ARM\ Limited.\ All\ rights\ reserved.}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00004}00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00005}00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00006}00006\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00007}00007\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00008}00008\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00009}00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00010}00010\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00011}00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00012}00012\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00013}00013\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00014}00014\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00015}00015\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00016}00016\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00017}00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00018}00018\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00019}00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00020}00020\ \textcolor{comment}{\ *\ \$Date:\ \ \ \ \ \ \ \ 10.\ January\ 2017}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00021}00021\ \textcolor{comment}{\ *\ \$Revision:\ \ \ \ V1.2}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00022}00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00023}00023\ \textcolor{comment}{\ *\ Project:\ \ \ \ \ \ CMSIS-\/RTOS\ API\ V1}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00024}00024\ \textcolor{comment}{\ *\ Title:\ \ \ \ \ \ \ \ cmsis\_os\_v1.c\ V1\ module\ file}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00025}00025\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h}{cmsis\_os.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00030}00030\ \textcolor{preprocessor}{\#if\ (osCMSIS\ >=\ 0x20000U)}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00033}00033\ \textcolor{comment}{//\ Thread}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00034}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ac59b5713cb083702dce759c73fd90dff}{00034}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a124cf72c12a6f6329028151039a8d2ec}{osThreadId}}\ \mbox{\hyperlink{cmsis__os1_8c_ac59b5713cb083702dce759c73fd90dff}{osThreadCreate}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a92f46bd508dcc685135882e2cf37ac8c}{osThreadDef\_t}}\ *thread\_def,\ \textcolor{keywordtype}{void}\ *argument)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00036}00036\ \ \ \textcolor{keywordflow}{if}\ (thread\_def\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a124cf72c12a6f6329028151039a8d2ec}{osThreadId}})NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00038}00038\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00039}00039\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cmsis__os2_8h_a48d68b8666d99d28fa646ee1d2182b8f}{osThreadNew}}((\mbox{\hyperlink{cmsis__os2_8h_a8ef2773ed8ef63ab8727e0d06ebec4d2}{osThreadFunc\_t}})thread\_def-\/>\mbox{\hyperlink{structos__thread__def_ad3c9624ee214329fb34e71f544a6933e}{pthread}},\ argument,\ \&thread\_def-\/>\mbox{\hyperlink{structos__thread__def_aeab588ea33fe027c4408d552ea7fd965}{attr}});}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00043}00043\ \textcolor{comment}{//\ Signals}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00045}\mbox{\hyperlink{cmsis__os1_8c_a83da65e792d8cb0e250eaf1bbdde7a0a}{00045}}\ \textcolor{preprocessor}{\#define\ SignalMask\ ((1U<<osFeature\_Signals)-\/1U)}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00047}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a3de2730654589d6c3559c4b9e2825553}{00047}}\ int32\_t\ \mbox{\hyperlink{cmsis__os1_8c_a3de2730654589d6c3559c4b9e2825553}{osSignalSet}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a124cf72c12a6f6329028151039a8d2ec}{osThreadId}}\ thread\_id,\ int32\_t\ signals)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00048}00048\ \ \ uint32\_t\ flags;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00050}00050\ \ \ flags\ =\ \mbox{\hyperlink{cmsis__os2_8h_a6f89ef9caded1d9963c7b12b0f6412c9}{osThreadFlagsSet}}(thread\_id,\ (uint32\_t)signals);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00051}00051\ \ \ \textcolor{keywordflow}{if}\ ((flags\ \&\ 0x80000000U)\ !=\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{return}\ ((int32\_t)0x80000000U);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00053}00053\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00054}00054\ \ \ \textcolor{keywordflow}{return}\ ((int32\_t)(flags\ \&\ \string~((uint32\_t)signals)));}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00057}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a87283a6ebc31ce9ed42baf3ea7e4eab6}{00057}}\ int32\_t\ \mbox{\hyperlink{cmsis__os1_8c_a87283a6ebc31ce9ed42baf3ea7e4eab6}{osSignalClear}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a124cf72c12a6f6329028151039a8d2ec}{osThreadId}}\ thread\_id,\ int32\_t\ signals)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00058}00058\ \ \ uint32\_t\ flags;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00060}00060\ \ \ \textcolor{keywordflow}{if}\ (thread\_id\ !=\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab1df2a28925862ef8f9cf4e1c995c5a7}{osThreadGetId}}())\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}\ ((int32\_t)0x80000000U);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00062}00062\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00063}00063\ \ \ flags\ =\ \mbox{\hyperlink{cmsis__os2_8h_a656abc1c862c5b9a2b13584c42cc0bfa}{osThreadFlagsClear}}((uint32\_t)signals);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00064}00064\ \ \ \textcolor{keywordflow}{if}\ ((flags\ \&\ 0x80000000U)\ !=\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{return}\ ((int32\_t)0x80000000U);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00066}00066\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00067}00067\ \ \ \textcolor{keywordflow}{return}\ ((int32\_t)flags);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00070}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a38860acda96df47da6923348d96fc4c9}{00070}}\ \mbox{\hyperlink{structos_event}{osEvent}}\ \mbox{\hyperlink{cmsis__os1_8c_a38860acda96df47da6923348d96fc4c9}{osSignalWait}}\ (int32\_t\ signals,\ uint32\_t\ millisec)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00071}00071\ \ \ \mbox{\hyperlink{structos_event}{osEvent}}\ \ event;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00072}00072\ \ \ uint32\_t\ flags;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00074}00074\ \ \ \textcolor{keywordflow}{if}\ (signals\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00075}00075\ \ \ \ \ flags\ =\ \mbox{\hyperlink{cmsis__os2_8h_ac11542ad6300b600f872fc96e340ec2b}{osThreadFlagsWait}}((uint32\_t)signals,\ \mbox{\hyperlink{cmsis__os2_8h_a8b6f562736fbfb5428940e0c017dec24}{osFlagsWaitAll}},\ millisec);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00076}00076\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00077}00077\ \ \ \ \ flags\ =\ \mbox{\hyperlink{cmsis__os2_8h_ac11542ad6300b600f872fc96e340ec2b}{osThreadFlagsWait}}(\mbox{\hyperlink{cmsis__os1_8c_a83da65e792d8cb0e250eaf1bbdde7a0a}{SignalMask}},\ \ \ \ \ \ \ \ \mbox{\hyperlink{cmsis__os2_8h_a18e63587b8450d5b8798b6f6ec04e012}{osFlagsWaitAny}},\ millisec);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00078}00078\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00079}00079\ \ \ \textcolor{keywordflow}{if}\ ((flags\ >\ 0U)\ \&\&\ (flags\ <\ 0x80000000U))\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00080}00080\ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a8adf16980778f552b6c21a5cce611d72}{osEventSignal}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{event}.value.signals\ =\ (int32\_t)flags;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00082}00082\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{switch}\ ((int32\_t)flags)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00084}00084\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99ea8fc5801e8b0482bdf22ad63a77f0155d}{osErrorResource}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99ea9e1c9e2550bb4de8969a935acffc968f}{osOK}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00087}00087\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea913eb5df15ad85f8557eb3a456b56879}{osErrorTimeout}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_aad4ff463bfe1a2d634d7bc1dffae3d14}{osEventTimeout}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00090}00090\ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99eac24adca6a5d072c9f01c32178ba0d109}{osErrorParameter}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a94ec934afba04b0ac9d6ae45467d115b}{osErrorValue}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00093}00093\ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99e}{osStatus}})flags;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00097}00097\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00098}00098\ \ \ \textcolor{keywordflow}{return}\ event;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00099}00099\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00102}00102\ \textcolor{comment}{//\ Timer}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00103}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_aedd312bfdca04e0b8162b666e09a1ae6}{00103}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a105f3f5e8567b6ea5608c0919e91af8c}{osTimerId}}\ \mbox{\hyperlink{cmsis__os1_8c_aedd312bfdca04e0b8162b666e09a1ae6}{osTimerCreate}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a2144eb7d94a485f516bf0b09078f883a}{osTimerDef\_t}}\ *timer\_def,\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a032f509cc61005b0eb240091ee318372}{os\_timer\_type}}\ type,\ \textcolor{keywordtype}{void}\ *argument)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00105}00105\ \ \ \textcolor{keywordflow}{if}\ (timer\_def\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00106}00106\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a105f3f5e8567b6ea5608c0919e91af8c}{osTimerId}})NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00107}00107\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00108}00108\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cmsis__os2_8h_ad4e7f785c5f700a509f55a3bf6a62bec}{osTimerNew}}((\mbox{\hyperlink{cmsis__os2_8h_a77a298218f3c8382b39a09a6d134d040}{osTimerFunc\_t}})timer\_def-\/>\mbox{\hyperlink{structos__timer__def_a15773df83aba93f8e61f3737af5fae47}{ptimer}},\ type,\ argument,\ \&timer\_def-\/>\mbox{\hyperlink{structos__timer__def_a314dd6f611f769334eee09375e84c623}{attr}});}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00112}00112\ \textcolor{comment}{//\ Mutex}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00113}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a5c9de56e717016e39e788064e9a291cc}{00113}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a98af3993be29b753a3ddcb49cdb26fcf}{osMutexId}}\ \mbox{\hyperlink{cmsis__os1_8c_a5c9de56e717016e39e788064e9a291cc}{osMutexCreate}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a8d4133e7fb3d4323fbea93ce4339fb30}{osMutexDef\_t}}\ *mutex\_def)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00115}00115\ \ \ \textcolor{keywordflow}{if}\ (mutex\_def\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00116}00116\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a98af3993be29b753a3ddcb49cdb26fcf}{osMutexId}})NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00117}00117\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00118}00118\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cmsis__os2_8h_ab90920022ab944296821368ef6bb52f8}{osMutexNew}}(mutex\_def);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00119}00119\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00122}00122\ \textcolor{comment}{//\ Semaphore}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00124}00124\ \textcolor{preprocessor}{\#if\ (defined\ (osFeature\_Semaphore)\ \&\&\ (osFeature\_Semaphore\ !=\ 0U))}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00126}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a97381e8e55cd47cec390bf57c96d6edb}{00126}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_ad85dd5f61d6f0462f66d6c72cefd7853}{osSemaphoreId}}\ \mbox{\hyperlink{cmsis__os1_8c_a97381e8e55cd47cec390bf57c96d6edb}{osSemaphoreCreate}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_ab35d358e8e79f16c658bb2e2cc50d117}{osSemaphoreDef\_t}}\ *semaphore\_def,\ int32\_t\ count)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00128}00128\ \ \ \textcolor{keywordflow}{if}\ (semaphore\_def\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_ad85dd5f61d6f0462f66d6c72cefd7853}{osSemaphoreId}})NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00130}00130\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00131}00131\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cmsis__os2_8h_a2a39806ace781a0008a4374ca701b14a}{osSemaphoreNew}}((uint32\_t)count,\ (uint32\_t)count,\ semaphore\_def);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00132}00132\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00134}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_acc15b0fc8ce1167fe43da33042e62098}{00134}}\ int32\_t\ \mbox{\hyperlink{cmsis__os1_8c_acc15b0fc8ce1167fe43da33042e62098}{osSemaphoreWait}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_ad85dd5f61d6f0462f66d6c72cefd7853}{osSemaphoreId}}\ semaphore\_id,\ uint32\_t\ millisec)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00135}00135\ \ \ \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00136}00136\ \ \ uint32\_t\ \ \ count;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00138}00138\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{cmsis__os2_8h_a7e94c8b242a0c81f2cc79ec22895c87b}{osSemaphoreAcquire}}(semaphore\_id,\ millisec);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00139}00139\ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}})\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00140}00140\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99ea9e1c9e2550bb4de8969a935acffc968f}{osOK}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00141}00141\ \ \ \ \ \ \ count\ =\ \mbox{\hyperlink{cmsis__os2_8h_a7559d4dff3cda9992fc5ab5de3e74c70}{osSemaphoreGetCount}}(semaphore\_id);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00142}00142\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((int32\_t)count\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00143}00143\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99ea8fc5801e8b0482bdf22ad63a77f0155d}{osErrorResource}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00144}00144\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea913eb5df15ad85f8557eb3a456b56879}{osErrorTimeout}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00145}00145\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00146}00146\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00147}00147\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00148}00148\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00149}00149\ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00150}00150\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00152}00152\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ Semaphore}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00155}00155\ \textcolor{comment}{//\ Memory\ Pool}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00157}00157\ \textcolor{preprocessor}{\#if\ (defined(osFeature\_Pool)\ \&\&\ (osFeature\_Pool\ !=\ 0))}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00159}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a34af5c4f4ab38f4138ea7f1f9ece3a1a}{00159}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a08d2e20fd9bbd96220fe068d420f3686}{osPoolId}}\ \mbox{\hyperlink{cmsis__os1_8c_a34af5c4f4ab38f4138ea7f1f9ece3a1a}{osPoolCreate}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ac47b811c41974c0bb74521a50c7983b7}{osPoolDef\_t}}\ *pool\_def)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00161}00161\ \ \ \textcolor{keywordflow}{if}\ (pool\_def\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00162}00162\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a08d2e20fd9bbd96220fe068d420f3686}{osPoolId}})NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00163}00163\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00164}00164\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a08d2e20fd9bbd96220fe068d420f3686}{osPoolId}})(\mbox{\hyperlink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{osMemoryPoolNew}}(pool\_def-\/>\mbox{\hyperlink{structos__pool__def_ac112e786b2a234e0e45cb5bdbee53763}{pool\_sz}},\ pool\_def-\/>\mbox{\hyperlink{structos__pool__def_a4c2a0c691de3365c00ecd22d8102811f}{item\_sz}},\ \&pool\_def-\/>\mbox{\hyperlink{structos__pool__def_a230503e6a64a6c39f640a2bb27824843}{attr}})));}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00165}00165\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00167}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_aa0b2994f1a866c19e0d11e6e0d44f543}{00167}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{cmsis__os1_8c_aa0b2994f1a866c19e0d11e6e0d44f543}{osPoolAlloc}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a08d2e20fd9bbd96220fe068d420f3686}{osPoolId}}\ pool\_id)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00168}00168\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cmsis__os2_8h_a8ead54e99ccb8f112356c88f99d38fbe}{osMemoryPoolAlloc}}((\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}})pool\_id,\ 0U);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00169}00169\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00171}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a9f129fcad4730fbd1048ad4fa262f36a}{00171}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{cmsis__os1_8c_a9f129fcad4730fbd1048ad4fa262f36a}{osPoolCAlloc}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a08d2e20fd9bbd96220fe068d420f3686}{osPoolId}}\ pool\_id)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00172}00172\ \ \ \textcolor{keywordtype}{void}\ \ \ \ *block;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00173}00173\ \ \ uint32\_t\ block\_size;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00175}00175\ \ \ block\_size\ =\ \mbox{\hyperlink{cmsis__os2_8h_ab2bf059b7fa7679c3cccdaeec60b6c0e}{osMemoryPoolGetBlockSize}}((\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}})pool\_id);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00176}00176\ \ \ \textcolor{keywordflow}{if}\ (block\_size\ ==\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00177}00177\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00178}00178\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00179}00179\ \ \ block\ =\ \mbox{\hyperlink{cmsis__os2_8h_a8ead54e99ccb8f112356c88f99d38fbe}{osMemoryPoolAlloc}}((\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}})pool\_id,\ 0U);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00180}00180\ \ \ \textcolor{keywordflow}{if}\ (block\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00181}00181\ \ \ \ \ memset(block,\ 0,\ block\_size);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00182}00182\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00183}00183\ \ \ \textcolor{keywordflow}{return}\ block;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00184}00184\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00186}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a4a861e9c469c9d0daf5721bf174f8e54}{00186}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99e}{osStatus}}\ \mbox{\hyperlink{cmsis__os1_8c_a4a861e9c469c9d0daf5721bf174f8e54}{osPoolFree}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a08d2e20fd9bbd96220fe068d420f3686}{osPoolId}}\ pool\_id,\ \textcolor{keywordtype}{void}\ *block)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00187}00187\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cmsis__os2_8h_abb4f4560daa6d1f8c8789082ee186d16}{osMemoryPoolFree}}((\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}})pool\_id,\ block);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00188}00188\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00190}00190\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ Memory\ Pool}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00193}00193\ \textcolor{comment}{//\ Message\ Queue}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00195}00195\ \textcolor{preprocessor}{\#if\ (defined(osFeature\_MessageQ)\ \&\&\ (osFeature\_MessageQ\ !=\ 0))}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00197}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_af3b9345cf426304d46565152bc26fb78}{00197}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ad9ec70c32c6c521970636b521e12d17f}{osMessageQId}}\ \mbox{\hyperlink{cmsis__os1_8c_af3b9345cf426304d46565152bc26fb78}{osMessageCreate}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a552ffc97e37e403acff6a59793ad26eb}{osMessageQDef\_t}}\ *queue\_def,\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a124cf72c12a6f6329028151039a8d2ec}{osThreadId}}\ thread\_id)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00198}00198\ \ \ (void)thread\_id;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00200}00200\ \ \ \textcolor{keywordflow}{if}\ (queue\_def\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00201}00201\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ad9ec70c32c6c521970636b521e12d17f}{osMessageQId}})NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00202}00202\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00203}00203\ \ \ \textcolor{keywordflow}{return}\ ((\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ad9ec70c32c6c521970636b521e12d17f}{osMessageQId}})(\mbox{\hyperlink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{osMessageQueueNew}}(queue\_def-\/>\mbox{\hyperlink{structos__message_q__def_a8a83a3a8c0aa8057b13807d2a54077e0}{queue\_sz}},\ \textcolor{keyword}{sizeof}(uint32\_t),\ \&queue\_def-\/>\mbox{\hyperlink{structos__message_q__def_a912246fbdc302837fd333f20721709df}{attr}})));}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00204}00204\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00206}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ac0dcf462fc92de8ffaba6cc004514a6d}{00206}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99e}{osStatus}}\ \mbox{\hyperlink{cmsis__os1_8c_ac0dcf462fc92de8ffaba6cc004514a6d}{osMessagePut}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ad9ec70c32c6c521970636b521e12d17f}{osMessageQId}}\ queue\_id,\ uint32\_t\ info,\ uint32\_t\ millisec)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00207}00207\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cmsis__os2_8h_aa515fc8b956f721a8f72b2c505813bfc}{osMessageQueuePut}}((\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}})queue\_id,\ \&info,\ 0U,\ millisec);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00208}00208\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00210}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a6c6892b8f2296cca6becd57ca2d7e1ae}{00210}}\ \mbox{\hyperlink{structos_event}{osEvent}}\ \mbox{\hyperlink{cmsis__os1_8c_a6c6892b8f2296cca6becd57ca2d7e1ae}{osMessageGet}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ad9ec70c32c6c521970636b521e12d17f}{osMessageQId}}\ queue\_id,\ uint32\_t\ millisec)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00211}00211\ \ \ \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}}\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00212}00212\ \ \ \mbox{\hyperlink{structos_event}{osEvent}}\ \ \ \ event;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00213}00213\ \ \ uint32\_t\ \ \ message;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00215}00215\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{cmsis__os2_8h_ad90d4959466a7a65105061da8256ab9e}{osMessageQueueGet}}((\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}})queue\_id,\ \&message,\ NULL,\ millisec);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00216}00216\ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}})\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00217}00217\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99ea9e1c9e2550bb4de8969a935acffc968f}{osOK}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00218}00218\ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a1a5d5ac30921ab3c6ed6226e0b8cd987}{osEventMessage}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00219}00219\ \ \ \ \ \ \ \textcolor{keyword}{event}.value.v\ =\ message;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00220}00220\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99ea8fc5801e8b0482bdf22ad63a77f0155d}{osErrorResource}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00222}00222\ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99ea9e1c9e2550bb4de8969a935acffc968f}{osOK}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00223}00223\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00224}00224\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea913eb5df15ad85f8557eb3a456b56879}{osErrorTimeout}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00225}00225\ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_aad4ff463bfe1a2d634d7bc1dffae3d14}{osEventTimeout}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00226}00226\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00227}00227\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00228}00228\ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00229}00229\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00230}00230\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00231}00231\ \ \ \textcolor{keywordflow}{return}\ event;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00232}00232\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00234}00234\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ Message\ Queue}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00237}00237\ \textcolor{comment}{//\ Mail\ Queue}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00239}00239\ \textcolor{preprocessor}{\#if\ (defined(osFeature\_MailQ)\ \&\&\ (osFeature\_MailQ\ !=\ 0))}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00241}\mbox{\hyperlink{structos__mail__queue__s}{00241}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structos__mail__queue__s}{os\_mail\_queue\_s}}\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00242}\mbox{\hyperlink{structos__mail__queue__s_ade007385983e2c2c8449a1e1971dc414}{00242}}\ \ \ \mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}}\ \ \ \mbox{\hyperlink{structos__mail__queue__s_ade007385983e2c2c8449a1e1971dc414}{mp\_id}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00243}\mbox{\hyperlink{structos__mail__queue__s_a72d8620e5c08a86051e707a12ba0229f}{00243}}\ \ \ \mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}}\ \mbox{\hyperlink{structos__mail__queue__s_a72d8620e5c08a86051e707a12ba0229f}{mq\_id}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00244}\mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{00244}}\ \}\ \mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00246}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_aa177e7fe5820dd70d8c9e46ded131174}{00246}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}}\ \mbox{\hyperlink{cmsis__os1_8c_aa177e7fe5820dd70d8c9e46ded131174}{osMailCreate}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ab6d3ddc7d8cea9901544118bed1a3d1c}{osMailQDef\_t}}\ *queue\_def,\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a124cf72c12a6f6329028151039a8d2ec}{osThreadId}}\ thread\_id)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00247}00247\ \ \ \mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *ptr;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00248}00248\ \ \ (void)thread\_id;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00250}00250\ \ \ \textcolor{keywordflow}{if}\ (queue\_def\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00251}00251\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}})NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00252}00252\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00254}00254\ \ \ ptr\ =\ queue\_def-\/>\mbox{\hyperlink{structos__mail_q__def_aba74e7791957c123caa4200c13dccf79}{mail}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00255}00255\ \ \ \textcolor{keywordflow}{if}\ (ptr\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00256}00256\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}})NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00257}00257\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00259}00259\ \ \ ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_ade007385983e2c2c8449a1e1971dc414}{mp\_id}}\ =\ \mbox{\hyperlink{cmsis__os2_8h_a497ced5d72dc5cd405c4c418516220dc}{osMemoryPoolNew}}\ \ (queue\_def-\/>\mbox{\hyperlink{structos__mail_q__def_a8a83a3a8c0aa8057b13807d2a54077e0}{queue\_sz}},\ queue\_def-\/>\mbox{\hyperlink{structos__mail_q__def_a4c2a0c691de3365c00ecd22d8102811f}{item\_sz}},\ \&queue\_def-\/>\mbox{\hyperlink{structos__mail_q__def_ad2b017edd77ecf924b825e8db1a0795f}{mp\_attr}});}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00260}00260\ \ \ ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_a72d8620e5c08a86051e707a12ba0229f}{mq\_id}}\ =\ \mbox{\hyperlink{cmsis__os2_8h_a24e895a00f9d484db33aaf784c57bfed}{osMessageQueueNew}}(queue\_def-\/>\mbox{\hyperlink{structos__mail_q__def_a8a83a3a8c0aa8057b13807d2a54077e0}{queue\_sz}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{void}\ *),\ \&queue\_def-\/>\mbox{\hyperlink{structos__mail_q__def_a8db99b20d42d962750c3b2cb87fbc09a}{mq\_attr}});}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00261}00261\ \ \ \textcolor{keywordflow}{if}\ ((ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_ade007385983e2c2c8449a1e1971dc414}{mp\_id}}\ ==\ (\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}})NULL)\ ||\ (ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_a72d8620e5c08a86051e707a12ba0229f}{mq\_id}}\ ==\ (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}})NULL))\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00262}00262\ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_ade007385983e2c2c8449a1e1971dc414}{mp\_id}}\ !=\ (\mbox{\hyperlink{cmsis__os2_8h_abe4cd283a0a9b0a900f53ef08356155c}{osMemoryPoolId\_t}})NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00263}00263\ \ \ \ \ \ \ \mbox{\hyperlink{cmsis__os2_8h_a8c39e7e5cd2b9eda907466808e59d62e}{osMemoryPoolDelete}}(ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_ade007385983e2c2c8449a1e1971dc414}{mp\_id}});}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00264}00264\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00265}00265\ \ \ \ \ \textcolor{keywordflow}{if}\ (ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_a72d8620e5c08a86051e707a12ba0229f}{mq\_id}}\ !=\ (\mbox{\hyperlink{cmsis__os2_8h_a206dbc05367e03c39fc6d4d1ebcff317}{osMessageQueueId\_t}})NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00266}00266\ \ \ \ \ \ \ \mbox{\hyperlink{cmsis__os2_8h_aba987f665444e0d83fa6a3a68bc72abe}{osMessageQueueDelete}}(ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_a72d8620e5c08a86051e707a12ba0229f}{mq\_id}});}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00267}00267\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00268}00268\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}})NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00269}00269\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00271}00271\ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}})ptr;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00272}00272\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00274}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_adf5ce811bd6a56e617e902a1db6c2194}{00274}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{cmsis__os1_8c_adf5ce811bd6a56e617e902a1db6c2194}{osMailAlloc}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}}\ queue\_id,\ uint32\_t\ millisec)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00275}00275\ \ \ \mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *ptr\ =\ (\mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *)queue\_id;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00277}00277\ \ \ \textcolor{keywordflow}{if}\ (ptr\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00278}00278\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00279}00279\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00280}00280\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cmsis__os2_8h_a8ead54e99ccb8f112356c88f99d38fbe}{osMemoryPoolAlloc}}(ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_ade007385983e2c2c8449a1e1971dc414}{mp\_id}},\ millisec);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00281}00281\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00283}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a8fde74f6fe5b9e88f75cc5eb8f2124fd}{00283}}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{cmsis__os1_8c_a8fde74f6fe5b9e88f75cc5eb8f2124fd}{osMailCAlloc}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}}\ queue\_id,\ uint32\_t\ millisec)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00284}00284\ \ \ \mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *ptr\ =\ (\mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *)queue\_id;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00285}00285\ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ *block;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00286}00286\ \ \ uint32\_t\ \ \ \ \ \ \ \ \ block\_size;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00288}00288\ \ \ \textcolor{keywordflow}{if}\ (ptr\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00289}00289\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00290}00290\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00291}00291\ \ \ block\_size\ =\ \mbox{\hyperlink{cmsis__os2_8h_ab2bf059b7fa7679c3cccdaeec60b6c0e}{osMemoryPoolGetBlockSize}}(ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_ade007385983e2c2c8449a1e1971dc414}{mp\_id}});}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00292}00292\ \ \ \textcolor{keywordflow}{if}\ (block\_size\ ==\ 0U)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00293}00293\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00294}00294\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00295}00295\ \ \ block\ =\ \mbox{\hyperlink{cmsis__os2_8h_a8ead54e99ccb8f112356c88f99d38fbe}{osMemoryPoolAlloc}}(ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_ade007385983e2c2c8449a1e1971dc414}{mp\_id}},\ millisec);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00296}00296\ \ \ \textcolor{keywordflow}{if}\ (block\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00297}00297\ \ \ \ \ memset(block,\ 0,\ block\_size);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00298}00298\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00300}00300\ \ \ \textcolor{keywordflow}{return}\ block;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00302}00302\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00303}00303\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00304}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a000c34eb539a90d1fee8603da2a4d360}{00304}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99e}{osStatus}}\ \mbox{\hyperlink{cmsis__os1_8c_a000c34eb539a90d1fee8603da2a4d360}{osMailPut}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}}\ queue\_id,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *mail)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00305}00305\ \ \ \mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *ptr\ =\ (\mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *)queue\_id;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00307}00307\ \ \ \textcolor{keywordflow}{if}\ (ptr\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00308}00308\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99eac24adca6a5d072c9f01c32178ba0d109}{osErrorParameter}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00309}00309\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00310}00310\ \ \ \textcolor{keywordflow}{if}\ (mail\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00311}00311\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a94ec934afba04b0ac9d6ae45467d115b}{osErrorValue}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00312}00312\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00313}00313\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cmsis__os2_8h_aa515fc8b956f721a8f72b2c505813bfc}{osMessageQueuePut}}(ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_a72d8620e5c08a86051e707a12ba0229f}{mq\_id}},\ \&mail,\ 0U,\ 0U);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00314}00314\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00316}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ac6ad7e6e7d6c4a80e60da22c57a42ccd}{00316}}\ \mbox{\hyperlink{structos_event}{osEvent}}\ \mbox{\hyperlink{cmsis__os1_8c_ac6ad7e6e7d6c4a80e60da22c57a42ccd}{osMailGet}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}}\ queue\_id,\ uint32\_t\ millisec)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00317}00317\ \ \ \mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *ptr\ =\ (\mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *)queue\_id;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00318}00318\ \ \ \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813e}{osStatus\_t}}\ \ \ \ \ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00319}00319\ \ \ \mbox{\hyperlink{structos_event}{osEvent}}\ \ \ \ \ \ \ \ \ \ event;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00320}00320\ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ *mail;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00322}00322\ \ \ \textcolor{keywordflow}{if}\ (ptr\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00323}00323\ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99eac24adca6a5d072c9f01c32178ba0d109}{osErrorParameter}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00324}00324\ \ \ \ \ \textcolor{keywordflow}{return}\ event;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00325}00325\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00327}00327\ \ \ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}}\ =\ \mbox{\hyperlink{cmsis__os2_8h_ad90d4959466a7a65105061da8256ab9e}{osMessageQueueGet}}(ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_a72d8620e5c08a86051e707a12ba0229f}{mq\_id}},\ \&mail,\ NULL,\ millisec);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00328}00328\ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}})\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00329}00329\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99ea9e1c9e2550bb4de8969a935acffc968f}{osOK}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00330}00330\ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a927d3b7ffeeb6ab178fdaf5e321e9783}{osEventMail}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00331}00331\ \ \ \ \ \ \ \textcolor{keyword}{event}.value.p\ =\ mail;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00332}00332\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00333}00333\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99ea8fc5801e8b0482bdf22ad63a77f0155d}{osErrorResource}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00334}00334\ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99ea9e1c9e2550bb4de8969a935acffc968f}{osOK}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00335}00335\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00336}00336\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{cmsis__os2_8h_a6c0dbe6069e4e7f47bb4cd32ae2b813ea913eb5df15ad85f8557eb3a456b56879}{osErrorTimeout}}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00337}00337\ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_aad4ff463bfe1a2d634d7bc1dffae3d14}{osEventTimeout}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00338}00338\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00339}00339\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00340}00340\ \ \ \ \ \ \ \textcolor{keyword}{event}.status\ =\ \mbox{\hyperlink{arm__dotproduct__example__f32_8c_a88ccb294236ab22b00310c47164c53c3}{status}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00341}00341\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00342}00342\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00343}00343\ \ \ \textcolor{keywordflow}{return}\ event;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00344}00344\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00346}\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a27c1060cf21393f96b4fd1ed1c0167cc}{00346}}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99e}{osStatus}}\ \mbox{\hyperlink{cmsis__os1_8c_a27c1060cf21393f96b4fd1ed1c0167cc}{osMailFree}}\ (\mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_a1dac049fb7725a8af8b26c71cbb373b5}{osMailQId}}\ queue\_id,\ \textcolor{keywordtype}{void}\ *mail)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00347}00347\ \ \ \mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *ptr\ =\ (\mbox{\hyperlink{cmsis__os1_8c_a4ae8b3416a2109d986f1f75076b8790e}{os\_mail\_queue\_t}}\ *)queue\_id;}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00349}00349\ \ \ \textcolor{keywordflow}{if}\ (ptr\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00350}00350\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s_2_template_2cmsis__os_8h_ae2e091fefc4c767117727bd5aba4d99eac24adca6a5d072c9f01c32178ba0d109}{osErrorParameter}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00351}00351\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00352}00352\ \ \ \textcolor{keywordflow}{if}\ (mail\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00353}00353\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_drivers_2_c_m_s_i_s_2_r_t_o_s2_2_template_2cmsis__os_8h_a94ec934afba04b0ac9d6ae45467d115b}{osErrorValue}};}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00354}00354\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00355}00355\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{cmsis__os2_8h_abb4f4560daa6d1f8c8789082ee186d16}{osMemoryPoolFree}}(ptr-\/>\mbox{\hyperlink{structos__mail__queue__s_ade007385983e2c2c8449a1e1971dc414}{mp\_id}},\ mail);}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00356}00356\ \}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00357}00357\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00358}00358\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ Mail\ Queue}}
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00360}00360\ }
+\DoxyCodeLine{\Hypertarget{cmsis__os1_8c_source_l00361}00361\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ osCMSIS}}
+
+\end{DoxyCode}
