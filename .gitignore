@@ -1,0 +1,38 @@
+# Documentation files (large files)
+Doc/doxygen/
+html/
+latex/
+*.html
+*.tex
+*.hhc
+*.hhk
+*.hhp
+
+# Build files
+build/
+*.o
+*.elf
+*.hex
+*.bin
+*.map
+*.obj
+*.d
+
+# IDE files
+.vscode/settings.json
+*.tmp
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# CMake files
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+build.ninja
+Makefile
+
+# Generated files
+*.dox
