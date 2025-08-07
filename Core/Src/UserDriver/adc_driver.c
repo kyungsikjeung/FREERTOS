@@ -19,6 +19,25 @@ HAL_StatusTypeDef ADC_Driver_Init(ADC_Driver_t *driver)
     // 주변 장치 클럭 활성화
     __HAL_RCC_ADC1_CLK_ENABLE();
     __HAL_RCC_DMA2_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+
+    // GPIO 핀 설정 (PA0, PA1, PA2를 아날로그 모드로)
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    
+#if USE_CH0
+    GPIO_InitStruct.Pin = GPIO_PIN_0;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+#endif
+#if USE_CH1
+    GPIO_InitStruct.Pin = GPIO_PIN_1;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+#endif
+#if USE_CH2
+    GPIO_InitStruct.Pin = GPIO_PIN_2;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+#endif
 
     // ADC 설정
     driver->hadc.Instance = ADC1;
